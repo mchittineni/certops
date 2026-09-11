@@ -9,7 +9,7 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes AWS CloudFormation to organize common architectural components (VPC networking, security groups, database tiers) into reusable, modular templates that avoid the 500-resource stack limit.",
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
-      { id: 'A', text: "Declare an `AWS::CloudFormation::Stack` resource in the root template pointing to child template URLs in Amazon S3." },
+      { id: 'A', text: "An `AWS::CloudFormation::Stack` resource pointing at child templates." },
       { id: 'B', text: "Copy and paste all resource definitions into a single massive CloudFormation template." },
       { id: 'C', text: "Write custom Python scripts to parse template YAML files locally." },
       { id: 'D', text: "Deploy each component manually using the AWS CLI and pass output values in text files." }
@@ -31,7 +31,7 @@ export const AWS_DVA_QUESTIONS_19 = [
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Deploy each component manually using the AWS CLI and pass output values in text files." },
-      { id: 'B', text: "Declare an `AWS::CloudFormation::Stack` resource in the root template pointing to child template URLs in Amazon S3." },
+      { id: 'B', text: "An `AWS::CloudFormation::Stack` resource pointing at child templates." },
       { id: 'C', text: "Copy and paste all resource definitions into a single massive CloudFormation template." },
       { id: 'D', text: "Write custom Python scripts to parse template YAML files locally." }
     ],
@@ -54,7 +54,7 @@ export const AWS_DVA_QUESTIONS_19 = [
       { id: 'A', text: "Write custom Python scripts to parse template YAML files locally." },
       { id: 'B', text: "Copy and paste all resource definitions into a single massive CloudFormation template." },
       { id: 'C', text: "Deploy each component manually using the AWS CLI and pass output values in text files." },
-      { id: 'D', text: "Declare an `AWS::CloudFormation::Stack` resource in the root template pointing to child template URLs in Amazon S3." }
+      { id: 'D', text: "An `AWS::CloudFormation::Stack` resource pointing at child templates." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -73,7 +73,7 @@ export const AWS_DVA_QUESTIONS_19 = [
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Copy and paste all resource definitions into a single massive CloudFormation template." },
-      { id: 'B', text: "Declare an `AWS::CloudFormation::Stack` resource in the root template pointing to child template URLs in Amazon S3." },
+      { id: 'B', text: "An `AWS::CloudFormation::Stack` resource pointing at child templates." },
       { id: 'C', text: "Write custom Python scripts to parse template YAML files locally." },
       { id: 'D', text: "Deploy each component manually using the AWS CLI and pass output values in text files." }
     ],
@@ -93,7 +93,7 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS CloudFormation to organize common architectural components (VPC networking, security groups, database tiers) into reusable, modular templates that avoid the 500-resource stack limit.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Declare an `AWS::CloudFormation::Stack` resource in the root template pointing to child template URLs in Amazon S3." },
+      { id: 'A', text: "An `AWS::CloudFormation::Stack` resource pointing at child templates." },
       { id: 'B', text: "Deploy each component manually using the AWS CLI and pass output values in text files." },
       { id: 'C', text: "Copy and paste all resource definitions into a single massive CloudFormation template." },
       { id: 'D', text: "Write custom Python scripts to parse template YAML files locally." }
@@ -117,7 +117,7 @@ export const AWS_DVA_QUESTIONS_19 = [
       { id: 'A', text: "Print timestamps to standard output and tail CloudWatch Logs manually." },
       { id: 'B', text: "Increase the CPU size of the EC2 instances to reduce latency." },
       { id: 'C', text: "Configure an Application Load Balancer access log query in Athena." },
-      { id: 'D', text: "Instrument application code using the AWS X-Ray SDK to create custom subsegments around downstream calls." }
+      { id: 'D', text: "Use the X-Ray SDK to add subsegments around downstream calls." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -138,7 +138,7 @@ export const AWS_DVA_QUESTIONS_19 = [
       { id: 'A', text: "Increase the CPU size of the EC2 instances to reduce latency." },
       { id: 'B', text: "Print timestamps to standard output and tail CloudWatch Logs manually." },
       { id: 'C', text: "Configure an Application Load Balancer access log query in Athena." },
-      { id: 'D', text: "Instrument application code using the AWS X-Ray SDK to create custom subsegments around downstream calls." }
+      { id: 'D', text: "Use the X-Ray SDK to add subsegments around downstream calls." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -157,7 +157,7 @@ export const AWS_DVA_QUESTIONS_19 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Print timestamps to standard output and tail CloudWatch Logs manually." },
-      { id: 'B', text: "Instrument application code using the AWS X-Ray SDK to create custom subsegments around downstream calls." },
+      { id: 'B', text: "Use the X-Ray SDK to add subsegments around downstream calls." },
       { id: 'C', text: "Increase the CPU size of the EC2 instances to reduce latency." },
       { id: 'D', text: "Configure an Application Load Balancer access log query in Athena." }
     ],
@@ -180,7 +180,7 @@ export const AWS_DVA_QUESTIONS_19 = [
       { id: 'A', text: "Print timestamps to standard output and tail CloudWatch Logs manually." },
       { id: 'B', text: "Increase the CPU size of the EC2 instances to reduce latency." },
       { id: 'C', text: "Configure an Application Load Balancer access log query in Athena." },
-      { id: 'D', text: "Instrument application code using the AWS X-Ray SDK to create custom subsegments around downstream calls." }
+      { id: 'D', text: "Use the X-Ray SDK to add subsegments around downstream calls." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -198,7 +198,7 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS X-Ray to trace latency bottlenecks across distributed microservices and record granular timing for downstream HTTP calls and database queries.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Instrument application code using the AWS X-Ray SDK to create custom subsegments around downstream calls." },
+      { id: 'A', text: "Use the X-Ray SDK to add subsegments around downstream calls." },
       { id: 'B', text: "Increase the CPU size of the EC2 instances to reduce latency." },
       { id: 'C', text: "Print timestamps to standard output and tail CloudWatch Logs manually." },
       { id: 'D', text: "Configure an Application Load Balancer access log query in Athena." }
@@ -221,7 +221,7 @@ export const AWS_DVA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Embed customer IDs in the HTTP user-agent header." },
       { id: 'B', text: "Write customer IDs to standard error and search with CloudWatch Logs." },
-      { id: 'C', text: "Add custom key-value pairs as X-Ray Annotations using `recorder.putAnnotation()`, as annotations are indexed for search queries." },
+      { id: 'C', text: "Add X-Ray annotations with `putAnnotation()`, which are indexed for search." },
       { id: 'D', text: "Add key-value pairs as X-Ray Metadata using `recorder.putMetadata()`, as metadata is indexed for search." }
     ],
     correctAnswers: ['C'],
@@ -240,7 +240,7 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS X-Ray to record business attributes (such as `customerId` and `orderTotal`) in distributed traces so that developers can filter and search traces using the X-Ray console search bar.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Add custom key-value pairs as X-Ray Annotations using `recorder.putAnnotation()`, as annotations are indexed for search queries." },
+      { id: 'A', text: "Add X-Ray annotations with `putAnnotation()`, which are indexed for search." },
       { id: 'B', text: "Write customer IDs to standard error and search with CloudWatch Logs." },
       { id: 'C', text: "Embed customer IDs in the HTTP user-agent header." },
       { id: 'D', text: "Add key-value pairs as X-Ray Metadata using `recorder.putMetadata()`, as metadata is indexed for search." }
@@ -261,7 +261,7 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes AWS X-Ray to record business attributes (such as `customerId` and `orderTotal`) in distributed traces so that developers can filter and search traces using the X-Ray console search bar.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Add custom key-value pairs as X-Ray Annotations using `recorder.putAnnotation()`, as annotations are indexed for search queries." },
+      { id: 'A', text: "Add X-Ray annotations with `putAnnotation()`, which are indexed for search." },
       { id: 'B', text: "Write customer IDs to standard error and search with CloudWatch Logs." },
       { id: 'C', text: "Add key-value pairs as X-Ray Metadata using `recorder.putMetadata()`, as metadata is indexed for search." },
       { id: 'D', text: "Embed customer IDs in the HTTP user-agent header." }
@@ -284,7 +284,7 @@ export const AWS_DVA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Embed customer IDs in the HTTP user-agent header." },
       { id: 'B', text: "Write customer IDs to standard error and search with CloudWatch Logs." },
-      { id: 'C', text: "Add custom key-value pairs as X-Ray Annotations using `recorder.putAnnotation()`, as annotations are indexed for search queries." },
+      { id: 'C', text: "Add X-Ray annotations with `putAnnotation()`, which are indexed for search." },
       { id: 'D', text: "Add key-value pairs as X-Ray Metadata using `recorder.putMetadata()`, as metadata is indexed for search." }
     ],
     correctAnswers: ['C'],
@@ -303,7 +303,7 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS X-Ray to record business attributes (such as `customerId` and `orderTotal`) in distributed traces so that developers can filter and search traces using the X-Ray console search bar.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Add custom key-value pairs as X-Ray Annotations using `recorder.putAnnotation()`, as annotations are indexed for search queries." },
+      { id: 'A', text: "Add X-Ray annotations with `putAnnotation()`, which are indexed for search." },
       { id: 'B', text: "Embed customer IDs in the HTTP user-agent header." },
       { id: 'C', text: "Write customer IDs to standard error and search with CloudWatch Logs." },
       { id: 'D', text: "Add key-value pairs as X-Ray Metadata using `recorder.putMetadata()`, as metadata is indexed for search." }
@@ -325,7 +325,7 @@ export const AWS_DVA_QUESTIONS_19 = [
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Configure an Amazon SQS queue to buffer metric payloads before sending to CloudWatch." },
-      { id: 'B', text: "Output structured JSON logs to standard output adhering to the CloudWatch Embedded Metric Format (EMF) specification." },
+      { id: 'B', text: "Write structured JSON logs in the CloudWatch Embedded Metric Format." },
       { id: 'C', text: "Make synchronous `cloudwatch.putMetricData()` API calls inside the Lambda handler function." },
       { id: 'D', text: "Write metrics to an Amazon DynamoDB table and schedule an hourly export to CloudWatch." }
     ],
@@ -347,7 +347,7 @@ export const AWS_DVA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Write metrics to an Amazon DynamoDB table and schedule an hourly export to CloudWatch." },
       { id: 'B', text: "Make synchronous `cloudwatch.putMetricData()` API calls inside the Lambda handler function." },
-      { id: 'C', text: "Output structured JSON logs to standard output adhering to the CloudWatch Embedded Metric Format (EMF) specification." },
+      { id: 'C', text: "Write structured JSON logs in the CloudWatch Embedded Metric Format." },
       { id: 'D', text: "Configure an Amazon SQS queue to buffer metric payloads before sending to CloudWatch." }
     ],
     correctAnswers: ['C'],
@@ -368,7 +368,7 @@ export const AWS_DVA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Configure an Amazon SQS queue to buffer metric payloads before sending to CloudWatch." },
       { id: 'B', text: "Make synchronous `cloudwatch.putMetricData()` API calls inside the Lambda handler function." },
-      { id: 'C', text: "Output structured JSON logs to standard output adhering to the CloudWatch Embedded Metric Format (EMF) specification." },
+      { id: 'C', text: "Write structured JSON logs in the CloudWatch Embedded Metric Format." },
       { id: 'D', text: "Write metrics to an Amazon DynamoDB table and schedule an hourly export to CloudWatch." }
     ],
     correctAnswers: ['C'],
@@ -389,7 +389,7 @@ export const AWS_DVA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Make synchronous `cloudwatch.putMetricData()` API calls inside the Lambda handler function." },
       { id: 'B', text: "Write metrics to an Amazon DynamoDB table and schedule an hourly export to CloudWatch." },
-      { id: 'C', text: "Output structured JSON logs to standard output adhering to the CloudWatch Embedded Metric Format (EMF) specification." },
+      { id: 'C', text: "Write structured JSON logs in the CloudWatch Embedded Metric Format." },
       { id: 'D', text: "Configure an Amazon SQS queue to buffer metric payloads before sending to CloudWatch." }
     ],
     correctAnswers: ['C'],
@@ -409,7 +409,7 @@ export const AWS_DVA_QUESTIONS_19 = [
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Make synchronous `cloudwatch.putMetricData()` API calls inside the Lambda handler function." },
-      { id: 'B', text: "Output structured JSON logs to standard output adhering to the CloudWatch Embedded Metric Format (EMF) specification." },
+      { id: 'B', text: "Write structured JSON logs in the CloudWatch Embedded Metric Format." },
       { id: 'C', text: "Write metrics to an Amazon DynamoDB table and schedule an hourly export to CloudWatch." },
       { id: 'D', text: "Configure an Amazon SQS queue to buffer metric payloads before sending to CloudWatch." }
     ],
@@ -431,7 +431,7 @@ export const AWS_DVA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Write an AWS Lambda function that tails CloudWatch Logs streams sequentially." },
       { id: 'B', text: "Download all log files from Amazon S3 and run grep locally on a workstation." },
-      { id: 'C', text: "Run a CloudWatch Logs Insights query using `fields`, `filter @message like /500/`, `stats count(*) by clientIp`, and `sort`." },
+      { id: 'C', text: "A Logs Insights query filtering on /500/ and counting by clientIp." },
       { id: 'D', text: "Export log streams to an RDS PostgreSQL database using AWS DMS." }
     ],
     correctAnswers: ['C'],
@@ -453,7 +453,7 @@ export const AWS_DVA_QUESTIONS_19 = [
       { id: 'A', text: "Download all log files from Amazon S3 and run grep locally on a workstation." },
       { id: 'B', text: "Write an AWS Lambda function that tails CloudWatch Logs streams sequentially." },
       { id: 'C', text: "Export log streams to an RDS PostgreSQL database using AWS DMS." },
-      { id: 'D', text: "Run a CloudWatch Logs Insights query using `fields`, `filter @message like /500/`, `stats count(*) by clientIp`, and `sort`." }
+      { id: 'D', text: "A Logs Insights query filtering on /500/ and counting by clientIp." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -474,7 +474,7 @@ export const AWS_DVA_QUESTIONS_19 = [
       { id: 'A', text: "Write an AWS Lambda function that tails CloudWatch Logs streams sequentially." },
       { id: 'B', text: "Download all log files from Amazon S3 and run grep locally on a workstation." },
       { id: 'C', text: "Export log streams to an RDS PostgreSQL database using AWS DMS." },
-      { id: 'D', text: "Run a CloudWatch Logs Insights query using `fields`, `filter @message like /500/`, `stats count(*) by clientIp`, and `sort`." }
+      { id: 'D', text: "A Logs Insights query filtering on /500/ and counting by clientIp." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -494,7 +494,7 @@ export const AWS_DVA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Export log streams to an RDS PostgreSQL database using AWS DMS." },
       { id: 'B', text: "Download all log files from Amazon S3 and run grep locally on a workstation." },
-      { id: 'C', text: "Run a CloudWatch Logs Insights query using `fields`, `filter @message like /500/`, `stats count(*) by clientIp`, and `sort`." },
+      { id: 'C', text: "A Logs Insights query filtering on /500/ and counting by clientIp." },
       { id: 'D', text: "Write an AWS Lambda function that tails CloudWatch Logs streams sequentially." }
     ],
     correctAnswers: ['C'],
@@ -516,7 +516,7 @@ export const AWS_DVA_QUESTIONS_19 = [
       { id: 'A', text: "Export log streams to an RDS PostgreSQL database using AWS DMS." },
       { id: 'B', text: "Download all log files from Amazon S3 and run grep locally on a workstation." },
       { id: 'C', text: "Write an AWS Lambda function that tails CloudWatch Logs streams sequentially." },
-      { id: 'D', text: "Run a CloudWatch Logs Insights query using `fields`, `filter @message like /500/`, `stats count(*) by clientIp`, and `sort`." }
+      { id: 'D', text: "A Logs Insights query filtering on /500/ and counting by clientIp." }
     ],
     correctAnswers: ['D'],
     type: "single",

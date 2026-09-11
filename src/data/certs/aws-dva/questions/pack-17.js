@@ -11,7 +11,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Mock AWS services by writing custom HTTP mock servers in python." },
       { id: 'B', text: "Deploy the function to a production AWS account and trigger it with live traffic." },
-      { id: 'C', text: "Use the AWS SAM CLI command `sam local invoke` or `sam local start-api` with a sample event JSON file." },
+      { id: 'C', text: "Use `sam local invoke` or `sam local start-api` with an event file." },
       { id: 'D', text: "Upload code zip files to an S3 bucket and inspect CloudWatch Logs." }
     ],
     correctAnswers: ['C'],
@@ -33,7 +33,7 @@ export const AWS_DVA_QUESTIONS_17 = [
       { id: 'A', text: "Upload code zip files to an S3 bucket and inspect CloudWatch Logs." },
       { id: 'B', text: "Deploy the function to a production AWS account and trigger it with live traffic." },
       { id: 'C', text: "Mock AWS services by writing custom HTTP mock servers in python." },
-      { id: 'D', text: "Use the AWS SAM CLI command `sam local invoke` or `sam local start-api` with a sample event JSON file." }
+      { id: 'D', text: "Use `sam local invoke` or `sam local start-api` with an event file." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -51,7 +51,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes AWS SAM to test and debug an AWS Lambda function locally in a Docker container simulating API Gateway events before deploying code to an AWS account.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Use the AWS SAM CLI command `sam local invoke` or `sam local start-api` with a sample event JSON file." },
+      { id: 'A', text: "Use `sam local invoke` or `sam local start-api` with an event file." },
       { id: 'B', text: "Mock AWS services by writing custom HTTP mock servers in python." },
       { id: 'C', text: "Deploy the function to a production AWS account and trigger it with live traffic." },
       { id: 'D', text: "Upload code zip files to an S3 bucket and inspect CloudWatch Logs." }
@@ -74,7 +74,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Deploy the function to a production AWS account and trigger it with live traffic." },
       { id: 'B', text: "Upload code zip files to an S3 bucket and inspect CloudWatch Logs." },
-      { id: 'C', text: "Use the AWS SAM CLI command `sam local invoke` or `sam local start-api` with a sample event JSON file." },
+      { id: 'C', text: "Use `sam local invoke` or `sam local start-api` with an event file." },
       { id: 'D', text: "Mock AWS services by writing custom HTTP mock servers in python." }
     ],
     correctAnswers: ['C'],
@@ -96,7 +96,7 @@ export const AWS_DVA_QUESTIONS_17 = [
       { id: 'A', text: "Upload code zip files to an S3 bucket and inspect CloudWatch Logs." },
       { id: 'B', text: "Mock AWS services by writing custom HTTP mock servers in python." },
       { id: 'C', text: "Deploy the function to a production AWS account and trigger it with live traffic." },
-      { id: 'D', text: "Use the AWS SAM CLI command `sam local invoke` or `sam local start-api` with a sample event JSON file." }
+      { id: 'D', text: "Use `sam local invoke` or `sam local start-api` with an event file." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -117,7 +117,7 @@ export const AWS_DVA_QUESTIONS_17 = [
       { id: 'A', text: "Write a custom Windows batch script and run it on an EC2 instance manually." },
       { id: 'B', text: "Store build commands in an S3 bucket policy." },
       { id: 'C', text: "Execute tests inside an AWS Lambda function handler with a 3-second timeout." },
-      { id: 'D', text: "Define a `buildspec.yml` file in the source repository containing `install`, `pre_build`, `build`, and `post_build` phases with an `artifacts` block." }
+      { id: 'D', text: "A `buildspec.yml` with the build phases and an `artifacts` block." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,7 +135,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS CodeBuild to configure a continuous integration build job that installs dependencies, runs unit tests, compiles binaries, and outputs build artifacts to Amazon S3.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Define a `buildspec.yml` file in the source repository containing `install`, `pre_build`, `build`, and `post_build` phases with an `artifacts` block." },
+      { id: 'A', text: "A `buildspec.yml` with the build phases and an `artifacts` block." },
       { id: 'B', text: "Execute tests inside an AWS Lambda function handler with a 3-second timeout." },
       { id: 'C', text: "Store build commands in an S3 bucket policy." },
       { id: 'D', text: "Write a custom Windows batch script and run it on an EC2 instance manually." }
@@ -159,7 +159,7 @@ export const AWS_DVA_QUESTIONS_17 = [
       { id: 'A', text: "Write a custom Windows batch script and run it on an EC2 instance manually." },
       { id: 'B', text: "Execute tests inside an AWS Lambda function handler with a 3-second timeout." },
       { id: 'C', text: "Store build commands in an S3 bucket policy." },
-      { id: 'D', text: "Define a `buildspec.yml` file in the source repository containing `install`, `pre_build`, `build`, and `post_build` phases with an `artifacts` block." }
+      { id: 'D', text: "A `buildspec.yml` with the build phases and an `artifacts` block." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -178,7 +178,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Store build commands in an S3 bucket policy." },
-      { id: 'B', text: "Define a `buildspec.yml` file in the source repository containing `install`, `pre_build`, `build`, and `post_build` phases with an `artifacts` block." },
+      { id: 'B', text: "A `buildspec.yml` with the build phases and an `artifacts` block." },
       { id: 'C', text: "Execute tests inside an AWS Lambda function handler with a 3-second timeout." },
       { id: 'D', text: "Write a custom Windows batch script and run it on an EC2 instance manually." }
     ],
@@ -201,7 +201,7 @@ export const AWS_DVA_QUESTIONS_17 = [
       { id: 'A', text: "Execute tests inside an AWS Lambda function handler with a 3-second timeout." },
       { id: 'B', text: "Store build commands in an S3 bucket policy." },
       { id: 'C', text: "Write a custom Windows batch script and run it on an EC2 instance manually." },
-      { id: 'D', text: "Define a `buildspec.yml` file in the source repository containing `install`, `pre_build`, `build`, and `post_build` phases with an `artifacts` block." }
+      { id: 'D', text: "A `buildspec.yml` with the build phases and an `artifacts` block." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -221,7 +221,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Deploy the function using the AWS Management Console with an overwrite flag." },
       { id: 'B', text: "Write a bash script that sleeps for 5 minutes during the build pipeline." },
-      { id: 'C', text: "Define an `appspec.yaml` file with `BeforeAllowTraffic` and `AfterAllowTraffic` lifecycle hooks pointing to validation Lambda functions." },
+      { id: 'C', text: "An `appspec.yaml` with traffic lifecycle hooks calling validation functions." },
       { id: 'D', text: "Configure an Application Load Balancer target group health check on port 8080." }
     ],
     correctAnswers: ['C'],
@@ -240,7 +240,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS CodeDeploy to validate the health of a new AWS Lambda function version using synthetic test traffic before shifting production user traffic to it.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Define an `appspec.yaml` file with `BeforeAllowTraffic` and `AfterAllowTraffic` lifecycle hooks pointing to validation Lambda functions." },
+      { id: 'A', text: "An `appspec.yaml` with traffic lifecycle hooks calling validation functions." },
       { id: 'B', text: "Configure an Application Load Balancer target group health check on port 8080." },
       { id: 'C', text: "Write a bash script that sleeps for 5 minutes during the build pipeline." },
       { id: 'D', text: "Deploy the function using the AWS Management Console with an overwrite flag." }
@@ -263,7 +263,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Write a bash script that sleeps for 5 minutes during the build pipeline." },
       { id: 'B', text: "Configure an Application Load Balancer target group health check on port 8080." },
-      { id: 'C', text: "Define an `appspec.yaml` file with `BeforeAllowTraffic` and `AfterAllowTraffic` lifecycle hooks pointing to validation Lambda functions." },
+      { id: 'C', text: "An `appspec.yaml` with traffic lifecycle hooks calling validation functions." },
       { id: 'D', text: "Deploy the function using the AWS Management Console with an overwrite flag." }
     ],
     correctAnswers: ['C'],
@@ -284,7 +284,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Deploy the function using the AWS Management Console with an overwrite flag." },
       { id: 'B', text: "Write a bash script that sleeps for 5 minutes during the build pipeline." },
-      { id: 'C', text: "Define an `appspec.yaml` file with `BeforeAllowTraffic` and `AfterAllowTraffic` lifecycle hooks pointing to validation Lambda functions." },
+      { id: 'C', text: "An `appspec.yaml` with traffic lifecycle hooks calling validation functions." },
       { id: 'D', text: "Configure an Application Load Balancer target group health check on port 8080." }
     ],
     correctAnswers: ['C'],
@@ -305,7 +305,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Deploy the function using the AWS Management Console with an overwrite flag." },
       { id: 'B', text: "Write a bash script that sleeps for 5 minutes during the build pipeline." },
-      { id: 'C', text: "Define an `appspec.yaml` file with `BeforeAllowTraffic` and `AfterAllowTraffic` lifecycle hooks pointing to validation Lambda functions." },
+      { id: 'C', text: "An `appspec.yaml` with traffic lifecycle hooks calling validation functions." },
       { id: 'D', text: "Configure an Application Load Balancer target group health check on port 8080." }
     ],
     correctAnswers: ['C'],
@@ -324,7 +324,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes AWS CodeDeploy to shift traffic to a new Lambda function version gradually (e.g. 10% every 10 minutes) and roll back automatically if CloudWatch error alarms trigger.",
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
-      { id: 'A', text: "Specify the `Linear10PercentEvery10Minutes` deployment configuration in CodeDeploy and configure automatic rollback on CloudWatch metric alarms." },
+      { id: 'A', text: "The `Linear10PercentEvery10Minutes` config with alarm rollback." },
       { id: 'B', text: "Deploy an EC2 instance with a custom NGINX proxy shifting traffic." },
       { id: 'C', text: "Specify the `AllAtOnce` deployment configuration." },
       { id: 'D', text: "Manually update the Route 53 DNS record weight by 10% every 10 minutes." }
@@ -346,7 +346,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Deploy an EC2 instance with a custom NGINX proxy shifting traffic." },
-      { id: 'B', text: "Specify the `Linear10PercentEvery10Minutes` deployment configuration in CodeDeploy and configure automatic rollback on CloudWatch metric alarms." },
+      { id: 'B', text: "The `Linear10PercentEvery10Minutes` config with alarm rollback." },
       { id: 'C', text: "Manually update the Route 53 DNS record weight by 10% every 10 minutes." },
       { id: 'D', text: "Specify the `AllAtOnce` deployment configuration." }
     ],
@@ -368,7 +368,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Specify the `AllAtOnce` deployment configuration." },
       { id: 'B', text: "Manually update the Route 53 DNS record weight by 10% every 10 minutes." },
-      { id: 'C', text: "Specify the `Linear10PercentEvery10Minutes` deployment configuration in CodeDeploy and configure automatic rollback on CloudWatch metric alarms." },
+      { id: 'C', text: "The `Linear10PercentEvery10Minutes` config with alarm rollback." },
       { id: 'D', text: "Deploy an EC2 instance with a custom NGINX proxy shifting traffic." }
     ],
     correctAnswers: ['C'],
@@ -390,7 +390,7 @@ export const AWS_DVA_QUESTIONS_17 = [
       { id: 'A', text: "Deploy an EC2 instance with a custom NGINX proxy shifting traffic." },
       { id: 'B', text: "Specify the `AllAtOnce` deployment configuration." },
       { id: 'C', text: "Manually update the Route 53 DNS record weight by 10% every 10 minutes." },
-      { id: 'D', text: "Specify the `Linear10PercentEvery10Minutes` deployment configuration in CodeDeploy and configure automatic rollback on CloudWatch metric alarms." }
+      { id: 'D', text: "The `Linear10PercentEvery10Minutes` config with alarm rollback." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -409,7 +409,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Deploy an EC2 instance with a custom NGINX proxy shifting traffic." },
-      { id: 'B', text: "Specify the `Linear10PercentEvery10Minutes` deployment configuration in CodeDeploy and configure automatic rollback on CloudWatch metric alarms." },
+      { id: 'B', text: "The `Linear10PercentEvery10Minutes` config with alarm rollback." },
       { id: 'C', text: "Manually update the Route 53 DNS record weight by 10% every 10 minutes." },
       { id: 'D', text: "Specify the `AllAtOnce` deployment configuration." }
     ],
@@ -430,9 +430,9 @@ export const AWS_DVA_QUESTIONS_17 = [
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Deploy independent CodePipeline pipelines in each target account without artifact sharing." },
-      { id: 'B', text: "Configure public S3 bucket access for the deployment artifact bucket." },
+      { id: 'B', text: "Use the default pipeline artifact bucket with its AWS-managed key." },
       { id: 'C', text: "Create IAM user access keys in the production account and embed them in the pipeline build script." },
-      { id: 'D', text: "Configure AWS CodePipeline with cross-account IAM roles, an S3 artifact bucket encrypted with a customer managed KMS key, and KMS key policy delegation to the target accounts." }
+      { id: 'D', text: "Cross-account roles with a CMK-encrypted artifact bucket and key delegation." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -450,8 +450,8 @@ export const AWS_DVA_QUESTIONS_17 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS CodePipeline to automate deployments from a centralized CI/CD tools account into separate development, staging, and production target AWS accounts.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Configure public S3 bucket access for the deployment artifact bucket." },
-      { id: 'B', text: "Configure AWS CodePipeline with cross-account IAM roles, an S3 artifact bucket encrypted with a customer managed KMS key, and KMS key policy delegation to the target accounts." },
+      { id: 'A', text: "Use the default pipeline artifact bucket with its AWS-managed key." },
+      { id: 'B', text: "Cross-account roles with a CMK-encrypted artifact bucket and key delegation." },
       { id: 'C', text: "Deploy independent CodePipeline pipelines in each target account without artifact sharing." },
       { id: 'D', text: "Create IAM user access keys in the production account and embed them in the pipeline build script." }
     ],
@@ -473,8 +473,8 @@ export const AWS_DVA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Deploy independent CodePipeline pipelines in each target account without artifact sharing." },
       { id: 'B', text: "Create IAM user access keys in the production account and embed them in the pipeline build script." },
-      { id: 'C', text: "Configure AWS CodePipeline with cross-account IAM roles, an S3 artifact bucket encrypted with a customer managed KMS key, and KMS key policy delegation to the target accounts." },
-      { id: 'D', text: "Configure public S3 bucket access for the deployment artifact bucket." }
+      { id: 'C', text: "Cross-account roles with a CMK-encrypted artifact bucket and key delegation." },
+      { id: 'D', text: "Use the default pipeline artifact bucket with its AWS-managed key." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,9 +492,9 @@ export const AWS_DVA_QUESTIONS_17 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes AWS CodePipeline to automate deployments from a centralized CI/CD tools account into separate development, staging, and production target AWS accounts.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
-      { id: 'A', text: "Configure public S3 bucket access for the deployment artifact bucket." },
+      { id: 'A', text: "Use the default pipeline artifact bucket with its AWS-managed key." },
       { id: 'B', text: "Create IAM user access keys in the production account and embed them in the pipeline build script." },
-      { id: 'C', text: "Configure AWS CodePipeline with cross-account IAM roles, an S3 artifact bucket encrypted with a customer managed KMS key, and KMS key policy delegation to the target accounts." },
+      { id: 'C', text: "Cross-account roles with a CMK-encrypted artifact bucket and key delegation." },
       { id: 'D', text: "Deploy independent CodePipeline pipelines in each target account without artifact sharing." }
     ],
     correctAnswers: ['C'],
@@ -513,8 +513,8 @@ export const AWS_DVA_QUESTIONS_17 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS CodePipeline to automate deployments from a centralized CI/CD tools account into separate development, staging, and production target AWS accounts.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Configure public S3 bucket access for the deployment artifact bucket." },
-      { id: 'B', text: "Configure AWS CodePipeline with cross-account IAM roles, an S3 artifact bucket encrypted with a customer managed KMS key, and KMS key policy delegation to the target accounts." },
+      { id: 'A', text: "Use the default pipeline artifact bucket with its AWS-managed key." },
+      { id: 'B', text: "Cross-account roles with a CMK-encrypted artifact bucket and key delegation." },
       { id: 'C', text: "Create IAM user access keys in the production account and embed them in the pipeline build script." },
       { id: 'D', text: "Deploy independent CodePipeline pipelines in each target account without artifact sharing." }
     ],

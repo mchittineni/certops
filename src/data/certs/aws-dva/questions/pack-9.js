@@ -18,7 +18,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "CloudFormation `Rollback Triggers` allow you to specify CloudWatch alarms that CloudFormation monitors during stack creation and update operations. If any alarm triggers, CloudFormation rolls back the entire operation to the previous stable state.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-rollback-triggers.html",
-    tags: ["CloudFormation", "Rollback Triggers", "Resilience"]
+    tags: ["CloudFormation","Rollback Triggers","Resilience"]
   },
   {
     id: "aws-dva-202",
@@ -30,7 +30,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     scenario: "An administrator wants to prevent accidental deletion of a core networking CloudFormation stack from the AWS Console or CLI.",
     question: "Which CloudFormation setting prevents a stack from being deleted until explicitly disabled?",
     options: [
-      { id: 'A', text: "Termination Protection (EnableTerminationProtection)" },
+      { id: 'A', text: "Termination protection" },
       { id: 'B', text: "CloudFormation StackSet Lock" },
       { id: 'C', text: "IAM Deny on sts:AssumeRole" },
       { id: 'D', text: "DeletionPolicy: Retain" }
@@ -39,7 +39,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "Enabling `Termination Protection` on a CloudFormation stack prevents the stack from being deleted. If a user attempts to delete the stack via the console or CLI, the operation fails until an administrator explicitly disables termination protection.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html",
-    tags: ["CloudFormation", "Termination Protection", "Safety"]
+    tags: ["CloudFormation","Termination Protection","Safety"]
   },
   {
     id: "aws-dva-203",
@@ -60,7 +60,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "The `aws cloudformation package` command scans a template for local resource references (like `Code: ./src`), packages the local files into a zip archive, uploads them to an Amazon S3 bucket, and outputs a modified template with the S3 URL.",
     referenceUrl: "https://docs.aws.amazon.com/cli/latest/reference/cloudformation/package.html",
-    tags: ["CloudFormation", "CLI", "aws cloudformation package"]
+    tags: ["CloudFormation","CLI","aws cloudformation package"]
   },
   {
     id: "aws-dva-204",
@@ -81,7 +81,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "`CodeDeployDefault.AllAtOnce` deploys the new application revision to all target instances at the same time, maximizing deployment speed. Because all instances update concurrently, application downtime occurs during service restarts.",
     referenceUrl: "https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html",
-    tags: ["CodeDeploy", "AllAtOnce", "Deployment Configurations"]
+    tags: ["CodeDeploy","AllAtOnce","Deployment Configurations"]
   },
   {
     id: "aws-dva-205",
@@ -102,7 +102,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "`CodeDeployDefault.OneAtATime` deploys the revision to only one instance at a time. The deployment pauses until the current instance passes health validation before moving to the next instance, ensuring maximum availability during updates.",
     referenceUrl: "https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html",
-    tags: ["CodeDeploy", "OneAtATime", "High Availability"]
+    tags: ["CodeDeploy","OneAtATime","High Availability"]
   },
   {
     id: "aws-dva-206",
@@ -123,7 +123,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "X-Ray `Annotations` are indexed key-value pairs (strings, numbers, booleans) that can be used with filter expressions in the X-Ray console to search and filter traces. `Metadata` key-value pairs can contain any type (including lists and objects) but are not indexed and cannot be used in filter queries.",
     referenceUrl: "https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-annotations",
-    tags: ["X-Ray", "Annotations", "Metadata"]
+    tags: ["X-Ray","Annotations","Metadata"]
   },
   {
     id: "aws-dva-207",
@@ -138,13 +138,13 @@ export const AWS_DVA_QUESTIONS_9 = [
       { id: 'A', text: "Enable CloudWatch Logs metric filters" },
       { id: 'B', text: "Increase the X-Ray sampling rate to 100%" },
       { id: 'C', text: "Deploy a separate X-Ray daemon on an EC2 instance in every AZ" },
-      { id: 'D', text: "Create custom Subsegments in the code using the AWS X-Ray SDK around downstream API calls" }
+      { id: 'D', text: "Custom subsegments around downstream calls" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "In AWS X-Ray, a `Segment` represents the overall compute resource (e.g. the Lambda function). `Subsegments` provide granular timing and context for downstream calls (HTTP APIs, SQL queries, DynamoDB calls) made within that segment, allowing precise latency attribution in service maps.",
     referenceUrl: "https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-subsegments",
-    tags: ["X-Ray", "Subsegments", "Instrumentation"]
+    tags: ["X-Ray","Subsegments","Instrumentation"]
   },
   {
     id: "aws-dva-208",
@@ -156,7 +156,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     scenario: "A high-traffic e-commerce website generates 100,000 requests per second. Tracing every single request to X-Ray incurs excessive operational cost and storage overhead.",
     question: "How can the developer trace a statistically significant representative sample while guaranteeing at least 1 request per second is traced?",
     options: [
-      { id: 'A', text: "Configure custom X-Ray Sampling Rules with a fixed rate (e.g. 5%) and a reservoir size of 1 request per second" },
+      { id: 'A', text: "Custom X-Ray sampling rules with a fixed rate and reservoir" },
       { id: 'B', text: "Enable and disable X-Ray tracing manually every hour via the AWS CLI" },
       { id: 'C', text: "Set the Lambda function memory to 128 MB" },
       { id: 'D', text: "Trace only requests that return HTTP 500 errors" }
@@ -165,7 +165,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "X-Ray Sampling Rules allow developers to control sampling rates dynamically. A `Reservoir` ensures a minimum number of requests per second are traced (guaranteeing service activity is captured even under low traffic), while the `FixedRate` percentage samples additional traffic above the reservoir limit.",
     referenceUrl: "https://docs.aws.amazon.com/xray/latest/devguide/xray-console-sampling.html",
-    tags: ["X-Ray", "Sampling Rules", "Cost Optimization"]
+    tags: ["X-Ray","Sampling Rules","Cost Optimization"]
   },
   {
     id: "aws-dva-209",
@@ -186,7 +186,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "The AWS X-Ray daemon listens for incoming trace segment traffic on UDP port 2000. UDP is used so that trace transmission is non-blocking and never impacts application performance or latency if network packets are dropped.",
     referenceUrl: "https://docs.aws.amazon.com/xray/latest/devguide/xray-daemon-configuration.html",
-    tags: ["X-Ray", "Daemon", "UDP"]
+    tags: ["X-Ray","Daemon","UDP"]
   },
   {
     id: "aws-dva-210",
@@ -207,7 +207,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "CloudWatch Embedded Metric Format (EMF) allows applications to output structured JSON logs containing metric data directly to `stdout`. CloudWatch Logs automatically extracts the metrics asynchronously and publishes them to CloudWatch Metrics with zero API latency overhead.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format.html",
-    tags: ["CloudWatch", "EMF", "Metrics"]
+    tags: ["CloudWatch","EMF","Metrics"]
   },
   {
     id: "aws-dva-211",
@@ -219,7 +219,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     scenario: "A legacy application writes unformatted text logs to a CloudWatch Log Group. The operations team needs to trigger an alarm whenever the word `FATAL_ERROR` appears more than 5 times in 5 minutes.",
     question: "How should the developer extract metric data from the existing log stream?",
     options: [
-      { id: 'A', text: "Create a CloudWatch Metric Filter with a filter pattern of [..., words = *FATAL_ERROR*] that increments a custom metric" },
+      { id: 'A', text: "A metric filter on FATAL_ERROR incrementing a custom metric" },
       { id: 'B', text: "Export the logs to S3 and run Athena queries every hour" },
       { id: 'C', text: "Write a Lambda function that downloads the log group files every minute" },
       { id: 'D', text: "Install the Datadog agent on the CloudWatch data center" }
@@ -228,7 +228,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "CloudWatch Metric Filters scan incoming log events in real time against specified text or JSON filter patterns. When a pattern match occurs, CloudWatch increments or publishes values to a designated CloudWatch Metric, which can then trigger standard CloudWatch Alarms.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/MonitoringLogData.html",
-    tags: ["CloudWatch", "Metric Filters", "Monitoring"]
+    tags: ["CloudWatch","Metric Filters","Monitoring"]
   },
   {
     id: "aws-dva-212",
@@ -249,7 +249,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "CloudWatch Logs Insights is a purpose-built interactive log query engine that allows developers to search, analyze, and aggregate millions of log events across multiple log groups using commands like `filter`, `stats pct(duration, 99) by @logStream`, `sort`, and `limit`.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html",
-    tags: ["CloudWatch", "Logs Insights", "Troubleshooting"]
+    tags: ["CloudWatch","Logs Insights","Troubleshooting"]
   },
   {
     id: "aws-dva-213",
@@ -270,7 +270,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "In Lazy Loading (Cache-Aside), the application checks the cache first. If a cache miss occurs, it queries the primary database, populates the cache with the fetched record, and returns the result. Only requested data is cached, avoiding memory waste on inactive records.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Strategies.html#Strategies.LazyLoading",
-    tags: ["ElastiCache", "Caching", "Lazy Loading"]
+    tags: ["ElastiCache","Caching","Lazy Loading"]
   },
   {
     id: "aws-dva-214",
@@ -291,7 +291,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "In the Write-Through caching pattern, the application writes or updates data in both the primary database and the cache simultaneously. This guarantees that cache reads always reflect the latest data, eliminating stale reads at the expense of higher write latency.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Strategies.html#Strategies.WriteThrough",
-    tags: ["ElastiCache", "Write-Through", "Caching"]
+    tags: ["ElastiCache","Write-Through","Caching"]
   },
   {
     id: "aws-dva-215",
@@ -312,7 +312,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "Amazon ElastiCache for Redis supports advanced data structures (sorted sets, lists, hashes, bitmaps, geospatial data), Multi-AZ replication with automatic failover, read replicas, clustering, backup/restore, and in-transit/at-rest encryption. Memcached is a simple multithreaded key-value store without persistence or replication.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html",
-    tags: ["ElastiCache", "Redis", "Memcached"]
+    tags: ["ElastiCache","Redis","Memcached"]
   },
   {
     id: "aws-dva-216",
@@ -333,7 +333,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "Amazon S3 Multipart Upload breaks objects into parts (from 5 MB up to 5 GB each) and uploads them independently in parallel. If a part fails, only that single part needs to be retried rather than the entire file. AWS recommends Multipart Upload for all objects over 100 MB.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html",
-    tags: ["S3", "Multipart Upload", "Performance"]
+    tags: ["S3","Multipart Upload","Performance"]
   },
   {
     id: "aws-dva-217",
@@ -354,7 +354,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "Amazon S3 supports byte-range fetches via standard HTTP `Range` request headers (e.g. `Range: bytes=0-5242880`). This enables parallelized multi-threaded downloads, resuming interrupted downloads, and streaming video headers with sub-second time to first frame.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance.html#optimizing-performance-guidelines",
-    tags: ["S3", "Byte-Range Fetches", "Performance"]
+    tags: ["S3","Byte-Range Fetches","Performance"]
   },
   {
     id: "aws-dva-218",
@@ -375,7 +375,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "Amazon S3 Transfer Acceleration routes uploads through Amazon CloudFront's globally distributed Edge Locations. Data enters the AWS network at the nearest edge location and travels to the target S3 bucket over the optimized, congestion-free AWS private global network backbone.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html",
-    tags: ["S3", "Transfer Acceleration", "CloudFront"]
+    tags: ["S3","Transfer Acceleration","CloudFront"]
   },
   {
     id: "aws-dva-219",
@@ -389,14 +389,14 @@ export const AWS_DVA_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Enable DynamoDB point-in-time recovery" },
       { id: 'B', text: "Switch the table from on-demand to provisioned mode" },
-      { id: 'C', text: "Write Sharding / Key Salting by appending a random suffix (e.g. CandidateA.1 to CandidateA.10) to the partition key" },
+      { id: 'C', text: "Write sharding with a random key suffix" },
       { id: 'D', text: "Change the table read capacity units from 1 to 100" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Write sharding (key salting) appends a random or calculated suffix (e.g. `.1` to `.N`) to a heavily accessed partition key value. Writes are distributed evenly across N distinct physical partitions, completely avoiding hot-partition write throttling. Queries can read from all N partitions in parallel.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-sharding.html",
-    tags: ["DynamoDB", "Write Sharding", "Key Salting"]
+    tags: ["DynamoDB","Write Sharding","Key Salting"]
   },
   {
     id: "aws-dva-220",
@@ -411,13 +411,13 @@ export const AWS_DVA_QUESTIONS_9 = [
       { id: 'A', text: "Stream metrics to Amazon SNS and query via SMS" },
       { id: 'B', text: "Configure a CloudWatch metric filter with interval set to 0" },
       { id: 'C', text: "High-resolution metrics are not supported in AWS" },
-      { id: 'D', text: "Publish custom metrics with StorageResolution set to 1 second using PutMetricData" }
+      { id: 'D', text: "PutMetricData with StorageResolution of 1 second" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "CloudWatch supports High-Resolution Metrics. By specifying `StorageResolution: 1` in the `PutMetricData` API call, metrics are stored at 1-second resolution. High-resolution alarms can evaluate and trigger within 10 seconds.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html#high-resolution-metrics",
-    tags: ["CloudWatch", "High-Resolution Metrics", "Performance"]
+    tags: ["CloudWatch","High-Resolution Metrics","Performance"]
   },
   {
     id: "aws-dva-221",
@@ -438,7 +438,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "The AWS X-Ray Service Graph visualizes relationships and dependencies between microservices, showing nodes for compute services, databases, and external APIs with color-coded circles indicating success rates, latency averages, and error percentages.",
     referenceUrl: "https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-servicegraph",
-    tags: ["X-Ray", "Service Graph", "Observability"]
+    tags: ["X-Ray","Service Graph","Observability"]
   },
   {
     id: "aws-dva-222",
@@ -459,7 +459,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "AWS X-Ray Filter Expressions allow developers to query traces using built-in keywords such as `responsetime`, `error`, `fault`, `throttle`, and custom annotations (e.g. `responsetime > 2.5 AND error = true`).",
     referenceUrl: "https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html",
-    tags: ["X-Ray", "Filter Expressions", "Troubleshooting"]
+    tags: ["X-Ray","Filter Expressions","Troubleshooting"]
   },
   {
     id: "aws-dva-223",
@@ -474,13 +474,13 @@ export const AWS_DVA_QUESTIONS_9 = [
       { id: 'A', text: "Enable CloudTrail data events on the target endpoints" },
       { id: 'B', text: "Write a custom middleware that manually logs timestamps to a text file" },
       { id: 'C', text: "Deploy an EC2 proxy server running Squid" },
-      { id: 'D', text: "Wrap the HTTP/HTTPS library using the AWS X-Ray SDK captureHTTPs function at application startup" }
+      { id: 'D', text: "Wrap the HTTP library with captureHTTPs at startup" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "The AWS X-Ray SDK provides automated capture methods (e.g. `AWSXRay.captureHTTPs(require('https'))`). Once wrapped at startup, all outbound HTTP/S calls automatically generate child subsegments with timing, request headers, and response status codes.",
     referenceUrl: "https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-nodejs-httpclients.html",
-    tags: ["X-Ray", "Instrumentation", "HTTP Tracing"]
+    tags: ["X-Ray","Instrumentation","HTTP Tracing"]
   },
   {
     id: "aws-dva-224",
@@ -501,7 +501,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "CloudWatch Logs Subscription Filters stream incoming log events in real time to Amazon Kinesis Data Streams, Amazon Kinesis Data Firehose, or an AWS Lambda function, enabling real-time forwarding to third-party log analytics platforms like Splunk or Datadog.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions.html",
-    tags: ["CloudWatch", "Subscription Filters", "Streaming"]
+    tags: ["CloudWatch","Subscription Filters","Streaming"]
   },
   {
     id: "aws-dva-225",
@@ -522,7 +522,7 @@ export const AWS_DVA_QUESTIONS_9 = [
     type: "single",
     explanation: "CloudWatch Contributor Insights analyzes log data in real time to generate reports on the 'top talkers' (e.g. top client IPs, most requested URLs, or hottest DynamoDB partition keys), visualizing high-cardinality outliers that impact system performance.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html",
-    tags: ["CloudWatch", "Contributor Insights", "High Cardinality"]
+    tags: ["CloudWatch","Contributor Insights","High Cardinality"]
   }
 ];
 

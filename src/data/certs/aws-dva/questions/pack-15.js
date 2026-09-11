@@ -10,7 +10,7 @@ export const AWS_DVA_QUESTIONS_15 = [
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Create an IAM user with an access key and secret key and share them with the third party." },
-      { id: 'B', text: "Configure an IAM role trust policy that allows the third-party account to call `sts:AssumeRole` with a mandatory `sts:ExternalId` condition." },
+      { id: 'B', text: "A trust policy allowing `sts:AssumeRole` with an `sts:ExternalId` condition." },
       { id: 'C', text: "Attach an AdministratorAccess managed policy to the third-party role without conditions." },
       { id: 'D', text: "Configure an S3 Bucket Policy granting public read access to all monitoring logs." }
     ],
@@ -33,7 +33,7 @@ export const AWS_DVA_QUESTIONS_15 = [
       { id: 'A', text: "Create an IAM user with an access key and secret key and share them with the third party." },
       { id: 'B', text: "Configure an S3 Bucket Policy granting public read access to all monitoring logs." },
       { id: 'C', text: "Attach an AdministratorAccess managed policy to the third-party role without conditions." },
-      { id: 'D', text: "Configure an IAM role trust policy that allows the third-party account to call `sts:AssumeRole` with a mandatory `sts:ExternalId` condition." }
+      { id: 'D', text: "A trust policy allowing `sts:AssumeRole` with an `sts:ExternalId` condition." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -52,7 +52,7 @@ export const AWS_DVA_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Attach an AdministratorAccess managed policy to the third-party role without conditions." },
-      { id: 'B', text: "Configure an IAM role trust policy that allows the third-party account to call `sts:AssumeRole` with a mandatory `sts:ExternalId` condition." },
+      { id: 'B', text: "A trust policy allowing `sts:AssumeRole` with an `sts:ExternalId` condition." },
       { id: 'C', text: "Configure an S3 Bucket Policy granting public read access to all monitoring logs." },
       { id: 'D', text: "Create an IAM user with an access key and secret key and share them with the third party." }
     ],
@@ -74,7 +74,7 @@ export const AWS_DVA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Configure an S3 Bucket Policy granting public read access to all monitoring logs." },
       { id: 'B', text: "Create an IAM user with an access key and secret key and share them with the third party." },
-      { id: 'C', text: "Configure an IAM role trust policy that allows the third-party account to call `sts:AssumeRole` with a mandatory `sts:ExternalId` condition." },
+      { id: 'C', text: "A trust policy allowing `sts:AssumeRole` with an `sts:ExternalId` condition." },
       { id: 'D', text: "Attach an AdministratorAccess managed policy to the third-party role without conditions." }
     ],
     correctAnswers: ['C'],
@@ -94,7 +94,7 @@ export const AWS_DVA_QUESTIONS_15 = [
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Create an IAM user with an access key and secret key and share them with the third party." },
-      { id: 'B', text: "Configure an IAM role trust policy that allows the third-party account to call `sts:AssumeRole` with a mandatory `sts:ExternalId` condition." },
+      { id: 'B', text: "A trust policy allowing `sts:AssumeRole` with an `sts:ExternalId` condition." },
       { id: 'C', text: "Configure an S3 Bucket Policy granting public read access to all monitoring logs." },
       { id: 'D', text: "Attach an AdministratorAccess managed policy to the third-party role without conditions." }
     ],
@@ -114,9 +114,9 @@ export const AWS_DVA_QUESTIONS_15 = [
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes Amazon Cognito to authenticate mobile users via OAuth 2.0 social providers, manage user profiles, and provide temporary scoped AWS IAM credentials to upload photos directly to Amazon S3.",
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
-      { id: 'A', text: "Use an Amazon Cognito User Pool for user registration and authentication, federate the user into an Amazon Cognito Identity Pool, and obtain temporary scoped IAM credentials to access Amazon S3." },
+      { id: 'A', text: "A user pool for sign-in, federated into an identity pool for IAM credentials." },
       { id: 'B', text: "Use an Amazon Cognito User Pool alone and embed an IAM access key in the user profile." },
-      { id: 'C', text: "Deploy an AWS Lambda function that issues hardcoded IAM user credentials to authenticated clients." },
+      { id: 'C', text: "Exchange the user pool token for credentials in a Lambda that calls AssumeRole." },
       { id: 'D', text: "Use an Amazon Cognito Identity Pool alone to manage user passwords and email verification." }
     ],
     correctAnswers: ['A'],
@@ -136,9 +136,9 @@ export const AWS_DVA_QUESTIONS_15 = [
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Use an Amazon Cognito User Pool alone and embed an IAM access key in the user profile." },
-      { id: 'B', text: "Deploy an AWS Lambda function that issues hardcoded IAM user credentials to authenticated clients." },
+      { id: 'B', text: "Exchange the user pool token for credentials in a Lambda that calls AssumeRole." },
       { id: 'C', text: "Use an Amazon Cognito Identity Pool alone to manage user passwords and email verification." },
-      { id: 'D', text: "Use an Amazon Cognito User Pool for user registration and authentication, federate the user into an Amazon Cognito Identity Pool, and obtain temporary scoped IAM credentials to access Amazon S3." }
+      { id: 'D', text: "A user pool for sign-in, federated into an identity pool for IAM credentials." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,9 +156,9 @@ export const AWS_DVA_QUESTIONS_15 = [
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes Amazon Cognito to authenticate mobile users via OAuth 2.0 social providers, manage user profiles, and provide temporary scoped AWS IAM credentials to upload photos directly to Amazon S3.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy an AWS Lambda function that issues hardcoded IAM user credentials to authenticated clients." },
+      { id: 'A', text: "Exchange the user pool token for credentials in a Lambda that calls AssumeRole." },
       { id: 'B', text: "Use an Amazon Cognito Identity Pool alone to manage user passwords and email verification." },
-      { id: 'C', text: "Use an Amazon Cognito User Pool for user registration and authentication, federate the user into an Amazon Cognito Identity Pool, and obtain temporary scoped IAM credentials to access Amazon S3." },
+      { id: 'C', text: "A user pool for sign-in, federated into an identity pool for IAM credentials." },
       { id: 'D', text: "Use an Amazon Cognito User Pool alone and embed an IAM access key in the user profile." }
     ],
     correctAnswers: ['C'],
@@ -177,9 +177,9 @@ export const AWS_DVA_QUESTIONS_15 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes Amazon Cognito to authenticate mobile users via OAuth 2.0 social providers, manage user profiles, and provide temporary scoped AWS IAM credentials to upload photos directly to Amazon S3.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
-      { id: 'A', text: "Deploy an AWS Lambda function that issues hardcoded IAM user credentials to authenticated clients." },
+      { id: 'A', text: "Exchange the user pool token for credentials in a Lambda that calls AssumeRole." },
       { id: 'B', text: "Use an Amazon Cognito User Pool alone and embed an IAM access key in the user profile." },
-      { id: 'C', text: "Use an Amazon Cognito User Pool for user registration and authentication, federate the user into an Amazon Cognito Identity Pool, and obtain temporary scoped IAM credentials to access Amazon S3." },
+      { id: 'C', text: "A user pool for sign-in, federated into an identity pool for IAM credentials." },
       { id: 'D', text: "Use an Amazon Cognito Identity Pool alone to manage user passwords and email verification." }
     ],
     correctAnswers: ['C'],
@@ -198,9 +198,9 @@ export const AWS_DVA_QUESTIONS_15 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes Amazon Cognito to authenticate mobile users via OAuth 2.0 social providers, manage user profiles, and provide temporary scoped AWS IAM credentials to upload photos directly to Amazon S3.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Deploy an AWS Lambda function that issues hardcoded IAM user credentials to authenticated clients." },
+      { id: 'A', text: "Exchange the user pool token for credentials in a Lambda that calls AssumeRole." },
       { id: 'B', text: "Use an Amazon Cognito Identity Pool alone to manage user passwords and email verification." },
-      { id: 'C', text: "Use an Amazon Cognito User Pool for user registration and authentication, federate the user into an Amazon Cognito Identity Pool, and obtain temporary scoped IAM credentials to access Amazon S3." },
+      { id: 'C', text: "A user pool for sign-in, federated into an identity pool for IAM credentials." },
       { id: 'D', text: "Use an Amazon Cognito User Pool alone and embed an IAM access key in the user profile." }
     ],
     correctAnswers: ['C'],
@@ -220,7 +220,7 @@ export const AWS_DVA_QUESTIONS_15 = [
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Deploy an AWS WAF rule that decodes JWT tokens in the request body." },
-      { id: 'B', text: "Deploy an Amazon API Gateway Lambda Request-based Authorizer and configure identity sources with policy caching enabled." },
+      { id: 'B', text: "A Lambda request authorizer with identity sources and policy caching." },
       { id: 'C', text: "Validate authentication headers inside each individual backend Lambda integration function." },
       { id: 'D', text: "Store client API keys in an Amazon DynamoDB table and query it on every request." }
     ],
@@ -240,7 +240,7 @@ export const AWS_DVA_QUESTIONS_15 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes Amazon API Gateway to validate custom HMAC request headers or third-party OAuth bearer tokens on incoming API Gateway requests and cache authorization policy decisions to reduce latency.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Deploy an Amazon API Gateway Lambda Request-based Authorizer and configure identity sources with policy caching enabled." },
+      { id: 'A', text: "A Lambda request authorizer with identity sources and policy caching." },
       { id: 'B', text: "Deploy an AWS WAF rule that decodes JWT tokens in the request body." },
       { id: 'C', text: "Store client API keys in an Amazon DynamoDB table and query it on every request." },
       { id: 'D', text: "Validate authentication headers inside each individual backend Lambda integration function." }
@@ -261,7 +261,7 @@ export const AWS_DVA_QUESTIONS_15 = [
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes Amazon API Gateway to validate custom HMAC request headers or third-party OAuth bearer tokens on incoming API Gateway requests and cache authorization policy decisions to reduce latency.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy an Amazon API Gateway Lambda Request-based Authorizer and configure identity sources with policy caching enabled." },
+      { id: 'A', text: "A Lambda request authorizer with identity sources and policy caching." },
       { id: 'B', text: "Store client API keys in an Amazon DynamoDB table and query it on every request." },
       { id: 'C', text: "Deploy an AWS WAF rule that decodes JWT tokens in the request body." },
       { id: 'D', text: "Validate authentication headers inside each individual backend Lambda integration function." }
@@ -283,7 +283,7 @@ export const AWS_DVA_QUESTIONS_15 = [
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Validate authentication headers inside each individual backend Lambda integration function." },
-      { id: 'B', text: "Deploy an Amazon API Gateway Lambda Request-based Authorizer and configure identity sources with policy caching enabled." },
+      { id: 'B', text: "A Lambda request authorizer with identity sources and policy caching." },
       { id: 'C', text: "Store client API keys in an Amazon DynamoDB table and query it on every request." },
       { id: 'D', text: "Deploy an AWS WAF rule that decodes JWT tokens in the request body." }
     ],
@@ -303,7 +303,7 @@ export const AWS_DVA_QUESTIONS_15 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes Amazon API Gateway to validate custom HMAC request headers or third-party OAuth bearer tokens on incoming API Gateway requests and cache authorization policy decisions to reduce latency.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Deploy an Amazon API Gateway Lambda Request-based Authorizer and configure identity sources with policy caching enabled." },
+      { id: 'A', text: "A Lambda request authorizer with identity sources and policy caching." },
       { id: 'B', text: "Validate authentication headers inside each individual backend Lambda integration function." },
       { id: 'C', text: "Deploy an AWS WAF rule that decodes JWT tokens in the request body." },
       { id: 'D', text: "Store client API keys in an Amazon DynamoDB table and query it on every request." }
@@ -324,7 +324,7 @@ export const AWS_DVA_QUESTIONS_15 = [
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes Amazon API Gateway to restrict access to an API Gateway REST API so that it can only be invoked by resources residing within a specific Amazon Virtual Private Cloud (VPC).",
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
-      { id: 'A', text: "Attach an API Gateway Resource Policy with an explicit Deny action for all requests where the `aws:sourceVpc` condition does not match the allowed VPC ID." },
+      { id: 'A', text: "A resource policy denying any request whose `aws:sourceVpc` does not match." },
       { id: 'B', text: "Configure a Security Group on the API Gateway endpoint allowing port 443." },
       { id: 'C', text: "Attach an IAM permission boundary to all users invoking the API." },
       { id: 'D', text: "Deploy an AWS Network Firewall cluster in front of the API Gateway public endpoint." }
@@ -345,7 +345,7 @@ export const AWS_DVA_QUESTIONS_15 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes Amazon API Gateway to restrict access to an API Gateway REST API so that it can only be invoked by resources residing within a specific Amazon Virtual Private Cloud (VPC).",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Attach an API Gateway Resource Policy with an explicit Deny action for all requests where the `aws:sourceVpc` condition does not match the allowed VPC ID." },
+      { id: 'A', text: "A resource policy denying any request whose `aws:sourceVpc` does not match." },
       { id: 'B', text: "Attach an IAM permission boundary to all users invoking the API." },
       { id: 'C', text: "Deploy an AWS Network Firewall cluster in front of the API Gateway public endpoint." },
       { id: 'D', text: "Configure a Security Group on the API Gateway endpoint allowing port 443." }
@@ -368,7 +368,7 @@ export const AWS_DVA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Configure a Security Group on the API Gateway endpoint allowing port 443." },
       { id: 'B', text: "Attach an IAM permission boundary to all users invoking the API." },
-      { id: 'C', text: "Attach an API Gateway Resource Policy with an explicit Deny action for all requests where the `aws:sourceVpc` condition does not match the allowed VPC ID." },
+      { id: 'C', text: "A resource policy denying any request whose `aws:sourceVpc` does not match." },
       { id: 'D', text: "Deploy an AWS Network Firewall cluster in front of the API Gateway public endpoint." }
     ],
     correctAnswers: ['C'],
@@ -389,7 +389,7 @@ export const AWS_DVA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Deploy an AWS Network Firewall cluster in front of the API Gateway public endpoint." },
       { id: 'B', text: "Configure a Security Group on the API Gateway endpoint allowing port 443." },
-      { id: 'C', text: "Attach an API Gateway Resource Policy with an explicit Deny action for all requests where the `aws:sourceVpc` condition does not match the allowed VPC ID." },
+      { id: 'C', text: "A resource policy denying any request whose `aws:sourceVpc` does not match." },
       { id: 'D', text: "Attach an IAM permission boundary to all users invoking the API." }
     ],
     correctAnswers: ['C'],
@@ -408,7 +408,7 @@ export const AWS_DVA_QUESTIONS_15 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes Amazon API Gateway to restrict access to an API Gateway REST API so that it can only be invoked by resources residing within a specific Amazon Virtual Private Cloud (VPC).",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Attach an API Gateway Resource Policy with an explicit Deny action for all requests where the `aws:sourceVpc` condition does not match the allowed VPC ID." },
+      { id: 'A', text: "A resource policy denying any request whose `aws:sourceVpc` does not match." },
       { id: 'B', text: "Configure a Security Group on the API Gateway endpoint allowing port 443." },
       { id: 'C', text: "Attach an IAM permission boundary to all users invoking the API." },
       { id: 'D', text: "Deploy an AWS Network Firewall cluster in front of the API Gateway public endpoint." }
@@ -432,7 +432,7 @@ export const AWS_DVA_QUESTIONS_15 = [
       { id: 'A', text: "Configure S3 Object Lock in compliance mode." },
       { id: 'B', text: "Enable default Amazon S3 server-side encryption (SSE-S3) on the bucket." },
       { id: 'C', text: "Attach an AWS WAF Web ACL to the S3 bucket endpoint." },
-      { id: 'D', text: "Attach an S3 bucket policy with an explicit Deny action on `s3:*` where the condition `aws:SecureTransport` is false." }
+      { id: 'D', text: "A bucket policy denying `s3:*` when `aws:SecureTransport` is false." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -453,7 +453,7 @@ export const AWS_DVA_QUESTIONS_15 = [
       { id: 'A', text: "Attach an AWS WAF Web ACL to the S3 bucket endpoint." },
       { id: 'B', text: "Configure S3 Object Lock in compliance mode." },
       { id: 'C', text: "Enable default Amazon S3 server-side encryption (SSE-S3) on the bucket." },
-      { id: 'D', text: "Attach an S3 bucket policy with an explicit Deny action on `s3:*` where the condition `aws:SecureTransport` is false." }
+      { id: 'D', text: "A bucket policy denying `s3:*` when `aws:SecureTransport` is false." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -472,7 +472,7 @@ export const AWS_DVA_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Configure S3 Object Lock in compliance mode." },
-      { id: 'B', text: "Attach an S3 bucket policy with an explicit Deny action on `s3:*` where the condition `aws:SecureTransport` is false." },
+      { id: 'B', text: "A bucket policy denying `s3:*` when `aws:SecureTransport` is false." },
       { id: 'C', text: "Enable default Amazon S3 server-side encryption (SSE-S3) on the bucket." },
       { id: 'D', text: "Attach an AWS WAF Web ACL to the S3 bucket endpoint." }
     ],
@@ -492,7 +492,7 @@ export const AWS_DVA_QUESTIONS_15 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes Amazon S3 to ensure that all data uploaded or downloaded from an Amazon S3 bucket is encrypted in transit over HTTPS and reject all plaintext HTTP traffic.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
-      { id: 'A', text: "Attach an S3 bucket policy with an explicit Deny action on `s3:*` where the condition `aws:SecureTransport` is false." },
+      { id: 'A', text: "A bucket policy denying `s3:*` when `aws:SecureTransport` is false." },
       { id: 'B', text: "Enable default Amazon S3 server-side encryption (SSE-S3) on the bucket." },
       { id: 'C', text: "Configure S3 Object Lock in compliance mode." },
       { id: 'D', text: "Attach an AWS WAF Web ACL to the S3 bucket endpoint." }
@@ -513,7 +513,7 @@ export const AWS_DVA_QUESTIONS_15 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes Amazon S3 to ensure that all data uploaded or downloaded from an Amazon S3 bucket is encrypted in transit over HTTPS and reject all plaintext HTTP traffic.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Attach an S3 bucket policy with an explicit Deny action on `s3:*` where the condition `aws:SecureTransport` is false." },
+      { id: 'A', text: "A bucket policy denying `s3:*` when `aws:SecureTransport` is false." },
       { id: 'B', text: "Attach an AWS WAF Web ACL to the S3 bucket endpoint." },
       { id: 'C', text: "Configure S3 Object Lock in compliance mode." },
       { id: 'D', text: "Enable default Amazon S3 server-side encryption (SSE-S3) on the bucket." }

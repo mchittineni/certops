@@ -18,7 +18,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "`sam local start-api` spawns a local HTTP server (default port 3000) that parses the SAM template, routes incoming HTTP requests to Docker containers emulating AWS Lambda runtimes, and supports hot-reloading code changes without redeploying.",
     referenceUrl: "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-local-start-api.html",
-    tags: ["SAM", "SAM CLI", "Local Emulation"]
+    tags: ["SAM","SAM CLI","Local Emulation"]
   },
   {
     id: "aws-dva-177",
@@ -39,7 +39,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "The `Globals` section in AWS SAM allows developers to define common configuration properties (such as `Runtime`, `Timeout`, `MemorySize`, and `Environment`) once. All resources of that type (e.g. `Function` or `Api`) automatically inherit these settings.",
     referenceUrl: "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-globals.html",
-    tags: ["SAM", "Globals", "DRY"]
+    tags: ["SAM","Globals","DRY"]
   },
   {
     id: "aws-dva-178",
@@ -51,8 +51,8 @@ export const AWS_DVA_QUESTIONS_8 = [
     scenario: "A developer is writing a SAM template for a Lambda function that only needs read access to a specific Amazon S3 bucket.",
     question: "Which SAM feature generates a scoped IAM role using predefined AWS policy templates?",
     options: [
-      { id: 'A', text: "The Policies property using SAM Policy Templates (e.g. S3ReadPolicy)" },
-      { id: 'B', text: "Hardcode IAM user credentials in the function code" },
+      { id: 'A', text: "The Policies property with a SAM policy template" },
+      { id: 'B', text: "Set the Role property to an inline policy granting s3:* on all buckets" },
       { id: 'C', text: "Attach AdministratorAccess in template Parameters" },
       { id: 'D', text: "Disable IAM authentication on the S3 bucket" }
     ],
@@ -60,7 +60,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "AWS SAM provides a library of pre-built Policy Templates (e.g. `S3ReadPolicy`, `DynamoDBCrudPolicy`, `SQSPollerPolicy`). Developers specify the template name and parameters (e.g. `BucketName: !Ref MyBucket`), and SAM generates the least-privilege IAM execution role automatically.",
     referenceUrl: "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-policy-templates.html",
-    tags: ["SAM", "Policy Templates", "IAM"]
+    tags: ["SAM","Policy Templates","IAM"]
   },
   {
     id: "aws-dva-179",
@@ -72,7 +72,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     scenario: "A CloudFormation template needs to select the correct AMI ID dynamically based on the AWS Region where the stack is deployed.",
     question: "Which CloudFormation section and intrinsic function should the developer use?",
     options: [
-      { id: 'A', text: "The Mappings section with the !FindInMap intrinsic function" },
+      { id: 'A', text: "The Mappings section with !FindInMap" },
       { id: 'B', text: "The Outputs section with !ImportValue" },
       { id: 'C', text: "The Parameters section with !Ref" },
       { id: 'D', text: "The Metadata section with !Sub" }
@@ -81,7 +81,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "The `Mappings` section defines static key-value lookup tables (e.g. Region to AMI ID). The `!FindInMap [MapName, TopLevelKey, SecondLevelKey]` intrinsic function retrieves the matching value dynamically based on pseudo parameters like `AWS::Region`.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-findinmap.html",
-    tags: ["CloudFormation", "Mappings", "!FindInMap"]
+    tags: ["CloudFormation","Mappings","!FindInMap"]
   },
   {
     id: "aws-dva-180",
@@ -95,14 +95,14 @@ export const AWS_DVA_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "The Transform section with SAM macros" },
       { id: 'B', text: "The Parameters section Default value" },
-      { id: 'C', text: "The Conditions section using !Equals, paired with the Condition attribute on the resource or !If function" },
+      { id: 'C', text: "The Conditions section with !If" },
       { id: 'D', text: "The Mappings section with !FindInMap" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "CloudFormation `Conditions` evaluate boolean expressions using functions like `!Equals`, `!Not`, `!And`, and `!Or`. Resources can include the `Condition: IsProduction` attribute or properties can use `!If [IsProduction, ValueIfTrue, ValueIfFalse]` to toggle provisioning.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-conditions.html",
-    tags: ["CloudFormation", "Conditions", "!If"]
+    tags: ["CloudFormation","Conditions","!If"]
   },
   {
     id: "aws-dva-181",
@@ -114,8 +114,8 @@ export const AWS_DVA_QUESTIONS_8 = [
     scenario: "A networking team provisions a VPC in Stack A. An application team deploys microservices in Stack B and needs to reference the VPC ID created in Stack A.",
     question: "How should Stack A expose the VPC ID and how should Stack B consume it?",
     options: [
-      { id: 'A', text: "Stack A exports the VPC ID in its Outputs section using Export: Name, and Stack B references it using !ImportValue" },
-      { id: 'B', text: "Stack B hardcodes the VPC ID string in its Parameters section" },
+      { id: 'A', text: "Stack A exports the value; Stack B uses !ImportValue" },
+      { id: 'B', text: "Stack B reads the VPC ID from an SSM Parameter Store parameter" },
       { id: 'C', text: "Stack A saves the VPC ID in an unencrypted S3 file" },
       { id: 'D', text: "Stack B queries Stack A using the DescribeStacks CLI inside user data" }
     ],
@@ -123,7 +123,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "In CloudFormation, cross-stack references allow one stack to share resources with others. Stack A defines an `Output` with an `Export: Name: MyVPCId`. Stack B consumes this exported value using the `!ImportValue MyVPCId` intrinsic function.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html",
-    tags: ["CloudFormation", "Cross-Stack", "!ImportValue"]
+    tags: ["CloudFormation","Cross-Stack","!ImportValue"]
   },
   {
     id: "aws-dva-182",
@@ -144,7 +144,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "CloudFormation Change Sets provide a detailed preview of how proposed changes will affect running resources before executing the update. The change set indicates whether resources will be modified in-place or deleted and replaced.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html",
-    tags: ["CloudFormation", "Change Sets", "Safety"]
+    tags: ["CloudFormation","Change Sets","Safety"]
   },
   {
     id: "aws-dva-183",
@@ -165,7 +165,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "AWS CloudFormation StackSets extends the functionality of stacks by enabling developers to create, update, or delete stacks across multiple AWS accounts and multiple AWS Regions with a single CloudFormation template and management operation.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html",
-    tags: ["CloudFormation", "StackSets", "Multi-Account"]
+    tags: ["CloudFormation","StackSets","Multi-Account"]
   },
   {
     id: "aws-dva-184",
@@ -186,7 +186,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "The `DeletionPolicy: Retain` attribute instructs CloudFormation to preserve the resource when its stack is deleted, leaving the underlying AWS resource (e.g. DynamoDB table or S3 bucket) active in the account rather than deleting it.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html",
-    tags: ["CloudFormation", "DeletionPolicy", "Data Protection"]
+    tags: ["CloudFormation","DeletionPolicy","Data Protection"]
   },
   {
     id: "aws-dva-185",
@@ -198,7 +198,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     scenario: "A developer designs an infrastructure template that exceeds the 1 MB CloudFormation template body size limit and reaches the 500-resource limit.",
     question: "Which architectural pattern decomposes monolithic templates into modular, reusable sub-stacks?",
     options: [
-      { id: 'A', text: "CloudFormation Nested Stacks using the AWS::CloudFormation::Stack resource type" },
+      { id: 'A', text: "CloudFormation nested stacks" },
       { id: 'B', text: "CloudFormation Macros alone" },
       { id: 'C', text: "Multiple CLI commands in a bash script" },
       { id: 'D', text: "Manual CloudFormation console uploads" }
@@ -207,7 +207,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "Nested Stacks allow developers to compose modular templates. The root template declares `AWS::CloudFormation::Stack` resources pointing to child templates stored in Amazon S3, overcoming template size limits and promoting component reusability.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html",
-    tags: ["CloudFormation", "Nested Stacks", "Modular Architecture"]
+    tags: ["CloudFormation","Nested Stacks","Modular Architecture"]
   },
   {
     id: "aws-dva-186",
@@ -228,7 +228,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "CloudFormation Drift Detection identifies differences between the expected configuration of resources defined in the stack template and their actual live configuration in AWS, reporting whether resources are `IN_SYNC` or `DRIFTED`.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html",
-    tags: ["CloudFormation", "Drift Detection", "Governance"]
+    tags: ["CloudFormation","Drift Detection","Governance"]
   },
   {
     id: "aws-dva-187",
@@ -249,7 +249,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "The `Rolling with additional batch` deployment policy launches an extra batch of instances running the new version first. Only when the new batch passes health checks are existing instances updated or replaced, guaranteeing 100% serving capacity throughout the deployment.",
     referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.rolling-version-deploy.html",
-    tags: ["Elastic Beanstalk", "Deployment Policies", "High Availability"]
+    tags: ["Elastic Beanstalk","Deployment Policies","High Availability"]
   },
   {
     id: "aws-dva-188",
@@ -270,7 +270,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "The `Traffic Splitting` deployment policy creates a secondary instance group running the new version and routes an initial percentage of production traffic (e.g. 5%) to it for an evaluation period. If health checks pass, all traffic shifts; if an alarm triggers, traffic reroutes back.",
     referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.traffic-splitting.html",
-    tags: ["Elastic Beanstalk", "Traffic Splitting", "Canary"]
+    tags: ["Elastic Beanstalk","Traffic Splitting","Canary"]
   },
   {
     id: "aws-dva-189",
@@ -291,7 +291,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "In Elastic Beanstalk Amazon Linux 2 platforms, developers use a `Procfile` at the root of the source bundle to define custom application processes (e.g. `web: gunicorn --bind :5000 application:app` and `worker: celery -A tasks worker`).",
     referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-linux-extend.procfile.html",
-    tags: ["Elastic Beanstalk", "Procfile", "Processes"]
+    tags: ["Elastic Beanstalk","Procfile","Processes"]
   },
   {
     id: "aws-dva-190",
@@ -312,7 +312,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "Elastic Beanstalk environments have unique CNAME URLs. The `Swap Environment CNAMEs` feature redirects traffic between environments instantly at the DNS level without downtime or re-provisioning infrastructure.",
     referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.CNAMESwap.html",
-    tags: ["Elastic Beanstalk", "CNAME Swap", "Blue/Green"]
+    tags: ["Elastic Beanstalk","CNAME Swap","Blue/Green"]
   },
   {
     id: "aws-dva-191",
@@ -333,7 +333,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "AWS Fargate Spot allows ECS tasks to run on spare AWS compute capacity at up to a 70% discount compared to standard Fargate pricing. If AWS requires the capacity back, tasks receive a two-minute warning before termination, making it ideal for fault-tolerant workloads.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-capacity-providers.html",
-    tags: ["ECS", "Fargate Spot", "Cost Optimization"]
+    tags: ["ECS","Fargate Spot","Cost Optimization"]
   },
   {
     id: "aws-dva-192",
@@ -354,7 +354,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "The `binpack` task placement strategy places tasks on container instances with the least available amount of CPU or memory, maximizing resource utilization on running instances and minimizing total EC2 instance count.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html",
-    tags: ["ECS", "Task Placement", "binpack"]
+    tags: ["ECS","Task Placement","binpack"]
   },
   {
     id: "aws-dva-193",
@@ -375,7 +375,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "The `spread` task placement strategy places tasks evenly across the cluster based on specified attributes, such as `attribute:ecs.availability-zone` or `instanceId`, ensuring that an AZ outage does not take down all replicas of the service.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html",
-    tags: ["ECS", "Task Placement", "spread"]
+    tags: ["ECS","Task Placement","spread"]
   },
   {
     id: "aws-dva-194",
@@ -396,7 +396,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "The `distinctInstance` task placement constraint guarantees that each task in the service is placed on a different container instance, ensuring that no EC2 host runs more than one task from that service.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html",
-    tags: ["ECS", "Placement Constraints", "distinctInstance"]
+    tags: ["ECS","Placement Constraints","distinctInstance"]
   },
   {
     id: "aws-dva-195",
@@ -410,14 +410,14 @@ export const AWS_DVA_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "Attach an Elastic IP to the container" },
       { id: 'B', text: "Enable CloudWatch Logs metric filters" },
-      { id: 'C', text: "Configure a healthCheck command in the container definition (e.g. curl -f http://localhost:8080/health || exit 1)" },
+      { id: 'C', text: "A container healthCheck command" },
       { id: 'D', text: "Increase the container memory limit" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "ECS Task Definitions allow developers to specify a `healthCheck` command (e.g. `CMD-SHELL, curl -f http://localhost/health || exit 1`) directly in the container definition. ECS periodically runs this check inside the container; if it fails, the container is marked unhealthy and replaced.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definition_healthcheck",
-    tags: ["ECS", "Health Check", "Resilience"]
+    tags: ["ECS","Health Check","Resilience"]
   },
   {
     id: "aws-dva-196",
@@ -438,7 +438,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "Amazon ECR supports `Scan on Push`. When enabled on a repository, ECR automatically scans container images against the CVE database upon push, publishing vulnerability findings directly in the ECR console and EventBridge.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html",
-    tags: ["ECR", "Image Scanning", "Security"]
+    tags: ["ECR","Image Scanning","Security"]
   },
   {
     id: "aws-dva-197",
@@ -453,13 +453,13 @@ export const AWS_DVA_QUESTIONS_8 = [
       { id: 'A', text: "KMS CMK Encryption" },
       { id: 'B', text: "Lifecycle Policy" },
       { id: 'C', text: "Scan on Push" },
-      { id: 'D', text: "Tag Immutability (imageTagMutability: IMMUTABLE)" }
+      { id: 'D', text: "Tag immutability" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Enabling `Tag Immutability` on an Amazon ECR repository prevents image tags from being overwritten. Once an image is pushed with a specific tag (e.g. `v1.0.0`), subsequent attempts to push another image with that same tag are rejected.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html",
-    tags: ["ECR", "Tag Immutability", "Governance"]
+    tags: ["ECR","Tag Immutability","Governance"]
   },
   {
     id: "aws-dva-198",
@@ -480,7 +480,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "Amazon ECR Lifecycle Policies allow developers to define automated expiration rules (e.g. expire untagged images older than 14 days, or retain only the last 30 images matching tag prefix `release-`), keeping repository storage costs under control.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html",
-    tags: ["ECR", "Lifecycle Policies", "Cost Optimization"]
+    tags: ["ECR","Lifecycle Policies","Cost Optimization"]
   },
   {
     id: "aws-dva-199",
@@ -501,7 +501,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "CodeCommit emits events to Amazon EventBridge for all pull request state changes (such as `PullRequestCreated`, `PullRequestStatusChanged`, and `PullRequestApprovalStateChanged`), allowing EventBridge rules to trigger Lambda functions or SNS topics.",
     referenceUrl: "https://docs.aws.amazon.com/codecommit/latest/userguide/monitoring-events.html",
-    tags: ["CodeCommit", "EventBridge", "Notifications"]
+    tags: ["CodeCommit","EventBridge","Notifications"]
   },
   {
     id: "aws-dva-200",
@@ -522,7 +522,7 @@ export const AWS_DVA_QUESTIONS_8 = [
     type: "single",
     explanation: "AWS CodeBuild provides dynamic `Build Badges` that generate SVG images indicating the current build status of a project branch. The badge URL can be embedded in markdown README files and updates in real time.",
     referenceUrl: "https://docs.aws.amazon.com/codebuild/latest/userguide/sample-build-badges.html",
-    tags: ["CodeBuild", "Build Badges", "Documentation"]
+    tags: ["CodeBuild","Build Badges","Documentation"]
   }
 ];
 

@@ -11,7 +11,7 @@ export const AWS_DVA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Generate a self-signed OpenSSL certificate on an EC2 instance and upload it to IAM." },
       { id: 'B', text: "Purchase an SSL certificate from an external registrar and email the private key to AWS Support." },
-      { id: 'C', text: "Request a public certificate in AWS Certificate Manager (ACM) and use DNS validation by creating CNAME records in Amazon Route 53." },
+      { id: 'C', text: "Request an ACM public certificate and validate by DNS with Route 53 CNAMEs." },
       { id: 'D', text: "Request an ACM certificate using email validation and renew it manually every year." }
     ],
     correctAnswers: ['C'],
@@ -30,7 +30,7 @@ export const AWS_DVA_QUESTIONS_16 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS Certificate Manager to provision and automatically renew public SSL/TLS certificates for API Gateway and CloudFront custom domain names with zero administrative overhead.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Request a public certificate in AWS Certificate Manager (ACM) and use DNS validation by creating CNAME records in Amazon Route 53." },
+      { id: 'A', text: "Request an ACM public certificate and validate by DNS with Route 53 CNAMEs." },
       { id: 'B', text: "Purchase an SSL certificate from an external registrar and email the private key to AWS Support." },
       { id: 'C', text: "Request an ACM certificate using email validation and renew it manually every year." },
       { id: 'D', text: "Generate a self-signed OpenSSL certificate on an EC2 instance and upload it to IAM." }
@@ -51,7 +51,7 @@ export const AWS_DVA_QUESTIONS_16 = [
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes AWS Certificate Manager to provision and automatically renew public SSL/TLS certificates for API Gateway and CloudFront custom domain names with zero administrative overhead.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Request a public certificate in AWS Certificate Manager (ACM) and use DNS validation by creating CNAME records in Amazon Route 53." },
+      { id: 'A', text: "Request an ACM public certificate and validate by DNS with Route 53 CNAMEs." },
       { id: 'B', text: "Purchase an SSL certificate from an external registrar and email the private key to AWS Support." },
       { id: 'C', text: "Request an ACM certificate using email validation and renew it manually every year." },
       { id: 'D', text: "Generate a self-signed OpenSSL certificate on an EC2 instance and upload it to IAM." }
@@ -74,7 +74,7 @@ export const AWS_DVA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Request an ACM certificate using email validation and renew it manually every year." },
       { id: 'B', text: "Purchase an SSL certificate from an external registrar and email the private key to AWS Support." },
-      { id: 'C', text: "Request a public certificate in AWS Certificate Manager (ACM) and use DNS validation by creating CNAME records in Amazon Route 53." },
+      { id: 'C', text: "Request an ACM public certificate and validate by DNS with Route 53 CNAMEs." },
       { id: 'D', text: "Generate a self-signed OpenSSL certificate on an EC2 instance and upload it to IAM." }
     ],
     correctAnswers: ['C'],
@@ -94,7 +94,7 @@ export const AWS_DVA_QUESTIONS_16 = [
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Purchase an SSL certificate from an external registrar and email the private key to AWS Support." },
-      { id: 'B', text: "Request a public certificate in AWS Certificate Manager (ACM) and use DNS validation by creating CNAME records in Amazon Route 53." },
+      { id: 'B', text: "Request an ACM public certificate and validate by DNS with Route 53 CNAMEs." },
       { id: 'C', text: "Request an ACM certificate using email validation and renew it manually every year." },
       { id: 'D', text: "Generate a self-signed OpenSSL certificate on an EC2 instance and upload it to IAM." }
     ],
@@ -115,9 +115,9 @@ export const AWS_DVA_QUESTIONS_16 = [
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Query the Secrets Manager `GetSecretValue` API on every single incoming HTTP request." },
-      { id: 'B', text: "Hardcode the database password in the Docker container image environment variables." },
+      { id: 'B', text: "Read the secret once at container start and hold it for the process lifetime." },
       { id: 'C', text: "Store the database secret in a public Amazon S3 bucket." },
-      { id: 'D', text: "Integrate the AWS Secrets Manager Client-side Caching library in the application code to cache secrets in memory with a configurable TTL." }
+      { id: 'D', text: "Use the Secrets Manager client-side caching library with a TTL." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,8 +135,8 @@ export const AWS_DVA_QUESTIONS_16 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS Secrets Manager to reduce API calls, lower request costs, and prevent API rate-limiting when microservices running on AWS Lambda or Amazon ECS frequently retrieve secrets.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Integrate the AWS Secrets Manager Client-side Caching library in the application code to cache secrets in memory with a configurable TTL." },
-      { id: 'B', text: "Hardcode the database password in the Docker container image environment variables." },
+      { id: 'A', text: "Use the Secrets Manager client-side caching library with a TTL." },
+      { id: 'B', text: "Read the secret once at container start and hold it for the process lifetime." },
       { id: 'C', text: "Query the Secrets Manager `GetSecretValue` API on every single incoming HTTP request." },
       { id: 'D', text: "Store the database secret in a public Amazon S3 bucket." }
     ],
@@ -158,8 +158,8 @@ export const AWS_DVA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Query the Secrets Manager `GetSecretValue` API on every single incoming HTTP request." },
       { id: 'B', text: "Store the database secret in a public Amazon S3 bucket." },
-      { id: 'C', text: "Hardcode the database password in the Docker container image environment variables." },
-      { id: 'D', text: "Integrate the AWS Secrets Manager Client-side Caching library in the application code to cache secrets in memory with a configurable TTL." }
+      { id: 'C', text: "Read the secret once at container start and hold it for the process lifetime." },
+      { id: 'D', text: "Use the Secrets Manager client-side caching library with a TTL." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -178,8 +178,8 @@ export const AWS_DVA_QUESTIONS_16 = [
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Query the Secrets Manager `GetSecretValue` API on every single incoming HTTP request." },
-      { id: 'B', text: "Integrate the AWS Secrets Manager Client-side Caching library in the application code to cache secrets in memory with a configurable TTL." },
-      { id: 'C', text: "Hardcode the database password in the Docker container image environment variables." },
+      { id: 'B', text: "Use the Secrets Manager client-side caching library with a TTL." },
+      { id: 'C', text: "Read the secret once at container start and hold it for the process lifetime." },
       { id: 'D', text: "Store the database secret in a public Amazon S3 bucket." }
     ],
     correctAnswers: ['B'],
@@ -198,10 +198,10 @@ export const AWS_DVA_QUESTIONS_16 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS Secrets Manager to reduce API calls, lower request costs, and prevent API rate-limiting when microservices running on AWS Lambda or Amazon ECS frequently retrieve secrets.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Hardcode the database password in the Docker container image environment variables." },
+      { id: 'A', text: "Read the secret once at container start and hold it for the process lifetime." },
       { id: 'B', text: "Store the database secret in a public Amazon S3 bucket." },
       { id: 'C', text: "Query the Secrets Manager `GetSecretValue` API on every single incoming HTTP request." },
-      { id: 'D', text: "Integrate the AWS Secrets Manager Client-side Caching library in the application code to cache secrets in memory with a configurable TTL." }
+      { id: 'D', text: "Use the Secrets Manager client-side caching library with a TTL." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -220,7 +220,7 @@ export const AWS_DVA_QUESTIONS_16 = [
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Attach an IAM permission boundary that duplicates developer Allow statements." },
-      { id: 'B', text: "Rely on the IAM policy evaluation hierarchy where an explicit Deny in any applicable policy (SCP, identity-based, or permissions boundary) always overrides any explicit Allow." },
+      { id: 'B', text: "An explicit Deny in any applicable policy overrides every Allow." },
       { id: 'C', text: "Configure multiple Allow policies and rely on the policy creation timestamp." },
       { id: 'D', text: "Configure an S3 ACL that grants public read access." }
     ],
@@ -241,7 +241,7 @@ export const AWS_DVA_QUESTIONS_16 = [
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Configure an S3 ACL that grants public read access." },
-      { id: 'B', text: "Rely on the IAM policy evaluation hierarchy where an explicit Deny in any applicable policy (SCP, identity-based, or permissions boundary) always overrides any explicit Allow." },
+      { id: 'B', text: "An explicit Deny in any applicable policy overrides every Allow." },
       { id: 'C', text: "Configure multiple Allow policies and rely on the policy creation timestamp." },
       { id: 'D', text: "Attach an IAM permission boundary that duplicates developer Allow statements." }
     ],
@@ -264,7 +264,7 @@ export const AWS_DVA_QUESTIONS_16 = [
       { id: 'A', text: "Configure multiple Allow policies and rely on the policy creation timestamp." },
       { id: 'B', text: "Attach an IAM permission boundary that duplicates developer Allow statements." },
       { id: 'C', text: "Configure an S3 ACL that grants public read access." },
-      { id: 'D', text: "Rely on the IAM policy evaluation hierarchy where an explicit Deny in any applicable policy (SCP, identity-based, or permissions boundary) always overrides any explicit Allow." }
+      { id: 'D', text: "An explicit Deny in any applicable policy overrides every Allow." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -283,7 +283,7 @@ export const AWS_DVA_QUESTIONS_16 = [
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Attach an IAM permission boundary that duplicates developer Allow statements." },
-      { id: 'B', text: "Rely on the IAM policy evaluation hierarchy where an explicit Deny in any applicable policy (SCP, identity-based, or permissions boundary) always overrides any explicit Allow." },
+      { id: 'B', text: "An explicit Deny in any applicable policy overrides every Allow." },
       { id: 'C', text: "Configure an S3 ACL that grants public read access." },
       { id: 'D', text: "Configure multiple Allow policies and rely on the policy creation timestamp." }
     ],
@@ -304,7 +304,7 @@ export const AWS_DVA_QUESTIONS_16 = [
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Configure an S3 ACL that grants public read access." },
-      { id: 'B', text: "Rely on the IAM policy evaluation hierarchy where an explicit Deny in any applicable policy (SCP, identity-based, or permissions boundary) always overrides any explicit Allow." },
+      { id: 'B', text: "An explicit Deny in any applicable policy overrides every Allow." },
       { id: 'C', text: "Attach an IAM permission boundary that duplicates developer Allow statements." },
       { id: 'D', text: "Configure multiple Allow policies and rely on the policy creation timestamp." }
     ],
@@ -325,7 +325,7 @@ export const AWS_DVA_QUESTIONS_16 = [
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Configure Amazon GuardDuty to inspect application logs for vulnerability mentions." },
-      { id: 'B', text: "Enable Amazon Inspector enhanced scanning for Amazon ECR with continuous automated vulnerability assessments." },
+      { id: 'B', text: "Enable Inspector enhanced scanning on ECR for continuous assessment." },
       { id: 'C', text: "Deploy an open-source scanner container as an EC2 cron job running weekly." },
       { id: 'D', text: "Run manual container scans on local developer laptops before docker push." }
     ],
@@ -345,7 +345,7 @@ export const AWS_DVA_QUESTIONS_16 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes Amazon Inspector to automatically scan container images for operating system and application package vulnerabilities upon push to Amazon ECR.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Enable Amazon Inspector enhanced scanning for Amazon ECR with continuous automated vulnerability assessments." },
+      { id: 'A', text: "Enable Inspector enhanced scanning on ECR for continuous assessment." },
       { id: 'B', text: "Deploy an open-source scanner container as an EC2 cron job running weekly." },
       { id: 'C', text: "Run manual container scans on local developer laptops before docker push." },
       { id: 'D', text: "Configure Amazon GuardDuty to inspect application logs for vulnerability mentions." }
@@ -366,7 +366,7 @@ export const AWS_DVA_QUESTIONS_16 = [
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes Amazon Inspector to automatically scan container images for operating system and application package vulnerabilities upon push to Amazon ECR.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Enable Amazon Inspector enhanced scanning for Amazon ECR with continuous automated vulnerability assessments." },
+      { id: 'A', text: "Enable Inspector enhanced scanning on ECR for continuous assessment." },
       { id: 'B', text: "Configure Amazon GuardDuty to inspect application logs for vulnerability mentions." },
       { id: 'C', text: "Run manual container scans on local developer laptops before docker push." },
       { id: 'D', text: "Deploy an open-source scanner container as an EC2 cron job running weekly." }
@@ -389,7 +389,7 @@ export const AWS_DVA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Run manual container scans on local developer laptops before docker push." },
       { id: 'B', text: "Configure Amazon GuardDuty to inspect application logs for vulnerability mentions." },
-      { id: 'C', text: "Enable Amazon Inspector enhanced scanning for Amazon ECR with continuous automated vulnerability assessments." },
+      { id: 'C', text: "Enable Inspector enhanced scanning on ECR for continuous assessment." },
       { id: 'D', text: "Deploy an open-source scanner container as an EC2 cron job running weekly." }
     ],
     correctAnswers: ['C'],
@@ -408,7 +408,7 @@ export const AWS_DVA_QUESTIONS_16 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes Amazon Inspector to automatically scan container images for operating system and application package vulnerabilities upon push to Amazon ECR.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Enable Amazon Inspector enhanced scanning for Amazon ECR with continuous automated vulnerability assessments." },
+      { id: 'A', text: "Enable Inspector enhanced scanning on ECR for continuous assessment." },
       { id: 'B', text: "Deploy an open-source scanner container as an EC2 cron job running weekly." },
       { id: 'C', text: "Run manual container scans on local developer laptops before docker push." },
       { id: 'D', text: "Configure Amazon GuardDuty to inspect application logs for vulnerability mentions." }

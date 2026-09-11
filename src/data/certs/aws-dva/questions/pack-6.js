@@ -11,14 +11,14 @@ export const AWS_DVA_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "KMS Key Policy" },
       { id: 'B', text: "S3 Bucket Versioning" },
-      { id: 'C', text: "S3 Glacier Vault Lock (InitiateVaultLock and CompleteVaultLock)" },
+      { id: 'C', text: "S3 Glacier Vault Lock" },
       { id: 'D', text: "S3 Glacier Vault Notifications" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "S3 Glacier Vault Lock allows you to easily deploy and enforce compliance controls for individual S3 Glacier vaults with a Vault Lock policy. Once locked with `CompleteVaultLock` within the 24-hour testing window, the policy becomes completely immutable and cannot be deleted or modified.",
     referenceUrl: "https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html",
-    tags: ["S3 Glacier", "Vault Lock", "Compliance"]
+    tags: ["S3 Glacier","Vault Lock","Compliance"]
   },
   {
     id: "aws-dva-127",
@@ -39,7 +39,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "An `EncryptionContext` is an optional set of key-value pairs containing arbitrary, non-secret context data. When provided during `GenerateDataKey` or `Encrypt`, KMS cryptographically binds the context to the ciphertext. The exact same key-value pairs must be provided in the `Decrypt` request, or decryption fails.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context",
-    tags: ["KMS", "Encryption Context", "Security"]
+    tags: ["KMS","Encryption Context","Security"]
   },
   {
     id: "aws-dva-128",
@@ -51,7 +51,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A security auditor requires a comprehensive list of all IAM users in the AWS account, including the status of their passwords, access key creation dates, and when keys were last rotated.",
     question: "Which IAM feature generates this account-wide credential audit file?",
     options: [
-      { id: 'A', text: "IAM Credential Report (GenerateCredentialReport and GetCredentialReport)" },
+      { id: 'A', text: "The IAM credential report" },
       { id: 'B', text: "IAM Access Analyzer" },
       { id: 'C', text: "AWS Trusted Advisor Check" },
       { id: 'D', text: "AWS Config Snapshot" }
@@ -60,7 +60,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "An IAM Credential Report is a downloadable CSV file that lists all IAM users in your account and the status of their credentials, including password enabled status, last password change date, access key active statuses, and last used timestamps.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html",
-    tags: ["IAM", "Credential Report", "Audit"]
+    tags: ["IAM","Credential Report","Audit"]
   },
   {
     id: "aws-dva-129",
@@ -81,7 +81,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "IAM Access Analyzer uses provable security (automated mathematical logic) to analyze resource-based policies attached to S3 buckets, IAM roles, KMS keys, SQS queues, and Secrets Manager secrets, generating findings whenever resources are accessible from outside the zone of trust.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html",
-    tags: ["IAM", "Access Analyzer", "Security"]
+    tags: ["IAM","Access Analyzer","Security"]
   },
   {
     id: "aws-dva-130",
@@ -94,7 +94,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     question: "How should the developer replicate secrets across regions in Secrets Manager?",
     options: [
       { id: 'A', text: "Write a cron job that calls PutSecretValue in both regions" },
-      { id: 'B', text: "Export the secret to an unencrypted public S3 bucket" },
+      { id: 'B', text: "Create a separate secret in each region and keep them in step by hand" },
       { id: 'C', text: "Deploy an SQS queue to pass passwords across regions" },
       { id: 'D', text: "Configure Multi-Region Secret Replication on the secret in Secrets Manager" }
     ],
@@ -102,7 +102,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS Secrets Manager supports native multi-region secret replication. You create a primary secret in one region and replicate it to secondary regions. Secrets Manager automatically synchronizes secret values and rotation updates across all replica regions.",
     referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/create-manage-multi-region-secrets.html",
-    tags: ["Secrets Manager", "Replication", "Multi-Region"]
+    tags: ["Secrets Manager","Replication","Multi-Region"]
   },
   {
     id: "aws-dva-131",
@@ -123,7 +123,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS Systems Manager Session Manager provides secure instance management without opening inbound ports, managing SSH keys, or deploying bastion hosts. Connections are authenticated through IAM, encrypted via TLS, and logged to Amazon S3 or CloudWatch Logs.",
     referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html",
-    tags: ["Systems Manager", "Session Manager", "Security"]
+    tags: ["Systems Manager","Session Manager","Security"]
   },
   {
     id: "aws-dva-132",
@@ -144,7 +144,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "The `User Migration` Lambda trigger is invoked when a user attempts to sign in with a username that does not exist in the Cognito user pool. The Lambda function authenticates the user against the legacy user directory, imports the profile and password into Cognito, and allows the login to proceed seamlessly without a password reset.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-migrate-user.html",
-    tags: ["Cognito", "User Migration", "Migration"]
+    tags: ["Cognito","User Migration","Migration"]
   },
   {
     id: "aws-dva-133",
@@ -165,7 +165,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "API Gateway can generate an SSL client certificate. When API Gateway makes HTTP requests to a backend HTTP endpoint, it presents the client certificate during the TLS handshake. The backend verifies the certificate to ensure traffic came exclusively from that API Gateway stage.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html",
-    tags: ["API Gateway", "Client Certificates", "Security"]
+    tags: ["API Gateway","Client Certificates","Security"]
   },
   {
     id: "aws-dva-134",
@@ -186,7 +186,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "Enabling `Requester Pays` on an S3 bucket transfers the cost of requests and data download transfers from the bucket owner to the requesting AWS account. Callers must include `x-amz-request-payer=requester` in their requests and authenticate with valid AWS credentials.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html",
-    tags: ["S3", "Requester Pays", "Billing"]
+    tags: ["S3","Requester Pays","Billing"]
   },
   {
     id: "aws-dva-135",
@@ -207,7 +207,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "The `AbortIncompleteMultipartUpload` lifecycle action instructs Amazon S3 to abort any multipart uploads that have not completed within a specified number of days after initiation, permanently deleting the accumulated partial upload parts and eliminating ongoing storage costs.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpu-abort-incomplete-mpu-lifecycle-config.html",
-    tags: ["S3", "Lifecycle", "Multipart Upload"]
+    tags: ["S3","Lifecycle","Multipart Upload"]
   },
   {
     id: "aws-dva-136",
@@ -228,7 +228,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "A KMS Alias is a friendly, mutable display name (e.g. `alias/financial-data`) that maps to a specific KMS key ID. Developers configure applications to reference the alias, allowing administrators to update the underlying key ID (`UpdateAlias`) without modifying application code.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html",
-    tags: ["KMS", "Aliases", "Key Management"]
+    tags: ["KMS","Aliases","Key Management"]
   },
   {
     id: "aws-dva-137",
@@ -240,7 +240,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A developer uses an assumed role to execute an 8-hour batch data processing job. By default, the temporary STS credentials expire after 1 hour.",
     question: "How should the administrator extend the validity of credentials obtained when assuming the role?",
     options: [
-      { id: 'A', text: "Increase the Maximum Session Duration setting on the IAM role up to 12 hours (43,200 seconds)" },
+      { id: 'A', text: "Raise the role maximum session duration" },
       { id: 'B', text: "Request an IAM root user password reset" },
       { id: 'C', text: "Generate a new access key with no expiration date" },
       { id: 'D', text: "Switch to an IAM user instead of a role" }
@@ -249,7 +249,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "IAM roles have a `MaxSessionDuration` setting that can be configured between 1 hour (3,600 seconds) and 12 hours (43,200 seconds). Callers specify their desired duration when calling `sts:AssumeRole` up to this maximum limit.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-modify_max-session-duration",
-    tags: ["IAM", "Roles", "Session Duration"]
+    tags: ["IAM","Roles","Session Duration"]
   },
   {
     id: "aws-dva-138",
@@ -263,14 +263,14 @@ export const AWS_DVA_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Cognito User Pool Groups" },
       { id: 'B', text: "S3 Bucket Policies" },
-      { id: 'C', text: "Role-Based Access Control (RBAC) with hardcoded ARNs" },
-      { id: 'D', text: "Attribute-Based Access Control (ABAC) using the aws:ResourceTag and aws:PrincipalTag condition keys" }
+      { id: 'C', text: "Separate IAM roles per project, assumed by each team" },
+      { id: 'D', text: "ABAC on aws:ResourceTag and aws:PrincipalTag" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Attribute-Based Access Control (ABAC) uses IAM policies that compare tags attached to the IAM principal (`aws:PrincipalTag/Project`) with tags attached to the AWS resource (`aws:ResourceTag/Project`), allowing dynamic, scalable access control without updating policies when new resources are added.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html",
-    tags: ["IAM", "ABAC", "Secrets Manager"]
+    tags: ["IAM","ABAC","Secrets Manager"]
   },
   {
     id: "aws-dva-139",
@@ -291,7 +291,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "Systems Manager Parameter Store publishes events to Amazon EventBridge whenever parameters are created, updated, or deleted. EventBridge rules match parameter change events and trigger downstream targets like Lambda functions or SNS topics.",
     referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-events.html",
-    tags: ["Parameter Store", "EventBridge", "Automation"]
+    tags: ["Parameter Store","EventBridge","Automation"]
   },
   {
     id: "aws-dva-140",
@@ -312,7 +312,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "Cognito User Pools support `Device Tracking`. When devices are 'Remembered', Cognito generates a device key and verifies the device during login, allowing applications to bypass second-factor MFA challenges on trusted devices while enforcing MFA on unknown devices.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html",
-    tags: ["Cognito", "Device Tracking", "MFA"]
+    tags: ["Cognito","Device Tracking","MFA"]
   },
   {
     id: "aws-dva-141",
@@ -325,7 +325,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     question: "How does the Enhanced (Simplified) Authflow improve client performance?",
     options: [
       { id: 'A', text: "The client connects directly to DynamoDB without credentials" },
-      { id: 'B', text: "The client receives temporary AWS credentials directly from Cognito in a single API call to GetCredentialsForIdentity" },
+      { id: 'B', text: "One GetCredentialsForIdentity call returns the credentials" },
       { id: 'C', text: "The client downloads a long-term IAM access key file" },
       { id: 'D', text: "Cognito disables token verification completely" }
     ],
@@ -333,7 +333,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "In the Enhanced (Simplified) Authflow, Amazon Cognito acts on behalf of the client to request credentials from STS, allowing the client to obtain temporary credentials in a single `GetCredentialsForIdentity` call rather than separate `GetId`, `GetOpenIdToken`, and `AssumeRoleWithWebIdentity` calls.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html",
-    tags: ["Cognito", "Identity Pools", "Enhanced Authflow"]
+    tags: ["Cognito","Identity Pools","Enhanced Authflow"]
   },
   {
     id: "aws-dva-142",
@@ -354,7 +354,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "API Gateway Resource Policies support IP condition operators (`IpAddress` and `NotIpAddress`). A policy granting access only when `\"IpAddress\": { \"aws:SourceIp\": \"203.0.113.50/32\" }` ensures requests from other IP addresses are rejected.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies-examples.html#apigateway-resource-policies-source-ip-example",
-    tags: ["API Gateway", "Resource Policy", "IP Whitelisting"]
+    tags: ["API Gateway","Resource Policy","IP Whitelisting"]
   },
   {
     id: "aws-dva-143",
@@ -375,7 +375,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "S3 Versioning supports `MFA Delete`. When enabled via the AWS CLI using root account credentials, deleting an object version or altering the bucket versioning state requires the caller to provide an MFA code from a hardware or virtual TOTP device.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html",
-    tags: ["S3", "MFA Delete", "Security"]
+    tags: ["S3","MFA Delete","Security"]
   },
   {
     id: "aws-dva-144",
@@ -396,7 +396,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "The `RetireGrant` API allows the grantee principal (or the principal that created the grant) to voluntarily retire the grant when it is done using the KMS key. In contrast, `RevokeGrant` is typically called by administrators using key management permissions.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#retire-grant",
-    tags: ["KMS", "Grants", "RetireGrant"]
+    tags: ["KMS","Grants","RetireGrant"]
   },
   {
     id: "aws-dva-145",
@@ -410,14 +410,14 @@ export const AWS_DVA_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Cognito Sync" },
       { id: 'B', text: "IAM Credential Reports" },
-      { id: 'C', text: "Cognito Advanced Security Features (Adaptive Authentication)" },
+      { id: 'C', text: "Adaptive authentication" },
       { id: 'D', text: "Cognito Identity Pools Basic Auth" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Cognito User Pools `Advanced Security Features` provide adaptive authentication and compromised credential monitoring. When suspicious sign-in attempts or brute-force password attacks are detected, Cognito can challenge the user for additional verification or temporarily block the account.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html",
-    tags: ["Cognito", "Advanced Security", "Adaptive Authentication"]
+    tags: ["Cognito","Advanced Security","Adaptive Authentication"]
   },
   {
     id: "aws-dva-146",
@@ -438,7 +438,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS CodeBuild executes build specifications across four distinct phases: `install` (installing build tools and runtimes like JDK or Python), `pre_build` (logging into ECR or installing dependencies), `build` (compiling code and running tests), and `post_build` (packaging artifacts and sending notifications).",
     referenceUrl: "https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html",
-    tags: ["CodeBuild", "buildspec.yml", "CI/CD"]
+    tags: ["CodeBuild","buildspec.yml","CI/CD"]
   },
   {
     id: "aws-dva-147",
@@ -450,16 +450,16 @@ export const AWS_DVA_QUESTIONS_6 = [
     scenario: "A Node.js project on AWS CodeBuild takes 12 minutes to build, with 8 minutes spent repeatedly downloading `node_modules` on every run.",
     question: "How should the developer configure `buildspec.yml` to speed up build times?",
     options: [
-      { id: 'A', text: "Configure the cache section in buildspec.yml to cache the node_modules directory in Amazon S3" },
-      { id: 'B', text: "Store dependencies in an unversioned Git branch" },
-      { id: 'C', text: "Hardcode node_modules inside the base Docker container image" },
+      { id: 'A', text: "A cache section in buildspec.yml for node_modules" },
+      { id: 'B', text: "Commit node_modules to the repository so the build skips the install" },
+      { id: 'C', text: "Bake node_modules into a custom CodeBuild image rebuilt on each change" },
       { id: 'D', text: "Disable unit tests during the build phase" }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "AWS CodeBuild supports caching project dependencies in Amazon S3 or a local Docker cache. Specifying directories in the `cache: paths:` block of `buildspec.yml` (e.g. `node_modules/**/*`) reuses dependencies across builds, slashing build durations.",
     referenceUrl: "https://docs.aws.amazon.com/codebuild/latest/userguide/build-caching.html",
-    tags: ["CodeBuild", "Caching", "Performance"]
+    tags: ["CodeBuild","Caching","Performance"]
   },
   {
     id: "aws-dva-148",
@@ -480,7 +480,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "In CodeDeploy `appspec.yml` for EC2/on-premises deployments, the `ValidateService` hook is the final lifecycle event executed to verify that the application has started correctly and is responding to health checks. If the script fails, CodeDeploy triggers an automated rollback.",
     referenceUrl: "https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html",
-    tags: ["CodeDeploy", "appspec.yml", "Lifecycle Hooks"]
+    tags: ["CodeDeploy","appspec.yml","Lifecycle Hooks"]
   },
   {
     id: "aws-dva-149",
@@ -501,7 +501,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "For AWS Lambda deployments, CodeDeploy defines two lifecycle hooks: `BeforeAllowTraffic` (executes a validation Lambda function before any production traffic is shifted to the new version) and `AfterAllowTraffic` (executes validation tests after all traffic has shifted).",
     referenceUrl: "https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda",
-    tags: ["CodeDeploy", "Lambda", "Hooks"]
+    tags: ["CodeDeploy","Lambda","Hooks"]
   },
   {
     id: "aws-dva-150",
@@ -522,7 +522,7 @@ export const AWS_DVA_QUESTIONS_6 = [
     type: "single",
     explanation: "The `Canary10Percent10Minutes` deployment configuration shifts 10% of traffic in the first increment, waits 10 minutes, and then shifts the remaining 90% in the second increment. In contrast, `Linear` configurations shift equal percentages at regular intervals (e.g. 10% every minute until 100%).",
     referenceUrl: "https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html",
-    tags: ["CodeDeploy", "Canary", "Configurations"]
+    tags: ["CodeDeploy","Canary","Configurations"]
   }
 ];
 

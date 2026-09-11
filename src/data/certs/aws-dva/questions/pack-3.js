@@ -11,14 +11,14 @@ export const AWS_DVA_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "Copy each endpoint manually into the console using the click-through wizard" },
       { id: 'B', text: "Compile the OpenAPI file into a Linux kernel module" },
-      { id: 'C', text: "Use the API Gateway Import API or aws apigateway put-rest-api with AWS extensions (x-amazon-apigateway-*)" },
+      { id: 'C', text: "Use the Import API with the x-amazon-apigateway extensions" },
       { id: 'D', text: "Convert the YAML file into an S3 bucket lifecycle policy" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "API Gateway natively supports importing OpenAPI 2.0 (Swagger) and 3.0 definitions. By adding `x-amazon-apigateway-*` vendor extensions, developers can define integrations, authorizers, and CORS configurations directly in OpenAPI files and deploy them via the AWS CLI or CI/CD pipelines.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html",
-    tags: ["API Gateway", "OpenAPI", "Swagger"]
+    tags: ["API Gateway","OpenAPI","Swagger"]
   },
   {
     id: "aws-dva-52",
@@ -31,7 +31,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     question: "How can an authorized client bypass or invalidate the cache for an individual request?",
     options: [
       { id: 'A', text: "Change the REST API deployment ID" },
-      { id: 'B', text: "Include the Cache-Control: max-age=0 header in the request with appropriate IAM execute-api:InvalidateCache permissions" },
+      { id: 'B', text: "Send Cache-Control: max-age=0 with the InvalidateCache right" },
       { id: 'C', text: "Delete and recreate the API Gateway stage" },
       { id: 'D', text: "Restart the API Gateway service from the management console" }
     ],
@@ -39,7 +39,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "Callers with `execute-api:InvalidateCache` IAM permissions can send a `Cache-Control: max-age=0` header in the HTTP request. API Gateway bypasses the cache, queries the backend, and refreshes the cache entry for that specific cache key without clearing the entire cache.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html",
-    tags: ["API Gateway", "Caching", "Cache Invalidation"]
+    tags: ["API Gateway","Caching","Cache Invalidation"]
   },
   {
     id: "aws-dva-53",
@@ -60,7 +60,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "In API Gateway, enabling 'X-Ray Tracing' in Stage settings instructs API Gateway to sample incoming requests, generate the `X-Amzn-Trace-Id` header, and emit trace segments to AWS X-Ray, providing an end-to-end distributed trace across downstream Lambda functions and AWS services.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-xray.html",
-    tags: ["API Gateway", "X-Ray", "Distributed Tracing"]
+    tags: ["API Gateway","X-Ray","Distributed Tracing"]
   },
   {
     id: "aws-dva-54",
@@ -81,7 +81,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "API Gateway REST and HTTP APIs have a hard maximum integration execution timeout of 29 seconds across all integration types (Lambda, HTTP, AWS Services). Operations requiring longer computation must be handled asynchronously via queues, Step Functions, or WebSockets.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html",
-    tags: ["API Gateway", "Limits", "Timeout"]
+    tags: ["API Gateway","Limits","Timeout"]
   },
   {
     id: "aws-dva-55",
@@ -93,7 +93,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     scenario: "A company hosts their API Gateway in Account A and wants it to invoke a backend Lambda function residing in Account B.",
     question: "Which configuration allows API Gateway in Account A to invoke the Lambda function in Account B?",
     options: [
-      { id: 'A', text: "Grant lambda:InvokeFunction permissions to the API Gateway execution ARN in the Lambda resource-based policy in Account B" },
+      { id: 'A', text: "Grant lambda:InvokeFunction to the API execution ARN in Account B" },
       { id: 'B', text: "Attach a DynamoDB stream between the two accounts" },
       { id: 'C', text: "Create an IAM user in Account A and embed access keys in the API request headers" },
       { id: 'D', text: "Configure an S3 bucket policy in Account B with public read access" }
@@ -102,7 +102,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "Cross-account Lambda invocation from API Gateway requires adding a permission to the Lambda function's resource-based policy in Account B, granting `lambda:InvokeFunction` to the service principal `apigateway.amazonaws.com` with a source ARN matching the API Gateway in Account A (`arn:aws:execute-api:...`).",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-cross-account-lambda.html",
-    tags: ["API Gateway", "Lambda", "Cross-Account"]
+    tags: ["API Gateway","Lambda","Cross-Account"]
   },
   {
     id: "aws-dva-56",
@@ -114,7 +114,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     scenario: "An online retail store experiences throttling on a DynamoDB table during sales because all orders for today share the partition key `2026-09-03`.",
     question: "How should the developer redesign the primary key to distribute read and write traffic evenly across storage partitions?",
     options: [
-      { id: 'A', text: "Use a composite primary key with high-cardinality attributes like customer ID or append random suffix hashes (write sharding)" },
+      { id: 'A', text: "A high-cardinality composite key, or write sharding" },
       { id: 'B', text: "Decrease the provisioned write capacity units (WCU)" },
       { id: 'C', text: "Scan the entire table instead of querying" },
       { id: 'D', text: "Use a boolean attribute (active=true) as the partition key" }
@@ -123,7 +123,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "DynamoDB partitions data based on the MD5 hash of the partition key. High-cardinality attributes (such as UUIDs, customer IDs, or hash-sharded dates) ensure even distribution of I/O across underlying partitions, preventing hot partitions. Low-cardinality keys concentrate traffic on a single partition and cause throttling.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html",
-    tags: ["DynamoDB", "Partition Key", "Scalability"]
+    tags: ["DynamoDB","Partition Key","Scalability"]
   },
   {
     id: "aws-dva-57",
@@ -136,7 +136,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     question: "How can the developer optimize this retrieval to consume minimal read capacity units?",
     options: [
       { id: 'A', text: "Execute the Scan operation using multiple threads in parallel" },
-      { id: 'B', text: "Create a Global Secondary Index with category as the partition key and use the Query API" },
+      { id: 'B', text: "Create a GSI with category as partition key and query it" },
       { id: 'C', text: "Export the table to S3 on every read operation" },
       { id: 'D', text: "Double the provisioned read capacity units (RCU) on the base table" }
     ],
@@ -144,7 +144,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "A `Query` operation directly accesses items matching a specific partition key value and optional sort key condition, consuming capacity only for matching items. In contrast, a `Scan` reads every single item in the entire table before applying the filter expression, consuming massive RCU.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-query-scan.html",
-    tags: ["DynamoDB", "Query", "Scan", "Optimization"]
+    tags: ["DynamoDB","Query","Scan","Optimization"]
   },
   {
     id: "aws-dva-58",
@@ -165,7 +165,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "A `Strongly Consistent Read` returns a response with the most up-to-date data, reflecting all successful write operations that occurred prior to the read. It costs 1 Read Capacity Unit (RCU) per 4 KB, whereas an `Eventually Consistent Read` costs 0.5 RCU per 4 KB but may return stale data.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html",
-    tags: ["DynamoDB", "Read Consistency", "RCU"]
+    tags: ["DynamoDB","Read Consistency","RCU"]
   },
   {
     id: "aws-dva-59",
@@ -186,7 +186,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "A Global Secondary Index (GSI) can have a partition key and sort key that differ from the base table, queries across all partitions, can be added or deleted at any time, and has its own independently provisioned read/write capacity. An LSI must share the base table partition key and can only be created at table creation time.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html",
-    tags: ["DynamoDB", "GSI", "LSI", "Indexes"]
+    tags: ["DynamoDB","GSI","LSI","Indexes"]
   },
   {
     id: "aws-dva-60",
@@ -207,7 +207,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "Optimistic locking in DynamoDB uses a version attribute (e.g. `versionNumber`). When updating an item, the client increments the version and supplies a `ConditionExpression: versionNumber = :currentVersion`. If another process modified the item in the interim, the condition fails with `ConditionalCheckFailedException`, allowing the application to retry.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html#WorkingWithItems.ConditionalUpdate",
-    tags: ["DynamoDB", "Optimistic Locking", "ConditionExpression"]
+    tags: ["DynamoDB","Optimistic Locking","ConditionExpression"]
   },
   {
     id: "aws-dva-61",
@@ -228,7 +228,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "`TransactWriteItems` provides ACID transaction guarantees, executing up to 100 write actions or 4 MB of data atomically across multiple items and tables. If any single condition check or write operation fails, the entire transaction is cancelled and rolled back. `BatchWriteItem` performs independent writes without atomicity.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/transaction-apis.html",
-    tags: ["DynamoDB", "Transactions", "TransactWriteItems"]
+    tags: ["DynamoDB","Transactions","TransactWriteItems"]
   },
   {
     id: "aws-dva-62",
@@ -249,7 +249,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "DynamoDB Streams captures a time-ordered sequence of item-level modifications (inserts, updates, deletes) in a DynamoDB table and stores them for up to 24 hours. Attaching an AWS Lambda trigger allows real-time, event-driven processing of every database modification.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html",
-    tags: ["DynamoDB", "DynamoDB Streams", "Event-Driven"]
+    tags: ["DynamoDB","DynamoDB Streams","Event-Driven"]
   },
   {
     id: "aws-dva-63",
@@ -270,7 +270,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "DynamoDB Time to Live (TTL) automatically identifies and purges expired items based on a timestamp attribute formatted in Unix epoch seconds. Deletions performed by TTL do not consume provisioned read or write capacity units, saving costs.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html",
-    tags: ["DynamoDB", "TTL", "Cost Optimization"]
+    tags: ["DynamoDB","TTL","Cost Optimization"]
   },
   {
     id: "aws-dva-64",
@@ -291,7 +291,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "DynamoDB Accelerator (DAX) is a fully managed, highly available in-memory cache specifically designed for DynamoDB. It provides microsecond response times for read-heavy workloads and is API-compatible, requiring minimal SDK client changes without altering data models.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.html",
-    tags: ["DynamoDB", "DAX", "Caching", "Performance"]
+    tags: ["DynamoDB","DAX","Caching","Performance"]
   },
   {
     id: "aws-dva-65",
@@ -312,7 +312,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "One Write Capacity Unit (WCU) provides one write per second for an item up to 1 KB in size. An item of 2.5 KB rounds up to the next 1 KB boundary (3 KB), requiring 3 WCU per item. For 10 items per second: 10 * 3 = 30 WCU.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html",
-    tags: ["DynamoDB", "WCU", "Capacity Planning"]
+    tags: ["DynamoDB","WCU","Capacity Planning"]
   },
   {
     id: "aws-dva-66",
@@ -333,7 +333,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "One Read Capacity Unit (RCU) provides one strongly consistent read per second for an item up to 4 KB. An item of 7.5 KB rounds up to the next 4 KB boundary (8 KB), requiring 2 RCU per item. For 10 reads per second: 10 * 2 = 20 RCU.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html",
-    tags: ["DynamoDB", "RCU", "Capacity Planning"]
+    tags: ["DynamoDB","RCU","Capacity Planning"]
   },
   {
     id: "aws-dva-67",
@@ -354,7 +354,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "A `ProjectionExpression` specifies the exact attributes to return from an item, reducing payload size and network serialization overhead over the wire. `FilterExpression` filters results after the read operation has completed on the partition but does not reduce consumed RCU.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ProjectionExpressions.html",
-    tags: ["DynamoDB", "ProjectionExpression", "Performance"]
+    tags: ["DynamoDB","ProjectionExpression","Performance"]
   },
   {
     id: "aws-dva-68",
@@ -367,7 +367,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     question: "How should the client application retrieve the next page of query results?",
     options: [
       { id: 'A', text: "Use a Scan operation with a random offset" },
-      { id: 'B', text: "Pass the LastEvaluatedKey from the previous response as the ExclusiveStartKey in the subsequent Query request" },
+      { id: 'B', text: "Pass LastEvaluatedKey back as ExclusiveStartKey" },
       { id: 'C', text: "Repeat the exact same query with double the RCU" },
       { id: 'D', text: "Increase the DynamoDB single response limit to 100 MB" }
     ],
@@ -375,7 +375,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "DynamoDB limits query responses to 1 MB. When matching data exceeds 1 MB, DynamoDB returns `LastEvaluatedKey`. The client passes this value into `ExclusiveStartKey` on the next Query call to resume retrieval from that point.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.Pagination.html",
-    tags: ["DynamoDB", "Pagination", "LastEvaluatedKey"]
+    tags: ["DynamoDB","Pagination","LastEvaluatedKey"]
   },
   {
     id: "aws-dva-69",
@@ -388,7 +388,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     question: "Which SQS queue type should the developer select?",
     options: [
       { id: 'A', text: "Amazon SQS dead letter queue" },
-      { id: 'B', text: "Amazon SQS FIFO queue with MessageGroupId and MessageDeduplicationId" },
+      { id: 'B', text: "A FIFO queue with a message group ID" },
       { id: 'C', text: "Amazon SNS standard topic" },
       { id: 'D', text: "Amazon SQS standard queue with long polling" }
     ],
@@ -396,7 +396,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "Amazon SQS FIFO (First-In-First-Out) queues preserve the exact order in which messages are sent and received, and provide exactly-once processing using message deduplication IDs and message group IDs. Standard queues offer high throughput but cannot guarantee strict ordering or prevent duplicates.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html",
-    tags: ["SQS", "FIFO", "Messaging"]
+    tags: ["SQS","FIFO","Messaging"]
   },
   {
     id: "aws-dva-70",
@@ -408,7 +408,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     scenario: "A worker process consumes a message from SQS. Message processing usually takes 20 seconds, but complex jobs can take up to 90 seconds. The queue visibility timeout is 30 seconds.",
     question: "How can the worker prevent other consumers from picking up and processing the message while it is still working on the job?",
     options: [
-      { id: 'A', text: "Call the ChangeMessageVisibility API to extend the visibility timeout before the initial 30 seconds expires" },
+      { id: 'A', text: "Call ChangeMessageVisibility before the timeout expires" },
       { id: 'B', text: "Delete the message immediately when received and recreate it if processing fails" },
       { id: 'C', text: "Increase the SQS delay seconds on the queue" },
       { id: 'D', text: "Configure a Dead Letter Queue with maximum receive count set to 1" }
@@ -417,7 +417,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "When a consumer needs more time to finish processing a message, it can extend the visibility window by calling `ChangeMessageVisibility` periodically, preventing the message from becoming visible to other workers while processing continues.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html",
-    tags: ["SQS", "Visibility Timeout", "ChangeMessageVisibility"]
+    tags: ["SQS","Visibility Timeout","ChangeMessageVisibility"]
   },
   {
     id: "aws-dva-71",
@@ -429,7 +429,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     scenario: "An application polls an SQS queue continuously. When the queue is empty, the application generates millions of empty ReceiveMessage calls, resulting in high AWS API costs.",
     question: "How should the developer configure polling to eliminate empty responses and reduce costs?",
     options: [
-      { id: 'A', text: "Enable Long Polling by setting ReceiveMessageWaitTimeSeconds to a value between 1 and 20 seconds" },
+      { id: 'A', text: "Enable long polling with ReceiveMessageWaitTimeSeconds" },
       { id: 'B', text: "Increase the polling frequency to 1 millisecond intervals" },
       { id: 'C', text: "Deploy an EC2 instance that sleeps for 24 hours" },
       { id: 'D', text: "Switch from SQS to an S3 bucket lifecycle rule" }
@@ -438,7 +438,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "SQS Long Polling (`ReceiveMessageWaitTimeSeconds` up to 20 seconds) keeps the HTTP connection open until a message arrives or the timeout expires, drastically reducing false empty responses, network traffic, and API request costs.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.html",
-    tags: ["SQS", "Long Polling", "Cost Optimization"]
+    tags: ["SQS","Long Polling","Cost Optimization"]
   },
   {
     id: "aws-dva-72",
@@ -450,7 +450,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     scenario: "A consumer fails to process a corrupted message from an SQS queue. The message returns to the queue repeatedly, wasting worker compute cycles in an infinite loop.",
     question: "Which configuration isolates poisoned messages after 5 failed attempts?",
     options: [
-      { id: 'A', text: "Configure a Dead Letter Queue (DLQ) with a Redrive Policy setting maxReceiveCount to 5" },
+      { id: 'A', text: "A dead letter queue with maxReceiveCount of 5" },
       { id: 'B', text: "Set the queue visibility timeout to 0 seconds" },
       { id: 'C', text: "Enable SQS message deduplication with content-based hashing" },
       { id: 'D', text: "Delete the queue and recreate it" }
@@ -459,7 +459,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "A Redrive Policy directs SQS to move a message to a designated Dead Letter Queue (DLQ) after it has been received and failed `maxReceiveCount` times (e.g. 5), allowing developers to analyze and remediate poisoned messages without blocking queue consumers.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html",
-    tags: ["SQS", "DLQ", "Redrive Policy"]
+    tags: ["SQS","DLQ","Redrive Policy"]
   },
   {
     id: "aws-dva-73",
@@ -471,7 +471,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     scenario: "An e-commerce order placement event must trigger three independent backend systems: Payment Processing, Fraud Detection, and Inventory Management. Each service must process events asynchronously at its own pace.",
     question: "Which architectural pattern satisfies these requirements?",
     options: [
-      { id: 'A', text: "Publish the order event to an Amazon SNS topic and subscribe three dedicated Amazon SQS queues to the topic (Fanout pattern)" },
+      { id: 'A', text: "Publish the event to an SNS topic and subscribe three SQS queues" },
       { id: 'B', text: "Have each service poll the database directly using cron jobs" },
       { id: 'C', text: "Send the order event to a single SQS queue and let all three services compete for messages" },
       { id: 'D', text: "Create three separate API Gateway endpoints that write synchronously to S3" }
@@ -480,7 +480,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "The SNS Fanout pattern publishes a single message to an Amazon SNS topic, which immediately replicates and fans out the message to multiple subscribed Amazon SQS queues. Each downstream service processes messages from its own queue independently and reliably.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sns-subs-queue.html",
-    tags: ["SNS", "SQS", "Fanout", "Architecture"]
+    tags: ["SNS","SQS","Fanout","Architecture"]
   },
   {
     id: "aws-dva-74",
@@ -501,7 +501,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "SNS Subscription Filter Policies evaluate incoming message attributes (or message body in newer SNS configurations) against defined JSON policies. Non-matching messages are discarded before delivery, preventing unnecessary queue pollution and compute overhead.",
     referenceUrl: "https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html",
-    tags: ["SNS", "Subscription Filter Policy", "Messaging"]
+    tags: ["SNS","Subscription Filter Policy","Messaging"]
   },
   {
     id: "aws-dva-75",
@@ -522,7 +522,7 @@ export const AWS_DVA_QUESTIONS_3 = [
     type: "single",
     explanation: "Amazon EventBridge is a serverless event bus that connects application data from SaaS partners, custom microservices, and AWS services. EventBridge rules use declarative JSON event patterns to inspect event metadata and route events to over 20 AWS targets without custom routing code.",
     referenceUrl: "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is-how-it-works.html",
-    tags: ["EventBridge", "Event Bus", "EDA"]
+    tags: ["EventBridge","Event Bus","EDA"]
   }
 ];
 

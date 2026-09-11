@@ -10,7 +10,7 @@ export const AWS_DVA_QUESTIONS_13 = [
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Deploy an Amazon SNS HTTP topic with client browser subscriptions." },
-      { id: 'B', text: "Deploy an Amazon API Gateway WebSocket API, store connection IDs in Amazon DynamoDB upon `$connect`, and use the `@connections` API to push messages to connected clients." },
+      { id: 'B', text: "A WebSocket API storing connection IDs in DynamoDB, pushed via `@connections`." },
       { id: 'C', text: "Deploy an Amazon API Gateway REST API with client polling every 500 milliseconds." },
       { id: 'D', text: "Deploy an Application Load Balancer with long polling HTTP request handlers." }
     ],
@@ -31,7 +31,7 @@ export const AWS_DVA_QUESTIONS_13 = [
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Deploy an Amazon SNS HTTP topic with client browser subscriptions." },
-      { id: 'B', text: "Deploy an Amazon API Gateway WebSocket API, store connection IDs in Amazon DynamoDB upon `$connect`, and use the `@connections` API to push messages to connected clients." },
+      { id: 'B', text: "A WebSocket API storing connection IDs in DynamoDB, pushed via `@connections`." },
       { id: 'C', text: "Deploy an Application Load Balancer with long polling HTTP request handlers." },
       { id: 'D', text: "Deploy an Amazon API Gateway REST API with client polling every 500 milliseconds." }
     ],
@@ -51,7 +51,7 @@ export const AWS_DVA_QUESTIONS_13 = [
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes Amazon API Gateway to build a real-time collaborative chat application with persistent two-way communication between clients and backend microservices.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy an Amazon API Gateway WebSocket API, store connection IDs in Amazon DynamoDB upon `$connect`, and use the `@connections` API to push messages to connected clients." },
+      { id: 'A', text: "A WebSocket API storing connection IDs in DynamoDB, pushed via `@connections`." },
       { id: 'B', text: "Deploy an Application Load Balancer with long polling HTTP request handlers." },
       { id: 'C', text: "Deploy an Amazon SNS HTTP topic with client browser subscriptions." },
       { id: 'D', text: "Deploy an Amazon API Gateway REST API with client polling every 500 milliseconds." }
@@ -73,7 +73,7 @@ export const AWS_DVA_QUESTIONS_13 = [
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Deploy an Application Load Balancer with long polling HTTP request handlers." },
-      { id: 'B', text: "Deploy an Amazon API Gateway WebSocket API, store connection IDs in Amazon DynamoDB upon `$connect`, and use the `@connections` API to push messages to connected clients." },
+      { id: 'B', text: "A WebSocket API storing connection IDs in DynamoDB, pushed via `@connections`." },
       { id: 'C', text: "Deploy an Amazon SNS HTTP topic with client browser subscriptions." },
       { id: 'D', text: "Deploy an Amazon API Gateway REST API with client polling every 500 milliseconds." }
     ],
@@ -94,7 +94,7 @@ export const AWS_DVA_QUESTIONS_13 = [
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Deploy an Amazon API Gateway REST API with client polling every 500 milliseconds." },
-      { id: 'B', text: "Deploy an Amazon API Gateway WebSocket API, store connection IDs in Amazon DynamoDB upon `$connect`, and use the `@connections` API to push messages to connected clients." },
+      { id: 'B', text: "A WebSocket API storing connection IDs in DynamoDB, pushed via `@connections`." },
       { id: 'C', text: "Deploy an Amazon SNS HTTP topic with client browser subscriptions." },
       { id: 'D', text: "Deploy an Application Load Balancer with long polling HTTP request handlers." }
     ],
@@ -115,7 +115,7 @@ export const AWS_DVA_QUESTIONS_13 = [
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Embed AWS IAM access keys in the mobile application binary with restricted S3 permissions." },
-      { id: 'B', text: "Generate an Amazon S3 presigned PUT URL with a short expiration window on the application backend and provide it to the mobile client for direct upload." },
+      { id: 'B', text: "Generate a short-lived presigned S3 PUT URL for the mobile client." },
       { id: 'C', text: "Stream video chunks through an Amazon API Gateway REST API backed by AWS Lambda." },
       { id: 'D', text: "Configure the Amazon S3 bucket with public write access enabled via bucket policy." }
     ],
@@ -135,7 +135,7 @@ export const AWS_DVA_QUESTIONS_13 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes Amazon S3 to allow mobile application users to upload multi-gigabyte video files directly to an Amazon S3 bucket without streaming through application servers or exposing AWS credentials.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Generate an Amazon S3 presigned PUT URL with a short expiration window on the application backend and provide it to the mobile client for direct upload." },
+      { id: 'A', text: "Generate a short-lived presigned S3 PUT URL for the mobile client." },
       { id: 'B', text: "Embed AWS IAM access keys in the mobile application binary with restricted S3 permissions." },
       { id: 'C', text: "Configure the Amazon S3 bucket with public write access enabled via bucket policy." },
       { id: 'D', text: "Stream video chunks through an Amazon API Gateway REST API backed by AWS Lambda." }
@@ -159,7 +159,7 @@ export const AWS_DVA_QUESTIONS_13 = [
       { id: 'A', text: "Configure the Amazon S3 bucket with public write access enabled via bucket policy." },
       { id: 'B', text: "Embed AWS IAM access keys in the mobile application binary with restricted S3 permissions." },
       { id: 'C', text: "Stream video chunks through an Amazon API Gateway REST API backed by AWS Lambda." },
-      { id: 'D', text: "Generate an Amazon S3 presigned PUT URL with a short expiration window on the application backend and provide it to the mobile client for direct upload." }
+      { id: 'D', text: "Generate a short-lived presigned S3 PUT URL for the mobile client." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -179,7 +179,7 @@ export const AWS_DVA_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Stream video chunks through an Amazon API Gateway REST API backed by AWS Lambda." },
       { id: 'B', text: "Configure the Amazon S3 bucket with public write access enabled via bucket policy." },
-      { id: 'C', text: "Generate an Amazon S3 presigned PUT URL with a short expiration window on the application backend and provide it to the mobile client for direct upload." },
+      { id: 'C', text: "Generate a short-lived presigned S3 PUT URL for the mobile client." },
       { id: 'D', text: "Embed AWS IAM access keys in the mobile application binary with restricted S3 permissions." }
     ],
     correctAnswers: ['C'],
@@ -198,7 +198,7 @@ export const AWS_DVA_QUESTIONS_13 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes Amazon S3 to allow mobile application users to upload multi-gigabyte video files directly to an Amazon S3 bucket without streaming through application servers or exposing AWS credentials.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Generate an Amazon S3 presigned PUT URL with a short expiration window on the application backend and provide it to the mobile client for direct upload." },
+      { id: 'A', text: "Generate a short-lived presigned S3 PUT URL for the mobile client." },
       { id: 'B', text: "Embed AWS IAM access keys in the mobile application binary with restricted S3 permissions." },
       { id: 'C', text: "Configure the Amazon S3 bucket with public write access enabled via bucket policy." },
       { id: 'D', text: "Stream video chunks through an Amazon API Gateway REST API backed by AWS Lambda." }
@@ -221,7 +221,7 @@ export const AWS_DVA_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Stream the file as a base64-encoded string through an Amazon SQS standard queue." },
       { id: 'B', text: "Upload the file to an Amazon DynamoDB table in 400 KB binary chunks." },
-      { id: 'C', text: "Initiate an S3 Multipart Upload using `CreateMultipartUpload`, upload parts concurrently with `UploadPart`, and finalize the object using `CompleteMultipartUpload`." },
+      { id: 'C', text: "Multipart upload with concurrent `UploadPart` calls, then complete." },
       { id: 'D', text: "Execute a single standard S3 `PutObject` API call with a 10-minute timeout." }
     ],
     correctAnswers: ['C'],
@@ -243,7 +243,7 @@ export const AWS_DVA_QUESTIONS_13 = [
       { id: 'A', text: "Stream the file as a base64-encoded string through an Amazon SQS standard queue." },
       { id: 'B', text: "Upload the file to an Amazon DynamoDB table in 400 KB binary chunks." },
       { id: 'C', text: "Execute a single standard S3 `PutObject` API call with a 10-minute timeout." },
-      { id: 'D', text: "Initiate an S3 Multipart Upload using `CreateMultipartUpload`, upload parts concurrently with `UploadPart`, and finalize the object using `CompleteMultipartUpload`." }
+      { id: 'D', text: "Multipart upload with concurrent `UploadPart` calls, then complete." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -262,7 +262,7 @@ export const AWS_DVA_QUESTIONS_13 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Execute a single standard S3 `PutObject` API call with a 10-minute timeout." },
-      { id: 'B', text: "Initiate an S3 Multipart Upload using `CreateMultipartUpload`, upload parts concurrently with `UploadPart`, and finalize the object using `CompleteMultipartUpload`." },
+      { id: 'B', text: "Multipart upload with concurrent `UploadPart` calls, then complete." },
       { id: 'C', text: "Upload the file to an Amazon DynamoDB table in 400 KB binary chunks." },
       { id: 'D', text: "Stream the file as a base64-encoded string through an Amazon SQS standard queue." }
     ],
@@ -282,7 +282,7 @@ export const AWS_DVA_QUESTIONS_13 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes Amazon S3 to upload large video files exceeding 100 MB reliably over unstable networks with support for parallel part uploads and resuming interrupted transfers.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
-      { id: 'A', text: "Initiate an S3 Multipart Upload using `CreateMultipartUpload`, upload parts concurrently with `UploadPart`, and finalize the object using `CompleteMultipartUpload`." },
+      { id: 'A', text: "Multipart upload with concurrent `UploadPart` calls, then complete." },
       { id: 'B', text: "Stream the file as a base64-encoded string through an Amazon SQS standard queue." },
       { id: 'C', text: "Upload the file to an Amazon DynamoDB table in 400 KB binary chunks." },
       { id: 'D', text: "Execute a single standard S3 `PutObject` API call with a 10-minute timeout." }
@@ -305,7 +305,7 @@ export const AWS_DVA_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Upload the file to an Amazon DynamoDB table in 400 KB binary chunks." },
       { id: 'B', text: "Execute a single standard S3 `PutObject` API call with a 10-minute timeout." },
-      { id: 'C', text: "Initiate an S3 Multipart Upload using `CreateMultipartUpload`, upload parts concurrently with `UploadPart`, and finalize the object using `CompleteMultipartUpload`." },
+      { id: 'C', text: "Multipart upload with concurrent `UploadPart` calls, then complete." },
       { id: 'D', text: "Stream the file as a base64-encoded string through an Amazon SQS standard queue." }
     ],
     correctAnswers: ['C'],
@@ -430,7 +430,7 @@ export const AWS_DVA_QUESTIONS_13 = [
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Deploy an Amazon SNS standard topic configured with subscriber message ordering filters." },
-      { id: 'B', text: "Deploy an Amazon SQS FIFO queue, populate `MessageGroupId` with the customer account ID, and specify a unique `MessageDeduplicationId` for each transaction." },
+      { id: 'B', text: "A FIFO queue with `MessageGroupId` set to the account ID and a unique dedup ID." },
       { id: 'C', text: "Deploy an Amazon Kinesis Data Stream with a single shard for all customers." },
       { id: 'D', text: "Deploy a standard SQS queue with an Amazon DynamoDB table storing processed message hashes." }
     ],
@@ -451,7 +451,7 @@ export const AWS_DVA_QUESTIONS_13 = [
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Deploy a standard SQS queue with an Amazon DynamoDB table storing processed message hashes." },
-      { id: 'B', text: "Deploy an Amazon SQS FIFO queue, populate `MessageGroupId` with the customer account ID, and specify a unique `MessageDeduplicationId` for each transaction." },
+      { id: 'B', text: "A FIFO queue with `MessageGroupId` set to the account ID and a unique dedup ID." },
       { id: 'C', text: "Deploy an Amazon SNS standard topic configured with subscriber message ordering filters." },
       { id: 'D', text: "Deploy an Amazon Kinesis Data Stream with a single shard for all customers." }
     ],
@@ -474,7 +474,7 @@ export const AWS_DVA_QUESTIONS_13 = [
       { id: 'A', text: "Deploy a standard SQS queue with an Amazon DynamoDB table storing processed message hashes." },
       { id: 'B', text: "Deploy an Amazon Kinesis Data Stream with a single shard for all customers." },
       { id: 'C', text: "Deploy an Amazon SNS standard topic configured with subscriber message ordering filters." },
-      { id: 'D', text: "Deploy an Amazon SQS FIFO queue, populate `MessageGroupId` with the customer account ID, and specify a unique `MessageDeduplicationId` for each transaction." }
+      { id: 'D', text: "A FIFO queue with `MessageGroupId` set to the account ID and a unique dedup ID." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -494,7 +494,7 @@ export const AWS_DVA_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Deploy an Amazon Kinesis Data Stream with a single shard for all customers." },
       { id: 'B', text: "Deploy an Amazon SNS standard topic configured with subscriber message ordering filters." },
-      { id: 'C', text: "Deploy an Amazon SQS FIFO queue, populate `MessageGroupId` with the customer account ID, and specify a unique `MessageDeduplicationId` for each transaction." },
+      { id: 'C', text: "A FIFO queue with `MessageGroupId` set to the account ID and a unique dedup ID." },
       { id: 'D', text: "Deploy a standard SQS queue with an Amazon DynamoDB table storing processed message hashes." }
     ],
     correctAnswers: ['C'],
@@ -513,7 +513,7 @@ export const AWS_DVA_QUESTIONS_13 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes Amazon SQS to process financial ledger transactions strictly in the order they occurred per customer account while preventing duplicate message processing within a 5-minute window.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Deploy an Amazon SQS FIFO queue, populate `MessageGroupId` with the customer account ID, and specify a unique `MessageDeduplicationId` for each transaction." },
+      { id: 'A', text: "A FIFO queue with `MessageGroupId` set to the account ID and a unique dedup ID." },
       { id: 'B', text: "Deploy an Amazon Kinesis Data Stream with a single shard for all customers." },
       { id: 'C', text: "Deploy an Amazon SNS standard topic configured with subscriber message ordering filters." },
       { id: 'D', text: "Deploy a standard SQS queue with an Amazon DynamoDB table storing processed message hashes." }
