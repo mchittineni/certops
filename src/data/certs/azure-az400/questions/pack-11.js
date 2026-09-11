@@ -432,7 +432,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
       { id: 'A', text: "Prohibit developers from using GitHub, forcing all code into Azure Repos." },
       { id: 'B', text: "Install the Azure Boards app for GitHub and connect GitHub repositories to the Azure DevOps project, referencing work items using `AB#&lt;ID&gt;`." },
       { id: 'C', text: "Write a custom daily Python scraping script to match commit strings to work items." },
-      { id: 'D', text: "Manually copy-paste commit URLs into work item HTML description fields." }
+      { id: 'D', text: "Paste the commit URL into the work item description by hand." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -452,7 +452,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Prohibit developers from using GitHub, forcing all code into Azure Repos." },
       { id: 'B', text: "Write a custom daily Python scraping script to match commit strings to work items." },
-      { id: 'C', text: "Manually copy-paste commit URLs into work item HTML description fields." },
+      { id: 'C', text: "Paste the commit URL into the work item description by hand." },
       { id: 'D', text: "Install the Azure Boards app for GitHub and connect GitHub repositories to the Azure DevOps project, referencing work items using `AB#&lt;ID&gt;`." }
     ],
     correctAnswers: ['D'],
@@ -474,7 +474,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
       { id: 'A', text: "Install the Azure Boards app for GitHub and connect GitHub repositories to the Azure DevOps project, referencing work items using `AB#&lt;ID&gt;`." },
       { id: 'B', text: "Prohibit developers from using GitHub, forcing all code into Azure Repos." },
       { id: 'C', text: "Write a custom daily Python scraping script to match commit strings to work items." },
-      { id: 'D', text: "Manually copy-paste commit URLs into work item HTML description fields." }
+      { id: 'D', text: "Paste the commit URL into the work item description by hand." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -495,7 +495,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
       { id: 'A', text: "Write a custom daily Python scraping script to match commit strings to work items." },
       { id: 'B', text: "Install the Azure Boards app for GitHub and connect GitHub repositories to the Azure DevOps project, referencing work items using `AB#&lt;ID&gt;`." },
       { id: 'C', text: "Prohibit developers from using GitHub, forcing all code into Azure Repos." },
-      { id: 'D', text: "Manually copy-paste commit URLs into work item HTML description fields." }
+      { id: 'D', text: "Paste the commit URL into the work item description by hand." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -515,7 +515,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Prohibit developers from using GitHub, forcing all code into Azure Repos." },
       { id: 'B', text: "Write a custom daily Python scraping script to match commit strings to work items." },
-      { id: 'C', text: "Manually copy-paste commit URLs into work item HTML description fields." },
+      { id: 'C', text: "Paste the commit URL into the work item description by hand." },
       { id: 'D', text: "Install the Azure Boards app for GitHub and connect GitHub repositories to the Azure DevOps project, referencing work items using `AB#&lt;ID&gt;`." }
     ],
     correctAnswers: ['D'],

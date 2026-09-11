@@ -115,7 +115,7 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Store the database password in a public GitHub repository." },
-      { id: 'B', text: "Hardcode the database password in the web.config or appsettings.json file." },
+      { id: 'B', text: "Read the password from appsettings.json at application start." },
       { id: 'C', text: "Enable System-Assigned Managed Identity on the App Service, grant Key Vault access, and use Key Vault reference syntax (`@Microsoft.KeyVault(...)`) in App Settings." },
       { id: 'D', text: "Pass the password in plain text via URL query parameters." }
     ],
@@ -135,7 +135,7 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to allow an Azure App Service application to read database passwords stored in Azure Key Vault without writing custom Key Vault SDK code.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Hardcode the database password in the web.config or appsettings.json file." },
+      { id: 'A', text: "Read the password from appsettings.json at application start." },
       { id: 'B', text: "Enable System-Assigned Managed Identity on the App Service, grant Key Vault access, and use Key Vault reference syntax (`@Microsoft.KeyVault(...)`) in App Settings." },
       { id: 'C', text: "Store the database password in a public GitHub repository." },
       { id: 'D', text: "Pass the password in plain text via URL query parameters." }
@@ -158,7 +158,7 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Enable System-Assigned Managed Identity on the App Service, grant Key Vault access, and use Key Vault reference syntax (`@Microsoft.KeyVault(...)`) in App Settings." },
       { id: 'B', text: "Pass the password in plain text via URL query parameters." },
-      { id: 'C', text: "Hardcode the database password in the web.config or appsettings.json file." },
+      { id: 'C', text: "Read the password from appsettings.json at application start." },
       { id: 'D', text: "Store the database password in a public GitHub repository." }
     ],
     correctAnswers: ['A'],
@@ -179,7 +179,7 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Enable System-Assigned Managed Identity on the App Service, grant Key Vault access, and use Key Vault reference syntax (`@Microsoft.KeyVault(...)`) in App Settings." },
       { id: 'B', text: "Store the database password in a public GitHub repository." },
-      { id: 'C', text: "Hardcode the database password in the web.config or appsettings.json file." },
+      { id: 'C', text: "Read the password from appsettings.json at application start." },
       { id: 'D', text: "Pass the password in plain text via URL query parameters." }
     ],
     correctAnswers: ['A'],
@@ -200,7 +200,7 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Store the database password in a public GitHub repository." },
       { id: 'B', text: "Pass the password in plain text via URL query parameters." },
-      { id: 'C', text: "Hardcode the database password in the web.config or appsettings.json file." },
+      { id: 'C', text: "Read the password from appsettings.json at application start." },
       { id: 'D', text: "Enable System-Assigned Managed Identity on the App Service, grant Key Vault access, and use Key Vault reference syntax (`@Microsoft.KeyVault(...)`) in App Settings." }
     ],
     correctAnswers: ['D'],

@@ -11,14 +11,14 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Managed identity assigned to a Microsoft-hosted agent pool" },
       { id: 'B', text: "Service principal with an auto-generated client secret expiring in 2 years" },
-      { id: 'C', text: "Azure Resource Manager service connection using Workload Identity federation (automatic or manual OIDC)" },
+      { id: 'C', text: "An ARM service connection using workload identity federation" },
       { id: 'D', text: "Personal Access Token (PAT) generated with full administrator privileges" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Azure DevOps supports Workload Identity federation for Azure Resource Manager service connections using OpenID Connect (OIDC). The pipeline requests a short-lived OIDC token from Azure DevOps and exchanges it with Microsoft Entra ID for a federated access token, eliminating the need to store, manage, or rotate static secrets.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-that-uses-workload-identity-federation",
-    tags: ["Azure Pipelines", "Workload Identity", "OIDC", "Security"]
+    tags: ["Azure Pipelines","Workload Identity","OIDC","Security"]
   },
   {
     id: "azure-az400-77",
@@ -32,14 +32,14 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Stop the App Service instance, upload new binaries via FTP, and restart the instance" },
       { id: 'B', text: "Deploy a second App Service in a different region and delete the primary instance" },
-      { id: 'C', text: "Deploy to a staging deployment slot, execute warm-up requests, and perform a slot swap with production" },
+      { id: 'C', text: "Deploy to a staging slot, run warm-up requests, then swap" },
       { id: 'D', text: "Scale out the App Service plan from 1 instance to 10 instances during deployment" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Azure App Service deployment slots allow deploying new revisions to an isolated staging slot. The staging slot can be warmed up and validated before swapping. Swapping slots re-routes traffic instantly via a virtual IP swap with zero downtime, and if an issue arises, swapping back instantly rolls back.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots",
-    tags: ["App Service", "Deployment Slots", "Blue/Green", "Zero Downtime"]
+    tags: ["App Service","Deployment Slots","Blue/Green","Zero Downtime"]
   },
   {
     id: "azure-az400-78",
@@ -54,13 +54,13 @@ export const AZURE_AZ400_QUESTIONS_4 = [
       { id: 'A', text: "Azure Container Instances deployed in the public cloud without VNet integration" },
       { id: 'B', text: "Microsoft-hosted Ubuntu-latest agent pool with public IP firewall rules" },
       { id: 'C', text: "Running the compilation directly inside an Azure Cloud Shell browser window" },
-      { id: 'D', text: "Self-hosted build agents installed on private virtual machines or physical servers connected to the private corporate network" }
+      { id: 'D', text: "Self-hosted agents on machines inside the corporate network" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Microsoft-hosted agents run in isolated Azure VMs with fresh images on every build, but they lack custom proprietary drivers and cannot reach on-premises networks without public ingress. Self-hosted agents give full control over installed software, persistent caches, and private network connectivity.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents",
-    tags: ["Azure Pipelines", "Self-Hosted Agents", "Build Infrastructure"]
+    tags: ["Azure Pipelines","Self-Hosted Agents","Build Infrastructure"]
   },
   {
     id: "azure-az400-79",
@@ -81,7 +81,7 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     type: "single",
     explanation: "Upstream sources in Azure Artifacts allow a single feed to serve both internal custom packages and packages from external public registries (like nuget.org, npmjs.com, Maven Central). When an external package is first requested, Azure Artifacts saves a cached copy in the feed, ensuring build reproducibility and immunity to external registry outages.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/artifacts/concepts/upstream-sources",
-    tags: ["Azure Artifacts", "Upstream Sources", "Package Management"]
+    tags: ["Azure Artifacts","Upstream Sources","Package Management"]
   },
   {
     id: "azure-az400-80",
@@ -102,7 +102,7 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     type: "single",
     explanation: "Azure App Configuration provides a centralized service to manage application settings and feature flags. Through Feature Manager, teams can define boolean feature flags or targeted rollout filters (e.g. enabling a feature for 10% of users or internal IP ranges) that applications query dynamically without restarting.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-app-configuration/concept-feature-management",
-    tags: ["App Configuration", "Feature Flags", "DevOps"]
+    tags: ["App Configuration","Feature Flags","DevOps"]
   },
   {
     id: "azure-az400-81",
@@ -123,7 +123,7 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     type: "single",
     explanation: "Azure Pipelines YAML follows a strict hierarchy: a Pipeline contains one or more Stages (major milestones like Build, Test, Deploy), each Stage contains one or more Jobs (units of work run on an agent), and each Job contains an ordered sequence of Steps (tasks or scripts).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/pipeline",
-    tags: ["YAML", "Pipelines", "Stages", "Jobs"]
+    tags: ["YAML","Pipelines","Stages","Jobs"]
   },
   {
     id: "azure-az400-82",
@@ -135,16 +135,16 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     scenario: "A monorepo has two applications: `/src/frontend/` and `/src/backend/`. The frontend pipeline should trigger on pushes to `main` only when frontend files are modified, and ignore markdown documentation.",
     question: "Which trigger block configuration implements this filtering?",
     options: [
-      { id: 'A', text: "trigger: [main]" },
+      { id: 'A', text: "trigger: { branches: { include: ['main'] } } with no paths filter" },
       { id: 'B', text: "trigger: { branches: { include: ['main'] }, paths: { include: ['src/frontend/*'], exclude: ['**/*.md'] } }" },
-      { id: 'C', text: "trigger: { paths: ['*'] }" },
-      { id: 'D', text: "trigger: none" }
+      { id: 'C', text: "pr: { paths: { include: ['src/frontend/*'] } } on the main branch" },
+      { id: 'D', text: "trigger: none, with a scheduled build over the frontend folder" }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "In Azure Pipelines YAML, the `trigger` block supports granular branch and path filters: `include:` specifies matching directory paths, and `exclude:` skips triggers for specified patterns like documentation updates.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/repos/azure-repos-git#paths",
-    tags: ["Triggers", "Path Filters", "Monorepo", "CI/CD"]
+    tags: ["Triggers","Path Filters","Monorepo","CI/CD"]
   },
   {
     id: "azure-az400-83",
@@ -158,14 +158,14 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "YAML pipelines do not support pull requests" },
       { id: 'B', text: "Azure Repos requires paid add-ons for PR triggers" },
-      { id: 'C', text: "Azure Repos ignores the YAML `pr:` block; pull request validation builds in Azure Repos must be configured as a Branch Policy on the target branch" },
+      { id: 'C', text: "Azure Repos ignores `pr:`; use a branch policy" },
       { id: 'D', text: "The developer must run the build manually" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "While GitHub uses the YAML `pr:` block to trigger pull request runs, Azure Repos enforces PR builds through Branch Policies: administrators must configure the pipeline as a Build Validation policy on the target branch.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/repos/azure-repos-git#pr-triggers",
-    tags: ["PR Triggers", "Branch Policies", "Azure Repos", "YAML"]
+    tags: ["PR Triggers","Branch Policies","Azure Repos","YAML"]
   },
   {
     id: "azure-az400-84",
@@ -177,16 +177,16 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     scenario: "A QA team requires a nightly regression test suite to run every weekday at 2:00 AM UTC against the main branch, but only if new code was committed since the last run.",
     question: "Which scheduled trigger configuration satisfies this requirement?",
     options: [
-      { id: 'A', text: "trigger: nightly" },
-      { id: 'B', text: "pool: nightly-pool" },
+      { id: 'A', text: "trigger: { batch: true, branches: { include: ['main'] } }" },
+      { id: 'B', text: "A Classic scheduled trigger configured in the pipeline UI" },
       { id: 'C', text: "schedules: [ { cron: '0 2 * * 1-5', displayName: 'Nightly', branches: { include: ['main'] }, always: false } ]" },
-      { id: 'D', text: "schedules: [ { cron: '* * * * *', always: true } ]" }
+      { id: 'D', text: "schedules: [ { cron: '* * * * *', branches: { include: ['main'] }, always: true } ]" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "The `schedules` block accepts standard 5-part cron syntax. Setting `always: false` ensures the scheduled pipeline only triggers if code changes were committed since the previous scheduled execution, avoiding wasteful test runs on idle code.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers",
-    tags: ["Cron", "Scheduled Triggers", "Optimization", "Pipelines"]
+    tags: ["Cron","Scheduled Triggers","Optimization","Pipelines"]
   },
   {
     id: "azure-az400-85",
@@ -200,14 +200,14 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Running security scans after production deployment" },
       { id: 'B', text: "Copying security tasks into every repository" },
-      { id: 'C', text: "The `extends:` template syntax (defining an outer pipeline structure that applications extend)" },
+      { id: 'C', text: "The `extends:` template syntax" },
       { id: 'D', text: "The `includes:` step template syntax" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "The `extends:` keyword in Azure Pipelines allows a central repository to define an authoritative pipeline template (with mandatory pre-build, security scanning, and approval stages). Application repos extend this template, preventing developers from bypassing required compliance steps.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/templates#extend-from-a-template",
-    tags: ["Templates", "extends", "Compliance", "Governance"]
+    tags: ["Templates","extends","Compliance","Governance"]
   },
   {
     id: "azure-az400-86",
@@ -219,16 +219,16 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     scenario: "Job A in Stage 1 calculates an artifact semantic version number (`OutputVersion`). Job B in Stage 2 needs to consume this value.",
     question: "How must the variable be emitted in Job A and referenced in Job B?",
     options: [
-      { id: 'A', text: "Set an operating system environment variable export OutputVersion=1.2.3" },
+      { id: 'A', text: "Set an operating system environment variable with export OutputVersion=1.2.3" },
       { id: 'B', text: "Emit via `echo '##vso[task.setvariable variable=OutputVersion;isOutput=true]1.2.3'` and reference as `$[stageDependencies.Stage1.JobA.outputs['StepName.OutputVersion']]`" },
-      { id: 'C', text: "Variables cannot be passed across stages" },
-      { id: 'D', text: "Write the variable to a local text file on the agent disk" }
+      { id: 'C', text: "Publish the value as a build artifact and download it in the next stage" },
+      { id: 'D', text: "Write the variable to a file on the agent disk and read it back later" }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "To pass variables across jobs or stages in Azure Pipelines, the producer task uses the `task.setvariable` logging command with `isOutput=true`. Downstream jobs reference it via dependency output expressions (`stageDependencies.[Stage].[Job].outputs['[Step].[Var]']`).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-variables-scripts",
-    tags: ["Variables", "Logging Commands", "Cross-Stage", "YAML"]
+    tags: ["Variables","Logging Commands","Cross-Stage","YAML"]
   },
   {
     id: "azure-az400-87",
@@ -240,16 +240,16 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     scenario: "A Node.js build pipeline spends 7 minutes running `npm install` on every build. The `package-lock.json` file rarely changes.",
     question: "Which pipeline task should be added to cache `~/.npm` across runs?",
     options: [
-      { id: 'A', text: "ArchiveFiles@2 task" },
+      { id: 'A', text: "ArchiveFiles@2 with the node_modules folder, restored on the next run" },
       { id: 'B', text: "Cache@2 task with key: 'npm | \"$(Agent.OS)\" | package-lock.json' and path: $(npm_config_cache)" },
-      { id: 'C', text: "CopyFiles@2 task" },
-      { id: 'D', text: "PublishBuildArtifacts@1 task" }
+      { id: 'C', text: "CopyFiles@2 moving node_modules into the artifact staging directory" },
+      { id: 'D', text: "PublishBuildArtifacts@1 publishing node_modules as a build artifact" }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "The `Cache@2` task stores and restores package caches based on a dynamic hash key. If `package-lock.json` has not changed, the cache hits and restores packages in seconds, bypassing long network installations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching",
-    tags: ["Pipeline Caching", "Cache@2", "npm", "Performance"]
+    tags: ["Pipeline Caching","Cache@2","npm","Performance"]
   },
   {
     id: "azure-az400-88",
@@ -261,7 +261,7 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     scenario: "An enterprise DevOps engineering team is implementing automated CI/CD pipelines, source control governance, and continuous delivery on Microsoft Azure.",
     question: "A .NET CI build executes unit tests with coverlet. How should test results and code coverage metrics be published so they appear natively in the Azure DevOps build summary tabs?",
     options: [
-      { id: 'A', text: "PublishTestResults@2 (for TRX/JUnit) and PublishCodeCoverageResults@2 (for Cobertura/JaCoCo)" },
+      { id: 'A', text: "The publish test and coverage tasks" },
       { id: 'B', text: "echo ##vso[task.logissue]" },
       { id: 'C', text: "PowerShell script writing to console" },
       { id: 'D', text: "CopyFiles@2 and PublishBuildArtifacts@1" }
@@ -270,7 +270,7 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     type: "single",
     explanation: "The `PublishTestResults@2` and `PublishCodeCoverageResults@2` tasks ingest standardized test and coverage XML reports, populating interactive 'Tests' and 'Code Coverage' summary tabs with trend charts directly inside the Azure DevOps pipeline UI.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/publish-test-results-v2",
-    tags: ["Test Results", "Code Coverage", "Reporting", "CI/CD"]
+    tags: ["Test Results","Code Coverage","Reporting","CI/CD"]
   },
   {
     id: "azure-az400-89",
@@ -284,14 +284,14 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "PublishPipelineArtifact@1" },
       { id: 'B', text: "FTPUpload@2" },
-      { id: 'C', text: "CopyFiles@2" },
+      { id: 'C', text: "CopyFiles@2 moving the playbook onto each target machine" },
       { id: 'D', text: "PublishBuildArtifacts@1 (legacy)" }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "`PublishPipelineArtifact@1` is the modern, high-performance artifact publishing task designed specifically for YAML pipelines, offering significantly faster multi-threaded upload and download speeds compared to legacy `PublishBuildArtifacts`.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/artifacts/pipeline-artifacts",
-    tags: ["Artifacts", "PublishPipelineArtifact", "Pipelines", "Performance"]
+    tags: ["Artifacts","PublishPipelineArtifact","Pipelines","Performance"]
   },
   {
     id: "azure-az400-90",
@@ -312,7 +312,7 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     type: "single",
     explanation: "The `always()` condition guarantees that a job or step runs regardless of whether prior tasks succeeded or failed, making it essential for teardown, resource cleanup, and diagnostic log collection steps.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/conditions",
-    tags: ["Conditions", "always()", "Error Handling", "Pipelines"]
+    tags: ["Conditions","always()","Error Handling","Pipelines"]
   },
   {
     id: "azure-az400-91",
@@ -333,7 +333,7 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     type: "single",
     explanation: "Setting `timeoutInMinutes: 30` instructs the Azure Pipelines agent to terminate the job if it exceeds 30 minutes, preventing hung integration tests from consuming concurrent runner pools.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/phases#timeouts",
-    tags: ["Timeouts", "timeoutInMinutes", "Resource Management", "Runners"]
+    tags: ["Timeouts","timeoutInMinutes","Resource Management","Runners"]
   },
   {
     id: "azure-az400-92",
@@ -346,15 +346,15 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     question: "How should the strategy block be configured in the YAML job?",
     options: [
       { id: 'A', text: "strategy: { matrix: { Linux_Node18: { image: 'ubuntu-latest', node: '18' }, Windows_Node20: { image: 'windows-latest', node: '20' } } }" },
-      { id: 'B', text: "pool: all-platforms" },
-      { id: 'C', text: "Run three separate pipeline files sequentially" },
-      { id: 'D', text: "loop: [ubuntu, windows, macos]" }
+      { id: 'B', text: "pool: { vmImage: 'ubuntu-latest' } with a loop over the node versions" },
+      { id: 'C', text: "Three separate pipeline files, one per platform, run in sequence" },
+      { id: 'D', text: "strategy: { parallel: 2 } with the image chosen inside each job" }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The `strategy.matrix` configuration spins up multiple parallel job instances, each receiving distinct matrix variable combinations (OS image, runtime version), enabling comprehensive cross-platform validation concurrently.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/phases#matrix-strategies",
-    tags: ["Matrix", "Parallelism", "Cross-Platform", "Testing"]
+    tags: ["Matrix","Parallelism","Cross-Platform","Testing"]
   },
   {
     id: "azure-az400-93",
@@ -375,7 +375,7 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     type: "single",
     explanation: "Custom Pipeline Decorators are custom extensions installed at the organization level. They inject steps before or after pipeline jobs automatically across all pipelines in all projects, ensuring universal security scanning enforcement.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/extend/develop/pipeline-decorator",
-    tags: ["Pipeline Decorator", "Extensibility", "Governance", "Security"]
+    tags: ["Pipeline Decorator","Extensibility","Governance","Security"]
   },
   {
     id: "azure-az400-94",
@@ -387,16 +387,16 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     scenario: "A production release pipeline requires access to database passwords. The security team mandates that secrets must be stored in Azure Key Vault and never in pipeline YAML or plaintext files.",
     question: "How can Azure Pipelines securely access Key Vault secrets as pipeline variables?",
     options: [
-      { id: 'A', text: "Create a Variable Group in Azure Pipelines Library, enable 'Link secrets from an Azure key vault', select the Azure service connection, and map the secrets" },
+      { id: 'A', text: "A variable group with secrets linked from an Azure key vault" },
       { id: 'B', text: "Write a bash script that downloads the secrets over an unencrypted HTTP endpoint" },
       { id: 'C', text: "Paste the database password in the commit message" },
-      { id: 'D', text: "Hardcode the secrets as clear text inside azure-pipelines.yml" }
+      { id: 'D', text: "Define the secrets as plain pipeline variables in the YAML" }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Pipelines Library Variable Groups can link directly to an Azure Key Vault via an authorized Azure Resource Manager Service Connection. Secrets are retrieved dynamically at runtime and automatically masked in build logs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault",
-    tags: ["Variable Groups", "Key Vault", "Secrets", "Security"]
+    tags: ["Variable Groups","Key Vault","Secrets","Security"]
   },
   {
     id: "azure-az400-95",
@@ -408,7 +408,7 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     scenario: "A pipeline script accidentally runs `echo $(DatabasePassword)`. The variable was created as a secret variable in the pipeline UI.",
     question: "How does Azure Pipelines handle the secret string in the console build log?",
     options: [
-      { id: 'A', text: "Azure Pipelines automatically replaces the secret value with asterisks (***) in the console log" },
+      { id: 'A', text: "The secret value is masked with asterisks in the log" },
       { id: 'B', text: "The agent machine is formatted" },
       { id: 'C', text: "The pipeline aborts immediately with a compiler error" },
       { id: 'D', text: "The password is printed in plaintext" }
@@ -417,7 +417,7 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     type: "single",
     explanation: "Azure Pipelines automatically sanitizes console logs by masking the values of all declared secret variables with `***`, preventing accidental credential exposure in build logs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-secret-variables",
-    tags: ["Secrets", "Masking", "Console Logs", "Security"]
+    tags: ["Secrets","Masking","Console Logs","Security"]
   },
   {
     id: "azure-az400-96",
@@ -429,16 +429,16 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     scenario: "An end-to-end integration test pipeline should trigger automatically whenever the core API build pipeline (`MyApiBuild`) successfully completes a build on the `main` branch.",
     question: "Which YAML resource definition configures this pipeline-chaining trigger?",
     options: [
-      { id: 'A', text: "dependsOn: MyApiBuild" },
-      { id: 'B', text: "trigger: pipeline(MyApiBuild)" },
-      { id: 'C', text: "pool: api-pool" },
+      { id: 'A', text: "dependsOn: MyApiBuild, declared at the top of the consuming pipeline" },
+      { id: 'B', text: "A build completion trigger configured in the Classic pipeline UI" },
+      { id: 'C', text: "resources: { repositories: [ { repository: MyApiBuild } ] }" },
       { id: 'D', text: "resources: { pipelines: [ { pipeline: api-build, source: MyApiBuild, trigger: { branches: ['main'] } } ] }" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Using `resources.pipelines` allows one pipeline to declare a dependency on another pipeline's artifacts and completion events. Setting `trigger: { branches: ['main'] }` automatically kicks off downstream test pipelines upon upstream build completion.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/pipeline-triggers",
-    tags: ["Pipeline Resources", "Chaining", "Triggers", "CI/CD"]
+    tags: ["Pipeline Resources","Chaining","Triggers","CI/CD"]
   },
   {
     id: "azure-az400-97",
@@ -459,7 +459,7 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     type: "single",
     explanation: "Specifying `container: [image]` on a job instructs the agent to spin up the designated container image, mount the workspace, and execute all job steps directly inside the container environment, ensuring reproducible build tooling.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/container-phases",
-    tags: ["Containers", "Container Jobs", "Docker", "Runners"]
+    tags: ["Containers","Container Jobs","Docker","Runners"]
   },
   {
     id: "azure-az400-98",
@@ -480,7 +480,7 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     type: "single",
     explanation: "The `services:` section in a YAML job defines service (sidecar) containers. The agent starts these containers before steps run and maps their networking ports to localhost, providing isolated databases or caches for integration testing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/service-containers",
-    tags: ["Service Containers", "Sidecars", "Integration Testing", "Docker"]
+    tags: ["Service Containers","Sidecars","Integration Testing","Docker"]
   },
   {
     id: "azure-az400-99",
@@ -494,14 +494,14 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "In the git config file" },
       { id: 'B', text: "In the branch protection rules" },
-      { id: 'C', text: "Project Settings → Pipelines → Settings → 'Limit job authorization scope to current project' and 'Protect access to repositories in YAML pipelines'" },
+      { id: 'C', text: "Limit job authorization scope" },
       { id: 'D', text: "In package.json" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Pipelines project settings provide options to restrict the build service account's authorization scope strictly to the current project and prevent untrusted pipelines from accessing sensitive repositories.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/access-tokens",
-    tags: ["AccessToken", "Security", "Least Privilege", "Governance"]
+    tags: ["AccessToken","Security","Least Privilege","Governance"]
   },
   {
     id: "azure-az400-100",
@@ -522,7 +522,7 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     type: "single",
     explanation: "The `demands:` block specifies agent capabilities (user-defined or system-discovered). The Azure Pipelines scheduler assigns the job only to self-hosted agents in the target pool that satisfy all declared demands.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/demands",
-    tags: ["Demands", "Agent Pools", "Capabilities", "Runners"]
+    tags: ["Demands","Agent Pools","Capabilities","Runners"]
   }
 ];
 

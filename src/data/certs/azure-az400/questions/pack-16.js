@@ -12,7 +12,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
       { id: 'A', text: "Create a Service Principal with a permanent client secret and never rotate the password." },
       { id: 'B', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
       { id: 'C', text: "Disable authentication on the Azure Resource Manager API." },
-      { id: 'D', text: "Hardcode Azure global administrator credentials inside the pipeline YAML file." }
+      { id: 'D', text: "Use a service principal holding Owner on the whole subscription." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -33,7 +33,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
       { id: 'A', text: "Disable authentication on the Azure Resource Manager API." },
       { id: 'B', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
       { id: 'C', text: "Create a Service Principal with a permanent client secret and never rotate the password." },
-      { id: 'D', text: "Hardcode Azure global administrator credentials inside the pipeline YAML file." }
+      { id: 'D', text: "Use a service principal holding Owner on the whole subscription." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -52,7 +52,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
-      { id: 'B', text: "Hardcode Azure global administrator credentials inside the pipeline YAML file." },
+      { id: 'B', text: "Use a service principal holding Owner on the whole subscription." },
       { id: 'C', text: "Create a Service Principal with a permanent client secret and never rotate the password." },
       { id: 'D', text: "Disable authentication on the Azure Resource Manager API." }
     ],
@@ -74,7 +74,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
       { id: 'B', text: "Disable authentication on the Azure Resource Manager API." },
-      { id: 'C', text: "Hardcode Azure global administrator credentials inside the pipeline YAML file." },
+      { id: 'C', text: "Use a service principal holding Owner on the whole subscription." },
       { id: 'D', text: "Create a Service Principal with a permanent client secret and never rotate the password." }
     ],
     correctAnswers: ['A'],
@@ -93,7 +93,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Hardcode Azure global administrator credentials inside the pipeline YAML file." },
+      { id: 'A', text: "Use a service principal holding Owner on the whole subscription." },
       { id: 'B', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
       { id: 'C', text: "Create a Service Principal with a permanent client secret and never rotate the password." },
       { id: 'D', text: "Disable authentication on the Azure Resource Manager API." }

@@ -9,7 +9,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     scenario: "Microsoft recommends migrating Azure Key Vault data-plane permissions from legacy Access Policies to Azure Role-Based Access Control (RBAC).",
     question: "What is the primary architectural advantage of using Key Vault Azure RBAC?",
     options: [
-      { id: 'A', text: "It provides unified, consistent access management across all Azure resources with support for privileged identity management (PIM) and inheritance from management groups and resource groups" },
+      { id: 'A', text: "Consistent access management, with PIM support" },
       { id: 'B', text: "It speeds up secret encryption algorithms" },
       { id: 'C', text: "It makes Key Vault free of charge" },
       { id: 'D', text: "It allows public unauthenticated access to secrets" }
@@ -18,7 +18,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     type: "single",
     explanation: "Azure RBAC for Key Vault replaces legacy monolithic access policies. It enables granular built-in roles (Key Vault Secrets Officer, Key Vault Crypto User), inherits permissions hierarchically, and integrates with Entra ID Privileged Identity Management (PIM).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide",
-    tags: ["Key Vault", "RBAC", "Access Control", "Security"]
+    tags: ["Key Vault","RBAC","Access Control","Security"]
   },
   {
     id: "azure-az400-202",
@@ -33,13 +33,13 @@ export const AZURE_AZ400_QUESTIONS_9 = [
       { id: 'A', text: "Network Security Groups" },
       { id: 'B', text: "Azure Bastion" },
       { id: 'C', text: "Azure Advisor" },
-      { id: 'D', text: "Microsoft Entra Privileged Identity Management (PIM)" }
+      { id: 'D', text: "Entra PIM" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Privileged Identity Management (PIM) enforces Just-In-Time (JIT) administrative access: users remain eligible for high-privilege roles but must submit an activation request with justification, MFA, and manager approval for a time-limited window.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure",
-    tags: ["PIM", "Least Privilege", "JIT Access", "Governance"]
+    tags: ["PIM","Least Privilege","JIT Access","Governance"]
   },
   {
     id: "azure-az400-203",
@@ -54,13 +54,13 @@ export const AZURE_AZ400_QUESTIONS_9 = [
       { id: 'A', text: "Azure Storage SSE" },
       { id: 'B', text: "Azure Disk Encryption with BitLocker" },
       { id: 'C', text: "Transport Layer Security (TLS 1.3)" },
-      { id: 'D', text: "Azure Confidential Computing (using AMD SEV-SNP and Intel SGX enclaves)" }
+      { id: 'D', text: "Azure Confidential Computing" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Confidential Computing protects data in use by executing computations inside hardware-isolated enclaves (TEEs) with memory encryption, preventing cloud administrators, hypervisors, and host OS processes from inspecting data.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/confidential-computing/overview",
-    tags: ["Confidential Computing", "Encryption in Use", "Intel SGX", "Security"]
+    tags: ["Confidential Computing","Encryption in Use","Intel SGX","Security"]
   },
   {
     id: "azure-az400-204",
@@ -75,13 +75,13 @@ export const AZURE_AZ400_QUESTIONS_9 = [
       { id: 'A', text: "Microsoft-Managed Keys (MMK) default encryption" },
       { id: 'B', text: "Storing private keys in a public GitHub repository" },
       { id: 'C', text: "Unencrypted storage accounts" },
-      { id: 'D', text: "Customer-Managed Keys (CMK) stored in Azure Key Vault or Key Vault Managed HSM" }
+      { id: 'D', text: "Customer-managed keys in Key Vault" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Customer-Managed Keys (CMK / BYOK) give organizations full ownership of their encryption keys stored in Azure Key Vault. Customers can rotate keys on their own schedule and revoke access instantly, rendering stored data inaccessible.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview",
-    tags: ["CMK", "Key Vault", "Encryption", "Compliance"]
+    tags: ["CMK","Key Vault","Encryption","Compliance"]
   },
   {
     id: "azure-az400-205",
@@ -102,7 +102,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     type: "single",
     explanation: "Traffic Analytics processes Network Security Group (NSG) Flow Logs, enriching raw IP data with Microsoft threat intelligence to provide visual maps of application traffic, top talkers, security hotspots, and malicious IP communications.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/network-watcher/traffic-analytics",
-    tags: ["Traffic Analytics", "NSG Flow Logs", "Network Security", "Monitoring"]
+    tags: ["Traffic Analytics","NSG Flow Logs","Network Security","Monitoring"]
   },
   {
     id: "azure-az400-206",
@@ -116,14 +116,14 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Granting everyone subscription Owner access to prevent permission errors" },
       { id: 'B', text: "Using a single root account for all pipelines" },
-      { id: 'C', text: "Granting automated pipelines, services, and users strictly the minimum necessary permissions required to perform their specific tasks, for the shortest required time" },
+      { id: 'C', text: "Granting only the permissions needed, for the shortest time" },
       { id: 'D', text: "Disabling all access controls" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "The Principle of Least Privilege mandates that identities (users, service principals, managed identities) are granted only the minimal permissions necessary to perform designated functions, minimizing blast radius if a credential is compromised.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/security/fundamentals/identity-management-best-practices",
-    tags: ["Least Privilege", "Zero Trust", "Security Architecture", "IAM"]
+    tags: ["Least Privilege","Zero Trust","Security Architecture","IAM"]
   },
   {
     id: "azure-az400-207",
@@ -137,14 +137,14 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Console print statements" },
       { id: 'B', text: "Restarting servers once a day" },
-      { id: 'C', text: "Distributed tracing, structured logging, application performance metrics, and automated alert telemetry" },
+      { id: 'C', text: "Tracing, logging and metrics" },
       { id: 'D', text: "Weekly status reports by email" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "A comprehensive instrumentation strategy combines distributed request tracing (tracking transactions across microservices), structured logging with correlation IDs, real-time numerical performance metrics, and intelligent health alerts.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/best-practices/monitoring",
-    tags: ["Instrumentation", "Observability", "Tracing", "Architecture"]
+    tags: ["Instrumentation","Observability","Tracing","Architecture"]
   },
   {
     id: "azure-az400-208",
@@ -157,7 +157,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     question: "How does Application Insights trace this single transaction across multiple distributed services?",
     options: [
       { id: 'A', text: "By checking the server clock timestamps manually" },
-      { id: 'B', text: "By injecting a common correlation ID (`traceparent` header using W3C Trace Context) into HTTP requests across services" },
+      { id: 'B', text: "By passing a `traceparent` correlation header between services" },
       { id: 'C', text: "By consolidating all services onto a single virtual machine" },
       { id: 'D', text: "Distributed requests cannot be correlated in cloud applications" }
     ],
@@ -165,7 +165,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     type: "single",
     explanation: "Application Insights implements the W3C Trace Context standard: it passes standardized `traceparent` and `tracestate` HTTP headers across service boundaries, linking all distributed spans to a single global Operation ID.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/correlation",
-    tags: ["Distributed Tracing", "Correlation ID", "W3C Trace Context", "Application Insights"]
+    tags: ["Distributed Tracing","Correlation ID","W3C Trace Context","Application Insights"]
   },
   {
     id: "azure-az400-209",
@@ -186,7 +186,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     type: "single",
     explanation: "Application Map in Application Insights automatically discovers and visualizes the complete architectural topology of services, components, and dependencies, displaying live call volume, average latency, and health indicators for every node and connector.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-map",
-    tags: ["Application Map", "Topology", "Dependencies", "Troubleshooting"]
+    tags: ["Application Map","Topology","Dependencies","Troubleshooting"]
   },
   {
     id: "azure-az400-210",
@@ -207,7 +207,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     type: "single",
     explanation: "Live Metrics (formerly QuickPulse) streams telemetry from instrumented applications in near real-time (sub-second latency), showing incoming requests, outgoing dependencies, memory/CPU usage, and unhandled exceptions as they happen.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/live-stream",
-    tags: ["Live Metrics", "QuickPulse", "Real-Time", "Monitoring"]
+    tags: ["Live Metrics","QuickPulse","Real-Time","Monitoring"]
   },
   {
     id: "azure-az400-211",
@@ -228,7 +228,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     type: "single",
     explanation: "Application Insights Profiler runs continuously in production with minimal overhead (<5%). When response times exceed configured thresholds, it captures detailed execution call trees, showing the exact methods and lines of code causing latency.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/profiler",
-    tags: ["Profiler", "Performance", "CPU Bottlenecks", "Troubleshooting"]
+    tags: ["Profiler","Performance","CPU Bottlenecks","Troubleshooting"]
   },
   {
     id: "azure-az400-212",
@@ -249,7 +249,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     type: "single",
     explanation: "Snapshot Debugger automatically captures a debug snapshot (mini-dump) when unhandled exceptions occur in production, allowing developers to inspect the call stack, parameter values, and local memory variables in Visual Studio or the Azure portal.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/snapshot-debugger",
-    tags: ["Snapshot Debugger", "Debugging", "Exceptions", "Troubleshooting"]
+    tags: ["Snapshot Debugger","Debugging","Exceptions","Troubleshooting"]
   },
   {
     id: "azure-az400-213",
@@ -270,7 +270,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     type: "single",
     explanation: "Adaptive sampling (enabled by default in ASP.NET and ASP.NET Core) automatically adjusts the sampling percentage dynamically to keep telemetry volume within target rate limits while ensuring related requests and dependencies stay correlated.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/sampling",
-    tags: ["Sampling", "Adaptive Sampling", "Cost Optimization", "Telemetry"]
+    tags: ["Sampling","Adaptive Sampling","Cost Optimization","Telemetry"]
   },
   {
     id: "azure-az400-214",
@@ -283,7 +283,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     question: "Which Azure Monitor tool provides this end-to-end distributed transaction diagnostic map?",
     options: [
       { id: 'A', text: "Azure Activity Log event viewer" },
-      { id: 'B', text: "Application Insights Application Map and Transaction Diagnostics" },
+      { id: 'B', text: "The Application Map and diagnostics" },
       { id: 'C', text: "Azure Network Watcher connection monitor" },
       { id: 'D', text: "Azure Service Health alert dashboard" }
     ],
@@ -291,7 +291,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     type: "single",
     explanation: "Application Insights Application Map automatically discovers and maps the topology of distributed components and HTTP/SQL dependencies. Transaction Diagnostics displays end-to-end Gantt charts of individual requests, highlighting the exact dependency call or database query responsible for latency.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-map",
-    tags: ["Application Insights", "Distributed Tracing", "Observability", "APM"]
+    tags: ["Application Insights","Distributed Tracing","Observability","APM"]
   },
   {
     id: "azure-az400-215",
@@ -305,14 +305,14 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Setting the pipeline timeout to 60 minutes" },
       { id: 'B', text: "A manual approval gate assigned to the lead SRE" },
-      { id: 'C', text: "Deployment release gates configured with the Query Azure Monitor Alerts task" },
+      { id: 'C', text: "A release gate querying Azure Monitor alerts" },
       { id: 'D', text: "A PowerShell task that ping-tests the web server once" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Pipelines deployment gates allow defining automated health checks that run before or after an environment deployment. Gates can query Azure Monitor active alerts, invoke external REST endpoints, or query Azure Boards work items, automatically holding or aborting releases based on real-time health telemetry.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates",
-    tags: ["Azure Pipelines", "Release Gates", "Azure Monitor", "Automation"]
+    tags: ["Azure Pipelines","Release Gates","Azure Monitor","Automation"]
   },
   {
     id: "azure-az400-216",
@@ -333,7 +333,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     type: "single",
     explanation: "Azure Monitor Workbooks provide an interactive canvas for data analysis and reporting. They combine live metrics, KQL log queries, Azure Resource Graph queries, and markdown text into interactive, shareable operational reports.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview",
-    tags: ["Workbooks", "Azure Monitor", "Reporting", "Dashboards"]
+    tags: ["Workbooks","Azure Monitor","Reporting","Dashboards"]
   },
   {
     id: "azure-az400-217",
@@ -354,7 +354,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     type: "single",
     explanation: "Funnels in Application Insights analyze progression through defined user workflow stages, identifying conversion rates and discovering exactly where users abandon multi-step application journeys.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/usage-funnels",
-    tags: ["Funnels", "User Analytics", "Product Telemetry", "Application Insights"]
+    tags: ["Funnels","User Analytics","Product Telemetry","Application Insights"]
   },
   {
     id: "azure-az400-218",
@@ -375,7 +375,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     type: "single",
     explanation: "User Flows visualizes the paths users take between web pages and features, showing what users do next after visiting a page or encountering an event, uncovering unintended navigation loops.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/usage-flows",
-    tags: ["User Flows", "UX", "Product Analytics", "Telemetry"]
+    tags: ["User Flows","UX","Product Analytics","Telemetry"]
   },
   {
     id: "azure-az400-219",
@@ -387,7 +387,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     scenario: "An organization standardizes on vendor-neutral observability to prevent vendor lock-in. Developers instrument microservices using standard OpenTelemetry SDKs.",
     question: "How does Azure Monitor support OpenTelemetry instrumentation?",
     options: [
-      { id: 'A', text: "Azure Monitor provides official OpenTelemetry distribution libraries (distros) that export telemetry natively into Application Insights and Log Analytics" },
+      { id: 'A', text: "Azure Monitor ships OpenTelemetry distros for Application Insights" },
       { id: 'B', text: "Developers must run an external OpenTelemetry collector on physical servers" },
       { id: 'C', text: "Azure only supports proprietary Microsoft SDKs" },
       { id: 'D', text: "OpenTelemetry is prohibited on Azure" }
@@ -396,7 +396,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     type: "single",
     explanation: "Azure Monitor natively embraces OpenTelemetry (OTel) as its strategic standard. Microsoft provides turnkey OpenTelemetry distros (for .NET, Java, Node.js, Python) that export traces and metrics directly to Application Insights.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-overview",
-    tags: ["OpenTelemetry", "OTel", "Standards", "Observability"]
+    tags: ["OpenTelemetry","OTel","Standards","Observability"]
   },
   {
     id: "azure-az400-220",
@@ -409,7 +409,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     question: "How should the Log Analytics workspace retention and archive plan be configured?",
     options: [
       { id: 'A', text: "Export logs to floppy disks" },
-      { id: 'B', text: "Set interactive retention to 90 days, and configure total retention / archive period to 7 years (2555 days)" },
+      { id: 'B', text: "90 days interactive, 2,555 days total retention" },
       { id: 'C', text: "Keep interactive retention at 7 years on high-speed tier" },
       { id: 'D', text: "Delete logs after 30 days" }
     ],
@@ -417,7 +417,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     type: "single",
     explanation: "Log Analytics allows configuring interactive retention (e.g. 90 days for fast KQL queries) and extending total retention up to 12 years in the low-cost Archive tier, preserving historical audit logs at up to 80% reduced storage cost.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-archive",
-    tags: ["Log Analytics", "Retention", "Archive Tier", "Cost Management"]
+    tags: ["Log Analytics","Retention","Archive Tier","Cost Management"]
   },
   {
     id: "azure-az400-221",
@@ -438,7 +438,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     type: "single",
     explanation: "Log Analytics Commitment Tiers (starting at 100 GB/day, scaling to 500 GB, 1,000 GB, etc.) provide fixed, discounted daily pricing that saves up to 30% or more compared to standard Pay-As-You-Go ingestion rates.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers",
-    tags: ["Commitment Tiers", "Pricing", "Log Analytics", "Cost Optimization"]
+    tags: ["Commitment Tiers","Pricing","Log Analytics","Cost Optimization"]
   },
   {
     id: "azure-az400-222",
@@ -450,7 +450,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     scenario: "A DevOps team wants external probes to test the availability, response code, and SSL certificate validity of an external public HTTPS endpoint every 5 minutes from 5 global regions.",
     question: "Which Application Insights availability test type should be deployed?",
     options: [
-      { id: 'A', text: "Standard test (single URL ping test with SSL check)" },
+      { id: 'A', text: "A standard test" },
       { id: 'B', text: "Profiler test" },
       { id: 'C', text: "Multi-step web test" },
       { id: 'D', text: "Live Metrics test" }
@@ -459,7 +459,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     type: "single",
     explanation: "Standard tests in Application Insights monitor single URL endpoints from multiple global geographic locations, validating HTTP status codes, response time thresholds, content matching, and SSL certificate validity.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/availability-overview#standard-test",
-    tags: ["Availability Tests", "Synthetic Monitoring", "Uptime", "SLA"]
+    tags: ["Availability Tests","Synthetic Monitoring","Uptime","SLA"]
   },
   {
     id: "azure-az400-223",
@@ -471,7 +471,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "What is the key difference in evaluation latency and query capabilities between Metric Alerts and Log Search Alerts in Azure Monitor?",
     options: [
-      { id: 'A', text: "Metric Alerts evaluate simple numerical time-series data with near real-time sub-minute latency; Log Search Alerts execute complex KQL queries across Log Analytics tables with evaluation intervals typically between 1 and 15 minutes" },
+      { id: 'A', text: "Metric alerts are sub-minute; log alerts run KQL" },
       { id: 'B', text: "There is no difference between Metric and Log alerts" },
       { id: 'C', text: "Metric Alerts are free; Log Alerts cost $1,000 each" },
       { id: 'D', text: "Metric Alerts can query database tables" }
@@ -480,7 +480,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     type: "single",
     explanation: "Metric alerts operate on lightweight time-series counters and evaluate frequently (every minute or sub-minute) for fast operational alerting. Log Search alerts run expressive KQL queries against historical logs with slightly higher evaluation latency.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types",
-    tags: ["Metric Alerts", "Log Search Alerts", "Alerting", "Monitoring"]
+    tags: ["Metric Alerts","Log Search Alerts","Alerting","Monitoring"]
   },
   {
     id: "azure-az400-224",
@@ -501,7 +501,7 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     type: "single",
     explanation: "Dynamic Thresholds in Azure Monitor use machine learning algorithms to learn historical behavioral patterns and seasonality (hourly, daily, weekly), establishing dynamic upper and lower boundaries that eliminate false positives.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-dynamic-thresholds",
-    tags: ["Dynamic Thresholds", "Alerting", "Machine Learning", "False Positives"]
+    tags: ["Dynamic Thresholds","Alerting","Machine Learning","False Positives"]
   },
   {
     id: "azure-az400-225",
@@ -515,14 +515,14 @@ export const AZURE_AZ400_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Deleting all Action Groups" },
       { id: 'B', text: "Turning off Azure Monitor" },
-      { id: 'C', text: "Alert Processing Rules (configured to suppress notifications during a scheduled window)" },
+      { id: 'C', text: "Alert processing rules" },
       { id: 'D', text: "Setting alert severity to Critical" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Alert Processing Rules allow administrators to apply automated logic to fired alerts before notifications are dispatched, such as suppressing Action Groups during scheduled maintenance windows or routing alerts based on resource tags.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-action-rules",
-    tags: ["Alert Processing Rules", "Action Groups", "Suppression", "Maintenance"]
+    tags: ["Alert Processing Rules","Action Groups","Suppression","Maintenance"]
   }
 ];
 

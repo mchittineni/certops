@@ -18,7 +18,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     type: "single",
     explanation: "The `az deployment group what-if` operation evaluates the template against the live state of Azure resources, generating a color-coded diff showing resources that will be created (+), modified (~), deleted (-), or unchanged (=) prior to execution.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deploy-what-if",
-    tags: ["Bicep", "What-If", "IaC", "CI/CD"]
+    tags: ["Bicep","What-If","IaC","CI/CD"]
   },
   {
     id: "azure-az400-152",
@@ -30,8 +30,8 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     scenario: "A cloud platform team develops standard, hardened networking patterns (VNet, subnets, NSGs, route tables) that application teams must reuse across 30 projects.",
     question: "How should reusable infrastructure components be structured and distributed using Bicep?",
     options: [
-      { id: 'A', text: "Author reusable Bicep modules and publish them as OCI artifacts to an Azure Container Registry (ACR) private Bicep registry" },
-      { id: 'B', text: "Hardcode all parameters inside application templates" },
+      { id: 'A', text: "Publish Bicep modules as OCI artifacts to ACR" },
+      { id: 'B', text: "Duplicate the template per environment with its values inline" },
       { id: 'C', text: "Email Bicep files to application developers" },
       { id: 'D', text: "Copy and paste the code into every repository" }
     ],
@@ -39,7 +39,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     type: "single",
     explanation: "Bicep modules allow decomposing complex infrastructure into reusable, parameterized building blocks. Publishing modules to an Azure Container Registry (ACR) provides versioned, enterprise-governed distribution referenced via `br:myregistry.azurecr.io/bicep/modules/vnet:v1`.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/private-module-registry",
-    tags: ["Bicep", "Modules", "ACR", "Private Registry"]
+    tags: ["Bicep","Modules","ACR","Private Registry"]
   },
   {
     id: "azure-az400-153",
@@ -52,7 +52,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     question: "What happens to the 3 virtual machines that are not defined in the template?",
     options: [
       { id: 'A', text: "The deployment fails with an error" },
-      { id: 'B', text: "The 3 undefined virtual machines are permanently deleted from the resource group" },
+      { id: 'B', text: "The three undefined machines are deleted" },
       { id: 'C', text: "The 3 virtual machines remain unchanged" },
       { id: 'D', text: "The 3 virtual machines are moved to a backup subscription" }
     ],
@@ -60,7 +60,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     type: "single",
     explanation: "In `Complete` deployment mode, Resource Manager deletes any existing resources in the resource group that are not declared in the template. In `Incremental` mode (the default), Resource Manager leaves undeclared existing resources untouched.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-modes",
-    tags: ["Deployment Modes", "ARM", "Complete Mode", "Incremental Mode"]
+    tags: ["Deployment Modes","ARM","Complete Mode","Incremental Mode"]
   },
   {
     id: "azure-az400-154",
@@ -73,7 +73,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     question: "Where should Terraform remote state be stored on Azure to provide automated state locking and encryption at rest?",
     options: [
       { id: 'A', text: "In an email attachment" },
-      { id: 'B', text: "In an Azure Storage Account Blob Container with Azure Blob Lease state locking" },
+      { id: 'B', text: "A blob container with lease-based locking" },
       { id: 'C', text: "On the engineer's local desktop hard drive" },
       { id: 'D', text: "In a public GitHub repository" }
     ],
@@ -81,7 +81,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     type: "single",
     explanation: "The official Terraform AzureRM backend stores `terraform.tfstate` in an Azure Blob Storage container. It natively leverages Azure Blob storage leases to automatically lock the state file during execution, preventing concurrent writes and state corruption.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage",
-    tags: ["Terraform", "Remote State", "State Locking", "Azure Storage"]
+    tags: ["Terraform","Remote State","State Locking","Azure Storage"]
   },
   {
     id: "azure-az400-155",
@@ -93,16 +93,16 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "An automated pull request pipeline must validate Terraform changes safely before merging. What sequence of Terraform commands should run during the PR validation build?",
     options: [
-      { id: 'A', text: "terraform apply -auto-approve" },
+      { id: 'A', text: "terraform plan -out=tfplan followed by terraform show" },
       { id: 'B', text: "terraform fmt -check && terraform init -backend=false && terraform validate" },
-      { id: 'C', text: "terraform import" },
-      { id: 'D', text: "terraform destroy" }
+      { id: 'C', text: "terraform init with the remote backend, then terraform plan" },
+      { id: 'D', text: "terraform providers lock and a terraform version check" }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "In PR validation pipelines, best practice runs `terraform fmt -check` to verify code formatting, followed by `terraform init -backend=false` and `terraform validate` to verify syntax and internal consistency without creating cloud resources or acquiring state locks.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/developer/terraform/best-practices",
-    tags: ["Terraform", "CI/CD", "Validation", "Pull Requests"]
+    tags: ["Terraform","CI/CD","Validation","Pull Requests"]
   },
   {
     id: "azure-az400-156",
@@ -115,15 +115,15 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     question: "How should the secret be supplied to Terraform in an Azure Pipeline?",
     options: [
       { id: 'A', text: "Pass the password as an unquoted command line argument terraform apply -var db_password=plain" },
-      { id: 'B', text: "Hardcode the password in main.tf" },
+      { id: 'B', text: "Declare the password as a default in a Terraform variable" },
       { id: 'C', text: "Commit the terraform.tfstate file to git" },
-      { id: 'D', text: "Retrieve the password from Azure Key Vault in the pipeline, map it to an environment variable named `TF_VAR_db_password`, and declare `variable \"db_password\" { sensitive = true }`" }
+      { id: 'D', text: "Map the Key Vault secret to `TF_VAR_db_password` and mark it sensitive" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Terraform automatically maps environment variables prefixed with `TF_VAR_` to configuration variables. Marking the variable with `sensitive = true` prevents Terraform from displaying the secret in console plan and apply outputs.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/values/variables#suppressing-values-in-cli-output",
-    tags: ["Terraform", "Secrets", "Key Vault", "Sensitive Variables"]
+    tags: ["Terraform","Secrets","Key Vault","Sensitive Variables"]
   },
   {
     id: "azure-az400-157",
@@ -136,15 +136,15 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     question: "Which tool or task executes Ansible playbooks securely within an Azure DevOps agent job?",
     options: [
       { id: 'A', text: "Ansible@0 task (or a Bash@3 step invoking ansible-playbook with dynamic Azure inventory)" },
-      { id: 'B', text: "CopyFiles@2" },
-      { id: 'C', text: "AzureWebApp@1" },
-      { id: 'D', text: "Docker@2" }
+      { id: 'B', text: "CopyFiles@2 moving the playbook onto each target machine" },
+      { id: 'C', text: "AzureWebApp@1 deploying the package to each host in turn" },
+      { id: 'D', text: "Docker@2 building an image that bakes in the configuration" }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "The `Ansible@0` task or a shell script invoking `ansible-playbook` uses dynamic Azure inventory modules (`azure.azcollection.azure_rm`) to discover target VMs and execute configuration playbooks securely over SSH.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/developer/ansible/overview",
-    tags: ["Ansible", "Configuration Management", "Linux", "Automation"]
+    tags: ["Ansible","Configuration Management","Linux","Automation"]
   },
   {
     id: "azure-az400-158",
@@ -165,7 +165,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     type: "single",
     explanation: "The Azure Custom Script Extension runs post-creation scripts inside virtual machines, downloading scripts from Azure Storage accounts and executing configuration commands automatically without needing public IP addresses or management ports.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows",
-    tags: ["Custom Script Extension", "Bootstrapping", "VMs", "Automation"]
+    tags: ["Custom Script Extension","Bootstrapping","VMs","Automation"]
   },
   {
     id: "azure-az400-159",
@@ -186,7 +186,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     type: "single",
     explanation: "`cloud-init` is the cross-platform standard for bootstrapping cloud Linux instances. In Azure, users pass cloud-init YAML scripts via the `customData` property during VM creation to install packages and configure files on first boot.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init",
-    tags: ["cloud-init", "Linux", "CustomData", "Bootstrapping"]
+    tags: ["cloud-init","Linux","CustomData","Bootstrapping"]
   },
   {
     id: "azure-az400-160",
@@ -207,7 +207,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     type: "single",
     explanation: "Azure VM Image Builder is a fully managed cloud service built on HashiCorp Packer. It integrates with Azure Pipelines to automate patching, hardening, and publishing custom VM images directly into an Azure Compute Gallery.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/image-builder-overview",
-    tags: ["VM Image Builder", "Packer", "Golden Image", "Security"]
+    tags: ["VM Image Builder","Packer","Golden Image","Security"]
   },
   {
     id: "azure-az400-161",
@@ -228,7 +228,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     type: "single",
     explanation: "Azure Compute Gallery (formerly Shared Image Gallery) organizes, versions, and shares custom VM images and application packages across subscriptions and tenants, automatically replicating images to multiple global Azure regions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/azure-compute-gallery",
-    tags: ["Compute Gallery", "Golden Images", "Global Replication", "Infrastructure"]
+    tags: ["Compute Gallery","Golden Images","Global Replication","Infrastructure"]
   },
   {
     id: "azure-az400-162",
@@ -249,7 +249,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     type: "single",
     explanation: "The AKS Flux v2 cluster extension implements GitOps: a controller inside the AKS cluster pulls desired state manifests from a Git repository and reconciles differences, eliminating the need to store cluster credentials in CI/CD pipelines.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/tutorial-gitops-flux-v2",
-    tags: ["GitOps", "Flux", "AKS", "Kubernetes"]
+    tags: ["GitOps","Flux","AKS","Kubernetes"]
   },
   {
     id: "azure-az400-163",
@@ -263,14 +263,14 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "By storing charts in an unencrypted Git branch" },
       { id: 'B', text: "By emailing zip files to the cluster administrator" },
-      { id: 'C', text: "By packaging Helm charts as OCI (Open Container Initiative) artifacts and pushing them via `helm push` to ACR" },
+      { id: 'C', text: "Push the charts to ACR as OCI artifacts" },
       { id: 'D', text: "Helm charts cannot be stored in ACR" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Container Registry fully supports the OCI artifact specification. Teams can use `helm package` and `helm push` to store, version, and manage Helm charts securely within ACR alongside container images.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-registry/container-registry-helm-repos",
-    tags: ["Helm", "ACR", "OCI", "Containers"]
+    tags: ["Helm","ACR","OCI","Containers"]
   },
   {
     id: "azure-az400-164",
@@ -291,7 +291,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     type: "single",
     explanation: "ACR Tasks supports base image update triggers. When ACR detects an update to a tracked upstream base container image, it automatically triggers a build task to re-compile the application container, ensuring security patches are applied immediately.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-registry/container-registry-tasks-base-images",
-    tags: ["ACR Tasks", "Base Images", "Vulnerability Management", "Containers"]
+    tags: ["ACR Tasks","Base Images","Vulnerability Management","Containers"]
   },
   {
     id: "azure-az400-165",
@@ -303,7 +303,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "Which dedicated Azure Pipelines task packages, installs, and upgrades Helm charts on an Azure Kubernetes Service (AKS) cluster using an authorized Kubernetes service connection?",
     options: [
-      { id: 'A', text: "Docker@2" },
+      { id: 'A', text: "Docker@2 building an image that bakes in the configuration" },
       { id: 'B', text: "HelmDeploy@0" },
       { id: 'C', text: "Kubernetes@1" },
       { id: 'D', text: "AzureCLI@2 with az aks install-cli" }
@@ -312,7 +312,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     type: "single",
     explanation: "The `HelmDeploy@0` task manages Helm charts in Azure Pipelines. It supports operations like `package`, `install`, `upgrade`, `rollback`, and `test`, connecting securely to Kubernetes clusters via service connections.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/helm-deploy-v0",
-    tags: ["HelmDeploy", "Helm", "AKS", "Kubernetes"]
+    tags: ["HelmDeploy","Helm","AKS","Kubernetes"]
   },
   {
     id: "azure-az400-166",
@@ -333,7 +333,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     type: "single",
     explanation: "Kustomize is a template-free configuration management tool built into `kubectl`. It uses base manifests and environment-specific overlays (`kustomization.yaml`) to patch values (replicas, environment variables, resource limits) cleanly per target environment.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/kubernetes-manifest-v1#bake-action",
-    tags: ["Kustomize", "Kubernetes", "Overlays", "Declarative"]
+    tags: ["Kustomize","Kubernetes","Overlays","Declarative"]
   },
   {
     id: "azure-az400-167",
@@ -347,14 +347,14 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Take a screenshot of the plan output" },
       { id: 'B', text: "Re-run terraform plan in Stage 2" },
-      { id: 'C', text: "Generate a plan file with `terraform plan -out=tfplan` in Stage 1 and execute `terraform apply tfplan` in Stage 2" },
+      { id: 'C', text: "Plan to a file, then apply that file" },
       { id: 'D', text: "Run terraform apply with no plan file" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Passing `-out=tfplan` to `terraform plan` serializes the planned changes to an immutable binary plan file. Passing that exact `tfplan` file to `terraform apply` guarantees that only the approved changes are executed, preventing drift between review and apply.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan#out-path",
-    tags: ["Terraform", "tfplan", "Immutability", "Approval Gates"]
+    tags: ["Terraform","tfplan","Immutability","Approval Gates"]
   },
   {
     id: "azure-az400-168",
@@ -375,7 +375,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     type: "single",
     explanation: "Checkov, tfsec, and Trivy are specialized static analysis tools for Infrastructure as Code (IaC). They scan Terraform, Bicep, ARM templates, and Helm charts for security vulnerabilities and compliance policy violations during CI pull request validation.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/developer/terraform/best-practices",
-    tags: ["Checkov", "tfsec", "IaC Security", "Shift-Left"]
+    tags: ["Checkov","tfsec","IaC Security","Shift-Left"]
   },
   {
     id: "azure-az400-169",
@@ -389,14 +389,14 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "The Bicep CLI does not support linting" },
       { id: 'B', text: "By submitting the template to Microsoft Support" },
-      { id: 'C', text: "The Bicep linter automatically runs during `bicep build` and checks code against rules defined in `bicepconfig.json`" },
+      { id: 'C', text: "The linter runs during `bicep build`" },
       { id: 'D', text: "By running the template on a virtual machine" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "The Bicep CLI includes a built-in linter that runs automatically during `az bicep build` or validation tasks. It evaluates code against rules declared in `bicepconfig.json` (such as detecting unused parameters, hardcoded locations, or insecure secrets).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/linter",
-    tags: ["Bicep Linter", "bicepconfig.json", "Code Quality", "IaC"]
+    tags: ["Bicep Linter","bicepconfig.json","Code Quality","IaC"]
   },
   {
     id: "azure-az400-170",
@@ -408,7 +408,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "What does the concept of 'Idempotency' mean in the context of Infrastructure as Code (IaC) deployment pipelines?",
     options: [
-      { id: 'A', text: "Running the same deployment template multiple times against an environment produces the exact same end state without duplicating resources or throwing errors" },
+      { id: 'A', text: "Re-running the template yields the same end state" },
       { id: 'B', text: "Every deployment creates a brand new set of virtual machines" },
       { id: 'C', text: "The deployment requires human intervention on every run" },
       { id: 'D', text: "The template can only be executed once in its lifetime" }
@@ -417,7 +417,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     type: "single",
     explanation: "Idempotency guarantees that applying an infrastructure template repeatedly yields the identical desired state regardless of the starting state. If a resource already matches the template specification, the engine makes no changes.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/framework/devops/automation",
-    tags: ["Idempotency", "IaC", "Concepts", "Architecture"]
+    tags: ["Idempotency","IaC","Concepts","Architecture"]
   },
   {
     id: "azure-az400-171",
@@ -438,7 +438,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     type: "single",
     explanation: "Azure App Configuration provides a centralized service to manage application settings and feature flags dynamically. Feature Manager allows applications to evaluate toggles in real time without restarting or redeploying code.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-app-configuration/overview",
-    tags: ["Feature Flags", "App Configuration", "Progressive Delivery", "DevOps"]
+    tags: ["Feature Flags","App Configuration","Progressive Delivery","DevOps"]
   },
   {
     id: "azure-az400-172",
@@ -459,7 +459,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     type: "single",
     explanation: "Ring-based deployment (progressive exposure) deploys software changes incrementally across user rings, monitoring health metrics at each ring to catch defects early before exposing the entire customer base to risk.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/release-flow#ring-based-deployment",
-    tags: ["Ring-Based", "Progressive Exposure", "Deployment Strategies", "Resilience"]
+    tags: ["Ring-Based","Progressive Exposure","Deployment Strategies","Resilience"]
   },
   {
     id: "azure-az400-173",
@@ -474,13 +474,13 @@ export const AZURE_AZ400_QUESTIONS_7 = [
       { id: 'A', text: "Azure Front Door DNS failover" },
       { id: 'B', text: "Azure Traffic Manager geographic routing" },
       { id: 'C', text: "Manual round-robin load balancer" },
-      { id: 'D', text: "Testing in production (traffic routing percentages across deployment slots)" }
+      { id: 'D', text: "Testing in production across slots" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Azure App Service deployment slots support 'Testing in production' traffic routing: administrators allocate percentage shares (e.g. 50%/50%) between slots, enabling A/B hypothesis testing on live production users.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots#route-traffic",
-    tags: ["A/B Testing", "Deployment Slots", "App Service", "Traffic Routing"]
+    tags: ["A/B Testing","Deployment Slots","App Service","Traffic Routing"]
   },
   {
     id: "azure-az400-174",
@@ -494,14 +494,14 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Run only a single pod" },
       { id: 'B', text: "Increase node CPU size" },
-      { id: 'C', text: "Configure a PodDisruptionBudget (PDB) resource specifying minAvailable: 80%" },
+      { id: 'C', text: "A PodDisruptionBudget" },
       { id: 'D', text: "Disable cluster upgrades permanently" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "A PodDisruptionBudget (PDB) limits the number of pods of a replicated application that can be simultaneously down from voluntary disruptions (such as node drains, upgrades, or autoscaling events), ensuring high availability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-cluster-security#use-pod-disruption-budgets",
-    tags: ["PDB", "AKS", "Kubernetes", "High Availability"]
+    tags: ["PDB","AKS","Kubernetes","High Availability"]
   },
   {
     id: "azure-az400-175",
@@ -513,7 +513,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "What is the core premise of the 'Immutable Infrastructure' pattern in modern DevOps engineering?",
     options: [
-      { id: 'A', text: "Servers and container environments are never modified or patched in-place; any update replaces old instances with brand new, version-controlled images" },
+      { id: 'A', text: "Nothing is patched in place; updates replace instances" },
       { id: 'B', text: "Hardware must remain in datacenters for 20 years" },
       { id: 'C', text: "Developers are not allowed to update application code" },
       { id: 'D', text: "Servers must never be powered off" }
@@ -522,7 +522,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     type: "single",
     explanation: "Immutable Infrastructure dictates that servers and containers are replaced rather than modified in-place. If an update or patch is needed, a new image is built, tested, and deployed, completely eliminating configuration drift.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/framework/devops/automation",
-    tags: ["Immutable Infrastructure", "Configuration Drift", "Best Practices", "Architecture"]
+    tags: ["Immutable Infrastructure","Configuration Drift","Best Practices","Architecture"]
   }
 ];
 

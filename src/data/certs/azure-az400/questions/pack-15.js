@@ -325,7 +325,7 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
-      { id: 'B', text: "Hardcode security scanning commands in each developer's personal shell profile." },
+      { id: 'B', text: "Ask each developer to run the scanner locally before pushing." },
       { id: 'C', text: "Allow each team to write completely unstructured deployment scripts." },
       { id: 'D', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." }
     ],
@@ -347,7 +347,7 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
       { id: 'B', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." },
-      { id: 'C', text: "Hardcode security scanning commands in each developer's personal shell profile." },
+      { id: 'C', text: "Ask each developer to run the scanner locally before pushing." },
       { id: 'D', text: "Allow each team to write completely unstructured deployment scripts." }
     ],
     correctAnswers: ['B'],
@@ -369,7 +369,7 @@ export const AZURE_AZ400_QUESTIONS_15 = [
       { id: 'A', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
       { id: 'B', text: "Allow each team to write completely unstructured deployment scripts." },
       { id: 'C', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." },
-      { id: 'D', text: "Hardcode security scanning commands in each developer's personal shell profile." }
+      { id: 'D', text: "Ask each developer to run the scanner locally before pushing." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,7 +387,7 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to standardize build and security scanning steps across 200 microservice repositories while maintaining centralized template governance.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Hardcode security scanning commands in each developer's personal shell profile." },
+      { id: 'A', text: "Ask each developer to run the scanner locally before pushing." },
       { id: 'B', text: "Allow each team to write completely unstructured deployment scripts." },
       { id: 'C', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
       { id: 'D', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." }
@@ -411,7 +411,7 @@ export const AZURE_AZ400_QUESTIONS_15 = [
       { id: 'A', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
       { id: 'B', text: "Allow each team to write completely unstructured deployment scripts." },
       { id: 'C', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." },
-      { id: 'D', text: "Hardcode security scanning commands in each developer's personal shell profile." }
+      { id: 'D', text: "Ask each developer to run the scanner locally before pushing." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,7 +429,7 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to inject production database connection strings and third-party API keys securely into pipelines without exposing secret values in plaintext YAML.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Store secrets in plaintext variables committed to the Git repository." },
+      { id: 'A', text: "Keep the secrets in a variable group without Key Vault linking." },
       { id: 'B', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." },
       { id: 'C', text: "Echo secret tokens to build logs to verify they exist." },
       { id: 'D', text: "Pass secret passwords as plaintext command-line arguments in scripts." }
@@ -451,7 +451,7 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Echo secret tokens to build logs to verify they exist." },
-      { id: 'B', text: "Store secrets in plaintext variables committed to the Git repository." },
+      { id: 'B', text: "Keep the secrets in a variable group without Key Vault linking." },
       { id: 'C', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." },
       { id: 'D', text: "Pass secret passwords as plaintext command-line arguments in scripts." }
     ],
@@ -472,7 +472,7 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Pass secret passwords as plaintext command-line arguments in scripts." },
-      { id: 'B', text: "Store secrets in plaintext variables committed to the Git repository." },
+      { id: 'B', text: "Keep the secrets in a variable group without Key Vault linking." },
       { id: 'C', text: "Echo secret tokens to build logs to verify they exist." },
       { id: 'D', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." }
     ],
@@ -493,7 +493,7 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." },
-      { id: 'B', text: "Store secrets in plaintext variables committed to the Git repository." },
+      { id: 'B', text: "Keep the secrets in a variable group without Key Vault linking." },
       { id: 'C', text: "Pass secret passwords as plaintext command-line arguments in scripts." },
       { id: 'D', text: "Echo secret tokens to build logs to verify they exist." }
     ],
@@ -513,7 +513,7 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to inject production database connection strings and third-party API keys securely into pipelines without exposing secret values in plaintext YAML.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Store secrets in plaintext variables committed to the Git repository." },
+      { id: 'A', text: "Keep the secrets in a variable group without Key Vault linking." },
       { id: 'B', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." },
       { id: 'C', text: "Echo secret tokens to build logs to verify they exist." },
       { id: 'D', text: "Pass secret passwords as plaintext command-line arguments in scripts." }
