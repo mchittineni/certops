@@ -21,7 +21,7 @@
 import { mkdirSync, writeFileSync, rmSync } from 'fs';
 import path from 'path';
 import { loadAllContent, flatten } from './lib/content-io.mjs';
-import { scoreCertification, THRESHOLDS } from './lib/distractor-metrics.mjs';
+import { scoreCertification, THRESHOLDS, LENGTH_BAND } from './lib/distractor-metrics.mjs';
 
 const argv = process.argv.slice(2);
 const outDir = argv.includes('--out') ? argv[argv.indexOf('--out') + 1] : 'dist-dataset';
@@ -213,7 +213,8 @@ Read this before training on the bank.
 item the correct option is the longest one, or the question stem names a term
 only the key uses. \`longest%\` is how often the single longest option is correct
 and \`shortest%\` how often the single shortest one is — chance is ~25% each on
-four options, so a bank at either extreme hands the reader a rule. \`leak%\` is
+four options, and a bank far from chance either way hands the reader a rule.
+\`leak%\` is
 how often the stem shares a distinctive term with the key that no distractor
 uses. ${passing} of ${scores.length} certifications currently pass every target.
 
@@ -221,7 +222,7 @@ uses. ${passing} of ${scores.length} certifications currently pass every target.
 | --- | --- | --- | --- | --- | --- | --- |
 ${rows}
 
-Targets: longest ≤${THRESHOLDS.longest}%, shortest ≥${THRESHOLDS.shortest}%, strawman ≤${THRESHOLDS.strawman}%, leak ≤${THRESHOLDS.leak}%.
+Targets: longest% and shortest% both within ${LENGTH_BAND.min}-${LENGTH_BAND.max}%, strawman ≤${THRESHOLDS.strawman}%, leak ≤${THRESHOLDS.leak}%.
 Filter on the certifications marked \`passes\` if you need items that cannot be
 answered by shape alone.
 

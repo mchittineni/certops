@@ -12,13 +12,13 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
       { id: 'A', text: "FinOps is an automated software agent that revokes cloud access from engineers who exceed monthly budgets" },
       { id: 'B', text: "FinOps is an accounting method that converts all operational expenses back into multi-year capital hardware depreciation" },
       { id: 'C', text: "FinOps is a procurement mandate focused exclusively on cutting cloud spending by eliminating all non-essential development environments" },
-      { id: 'D', text: "FinOps is an evolving cloud financial management discipline and cultural practice that enables organizations to maximize business value by helping engineering, finance, technology, and business teams to collaborate on data-driven spending decisions" }
+      { id: 'D', text: "A cloud financial management practice in which engineering, finance and business teams decide on spend together from shared data" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "FinOps is not merely about saving money or cutting costs; it is an operational framework and cultural practice that enables cross-functional teams to make data-driven spending decisions, balancing velocity, quality, and financial accountability to maximize business value from cloud investments.",
     referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "Principles", "Culture"]
+    tags: ["FinOps","Principles","Culture"]
   },
   {
     id: "focp-2",
@@ -39,7 +39,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     type: "single",
     explanation: "The FinOps principle 'Teams need to collaborate' emphasizes that finance, engineering, procurement, and leadership must work together continuously in near-real-time to align technical delivery with financial accountability, replacing historical retrospective blame with shared responsibility.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Collaboration"]
+    tags: ["FinOps","Principles","Collaboration"]
   },
   {
     id: "focp-3",
@@ -60,7 +60,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     type: "single",
     explanation: "The principle 'Everyone takes ownership for their cloud usage' establishes that decentralized engineering and operations teams must own their usage and costs from design through production, managing cost as an architectural constraint alongside latency and reliability.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Ownership"]
+    tags: ["FinOps","Principles","Ownership"]
   },
   {
     id: "focp-4",
@@ -81,7 +81,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     type: "single",
     explanation: "The principle 'A centralized team drives FinOps' advocates for a centralized team (such as a FinOps team or CCoE) to handle rate negotiations, commitment discounts (RIs, Savings Plans, CUDs), governance, and practice enablement, while individual teams focus on usage optimization.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Centralized Team"]
+    tags: ["FinOps","Principles","Centralized Team"]
   },
   {
     id: "focp-5",
@@ -102,7 +102,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     type: "single",
     explanation: "The principle 'Reports should be accessible and timely' dictates that cost and usage visibility must be provided to teams as close to real-time as possible. Fast feedback loops allow engineers to detect and remediate cost spikes or anomalies immediately before expenses accumulate.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Visibility"]
+    tags: ["FinOps","Principles","Visibility"]
   },
   {
     id: "focp-6",
@@ -116,14 +116,14 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "FinOps prioritizes maintaining static quarterly cloud budgets above customer acquisition" },
       { id: 'B', text: "Any increase in cloud spend represents an operational failure regardless of revenue growth" },
-      { id: 'C', text: "Decisions are driven by the business value of the cloud, meaning spend increases are justified when they drive proportional or greater business revenue and growth" },
+      { id: 'C', text: "Spend rises are justified when they drive proportional or greater revenue" },
       { id: 'D', text: "Cloud spend should remain fixed regardless of user volume fluctuations" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "The principle 'Decisions are driven by business value of cloud' recognizes that cloud spend is an investment in revenue generation and business agility. The goal is not simply minimizing spend, but optimizing unit economics and gross margin so that cloud investment drives maximum business return.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Business Value"]
+    tags: ["FinOps","Principles","Business Value"]
   },
   {
     id: "focp-7",
@@ -144,7 +144,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     type: "single",
     explanation: "The principle 'Take advantage of the variable cost model of the cloud' encourages organizations to leverage the pay-per-use, elastic nature of cloud computing by scaling up when needed and turning off resources when idle, rather than over-provisioning static hardware.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/cloud-concepts",
-    tags: ["FinOps", "Principles", "Variable Cost"]
+    tags: ["FinOps","Principles","Variable Cost"]
   },
   {
     id: "focp-8",
@@ -165,7 +165,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     type: "single",
     explanation: "The Iron Triangle in cloud engineering represents the trade-offs between Cost, Quality (Speed/Performance), and Scope. FinOps provides the data and visibility necessary for cross-functional teams to make conscious, value-based trade-offs between these dimensions.",
     referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "Principles", "Trade-offs"]
+    tags: ["FinOps","Principles","Trade-offs"]
   },
   {
     id: "focp-9",
@@ -177,7 +177,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     scenario: "In a traditional on-premises datacenter model, procurement was controlled through centralized annual capital approvals. In the cloud, any engineer with IAM permissions can spin up infrastructure instantly.",
     question: "Why does this shift necessitate the cultural adoption of FinOps?",
     options: [
-      { id: 'A', text: "Because procurement has been decentralized to engineering, requiring continuous financial accountability at the point of provisioning" },
+      { id: 'A', text: "Procurement is decentralized to engineering, so accountability must be too" },
       { id: 'B', text: "Because virtual machine configurations are permanent and cannot be modified" },
       { id: 'C', text: "Because cloud vendors disallow the use of enterprise corporate credit cards" },
       { id: 'D', text: "Because public clouds legally mandate annual on-site hardware inspections" }
@@ -186,7 +186,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     type: "single",
     explanation: "In the cloud, purchasing power is effectively decentralized into the hands of engineers who write code and provision resources via APIs. FinOps introduces the cultural and technical guardrails required to manage this decentralized, real-time spending model responsibly.",
     referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "Culture", "Procurement"]
+    tags: ["FinOps","Culture","Procurement"]
   },
   {
     id: "focp-10",
@@ -200,14 +200,14 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "FinOps mandates migrating all cloud workloads back to on-premises colocation" },
       { id: 'B', text: "FinOps is exclusively measured by total percentage reduction in gross monthly cloud invoices" },
-      { id: 'C', text: "FinOps focuses on maximizing unit efficiency, business value, and revenue enablement rather than solely cutting absolute dollar spend" },
+      { id: 'C', text: "It maximizes unit efficiency and business value, not just lower spend" },
       { id: 'D', text: "FinOps requires shutting down production virtual machines during non-working hours" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "A common misconception is that FinOps exists solely to cut costs. In reality, FinOps focuses on maximizing the business value delivered per dollar spent. If a company spends more on cloud while accelerating revenue and expanding profit margins, FinOps is succeeding.",
     referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "Principles", "Value"]
+    tags: ["FinOps","Principles","Value"]
   },
   {
     id: "focp-11",
@@ -220,7 +220,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     question: "Which statement best reflects the FinOps Foundation's standard guidance for cultural shift in engineering?",
     options: [
       { id: 'A', text: "Restricting all cloud access to finance personnel" },
-      { id: 'B', text: "Treating cost as a first-class engineering metric during design and deployment" },
+      { id: 'B', text: "Treating cost as a first-class engineering metric" },
       { id: 'C', text: "Requiring paper purchase orders for cloud provisioning" },
       { id: 'D', text: "Eliminating automated CI/CD pipelines" }
     ],
@@ -228,7 +228,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     type: "single",
     explanation: "FinOps requires an organizational culture shift where engineers view cost as an engineering dimension, similar to latency, security, and scalability. Aligning with these principles ensures that cloud investments deliver measurable business return and operational agility.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Cultural"]
+    tags: ["FinOps","Principles","Cultural"]
   },
   {
     id: "focp-12",
@@ -242,14 +242,14 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "Eliminating all budgeting processes entirely" },
       { id: 'B', text: "Locking in 10-year immutable hardware leases" },
-      { id: 'C', text: "Transitioning from rigid static annual budgets to dynamic rolling forecasts" },
+      { id: 'C', text: "Moving from annual budgets to rolling forecasts" },
       { id: 'D', text: "Depreciating server racks over five fiscal years" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Traditional IT used static 3-to-5 year hardware budgets, while cloud financial management requires dynamic, rolling forecasts that adapt to variable demand. Aligning with these principles ensures that cloud investments deliver measurable business return and operational agility.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Variable"]
+    tags: ["FinOps","Principles","Variable"]
   },
   {
     id: "focp-13",
@@ -262,7 +262,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     question: "Which statement best reflects the FinOps Foundation's standard guidance for finops foundation community role?",
     options: [
       { id: 'A', text: "A government regulatory body that enforces cloud tax compliance" },
-      { id: 'B', text: "A non-profit open source community hosted by the Linux Foundation establishing vendor-neutral cloud financial standards" },
+      { id: 'B', text: "A vendor-neutral Linux Foundation standards community" },
       { id: 'C', text: "A proprietary commercial software vendor that sells cloud billing APIs" },
       { id: 'D', text: "A consortium of hardware manufacturers setting physical server prices" }
     ],
@@ -270,7 +270,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     type: "single",
     explanation: "The FinOps Foundation is a non-profit trade association hosted by the Linux Foundation that establishes vendor-neutral standards, open source specifications, and community certifications. Aligning with these principles ensures that cloud investments deliver measurable business return and operational agility.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "FinOps"]
+    tags: ["FinOps","Principles","FinOps"]
   },
   {
     id: "focp-14",
@@ -291,7 +291,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     type: "single",
     explanation: "FinOps empowers decentralized development teams to make smart operational spending choices while maintaining centralized governance and rate optimization. Aligning with these principles ensures that cloud investments deliver measurable business return and operational agility.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Decentralized"]
+    tags: ["FinOps","Principles","Decentralized"]
   },
   {
     id: "focp-15",
@@ -312,7 +312,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     type: "single",
     explanation: "In FinOps, cost is considered a proxy for architectural efficiency; a poorly architected, unoptimized workload wastes money, whereas a well-architected workload minimizes unit cost. Aligning with these principles ensures that cloud investments deliver measurable business return and operational agility.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Cost"]
+    tags: ["FinOps","Principles","Cost"]
   },
   {
     id: "focp-16",
@@ -324,7 +324,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     scenario: "A FinOps cross-functional working group is evaluating organizational culture, economic models, and foundational principles for real-time visibility impact.",
     question: "Which statement best reflects the FinOps Foundation's standard guidance for real-time visibility impact?",
     options: [
-      { id: 'A', text: "Providing immediate cost feedback to engineers to foster proactive optimization habits" },
+      { id: 'A', text: "Giving engineers immediate cost feedback" },
       { id: 'B', text: "Sending quarterly retrospective billing summaries to managers only" },
       { id: 'C', text: "Blocking developers from viewing resource cost dashboards" },
       { id: 'D', text: "Billing individual engineers personal expenses for cloud spikes" }
@@ -333,7 +333,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     type: "single",
     explanation: "Providing engineers with immediate cost feedback on their newly deployed infrastructure encourages proactive rightsizing and cleanup habits. Aligning with these principles ensures that cloud investments deliver measurable business return and operational agility.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Real-Time"]
+    tags: ["FinOps","Principles","Real-Time"]
   },
   {
     id: "focp-17",
@@ -354,7 +354,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     type: "single",
     explanation: "Successful FinOps adoption requires executive sponsorship from the CTO, CFO, and CIO to establish cross-functional alignment and shared organizational priorities. Aligning with these principles ensures that cloud investments deliver measurable business return and operational agility.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Executive"]
+    tags: ["FinOps","Principles","Executive"]
   },
   {
     id: "focp-18",
@@ -366,7 +366,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     scenario: "A FinOps cross-functional working group is evaluating organizational culture, economic models, and foundational principles for unit economics alignment.",
     question: "Which statement best reflects the FinOps Foundation's standard guidance for unit economics alignment?",
     options: [
-      { id: 'A', text: "Measuring cloud cost per unit of business output (e.g., cost per subscriber or transaction)" },
+      { id: 'A', text: "Measuring cloud cost per unit of business output" },
       { id: 'B', text: "Measuring employee commute times to cloud conferences" },
       { id: 'C', text: "Tracking the total number of lines of code in a repository" },
       { id: 'D', text: "Calculating the total weight of physical servers in a datacenter" }
@@ -375,7 +375,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     type: "single",
     explanation: "Unit economics links cloud spend directly to business value by measuring the cost to deliver a specific unit of business output (such as cost per transaction or cost per customer). Aligning with these principles ensures that cloud investments deliver measurable business return and operational agility.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Unit"]
+    tags: ["FinOps","Principles","Unit"]
   },
   {
     id: "focp-19",
@@ -389,14 +389,14 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
       { id: 'B', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
-      { id: 'C', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'C', text: "Cross-functional collaboration between engineering, finance and procurement" },
       { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Culture"]
+    tags: ["FinOps","Principles","Culture"]
   },
   {
     id: "focp-20",
@@ -410,14 +410,14 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
       { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
-      { id: 'C', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'C', text: "Cross-functional collaboration between engineering, finance and procurement" },
       { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Culture"]
+    tags: ["FinOps","Principles","Culture"]
   },
   {
     id: "focp-21",
@@ -430,7 +430,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #3?",
     options: [
       { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
-      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'B', text: "Cross-functional collaboration between engineering, finance and procurement" },
       { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
       { id: 'D', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" }
     ],
@@ -438,7 +438,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Culture"]
+    tags: ["FinOps","Principles","Culture"]
   },
   {
     id: "focp-22",
@@ -453,13 +453,13 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
       { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
       { id: 'B', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
       { id: 'C', text: "Managing cloud spend strictly through retrospective annual audits" },
-      { id: 'D', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" }
+      { id: 'D', text: "Cross-functional collaboration between engineering, finance and procurement" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Culture"]
+    tags: ["FinOps","Principles","Culture"]
   },
   {
     id: "focp-23",
@@ -472,7 +472,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #5?",
     options: [
       { id: 'A', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
-      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'B', text: "Cross-functional collaboration between engineering, finance and procurement" },
       { id: 'C', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
       { id: 'D', text: "Managing cloud spend strictly through retrospective annual audits" }
     ],
@@ -480,7 +480,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Culture"]
+    tags: ["FinOps","Principles","Culture"]
   },
   {
     id: "focp-24",
@@ -493,7 +493,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #6?",
     options: [
       { id: 'A', text: "Managing cloud spend strictly through retrospective annual audits" },
-      { id: 'B', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'B', text: "Cross-functional collaboration between engineering, finance and procurement" },
       { id: 'C', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" },
       { id: 'D', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" }
     ],
@@ -501,7 +501,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Culture"]
+    tags: ["FinOps","Principles","Culture"]
   },
   {
     id: "focp-25",
@@ -513,7 +513,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     scenario: "An organization is modernizing its cloud financial operations, aligning cross-functional teams to eliminate waste and maximize business value.",
     question: "Which FinOps principle or foundational concept is demonstrated in scenario #7?",
     options: [
-      { id: 'A', text: "Cross-functional collaboration between engineering, finance, and procurement to maximize cloud business value" },
+      { id: 'A', text: "Cross-functional collaboration between engineering, finance and procurement" },
       { id: 'B', text: "Managing cloud spend strictly through retrospective annual audits" },
       { id: 'C', text: "Eliminating all real-time monitoring and alerting to reduce metric overhead" },
       { id: 'D', text: "Siloed procurement teams setting arbitrary cloud quotas without engineering input" }
@@ -522,7 +522,7 @@ export const FINOPS_FOCP_QUESTIONS_1 = [
     type: "single",
     explanation: "FinOps principles mandate continuous cross-functional collaboration and real-time visibility. Aligning engineering, finance, and procurement ensures that cloud spending decisions are data-driven, agile, and aligned with core business value.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["FinOps", "Principles", "Culture"]
+    tags: ["FinOps","Principles","Culture"]
   }
 ];
 

@@ -24,7 +24,7 @@
  * Run: npm run audit:distractors [-- --strict] [-- --cert <id>]
  */
 import { loadAllContent, flatten } from './lib/content-io.mjs';
-import { scoreCertification, THRESHOLDS } from './lib/distractor-metrics.mjs';
+import { scoreCertification, THRESHOLDS, LENGTH_BAND } from './lib/distractor-metrics.mjs';
 
 const argv = process.argv.slice(2);
 const strict = argv.includes('--strict');
@@ -48,7 +48,7 @@ if (!rows.length) {
 
 const weighted = k => rows.reduce((s, r) => s + r[k] * r.n, 0) / rows.reduce((s, r) => s + r.n, 0);
 const flag = (v, t) => (v > t ? '!' : ' ');
-const floorFlag = (v, t) => (v !== null && v < t ? '!' : ' ');
+const bandFlag = v => (v !== null && (v < LENGTH_BAND.min || v > LENGTH_BAND.max) ? '!' : ' ');
 const signed = v => (v >= 0 ? '+' : '') + v.toFixed(0);
 
 rows.sort((a, b) => b.longest + b.strawman + b.leak - (a.longest + a.strawman + a.leak));
@@ -59,8 +59,8 @@ console.log('  ' + '-'.repeat(77));
 for (const r of rows) {
   console.log(
     `  ${r.certId.padEnd(20)} ${String(r.n).padStart(4)}   ` +
-    `${r.longest.toFixed(1).padStart(6)}${flag(r.longest, THRESHOLDS.longest)}  ` +
-    `${(r.shortest === null ? '-' : r.shortest.toFixed(1)).padStart(7)}${floorFlag(r.shortest, THRESHOLDS.shortest)}  ` +
+    `${r.longest.toFixed(1).padStart(6)}${bandFlag(r.longest)}  ` +
+    `${(r.shortest === null ? '-' : r.shortest.toFixed(1)).padStart(7)}${bandFlag(r.shortest)}  ` +
     `${r.strawman.toFixed(1).padStart(6)}${flag(r.strawman, THRESHOLDS.strawman)}  ` +
     `${r.leak.toFixed(1).padStart(6)}${flag(r.leak, THRESHOLDS.leak)}  ` +
     `${signed(r.delta).padStart(6)}${flag(r.delta, THRESHOLDS.delta)}`
@@ -80,8 +80,9 @@ console.log(
 );
 
 console.log(
-  `\nTargets: longest <=${THRESHOLDS.longest}% and shortest >=${THRESHOLDS.shortest}% ` +
-  `(chance is ~25% each on 4 options, so either extreme becomes a rule), ` +
+  `\nTargets: longest% and shortest% both within ${LENGTH_BAND.min}-${LENGTH_BAND.max}% ` +
+  `(chance is ~25% each on 4 options; outside the band, "always pick it" or ` +
+  `"always eliminate it" starts to work), ` +
   `strawman <=${THRESHOLDS.strawman}%, leak <=${THRESHOLDS.leak}%, len gap <=+${THRESHOLDS.delta} chars.`
 );
 

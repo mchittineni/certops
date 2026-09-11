@@ -18,7 +18,7 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     type: "single",
     explanation: "The FinOps lifecycle consists of three iterative phases: Inform (providing visibility, allocation, and forecasting), Optimize (discovering rate and usage optimization opportunities), and Operate (implementing continuous automation and governance).",
     referenceUrl: "https://www.finops.org/framework/phases/",
-    tags: ["FinOps", "Phases", "Lifecycle"]
+    tags: ["FinOps","Phases","Lifecycle"]
   },
   {
     id: "focp-52",
@@ -39,7 +39,7 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     type: "single",
     explanation: "The Inform phase focuses on visibility and transparency. It includes cost allocation, tagging, benchmarking, budgeting, and forecasting to ensure organizations know what they are spending and who is responsible for each cost component.",
     referenceUrl: "https://www.finops.org/framework/phases/",
-    tags: ["FinOps", "Phases", "Inform"]
+    tags: ["FinOps","Phases","Inform"]
   },
   {
     id: "focp-53",
@@ -60,7 +60,7 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     type: "single",
     explanation: "The Optimize phase focuses on identifying and executing optimization opportunities. It includes rate optimization (purchasing commitment discounts like RIs and Savings Plans) and usage optimization (rightsizing resources, turning off idle infrastructure, modernizing instance generations).",
     referenceUrl: "https://www.finops.org/framework/phases/",
-    tags: ["FinOps", "Phases", "Optimize"]
+    tags: ["FinOps","Phases","Optimize"]
   },
   {
     id: "focp-54",
@@ -81,7 +81,7 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     type: "single",
     explanation: "The Operate phase involves continuous execution, policy enforcement, automation, and governance. It translates optimization goals into ongoing daily operations, integrating FinOps practices into standard engineering and operational workflows.",
     referenceUrl: "https://www.finops.org/framework/phases/",
-    tags: ["FinOps", "Phases", "Operate"]
+    tags: ["FinOps","Phases","Operate"]
   },
   {
     id: "focp-55",
@@ -102,7 +102,7 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     type: "single",
     explanation: "In the Crawl stage of maturity, organizations have basic visibility, rudimentary manual processes, low tagging compliance, and reactive responses to billing surprises. Processes are ad-hoc rather than standardized.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Crawl"]
+    tags: ["FinOps","Maturity Model","Crawl"]
   },
   {
     id: "focp-56",
@@ -123,7 +123,7 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     type: "single",
     explanation: "In the Walk stage, organizations have defined policies, moderate-to-high tagging coverage, structured cadence between finance and engineering, proactive alerting, and coordinated central commitment management.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Walk"]
+    tags: ["FinOps","Maturity Model","Walk"]
   },
   {
     id: "focp-57",
@@ -144,7 +144,7 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     type: "single",
     explanation: "The Run stage represents advanced maturity where FinOps processes are deeply automated, integrated into CI/CD pipelines, cover shared cost and container allocation, and link cloud spend directly to business unit metrics.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Run"]
+    tags: ["FinOps","Maturity Model","Run"]
   },
   {
     id: "focp-58",
@@ -156,7 +156,7 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     scenario: "A newly appointed team member asks whether an organization finishes the Inform phase completely before ever touching the Optimize phase.",
     question: "How should the FinOps Practitioner explain the relationship between the FinOps lifecycle phases?",
     options: [
-      { id: 'A', text: "The phases are continuous and iterative; teams can operate in multiple phases simultaneously across different workloads and maturity levels" },
+      { id: 'A', text: "They are continuous and iterative; teams can be in several at once" },
       { id: 'B', text: "Each phase must be executed sequentially once per fiscal year" },
       { id: 'C', text: "Once the Operate phase is reached, the Inform phase is permanently deprecated" },
       { id: 'D', text: "The Inform phase must be 100% complete across all enterprise systems before any optimization is permitted" }
@@ -165,7 +165,7 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     type: "single",
     explanation: "The FinOps lifecycle is not a one-time waterfall process. Organizations iterate through Inform, Optimize, and Operate continuously. An enterprise might be at a 'Run' maturity in Inform for core compute while simultaneously at a 'Crawl' maturity in Optimize for newly introduced AI workloads.",
     referenceUrl: "https://www.finops.org/framework/phases/",
-    tags: ["FinOps", "Phases", "Maturity"]
+    tags: ["FinOps","Phases","Maturity"]
   },
   {
     id: "focp-59",
@@ -180,13 +180,13 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
       { id: 'A', text: "There is no functional difference between the two terms" },
       { id: 'B', text: "Showback is illegal under GAAP, while chargeback is mandatory" },
       { id: 'C', text: "Showback applies only to SaaS licenses, while chargeback applies to IaaS" },
-      { id: 'D', text: "Showback provides cost awareness without actual ledger transfer, while chargeback moves money between internal budgets" }
+      { id: 'D', text: "Showback shows cost; chargeback actually moves the money" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Showback displays allocated costs to teams for awareness without transferring actual budget funds, whereas chargeback performs real financial ledger billing transfers. Mastering the phases and maturity progression is critical to establishing sustainable FinOps practices.",
     referenceUrl: "https://www.finops.org/framework/phases/",
-    tags: ["FinOps", "Phases", "Showback"]
+    tags: ["FinOps","Phases","Showback"]
   },
   {
     id: "focp-60",
@@ -201,13 +201,13 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
       { id: 'A', text: "Deleting all tags before month-end billing" },
       { id: 'B', text: "Relying on verbal confirmations of resource ownership" },
       { id: 'C', text: "Restricting developers from tagging resources" },
-      { id: 'D', text: "Consistent tagging policies that attribute resources to owners, environments, and business units" }
+      { id: 'D', text: "Consistent tagging by owner, environment and unit" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Consistent resource tagging (owner, env, cost-center) is the foundation of the Inform phase, enabling automated cost reporting and ownership attribution. Mastering the phases and maturity progression is critical to establishing sustainable FinOps practices.",
     referenceUrl: "https://www.finops.org/framework/phases/",
-    tags: ["FinOps", "Phases", "Tagging"]
+    tags: ["FinOps","Phases","Tagging"]
   },
   {
     id: "focp-61",
@@ -222,13 +222,13 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
       { id: 'A', text: "Both terms refer strictly to network bandwidth tuning" },
       { id: 'B', text: "Rate optimization requires moving workloads to on-premises servers" },
       { id: 'C', text: "Rate optimization is done by developers, while usage optimization is done by finance" },
-      { id: 'D', text: "Rate optimization reduces the price paid per resource, while usage optimization reduces the quantity of resources consumed" }
+      { id: 'D', text: "Rate optimization cuts the price paid; usage optimization cuts the quantity" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Rate optimization focuses on paying less per unit of compute (via commitments and discounts), while usage optimization focuses on consuming fewer units (via rightsizing and turning off idle resources). Mastering the phases and maturity progression is critical to establishing sustainable FinOps practices.",
     referenceUrl: "https://www.finops.org/framework/phases/",
-    tags: ["FinOps", "Phases", "Rate"]
+    tags: ["FinOps","Phases","Rate"]
   },
   {
     id: "focp-62",
@@ -243,13 +243,13 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
       { id: 'A', text: "Annual vendor negotiation meetings" },
       { id: 'B', text: "Monthly manual invoice auditing by external accountants" },
       { id: 'C', text: "Deleting resources automatically when CPU reaches 50%" },
-      { id: 'D', text: "Statistical monitoring that detects unexpected spending spikes and triggers rapid alerts" }
+      { id: 'D', text: "Statistical monitoring that alerts on unexpected spikes" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Automated anomaly detection monitors spending patterns using statistical baselines and triggers immediate alerts when spending deviates unexpectedly from normal patterns. Mastering the phases and maturity progression is critical to establishing sustainable FinOps practices.",
     referenceUrl: "https://www.finops.org/framework/phases/",
-    tags: ["FinOps", "Phases", "Anomaly"]
+    tags: ["FinOps","Phases","Anomaly"]
   },
   {
     id: "focp-63",
@@ -270,7 +270,7 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     type: "single",
     explanation: "An organization can be at different maturity levels (Crawl, Walk, Run) simultaneously across different FinOps capabilities. Mastering the phases and maturity progression is critical to establishing sustainable FinOps practices.",
     referenceUrl: "https://www.finops.org/framework/phases/",
-    tags: ["FinOps", "Phases", "FinOps"]
+    tags: ["FinOps","Phases","FinOps"]
   },
   {
     id: "focp-64",
@@ -291,7 +291,7 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     type: "single",
     explanation: "Forecasting uses historical spend trends, seasonal variations, and planned business growth drivers to project future cloud costs accurately. Mastering the phases and maturity progression is critical to establishing sustainable FinOps practices.",
     referenceUrl: "https://www.finops.org/framework/phases/",
-    tags: ["FinOps", "Phases", "Forecasting"]
+    tags: ["FinOps","Phases","Forecasting"]
   },
   {
     id: "focp-65",
@@ -304,7 +304,7 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     question: "Which statement best describes the operational implementation of continuous governance in operate?",
     options: [
       { id: 'A', text: "Removing all spending limits across production subscriptions" },
-      { id: 'B', text: "Automated policy enforcement and governance built into everyday deployment pipelines" },
+      { id: 'B', text: "Automated policy enforcement in the deployment pipeline" },
       { id: 'C', text: "Annual governance audits that interrupt developer workflows" },
       { id: 'D', text: "Disabling automated deployments in favor of manual server installs" }
     ],
@@ -312,7 +312,7 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     type: "single",
     explanation: "The Operate phase ensures that financial governance policies (like automated resource tagging validation) are continuously enforced in CI/CD pipelines. Mastering the phases and maturity progression is critical to establishing sustainable FinOps practices.",
     referenceUrl: "https://www.finops.org/framework/phases/",
-    tags: ["FinOps", "Phases", "Continuous"]
+    tags: ["FinOps","Phases","Continuous"]
   },
   {
     id: "focp-66",
@@ -326,14 +326,14 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'C', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'C', text: "Moving from manual cost spreadsheets to automated real-time dashboards" },
       { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-67",
@@ -347,14 +347,14 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
       { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'C', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'C', text: "Moving from manual cost spreadsheets to automated real-time dashboards" },
       { id: 'D', text: "Manually approving every virtual machine restart through a central procurement board" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-68",
@@ -367,7 +367,7 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #3?",
     options: [
       { id: 'A', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'B', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'B', text: "Moving from manual cost spreadsheets to automated real-time dashboards" },
       { id: 'C', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
       { id: 'D', text: "Manually approving every virtual machine restart through a central procurement board" }
     ],
@@ -375,7 +375,7 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-69",
@@ -390,13 +390,13 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
       { id: 'A', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
       { id: 'B', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'C', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
+      { id: 'D', text: "Moving from manual cost spreadsheets to automated real-time dashboards" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-70",
@@ -408,7 +408,7 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #5?",
     options: [
-      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'A', text: "Moving from manual cost spreadsheets to automated real-time dashboards" },
       { id: 'B', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'C', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
       { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
@@ -417,7 +417,7 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-71",
@@ -431,14 +431,14 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
       { id: 'B', text: "Manually approving every virtual machine restart through a central procurement board" },
-      { id: 'C', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'C', text: "Moving from manual cost spreadsheets to automated real-time dashboards" },
       { id: 'D', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-72",
@@ -453,13 +453,13 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
       { id: 'A', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
       { id: 'C', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
+      { id: 'D', text: "Moving from manual cost spreadsheets to automated real-time dashboards" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-73",
@@ -473,14 +473,14 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'C', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'C', text: "Moving from manual cost spreadsheets to automated real-time dashboards" },
       { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-74",
@@ -494,14 +494,14 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'C', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'C', text: "Moving from manual cost spreadsheets to automated real-time dashboards" },
       { id: 'D', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-75",
@@ -516,13 +516,13 @@ export const FINOPS_FOCP_QUESTIONS_3 = [
       { id: 'A', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
       { id: 'B', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'C', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
+      { id: 'D', text: "Moving from manual cost spreadsheets to automated real-time dashboards" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   }
 ];
 

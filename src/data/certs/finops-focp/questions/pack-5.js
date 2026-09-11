@@ -10,7 +10,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #36?",
     options: [
       { id: 'A', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'B', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'B', text: "Moving from manual cost spreadsheets to automated real-time dashboards" },
       { id: 'C', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
       { id: 'D', text: "Manually approving every virtual machine restart through a central procurement board" }
     ],
@@ -18,7 +18,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-102",
@@ -30,7 +30,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #37?",
     options: [
-      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'A', text: "Moving from manual cost spreadsheets to automated real-time dashboards" },
       { id: 'B', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'C', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
       { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
@@ -39,7 +39,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-103",
@@ -54,13 +54,13 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
       { id: 'A', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
       { id: 'C', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
+      { id: 'D', text: "Moving from manual cost spreadsheets to automated real-time dashboards" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-104",
@@ -72,7 +72,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #39?",
     options: [
-      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'A', text: "Moving from manual cost spreadsheets to automated real-time dashboards" },
       { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
       { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
@@ -81,7 +81,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-105",
@@ -95,14 +95,14 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'C', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'C', text: "Moving from manual cost spreadsheets to automated real-time dashboards" },
       { id: 'D', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-106",
@@ -117,13 +117,13 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
       { id: 'A', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
       { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
       { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
-      { id: 'D', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" }
+      { id: 'D', text: "Moving from manual cost spreadsheets to automated real-time dashboards" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-107",
@@ -135,7 +135,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #42?",
     options: [
-      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'A', text: "Moving from manual cost spreadsheets to automated real-time dashboards" },
       { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
       { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
@@ -144,7 +144,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-108",
@@ -156,7 +156,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #43?",
     options: [
-      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'A', text: "Moving from manual cost spreadsheets to automated real-time dashboards" },
       { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
       { id: 'C', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'D', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" }
@@ -165,7 +165,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-109",
@@ -177,7 +177,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     scenario: "An enterprise is advancing its cloud financial lifecycle practices across Inform, Optimize, and Operate phases.",
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #44?",
     options: [
-      { id: 'A', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'A', text: "Moving from manual cost spreadsheets to automated real-time dashboards" },
       { id: 'B', text: "Manually approving every virtual machine restart through a central procurement board" },
       { id: 'C', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
       { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
@@ -186,7 +186,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-110",
@@ -199,7 +199,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     question: "Which action or milestone indicates progression in FinOps capability maturity for scenario #45?",
     options: [
       { id: 'A', text: "Manually approving every virtual machine restart through a central procurement board" },
-      { id: 'B', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'B', text: "Moving from manual cost spreadsheets to automated real-time dashboards" },
       { id: 'C', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
       { id: 'D', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" }
     ],
@@ -207,7 +207,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-111",
@@ -221,14 +221,14 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
       { id: 'B', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
-      { id: 'C', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'C', text: "Moving from manual cost spreadsheets to automated real-time dashboards" },
       { id: 'D', text: "Manually approving every virtual machine restart through a central procurement board" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-112",
@@ -242,14 +242,14 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Eliminating all cost visibility dashboards to avoid confusing software developers" },
       { id: 'B', text: "Relying exclusively on retroactive monthly cloud billing PDF invoices" },
-      { id: 'C', text: "Transitioning from ad-hoc manual cost spreadsheets to automated real-time dashboards with anomaly alerting" },
+      { id: 'C', text: "Moving from manual cost spreadsheets to automated real-time dashboards" },
       { id: 'D', text: "Manually approving every virtual machine restart through a central procurement board" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Progressing through the FinOps maturity model requires moving away from reactive, manual spreadsheets toward automated, near-real-time visibility, proactive anomaly detection, and decentralized engineering accountability.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["FinOps", "Maturity Model", "Phases"]
+    tags: ["FinOps","Maturity Model","Phases"]
   },
   {
     id: "focp-113",
@@ -262,7 +262,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     question: "What is the primary role of the Engineering and Operations persona in FinOps?",
     options: [
       { id: 'A', text: "Negotiating corporate credit card merchant processing fees with financial institutions" },
-      { id: 'B', text: "Designing, building, and operating cost-effective architectures, and implementing usage optimizations like rightsizing and idle cleanup" },
+      { id: 'B', text: "Building cost-effective architectures and rightsizing or removing idle capacity" },
       { id: 'C', text: "Auditing employee expense reports for travel and entertainment" },
       { id: 'D', text: "Managing enterprise GAAP depreciation schedules for physical server chassis" }
     ],
@@ -270,7 +270,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     type: "single",
     explanation: "The Engineering and Operations persona is responsible for delivering technical solutions while incorporating cost as an architectural dimension. Engineers take action on rightsizing, shut down idle workloads, and design scalable, cost-efficient cloud systems.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Engineering"]
+    tags: ["FinOps","Personas","Engineering"]
   },
   {
     id: "focp-114",
@@ -285,13 +285,13 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
       { id: 'A', text: "Debugging application runtime memory leaks in container clusters" },
       { id: 'B', text: "Writing Kubernetes deployment manifests and Helm charts" },
       { id: 'C', text: "Configuring virtual network subnet routing tables" },
-      { id: 'D', text: "Budgeting, forecasting, variance analysis, financial reporting, and cost allocation accounting" }
+      { id: 'D', text: "Budgeting, forecasting, variance analysis and cost allocation" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "The Finance persona focuses on budget governance, forecasting accuracy, variance analysis, and accounting treatment (e.g., handling prepayments, commitment amortization, and tax compliance). Finance collaborates with engineering to understand technical drivers behind cost changes.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Finance"]
+    tags: ["FinOps","Personas","Finance"]
   },
   {
     id: "focp-115",
@@ -312,7 +312,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     type: "single",
     explanation: "The Procurement persona leverages enterprise buying power to negotiate contracts, enterprise discount programs (EDP/EA), and volume discounts with cloud service providers, working closely with the FinOps team to align commitments with forecasted usage.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Procurement"]
+    tags: ["FinOps","Personas","Procurement"]
   },
   {
     id: "focp-116",
@@ -326,14 +326,14 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Manually tagging individual storage blobs every Friday afternoon" },
       { id: 'B', text: "Configuring reverse proxy web servers for development teams" },
-      { id: 'C', text: "Providing strategic sponsorship, establishing organizational accountability, and aligning cloud spending with business growth and profitability" },
+      { id: 'C', text: "Sponsorship, accountability, and alignment with business growth" },
       { id: 'D', text: "Approving individual virtual machine restart requests via email" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "The Executive Leadership persona (CTO, CIO, CFO, VP of Cloud) provides the executive mandate, fosters cultural accountability, champions cross-functional collaboration, and evaluates cloud financial efficiency in the context of business profitability and competitive advantage.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Executive"]
+    tags: ["FinOps","Personas","Executive"]
   },
   {
     id: "focp-117",
@@ -346,7 +346,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     question: "What is the central purpose of the FinOps Practitioner persona?",
     options: [
       { id: 'A', text: "Operating physical datacenter security gates and surveillance cameras" },
-      { id: 'B', text: "Serving as the dedicated facilitator and subject matter expert who bridges engineering, finance, and procurement to drive cultural adoption and centralized rate governance" },
+      { id: 'B', text: "Bridging engineering, finance and procurement as the in-house expert" },
       { id: 'C', text: "Replacing the corporate legal counsel in intellectual property disputes" },
       { id: 'D', text: "Writing all production application software code for customer-facing features" }
     ],
@@ -354,7 +354,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     type: "single",
     explanation: "The FinOps Practitioner is the core orchestrator of the FinOps practice. They act as the bridge between technology and finance, standardizing metrics, evangelizing best practices, managing central rate optimizations, and enabling decentralized teams to optimize usage.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Practitioner"]
+    tags: ["FinOps","Personas","Practitioner"]
   },
   {
     id: "focp-118",
@@ -375,7 +375,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     type: "single",
     explanation: "IT Asset Management (ITAM) intersects with FinOps around software license mobility, compliance, and optimization. Leveraging programs like Azure Hybrid Benefit or BYOL requires collaboration between FinOps and ITAM to ensure license compliance while minimizing cloud compute costs.",
     referenceUrl: "https://www.finops.org/framework/capabilities/",
-    tags: ["FinOps", "Framework", "ITAM"]
+    tags: ["FinOps","Framework","ITAM"]
   },
   {
     id: "focp-119",
@@ -396,7 +396,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     type: "single",
     explanation: "IT Financial Management (ITFM) is the overarching discipline of managing IT finances, capital planning, and cost allocation. FinOps intersects with ITFM by translating variable, fast-paced cloud billing data into standard financial accounting practices and General Ledger structures.",
     referenceUrl: "https://www.finops.org/framework/",
-    tags: ["FinOps", "Framework", "ITFM"]
+    tags: ["FinOps","Framework","ITFM"]
   },
   {
     id: "focp-120",
@@ -410,14 +410,14 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Mandating that finance write all Docker container files" },
       { id: 'B', text: "Prohibiting developers from deploying code more than once a month" },
-      { id: 'C', text: "Integrating automated cost estimation and policy checks directly into CI/CD deployment pipelines" },
+      { id: 'C', text: "Cost estimation and policy checks inside the CI/CD pipeline" },
       { id: 'D', text: "Eliminating automated deployment pipelines in favor of manual releases" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "DevOps focuses on accelerating continuous delivery, while FinOps integrates financial guardrails and cost feedback into those same automated pipelines. Clear persona definition ensures that cross-functional teams operate efficiently without overlapping or conflicting responsibilities.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "DevOps"]
+    tags: ["FinOps","Personas","DevOps"]
   },
   {
     id: "focp-121",
@@ -430,7 +430,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     question: "Which statement best reflects the responsibilities associated with business operations / product owner role?",
     options: [
       { id: 'A', text: "Product Owners negotiating datacenter electricity contracts" },
-      { id: 'B', text: "Product Owners evaluating feature profitability and customer unit costs to prioritize roadmap investments" },
+      { id: 'B', text: "Product owners weighing feature profit against unit cost" },
       { id: 'C', text: "Product Owners writing low-level network device drivers" },
       { id: 'D', text: "Product Owners manually patching Linux server kernels" }
     ],
@@ -438,7 +438,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     type: "single",
     explanation: "Product Owners use FinOps unit economics to understand feature profitability and decide where to invest development resources for maximum business impact. Clear persona definition ensures that cross-functional teams operate efficiently without overlapping or conflicting responsibilities.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Business"]
+    tags: ["FinOps","Personas","Business"]
   },
   {
     id: "focp-122",
@@ -451,7 +451,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     question: "Which statement best reflects the responsibilities associated with cross-functional cadence?",
     options: [
       { id: 'A', text: "Canceling all meetings between engineering and finance to minimize friction" },
-      { id: 'B', text: "Establishing a recurring operational cadence where engineering and finance review trends and celebrate wins" },
+      { id: 'B', text: "A recurring cadence where engineering and finance review trends" },
       { id: 'C', text: "Punishing teams publicly whenever cloud spend increases" },
       { id: 'D', text: "Delegating all financial decisions to external auditors" }
     ],
@@ -459,7 +459,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     type: "single",
     explanation: "Regular cross-functional meetings between engineering squads and FinOps analysts foster alignment, resolve allocation gaps, and celebrate optimization wins. Clear persona definition ensures that cross-functional teams operate efficiently without overlapping or conflicting responsibilities.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Cross-Functional"]
+    tags: ["FinOps","Personas","Cross-Functional"]
   },
   {
     id: "focp-123",
@@ -471,7 +471,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     scenario: "A cloud organization is defining stakeholder roles, operational responsibilities, and governance alignment for finops practitioner as an educator.",
     question: "Which statement best reflects the responsibilities associated with finops practitioner as an educator?",
     options: [
-      { id: 'A', text: "Educating engineering teams on cloud billing mechanics, resource tagging, and architectural efficiency" },
+      { id: 'A', text: "Teaching engineers billing mechanics, tagging and efficiency" },
       { id: 'B', text: "Configuring physical network patch panels" },
       { id: 'C', text: "Managing corporate payroll and employee retirement accounts" },
       { id: 'D', text: "Writing unit tests for frontend user interface components" }
@@ -480,7 +480,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     type: "single",
     explanation: "A critical responsibility of the FinOps Practitioner is educating and upskilling developers on cloud pricing models and architectural cost patterns. Clear persona definition ensures that cross-functional teams operate efficiently without overlapping or conflicting responsibilities.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "FinOps"]
+    tags: ["FinOps","Personas","FinOps"]
   },
   {
     id: "focp-124",
@@ -492,7 +492,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     scenario: "A cloud organization is defining stakeholder roles, operational responsibilities, and governance alignment for executive kpi reporting.",
     question: "Which statement best reflects the responsibilities associated with executive kpi reporting?",
     options: [
-      { id: 'A', text: "High-level metrics like Cloud Spend as a Percentage of Revenue and Unit Cost trends" },
+      { id: 'A', text: "Cloud spend as a share of revenue, and unit cost trends" },
       { id: 'B', text: "Raw lists of millions of unaggregated disk read/write operations" },
       { id: 'C', text: "Daily server chassis temperature logs" },
       { id: 'D', text: "Individual employee password expiration dates" }
@@ -501,7 +501,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     type: "single",
     explanation: "Executives need aggregated, outcome-focused KPIs such as Cloud Spend as a Percentage of Revenue, rather than raw virtual machine hourly lists. Clear persona definition ensures that cross-functional teams operate efficiently without overlapping or conflicting responsibilities.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Executive"]
+    tags: ["FinOps","Personas","Executive"]
   },
   {
     id: "focp-125",
@@ -514,7 +514,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     question: "Which statement best reflects the responsibilities associated with procurement and commitment risk?",
     options: [
       { id: 'A', text: "Eliminating all cloud vendor contracts in favor of retail pricing" },
-      { id: 'B', text: "Balancing commitment discount savings against the financial risk of over-committing to unused capacity" },
+      { id: 'B', text: "Balancing commitment savings against the risk of over-committing" },
       { id: 'C', text: "Demanding 100% on-demand spot instance usage across production databases" },
       { id: 'D', text: "Prohibiting the use of reserved instances across all cloud providers" }
     ],
@@ -522,7 +522,7 @@ export const FINOPS_FOCP_QUESTIONS_5 = [
     type: "single",
     explanation: "Procurement balances the risk of purchasing long-term compute commitments (which risk underutilization) against the higher cost of on-demand rates. Clear persona definition ensures that cross-functional teams operate efficiently without overlapping or conflicting responsibilities.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Procurement"]
+    tags: ["FinOps","Personas","Procurement"]
   }
 ];
 

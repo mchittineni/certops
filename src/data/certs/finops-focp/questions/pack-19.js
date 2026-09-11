@@ -326,7 +326,7 @@ export const FINOPS_FOCP_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Configure object storage lifecycle policies that transition data to Infrequent Access after 30 days and Glacier Deep Archive after 90 days." },
       { id: 'B', text: "Manually download and re-upload files to change storage classes every week." },
-      { id: 'C', text: "Delete all historical compliance records immediately to avoid storage fees." },
+      { id: 'C', text: "Move the compliance records to the cheapest archive tier available." },
       { id: 'D', text: "Keep 500 terabytes of untouched historical archives in high-performance S3 Standard storage indefinitely." }
     ],
     correctAnswers: ['A'],
@@ -346,7 +346,7 @@ export const FINOPS_FOCP_QUESTIONS_19 = [
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Manually download and re-upload files to change storage classes every week." },
-      { id: 'B', text: "Delete all historical compliance records immediately to avoid storage fees." },
+      { id: 'B', text: "Move the compliance records to the cheapest archive tier available." },
       { id: 'C', text: "Configure object storage lifecycle policies that transition data to Infrequent Access after 30 days and Glacier Deep Archive after 90 days." },
       { id: 'D', text: "Keep 500 terabytes of untouched historical archives in high-performance S3 Standard storage indefinitely." }
     ],
@@ -368,7 +368,7 @@ export const FINOPS_FOCP_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Keep 500 terabytes of untouched historical archives in high-performance S3 Standard storage indefinitely." },
       { id: 'B', text: "Configure object storage lifecycle policies that transition data to Infrequent Access after 30 days and Glacier Deep Archive after 90 days." },
-      { id: 'C', text: "Delete all historical compliance records immediately to avoid storage fees." },
+      { id: 'C', text: "Move the compliance records to the cheapest archive tier available." },
       { id: 'D', text: "Manually download and re-upload files to change storage classes every week." }
     ],
     correctAnswers: ['B'],
@@ -390,7 +390,7 @@ export const FINOPS_FOCP_QUESTIONS_19 = [
       { id: 'A', text: "Manually download and re-upload files to change storage classes every week." },
       { id: 'B', text: "Configure object storage lifecycle policies that transition data to Infrequent Access after 30 days and Glacier Deep Archive after 90 days." },
       { id: 'C', text: "Keep 500 terabytes of untouched historical archives in high-performance S3 Standard storage indefinitely." },
-      { id: 'D', text: "Delete all historical compliance records immediately to avoid storage fees." }
+      { id: 'D', text: "Move the compliance records to the cheapest archive tier available." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -409,7 +409,7 @@ export const FINOPS_FOCP_QUESTIONS_19 = [
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Keep 500 terabytes of untouched historical archives in high-performance S3 Standard storage indefinitely." },
-      { id: 'B', text: "Delete all historical compliance records immediately to avoid storage fees." },
+      { id: 'B', text: "Move the compliance records to the cheapest archive tier available." },
       { id: 'C', text: "Manually download and re-upload files to change storage classes every week." },
       { id: 'D', text: "Configure object storage lifecycle policies that transition data to Infrequent Access after 30 days and Glacier Deep Archive after 90 days." }
     ],

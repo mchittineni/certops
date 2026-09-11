@@ -11,14 +11,14 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "An idle resource is powered on; an over-provisioned resource is powered off" },
       { id: 'B', text: "Idle resources are billable; over-provisioned resources are free of charge" },
-      { id: 'C', text: "An idle resource has zero active utilization (like an unattached EBS volume); an over-provisioned resource has capacity far exceeding workload needs (like 5% CPU)" },
+      { id: 'C', text: "An idle resource has no utilization; an over-provisioned one has far too much" },
       { id: 'D', text: "Idle resources belong to production; over-provisioned resources belong to development" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Idle resources represent pure waste with zero utility (unattached disks, abandoned load balancers, terminated VM snapshots). Over-provisioned resources are actively utilized but sized excessively for their peak demand, requiring rightsizing rather than deletion.",
     referenceUrl: "https://www.finops.org/framework/capabilities/workload-optimization/",
-    tags: ["Waste", "Idle Resources", "Rightsizing", "Cost Optimization"]
+    tags: ["Waste","Idle Resources","Rightsizing","Cost Optimization"]
   },
   {
     id: "focp-202",
@@ -39,7 +39,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     type: "single",
     explanation: "A week has 168 hours. Running resources for 45 hours (9 hours/day × 5 days) means resources are idle for 123 hours out of 168. Automating overnight and weekend shutdowns reduces non-production compute running hours by roughly 70%, yielding substantial immediate savings.",
     referenceUrl: "https://www.finops.org/framework/capabilities/workload-optimization/",
-    tags: ["Scheduling", "Automation", "Non-Production", "Cost Reduction"]
+    tags: ["Scheduling","Automation","Non-Production","Cost Reduction"]
   },
   {
     id: "focp-203",
@@ -53,14 +53,14 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "FinOps dictates that cost minimization is always the highest priority regardless of speed or quality" },
       { id: 'B', text: "FinOps requires all feature development to freeze until cloud spend decreases by 20%" },
-      { id: 'C', text: "FinOps enables organizations to make conscious, informed trade-offs between speed, quality, and cost rather than viewing cost in a vacuum" },
+      { id: 'C', text: "It makes the trade-off between speed, quality and cost explicit" },
       { id: 'D', text: "FinOps only applies to infrastructure that has failed reliability SLA benchmarks" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "FinOps is not about simply saving money; it is about maximizing business value. By treating cost as a primary architectural metric alongside speed and quality, teams can deliberately choose to spend more when launching critical revenue-generating features or optimize when workloads stabilize.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["Iron Triangle", "Trade-Offs", "Business Value", "Culture"]
+    tags: ["Iron Triangle","Trade-Offs","Business Value","Culture"]
   },
   {
     id: "focp-204",
@@ -73,7 +73,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     question: "What is the primary role of the centralized FinOps team (CCoE / FinOps Hub)?",
     options: [
       { id: 'A', text: "Take complete ownership of writing and deploying all application code to ensure cost efficiency" },
-      { id: 'B', text: "Act as a collaborative enabler bridging Engineering, Finance, and Leadership with standardized data, tooling, and best practice frameworks" },
+      { id: 'B', text: "Acting as a collaborative enabler with shared data, tooling and practice" },
       { id: 'C', text: "Act as an authoritarian gatekeeper approving every individual virtual machine launched" },
       { id: 'D', text: "Audit and penalize engineering teams that exceed monthly forecasts" }
     ],
@@ -81,7 +81,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     type: "single",
     explanation: "The FinOps practitioner or Centralized FinOps team operates as a cross-functional enabler. They provide shared telemetry, establish governance guidelines, optimize negotiated rates centrally, and empower engineering teams to take direct ownership of their cloud usage.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["Personas", "CCoE", "Collaboration", "Culture"]
+    tags: ["Personas","CCoE","Collaboration","Culture"]
   },
   {
     id: "focp-205",
@@ -94,7 +94,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     question: "In which FinOps phase should the organization focus their immediate efforts?",
     options: [
       { id: 'A', text: "Exit: Repatriate all workloads back to an on-premises datacenter" },
-      { id: 'B', text: "Inform: Establish visibility, allocation tags, and baseline reporting so teams know what they are spending and why" },
+      { id: 'B', text: "Inform: visibility, allocation tags and baseline reporting" },
       { id: 'C', text: "Operate: Build complex automated self-healing scripts to terminate VMs" },
       { id: 'D', text: "Optimize: Buy multi-year commitments to cut costs immediately" }
     ],
@@ -102,7 +102,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     type: "single",
     explanation: "You cannot optimize what you cannot measure. The FinOps lifecycle always begins with the Inform phase: establishing tagging standards, allocating costs, creating dashboards, and delivering timely visibility to engineering teams before attempting optimization.",
     referenceUrl: "https://www.finops.org/framework/phases/",
-    tags: ["Phases", "Inform", "Lifecycle", "Visibility"]
+    tags: ["Phases","Inform","Lifecycle","Visibility"]
   },
   {
     id: "focp-206",
@@ -114,7 +114,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     scenario: "An organization evaluates its FinOps maturity. They have comprehensive tagging, basic automated reporting, and monthly reviews, but want to achieve 'Run' maturity.",
     question: "Which characteristic defines an organization operating at the 'Run' maturity level?",
     options: [
-      { id: 'A', text: "Automated near-real-time anomaly remediation, continuous CI/CD cost checks, and business KPIs integrated into every architectural decision" },
+      { id: 'A', text: "Near-real-time remediation, CI/CD cost checks, and KPIs in every decision" },
       { id: 'B', text: "Conducting annual paper audits of cloud invoices" },
       { id: 'C', text: "Eliminating all cloud engineers and replacing them with financial accountants" },
       { id: 'D', text: "Having zero cloud spending variance from month to month" }
@@ -123,7 +123,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     type: "single",
     explanation: "At the 'Run' maturity stage, FinOps is deeply embedded in organizational DNA: cost estimates appear in pull requests before deployment, anomaly detection triggers automated closed-loop remediation, and unit economics guide strategic executive investment.",
     referenceUrl: "https://www.finops.org/framework/maturity-model/",
-    tags: ["Maturity Model", "Crawl Walk Run", "Automation"]
+    tags: ["Maturity Model","Crawl Walk Run","Automation"]
   },
   {
     id: "focp-207",
@@ -137,14 +137,14 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Commitments cannot be modified, exchanged, or resold under any circumstances in any cloud" },
       { id: 'B', text: "Force engineering to roll back the serverless migration and maintain legacy database instances" },
-      { id: 'C', text: "Exchange convertible reservations for other instance families, list standard RIs on the third-party marketplace, or modify instance sizes and availability zones" },
+      { id: 'C', text: "Exchange convertible reservations, sell standard RIs, or modify them" },
       { id: 'D', text: "Immediately dispute the charges with corporate credit card providers" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Cloud providers offer flexibility mechanisms: AWS allows listing standard EC2 RIs on the Reserved Instance Marketplace, exchanging Convertible RIs for different families or regions, and modifying instance sizes; Azure and Google Cloud offer reservation exchanges and flexibilities.",
     referenceUrl: "https://www.finops.org/framework/capabilities/rate-optimization/",
-    tags: ["Commitments", "Reservations", "Marketplace", "Rate Optimization"]
+    tags: ["Commitments","Reservations","Marketplace","Rate Optimization"]
   },
   {
     id: "focp-208",
@@ -159,13 +159,13 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
       { id: 'A', text: "Only the personal name of the engineer who created the resource" },
       { id: 'B', text: "ServerName, IPAddress, and MACAddress" },
       { id: 'C', text: "Only the random string generated by the deployment script" },
-      { id: 'D', text: "CostCenter, Owner/Team, Environment (prod/stage/dev), Application/Service, and DataClassification" }
+      { id: 'D', text: "CostCenter, Owner, Environment, Application, Classification" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Effective FinOps tagging taxonomies combine financial metadata (CostCenter, BusinessUnit), operational ownership (Owner, TechnicalContact), and lifecycle context (Environment, Project, ExpirationDate) to enable automated chargeback and rightsizing.",
     referenceUrl: "https://www.finops.org/framework/capabilities/cost-allocation/",
-    tags: ["Tagging", "Governance", "Taxonomy", "Cost Allocation"]
+    tags: ["Tagging","Governance","Taxonomy","Cost Allocation"]
   },
   {
     id: "focp-209",
@@ -178,7 +178,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     question: "How should the FinOps team attribute cluster infrastructure costs accurately to each tenant microservice?",
     options: [
       { id: 'A', text: "Charge the entire bill to the DevOps team that deployed the Kubernetes control plane" },
-      { id: 'B', text: "Deploy open-source tools like OpenCost or Kubecost to allocate node costs based on container CPU/memory requests, limits, and historical usage" },
+      { id: 'B', text: "OpenCost or Kubecost, allocating node cost by container requests and usage" },
       { id: 'C', text: "Equally divide the $60,000 by 10 teams regardless of container CPU and memory consumption" },
       { id: 'D', text: "Mandate that each microservice must run in its own dedicated single-tenant Kubernetes cluster" }
     ],
@@ -186,7 +186,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     type: "single",
     explanation: "In shared multi-tenant Kubernetes clusters, standard cloud provider tags only label the underlying virtual machine nodes. Tools like OpenCost, Kubecost, and native cloud container cost allocation allocate costs at the namespace, pod, and label level based on compute requests and limits.",
     referenceUrl: "https://www.finops.org/framework/capabilities/cost-allocation/",
-    tags: ["Containers", "Kubernetes", "Cost Allocation", "Kubecost"]
+    tags: ["Containers","Kubernetes","Cost Allocation","Kubecost"]
   },
   {
     id: "focp-210",
@@ -200,14 +200,14 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Sustainability requires operating only during daylight hours" },
       { id: 'B', text: "Cloud sustainability is completely unrelated to workload optimization and server sizing" },
-      { id: 'C', text: "Reducing idle compute and rightsizing instances directly reduces physical energy consumption and carbon emissions in cloud datacenters" },
+      { id: 'C', text: "Cutting idle compute reduces energy use and datacenter emissions" },
       { id: 'D', text: "Purchasing 3-year Reserved Instances automatically offsets all carbon emissions" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "FinOps and cloud sustainability share a common objective: maximizing resource efficiency and eliminating waste. Turning off idle non-production environments, downsizing over-provisioned servers, and migrating to modern processors like Graviton reduces electrical power demand and carbon footprint.",
     referenceUrl: "https://www.finops.org/framework/capabilities/sustainability/",
-    tags: ["Sustainability", "Carbon Footprint", "ESG", "Efficiency"]
+    tags: ["Sustainability","Carbon Footprint","ESG","Efficiency"]
   },
   {
     id: "focp-211",
@@ -220,7 +220,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     question: "Why should the FinOps team use Driver-Based Forecasting rather than simple historical Trend-Based extrapolation?",
     options: [
       { id: 'A', text: "Driver-based forecasting is illegal under standard accounting guidelines" },
-      { id: 'B', text: "Trend-based extrapolation assumes past spend continues linearly and fails to anticipate business events like holiday marketing traffic surges" },
+      { id: 'B', text: "Linear extrapolation cannot anticipate business events like a sale" },
       { id: 'C', text: "Historical trend extrapolation requires complex machine learning models that take months to configure" },
       { id: 'D', text: "Driver-based forecasting guarantees zero variance from actual cloud bills" }
     ],
@@ -228,7 +228,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     type: "single",
     explanation: "Trend-based forecasting simply projects past linear expenditure into the future. Driver-based forecasting models costs based on anticipated business drivers—such as expected active users, planned marketing flash sales, or new feature rollouts—producing realistic budgets during seasonal spikes.",
     referenceUrl: "https://www.finops.org/framework/capabilities/forecasting/",
-    tags: ["Forecasting", "Budgeting", "Seasonality", "Planning"]
+    tags: ["Forecasting","Budgeting","Seasonality","Planning"]
   },
   {
     id: "focp-212",
@@ -241,7 +241,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     question: "Which architectural patterns effectively reduce cloud data egress costs?",
     options: [
       { id: 'A', text: "Moving all workloads to a different cloud provider every week" },
-      { id: 'B', text: "Utilizing Content Delivery Networks (CDNs) for edge caching, co-locating communicating services within the same region/AZ, and using private VPC endpoints" },
+      { id: 'B', text: "CDN edge caching, co-locating services, and private VPC endpoints" },
       { id: 'C', text: "Disabling TLS encryption on all outbound network traffic" },
       { id: 'D', text: "Blocking all customer downloads from the production web application" }
     ],
@@ -249,7 +249,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     type: "single",
     explanation: "Data transfer out (egress) to the internet and inter-region traffic are significant cost drivers. Organizations optimize egress by: caching static content at CloudFront edge locations, keeping high-volume service-to-service communication within the same Region, and utilizing Direct Connect or VPC Endpoints.",
     referenceUrl: "https://www.finops.org/framework/capabilities/workload-optimization/",
-    tags: ["Egress", "Networking", "CDN", "Cost Optimization"]
+    tags: ["Egress","Networking","CDN","Cost Optimization"]
   },
   {
     id: "focp-213",
@@ -261,7 +261,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     scenario: "An enterprise cloud team is evaluating operational processes, financial accountability, and FinOps framework best practices.",
     question: "Why is real-time cost visibility critical in cloud computing compared to traditional on-premises IT procurement?",
     options: [
-      { id: 'A', text: "Because engineers can spin up thousands of dollars of infrastructure in seconds with an API call or CI/CD script" },
+      { id: 'A', text: "Engineers can provision thousands of dollars in seconds from an API call" },
       { id: 'B', text: "Because cloud providers terminate accounts if invoices are not reviewed every 24 hours" },
       { id: 'C', text: "Because on-premises servers depreciated on a daily schedule" },
       { id: 'D', text: "Because real-time visibility eliminates the need for software testing" }
@@ -270,7 +270,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     type: "single",
     explanation: "In traditional IT, procurement took months of capital approval. In the cloud, any developer can launch massive compute clusters in seconds with a few API calls. Real-time cost visibility is necessary to detect architectural runaway loops and unintended spending before monthly invoices arrive.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["Principles", "Real-Time", "Visibility", "Cloud Economics"]
+    tags: ["Principles","Real-Time","Visibility","Cloud Economics"]
   },
   {
     id: "focp-214",
@@ -285,13 +285,13 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
       { id: 'A', text: "Reject the redesign because cloud costs must never increase under FinOps" },
       { id: 'B', text: "Mandate that the team achieve a 10% cost reduction before any architectural improvements can be considered" },
       { id: 'C', text: "Require the team to wait until the next fiscal year before re-submitting" },
-      { id: 'D', text: "Approve the redesign because the business revenue gain and customer experience improvement far outweigh the marginal cloud cost increase" }
+      { id: 'D', text: "Approve it: the revenue gain outweighs the marginal cloud cost" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "The foundational FinOps principle states that 'Business value drives cloud decisions.' FinOps does not exist to cut costs at the expense of revenue or innovation; spending more in the cloud is celebrated when it directly drives higher top-line business profitability.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["Business Value", "ROI", "Decision Making", "Principles"]
+    tags: ["Business Value","ROI","Decision Making","Principles"]
   },
   {
     id: "focp-215",
@@ -304,7 +304,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     question: "Which licensing strategy can significantly optimize commercial database costs in the cloud?",
     options: [
       { id: 'A', text: "Running unlicensed pirated software on cloud virtual machines" },
-      { id: 'B', text: "Leveraging existing on-premises licenses with active Software Assurance via BYOL on Dedicated Hosts, and modernizing open-source engines like PostgreSQL" },
+      { id: 'B', text: "BYOL on dedicated hosts, and moving to open-source engines" },
       { id: 'C', text: "Purchasing commercial licenses through retail consumer outlets" },
       { id: 'D', text: "Deleting all database backups to save disk space" }
     ],
@@ -312,7 +312,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     type: "single",
     explanation: "Commercial software licensing (Microsoft, Oracle, IBM) often dwarfs cloud compute spend. FinOps practitioners optimize licensing by leveraging existing licenses with active mobility/Software Assurance via BYOL (often on Dedicated Hosts to count physical cores) and migrating to open-source database engines.",
     referenceUrl: "https://www.finops.org/framework/capabilities/licensing-operations/",
-    tags: ["Licensing", "BYOL", "Databases", "Cost Optimization"]
+    tags: ["Licensing","BYOL","Databases","Cost Optimization"]
   },
   {
     id: "focp-216",
@@ -325,7 +325,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     question: "Which automated governance mechanism balances developer agility with strict cost guardrails?",
     options: [
       { id: 'A', text: "Requiring every developer to fill out a paper ticket approved by the CFO before every launch" },
-      { id: 'B', text: "Implementing cloud policy guardrails (AWS SCPs or Azure Policy) that deny unauthorized instance types in development accounts" },
+      { id: 'B', text: "Policy guardrails denying unauthorized instance types in dev accounts" },
       { id: 'C', text: "Writing an hourly script that terminates all running GPU instances regardless of who owns them" },
       { id: 'D', text: "Revoking console access for all software engineers" }
     ],
@@ -333,7 +333,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     type: "single",
     explanation: "Preventative cloud policies (AWS Service Control Policies, Azure Policy, Google Organization Policies) establish automated guardrails that restrict instance types, mandate required tags, and enforce regional boundaries at runtime without introducing slow manual human approval gates.",
     referenceUrl: "https://www.finops.org/framework/capabilities/policy-governance/",
-    tags: ["Guardrails", "Policy", "Governance", "Automation"]
+    tags: ["Guardrails","Policy","Governance","Automation"]
   },
   {
     id: "focp-217",
@@ -347,14 +347,14 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Prohibit engineers from modifying Terraform templates" },
       { id: 'B', text: "Run automated unit tests that fail if code contains more than 100 lines" },
-      { id: 'C', text: "Incorporate shift-left cost estimation tools (like Infracost) into CI/CD pipelines to post estimated monthly cost diffs directly on pull requests" },
-      { id: 'D', text: "Require the finance team to manually review every git commit diff" }
+      { id: 'C', text: "Shift-left estimation in CI/CD, posting cost diffs on pull requests" },
+      { id: 'D', text: "Have finance review the monthly bill against each team forecast" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Shift-left FinOps integrates cost transparency directly into developer workflows. Tools like Infracost parse Terraform code diffs in GitHub Actions or GitLab CI, calculating the precise monthly financial impact of proposed changes directly as a comment on pull requests.",
     referenceUrl: "https://www.finops.org/framework/capabilities/workload-optimization/",
-    tags: ["Infracost", "CI/CD", "Shift-Left", "DevOps"]
+    tags: ["Infracost","CI/CD","Shift-Left","DevOps"]
   },
   {
     id: "focp-218",
@@ -366,7 +366,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     scenario: "A developer writes an AWS Lambda function triggered by an S3 object upload that accidentally writes an output file back into the same bucket prefix, triggering an infinite recursive loop.",
     question: "Which FinOps and architecture controls mitigate such recursive execution cost spikes?",
     options: [
-      { id: 'A', text: "Configure concurrency limits on the Lambda function, set CloudWatch Billing Alarms, and write output files to a separate destination bucket or prefix" },
+      { id: 'A', text: "Concurrency limits, billing alarms, and a separate output bucket" },
       { id: 'B', text: "Never use serverless technologies in enterprise environments" },
       { id: 'C', text: "Delete the AWS account immediately" },
       { id: 'D', text: "Increase the Lambda memory allocation to 10 GB so the loop finishes faster" }
@@ -375,7 +375,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     type: "single",
     explanation: "Infinite loops in event-driven serverless architectures can generate hundreds of thousands of executions in minutes. Prevent and mitigate by: configuring reserved concurrency caps, using separate source and destination prefixes/buckets, and setting real-time CloudWatch invocation alarms.",
     referenceUrl: "https://www.finops.org/framework/capabilities/manage-anomalies/",
-    tags: ["Serverless", "Lambda", "Cost Runaway", "Architecture"]
+    tags: ["Serverless","Lambda","Cost Runaway","Architecture"]
   },
   {
     id: "focp-219",
@@ -387,7 +387,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     scenario: "An enterprise tracks the overall financial discount achieved across its entire multi-cloud compute footprint compared to on-demand retail list rates.",
     question: "Which metric accurately reflects the aggregate percentage discount achieved across all compute usage?",
     options: [
-      { id: 'A', text: "Effective Savings Rate (ESR): the percentage discount achieved relative to what the compute would have cost entirely at on-demand list price" },
+      { id: 'A', text: "Effective Savings Rate: the discount against on-demand list price" },
       { id: 'B', text: "Total on-demand spend divided by total invoice amount" },
       { id: 'C', text: "The number of active credit cards registered with cloud providers" },
       { id: 'D', text: "The ratio of virtual machines to physical hosts" }
@@ -396,7 +396,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     type: "single",
     explanation: "Effective Savings Rate (ESR) is a key FinOps metric measuring the blended discount achieved across all compute spend (combining Spot instances, Savings Plans, Reserved Instances, and Enterprise Discount Programs) compared to pure on-demand baseline pricing.",
     referenceUrl: "https://www.finops.org/framework/capabilities/rate-optimization/",
-    tags: ["ESR", "KPIs", "Rate Optimization", "Metrics"]
+    tags: ["ESR","KPIs","Rate Optimization","Metrics"]
   },
   {
     id: "focp-220",
@@ -409,7 +409,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     question: "Which core functional roles should be represented within a mature CCoE?",
     options: [
       { id: 'A', text: "Only junior software developers" },
-      { id: 'B', text: "Cloud Architects, FinOps Practitioners, Security Engineers, DevOps/Platform Leads, and Business Stakeholders" },
+      { id: 'B', text: "Architects, engineers and stakeholders" },
       { id: 'C', text: "Only senior executive vice presidents" },
       { id: 'D', text: "Only external management consulting staff" }
     ],
@@ -417,7 +417,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     type: "single",
     explanation: "A Cloud Center of Excellence (CCoE) requires balanced cross-functional representation: Cloud Architects (technical standards), FinOps practitioners (financial governance), Security specialists (compliance guardrails), and Product/Business leaders (strategic priorities).",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["CCoE", "Governance", "Culture", "Best Practices"]
+    tags: ["CCoE","Governance","Culture","Best Practices"]
   },
   {
     id: "focp-221",
@@ -429,7 +429,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     scenario: "A company negotiates a multi-year Enterprise Discount Program (EDP in AWS or MAC in Azure), agreeing to spend $10,000,000 over 3 years in exchange for a 15% discount across all services.",
     question: "What is the financial risk if the company only consumes $7,500,000 of cloud services over that 3-year term?",
     options: [
-      { id: 'A', text: "The company is contractually obligated to pay the $2,500,000 shortfall (shortfall penalty) or forfeit negotiated discounts" },
+      { id: 'A', text: "It must pay the $2,500,000 shortfall or lose the negotiated discounts" },
       { id: 'B', text: "The shortfall is automatically converted into physical server hardware delivered to the company" },
       { id: 'C', text: "The cloud provider shuts down all production systems on the last day of the contract" },
       { id: 'D', text: "The cloud provider forgives the shortfall with no financial obligation" }
@@ -438,7 +438,7 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     type: "single",
     explanation: "Enterprise agreements (like AWS EDP or Azure Microsoft Azure Consumption Commitment) exchange custom volume discounts for guaranteed minimum spending commitments. If usage falls short of the commitment threshold, the organization must pay the difference (shortfall payment).",
     referenceUrl: "https://www.finops.org/framework/capabilities/rate-optimization/",
-    tags: ["EDP", "Enterprise Agreements", "Contracts", "Risk Management"]
+    tags: ["EDP","Enterprise Agreements","Contracts","Risk Management"]
   },
   {
     id: "focp-222",
@@ -453,13 +453,13 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
       { id: 'A', text: "Because developers are legally prohibited from viewing cloud pricing calculators" },
       { id: 'B', text: "Because central procurement teams do not understand technology" },
       { id: 'C', text: "Because cloud providers only allow one user per company to log in" },
-      { id: 'D', text: "Because individual teams lack visibility into company-wide aggregate usage and cannot take advantage of pooled volume discount tiering" }
+      { id: 'D', text: "Teams cannot see aggregate usage or reach pooled volume tiers" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "While usage optimization (rightsizing, turning off instances) must be owned by distributed engineering teams who know their application architecture, rate optimization (purchasing pooled commitments and negotiating enterprise volume contracts) is most effectively handled by a central team leveraging company-wide scale.",
     referenceUrl: "https://www.finops.org/framework/principles/",
-    tags: ["Principles", "Centralization", "Rate Optimization", "Governance"]
+    tags: ["Principles","Centralization","Rate Optimization","Governance"]
   },
   {
     id: "focp-223",
@@ -474,13 +474,13 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
       { id: 'A', text: "It automatically converts public cloud resources into on-premises private cloud clusters" },
       { id: 'B', text: "It replaces all cloud billing consoles with a proprietary desktop application" },
       { id: 'C', text: "It forces all cloud providers to charge identical hourly prices for virtual machines" },
-      { id: 'D', text: "It defines a standardized vendor-neutral schema and terminology for cloud cost and usage data, simplifying cross-cloud billing analysis" }
+      { id: 'D', text: "A vendor-neutral schema and terminology for cloud cost data" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "The FinOps Open Cost and Usage Specification (FOCUS) establishes an open-source, standardized billing data specification. It defines standard column names (e.g. BilledCost, EffectiveCost, ResourceId, ServiceName), allowing organizations to ingest multi-cloud billing datasets into a single analytics schema.",
     referenceUrl: "https://www.finops.org/framework/capabilities/cost-allocation/",
-    tags: ["FOCUS", "Open Standards", "Multi-Cloud", "Data Normalization"]
+    tags: ["FOCUS","Open Standards","Multi-Cloud","Data Normalization"]
   },
   {
     id: "focp-224",
@@ -495,13 +495,13 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
       { id: 'A', text: "By assigning all cloud bills to the newest software intern" },
       { id: 'B', text: "By withholding software releases until all unit tests pass with zero cost" },
       { id: 'C', text: "By fining team members personally for unattached storage volumes" },
-      { id: 'D', text: "By publicly ranking teams on tag compliance, rightsizing progress, and waste reduction metrics, fostering healthy peer competition" }
+      { id: 'D', text: "Publicly ranking teams on tag compliance and waste reduction" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "FinOps Scorecards translate financial goals into transparent, gamified engineering metrics: percentage of resources properly tagged, proportion of waste remediated, and unit cost efficiency. Publishing monthly squad scorecards encourages positive behavioral change through transparent peer recognition.",
     referenceUrl: "https://www.finops.org/framework/capabilities/culture/",
-    tags: ["Gamification", "Scorecards", "Culture", "Behavioral Economics"]
+    tags: ["Gamification","Scorecards","Culture","Behavioral Economics"]
   },
   {
     id: "focp-225",
@@ -515,14 +515,14 @@ export const FINOPS_FOCP_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Ignore the charge because IPv4 addresses are free of charge across all cloud providers" },
       { id: 'B', text: "Purchase Reserved IP addresses for a 3-year term" },
-      { id: 'C', text: "Release unattached Elastic IP addresses, migrate public subnets to private subnets with NAT/endpoints, and adopt IPv6 where supported" },
+      { id: 'C', text: "Release unattached Elastic IPs, move to private subnets, adopt IPv6" },
       { id: 'D', text: "Assign public IP addresses to every internal database server to increase utilization" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Major cloud providers charge for all public IPv4 addresses, including unattached or allocated but idle addresses. Releasing unattached public IPs, auditing stopped instances, and routing internal traffic through private VPC endpoints reduces both networking costs and external attack surface.",
     referenceUrl: "https://www.finops.org/framework/capabilities/workload-optimization/",
-    tags: ["Networking", "IPv4", "Waste", "Cost Optimization"]
+    tags: ["Networking","IPv4","Waste","Cost Optimization"]
   }
 ];
 
