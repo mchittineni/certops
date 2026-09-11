@@ -10,7 +10,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Disable cross-region disaster recovery to minimize cloud operational spending." },
-      { id: 'B', text: "Implement a Warm Standby architecture with asynchronous cross-region data replication and minimal scaled-down compute capacity." },
+      { id: 'B', text: "A warm standby with async cross-region replication." },
       { id: 'C', text: "Run duplicate 100% full-capacity infrastructure 24/7 in two regions without traffic distribution." },
       { id: 'D', text: "Implement a Cold Standby architecture relying on weekly tape backups shipped by truck." }
     ],
@@ -32,7 +32,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Implement a Cold Standby architecture relying on weekly tape backups shipped by truck." },
       { id: 'B', text: "Run duplicate 100% full-capacity infrastructure 24/7 in two regions without traffic distribution." },
-      { id: 'C', text: "Implement a Warm Standby architecture with asynchronous cross-region data replication and minimal scaled-down compute capacity." },
+      { id: 'C', text: "A warm standby with async cross-region replication." },
       { id: 'D', text: "Disable cross-region disaster recovery to minimize cloud operational spending." }
     ],
     correctAnswers: ['C'],
@@ -51,7 +51,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to design a disaster recovery architecture with an RTO of under 10 minutes and an RPO of under 1 minute without doubling baseline infrastructure costs.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Implement a Warm Standby architecture with asynchronous cross-region data replication and minimal scaled-down compute capacity." },
+      { id: 'A', text: "A warm standby with async cross-region replication." },
       { id: 'B', text: "Disable cross-region disaster recovery to minimize cloud operational spending." },
       { id: 'C', text: "Run duplicate 100% full-capacity infrastructure 24/7 in two regions without traffic distribution." },
       { id: 'D', text: "Implement a Cold Standby architecture relying on weekly tape backups shipped by truck." }
@@ -75,7 +75,7 @@ export const GCP_PCA_QUESTIONS_13 = [
       { id: 'A', text: "Disable cross-region disaster recovery to minimize cloud operational spending." },
       { id: 'B', text: "Run duplicate 100% full-capacity infrastructure 24/7 in two regions without traffic distribution." },
       { id: 'C', text: "Implement a Cold Standby architecture relying on weekly tape backups shipped by truck." },
-      { id: 'D', text: "Implement a Warm Standby architecture with asynchronous cross-region data replication and minimal scaled-down compute capacity." }
+      { id: 'D', text: "A warm standby with async cross-region replication." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -94,7 +94,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Run duplicate 100% full-capacity infrastructure 24/7 in two regions without traffic distribution." },
-      { id: 'B', text: "Implement a Warm Standby architecture with asynchronous cross-region data replication and minimal scaled-down compute capacity." },
+      { id: 'B', text: "A warm standby with async cross-region replication." },
       { id: 'C', text: "Implement a Cold Standby architecture relying on weekly tape backups shipped by truck." },
       { id: 'D', text: "Disable cross-region disaster recovery to minimize cloud operational spending." }
     ],
@@ -115,7 +115,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Allow storage data to replicate automatically to random worldwide edge data centers." },
-      { id: 'B', text: "Create a regional or dual-region Cloud Storage bucket explicitly located within European regions (e.g. europe-west1 or europe-west4)." },
+      { id: 'B', text: "Create the bucket in a European region or dual-region." },
       { id: 'C', text: "Disable storage encryption and allow public internet access." },
       { id: 'D', text: "Store data in a global multi-region US storage bucket." }
     ],
@@ -138,7 +138,7 @@ export const GCP_PCA_QUESTIONS_13 = [
       { id: 'A', text: "Disable storage encryption and allow public internet access." },
       { id: 'B', text: "Store data in a global multi-region US storage bucket." },
       { id: 'C', text: "Allow storage data to replicate automatically to random worldwide edge data centers." },
-      { id: 'D', text: "Create a regional or dual-region Cloud Storage bucket explicitly located within European regions (e.g. europe-west1 or europe-west4)." }
+      { id: 'D', text: "Create the bucket in a European region or dual-region." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -159,7 +159,7 @@ export const GCP_PCA_QUESTIONS_13 = [
       { id: 'A', text: "Store data in a global multi-region US storage bucket." },
       { id: 'B', text: "Disable storage encryption and allow public internet access." },
       { id: 'C', text: "Allow storage data to replicate automatically to random worldwide edge data centers." },
-      { id: 'D', text: "Create a regional or dual-region Cloud Storage bucket explicitly located within European regions (e.g. europe-west1 or europe-west4)." }
+      { id: 'D', text: "Create the bucket in a European region or dual-region." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -178,7 +178,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Allow storage data to replicate automatically to random worldwide edge data centers." },
-      { id: 'B', text: "Create a regional or dual-region Cloud Storage bucket explicitly located within European regions (e.g. europe-west1 or europe-west4)." },
+      { id: 'B', text: "Create the bucket in a European region or dual-region." },
       { id: 'C', text: "Store data in a global multi-region US storage bucket." },
       { id: 'D', text: "Disable storage encryption and allow public internet access." }
     ],
@@ -199,7 +199,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Allow storage data to replicate automatically to random worldwide edge data centers." },
-      { id: 'B', text: "Create a regional or dual-region Cloud Storage bucket explicitly located within European regions (e.g. europe-west1 or europe-west4)." },
+      { id: 'B', text: "Create the bucket in a European region or dual-region." },
       { id: 'C', text: "Store data in a global multi-region US storage bucket." },
       { id: 'D', text: "Disable storage encryption and allow public internet access." }
     ],
@@ -221,7 +221,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Click through the Cloud Console web interface manually for each environment." },
       { id: 'B', text: "Use Terraform with the official Google Cloud provider and a remote Cloud Storage state backend." },
-      { id: 'C', text: "Write custom unversioned shell scripts executing gcloud commands sequentially without state tracking." },
+      { id: 'C', text: "Use Deployment Manager templates with the configuration held in each project." },
       { id: 'D', text: "Maintain manual Word documents detailing installation steps for server operators." }
     ],
     correctAnswers: ['B'],
@@ -241,7 +241,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Maintain manual Word documents detailing installation steps for server operators." },
-      { id: 'B', text: "Write custom unversioned shell scripts executing gcloud commands sequentially without state tracking." },
+      { id: 'B', text: "Use Deployment Manager templates with the configuration held in each project." },
       { id: 'C', text: "Use Terraform with the official Google Cloud provider and a remote Cloud Storage state backend." },
       { id: 'D', text: "Click through the Cloud Console web interface manually for each environment." }
     ],
@@ -263,7 +263,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Click through the Cloud Console web interface manually for each environment." },
       { id: 'B', text: "Maintain manual Word documents detailing installation steps for server operators." },
-      { id: 'C', text: "Write custom unversioned shell scripts executing gcloud commands sequentially without state tracking." },
+      { id: 'C', text: "Use Deployment Manager templates with the configuration held in each project." },
       { id: 'D', text: "Use Terraform with the official Google Cloud provider and a remote Cloud Storage state backend." }
     ],
     correctAnswers: ['D'],
@@ -283,7 +283,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Use Terraform with the official Google Cloud provider and a remote Cloud Storage state backend." },
-      { id: 'B', text: "Write custom unversioned shell scripts executing gcloud commands sequentially without state tracking." },
+      { id: 'B', text: "Use Deployment Manager templates with the configuration held in each project." },
       { id: 'C', text: "Click through the Cloud Console web interface manually for each environment." },
       { id: 'D', text: "Maintain manual Word documents detailing installation steps for server operators." }
     ],
@@ -304,7 +304,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Click through the Cloud Console web interface manually for each environment." },
-      { id: 'B', text: "Write custom unversioned shell scripts executing gcloud commands sequentially without state tracking." },
+      { id: 'B', text: "Use Deployment Manager templates with the configuration held in each project." },
       { id: 'C', text: "Use Terraform with the official Google Cloud provider and a remote Cloud Storage state backend." },
       { id: 'D', text: "Maintain manual Word documents detailing installation steps for server operators." }
     ],

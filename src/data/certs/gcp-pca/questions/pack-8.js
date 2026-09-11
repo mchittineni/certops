@@ -11,14 +11,14 @@ export const GCP_PCA_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "Create 50 separate projects to bypass the quota" },
       { id: 'B', text: "Quotas only apply to free tier accounts" },
-      { id: 'C', text: "Request an upfront Quota Increase through the Google Cloud console well in advance and work with Google account teams for capacity reservations" },
+      { id: 'C', text: "Request quota increases well in advance" },
       { id: 'D', text: "Quotas scale up automatically when VMs are created" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Google Cloud enforces resource `Quotas` to protect customers from unexpected billing and manage physical cloud capacity. Quotas are not dynamic: requesting significant capacity increases (especially for specialized compute or GPUs) requires submitting quota increase requests well in advance.",
     referenceUrl: "https://cloud.google.com/docs/quota",
-    tags: ["Capacity Planning", "Quotas", "Operations"]
+    tags: ["Capacity Planning","Quotas","Operations"]
   },
   {
     id: "gcp-pca-177",
@@ -30,7 +30,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     scenario: "An enterprise organization has a centralized billing account with 20 projects. Project A purchases a 100 vCPU Compute Engine Committed Use Discount (CUD) but only uses 40 vCPUs. Project B in the same region uses 80 vCPUs with no discount.",
     question: "How can the organization ensure Project B benefits from Project A's unused committed vCPUs?",
     options: [
-      { id: 'A', text: "Enable Committed Use Discount Sharing at the Cloud Billing account level" },
+      { id: 'A', text: "Enable CUD sharing at the billing account" },
       { id: 'B', text: "Move all VMs from Project B into Project A manually" },
       { id: 'C', text: "CUDs cannot be shared under any circumstances" },
       { id: 'D', text: "Export VMs to an on-premises datacenter" }
@@ -39,7 +39,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "Google Cloud supports `Committed Use Discount Sharing` across all projects linked to the same Cloud Billing account. When enabled, any unused commitment in one project is automatically applied to eligible usage in other projects within the same region and billing account.",
     referenceUrl: "https://cloud.google.com/billing/docs/how-to/cud-sharing",
-    tags: ["FinOps", "CUD Sharing", "Cost Optimization"]
+    tags: ["FinOps","CUD Sharing","Cost Optimization"]
   },
   {
     id: "gcp-pca-178",
@@ -60,7 +60,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "`Config Sync` (part of Anthos Config Management) is a GitOps service that continuously synchronizes declarative configurations, CRDs, and security policies from a central Git or OCI repository across all enrolled clusters, automatically correcting configuration drift.",
     referenceUrl: "https://cloud.google.com/anthos-config-management/docs/overview",
-    tags: ["ACM", "GitOps", "Policy Enforcement"]
+    tags: ["ACM","GitOps","Policy Enforcement"]
   },
   {
     id: "gcp-pca-179",
@@ -81,7 +81,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "`Homogeneous migrations` involve migrating between the same database engines (e.g. MySQL to Cloud SQL MySQL, or PostgreSQL to Cloud SQL PostgreSQL). DMS natively handles homogeneous migrations with simple setup. Heterogeneous migrations (e.g. Oracle to PostgreSQL) require schema conversion and translation.",
     referenceUrl: "https://cloud.google.com/database-migration-service/docs/overview#homogeneous-migrations",
-    tags: ["DMS", "Database Migration", "Homogeneous Migration"]
+    tags: ["DMS","Database Migration","Homogeneous Migration"]
   },
   {
     id: "gcp-pca-180",
@@ -102,7 +102,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "Google Cloud Deploy uses a `Delivery Pipeline` declarative YAML manifest (`clouddeploy.yaml`). The pipeline defines the ordered sequence of stages (promotion targets), automated verification steps, and execution hooks governing the release progression.",
     referenceUrl: "https://cloud.google.com/deploy/docs/create-delivery-pipeline",
-    tags: ["Cloud Deploy", "Delivery Pipeline", "Continuous Delivery"]
+    tags: ["Cloud Deploy","Delivery Pipeline","Continuous Delivery"]
   },
   {
     id: "gcp-pca-181",
@@ -115,7 +115,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     question: "Which Google Cloud managed service provisions real Windows Server domain controllers managed by Google?",
     options: [
       { id: 'A', text: "Cloud Identity alone" },
-      { id: 'B', text: "Managed Service for Microsoft Active Directory (Managed AD)" },
+      { id: 'B', text: "Managed Microsoft AD" },
       { id: 'C', text: "Google Identity Platform" },
       { id: 'D', text: "Firebase Authentication" }
     ],
@@ -123,7 +123,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "`Managed Service for Microsoft Active Directory` (Managed AD) is a hardened, highly available Google Cloud service running actual Microsoft AD domain controllers on Windows Server. It provides native Active Directory group policies, Kerberos authentication, and forest trusts to on-premises AD.",
     referenceUrl: "https://cloud.google.com/managed-microsoft-ad/docs/overview",
-    tags: ["Active Directory", "Managed AD", "Windows"]
+    tags: ["Active Directory","Managed AD","Windows"]
   },
   {
     id: "gcp-pca-182",
@@ -135,7 +135,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     scenario: "A non-critical historical archiving application accepts a Recovery Time Objective (RTO) of 24 hours and a Recovery Point Objective (RPO) of 24 hours.",
     question: "Which disaster recovery strategy achieves the lowest ongoing infrastructure cost?",
     options: [
-      { id: 'A', text: "Cold Standby (Backup and Restore using daily Cloud Storage backups and scripted VM provisioning)" },
+      { id: 'A', text: "Cold standby backup and restore" },
       { id: 'B', text: "Warm Standby (Pilot Light)" },
       { id: 'C', text: "Hot Active-Active multi-region" },
       { id: 'D', text: "Dual-region active replication" }
@@ -144,7 +144,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "The `Cold Standby` pattern maintains zero running compute instances in the secondary region during normal operations. Daily backups are stored in Cloud Storage. If a disaster occurs, automation scripts provision instances and restore database backups from storage, minimizing operational cost at the expense of higher RTO.",
     referenceUrl: "https://cloud.google.com/architecture/dr-scenarios-planning-guide#cold-standby",
-    tags: ["Disaster Recovery", "Cold Standby", "Cost Optimization"]
+    tags: ["Disaster Recovery","Cold Standby","Cost Optimization"]
   },
   {
     id: "gcp-pca-183",
@@ -165,7 +165,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "`Cloud Asset Inventory` is a metadata inventory service that allows organizations to view, monitor, and analyze all Google Cloud assets across projects and organizations at a single point in time or evaluate historical changes over the past 35 days using SQL-like searches.",
     referenceUrl: "https://cloud.google.com/asset-inventory/docs/overview",
-    tags: ["Cloud Asset Inventory", "Governance", "Compliance"]
+    tags: ["Cloud Asset Inventory","Governance","Compliance"]
   },
   {
     id: "gcp-pca-184",
@@ -186,7 +186,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "BigQuery offers two pricing models: `On-Demand` (pay per byte processed by each query, suitable for variable bursty workloads) and `Capacity-based` (purchasing dedicated query processing capacity measured in BigQuery Slots), providing predictable monthly expenditures and eliminating billing spikes.",
     referenceUrl: "https://cloud.google.com/bigquery/pricing#capacity_pricing",
-    tags: ["BigQuery", "FinOps", "Slots"]
+    tags: ["BigQuery","FinOps","Slots"]
   },
   {
     id: "gcp-pca-185",
@@ -198,7 +198,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     scenario: "A mission-critical financial database can only tolerate a scheduled maintenance window of 10 minutes for cloud migration cutover. Migrating the full 8 TB dataset over the network takes 14 hours.",
     question: "Which migration execution strategy enables cutover within the 10-minute window?",
     options: [
-      { id: 'A', text: "Perform an initial baseline sync followed by continuous replication (CDC) to keep databases synchronized, then execute a brief cutover" },
+      { id: 'A', text: "A baseline sync, then continuous CDC, then a brief cutover" },
       { id: 'B', text: "Perform a single mysqldump during the 10-minute maintenance window" },
       { id: 'C', text: "Ship the hard drives via postal courier during the window" },
       { id: 'D', text: "Shut down the database and copy files using FTP" }
@@ -207,7 +207,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "For mission-critical workloads, continuous replication (Change Data Capture / CDC) copies the initial dataset while the source remains live, continuously streaming real-time mutations. During the 10-minute window, the team simply stops writes on the source, lets the stream catch up, and repoints clients.",
     referenceUrl: "https://cloud.google.com/database-migration-service/docs/mysql/continuous-migration-overview",
-    tags: ["DMS", "CDC", "Zero Downtime"]
+    tags: ["DMS","CDC","Zero Downtime"]
   },
   {
     id: "gcp-pca-186",
@@ -219,8 +219,8 @@ export const GCP_PCA_QUESTIONS_8 = [
     scenario: "A Cloud Build pipeline needs to inject dynamic values (such as git commit SHA and branch name) and sensitive API keys into a container build step without exposing secrets in build logs.",
     question: "Which combination of Cloud Build features handles dynamic variables and encrypted credentials respectively?",
     options: [
-      { id: 'A', text: "Built-in Substitution Variables ($COMMIT_SHA, $BRANCH_NAME) and Secret Manager integration via availableSecrets" },
-      { id: 'B', text: "Hardcoded strings in cloudbuild.yaml and plaintext GitHub secrets" },
+      { id: 'A', text: "Substitution variables and Secret Manager via availableSecrets" },
+      { id: 'B', text: "Trigger-level environment variables for both the values and the API keys" },
       { id: 'C', text: "Compute Engine metadata for variables and public GCS for secrets" },
       { id: 'D', text: "Cloud Build does not support variables" }
     ],
@@ -228,7 +228,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "Cloud Build provides built-in `Substitution Variables` (e.g. `$COMMIT_SHA`, `$BRANCH_NAME`, `$REPO_NAME`) for dynamic pipeline parameters, and integrates natively with `Secret Manager` via `availableSecrets` to inject encrypted tokens securely into build steps.",
     referenceUrl: "https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values",
-    tags: ["Cloud Build", "Substitutions", "Secret Manager"]
+    tags: ["Cloud Build","Substitutions","Secret Manager"]
   },
   {
     id: "gcp-pca-187",
@@ -249,7 +249,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "Cloud Billing `Cost Anomaly Detection` uses machine learning models to identify sudden, unexpected spending spikes across projects. It automatically alerts billing administrators to anomalous resource consumption before billing thresholds are reached.",
     referenceUrl: "https://cloud.google.com/billing/docs/how-to/cost-anomaly-detection",
-    tags: ["FinOps", "Anomaly Detection", "Billing Alerts"]
+    tags: ["FinOps","Anomaly Detection","Billing Alerts"]
   },
   {
     id: "gcp-pca-188",
@@ -270,7 +270,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "`Chaos Engineering` is the practice of systematically introducing controlled faults (such as simulating zonal outages, terminating database replicas, or severing network routes) into staging or production systems to validate that automated failover and recovery systems perform as designed.",
     referenceUrl: "https://cloud.google.com/architecture/framework/reliability/test-for-reliability#chaos-engineering",
-    tags: ["Reliability", "Chaos Engineering", "DR Testing"]
+    tags: ["Reliability","Chaos Engineering","DR Testing"]
   },
   {
     id: "gcp-pca-189",
@@ -291,7 +291,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "Google Cloud Deploy includes a dedicated `Verify phase`. After deploying to a canary target, Cloud Deploy automatically runs specified test containers to execute synthetic HTTP transactions or integration suites; if tests fail, Cloud Deploy initiates an automated rollback.",
     referenceUrl: "https://cloud.google.com/deploy/docs/verify-deployment",
-    tags: ["Cloud Deploy", "Verify Phase", "Canary Testing"]
+    tags: ["Cloud Deploy","Verify Phase","Canary Testing"]
   },
   {
     id: "gcp-pca-190",
@@ -304,7 +304,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     question: "How does StratoZone collect server performance, CPU, memory, and disk utilization data without host agents?",
     options: [
       { id: 'A', text: "Installing a Python script on every host machine manually" },
-      { id: 'B', text: "Deploying the StratoZone Agentless Data Collector appliance that queries servers via WMI (Windows) and SSH (Linux)" },
+      { id: 'B', text: "The agentless StratoZone collector querying via WMI and SSH" },
       { id: 'C', text: "Connecting servers directly to the public internet" },
       { id: 'D', text: "StratoZone requires physical hardware modifications to motherboard chips" }
     ],
@@ -312,7 +312,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "StratoZone uses an `Agentless Data Collector` virtual appliance deployed in the customer's on-premises network. It connects to target servers remotely using standard management protocols (WMI/WinRM for Windows, SSH for Linux, and vCenter APIs for VMware) without installing local software agents.",
     referenceUrl: "https://cloud.google.com/stratozone/docs/collector-installation",
-    tags: ["StratoZone", "Agentless Collection", "Migration Assessment"]
+    tags: ["StratoZone","Agentless Collection","Migration Assessment"]
   },
   {
     id: "gcp-pca-191",
@@ -327,13 +327,13 @@ export const GCP_PCA_QUESTIONS_8 = [
       { id: 'A', text: "Disabling backups to save disk space" },
       { id: 'B', text: "Storing all data in memory-optimized Compute Engine instances" },
       { id: 'C', text: "Running dedicated Hadoop clusters 24/7" },
-      { id: 'D', text: "Aligning data lifecycle with appropriate storage classes (e.g. Coldline or Archive storage)" }
+      { id: 'D', text: "Aligning the data lifecycle with storage classes" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "The Cost Optimization pillar of the Google Cloud Architecture Framework emphasizes aligning data storage classes to business access frequencies. Moving infrequently queried historical datasets to Coldline or Archive storage slashes storage fees without losing data availability.",
     referenceUrl: "https://cloud.google.com/architecture/framework/cost-optimization",
-    tags: ["Architecture Framework", "Cost Optimization", "Storage Lifecycle"]
+    tags: ["Architecture Framework","Cost Optimization","Storage Lifecycle"]
   },
   {
     id: "gcp-pca-192",
@@ -354,7 +354,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "`Flexible Spend-Based CUDs` offer predictable discounts in exchange for committing to a minimum hourly dollar spend (e.g. $50/hour). They apply universally across multiple Compute Engine machine families, Cloud Run, and GKE, and across all regions, maximizing flexibility.",
     referenceUrl: "https://cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts#spend_based",
-    tags: ["FinOps", "CUDs", "Flexible Commitments"]
+    tags: ["FinOps","CUDs","Flexible Commitments"]
   },
   {
     id: "gcp-pca-193",
@@ -367,7 +367,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     question: "Which Google Cloud logging construct creates an organization-wide log export across all current and future child projects?",
     options: [
       { id: 'A', text: "Creating individual log sinks manually in every project" },
-      { id: 'B', text: "An Aggregated Log Sink created at the Organization level with includeChildren = true" },
+      { id: 'B', text: "An aggregated log sink at the organization level" },
       { id: 'C', text: "Exporting logs using a cron job" },
       { id: 'D', text: "Setting up VPC peering between all projects" }
     ],
@@ -375,7 +375,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "An `Aggregated Log Sink` configured at the Organization (or Folder) level with `includeChildren: true` automatically captures and routes log entries generated by all existing and future child projects into a centralized destination (such as BigQuery, Pub/Sub, or Cloud Storage).",
     referenceUrl: "https://cloud.google.com/logging/docs/export/aggregated_sinks",
-    tags: ["Cloud Logging", "Aggregated Sinks", "Compliance"]
+    tags: ["Cloud Logging","Aggregated Sinks","Compliance"]
   },
   {
     id: "gcp-pca-194",
@@ -396,7 +396,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "By default, Cloud Build steps run sequentially. Adding `waitFor: ['-']` to a build step instructs Cloud Build to start that step immediately in parallel at the beginning of the build, significantly reducing total pipeline duration.",
     referenceUrl: "https://cloud.google.com/build/docs/configuring-builds/configure-build-step-order",
-    tags: ["Cloud Build", "Parallelism", "Build Optimization"]
+    tags: ["Cloud Build","Parallelism","Build Optimization"]
   },
   {
     id: "gcp-pca-195",
@@ -411,13 +411,13 @@ export const GCP_PCA_QUESTIONS_8 = [
       { id: 'A', text: "Punishing the engineer who executed the query" },
       { id: 'B', text: "Deleting all incident logs to avoid liability" },
       { id: 'C', text: "Preventing all future production releases permanently" },
-      { id: 'D', text: "The post-mortem must be blameless: focusing on system design flaws, lack of guardrails, and automated recovery rather than blaming individuals" }
+      { id: 'D', text: "It must be blameless, targeting design not people" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "In Google SRE culture, post-mortems must be strictly `blameless`. Blameless post-mortems operate under the assumption that humans are fallible and mistakes are symptoms of insufficient guardrails. The focus is identifying root causes, improving automation, and adding prevention mechanisms.",
     referenceUrl: "https://cloud.google.com/architecture/framework/reliability/manage-incidents#blameless-postmortems",
-    tags: ["SRE", "Post-Mortem", "Blameless Culture"]
+    tags: ["SRE","Post-Mortem","Blameless Culture"]
   },
   {
     id: "gcp-pca-196",
@@ -438,7 +438,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "`GKE Fleets` (part of Google Distributed Cloud / Anthos) allow organizations to logically group Kubernetes clusters (GKE on Google Cloud, on-premises, AWS, or Azure) into a single administrative boundary, enabling fleet-wide features like Config Sync, Anthos Service Mesh, and unified observability.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/concepts/fleets-overview",
-    tags: ["Anthos", "GKE Fleets", "Multi-Cloud"]
+    tags: ["Anthos","GKE Fleets","Multi-Cloud"]
   },
   {
     id: "gcp-pca-197",
@@ -459,7 +459,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "`Anthos Service Mesh` (ASM) is Google's managed service mesh built on open-source Istio. It manages Envoy sidecars, enforces zero-trust mutual TLS (mTLS) authentication between services, provides traffic steering (canaries, fault injection), and exports distributed telemetry to Cloud Monitoring.",
     referenceUrl: "https://cloud.google.com/service-mesh/docs/overview",
-    tags: ["Anthos Service Mesh", "Istio", "mTLS"]
+    tags: ["Anthos Service Mesh","Istio","mTLS"]
   },
   {
     id: "gcp-pca-198",
@@ -480,7 +480,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "`Datastream` is a serverless, easy-to-use Change Data Capture (CDC) and replication service. It allows seamless, low-latency replication of database changes from MySQL, PostgreSQL, Oracle, and SQL Server into BigQuery, Cloud Storage, or Spanner with zero streaming infrastructure to manage.",
     referenceUrl: "https://cloud.google.com/datastream/docs/overview",
-    tags: ["Datastream", "CDC", "BigQuery"]
+    tags: ["Datastream","CDC","BigQuery"]
   },
   {
     id: "gcp-pca-199",
@@ -501,7 +501,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "`Cloud Data Fusion` is a fully managed, cloud-native enterprise data integration service for building and managing ETL/ELT pipelines visually. Built on open-source CDAP, it provides a drag-and-drop web interface with hundreds of pre-configured transformation plugins.",
     referenceUrl: "https://cloud.google.com/data-fusion/docs/overview",
-    tags: ["Cloud Data Fusion", "ETL", "No-Code"]
+    tags: ["Cloud Data Fusion","ETL","No-Code"]
   },
   {
     id: "gcp-pca-200",
@@ -513,7 +513,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     scenario: "An enterprise installs Anthos on a bare-metal Kubernetes cluster in a private on-premises data center. The cluster has no inbound public IP address or inbound firewall ports open.",
     question: "How does the on-premises cluster establish a secure connection to the Google Cloud management console?",
     options: [
-      { id: 'A', text: "By deploying the Google Cloud Connect Agent inside the cluster to initiate outbound encrypted connections to Google Cloud" },
+      { id: 'A', text: "The Connect Agent in the cluster dials out to Google Cloud" },
       { id: 'B', text: "By opening inbound TCP port 443 through corporate firewalls" },
       { id: 'C', text: "By deploying a public Elastic IP on the on-premises switch" },
       { id: 'D', text: "By routing traffic over unencrypted telnet" }
@@ -522,7 +522,7 @@ export const GCP_PCA_QUESTIONS_8 = [
     type: "single",
     explanation: "The `Connect Agent` is a lightweight Kubernetes deployment running inside the customer's remote cluster. It establishes a secure, outbound-only encrypted tunnel to Google Cloud, enabling administrators to view and manage remote on-premises clusters through the Google Cloud console without opening inbound firewall ports.",
     referenceUrl: "https://cloud.google.com/anthos/docs/concepts/connect-overview",
-    tags: ["Anthos", "Connect Agent", "Hybrid Cloud"]
+    tags: ["Anthos","Connect Agent","Hybrid Cloud"]
   }
 ];
 

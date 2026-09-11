@@ -12,7 +12,7 @@ export const GCP_PCA_QUESTIONS_12 = [
       { id: 'A', text: "Force all teams to share a single Google Cloud project with Owner permissions." },
       { id: 'B', text: "Deploy separate isolated VPC networks in every project and connect them using public IPs." },
       { id: 'C', text: "Deploy custom software routers inside each project with manual BGP peering." },
-      { id: 'D', text: "Implement Shared VPC: designate a central project as the Host Project and attach application projects as Service Projects." }
+      { id: 'D', text: "Use Shared VPC with a host project and service projects." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -31,7 +31,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy custom software routers inside each project with manual BGP peering." },
-      { id: 'B', text: "Implement Shared VPC: designate a central project as the Host Project and attach application projects as Service Projects." },
+      { id: 'B', text: "Use Shared VPC with a host project and service projects." },
       { id: 'C', text: "Force all teams to share a single Google Cloud project with Owner permissions." },
       { id: 'D', text: "Deploy separate isolated VPC networks in every project and connect them using public IPs." }
     ],
@@ -52,7 +52,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy separate isolated VPC networks in every project and connect them using public IPs." },
-      { id: 'B', text: "Implement Shared VPC: designate a central project as the Host Project and attach application projects as Service Projects." },
+      { id: 'B', text: "Use Shared VPC with a host project and service projects." },
       { id: 'C', text: "Force all teams to share a single Google Cloud project with Owner permissions." },
       { id: 'D', text: "Deploy custom software routers inside each project with manual BGP peering." }
     ],
@@ -75,7 +75,7 @@ export const GCP_PCA_QUESTIONS_12 = [
       { id: 'A', text: "Deploy custom software routers inside each project with manual BGP peering." },
       { id: 'B', text: "Force all teams to share a single Google Cloud project with Owner permissions." },
       { id: 'C', text: "Deploy separate isolated VPC networks in every project and connect them using public IPs." },
-      { id: 'D', text: "Implement Shared VPC: designate a central project as the Host Project and attach application projects as Service Projects." }
+      { id: 'D', text: "Use Shared VPC with a host project and service projects." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -95,7 +95,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Force all teams to share a single Google Cloud project with Owner permissions." },
       { id: 'B', text: "Deploy custom software routers inside each project with manual BGP peering." },
-      { id: 'C', text: "Implement Shared VPC: designate a central project as the Host Project and attach application projects as Service Projects." },
+      { id: 'C', text: "Use Shared VPC with a host project and service projects." },
       { id: 'D', text: "Deploy separate isolated VPC networks in every project and connect them using public IPs." }
     ],
     correctAnswers: ['C'],
@@ -117,7 +117,7 @@ export const GCP_PCA_QUESTIONS_12 = [
       { id: 'A', text: "Deploy microservices on physical on-premises servers." },
       { id: 'B', text: "Host microservices inside App Engine Standard Java 8 runtimes." },
       { id: 'C', text: "Deploy microservices onto static Compute Engine instances running 24/7." },
-      { id: 'D', text: "Deploy containerized microservices to Cloud Run with configured concurrency and scaling limits." }
+      { id: 'D', text: "Deploy the microservices to Cloud Run with scaling limits." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -136,7 +136,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy microservices onto static Compute Engine instances running 24/7." },
-      { id: 'B', text: "Deploy containerized microservices to Cloud Run with configured concurrency and scaling limits." },
+      { id: 'B', text: "Deploy the microservices to Cloud Run with scaling limits." },
       { id: 'C', text: "Deploy microservices on physical on-premises servers." },
       { id: 'D', text: "Host microservices inside App Engine Standard Java 8 runtimes." }
     ],
@@ -156,7 +156,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to deploy a fleet of stateless microservices in containers that scale rapidly to thousands of instances during marketing promotions and scale to zero when idle.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy containerized microservices to Cloud Run with configured concurrency and scaling limits." },
+      { id: 'A', text: "Deploy the microservices to Cloud Run with scaling limits." },
       { id: 'B', text: "Host microservices inside App Engine Standard Java 8 runtimes." },
       { id: 'C', text: "Deploy microservices on physical on-premises servers." },
       { id: 'D', text: "Deploy microservices onto static Compute Engine instances running 24/7." }
@@ -177,7 +177,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to deploy a fleet of stateless microservices in containers that scale rapidly to thousands of instances during marketing promotions and scale to zero when idle.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Deploy containerized microservices to Cloud Run with configured concurrency and scaling limits." },
+      { id: 'A', text: "Deploy the microservices to Cloud Run with scaling limits." },
       { id: 'B', text: "Deploy microservices onto static Compute Engine instances running 24/7." },
       { id: 'C', text: "Host microservices inside App Engine Standard Java 8 runtimes." },
       { id: 'D', text: "Deploy microservices on physical on-premises servers." }
@@ -200,7 +200,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Host microservices inside App Engine Standard Java 8 runtimes." },
       { id: 'B', text: "Deploy microservices onto static Compute Engine instances running 24/7." },
-      { id: 'C', text: "Deploy containerized microservices to Cloud Run with configured concurrency and scaling limits." },
+      { id: 'C', text: "Deploy the microservices to Cloud Run with scaling limits." },
       { id: 'D', text: "Deploy microservices on physical on-premises servers." }
     ],
     correctAnswers: ['C'],

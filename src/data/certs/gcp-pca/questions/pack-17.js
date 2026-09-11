@@ -9,7 +9,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to automatically trigger a Cloud Function to rotate an external database password every 30 days and update Secret Manager with the new version.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Hardcode database credentials in application source code files." },
+      { id: 'A', text: "Store each new password as a new Secret Manager version and redeploy the application." },
       { id: 'B', text: "Instruct a system administrator to manually change the database password and update text files every month." },
       { id: 'C', text: "Configure a Secret Manager rotation schedule with an associated Cloud Pub/Sub topic triggering a rotation Cloud Function." },
       { id: 'D', text: "Keep the same database password permanently without rotation to avoid breaking applications." }
@@ -30,7 +30,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to automatically trigger a Cloud Function to rotate an external database password every 30 days and update Secret Manager with the new version.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Hardcode database credentials in application source code files." },
+      { id: 'A', text: "Store each new password as a new Secret Manager version and redeploy the application." },
       { id: 'B', text: "Keep the same database password permanently without rotation to avoid breaking applications." },
       { id: 'C', text: "Instruct a system administrator to manually change the database password and update text files every month." },
       { id: 'D', text: "Configure a Secret Manager rotation schedule with an associated Cloud Pub/Sub topic triggering a rotation Cloud Function." }
@@ -51,7 +51,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to automatically trigger a Cloud Function to rotate an external database password every 30 days and update Secret Manager with the new version.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Hardcode database credentials in application source code files." },
+      { id: 'A', text: "Store each new password as a new Secret Manager version and redeploy the application." },
       { id: 'B', text: "Keep the same database password permanently without rotation to avoid breaking applications." },
       { id: 'C', text: "Instruct a system administrator to manually change the database password and update text files every month." },
       { id: 'D', text: "Configure a Secret Manager rotation schedule with an associated Cloud Pub/Sub topic triggering a rotation Cloud Function." }
@@ -73,7 +73,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Keep the same database password permanently without rotation to avoid breaking applications." },
-      { id: 'B', text: "Hardcode database credentials in application source code files." },
+      { id: 'B', text: "Store each new password as a new Secret Manager version and redeploy the application." },
       { id: 'C', text: "Configure a Secret Manager rotation schedule with an associated Cloud Pub/Sub topic triggering a rotation Cloud Function." },
       { id: 'D', text: "Instruct a system administrator to manually change the database password and update text files every month." }
     ],
@@ -93,7 +93,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to automatically trigger a Cloud Function to rotate an external database password every 30 days and update Secret Manager with the new version.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Hardcode database credentials in application source code files." },
+      { id: 'A', text: "Store each new password as a new Secret Manager version and redeploy the application." },
       { id: 'B', text: "Instruct a system administrator to manually change the database password and update text files every month." },
       { id: 'C', text: "Keep the same database password permanently without rotation to avoid breaking applications." },
       { id: 'D', text: "Configure a Secret Manager rotation schedule with an associated Cloud Pub/Sub topic triggering a rotation Cloud Function." }
@@ -114,7 +114,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to optimize compute spending for a predictable 24/7 production core database running 100 vCPUs, alongside a batch video encoding pipeline that can tolerate sudden VM preemptions.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Purchase 1-year or 3-year Committed Use Discounts (CUDs) for the database, and use Spot VMs for the batch encoding pipeline." },
+      { id: 'A', text: "Committed use discounts for the database, Spot VMs for encoding." },
       { id: 'B', text: "Run the production mission-critical database on Spot VMs without persistent backups." },
       { id: 'C', text: "Purchase 10-year upfront physical hardware leases." },
       { id: 'D', text: "Run all workloads on on-demand instances at list price." }
@@ -135,7 +135,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to optimize compute spending for a predictable 24/7 production core database running 100 vCPUs, alongside a batch video encoding pipeline that can tolerate sudden VM preemptions.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Purchase 1-year or 3-year Committed Use Discounts (CUDs) for the database, and use Spot VMs for the batch encoding pipeline." },
+      { id: 'A', text: "Committed use discounts for the database, Spot VMs for encoding." },
       { id: 'B', text: "Purchase 10-year upfront physical hardware leases." },
       { id: 'C', text: "Run the production mission-critical database on Spot VMs without persistent backups." },
       { id: 'D', text: "Run all workloads on on-demand instances at list price." }
@@ -157,7 +157,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Run all workloads on on-demand instances at list price." },
-      { id: 'B', text: "Purchase 1-year or 3-year Committed Use Discounts (CUDs) for the database, and use Spot VMs for the batch encoding pipeline." },
+      { id: 'B', text: "Committed use discounts for the database, Spot VMs for encoding." },
       { id: 'C', text: "Purchase 10-year upfront physical hardware leases." },
       { id: 'D', text: "Run the production mission-critical database on Spot VMs without persistent backups." }
     ],
@@ -177,7 +177,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to optimize compute spending for a predictable 24/7 production core database running 100 vCPUs, alongside a batch video encoding pipeline that can tolerate sudden VM preemptions.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Purchase 1-year or 3-year Committed Use Discounts (CUDs) for the database, and use Spot VMs for the batch encoding pipeline." },
+      { id: 'A', text: "Committed use discounts for the database, Spot VMs for encoding." },
       { id: 'B', text: "Purchase 10-year upfront physical hardware leases." },
       { id: 'C', text: "Run all workloads on on-demand instances at list price." },
       { id: 'D', text: "Run the production mission-critical database on Spot VMs without persistent backups." }
@@ -199,7 +199,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Run the production mission-critical database on Spot VMs without persistent backups." },
-      { id: 'B', text: "Purchase 1-year or 3-year Committed Use Discounts (CUDs) for the database, and use Spot VMs for the batch encoding pipeline." },
+      { id: 'B', text: "Committed use discounts for the database, Spot VMs for encoding." },
       { id: 'C', text: "Run all workloads on on-demand instances at list price." },
       { id: 'D', text: "Purchase 10-year upfront physical hardware leases." }
     ],
@@ -219,9 +219,9 @@ export const GCP_PCA_QUESTIONS_17 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to identify oversized virtual machines across 50 projects and uncover unattached persistent disks to reduce enterprise cloud waste automatically.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Delete all virtual machines that have less than 90% average CPU utilization." },
-      { id: 'B', text: "Review and apply VM rightsizing and idle resource recommendations provided by Active Assist Recommender." },
-      { id: 'C', text: "Manually inspect task managers on all 1,000 virtual machines over several weeks." },
+      { id: 'A', text: "Alert on low CPU in Cloud Monitoring and resize each instance when it fires." },
+      { id: 'B', text: "Apply rightsizing recommendations from Active Assist." },
+      { id: 'C', text: "Export CPU metrics to BigQuery and build a sizing query over the history." },
       { id: 'D', text: "Hire external consultants to conduct annual physical hardware reviews." }
     ],
     correctAnswers: ['B'],
@@ -240,10 +240,10 @@ export const GCP_PCA_QUESTIONS_17 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to identify oversized virtual machines across 50 projects and uncover unattached persistent disks to reduce enterprise cloud waste automatically.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Review and apply VM rightsizing and idle resource recommendations provided by Active Assist Recommender." },
+      { id: 'A', text: "Apply rightsizing recommendations from Active Assist." },
       { id: 'B', text: "Hire external consultants to conduct annual physical hardware reviews." },
-      { id: 'C', text: "Delete all virtual machines that have less than 90% average CPU utilization." },
-      { id: 'D', text: "Manually inspect task managers on all 1,000 virtual machines over several weeks." }
+      { id: 'C', text: "Alert on low CPU in Cloud Monitoring and resize each instance when it fires." },
+      { id: 'D', text: "Export CPU metrics to BigQuery and build a sizing query over the history." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const GCP_PCA_QUESTIONS_17 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to identify oversized virtual machines across 50 projects and uncover unattached persistent disks to reduce enterprise cloud waste automatically.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Manually inspect task managers on all 1,000 virtual machines over several weeks." },
+      { id: 'A', text: "Export CPU metrics to BigQuery and build a sizing query over the history." },
       { id: 'B', text: "Hire external consultants to conduct annual physical hardware reviews." },
-      { id: 'C', text: "Delete all virtual machines that have less than 90% average CPU utilization." },
-      { id: 'D', text: "Review and apply VM rightsizing and idle resource recommendations provided by Active Assist Recommender." }
+      { id: 'C', text: "Alert on low CPU in Cloud Monitoring and resize each instance when it fires." },
+      { id: 'D', text: "Apply rightsizing recommendations from Active Assist." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,10 +282,10 @@ export const GCP_PCA_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to identify oversized virtual machines across 50 projects and uncover unattached persistent disks to reduce enterprise cloud waste automatically.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Manually inspect task managers on all 1,000 virtual machines over several weeks." },
-      { id: 'B', text: "Delete all virtual machines that have less than 90% average CPU utilization." },
+      { id: 'A', text: "Export CPU metrics to BigQuery and build a sizing query over the history." },
+      { id: 'B', text: "Alert on low CPU in Cloud Monitoring and resize each instance when it fires." },
       { id: 'C', text: "Hire external consultants to conduct annual physical hardware reviews." },
-      { id: 'D', text: "Review and apply VM rightsizing and idle resource recommendations provided by Active Assist Recommender." }
+      { id: 'D', text: "Apply rightsizing recommendations from Active Assist." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,10 +303,10 @@ export const GCP_PCA_QUESTIONS_17 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to identify oversized virtual machines across 50 projects and uncover unattached persistent disks to reduce enterprise cloud waste automatically.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Review and apply VM rightsizing and idle resource recommendations provided by Active Assist Recommender." },
+      { id: 'A', text: "Apply rightsizing recommendations from Active Assist." },
       { id: 'B', text: "Hire external consultants to conduct annual physical hardware reviews." },
-      { id: 'C', text: "Delete all virtual machines that have less than 90% average CPU utilization." },
-      { id: 'D', text: "Manually inspect task managers on all 1,000 virtual machines over several weeks." }
+      { id: 'C', text: "Alert on low CPU in Cloud Monitoring and resize each instance when it fires." },
+      { id: 'D', text: "Export CPU metrics to BigQuery and build a sizing query over the history." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -430,7 +430,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Write a custom background thread that modifies storage classes daily via REST API calls." },
-      { id: 'B', text: "Enable Cloud Storage Autoclass on the bucket to automatically transition objects between hot and cold classes based on access history." },
+      { id: 'B', text: "Enable Autoclass so objects move between classes by access." },
       { id: 'C', text: "Set all objects permanently to Standard storage class." },
       { id: 'D', text: "Delete data after 30 days regardless of whether analysts still need it." }
     ],
@@ -453,7 +453,7 @@ export const GCP_PCA_QUESTIONS_17 = [
       { id: 'A', text: "Set all objects permanently to Standard storage class." },
       { id: 'B', text: "Write a custom background thread that modifies storage classes daily via REST API calls." },
       { id: 'C', text: "Delete data after 30 days regardless of whether analysts still need it." },
-      { id: 'D', text: "Enable Cloud Storage Autoclass on the bucket to automatically transition objects between hot and cold classes based on access history." }
+      { id: 'D', text: "Enable Autoclass so objects move between classes by access." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -472,7 +472,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Delete data after 30 days regardless of whether analysts still need it." },
-      { id: 'B', text: "Enable Cloud Storage Autoclass on the bucket to automatically transition objects between hot and cold classes based on access history." },
+      { id: 'B', text: "Enable Autoclass so objects move between classes by access." },
       { id: 'C', text: "Set all objects permanently to Standard storage class." },
       { id: 'D', text: "Write a custom background thread that modifies storage classes daily via REST API calls." }
     ],
@@ -492,7 +492,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to eliminate manual lifecycle management rules for an unstructured analytics bucket with unpredictable, shifting data access patterns.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Enable Cloud Storage Autoclass on the bucket to automatically transition objects between hot and cold classes based on access history." },
+      { id: 'A', text: "Enable Autoclass so objects move between classes by access." },
       { id: 'B', text: "Delete data after 30 days regardless of whether analysts still need it." },
       { id: 'C', text: "Set all objects permanently to Standard storage class." },
       { id: 'D', text: "Write a custom background thread that modifies storage classes daily via REST API calls." }
@@ -513,7 +513,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to eliminate manual lifecycle management rules for an unstructured analytics bucket with unpredictable, shifting data access patterns.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Enable Cloud Storage Autoclass on the bucket to automatically transition objects between hot and cold classes based on access history." },
+      { id: 'A', text: "Enable Autoclass so objects move between classes by access." },
       { id: 'B', text: "Set all objects permanently to Standard storage class." },
       { id: 'C', text: "Delete data after 30 days regardless of whether analysts still need it." },
       { id: 'D', text: "Write a custom background thread that modifies storage classes daily via REST API calls." }

@@ -11,8 +11,8 @@ export const GCP_PCA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Manually read through millions of customer feedback records using desktop text editors." },
       { id: 'B', text: "Rely on client web browsers to strip sensitive data before submitting forms." },
-      { id: 'C', text: "Delete all customer feedback text columns from the analytics database." },
-      { id: 'D', text: "Deploy Cloud Data Loss Prevention (Cloud DLP / Sensitive Data Protection) inspection and de-identification jobs." }
+      { id: 'C', text: "Apply BigQuery column-level access control with policy tags on the text columns." },
+      { id: 'D', text: "Run Sensitive Data Protection inspection and de-identification jobs." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -30,10 +30,10 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to automatically scan petabytes of customer feedback text in BigQuery, redact social security numbers (SSNs), and replace credit card numbers with format-preserving tokens.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Deploy Cloud Data Loss Prevention (Cloud DLP / Sensitive Data Protection) inspection and de-identification jobs." },
+      { id: 'A', text: "Run Sensitive Data Protection inspection and de-identification jobs." },
       { id: 'B', text: "Rely on client web browsers to strip sensitive data before submitting forms." },
       { id: 'C', text: "Manually read through millions of customer feedback records using desktop text editors." },
-      { id: 'D', text: "Delete all customer feedback text columns from the analytics database." }
+      { id: 'D', text: "Apply BigQuery column-level access control with policy tags on the text columns." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -52,9 +52,9 @@ export const GCP_PCA_QUESTIONS_16 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Rely on client web browsers to strip sensitive data before submitting forms." },
-      { id: 'B', text: "Deploy Cloud Data Loss Prevention (Cloud DLP / Sensitive Data Protection) inspection and de-identification jobs." },
+      { id: 'B', text: "Run Sensitive Data Protection inspection and de-identification jobs." },
       { id: 'C', text: "Manually read through millions of customer feedback records using desktop text editors." },
-      { id: 'D', text: "Delete all customer feedback text columns from the analytics database." }
+      { id: 'D', text: "Apply BigQuery column-level access control with policy tags on the text columns." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,8 +72,8 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to automatically scan petabytes of customer feedback text in BigQuery, redact social security numbers (SSNs), and replace credit card numbers with format-preserving tokens.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Deploy Cloud Data Loss Prevention (Cloud DLP / Sensitive Data Protection) inspection and de-identification jobs." },
-      { id: 'B', text: "Delete all customer feedback text columns from the analytics database." },
+      { id: 'A', text: "Run Sensitive Data Protection inspection and de-identification jobs." },
+      { id: 'B', text: "Apply BigQuery column-level access control with policy tags on the text columns." },
       { id: 'C', text: "Rely on client web browsers to strip sensitive data before submitting forms." },
       { id: 'D', text: "Manually read through millions of customer feedback records using desktop text editors." }
     ],
@@ -95,8 +95,8 @@ export const GCP_PCA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Manually read through millions of customer feedback records using desktop text editors." },
       { id: 'B', text: "Rely on client web browsers to strip sensitive data before submitting forms." },
-      { id: 'C', text: "Deploy Cloud Data Loss Prevention (Cloud DLP / Sensitive Data Protection) inspection and de-identification jobs." },
-      { id: 'D', text: "Delete all customer feedback text columns from the analytics database." }
+      { id: 'C', text: "Run Sensitive Data Protection inspection and de-identification jobs." },
+      { id: 'D', text: "Apply BigQuery column-level access control with policy tags on the text columns." }
     ],
     correctAnswers: ['C'],
     type: "single",

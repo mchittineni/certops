@@ -12,13 +12,13 @@ export const GCP_PCA_QUESTIONS_9 = [
       { id: 'A', text: "Delete the state file" },
       { id: 'B', text: "Disable the Google Cloud console permanently" },
       { id: 'C', text: "Terraform automatically reverts console changes in real time without tooling" },
-      { id: 'D', text: "Run automated periodic terraform plan jobs in CI/CD (or use Google Cloud Config Controller / Config Sync) to alert on deviations and reapply the declared code" }
+      { id: 'D', text: "Run periodic terraform plan jobs in CI/CD and reapply the declared code" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Configuration drift occurs when cloud resources are modified out-of-band. Running scheduled `terraform plan -detailed-exitcode` in a CI/CD pipeline detects differences between real infrastructure and the state file, enabling automated alerting or re-applying declared state via GitOps tools like Config Sync.",
     referenceUrl: "https://cloud.google.com/docs/terraform/best-practices-for-terraform#drift",
-    tags: ["Terraform", "Drift Detection", "GitOps"]
+    tags: ["Terraform","Drift Detection","GitOps"]
   },
   {
     id: "gcp-pca-202",
@@ -39,7 +39,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "`Apigee Hybrid` decouples the management plane from the runtime data plane. The management plane runs in Google Cloud (governance, UI, analytics), while the runtime plane (Message Processors, Envoy proxies) runs in customer-managed Kubernetes clusters on-premises, keeping payload data completely within customer boundaries.",
     referenceUrl: "https://cloud.google.com/apigee/docs/hybrid/v1.11/what-is-hybrid",
-    tags: ["Apigee", "Apigee Hybrid", "API Management"]
+    tags: ["Apigee","Apigee Hybrid","API Management"]
   },
   {
     id: "gcp-pca-203",
@@ -60,7 +60,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "`Dataflow Flex Templates` package Apache Beam pipelines into Docker container images stored in Artifact Registry. Flex Templates separate pipeline construction from execution, allowing users to pass dynamic parameters at runtime without recompiling code or maintaining local SDK environments.",
     referenceUrl: "https://cloud.google.com/dataflow/docs/guides/templates/overview#flex-templates",
-    tags: ["Dataflow", "Flex Templates", "Apache Beam"]
+    tags: ["Dataflow","Flex Templates","Apache Beam"]
   },
   {
     id: "gcp-pca-204",
@@ -72,7 +72,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     scenario: "A cloud architect is designing ingress for a microservice mesh. The application requires advanced traffic management including HTTP header-based routing, mTLS client certificate termination, and weighted canary splitting at the mesh entry point.",
     question: "Which component serves as the intelligent edge entry point for traffic entering an Anthos Service Mesh?",
     options: [
-      { id: 'A', text: "Anthos Service Mesh Ingress Gateway (Istio Ingress Gateway)" },
+      { id: 'A', text: "The service mesh ingress gateway" },
       { id: 'B', text: "Standard GKE Ingress Controller" },
       { id: 'C', text: "NodePort Service" },
       { id: 'D', text: "External TCP Proxy Load Balancer alone" }
@@ -81,7 +81,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "The `ASM Ingress Gateway` is a dedicated Envoy-based proxy deployed at the edge of the mesh. It terminates incoming client traffic, enforces mesh-level security policies, and routes traffic dynamically to backend mesh services based on Istio VirtualService and Gateway routing rules.",
     referenceUrl: "https://cloud.google.com/service-mesh/docs/gateways",
-    tags: ["Anthos Service Mesh", "Ingress Gateway", "Istio"]
+    tags: ["Anthos Service Mesh","Ingress Gateway","Istio"]
   },
   {
     id: "gcp-pca-205",
@@ -95,14 +95,14 @@ export const GCP_PCA_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Delete the GKE cluster and recreate it" },
       { id: 'B', text: "Run git revert and trigger a 30-minute full build pipeline" },
-      { id: 'C', text: "Execute a Rollback in Google Cloud Deploy (e.g. gcloud deploy targets rollback)" },
-      { id: 'D', text: "Manually edit Kubernetes deployments using kubectl edit" }
+      { id: 'C', text: "Roll back the target in Cloud Deploy" },
+      { id: 'D', text: "Re-run the previous Cloud Deploy release as a fresh rollout" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Google Cloud Deploy natively supports instant rollbacks. Executing a `Rollback` command instructs Cloud Deploy to immediately redeploy the last known successful release artifact to the target GKE cluster, minimizing MTTR without waiting for code rebuilds.",
     referenceUrl: "https://cloud.google.com/deploy/docs/rollback-release",
-    tags: ["Cloud Deploy", "Rollback", "Continuous Delivery"]
+    tags: ["Cloud Deploy","Rollback","Continuous Delivery"]
   },
   {
     id: "gcp-pca-206",
@@ -115,7 +115,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     question: "In which execution flow sections should the OAuth validation and XML-to-JSON transformation be placed respectively?",
     options: [
       { id: 'A', text: "Both in the ProxyEndpoint PreFlow" },
-      { id: 'B', text: "OAuth validation in the ProxyEndpoint PreFlow (inbound); XML-to-JSON transformation in the ProxyEndpoint PostFlow (outbound)" },
+      { id: 'B', text: "OAuth in PreFlow, transform in PostFlow" },
       { id: 'C', text: "OAuth in PostFlow; XML-to-JSON in PreFlow" },
       { id: 'D', text: "Both in the TargetEndpoint PostFlow" }
     ],
@@ -123,7 +123,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "In Apigee, incoming client requests pass through the `ProxyEndpoint PreFlow` where security checks (OAuth, rate-limiting) execute before routing to the target. Outgoing responses return through the `ProxyEndpoint PostFlow` where final transformations (XML to JSON, header stripping) are applied.",
     referenceUrl: "https://cloud.google.com/apigee/docs/api-platform/fundamentals/understanding-flows",
-    tags: ["Apigee", "API Proxies", "Flow Architecture"]
+    tags: ["Apigee","API Proxies","Flow Architecture"]
   },
   {
     id: "gcp-pca-207",
@@ -144,7 +144,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "`Migration Groups` in Migrate to Virtual Machines allow architects to organize related, interdependent servers (e.g. all VMs in a multi-tier ERP system) into a single logical entity. Groups allow administrators to schedule synchronized replication, test-cloning, and coordinated cutovers.",
     referenceUrl: "https://cloud.google.com/migrate/virtual-machines/docs/5.0/how-to/grouping-vms",
-    tags: ["Migrate to Virtual Machines", "Migration Groups", "Migration Planning"]
+    tags: ["Migrate to Virtual Machines","Migration Groups","Migration Planning"]
   },
   {
     id: "gcp-pca-208",
@@ -165,7 +165,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "Cloud Dataflow `Dynamic Work Rebalancing` continuously monitors processing progress across workers. If it detects straggler workers struggling with oversized partitions, it automatically splits the remaining unread portions of the work and assigns them to idle workers, eliminating pipeline bottlenecks.",
     referenceUrl: "https://cloud.google.com/dataflow/docs/concepts/dynamic-work-rebalancing",
-    tags: ["Dataflow", "Dynamic Work Rebalancing", "Optimization"]
+    tags: ["Dataflow","Dynamic Work Rebalancing","Optimization"]
   },
   {
     id: "gcp-pca-209",
@@ -186,7 +186,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "Google Cloud Managed Service for Prometheus uses the `PodMonitoring` (namespace-scoped) and `ClusterPodMonitoring` (cluster-scoped) Custom Resource Definitions (CRDs). The CRD specifies the pod label selector, port, scraping interval, and metrics path for GMP to scrape automatically.",
     referenceUrl: "https://cloud.google.com/stackdriver/docs/managed-prometheus/setup-managed#gmp-pod-monitoring",
-    tags: ["GKE", "GMP", "PodMonitoring"]
+    tags: ["GKE","GMP","PodMonitoring"]
   },
   {
     id: "gcp-pca-210",
@@ -207,7 +207,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "Config Sync supports `Multi-Repo Architecture`. A centralized platform team manages a `RootSync` repository governing cluster-wide policies (CRDs, cluster roles, network policies), while individual app teams manage independent `RepoSync` repositories scoped strictly to their own namespaces.",
     referenceUrl: "https://cloud.google.com/anthos-config-management/docs/how-to/multi-repo",
-    tags: ["Anthos Config Management", "Config Sync", "Multi-Repo"]
+    tags: ["Anthos Config Management","Config Sync","Multi-Repo"]
   },
   {
     id: "gcp-pca-211",
@@ -228,7 +228,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "Migrate to Virtual Machines supports `Test-Clone`. Test-Clone creates a temporary, fully functional Compute Engine instance from the replicated disk state in an isolated test VPC. The test clone boots cleanly for validation while background replication continues uninterrupted.",
     referenceUrl: "https://cloud.google.com/migrate/virtual-machines/docs/5.0/how-to/test-clone",
-    tags: ["Migrate to Virtual Machines", "Test-Clone", "Migration Validation"]
+    tags: ["Migrate to Virtual Machines","Test-Clone","Migration Validation"]
   },
   {
     id: "gcp-pca-212",
@@ -240,7 +240,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     scenario: "A financial payment processing pipeline in Cloud Dataflow ingests transactions from Cloud Pub/Sub and updates account balance records in BigQuery. The business demands that no transaction is ever processed twice or missed.",
     question: "How does Cloud Dataflow ensure exactly-once processing for streaming data?",
     options: [
-      { id: 'A', text: "Through automated message deduplication, checkpointing, and end-to-end exactly-once sinks integrating with Cloud Pub/Sub and BigQuery" },
+      { id: 'A', text: "Through deduplication, checkpointing and exactly-once sinks" },
       { id: 'B', text: "By running single-threaded workers with no retries" },
       { id: 'C', text: "Pub/Sub guarantees exactly-once delivery natively under all conditions without Dataflow" },
       { id: 'D', text: "By discarding all duplicate messages after 1 hour" }
@@ -249,7 +249,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "Cloud Dataflow delivers `exactly-once processing` for streaming pipelines. Dataflow tracks message unique IDs from sources like Pub/Sub, detects and discards duplicates during streaming shuffles, and utilizes atomic, transactional mutations when writing to sinks like BigQuery.",
     referenceUrl: "https://cloud.google.com/blog/products/gcp/after-a-storm-comes-a-calm-predictable-data-processing-with-cloud-dataflow",
-    tags: ["Dataflow", "Exactly-Once", "Streaming Integrity"]
+    tags: ["Dataflow","Exactly-Once","Streaming Integrity"]
   },
   {
     id: "gcp-pca-213",
@@ -263,14 +263,14 @@ export const GCP_PCA_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Quota for both scenarios" },
       { id: 'B', text: "SpikeArrest for both scenarios" },
-      { id: 'C', text: "SpikeArrest for short-term rate smoothing; Quota for long-term business consumption limits" },
+      { id: 'C', text: "SpikeArrest smooths bursts; Quota caps consumption" },
       { id: 'D', text: "Quota for short-term rate smoothing; SpikeArrest for long-term limits" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "In Apigee, `SpikeArrest` protects backend servers against sudden, unexpected traffic bursts by smoothing traffic over milliseconds/seconds (e.g. 20 requests per second). `Quota` enforces contractual business tier consumption limits measured over days, weeks, or months.",
     referenceUrl: "https://cloud.google.com/apigee/docs/api-platform/reference/policies/spike-arrest-policy",
-    tags: ["Apigee", "SpikeArrest", "Quota Policy"]
+    tags: ["Apigee","SpikeArrest","Quota Policy"]
   },
   {
     id: "gcp-pca-214",
@@ -284,14 +284,14 @@ export const GCP_PCA_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "In the Dockerfile ENTRYPOINT command" },
       { id: 'B', text: "In Cloud Monitoring alert rules" },
-      { id: 'C', text: "In the Delivery Pipeline configuration using the canary phase with defined percentages and runtime routing" },
+      { id: 'C', text: "In the delivery pipeline canary phase" },
       { id: 'D', text: "In the Kubernetes Service manifest alone" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Google Cloud Deploy supports declarative `Canary deployment strategies` within the Delivery Pipeline definition. Architects specify phased percentages (e.g. `10%`, `50%`, `100%`) and configure automated verification hooks between phases to automate progressive promotions.",
     referenceUrl: "https://cloud.google.com/deploy/docs/canary-service-mesh",
-    tags: ["Cloud Deploy", "Canary Strategy", "Progressive Rollout"]
+    tags: ["Cloud Deploy","Canary Strategy","Progressive Rollout"]
   },
   {
     id: "gcp-pca-215",
@@ -312,7 +312,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "A `Private Cloud Data Fusion Instance` deploys the CDAP control plane and execution engines in a Google-managed tenant project that communicates with customer VPC networks exclusively via VPC Network Peering and private RFC 1918 IP addresses, ensuring zero public exposure.",
     referenceUrl: "https://cloud.google.com/data-fusion/docs/how-to/create-private-ip",
-    tags: ["Cloud Data Fusion", "Private IP", "VPC Peering"]
+    tags: ["Cloud Data Fusion","Private IP","VPC Peering"]
   },
   {
     id: "gcp-pca-216",
@@ -333,7 +333,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "`AuthorizationPolicy` in Anthos Service Mesh provides fine-grained Layer 7 access control. It evaluates source identity (SPIFFE ID matching service account `checkout`), target service, HTTP methods (`POST`), and request paths (`/charge`), enforcing strict zero-trust application authorization.",
     referenceUrl: "https://cloud.google.com/service-mesh/docs/security/authorization-policy",
-    tags: ["Anthos Service Mesh", "AuthorizationPolicy", "Zero-Trust"]
+    tags: ["Anthos Service Mesh","AuthorizationPolicy","Zero-Trust"]
   },
   {
     id: "gcp-pca-217",
@@ -354,7 +354,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "Google Cloud Deploy supports `Multi-Target Deployments` (Parallel Deployments). By defining a multi-target consisting of multiple child targets (e.g. regional GKE clusters), Cloud Deploy renders and applies Kubernetes manifests to all target clusters concurrently.",
     referenceUrl: "https://cloud.google.com/deploy/docs/multi-targets",
-    tags: ["Cloud Deploy", "Multi-Target", "Parallel Rollouts"]
+    tags: ["Cloud Deploy","Multi-Target","Parallel Rollouts"]
   },
   {
     id: "gcp-pca-218",
@@ -375,7 +375,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "In Datastream, a `Connection Profile` encapsulates the configuration, credentials, network connectivity method (IP whitelisting, Forward-SSH tunnel, or Private Connectivity via VPC peering), and database-specific settings for communicating with a source or destination data store.",
     referenceUrl: "https://cloud.google.com/datastream/docs/connection-profiles",
-    tags: ["Datastream", "Connection Profile", "CDC"]
+    tags: ["Datastream","Connection Profile","CDC"]
   },
   {
     id: "gcp-pca-219",
@@ -387,7 +387,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     scenario: "An enterprise architect is structuring a multi-wave datacenter migration plan for 300 business applications.",
     question: "How should applications be categorized and sequenced across migration waves to minimize business risk?",
     options: [
-      { id: 'A', text: "Start with low-complexity, non-critical stateless applications to validate network and IAM patterns, followed by interconnected business systems, and migrate high-complexity core transactional databases last" },
+      { id: 'A', text: "Start with simple stateless apps and migrate core databases last" },
       { id: 'B', text: "Migrate the most complex, mission-critical core database in Wave 1" },
       { id: 'C', text: "Migrate applications in alphabetical order by application name" },
       { id: 'D', text: "Migrate all 300 applications in a single weekend cutover" }
@@ -396,7 +396,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "Enterprise migration best practices recommend sequencing waves from lowest risk/complexity to highest. Beginning with simple stateless or internal dev/test apps validates landing zones, networking, and CI/CD pipelines before tackling business-critical, high-dependency core databases.",
     referenceUrl: "https://cloud.google.com/architecture/migration-to-gcp-planning-workspace#categorize-workloads",
-    tags: ["Migration Planning", "Migration Waves", "Best Practices"]
+    tags: ["Migration Planning","Migration Waves","Best Practices"]
   },
   {
     id: "gcp-pca-220",
@@ -417,7 +417,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "`Dataflow Streaming Engine` offloads streaming shuffle and state management from worker VMs to a specialized, dedicated Google cloud service. This reduces worker VM resource consumption (allowing smaller worker VMs), improves autoscaling responsiveness, and provides smoother throughput.",
     referenceUrl: "https://cloud.google.com/dataflow/docs/streaming-engine",
-    tags: ["Dataflow", "Streaming Engine", "Stateful Processing"]
+    tags: ["Dataflow","Streaming Engine","Stateful Processing"]
   },
   {
     id: "gcp-pca-221",
@@ -438,7 +438,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "`PeerAuthentication` defines how traffic is encrypted in transit between workloads in Anthos Service Mesh. Setting `mode: STRICT` enforces that incoming connections must use mutual TLS (mTLS), immediately rejecting any legacy unencrypted plain-text traffic.",
     referenceUrl: "https://cloud.google.com/service-mesh/docs/security/peer-authentication",
-    tags: ["Anthos Service Mesh", "PeerAuthentication", "mTLS"]
+    tags: ["Anthos Service Mesh","PeerAuthentication","mTLS"]
   },
   {
     id: "gcp-pca-222",
@@ -459,7 +459,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "`Apigee Analytics` tracks operational and business API metrics in real time. Dashboards visualize traffic volume, error rates, proxy latency, target backend latency, developer app activity, and geographic traffic distribution to optimize API performance and governance.",
     referenceUrl: "https://cloud.google.com/apigee/docs/api-platform/analytics/analytics-services-overview",
-    tags: ["Apigee", "Apigee Analytics", "Observability"]
+    tags: ["Apigee","Apigee Analytics","Observability"]
   },
   {
     id: "gcp-pca-223",
@@ -473,14 +473,14 @@ export const GCP_PCA_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "The VM must be converted to an unmanaged Docker container" },
       { id: 'B', text: "Compute Engine runs VMware ESXi natively under all conditions" },
-      { id: 'C', text: "The built-in OS Adaptation Engine automatically injects Google Cloud virtio storage/network drivers and installs Google guest environment packages during migration" },
+      { id: 'C', text: "The OS adaptation engine injects virtio drivers and guest packages" },
       { id: 'D', text: "Administrators must manually rebuild all OS kernels on-premises prior to migration" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Migrate to Virtual Machines includes an automated `OS Adaptation Engine`. During the migration process, it automatically modifies the guest operating system: injecting required `virtio` drivers, configuring serial consoles, installing the Google Guest Agent, and disabling proprietary hypervisor tools.",
     referenceUrl: "https://cloud.google.com/migrate/virtual-machines/docs/5.0/how-to/os-adaptation",
-    tags: ["Migrate to Virtual Machines", "OS Adaptation", "Virtio Drivers"]
+    tags: ["Migrate to Virtual Machines","OS Adaptation","Virtio Drivers"]
   },
   {
     id: "gcp-pca-224",
@@ -493,7 +493,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     question: "How does the Terraform GCS backend prevent concurrent state file corruption?",
     options: [
       { id: 'A', text: "The second apply silently overwrites the changes of the first apply" },
-      { id: 'B', text: "Cloud Storage uses object generation numbers to achieve atomic state locking; the second terraform apply fails immediately with an Error acquiring the state lock" },
+      { id: 'B', text: "Object generation numbers lock the state; the second apply fails" },
       { id: 'C', text: "Terraform merges both plans automatically using Git merge algorithms" },
       { id: 'D', text: "Cloud Storage pauses the second engineer's laptop" }
     ],
@@ -501,7 +501,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "The Terraform `gcs` backend uses Google Cloud Storage object generation preconditions (match-generation) to implement distributed state locking. When an engineer starts `terraform apply`, Terraform locks the state. Any concurrent execution trying to acquire the lock fails with an error.",
     referenceUrl: "https://cloud.google.com/docs/terraform/resource-management/store-state#state-locking",
-    tags: ["Terraform", "State Locking", "GCS Backend"]
+    tags: ["Terraform","State Locking","GCS Backend"]
   },
   {
     id: "gcp-pca-225",
@@ -514,7 +514,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     question: "What action does Google Cloud Deploy take when a verification test fails during a canary rollout?",
     options: [
       { id: 'A', text: "Cloud Deploy terminates all worker nodes in the zone" },
-      { id: 'B', text: "Cloud Deploy marks the rollout as failed, halts further percentage promotion, and allows immediate automated or manual rollback to the previous release" },
+      { id: 'B', text: "The rollout fails and promotion halts" },
       { id: 'C', text: "Cloud Deploy automatically promotes to 100% anyway" },
       { id: 'D', text: "Cloud Deploy deletes the entire GKE cluster" }
     ],
@@ -522,7 +522,7 @@ export const GCP_PCA_QUESTIONS_9 = [
     type: "single",
     explanation: "When an automated `Verify` step in Cloud Deploy fails, Cloud Deploy immediately halts the promotion pipeline, marks the rollout status as `FAILED`, prevents traffic from escalating to the next canary phase, and allows operators or automated hooks to trigger an instant rollback.",
     referenceUrl: "https://cloud.google.com/deploy/docs/verify-deployment#how_verification_works",
-    tags: ["Cloud Deploy", "Canary Verification", "Failure Handling"]
+    tags: ["Cloud Deploy","Canary Verification","Failure Handling"]
   }
 ];
 

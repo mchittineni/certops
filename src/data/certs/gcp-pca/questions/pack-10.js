@@ -18,7 +18,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "`Cloud Monitoring Uptime Checks` test the availability of externally accessible services (URLs, IP addresses, load balancers) from multiple geographic probing locations worldwide at regular intervals (e.g. every 1, 5, or 15 minutes), validating status codes, response latency, and content matches.",
     referenceUrl: "https://cloud.google.com/monitoring/uptime-checks",
-    tags: ["Cloud Monitoring", "Uptime Checks", "Synthetic Monitoring"]
+    tags: ["Cloud Monitoring","Uptime Checks","Synthetic Monitoring"]
   },
   {
     id: "gcp-pca-227",
@@ -30,7 +30,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "A developer needs to create an alert whenever the application logs more than 50 HTTP 500 errors in 5 minutes, and also wants to measure and graph the 99th percentile of database query latencies extracted from log strings.",
     question: "Which two log-based metric types should the developer create respectively?",
     options: [
-      { id: 'A', text: "Counter metric for counting error occurrences; Distribution metric for extracting numerical latencies into percentiles" },
+      { id: 'A', text: "A counter for errors; a distribution for latency percentiles" },
       { id: 'B', text: "Distribution metric for errors; Counter metric for latencies" },
       { id: 'C', text: "Counter metrics for both requirements" },
       { id: 'D', text: "Distribution metrics for both requirements" }
@@ -39,7 +39,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "Cloud Logging supports two types of `Log-Based Metrics`: `Counter metrics` (count the number of log entries matching a filter expression, ideal for error counts) and `Distribution metrics` (extract numeric values from regex/JSON fields into histogram distributions to compute percentiles like p50, p95, p99).",
     referenceUrl: "https://cloud.google.com/logging/docs/logs-based-metrics",
-    tags: ["Cloud Logging", "Log-Based Metrics", "Observability"]
+    tags: ["Cloud Logging","Log-Based Metrics","Observability"]
   },
   {
     id: "gcp-pca-228",
@@ -60,7 +60,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "Cloud Logging `Log Exclusion Filters` allow organizations to define filter expressions (e.g. `httpRequest.requestUrl = \"/health\"`) on log sinks (such as `_Default`). Matching logs are excluded and dropped before ingestion, eliminating log storage charges while allowing sample percentages if desired.",
     referenceUrl: "https://cloud.google.com/logging/docs/exclusions",
-    tags: ["Cloud Logging", "Log Exclusions", "Cost Optimization"]
+    tags: ["Cloud Logging","Log Exclusions","Cost Optimization"]
   },
   {
     id: "gcp-pca-229",
@@ -81,7 +81,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "`Cloud Trace` is a distributed tracing system that collects latency data from microservice applications. It generates visual waterfall timeline diagrams showing how long requests spend in each downstream service, RPC call, and database query, pinpointing latency bottlenecks instantly.",
     referenceUrl: "https://cloud.google.com/trace/docs/overview",
-    tags: ["Cloud Trace", "Distributed Tracing", "Latency Optimization"]
+    tags: ["Cloud Trace","Distributed Tracing","Latency Optimization"]
   },
   {
     id: "gcp-pca-230",
@@ -102,7 +102,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "`Cloud Profiler` is a continuous profiling tool that analyzes the execution of CPU and memory-intensive functions in production applications. It uses statistical sampling to capture call trees and flame graphs with less than 1% CPU overhead, identifying optimization opportunities in live production.",
     referenceUrl: "https://cloud.google.com/profiler/docs/about-profiler",
-    tags: ["Cloud Profiler", "Flame Graphs", "Performance Tuning"]
+    tags: ["Cloud Profiler","Flame Graphs","Performance Tuning"]
   },
   {
     id: "gcp-pca-231",
@@ -115,7 +115,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     question: "Which Cloud Monitoring alert condition type detects when an expected metric stream stops emitting data?",
     options: [
       { id: 'A', text: "Threshold condition (metric > 0)" },
-      { id: 'B', text: "Metric Absence condition (alerts when data is absent for 10 minutes)" },
+      { id: 'B', text: "A metric absence condition" },
       { id: 'C', text: "Log-based counter condition alone" },
       { id: 'D', text: "Metric Rate of Change condition" }
     ],
@@ -123,7 +123,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "Cloud Monitoring `Metric Absence` alert conditions trigger an incident when a time series stops reporting data for a specified duration (e.g. 10 minutes), detecting stopped pipelines, crashed background daemons, and severed telemetry streams that would not trigger standard value threshold alerts.",
     referenceUrl: "https://cloud.google.com/monitoring/alerts/types-of-conditions#absence",
-    tags: ["Cloud Monitoring", "Alerting", "Metric Absence"]
+    tags: ["Cloud Monitoring","Alerting","Metric Absence"]
   },
   {
     id: "gcp-pca-232",
@@ -135,7 +135,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "When a high-severity production outage occurs, Cloud Monitoring must simultaneously notify on-call engineers via PagerDuty, send an alert to a team Slack channel, and post a payload to an automated remediation webhook.",
     question: "Which Cloud Monitoring resource manages destination targets for alert notifications?",
     options: [
-      { id: 'A', text: "Notification Channels (Email, Slack, PagerDuty, Webhooks)" },
+      { id: 'A', text: "Notification channels" },
       { id: 'B', text: "Log Sinks" },
       { id: 'C', text: "Action Groups (Azure term)" },
       { id: 'D', text: "Alert Routing Tables" }
@@ -144,7 +144,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "`Notification Channels` define the delivery mechanisms for Cloud Monitoring alerts. Supported channels include Email, Slack, PagerDuty, SMS, Webhooks, and Google Cloud Mobile App, allowing incidents to fan out to multiple communication systems automatically.",
     referenceUrl: "https://cloud.google.com/monitoring/support/notification-options",
-    tags: ["Cloud Monitoring", "Notification Channels", "Incident Response"]
+    tags: ["Cloud Monitoring","Notification Channels","Incident Response"]
   },
   {
     id: "gcp-pca-233",
@@ -165,7 +165,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "`Error Reporting` aggregates and analyzes crashes and unhandled exceptions in running cloud services. It parses stack traces, groups duplicate errors into single issues, tracks frequency, and alerts developers when a new, previously unseen error pattern appears in production.",
     referenceUrl: "https://cloud.google.com/error-reporting/docs/overview",
-    tags: ["Error Reporting", "Crash Analytics", "Observability"]
+    tags: ["Error Reporting","Crash Analytics","Observability"]
   },
   {
     id: "gcp-pca-234",
@@ -186,7 +186,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "Google Cloud `Premium Support` is designed for mission-critical enterprise workloads. It provides 15-minute response times for critical P1 cases 24/7, an assigned Technical Account Manager (TAM), event management support, and proactive architectural reviews.",
     referenceUrl: "https://cloud.google.com/support#support-offerings",
-    tags: ["Customer Care", "Support Tiers", "Enterprise Support"]
+    tags: ["Customer Care","Support Tiers","Enterprise Support"]
   },
   {
     id: "gcp-pca-235",
@@ -207,7 +207,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "`Personalized Service Health` provides customized, real-time status updates specific to the customer's active projects, regions, and resources. Unlike the public Google Cloud Status Dashboard which reports broad platform outages, Service Health delivers tailored alerts on localized incidents affecting specific projects.",
     referenceUrl: "https://cloud.google.com/service-health/docs/overview",
-    tags: ["Service Health", "Incident Management", "Cloud Status"]
+    tags: ["Service Health","Incident Management","Cloud Status"]
   },
   {
     id: "gcp-pca-236",
@@ -219,7 +219,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "A DevOps engineer needs to write an alert query that calculates the ratio of HTTP 5XX server errors to total incoming HTTP requests over 5-minute rolling windows.",
     question: "Which query language in Cloud Monitoring provides expressive mathematical ratios, joins, and time-shift evaluations?",
     options: [
-      { id: 'A', text: "Monitoring Query Language (MQL) / PromQL in Cloud Monitoring" },
+      { id: 'A', text: "MQL or PromQL" },
       { id: 'B', text: "Kusto Query Language (KQL)" },
       { id: 'C', text: "SQL-92 alone" },
       { id: 'D', text: "Bash scripting" }
@@ -228,7 +228,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "`Monitoring Query Language` (MQL) is a powerful, expressive query language for Cloud Monitoring time series data. It supports operations like ratios, unions, joins, rolling aggregations, and comparisons across disparate metric streams that cannot be expressed in basic UI metric builders.",
     referenceUrl: "https://cloud.google.com/monitoring/mql",
-    tags: ["Cloud Monitoring", "MQL", "Metric Analytics"]
+    tags: ["Cloud Monitoring","MQL","Metric Analytics"]
   },
   {
     id: "gcp-pca-237",
@@ -240,7 +240,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "A web application on a Compute Engine Managed Instance Group (MIG) takes 3 minutes to warm up its local cache upon instance boot. The autoscaler repeatedly adds unnecessary instances because newly booted VMs report high CPU during initial cache loading.",
     question: "Which autoscaling parameter prevents the autoscaler from evaluating metric data while instances are initializing?",
     options: [
-      { id: 'A', text: "Initialization period (Cool-down period / Warm-up period)" },
+      { id: 'A', text: "Initialization period" },
       { id: 'B', text: "Scale-in control alone" },
       { id: 'C', text: "Target CPU utilization" },
       { id: 'D', text: "Maximum instance count" }
@@ -249,7 +249,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "The `Initialization period` (cool-down period) specifies how long an instance takes to boot, configure, and warm up (e.g. 180 seconds). During this period, the autoscaler ignores resource consumption metrics from the initializing VM, preventing premature scaling decisions.",
     referenceUrl: "https://cloud.google.com/compute/docs/autoscaler/general-guidelines#initialization_period",
-    tags: ["Compute Engine", "MIG Autoscaling", "Cool-Down Period"]
+    tags: ["Compute Engine","MIG Autoscaling","Cool-Down Period"]
   },
   {
     id: "gcp-pca-238",
@@ -270,7 +270,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "`Scale-in controls` stabilize capacity changes by introducing a `stabilization window` (e.g. 10 minutes) and setting a maximum termination rate (e.g. max 2 instances per minute). The autoscaler evaluates the peak capacity needed during the stabilization window, preventing thrashing and premature scale-in.",
     referenceUrl: "https://cloud.google.com/compute/docs/autoscaler/understanding-autoscaler-controls#scale_in_controls",
-    tags: ["Compute Engine", "MIG Autoscaling", "Scale-In Controls"]
+    tags: ["Compute Engine","MIG Autoscaling","Scale-In Controls"]
   },
   {
     id: "gcp-pca-239",
@@ -291,7 +291,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "`kubectl drain` safely evicts all running pods from a node before taking it down for maintenance. It marks the node unschedulable (`cordon`) and allows pods to honor their `terminationGracePeriodSeconds` to finish in-flight requests or commit state cleanly.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/",
-    tags: ["GKE", "kubectl drain", "Graceful Termination"]
+    tags: ["GKE","kubectl drain","Graceful Termination"]
   },
   {
     id: "gcp-pca-240",
@@ -312,7 +312,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "A `PodDisruptionBudget` (PDB) limits the number of pods of a replicated application that can be down simultaneously during voluntary disruptions (such as node upgrades, draining, or cluster autoscaling), ensuring serving availability never drops below business thresholds (e.g. `minAvailable: 2`).",
     referenceUrl: "https://kubernetes.io/docs/tasks/run-application/configure-pdb/",
-    tags: ["GKE", "PodDisruptionBudget", "High Availability"]
+    tags: ["GKE","PodDisruptionBudget","High Availability"]
   },
   {
     id: "gcp-pca-241",
@@ -333,7 +333,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "Cloud Monitoring `Snooze` allows operators to temporarily silence notifications for specific alert policies for a designated duration (e.g. 2 hours during maintenance). The system continues evaluating metrics and tracking incidents, but notification channels are suppressed.",
     referenceUrl: "https://cloud.google.com/monitoring/alerts/snooze",
-    tags: ["Cloud Monitoring", "Snooze", "Maintenance"]
+    tags: ["Cloud Monitoring","Snooze","Maintenance"]
   },
   {
     id: "gcp-pca-242",
@@ -354,7 +354,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "Cloud Logging stores logs in `Log Buckets` (such as `_Default` and `_Required`, or custom log buckets). Administrators can configure `retentionDays` (from 1 to 3,650 days / 10 years) per log bucket, routing different log types to dedicated buckets with customized retention schedules.",
     referenceUrl: "https://cloud.google.com/logging/docs/routing/manage-buckets",
-    tags: ["Cloud Logging", "Log Buckets", "Data Retention"]
+    tags: ["Cloud Logging","Log Buckets","Data Retention"]
   },
   {
     id: "gcp-pca-243",
@@ -375,7 +375,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "`Cloud Monitoring Custom Dashboards` allow engineering teams to build, customize, and share interactive dashboards combining metric charts, logs, incident tables, and SLO widgets across diverse Google Cloud services in a single unified view.",
     referenceUrl: "https://cloud.google.com/monitoring/dashboards",
-    tags: ["Cloud Monitoring", "Dashboards", "SRE Operations"]
+    tags: ["Cloud Monitoring","Dashboards","SRE Operations"]
   },
   {
     id: "gcp-pca-244",
@@ -390,13 +390,13 @@ export const GCP_PCA_QUESTIONS_10 = [
       { id: 'A', text: "Cloud CDN caching" },
       { id: 'B', text: "Round-robin load balancing" },
       { id: 'C', text: "Cross-region failover" },
-      { id: 'D', text: "Session Affinity (e.g. Client IP affinity or Generated Cookie affinity)" }
+      { id: 'D', text: "Session affinity" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Cloud Load Balancing supports `Session Affinity`. Configuring session affinity (such as `GENERATED_COOKIE` or `CLIENT_IP`) directs subsequent requests from the same client to the same backend instance as long as that instance remains healthy.",
     referenceUrl: "https://cloud.google.com/load-balancing/docs/backend-service#session_affinity",
-    tags: ["Load Balancing", "Session Affinity", "Sticky Sessions"]
+    tags: ["Load Balancing","Session Affinity","Sticky Sessions"]
   },
   {
     id: "gcp-pca-245",
@@ -417,7 +417,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "Managed Instance Groups support `Auto-healing`. By attaching an application health check (probing e.g. `HTTP:80/health`), the MIG automatically recreates or restarts instances that fail consecutive health checks, even if the underlying VM operating system is running.",
     referenceUrl: "https://cloud.google.com/compute/docs/instance-groups/autohealing-instances-in-migs",
-    tags: ["Compute Engine", "MIG", "Auto-Healing"]
+    tags: ["Compute Engine","MIG","Auto-Healing"]
   },
   {
     id: "gcp-pca-246",
@@ -430,7 +430,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     question: "Which two Kubernetes probes handle startup readiness and deadlock recovery respectively?",
     options: [
       { id: 'A', text: "Liveness probe for traffic; Readiness probe for restart" },
-      { id: 'B', text: "Readiness probe (removes pod from Service endpoints until ready); Liveness probe (restarts pod if deadlocked)" },
+      { id: 'B', text: "Readiness gates endpoints; liveness restarts the pod" },
       { id: 'C', text: "Readiness probes handle both requirements" },
       { id: 'D', text: "Liveness probes handle both requirements" }
     ],
@@ -438,7 +438,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "Kubernetes `Readiness probes` determine if a container is ready to accept user traffic; failing a readiness probe removes the pod from Service load balancer endpoints without restarting it. `Liveness probes` determine if the container is healthy; failing a liveness probe causes the kubelet to restart the container.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/",
-    tags: ["GKE", "Probes", "Pod Lifecycle"]
+    tags: ["GKE","Probes","Pod Lifecycle"]
   },
   {
     id: "gcp-pca-247",
@@ -450,7 +450,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     scenario: "An enterprise requires end-to-end synthetic monitoring of a complex 3-step checkout flow (login -> add to cart -> checkout) every 5 minutes.",
     question: "Which Google Cloud solution implements automated multi-step synthetic user transactions?",
     options: [
-      { id: 'A', text: "Cloud Monitoring Synthetic Monitors (using Mocha/Puppeteer in Cloud Functions)" },
+      { id: 'A', text: "Synthetic monitors" },
       { id: 'B', text: "Cloud Profiler" },
       { id: 'C', text: "VPC Flow Logs" },
       { id: 'D', text: "Standard URL Uptime Check alone" }
@@ -459,7 +459,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "Cloud Monitoring supports `Synthetic Monitors`. Synthetic monitors run custom Node.js scripts (using Mocha framework and Puppeteer headless browser) inside Google Cloud Functions, simulating real multi-step user journeys and validating DOM elements and response timings.",
     referenceUrl: "https://cloud.google.com/monitoring/uptime-checks/synthetic-monitors",
-    tags: ["Cloud Monitoring", "Synthetic Monitors", "Puppeteer"]
+    tags: ["Cloud Monitoring","Synthetic Monitors","Puppeteer"]
   },
   {
     id: "gcp-pca-248",
@@ -480,7 +480,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "Cloud Monitoring alert policies include an `Incident Auto-Close` setting (configurable from 30 minutes to 7 days). If an incident remains open because no new metric data arrives to prove resolution, Cloud Monitoring automatically marks the incident as closed after the specified duration.",
     referenceUrl: "https://cloud.google.com/monitoring/alerts/concepts-indepth#auto-close",
-    tags: ["Cloud Monitoring", "Alerting", "Incident Management"]
+    tags: ["Cloud Monitoring","Alerting","Incident Management"]
   },
   {
     id: "gcp-pca-249",
@@ -501,7 +501,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "BigQuery generates a detailed `Execution Plan` (accessible in the console or via `EXPLAIN`). It visualizes the multi-stage Dremel execution graph, showing slot computation time, wait time, read/write record counts, and shuffle spillage, pinpointing data skew and expensive joins.",
     referenceUrl: "https://cloud.google.com/bigquery/docs/query-plan-explanation",
-    tags: ["BigQuery", "Execution Plan", "Query Tuning"]
+    tags: ["BigQuery","Execution Plan","Query Tuning"]
   },
   {
     id: "gcp-pca-250",
@@ -514,7 +514,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     question: "Which built-in Cloud Spanner introspection tables provide query statistics and lock contention diagnostics?",
     options: [
       { id: 'A', text: "BigQuery information schema alone" },
-      { id: 'B', text: "SPANNER_SYS tables (e.g. SPANNER_SYS.QUERY_STATS_TOP_MINUTE and LOCK_STATS)" },
+      { id: 'B', text: "The SPANNER_SYS statistics tables" },
       { id: 'C', text: "Cloud Logging standard logs alone" },
       { id: 'D', text: "Compute Engine metrics" }
     ],
@@ -522,7 +522,7 @@ export const GCP_PCA_QUESTIONS_10 = [
     type: "single",
     explanation: "Cloud Spanner provides built-in introspection tables under the `SPANNER_SYS` schema (e.g. `QUERY_STATS_TOP_MINUTE`, `LOCK_STATS_TOP_MINUTE`, `TRANSACTION_STATS`). Querying these tables allows administrators to identify the exact SQL queries consuming the most CPU and pinpoint row lock conflicts.",
     referenceUrl: "https://cloud.google.com/spanner/docs/introspection-intro",
-    tags: ["Spanner", "Introspection", "SPANNER_SYS"]
+    tags: ["Spanner","Introspection","SPANNER_SYS"]
   }
 ];
 

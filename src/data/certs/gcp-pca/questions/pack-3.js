@@ -18,7 +18,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "The Internal Passthrough Network Load Balancer is a software-defined, non-proxy SDN load balancer built directly on Andromeda. It routes TCP and UDP traffic directly to backend VM network interfaces at wire speed, preserving original client IP addresses with near-zero latency.",
     referenceUrl: "https://cloud.google.com/load-balancing/docs/internal",
-    tags: ["Networking", "Load Balancing", "Internal Passthrough"]
+    tags: ["Networking","Load Balancing","Internal Passthrough"]
   },
   {
     id: "gcp-pca-52",
@@ -39,7 +39,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "Cloud Armor `Rate Limiting Rules` allow architects to enforce maximum request thresholds (e.g. 10 requests per minute per client IP) on specific URL paths. When requests exceed the threshold, Cloud Armor can ban, throttle, or present a reCAPTCHA challenge.",
     referenceUrl: "https://cloud.google.com/armor/docs/rate-limiting-overview",
-    tags: ["Cloud Armor", "Rate Limiting", "WAF"]
+    tags: ["Cloud Armor","Rate Limiting","WAF"]
   },
   {
     id: "gcp-pca-53",
@@ -60,7 +60,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "Cloud Spanner `Change Streams` track and output real-time change data capture (inserts, updates, and deletes) on specific tables or entire databases. Change streams integrate with Cloud Dataflow to replicate or transform data into BigQuery, Pub/Sub, or Cloud Storage.",
     referenceUrl: "https://cloud.google.com/spanner/docs/change-streams",
-    tags: ["Spanner", "Change Streams", "CDC"]
+    tags: ["Spanner","Change Streams","CDC"]
   },
   {
     id: "gcp-pca-54",
@@ -81,7 +81,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "Cloud Pub/Sub subscriptions support `Dead-Letter Topics`. When a message fails acknowledgment and exceeds `maxDeliveryAttempts` (5 to 100), Pub/Sub automatically routes the poison message to a designated dead-letter topic for offline debugging and triage.",
     referenceUrl: "https://cloud.google.com/pubsub/docs/dead-letter-topics",
-    tags: ["Pub/Sub", "Dead-Letter Topic", "Resilience"]
+    tags: ["Pub/Sub","Dead-Letter Topic","Resilience"]
   },
   {
     id: "gcp-pca-55",
@@ -102,7 +102,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "GKE Node Auto-Provisioning (NAP) extends the Cluster Autoscaler by automatically provisioning new, specialized node pools with the optimal machine family, CPU, memory, and accelerators (GPUs) to accommodate unscheduled pods without manual cluster administrator intervention.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning",
-    tags: ["GKE", "Node Auto-Provisioning", "Autoscaling"]
+    tags: ["GKE","Node Auto-Provisioning","Autoscaling"]
   },
   {
     id: "gcp-pca-56",
@@ -123,7 +123,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "BigQuery `Materialized Views` are precomputed views that periodically cache the results of a query for increased performance and efficiency. BigQuery uses smart tuning: if a query can be satisfied by a materialized view, BigQuery automatically reroutes the query to read the precomputed data.",
     referenceUrl: "https://cloud.google.com/bigquery/docs/materialized-views-intro",
-    tags: ["BigQuery", "Materialized Views", "Performance"]
+    tags: ["BigQuery","Materialized Views","Performance"]
   },
   {
     id: "gcp-pca-57",
@@ -138,13 +138,13 @@ export const GCP_PCA_QUESTIONS_3 = [
       { id: 'A', text: "Object Versioning alone" },
       { id: 'B', text: "Cloud Storage Customer Managed Keys" },
       { id: 'C', text: "IAM Deny policies alone" },
-      { id: 'D', text: "Bucket Retention Policy with Bucket Lock permanently applied" }
+      { id: 'D', text: "A retention policy with Bucket Lock" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Cloud Storage `Bucket Lock` locks a bucket retention policy permanently. Once locked, the retention policy cannot be reduced, modified, or removed, and no user or Google administrator can delete the bucket or its objects until the retention period elapses, fulfilling strict regulatory WORM mandates.",
     referenceUrl: "https://cloud.google.com/storage/docs/bucket-lock",
-    tags: ["Cloud Storage", "Bucket Lock", "Compliance"]
+    tags: ["Cloud Storage","Bucket Lock","Compliance"]
   },
   {
     id: "gcp-pca-58",
@@ -159,13 +159,13 @@ export const GCP_PCA_QUESTIONS_3 = [
       { id: 'A', text: "Create a new Cloud SQL instance and restore from yesterday's daily backup" },
       { id: 'B', text: "Restart the read replica instance" },
       { id: 'C', text: "Wait for Google to restore the primary region" },
-      { id: 'D', text: "Promote the cross-region read replica in us-east1 to become a standalone read-write primary database" }
+      { id: 'D', text: "Promote the cross-region read replica to primary" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "In Cloud SQL disaster recovery planning, promoting a cross-region read replica breaks replication and elevates the replica into an independent, fully functional read-write primary database instance, achieving rapid RTO during regional disasters.",
     referenceUrl: "https://cloud.google.com/sql/docs/postgres/replication/cross-region-replicas#disaster-recovery",
-    tags: ["Cloud SQL", "Disaster Recovery", "Replica Promotion"]
+    tags: ["Cloud SQL","Disaster Recovery","Replica Promotion"]
   },
   {
     id: "gcp-pca-59",
@@ -186,7 +186,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "Apigee is Google Cloud's comprehensive API management platform designed for full-lifecycle API governance, partner developer portals, monetization, threat protection, and multi-cloud deployment. Cloud Endpoints is a lightweight gRPC/OpenAPI proxy designed for service-to-service communication.",
     referenceUrl: "https://cloud.google.com/apigee/docs/api-platform/get-started/what-is-apigee",
-    tags: ["Apigee", "API Management", "Enterprise"]
+    tags: ["Apigee","API Management","Enterprise"]
   },
   {
     id: "gcp-pca-60",
@@ -207,7 +207,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "Google Cloud IAM categorizes roles into Primitive (Owner, Editor, Viewer - coarse-grained and risky), Predefined (fine-grained, service-specific, managed by Google), and Custom (user-curated granular permissions). Architects should always prefer Predefined or Custom roles for least privilege.",
     referenceUrl: "https://cloud.google.com/iam/docs/understanding-roles",
-    tags: ["IAM", "Least Privilege", "Security"]
+    tags: ["IAM","Least Privilege","Security"]
   },
   {
     id: "gcp-pca-61",
@@ -228,7 +228,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "In Compute Engine Managed Instance Groups, setting `maxUnavailable: 0` ensures that no existing healthy instances are terminated until replacement instances are fully provisioned and pass health checks. `maxSurge: 25%` allows the MIG to temporarily scale above target capacity to host new VMs during the transition.",
     referenceUrl: "https://cloud.google.com/compute/docs/instance-groups/rolling-out-updates-to-managed-instance-groups#max-surge-and-max-unavailable",
-    tags: ["Compute Engine", "MIG", "Rolling Updates"]
+    tags: ["Compute Engine","MIG","Rolling Updates"]
   },
   {
     id: "gcp-pca-62",
@@ -240,7 +240,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     scenario: "An architect is provisioning a production Kubernetes cluster on Google Kubernetes Engine (GKE). The application requires high availability for the Kubernetes API server and control plane across zone failures.",
     question: "Which GKE cluster type should the architect provision?",
     options: [
-      { id: 'A', text: "Regional cluster (control plane replicated across 3 zones in the region)" },
+      { id: 'A', text: "A regional cluster across three zones" },
       { id: 'B', text: "Zonal cluster with multi-zone node pools" },
       { id: 'C', text: "GKE Sandbox cluster" },
       { id: 'D', text: "Single-zone cluster with 10 nodes" }
@@ -249,7 +249,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "A GKE `Regional cluster` replicates the Kubernetes control plane (API server, etcd, scheduler) across three availability zones within the region. In contrast, a Zonal cluster runs the control plane in only a single zone, making master operations unavailable if that zone suffers an outage.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/concepts/types-of-clusters#regional_clusters",
-    tags: ["GKE", "Regional Cluster", "High Availability"]
+    tags: ["GKE","Regional Cluster","High Availability"]
   },
   {
     id: "gcp-pca-63",
@@ -270,7 +270,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "Compute Engine supports `Custom Machine Types`, allowing architects to independently configure exact numbers of vCPUs (in even increments) and memory (0.9 to 6.5 GB per vCPU for standard types), tailoring VM sizing to exact workload requirements and reducing over-provisioning costs.",
     referenceUrl: "https://cloud.google.com/compute/docs/general-purpose-machines#custom_machine_types",
-    tags: ["Compute Engine", "Custom Machine Types", "Cost Optimization"]
+    tags: ["Compute Engine","Custom Machine Types","Cost Optimization"]
   },
   {
     id: "gcp-pca-64",
@@ -291,7 +291,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "Compute Engine performs `Live Migration` during regular host hardware maintenance. Google migrates running VM instances to another host in the same zone without interrupting workloads, preserving network connections, memory state, and CPU execution.",
     referenceUrl: "https://cloud.google.com/compute/docs/instances/live-migration",
-    tags: ["Compute Engine", "Live Migration", "High Availability"]
+    tags: ["Compute Engine","Live Migration","High Availability"]
   },
   {
     id: "gcp-pca-65",
@@ -312,7 +312,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "`OS Login` integrates Linux user management with Google Cloud IAM. Administrators manage SSH access using IAM roles (e.g. `roles/compute.osLogin` or `roles/compute.osAdminLogin`). When an employee's IAM account is disabled, their SSH access across all VMs is revoked immediately.",
     referenceUrl: "https://cloud.google.com/compute/docs/oslogin",
-    tags: ["Compute Engine", "OS Login", "IAM"]
+    tags: ["Compute Engine","OS Login","IAM"]
   },
   {
     id: "gcp-pca-66",
@@ -333,7 +333,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "Kubernetes `podAntiAffinity` prevents the scheduler from placing pods on nodes that already run pods matching the specified label selector. Using `topologyKey: kubernetes.io/hostname` ensures that each replica runs on a unique physical host node.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity",
-    tags: ["GKE", "Pod Anti-Affinity", "Scheduling"]
+    tags: ["GKE","Pod Anti-Affinity","Scheduling"]
   },
   {
     id: "gcp-pca-67",
@@ -345,7 +345,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     scenario: "A GKE cluster hosts both general web apps and machine learning training jobs. The cluster has a specialized node pool with expensive NVIDIA A100 GPUs that must only execute ML workloads.",
     question: "Which mechanism prevents standard web pods from being scheduled onto the GPU nodes?",
     options: [
-      { id: 'A', text: "Apply a Taint to the GPU node pool and configure matching Tolerations only on the ML training pod specs" },
+      { id: 'A', text: "Taints and matching tolerations" },
       { id: 'B', text: "Set resource limits on web pods" },
       { id: 'C', text: "Use Horizontal Pod Autoscaler" },
       { id: 'D', text: "Create a separate VPC for web pods" }
@@ -354,7 +354,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "Kubernetes `Taints` allow a node to repel a set of pods. Applying a taint (e.g. `gpu=true:NoSchedule`) ensures that only pods configured with a matching `Toleration` can schedule on those GPU nodes, protecting expensive resources from general workloads.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/node-taints",
-    tags: ["GKE", "Taints and Tolerations", "Node Pools"]
+    tags: ["GKE","Taints and Tolerations","Node Pools"]
   },
   {
     id: "gcp-pca-68",
@@ -375,7 +375,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "Kubernetes `NetworkPolicy` resources act as distributed firewalls for pods, controlling ingress and egress traffic based on pod labels, namespaces, and ports. GKE requires enabling Network Policy enforcement (such as GKE Datapath v2 or Calico) on the cluster.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/how-to/network-policy",
-    tags: ["GKE", "NetworkPolicy", "Zero-Trust"]
+    tags: ["GKE","NetworkPolicy","Zero-Trust"]
   },
   {
     id: "gcp-pca-69",
@@ -396,7 +396,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "GKE provides three release channels: `Rapid` (earliest access to newest Kubernetes features), `Regular` (default, balanced between new features and stability), and `Stable` (receives Kubernetes versions that have demonstrated high reliability and stability in production over extended periods).",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/concepts/release-channels",
-    tags: ["GKE", "Release Channels", "Upgrades"]
+    tags: ["GKE","Release Channels","Upgrades"]
   },
   {
     id: "gcp-pca-70",
@@ -417,7 +417,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "The `Vertical Pod Autoscaler` (VPA) analyzes actual historical resource utilization and automatically adjusts pod CPU and memory requests and limits. `HPA` scales pod replica counts horizontally, while `Cluster Autoscaler` scales worker VM nodes.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/concepts/verticalpodautoscaler",
-    tags: ["GKE", "VPA", "Autoscaling"]
+    tags: ["GKE","VPA","Autoscaling"]
   },
   {
     id: "gcp-pca-71",
@@ -438,7 +438,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "`Storage Transfer Service` is a fully managed, scalable Google Cloud service that automates transfers from Amazon S3, Azure Blob, HTTP sources, or other Cloud Storage buckets into Google Cloud Storage. It handles parallel data transfers, checksum validation, and scheduled incremental syncs.",
     referenceUrl: "https://cloud.google.com/storage-transfer/docs/overview",
-    tags: ["Cloud Storage", "Storage Transfer Service", "Migration"]
+    tags: ["Cloud Storage","Storage Transfer Service","Migration"]
   },
   {
     id: "gcp-pca-72",
@@ -459,7 +459,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "`Transfer Appliance` is a high-capacity physical storage server shipped to a customer's data center. The customer loads data locally at gigabit speeds, ships the appliance back to Google, and Google uploads the data directly into Cloud Storage.",
     referenceUrl: "https://cloud.google.com/transfer-appliance/docs/4.0/overview",
-    tags: ["Cloud Storage", "Transfer Appliance", "Offline Migration"]
+    tags: ["Cloud Storage","Transfer Appliance","Offline Migration"]
   },
   {
     id: "gcp-pca-73",
@@ -480,7 +480,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "Enabling `Uniform Bucket-Level Access` disables object-level Access Control Lists (ACLs) entirely. All access to objects in the bucket is governed uniformly by Google Cloud IAM roles and permissions at the bucket level, simplifying auditability and preventing rogue ACL permissions.",
     referenceUrl: "https://cloud.google.com/storage/docs/uniform-bucket-level-access",
-    tags: ["Cloud Storage", "Uniform Access", "Security"]
+    tags: ["Cloud Storage","Uniform Access","Security"]
   },
   {
     id: "gcp-pca-74",
@@ -492,7 +492,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     scenario: "A single-page web app hosted at `https://www.example.com` makes AJAX GET requests to download fonts and assets from a Cloud Storage bucket `https://storage.googleapis.com/assets/font.woff2`. The browser blocks the request.",
     question: "How should the architect configure the Cloud Storage bucket to permit cross-origin requests from example.com?",
     options: [
-      { id: 'A', text: "Deploy a CORS JSON configuration on the bucket allowing origin https://www.example.com and method GET" },
+      { id: 'A', text: "A CORS configuration on the bucket" },
       { id: 'B', text: "Disable HTTPS on the web application" },
       { id: 'C', text: "Enable Cloud CDN with query string ignore" },
       { id: 'D', text: "Make the entire bucket public to allUsers" }
@@ -501,7 +501,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "Cloud Storage supports `Cross-Origin Resource Sharing` (CORS). Uploading a CORS JSON configuration file to the bucket using `gcloud storage buckets update --cors-file=cors.json` configures the bucket to return the required `Access-Control-Allow-Origin` headers to the browser.",
     referenceUrl: "https://cloud.google.com/storage/docs/cross-origin",
-    tags: ["Cloud Storage", "CORS", "Web Security"]
+    tags: ["Cloud Storage","CORS","Web Security"]
   },
   {
     id: "gcp-pca-75",
@@ -522,7 +522,7 @@ export const GCP_PCA_QUESTIONS_3 = [
     type: "single",
     explanation: "Cloud SQL allows administrators to configure `Maintenance Deny Periods` (up to 90 days). During a deny period, Cloud SQL will not perform automated maintenance restarts or operating system updates on the database instance, safeguarding critical business periods.",
     referenceUrl: "https://cloud.google.com/sql/docs/mysql/maintenance#deny-period",
-    tags: ["Cloud SQL", "Maintenance Window", "Deny Period"]
+    tags: ["Cloud SQL","Maintenance Window","Deny Period"]
   }
 ];
 

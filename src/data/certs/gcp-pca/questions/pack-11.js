@@ -11,7 +11,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Deploy a single-zone Firestore instance in Datastore mode." },
       { id: 'B', text: "Store financial ledgers in flat CSV files inside a regional Cloud Storage bucket." },
-      { id: 'C', text: "Deploy Cloud Spanner using a multi-region instance configuration with read-write and witness replicas." },
+      { id: 'C', text: "Use a multi-region Cloud Spanner configuration." },
       { id: 'D', text: "Deploy Cloud SQL for PostgreSQL with cross-region asynchronous read replicas." }
     ],
     correctAnswers: ['C'],
@@ -32,7 +32,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Deploy a single-zone Firestore instance in Datastore mode." },
       { id: 'B', text: "Store financial ledgers in flat CSV files inside a regional Cloud Storage bucket." },
-      { id: 'C', text: "Deploy Cloud Spanner using a multi-region instance configuration with read-write and witness replicas." },
+      { id: 'C', text: "Use a multi-region Cloud Spanner configuration." },
       { id: 'D', text: "Deploy Cloud SQL for PostgreSQL with cross-region asynchronous read replicas." }
     ],
     correctAnswers: ['C'],
@@ -52,7 +52,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy a single-zone Firestore instance in Datastore mode." },
-      { id: 'B', text: "Deploy Cloud Spanner using a multi-region instance configuration with read-write and witness replicas." },
+      { id: 'B', text: "Use a multi-region Cloud Spanner configuration." },
       { id: 'C', text: "Store financial ledgers in flat CSV files inside a regional Cloud Storage bucket." },
       { id: 'D', text: "Deploy Cloud SQL for PostgreSQL with cross-region asynchronous read replicas." }
     ],
@@ -74,7 +74,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Store financial ledgers in flat CSV files inside a regional Cloud Storage bucket." },
       { id: 'B', text: "Deploy Cloud SQL for PostgreSQL with cross-region asynchronous read replicas." },
-      { id: 'C', text: "Deploy Cloud Spanner using a multi-region instance configuration with read-write and witness replicas." },
+      { id: 'C', text: "Use a multi-region Cloud Spanner configuration." },
       { id: 'D', text: "Deploy a single-zone Firestore instance in Datastore mode." }
     ],
     correctAnswers: ['C'],
@@ -95,7 +95,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Deploy Cloud SQL for PostgreSQL with cross-region asynchronous read replicas." },
       { id: 'B', text: "Deploy a single-zone Firestore instance in Datastore mode." },
-      { id: 'C', text: "Deploy Cloud Spanner using a multi-region instance configuration with read-write and witness replicas." },
+      { id: 'C', text: "Use a multi-region Cloud Spanner configuration." },
       { id: 'D', text: "Store financial ledgers in flat CSV files inside a regional Cloud Storage bucket." }
     ],
     correctAnswers: ['C'],
@@ -115,7 +115,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Use a raw Unix timestamp as the sole row key attribute." },
-      { id: 'B', text: "Design composite row keys using a high-cardinality prefix combined with reversed timestamps (e.g. deviceId#reversedTimestamp)." },
+      { id: 'B', text: "Use a high-cardinality prefix with a reversed timestamp." },
       { id: 'C', text: "Store all sensor telemetry in a single row with 10 million columns." },
       { id: 'D', text: "Use a sequential auto-incrementing integer as the row key." }
     ],
@@ -136,7 +136,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Use a raw Unix timestamp as the sole row key attribute." },
-      { id: 'B', text: "Design composite row keys using a high-cardinality prefix combined with reversed timestamps (e.g. deviceId#reversedTimestamp)." },
+      { id: 'B', text: "Use a high-cardinality prefix with a reversed timestamp." },
       { id: 'C', text: "Use a sequential auto-incrementing integer as the row key." },
       { id: 'D', text: "Store all sensor telemetry in a single row with 10 million columns." }
     ],
@@ -158,7 +158,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Use a sequential auto-incrementing integer as the row key." },
       { id: 'B', text: "Store all sensor telemetry in a single row with 10 million columns." },
-      { id: 'C', text: "Design composite row keys using a high-cardinality prefix combined with reversed timestamps (e.g. deviceId#reversedTimestamp)." },
+      { id: 'C', text: "Use a high-cardinality prefix with a reversed timestamp." },
       { id: 'D', text: "Use a raw Unix timestamp as the sole row key attribute." }
     ],
     correctAnswers: ['C'],
@@ -179,7 +179,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Use a raw Unix timestamp as the sole row key attribute." },
       { id: 'B', text: "Use a sequential auto-incrementing integer as the row key." },
-      { id: 'C', text: "Design composite row keys using a high-cardinality prefix combined with reversed timestamps (e.g. deviceId#reversedTimestamp)." },
+      { id: 'C', text: "Use a high-cardinality prefix with a reversed timestamp." },
       { id: 'D', text: "Store all sensor telemetry in a single row with 10 million columns." }
     ],
     correctAnswers: ['C'],
@@ -201,7 +201,7 @@ export const GCP_PCA_QUESTIONS_11 = [
       { id: 'A', text: "Use a raw Unix timestamp as the sole row key attribute." },
       { id: 'B', text: "Use a sequential auto-incrementing integer as the row key." },
       { id: 'C', text: "Store all sensor telemetry in a single row with 10 million columns." },
-      { id: 'D', text: "Design composite row keys using a high-cardinality prefix combined with reversed timestamps (e.g. deviceId#reversedTimestamp)." }
+      { id: 'D', text: "Use a high-cardinality prefix with a reversed timestamp." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -222,7 +222,7 @@ export const GCP_PCA_QUESTIONS_11 = [
       { id: 'A', text: "Deploy applications into unmanaged Compute Engine VMs using docker-compose." },
       { id: 'B', text: "Deploy GKE Standard with manual node pool provisioning and unmanaged OS updates." },
       { id: 'C', text: "Manage a self-hosted Kubernetes cluster on bare-metal Compute Engine instances." },
-      { id: 'D', text: "Deploy workloads on GKE Autopilot, allowing Google to manage all underlying node infrastructure and cluster hardening." }
+      { id: 'D', text: "Deploy on GKE Autopilot so Google manages the nodes." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -241,7 +241,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Manage a self-hosted Kubernetes cluster on bare-metal Compute Engine instances." },
-      { id: 'B', text: "Deploy workloads on GKE Autopilot, allowing Google to manage all underlying node infrastructure and cluster hardening." },
+      { id: 'B', text: "Deploy on GKE Autopilot so Google manages the nodes." },
       { id: 'C', text: "Deploy GKE Standard with manual node pool provisioning and unmanaged OS updates." },
       { id: 'D', text: "Deploy applications into unmanaged Compute Engine VMs using docker-compose." }
     ],
@@ -264,7 +264,7 @@ export const GCP_PCA_QUESTIONS_11 = [
       { id: 'A', text: "Deploy applications into unmanaged Compute Engine VMs using docker-compose." },
       { id: 'B', text: "Deploy GKE Standard with manual node pool provisioning and unmanaged OS updates." },
       { id: 'C', text: "Manage a self-hosted Kubernetes cluster on bare-metal Compute Engine instances." },
-      { id: 'D', text: "Deploy workloads on GKE Autopilot, allowing Google to manage all underlying node infrastructure and cluster hardening." }
+      { id: 'D', text: "Deploy on GKE Autopilot so Google manages the nodes." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -283,7 +283,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy GKE Standard with manual node pool provisioning and unmanaged OS updates." },
-      { id: 'B', text: "Deploy workloads on GKE Autopilot, allowing Google to manage all underlying node infrastructure and cluster hardening." },
+      { id: 'B', text: "Deploy on GKE Autopilot so Google manages the nodes." },
       { id: 'C', text: "Deploy applications into unmanaged Compute Engine VMs using docker-compose." },
       { id: 'D', text: "Manage a self-hosted Kubernetes cluster on bare-metal Compute Engine instances." }
     ],
@@ -306,7 +306,7 @@ export const GCP_PCA_QUESTIONS_11 = [
       { id: 'A', text: "Manage a self-hosted Kubernetes cluster on bare-metal Compute Engine instances." },
       { id: 'B', text: "Deploy GKE Standard with manual node pool provisioning and unmanaged OS updates." },
       { id: 'C', text: "Deploy applications into unmanaged Compute Engine VMs using docker-compose." },
-      { id: 'D', text: "Deploy workloads on GKE Autopilot, allowing Google to manage all underlying node infrastructure and cluster hardening." }
+      { id: 'D', text: "Deploy on GKE Autopilot so Google manages the nodes." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -432,7 +432,7 @@ export const GCP_PCA_QUESTIONS_11 = [
       { id: 'A', text: "Use standard public internet routing with dynamic DNS." },
       { id: 'B', text: "Establish an HA Cloud VPN tunnel over the public internet." },
       { id: 'C', text: "Provision an unencrypted FTP connection over public broadband." },
-      { id: 'D', text: "Provision Google Cloud Dedicated Interconnect with 100 Gbps circuits at a designated colocation facility." }
+      { id: 'D', text: "Provision Dedicated Interconnect at a colocation facility." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -450,7 +450,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to establish a private, high-capacity 100 Gbps connection between an enterprise data center and Google Cloud that does not traverse the public internet.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Provision Google Cloud Dedicated Interconnect with 100 Gbps circuits at a designated colocation facility." },
+      { id: 'A', text: "Provision Dedicated Interconnect at a colocation facility." },
       { id: 'B', text: "Establish an HA Cloud VPN tunnel over the public internet." },
       { id: 'C', text: "Use standard public internet routing with dynamic DNS." },
       { id: 'D', text: "Provision an unencrypted FTP connection over public broadband." }
@@ -471,7 +471,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to establish a private, high-capacity 100 Gbps connection between an enterprise data center and Google Cloud that does not traverse the public internet.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Provision Google Cloud Dedicated Interconnect with 100 Gbps circuits at a designated colocation facility." },
+      { id: 'A', text: "Provision Dedicated Interconnect at a colocation facility." },
       { id: 'B', text: "Provision an unencrypted FTP connection over public broadband." },
       { id: 'C', text: "Establish an HA Cloud VPN tunnel over the public internet." },
       { id: 'D', text: "Use standard public internet routing with dynamic DNS." }
@@ -494,7 +494,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Use standard public internet routing with dynamic DNS." },
       { id: 'B', text: "Provision an unencrypted FTP connection over public broadband." },
-      { id: 'C', text: "Provision Google Cloud Dedicated Interconnect with 100 Gbps circuits at a designated colocation facility." },
+      { id: 'C', text: "Provision Dedicated Interconnect at a colocation facility." },
       { id: 'D', text: "Establish an HA Cloud VPN tunnel over the public internet." }
     ],
     correctAnswers: ['C'],
@@ -515,7 +515,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Establish an HA Cloud VPN tunnel over the public internet." },
       { id: 'B', text: "Provision an unencrypted FTP connection over public broadband." },
-      { id: 'C', text: "Provision Google Cloud Dedicated Interconnect with 100 Gbps circuits at a designated colocation facility." },
+      { id: 'C', text: "Provision Dedicated Interconnect at a colocation facility." },
       { id: 'D', text: "Use standard public internet routing with dynamic DNS." }
     ],
     correctAnswers: ['C'],
