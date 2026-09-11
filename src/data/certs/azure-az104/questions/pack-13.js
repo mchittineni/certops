@@ -9,8 +9,8 @@ export const AZURE_AZ104_QUESTIONS_13 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Storage Security to restrict access to an Azure Storage account so that only virtual machines residing in a specific subnet can connect, blocking all public internet traffic.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Enable the storage account firewall, configure default action to Deny, and allow access from the designated VNet subnet." },
-      { id: 'B', text: "Delete all storage account access keys and use only anonymous public blob access." },
+      { id: 'A', text: "Deny by default on the storage firewall, allowing only that subnet." },
+      { id: 'B', text: "Issue a long-lived account SAS and share it with the application." },
       { id: 'C', text: "Configure an Azure Network Security Group rule blocking outbound port 443 across the entire subscription." },
       { id: 'D', text: "Place the storage account inside a virtual machine operating system disk." }
     ],
@@ -32,8 +32,8 @@ export const AZURE_AZ104_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Place the storage account inside a virtual machine operating system disk." },
       { id: 'B', text: "Configure an Azure Network Security Group rule blocking outbound port 443 across the entire subscription." },
-      { id: 'C', text: "Delete all storage account access keys and use only anonymous public blob access." },
-      { id: 'D', text: "Enable the storage account firewall, configure default action to Deny, and allow access from the designated VNet subnet." }
+      { id: 'C', text: "Issue a long-lived account SAS and share it with the application." },
+      { id: 'D', text: "Deny by default on the storage firewall, allowing only that subnet." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -52,9 +52,9 @@ export const AZURE_AZ104_QUESTIONS_13 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Configure an Azure Network Security Group rule blocking outbound port 443 across the entire subscription." },
-      { id: 'B', text: "Enable the storage account firewall, configure default action to Deny, and allow access from the designated VNet subnet." },
+      { id: 'B', text: "Deny by default on the storage firewall, allowing only that subnet." },
       { id: 'C', text: "Place the storage account inside a virtual machine operating system disk." },
-      { id: 'D', text: "Delete all storage account access keys and use only anonymous public blob access." }
+      { id: 'D', text: "Issue a long-lived account SAS and share it with the application." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -73,8 +73,8 @@ export const AZURE_AZ104_QUESTIONS_13 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Configure an Azure Network Security Group rule blocking outbound port 443 across the entire subscription." },
-      { id: 'B', text: "Enable the storage account firewall, configure default action to Deny, and allow access from the designated VNet subnet." },
-      { id: 'C', text: "Delete all storage account access keys and use only anonymous public blob access." },
+      { id: 'B', text: "Deny by default on the storage firewall, allowing only that subnet." },
+      { id: 'C', text: "Issue a long-lived account SAS and share it with the application." },
       { id: 'D', text: "Place the storage account inside a virtual machine operating system disk." }
     ],
     correctAnswers: ['B'],
@@ -93,8 +93,8 @@ export const AZURE_AZ104_QUESTIONS_13 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure Storage Security to restrict access to an Azure Storage account so that only virtual machines residing in a specific subnet can connect, blocking all public internet traffic.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Delete all storage account access keys and use only anonymous public blob access." },
-      { id: 'B', text: "Enable the storage account firewall, configure default action to Deny, and allow access from the designated VNet subnet." },
+      { id: 'A', text: "Issue a long-lived account SAS and share it with the application." },
+      { id: 'B', text: "Deny by default on the storage firewall, allowing only that subnet." },
       { id: 'C', text: "Place the storage account inside a virtual machine operating system disk." },
       { id: 'D', text: "Configure an Azure Network Security Group rule blocking outbound port 443 across the entire subscription." }
     ],
@@ -115,7 +115,7 @@ export const AZURE_AZ104_QUESTIONS_13 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Grant the third-party developer the Owner role on the Azure storage account." },
-      { id: 'B', text: "Generate a Shared Access Signature (SAS) token with Write permissions, a 2-hour expiration window, and HTTPS-only protocol." },
+      { id: 'B', text: "A SAS token with write permission, a two-hour expiry and HTTPS only." },
       { id: 'C', text: "Change the blob container access level to Public Anonymous Read access." },
       { id: 'D', text: "Share the primary storage account access key with the mobile application developer." }
     ],
@@ -136,7 +136,7 @@ export const AZURE_AZ104_QUESTIONS_13 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Share the primary storage account access key with the mobile application developer." },
-      { id: 'B', text: "Generate a Shared Access Signature (SAS) token with Write permissions, a 2-hour expiration window, and HTTPS-only protocol." },
+      { id: 'B', text: "A SAS token with write permission, a two-hour expiry and HTTPS only." },
       { id: 'C', text: "Grant the third-party developer the Owner role on the Azure storage account." },
       { id: 'D', text: "Change the blob container access level to Public Anonymous Read access." }
     ],
@@ -159,7 +159,7 @@ export const AZURE_AZ104_QUESTIONS_13 = [
       { id: 'A', text: "Grant the third-party developer the Owner role on the Azure storage account." },
       { id: 'B', text: "Share the primary storage account access key with the mobile application developer." },
       { id: 'C', text: "Change the blob container access level to Public Anonymous Read access." },
-      { id: 'D', text: "Generate a Shared Access Signature (SAS) token with Write permissions, a 2-hour expiration window, and HTTPS-only protocol." }
+      { id: 'D', text: "A SAS token with write permission, a two-hour expiry and HTTPS only." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -178,7 +178,7 @@ export const AZURE_AZ104_QUESTIONS_13 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Grant the third-party developer the Owner role on the Azure storage account." },
-      { id: 'B', text: "Generate a Shared Access Signature (SAS) token with Write permissions, a 2-hour expiration window, and HTTPS-only protocol." },
+      { id: 'B', text: "A SAS token with write permission, a two-hour expiry and HTTPS only." },
       { id: 'C', text: "Change the blob container access level to Public Anonymous Read access." },
       { id: 'D', text: "Share the primary storage account access key with the mobile application developer." }
     ],
@@ -199,7 +199,7 @@ export const AZURE_AZ104_QUESTIONS_13 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Grant the third-party developer the Owner role on the Azure storage account." },
-      { id: 'B', text: "Generate a Shared Access Signature (SAS) token with Write permissions, a 2-hour expiration window, and HTTPS-only protocol." },
+      { id: 'B', text: "A SAS token with write permission, a two-hour expiry and HTTPS only." },
       { id: 'C', text: "Change the blob container access level to Public Anonymous Read access." },
       { id: 'D', text: "Share the primary storage account access key with the mobile application developer." }
     ],
@@ -432,7 +432,7 @@ export const AZURE_AZ104_QUESTIONS_13 = [
       { id: 'A', text: "Distribute the storage account primary access key to all 5,000 domain user workstations." },
       { id: 'B', text: "Convert all shared files into relational database records in Azure SQL Database." },
       { id: 'C', text: "Configure anonymous public access on the Azure Files share." },
-      { id: 'D', text: "Enable Active Directory Domain Services (AD DS) authentication on Azure Files and configure share-level and NTFS permissions." }
+      { id: 'D', text: "AD DS authentication on Azure Files with share and NTFS permissions." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -452,7 +452,7 @@ export const AZURE_AZ104_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Convert all shared files into relational database records in Azure SQL Database." },
       { id: 'B', text: "Distribute the storage account primary access key to all 5,000 domain user workstations." },
-      { id: 'C', text: "Enable Active Directory Domain Services (AD DS) authentication on Azure Files and configure share-level and NTFS permissions." },
+      { id: 'C', text: "AD DS authentication on Azure Files with share and NTFS permissions." },
       { id: 'D', text: "Configure anonymous public access on the Azure Files share." }
     ],
     correctAnswers: ['C'],
@@ -473,7 +473,7 @@ export const AZURE_AZ104_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Convert all shared files into relational database records in Azure SQL Database." },
       { id: 'B', text: "Distribute the storage account primary access key to all 5,000 domain user workstations." },
-      { id: 'C', text: "Enable Active Directory Domain Services (AD DS) authentication on Azure Files and configure share-level and NTFS permissions." },
+      { id: 'C', text: "AD DS authentication on Azure Files with share and NTFS permissions." },
       { id: 'D', text: "Configure anonymous public access on the Azure Files share." }
     ],
     correctAnswers: ['C'],
@@ -495,7 +495,7 @@ export const AZURE_AZ104_QUESTIONS_13 = [
       { id: 'A', text: "Convert all shared files into relational database records in Azure SQL Database." },
       { id: 'B', text: "Configure anonymous public access on the Azure Files share." },
       { id: 'C', text: "Distribute the storage account primary access key to all 5,000 domain user workstations." },
-      { id: 'D', text: "Enable Active Directory Domain Services (AD DS) authentication on Azure Files and configure share-level and NTFS permissions." }
+      { id: 'D', text: "AD DS authentication on Azure Files with share and NTFS permissions." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,7 +513,7 @@ export const AZURE_AZ104_QUESTIONS_13 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure Files to migrate an on-premises Windows file server to Azure Files while preserving existing user Active Directory NTFS permissions and folder security ACLs.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Enable Active Directory Domain Services (AD DS) authentication on Azure Files and configure share-level and NTFS permissions." },
+      { id: 'A', text: "AD DS authentication on Azure Files with share and NTFS permissions." },
       { id: 'B', text: "Convert all shared files into relational database records in Azure SQL Database." },
       { id: 'C', text: "Configure anonymous public access on the Azure Files share." },
       { id: 'D', text: "Distribute the storage account primary access key to all 5,000 domain user workstations." }

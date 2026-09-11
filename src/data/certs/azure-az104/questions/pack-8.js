@@ -11,14 +11,14 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "Azure Policy definition with Deny effect." },
       { id: 'B', text: "Azure Resource Lock set to ReadOnly." },
-      { id: 'C', text: "Microsoft Entra Terms of Use integrated with a Conditional Access policy." },
+      { id: 'C', text: "Terms of Use with Conditional Access" },
       { id: 'D', text: "Administrative Units." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Microsoft Entra Terms of Use enables organizations to present PDF policy documents that users must read and consent to before accessing cloud applications. Integrating Terms of Use with Conditional Access policies automates mandatory re-consent intervals and blocks access until terms are accepted.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/conditional-access/terms-of-use",
-    tags: ["Entra ID", "Terms of Use", "Conditional Access", "Compliance"]
+    tags: ["Entra ID","Terms of Use","Conditional Access","Compliance"]
   },
   {
     id: "az-104-177",
@@ -30,7 +30,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     scenario: "An administrator needs to grant an operations engineer permission to restart all virtual machines in resource group `rg-app-prod`, while ensuring the engineer cannot restart virtual machines in any other resource group.",
     question: "How should the role assignment be created to satisfy this requirement with minimal administrative overhead?",
     options: [
-      { id: 'A', text: "Assign the Virtual Machine Contributor role to the engineer scoped at the `rg-app-prod` Resource Group level." },
+      { id: 'A', text: "Virtual Machine Contributor scoped to that resource group" },
       { id: 'B', text: "Assign the Contributor role at the Subscription scope." },
       { id: 'C', text: "Assign the Owner role at the Management Group scope." },
       { id: 'D', text: "Assign the Virtual Machine Contributor role individually on each VM." }
@@ -39,7 +39,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "Assigning the built-in `Virtual Machine Contributor` role at the **Resource Group scope** (`rg-app-prod`) grants permissions to manage (start, stop, restart, configure) all virtual machines currently inside that resource group as well as any new VMs created in it in the future, without affecting VMs in other resource groups.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#virtual-machine-contributor",
-    tags: ["Azure RBAC", "Resource Group", "Scope", "Governance"]
+    tags: ["Azure RBAC","Resource Group","Scope","Governance"]
   },
   {
     id: "az-104-178",
@@ -60,7 +60,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "While Azure Policy evaluates compliance automatically every 24 hours and upon resource state changes, administrators can manually trigger an immediate on-demand compliance scan using the Azure CLI command `az policy state trigger-scan` (or in PowerShell via `Start-AzPolicyComplianceScan`).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#on-demand-evaluation-scan",
-    tags: ["Azure Policy", "Compliance Scan", "CLI", "Governance"]
+    tags: ["Azure Policy","Compliance Scan","CLI","Governance"]
   },
   {
     id: "az-104-179",
@@ -75,13 +75,13 @@ export const AZURE_AZ104_QUESTIONS_8 = [
       { id: 'A', text: "Azure Storage SAS tokens." },
       { id: 'B', text: "Password and username only." },
       { id: 'C', text: "Azure Bastion RDP session." },
-      { id: 'D', text: "Microsoft Authenticator app notification/code, SMS text message or voice call, Email, Office phone, and Security questions." }
+      { id: 'D', text: "Authenticator, SMS, voice, email and security questions" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Microsoft Entra SSPR supports multiple secure authentication methods: Microsoft Authenticator app (push notifications and verification codes), Mobile phone (SMS or voice call), Office phone, Alternate email address, and Security questions. FIDO2 security keys are supported for multifactor authentication and passwordless sign-in, but are not an SSPR method.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-methods",
-    tags: ["Entra ID", "SSPR", "Authentication Methods", "Identity"]
+    tags: ["Entra ID","SSPR","Authentication Methods","Identity"]
   },
   {
     id: "az-104-180",
@@ -94,7 +94,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     question: "What is the maximum supported hierarchy depth for Azure Management Groups?",
     options: [
       { id: 'A', text: "Up to 20 levels of depth." },
-      { id: 'B', text: "Up to 6 levels of depth (excluding the Root level)." },
+      { id: 'B', text: "Six levels below the root" },
       { id: 'C', text: "Up to 2 levels of depth." },
       { id: 'D', text: "Unlimited levels of depth." }
     ],
@@ -102,7 +102,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "Azure Management Group hierarchies support a maximum depth of **6 levels** (excluding the Root Management Group and the subscription level itself). A single directory can support up to 10,000 management groups.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#important-facts-about-management-groups",
-    tags: ["Management Groups", "Hierarchy", "Limits", "Governance"]
+    tags: ["Management Groups","Hierarchy","Limits","Governance"]
   },
   {
     id: "az-104-181",
@@ -123,7 +123,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "• **Block Blobs**: optimized for streaming and storing documents, images, and videos (up to 200 TB).<br>• **Page Blobs**: 512-byte pages optimized for random read/write access (used for VHD disks).<br>• **Append Blobs**: optimized for append operations (such as continuous logging where blocks are appended to the tail).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction#blobs",
-    tags: ["Blob Storage", "Block Blobs", "Page Blobs", "Append Blobs", "Storage"]
+    tags: ["Blob Storage","Block Blobs","Page Blobs","Append Blobs","Storage"]
   },
   {
     id: "az-104-182",
@@ -136,7 +136,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     question: "Which Azure Storage feature must be configured on the Blob service to allow browser-based cross-domain asset requests?",
     options: [
       { id: 'A', text: "Blob Versioning." },
-      { id: 'B', text: "Cross-Origin Resource Sharing (CORS) rules specifying `https://www.contoso.com` as the Allowed Origin." },
+      { id: 'B', text: "A CORS rule with that allowed origin" },
       { id: 'C', text: "Azure Storage Firewall setting set to \"All networks\"." },
       { id: 'D', text: "Stored Access Policy on the container." }
     ],
@@ -144,7 +144,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "Cross-Origin Resource Sharing (CORS) is an HTTP feature that enables a web application running under one domain (`https://www.contoso.com`) to access resources in another domain (`https://contosomedia.blob.core.windows.net`). Configuring CORS rules on the Blob service specifies allowed origins, allowed HTTP methods (GET, HEAD), allowed headers, and maximum age in cache.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/cross-origin-resource-sharing-support",
-    tags: ["Azure Storage", "CORS", "Web Application", "Storage"]
+    tags: ["Azure Storage","CORS","Web Application","Storage"]
   },
   {
     id: "az-104-183",
@@ -165,7 +165,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "Azure Blob Storage supports **blob-level immutability policies**, enabling applications to configure distinct time-based retention periods or legal holds directly on individual blob versions rather than applying a single uniform retention period across the entire container.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-version-scope",
-    tags: ["Blob Storage", "Blob-Level Immutability", "WORM", "Compliance"]
+    tags: ["Blob Storage","Blob-Level Immutability","WORM","Compliance"]
   },
   {
     id: "az-104-184",
@@ -177,7 +177,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     scenario: "An administrator manages an Azure File Sync server endpoint on a Windows Server volume. Users report that when opening tiered files, recall takes longer than expected or fails when local disk space is exhausted.",
     question: "How does Cloud Tiering handle tiered files (ghost files) on the local Windows Server filesystem?",
     options: [
-      { id: 'A', text: "Tiered files are represented as local NTFS sparse files (reparse points) containing only metadata and a pointer to Azure Files, downloading on-demand when opened." },
+      { id: 'A', text: "Tiered files become sparse reparse points, recalled on open." },
       { id: 'B', text: "Tiered files are converted into zip files." },
       { id: 'C', text: "Tiered files require an RDP connection to Azure." },
       { id: 'D', text: "Tiered files are completely deleted from the local disk and invisible in File Explorer." }
@@ -186,7 +186,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "When Cloud Tiering tiers a file, it replaces the local file with an NTFS reparse point (a \"ghost\" file with the offline attribute set) that takes up virtually zero local disk space while preserving file name, size, and timestamps. When a user opens the file, Azure File Sync transparently recalls the file data from Azure Files on-demand.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-cloud-tiering-overview#how-cloud-tiering-works",
-    tags: ["Azure File Sync", "Cloud Tiering", "Reparse Points", "Storage"]
+    tags: ["Azure File Sync","Cloud Tiering","Reparse Points","Storage"]
   },
   {
     id: "az-104-185",
@@ -199,7 +199,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     question: "Which setting in the storage account configuration enforces minimum TLS 1.2?",
     options: [
       { id: 'A', text: "Attach an NSG to the storage account." },
-      { id: 'B', text: "Set \"Minimum TLS version\" to `Version 1.2` in the storage account configuration." },
+      { id: 'B', text: "Set the minimum TLS version to 1.2" },
       { id: 'C', text: "Enable Storage Account Soft Delete." },
       { id: 'D', text: "Create an SAS token with HTTPS only." }
     ],
@@ -207,7 +207,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "Azure Storage Accounts allow configuring the **Minimum TLS version** (TLS 1.2 by default in modern accounts). Any incoming client connection using older protocols (TLS 1.0 or TLS 1.1) is immediately rejected at the transport layer.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/transport-layer-security-configure-minimum-version",
-    tags: ["Azure Storage", "TLS", "Security", "Compliance"]
+    tags: ["Azure Storage","TLS","Security","Compliance"]
   },
   {
     id: "az-104-186",
@@ -228,7 +228,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "To assign a permanent private IP address to an Azure VM, you must configure the Private IP allocation method to **Static** in the Azure NIC IP configuration settings (in Azure portal or CLI). Setting static IPs manually inside the guest OS network adapter can cause IP conflicts and connectivity loss if Azure DHCP reassigns the address.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/virtual-networks-static-private-ip-arm-portal",
-    tags: ["Virtual Machines", "Static IP", "Networking", "Compute"]
+    tags: ["Virtual Machines","Static IP","Networking","Compute"]
   },
   {
     id: "az-104-187",
@@ -249,7 +249,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "Automatic Instance Repair in Azure Virtual Machine Scale Sets monitors instance health using Application Health Extension or Load Balancer health probes. If an instance is reported unhealthy for a configurable grace period (e.g. 30 minutes), the scale set automatically terminates and recreates the unhealthy VM instance.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs",
-    tags: ["VMSS", "Automatic Repair", "Self-Healing", "Compute"]
+    tags: ["VMSS","Automatic Repair","Self-Healing","Compute"]
   },
   {
     id: "az-104-188",
@@ -262,7 +262,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     question: "Which Azure App Service hosting tier provides dedicated, isolated compute environments (ASE v3)?",
     options: [
       { id: 'A', text: "App Service Free Plan." },
-      { id: 'B', text: "App Service Isolated v2 Plan (App Service Environment v3 / ASEv3)." },
+      { id: 'B', text: "An Isolated v2 plan" },
       { id: 'C', text: "App Service Premium v3 Plan." },
       { id: 'D', text: "App Service Standard Plan." }
     ],
@@ -270,7 +270,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "App Service Environment v3 (ASEv3), hosted on the App Service Isolated v2 tier, is a fully isolated and dedicated environment for running App Service apps securely at high scale. It runs directly inside a customer's virtual network subnet on single-tenant dedicated hardware, providing maximum security, compliance, and hyper-scaling.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/environment/overview",
-    tags: ["App Service", "ASEv3", "Isolated Plan", "Compute", "Security"]
+    tags: ["App Service","ASEv3","Isolated Plan","Compute","Security"]
   },
   {
     id: "az-104-189",
@@ -291,7 +291,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "Generation 2 (Gen2) VMs on Azure use UEFI-based boot architecture (instead of legacy BIOS), supporting modern enterprise security capabilities including Trusted Launch (vTPM 2.0 and Secure Boot), OS disks larger than 2 TB, and increased memory/size limits with faster boot and provisioning times.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/generation-2",
-    tags: ["Virtual Machines", "Generation 2", "UEFI", "Trusted Launch", "Compute"]
+    tags: ["Virtual Machines","Generation 2","UEFI","Trusted Launch","Compute"]
   },
   {
     id: "az-104-190",
@@ -303,7 +303,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     scenario: "A DevOps team is deploying version 2 of a microservice on Azure Container Apps. The team wants to route 80% of live production traffic to revision 1 and 20% of traffic to revision 2 to test performance before a full rollout.",
     question: "Which Azure Container Apps feature allows splitting traffic percentages across revisions?",
     options: [
-      { id: 'A', text: "Container Apps Ingress Traffic Splitting across multiple active revisions." },
+      { id: 'A', text: "Traffic splitting across revisions" },
       { id: 'B', text: "Azure Load Balancer backend pools." },
       { id: 'C', text: "Azure Traffic Manager weighted routing." },
       { id: 'D', text: "Azure DNS CNAME records." }
@@ -312,7 +312,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "Azure Container Apps supports multiple active revisions with built-in **Traffic Splitting**. In the Container App ingress configuration, administrators can allocate exact traffic percentage weights (e.g. 80% to Revision 1, 20% to Revision 2) to execute seamless blue/green or canary testing without managing external load balancers.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-apps/revisions",
-    tags: ["Container Apps", "Revisions", "Traffic Splitting", "Canary", "Compute"]
+    tags: ["Container Apps","Revisions","Traffic Splitting","Canary","Compute"]
   },
   {
     id: "az-104-191",
@@ -333,7 +333,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "On the **Hub VNet peering link**, you must select **\"Allow gateway transit\"** (permitting the hub VNet to share its VPN/ExpressRoute gateway with the peered spoke). On the Spoke VNet peering link, you select **\"Use the remote virtual network's gateways\"**.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview#gateway-transit-and-on-premises-connectivity",
-    tags: ["VNet Peering", "Gateway Transit", "Networking", "Hub and Spoke"]
+    tags: ["VNet Peering","Gateway Transit","Networking","Hub and Spoke"]
   },
   {
     id: "az-104-192",
@@ -354,7 +354,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "Azure Load Balancer supports two Session Persistence (affinity) modes: **Client IP** (2-tuple hash based on Source IP and Destination IP) and **Client IP and protocol** (3-tuple hash). Setting persistence to Client IP ensures subsequent requests from the same client IP are routed to the same backend instance. Cookie-based affinity is a Layer 7 feature available on Application Gateway, not Load Balancer (Layer 4).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/load-balancer/distribution-mode-concepts",
-    tags: ["Azure Load Balancer", "Session Persistence", "Networking"]
+    tags: ["Azure Load Balancer","Session Persistence","Networking"]
   },
   {
     id: "az-104-193",
@@ -368,14 +368,14 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "Deploy an Azure Bastion host." },
       { id: 'B', text: "Configure a Basic Load Balancer TCP probe." },
-      { id: 'C', text: "Configure an SSL Profile on the Application Gateway with an uploaded Trusted Client Certificate CA chain and attach it to the HTTPS listener." },
+      { id: 'C', text: "An SSL profile with a client CA chain" },
       { id: 'D', text: "Enable VNet Peering with Gateway Transit." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Application Gateway supports Mutual Authentication (mTLS). Administrators create an **SSL Profile** containing the uploaded Trusted Client CA Certificate chain and associate the profile with an HTTPS listener. The gateway validates client certificates during the TLS handshake and passes client certificate details to backend targets via HTTP server variables.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/application-gateway/mutual-authentication-overview",
-    tags: ["Application Gateway", "mTLS", "SSL/TLS", "Security", "Networking"]
+    tags: ["Application Gateway","mTLS","SSL/TLS","Security","Networking"]
   },
   {
     id: "az-104-194",
@@ -396,7 +396,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "Azure Virtual Network NAT Gateway is Microsoft's recommended managed solution for outbound internet connectivity. Associated at the subnet level, it dynamically manages SNAT port allocation across up to 16 public IPs without complex per-VM port tuning, eliminating SNAT exhaustion and supporting Availability Zones.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/nat-gateway/nat-overview",
-    tags: ["NAT Gateway", "SNAT", "Outbound Connectivity", "Networking"]
+    tags: ["NAT Gateway","SNAT","Outbound Connectivity","Networking"]
   },
   {
     id: "az-104-195",
@@ -410,14 +410,14 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "Deploy an Azure Bastion host." },
       { id: 'B', text: "Create a single Azure Public DNS Zone with private IP records." },
-      { id: 'C', text: "Create an Azure Private DNS Zone named `contoso.com` linked to the Azure VNet, and maintain an Azure Public DNS Zone named `contoso.com` for public records." },
+      { id: 'C', text: "A private DNS zone linked to the VNet plus the public zone" },
       { id: 'D', text: "Configure VNet Peering with Gateway Transit." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Split-horizon DNS allows using the same domain name (`contoso.com`) for both internal and external networks. By creating an Azure Private DNS Zone for `contoso.com` linked to the VNet, Azure VMs resolve private IP records locally, while external internet clients query the Azure Public DNS Zone for public services.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/dns/private-dns-scenarios#split-horizon-functionality",
-    tags: ["Private DNS", "Split-Horizon", "DNS", "Networking"]
+    tags: ["Private DNS","Split-Horizon","DNS","Networking"]
   },
   {
     id: "az-104-196",
@@ -430,7 +430,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     question: "Which Azure Log Analytics pricing feature offers tiered discounts (up to 30–50%) for predictable high-volume log ingestion?",
     options: [
       { id: 'A', text: "Azure Advisor cost alerts." },
-      { id: 'B', text: "Log Analytics Commitment Tiers (e.g. 500 GB/day Commitment Tier)." },
+      { id: 'B', text: "A commitment tier" },
       { id: 'C', text: "Azure Resource Locks." },
       { id: 'D', text: "Azure Storage Archive export." }
     ],
@@ -438,7 +438,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "Log Analytics Commitment Tiers allow organizations that ingest at least 100 GB/day to commit to a daily ingestion tier (100, 200, 500, 1000+ GB/day) at a substantial discount (up to 30–50% lower cost per GB) compared to the standard Pay-As-You-Go rate.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers",
-    tags: ["Log Analytics", "Commitment Tiers", "Cost Optimization", "FinOps", "Monitoring"]
+    tags: ["Log Analytics","Commitment Tiers","Cost Optimization","FinOps","Monitoring"]
   },
   {
     id: "az-104-197",
@@ -451,7 +451,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     question: "Which Azure Site Recovery component orchestrates multi-tier failover sequencing and automation scripts?",
     options: [
       { id: 'A', text: "Network Watcher Connection Monitor." },
-      { id: 'B', text: "ASR Recovery Plans (with Failover Groups and Azure Automation runbook actions)." },
+      { id: 'B', text: "ASR recovery plans" },
       { id: 'C', text: "Azure Backup Enhanced Policies." },
       { id: 'D', text: "Azure Monitor Alert Processing Rules." }
     ],
@@ -459,7 +459,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "Azure Site Recovery (ASR) **Recovery Plans** orchestrate the failover of multi-tier applications. Recovery plans group virtual machines into ordered sequence groups (Group 1, Group 2, Group 3) and allow attaching automated **Azure Automation Runbooks** or manual action pauses (e.g. DNS updates, load balancer updates) during failover.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-create-recovery-plans",
-    tags: ["Azure Site Recovery", "ASR", "Recovery Plans", "Disaster Recovery"]
+    tags: ["Azure Site Recovery","ASR","Recovery Plans","Disaster Recovery"]
   },
   {
     id: "az-104-198",
@@ -480,7 +480,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "Dynamic Thresholds in Azure Monitor Metric Alerts use advanced machine learning algorithms to learn a metric's historical behavior, identify seasonal patterns (hourly, daily, weekly), and dynamically calculate upper and lower anomaly thresholds without requiring manual baseline tuning.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-dynamic-thresholds",
-    tags: ["Azure Monitor", "Dynamic Thresholds", "Machine Learning", "Alerts"]
+    tags: ["Azure Monitor","Dynamic Thresholds","Machine Learning","Alerts"]
   },
   {
     id: "az-104-199",
@@ -501,7 +501,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "IP Flow Verify in Azure Network Watcher tests whether a packet is allowed or denied to/from a virtual machine based on 5-tuple parameters (protocol, local IP, remote IP, local port, remote port) and immediately reports the matching NSG rule.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-ip-flow-verify-overview",
-    tags: ["Network Watcher", "IP Flow Verify", "NSG", "Troubleshooting"]
+    tags: ["Network Watcher","IP Flow Verify","NSG","Troubleshooting"]
   },
   {
     id: "az-104-200",
@@ -522,7 +522,7 @@ export const AZURE_AZ104_QUESTIONS_8 = [
     type: "single",
     explanation: "Azure Backup Center is a unified management experience in the Azure portal that provides centralized governance, monitoring, policy assignment, and auditing across all Recovery Services Vaults and Backup Vaults across subscriptions, locations, and resource types.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-center-overview",
-    tags: ["Azure Backup", "Backup Center", "Governance", "Data Protection"]
+    tags: ["Azure Backup","Backup Center","Governance","Data Protection"]
   }
 ];
 

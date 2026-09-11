@@ -115,7 +115,7 @@ export const AZURE_AZ104_QUESTIONS_19 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Use the Azure Pricing Calculator to view operational error rates." },
-      { id: 'B', text: "Export the entire subscription Activity Log to a spreadsheet for manual searching." },
+      { id: 'B', text: "Send the Activity Log to a storage account and query it with Storage Explorer." },
       { id: 'C', text: "Execute a Kusto Query Language (KQL) query in an Azure Log Analytics workspace." },
       { id: 'D', text: "Open the command prompt on each virtual machine and grep local text files." }
     ],
@@ -137,7 +137,7 @@ export const AZURE_AZ104_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Execute a Kusto Query Language (KQL) query in an Azure Log Analytics workspace." },
       { id: 'B', text: "Open the command prompt on each virtual machine and grep local text files." },
-      { id: 'C', text: "Export the entire subscription Activity Log to a spreadsheet for manual searching." },
+      { id: 'C', text: "Send the Activity Log to a storage account and query it with Storage Explorer." },
       { id: 'D', text: "Use the Azure Pricing Calculator to view operational error rates." }
     ],
     correctAnswers: ['A'],
@@ -159,7 +159,7 @@ export const AZURE_AZ104_QUESTIONS_19 = [
       { id: 'A', text: "Execute a Kusto Query Language (KQL) query in an Azure Log Analytics workspace." },
       { id: 'B', text: "Open the command prompt on each virtual machine and grep local text files." },
       { id: 'C', text: "Use the Azure Pricing Calculator to view operational error rates." },
-      { id: 'D', text: "Export the entire subscription Activity Log to a spreadsheet for manual searching." }
+      { id: 'D', text: "Send the Activity Log to a storage account and query it with Storage Explorer." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -179,7 +179,7 @@ export const AZURE_AZ104_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Use the Azure Pricing Calculator to view operational error rates." },
       { id: 'B', text: "Open the command prompt on each virtual machine and grep local text files." },
-      { id: 'C', text: "Export the entire subscription Activity Log to a spreadsheet for manual searching." },
+      { id: 'C', text: "Send the Activity Log to a storage account and query it with Storage Explorer." },
       { id: 'D', text: "Execute a Kusto Query Language (KQL) query in an Azure Log Analytics workspace." }
     ],
     correctAnswers: ['D'],
@@ -200,7 +200,7 @@ export const AZURE_AZ104_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Execute a Kusto Query Language (KQL) query in an Azure Log Analytics workspace." },
       { id: 'B', text: "Use the Azure Pricing Calculator to view operational error rates." },
-      { id: 'C', text: "Export the entire subscription Activity Log to a spreadsheet for manual searching." },
+      { id: 'C', text: "Send the Activity Log to a storage account and query it with Storage Explorer." },
       { id: 'D', text: "Open the command prompt on each virtual machine and grep local text files." }
     ],
     correctAnswers: ['A'],
@@ -220,7 +220,7 @@ export const AZURE_AZ104_QUESTIONS_19 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Disable all network interface cards across the environment during maintenance." },
-      { id: 'B', text: "Delete all Azure Monitor alert rules on Friday and recreate them on Sunday." },
+      { id: 'B', text: "Disable each alert rule for the duration of the maintenance window." },
       { id: 'C', text: "Create an Alert Processing Rule configured to suppress notifications during the maintenance schedule." },
       { id: 'D', text: "Remove all email addresses from the organization's corporate mail server." }
     ],
@@ -242,7 +242,7 @@ export const AZURE_AZ104_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Create an Alert Processing Rule configured to suppress notifications during the maintenance schedule." },
       { id: 'B', text: "Disable all network interface cards across the environment during maintenance." },
-      { id: 'C', text: "Delete all Azure Monitor alert rules on Friday and recreate them on Sunday." },
+      { id: 'C', text: "Disable each alert rule for the duration of the maintenance window." },
       { id: 'D', text: "Remove all email addresses from the organization's corporate mail server." }
     ],
     correctAnswers: ['A'],
@@ -261,7 +261,7 @@ export const AZURE_AZ104_QUESTIONS_19 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Azure Alerting to suppress all alert notifications and email pages during a planned Saturday night maintenance window without disabling the underlying alert rules.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Delete all Azure Monitor alert rules on Friday and recreate them on Sunday." },
+      { id: 'A', text: "Disable each alert rule for the duration of the maintenance window." },
       { id: 'B', text: "Disable all network interface cards across the environment during maintenance." },
       { id: 'C', text: "Create an Alert Processing Rule configured to suppress notifications during the maintenance schedule." },
       { id: 'D', text: "Remove all email addresses from the organization's corporate mail server." }
@@ -282,7 +282,7 @@ export const AZURE_AZ104_QUESTIONS_19 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The administrator configures Azure Alerting to suppress all alert notifications and email pages during a planned Saturday night maintenance window without disabling the underlying alert rules.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Delete all Azure Monitor alert rules on Friday and recreate them on Sunday." },
+      { id: 'A', text: "Disable each alert rule for the duration of the maintenance window." },
       { id: 'B', text: "Disable all network interface cards across the environment during maintenance." },
       { id: 'C', text: "Remove all email addresses from the organization's corporate mail server." },
       { id: 'D', text: "Create an Alert Processing Rule configured to suppress notifications during the maintenance schedule." }
@@ -306,7 +306,7 @@ export const AZURE_AZ104_QUESTIONS_19 = [
       { id: 'A', text: "Disable all network interface cards across the environment during maintenance." },
       { id: 'B', text: "Create an Alert Processing Rule configured to suppress notifications during the maintenance schedule." },
       { id: 'C', text: "Remove all email addresses from the organization's corporate mail server." },
-      { id: 'D', text: "Delete all Azure Monitor alert rules on Friday and recreate them on Sunday." }
+      { id: 'D', text: "Disable each alert rule for the duration of the maintenance window." }
     ],
     correctAnswers: ['B'],
     type: "single",

@@ -220,7 +220,7 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Initiate a full production failover that shuts down the primary datacenter during business hours." },
-      { id: 'B', text: "Copy managed disk snapshots to an external USB drive and ship them to the secondary region." },
+      { id: 'B', text: "Copy the managed disk snapshots to the secondary region on a schedule." },
       { id: 'C', text: "Recreate all virtual machines in the secondary region manually from memory." },
       { id: 'D', text: "Configure Azure Site Recovery (ASR) replication and execute a Test Failover using an isolated test virtual network." }
     ],
@@ -243,7 +243,7 @@ export const AZURE_AZ104_QUESTIONS_20 = [
       { id: 'A', text: "Recreate all virtual machines in the secondary region manually from memory." },
       { id: 'B', text: "Initiate a full production failover that shuts down the primary datacenter during business hours." },
       { id: 'C', text: "Configure Azure Site Recovery (ASR) replication and execute a Test Failover using an isolated test virtual network." },
-      { id: 'D', text: "Copy managed disk snapshots to an external USB drive and ship them to the secondary region." }
+      { id: 'D', text: "Copy the managed disk snapshots to the secondary region on a schedule." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -263,7 +263,7 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Recreate all virtual machines in the secondary region manually from memory." },
       { id: 'B', text: "Configure Azure Site Recovery (ASR) replication and execute a Test Failover using an isolated test virtual network." },
-      { id: 'C', text: "Copy managed disk snapshots to an external USB drive and ship them to the secondary region." },
+      { id: 'C', text: "Copy the managed disk snapshots to the secondary region on a schedule." },
       { id: 'D', text: "Initiate a full production failover that shuts down the primary datacenter during business hours." }
     ],
     correctAnswers: ['B'],
@@ -285,7 +285,7 @@ export const AZURE_AZ104_QUESTIONS_20 = [
       { id: 'A', text: "Recreate all virtual machines in the secondary region manually from memory." },
       { id: 'B', text: "Configure Azure Site Recovery (ASR) replication and execute a Test Failover using an isolated test virtual network." },
       { id: 'C', text: "Initiate a full production failover that shuts down the primary datacenter during business hours." },
-      { id: 'D', text: "Copy managed disk snapshots to an external USB drive and ship them to the secondary region." }
+      { id: 'D', text: "Copy the managed disk snapshots to the secondary region on a schedule." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -304,7 +304,7 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Configure Azure Site Recovery (ASR) replication and execute a Test Failover using an isolated test virtual network." },
-      { id: 'B', text: "Copy managed disk snapshots to an external USB drive and ship them to the secondary region." },
+      { id: 'B', text: "Copy the managed disk snapshots to the secondary region on a schedule." },
       { id: 'C', text: "Initiate a full production failover that shuts down the primary datacenter during business hours." },
       { id: 'D', text: "Recreate all virtual machines in the secondary region manually from memory." }
     ],
@@ -325,7 +325,7 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Hire external consultants to review physical datacenter power consumption." },
-      { id: 'B', text: "Manually inspect task managers on all 200 virtual machines to evaluate CPU usage." },
+      { id: 'B', text: "Read the per-VM CPU charts in the portal for each of the 200 machines." },
       { id: 'C', text: "Review actionable recommendations in the Cost and Security categories of Azure Advisor." },
       { id: 'D', text: "Terminate all virtual machines with less than 16 CPU cores." }
     ],
@@ -346,7 +346,7 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Hire external consultants to review physical datacenter power consumption." },
-      { id: 'B', text: "Manually inspect task managers on all 200 virtual machines to evaluate CPU usage." },
+      { id: 'B', text: "Read the per-VM CPU charts in the portal for each of the 200 machines." },
       { id: 'C', text: "Review actionable recommendations in the Cost and Security categories of Azure Advisor." },
       { id: 'D', text: "Terminate all virtual machines with less than 16 CPU cores." }
     ],
@@ -367,7 +367,7 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Review actionable recommendations in the Cost and Security categories of Azure Advisor." },
-      { id: 'B', text: "Manually inspect task managers on all 200 virtual machines to evaluate CPU usage." },
+      { id: 'B', text: "Read the per-VM CPU charts in the portal for each of the 200 machines." },
       { id: 'C', text: "Hire external consultants to review physical datacenter power consumption." },
       { id: 'D', text: "Terminate all virtual machines with less than 16 CPU cores." }
     ],
@@ -389,7 +389,7 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Hire external consultants to review physical datacenter power consumption." },
       { id: 'B', text: "Terminate all virtual machines with less than 16 CPU cores." },
-      { id: 'C', text: "Manually inspect task managers on all 200 virtual machines to evaluate CPU usage." },
+      { id: 'C', text: "Read the per-VM CPU charts in the portal for each of the 200 machines." },
       { id: 'D', text: "Review actionable recommendations in the Cost and Security categories of Azure Advisor." }
     ],
     correctAnswers: ['D'],
@@ -408,7 +408,7 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure Optimization to identify oversized, idle virtual machines to reduce subscription spending and uncover security vulnerabilities against the Microsoft Cloud Security Benchmark.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Manually inspect task managers on all 200 virtual machines to evaluate CPU usage." },
+      { id: 'A', text: "Read the per-VM CPU charts in the portal for each of the 200 machines." },
       { id: 'B', text: "Terminate all virtual machines with less than 16 CPU cores." },
       { id: 'C', text: "Hire external consultants to review physical datacenter power consumption." },
       { id: 'D', text: "Review actionable recommendations in the Cost and Security categories of Azure Advisor." }

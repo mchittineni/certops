@@ -9,16 +9,16 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     scenario: "An application running on an Azure Virtual Machine needs to retrieve database connection secrets from Azure Key Vault without storing credentials or passwords in application code or configuration files.",
     question: "Which Microsoft Entra identity mechanism should be configured on the virtual machine?",
     options: [
-      { id: 'A', text: "Create an Entra ID Service Principal and hardcode its client secret in the application config." },
+      { id: 'A', text: "Register a service principal and store its client secret in app settings." },
       { id: 'B', text: "Configure an Azure Bastion host." },
       { id: 'C', text: "Assign the Owner role to the VM administrator." },
-      { id: 'D', text: "Enable a System-assigned Managed Identity on the VM and grant it Key Vault Secrets User permissions in Key Vault." }
+      { id: 'D', text: "A system-assigned identity on the VM with Key Vault Secrets User." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "System-assigned Managed Identities eliminate the need for developers to manage credentials. The identity is tied directly to the Azure resource's lifecycle (the VM), and Azure automatically handles token acquisition and rotation with Microsoft Entra ID to authenticate securely against Azure Key Vault, Azure SQL, or Storage.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview",
-    tags: ["Managed Identity", "Key Vault", "Security", "Entra ID"]
+    tags: ["Managed Identity","Key Vault","Security","Entra ID"]
   },
   {
     id: "az-104-102",
@@ -30,7 +30,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     scenario: "An enterprise maintains a central shared services subscription containing common networking components, ExpressRoute gateways, and firewall appliances. The finance department needs to automatically split and reallocate these shared infrastructure costs proportionally across three departmental subscriptions (Sales, Marketing, Engineering).",
     question: "Which Azure Cost Management feature automatically redistributes shared cloud costs across targets?",
     options: [
-      { id: 'A', text: "Azure Cost Allocation rules in Microsoft Cost Management." },
+      { id: 'A', text: "Azure cost allocation rules" },
       { id: 'B', text: "Azure Advisor cost alerts." },
       { id: 'C', text: "Azure Resource Locks." },
       { id: 'D', text: "Azure Policy with Modify effect." }
@@ -39,7 +39,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     type: "single",
     explanation: "Cost Allocation rules in Microsoft Cost Management allow organizations to automatically split, reallocate, and distribute shared costs (such as central hub networks, firewalls, or shared clusters) across multiple subscriptions, resource groups, or tags based on fixed percentages or proportional consumption.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/allocate-costs",
-    tags: ["Cost Management", "Cost Allocation", "FinOps", "Governance"]
+    tags: ["Cost Management","Cost Allocation","FinOps","Governance"]
   },
   {
     id: "az-104-103",
@@ -60,7 +60,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     type: "single",
     explanation: "Azure Policy definitions use logical operators (`allOf`, `anyOf`, `not`) to evaluate field conditions against parameters. An `allOf` block requiring that the VM SKU is `notIn` the allowed sizes list AND the `tags.Environment` is `notEquals` to \"Benchmark\" correctly scopes the audit condition to non-compliant VMs outside the benchmark environment.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure",
-    tags: ["Azure Policy", "Policy Definition", "Logical Operators", "Governance"]
+    tags: ["Azure Policy","Policy Definition","Logical Operators","Governance"]
   },
   {
     id: "az-104-104",
@@ -74,14 +74,14 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Azure Resource Manager templates." },
       { id: 'B', text: "Azure App Service Custom Domains." },
-      { id: 'C', text: "Company Branding in the Microsoft Entra admin center." },
+      { id: 'C', text: "Company branding in Entra ID" },
       { id: 'D', text: "Azure Front Door web designer." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Company Branding in Microsoft Entra ID allows tenant administrators to customize the visual appearance of the sign-in page, adding custom background images, corporate logos, sign-in hints, and custom footer links to provide a consistent user experience.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/fundamentals/how-to-customize-branding",
-    tags: ["Entra ID", "Company Branding", "Identity", "Governance"]
+    tags: ["Entra ID","Company Branding","Identity","Governance"]
   },
   {
     id: "az-104-105",
@@ -93,7 +93,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     scenario: "A company acquires a subsidiary with an existing Azure subscription. The administrator needs to transfer the billing ownership and associate the subscription with the parent company's Microsoft Entra ID tenant.",
     question: "What happens to existing Azure RBAC role assignments when a subscription is transferred to a new Microsoft Entra tenant?",
     options: [
-      { id: 'A', text: "All existing Azure RBAC role assignments and user permissions are permanently removed." },
+      { id: 'A', text: "All existing RBAC role assignments are permanently removed" },
       { id: 'B', text: "The subscription enters a read-only state for 30 days." },
       { id: 'C', text: "All virtual machines and storage accounts are permanently deleted." },
       { id: 'D', text: "All RBAC role assignments are automatically migrated to the new tenant." }
@@ -102,7 +102,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     type: "single",
     explanation: "When you transfer an Azure subscription to a different Microsoft Entra directory (tenant), all existing Azure RBAC role assignments, user access, and system-assigned managed identities are permanently removed because security principals do not exist across different tenant boundaries. The resources themselves remain intact, but permissions must be reassigned in the target tenant.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/billing-subscription-transfer",
-    tags: ["Subscription Transfer", "Entra ID", "RBAC", "Governance"]
+    tags: ["Subscription Transfer","Entra ID","RBAC","Governance"]
   },
   {
     id: "az-104-106",
@@ -115,7 +115,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     question: "How should the administrator rotate the storage keys with zero application downtime?",
     options: [
       { id: 'A', text: "Delete the storage account and recreate it." },
-      { id: 'B', text: "Update application connection strings to use `key2`, regenerate `key1`, update applications to use the new `key1`, and then regenerate `key2`." },
+      { id: 'B', text: "Switch to `key2`, regenerate `key1`, then reverse." },
       { id: 'C', text: "Convert the storage account to LRS." },
       { id: 'D', text: "Regenerate both `key1` and `key2` simultaneously." }
     ],
@@ -123,7 +123,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     type: "single",
     explanation: "Storage accounts provide two 512-bit access keys (`key1` and `key2`) to enable zero-downtime key rotation: 1) Point applications to the secondary key (`key2`), 2) Regenerate the primary key (`key1`), 3) Point applications back to the new `key1`, and 4) Regenerate the secondary key (`key2`).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage#manually-rotate-access-keys",
-    tags: ["Azure Storage", "Key Rotation", "Access Keys", "Security"]
+    tags: ["Azure Storage","Key Rotation","Access Keys","Security"]
   },
   {
     id: "az-104-107",
@@ -137,14 +137,14 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Azure Backup downloads the backup archive from cold secondary storage." },
       { id: 'B', text: "Azure Backup requires creating a new storage account." },
-      { id: 'C', text: "Azure Backup restores directly from the local Azure File Share snapshot without transferring data over the network." },
+      { id: 'C', text: "It restores from the local file share snapshot directly." },
       { id: 'D', text: "Azure Backup converts the file share into a VM managed disk." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Backup for Azure Files orchestrates native Azure File share snapshots located directly within the storage account. Because snapshots live alongside the primary data, restores operate instantly as local pointer reversions without transferring large files across the network.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/azure-file-share-restore-overview",
-    tags: ["Azure Files", "Azure Backup", "Snapshots", "Data Recovery"]
+    tags: ["Azure Files","Azure Backup","Snapshots","Data Recovery"]
   },
   {
     id: "az-104-108",
@@ -165,7 +165,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     type: "single",
     explanation: "Azure Storage Mover is a fully managed cloud migration service that automates migrating files and folders from on-premises NFS/SMB storage to Azure Storage containers and file shares using lightweight virtual machine migration agents, with centralized cloud orchestration and incremental syncing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage-mover/overview",
-    tags: ["Storage Mover", "Data Migration", "NFS", "Storage"]
+    tags: ["Storage Mover","Data Migration","NFS","Storage"]
   },
   {
     id: "az-104-109",
@@ -186,7 +186,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     type: "single",
     explanation: "Blob Index Tags categorize data in storage accounts using key-value tag attributes. Azure automatically indexes these tags and exposes a search API (`FindBlobsByTags`) that allows querying blobs using SQL-like filter queries across containers without expensive client-side container scanning.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-manage-find-blobs",
-    tags: ["Blob Storage", "Blob Index Tags", "Metadata", "Search"]
+    tags: ["Blob Storage","Blob Index Tags","Metadata","Search"]
   },
   {
     id: "az-104-110",
@@ -207,7 +207,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     type: "single",
     explanation: "When rehydrating a blob from the Archive tier, **High priority** rehydration prioritizes the request ahead of standard queues, typically retrieving blobs smaller than 10 GB in under 1 hour (at a higher rehydration cost). Standard priority rehydration can take up to 15 hours.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/archive-rehydrate-overview#rehydration-priority",
-    tags: ["Blob Storage", "Rehydration", "Archive Tier", "Storage"]
+    tags: ["Blob Storage","Rehydration","Archive Tier","Storage"]
   },
   {
     id: "az-104-111",
@@ -219,7 +219,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     scenario: "An administrator attaches a new 1 TB Premium SSD Managed Data Disk to a running Windows Server Azure Virtual Machine. After attaching the disk in the Azure portal, the drive letter does not appear in Windows File Explorer.",
     question: "Which administrative step must be performed inside the Windows guest operating system?",
     options: [
-      { id: 'A', text: "Open Disk Management, bring the disk Online, Initialize the disk (GPT), create a New Simple Volume, and format with NTFS." },
+      { id: 'A', text: "Bring it online, initialize, then format NTFS" },
       { id: 'B', text: "Recreate the VM Network Interface." },
       { id: 'C', text: "Enable Azure Disk Encryption." },
       { id: 'D', text: "Restart the virtual machine from the Azure portal." }
@@ -228,7 +228,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     type: "single",
     explanation: "Attaching a new managed disk in the Azure portal makes the raw block storage visible to the VM hardware layer. Inside the guest OS (Windows Disk Management or Linux `fdisk`/`mkfs`), the disk must be brought online, initialized with a partition table (GPT/MBR), partitioned into a volume, and formatted with a filesystem (NTFS/ReFS/ext4).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal#initialize-a-new-data-disk",
-    tags: ["Virtual Machines", "Managed Disks", "Disk Management", "Compute"]
+    tags: ["Virtual Machines","Managed Disks","Disk Management","Compute"]
   },
   {
     id: "az-104-112",
@@ -242,14 +242,14 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Dedicated Hosts." },
       { id: 'B', text: "3-year Reserved VM Instances." },
-      { id: 'C', text: "Azure Spot Virtual Machines with the Eviction Policy set to `Deallocate` (or `Delete`)." },
+      { id: 'C', text: "Spot VMs with an eviction policy" },
       { id: 'D', text: "Pay-As-You-Go Standard Instances." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Spot Virtual Machines allow taking advantage of unused Azure compute capacity at significant discounts (up to 90% off Pay-As-You-Go rates). When Azure needs the capacity back, the infrastructure gives a 30-second eviction notice and evicts the VM according to the chosen eviction policy (`Deallocate` or `Delete`).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/spot-vms",
-    tags: ["Spot VMs", "Cost Optimization", "FinOps", "Compute"]
+    tags: ["Spot VMs","Cost Optimization","FinOps","Compute"]
   },
   {
     id: "az-104-113",
@@ -264,13 +264,13 @@ export const AZURE_AZ104_QUESTIONS_5 = [
       { id: 'A', text: "Azure Bastion RDP session." },
       { id: 'B', text: "Azure Network Watcher IP Flow Verify." },
       { id: 'C', text: "Azure Key Vault secret retrieval." },
-      { id: 'D', text: "Azure Virtual Machine Run Command (using `RunShellScript`)." }
+      { id: 'D', text: "The Azure VM Run Command" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "The Azure Virtual Machine Run Command feature uses the Azure VM agent to execute PowerShell (Windows) or shell scripts (Linux) directly inside the guest OS via the Azure control plane. It operates even when guest OS network firewalls block all inbound ports, making it the primary recovery tool for locked-out VMs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/windows/run-command",
-    tags: ["Virtual Machines", "Run Command", "Troubleshooting", "Automation"]
+    tags: ["Virtual Machines","Run Command","Troubleshooting","Automation"]
   },
   {
     id: "az-104-114",
@@ -284,14 +284,14 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "App Service Custom Script extension." },
       { id: 'B', text: "Azure Resource Locks." },
-      { id: 'C', text: "App Service Auto-Heal rules in Diagnose and Solve Problems." },
+      { id: 'C', text: "App Service Auto-Heal rules" },
       { id: 'D', text: "Azure Policy with Modify effect." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Auto-Heal is a feature of Azure App Service (configured under Diagnose and Solve Problems) that allows defining rule triggers (e.g. Request count, Slow requests, Memory limit, or HTTP status codes) and taking automated actions (Recycle process, Log event, or Custom executable) to maintain application health automatically.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/overview-diagnostics",
-    tags: ["App Service", "Auto-Heal", "Diagnostics", "Compute"]
+    tags: ["App Service","Auto-Heal","Diagnostics","Compute"]
   },
   {
     id: "az-104-115",
@@ -312,7 +312,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     type: "single",
     explanation: "Azure Container Registry (ACR) Premium SKU includes enterprise capabilities: **Geo-Replication** (automatically synchronizing container images across multiple Azure regions under a single registry URL), Private Endpoints (Private Link), customer-managed keys, and content trust.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/container-registry/container-registry-skus",
-    tags: ["ACR", "Container Registry", "Geo-Replication", "Containers"]
+    tags: ["ACR","Container Registry","Geo-Replication","Containers"]
   },
   {
     id: "az-104-116",
@@ -324,7 +324,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     scenario: "A company enables the `Microsoft.Sql` Service Endpoint on a private database subnet in Azure. Virtual machines in the subnet connect to an Azure SQL Database logical server.",
     question: "How does Azure route traffic between the subnet and the Azure SQL Database after enabling the Service Endpoint?",
     options: [
-      { id: 'A', text: "Azure automatically optimizes routing to send traffic directly over the Microsoft Azure private backbone network to the SQL service, preserving source subnet private IP addresses." },
+      { id: 'A', text: "Traffic takes the Azure backbone and keeps the private source IP." },
       { id: 'B', text: "Traffic is dropped unless an ExpressRoute circuit is attached." },
       { id: 'C', text: "Traffic is routed over the public internet through a NAT Gateway." },
       { id: 'D', text: "Traffic requires an Azure Bastion host." }
@@ -333,7 +333,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     type: "single",
     explanation: "Enabling a Service Endpoint on a subnet updates Azure internal routing to direct traffic bound for the Azure PaaS service (e.g. `Microsoft.Sql`) directly across the secure Microsoft Azure backbone network, bypassing default internet gateways and presenting the subnet's private IP identity to the PaaS firewall.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview",
-    tags: ["Service Endpoints", "Azure SQL", "Networking", "Security"]
+    tags: ["Service Endpoints","Azure SQL","Networking","Security"]
   },
   {
     id: "az-104-117",
@@ -354,7 +354,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     type: "single",
     explanation: "In `Detection` mode, Azure Web Application Firewall (WAF) evaluates incoming HTTP requests against enabled rule sets and logs matches, threats, and anomalies to diagnostic logs (Log Analytics) without blocking or dropping any traffic. In contrast, `Prevention` mode immediately blocks matched malicious requests with an HTTP 403 Forbidden error.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/web-application-firewall/ag/ag-overview#waf-modes",
-    tags: ["Application Gateway", "WAF", "Detection Mode", "Security", "Networking"]
+    tags: ["Application Gateway","WAF","Detection Mode","Security","Networking"]
   },
   {
     id: "az-104-118",
@@ -375,7 +375,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     type: "single",
     explanation: "Standard Load Balancer Outbound Rules provide explicit, declarative configuration of outbound SNAT for backend pool VMs. Outbound rules allow specifying dedicated public frontend IPs, idle timeout values, and custom allocated SNAT ports per instance, eliminating reliance on implicit default outbound access.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/load-balancer/outbound-rules",
-    tags: ["Load Balancer", "Outbound Rules", "SNAT", "Networking"]
+    tags: ["Load Balancer","Outbound Rules","SNAT","Networking"]
   },
   {
     id: "az-104-119",
@@ -389,14 +389,14 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Azure Bastion." },
       { id: 'B', text: "Azure Public DNS Zones." },
-      { id: 'C', text: "Azure DNS Private Resolver (with Inbound and Outbound Endpoints)." },
+      { id: 'C', text: "Azure DNS Private Resolver" },
       { id: 'D', text: "Azure Network Watcher." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Azure DNS Private Resolver is a fully managed cloud service that enables hybrid DNS resolution. It provides **Inbound Endpoints** (allowing on-premises DNS to resolve Azure Private DNS zones) and **Outbound Endpoints with DNS Forwarding Rulesets** (allowing Azure VNets to resolve on-premises DNS domains) with high availability and zero VM management.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/dns/dns-private-resolver-overview",
-    tags: ["DNS Private Resolver", "Hybrid DNS", "Private DNS", "Networking"]
+    tags: ["DNS Private Resolver","Hybrid DNS","Private DNS","Networking"]
   },
   {
     id: "az-104-120",
@@ -417,7 +417,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     type: "single",
     explanation: "The **Standard SKU** (and Premium SKU) of Azure Bastion supports advanced features including: **Native Client Support** (connecting via `az network bastion rdp/ssh` with native `mstsc` / SSH clients), IP-based connections, host scaling (2–50 instances), and shareable links. Basic SKU only supports browser-based portal sessions.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/bastion/bastion-overview#sku",
-    tags: ["Azure Bastion", "Standard SKU", "Native Client", "Security", "Networking"]
+    tags: ["Azure Bastion","Standard SKU","Native Client","Security","Networking"]
   },
   {
     id: "az-104-121",
@@ -438,7 +438,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     type: "single",
     explanation: "The query `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(10m)` groups heartbeat events by Computer, finds the most recent heartbeat timestamp for each machine, and filters for computers where the latest timestamp is older than 10 minutes ago, identifying offline/unresponsive VMs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial",
-    tags: ["KQL", "Log Analytics", "Azure Monitor", "Heartbeat"]
+    tags: ["KQL","Log Analytics","Azure Monitor","Heartbeat"]
   },
   {
     id: "az-104-122",
@@ -459,7 +459,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     type: "single",
     explanation: "Enhanced Backup Policies in Azure Backup support modern IaaS VM requirements: multiple backups per day (up to hourly backups), instant snapshot retention up to 30 days, support for Trusted Launch VMs, and support for VMs with Ultra Disks and Premium SSD v2. Standard policies are limited to 1 backup per day and 5-day instant retention.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-enhanced-policy",
-    tags: ["Azure Backup", "Enhanced Policy", "Virtual Machines", "Data Protection"]
+    tags: ["Azure Backup","Enhanced Policy","Virtual Machines","Data Protection"]
   },
   {
     id: "az-104-123",
@@ -480,7 +480,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     type: "single",
     explanation: "Azure Monitor Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. Workbooks can tap into multiple data sources across Azure (Metrics, Logs, Resource Graph, Alerts) and combine them into unified interactive visualizations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview",
-    tags: ["Azure Monitor", "Workbooks", "Dashboards", "Reporting"]
+    tags: ["Azure Monitor","Workbooks","Dashboards","Reporting"]
   },
   {
     id: "az-104-124",
@@ -494,14 +494,14 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Disable replication and recreate the VMs." },
       { id: 'B', text: "Perform an Unplanned Failover." },
-      { id: 'C', text: "Perform a Test Failover to an isolated, non-production virtual network." },
+      { id: 'C', text: "A test failover into an isolated VNet" },
       { id: 'D', text: "Perform a Planned Failover." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Site Recovery (ASR) Test Failover allows organizations to run disaster recovery drills without impacting ongoing replication, data loss, or production downtime. Test failover launches temporary test VMs in an isolated virtual network in the secondary region; after testing, executing \"Cleanup test failover\" automatically deletes the test VMs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-test-failover-to-azure",
-    tags: ["Azure Site Recovery", "ASR", "Test Failover", "Disaster Recovery"]
+    tags: ["Azure Site Recovery","ASR","Test Failover","Disaster Recovery"]
   },
   {
     id: "az-104-125",
@@ -522,7 +522,7 @@ export const AZURE_AZ104_QUESTIONS_5 = [
     type: "single",
     explanation: "Azure Boot Diagnostics is a debugging feature for Azure virtual machines that captures serial log output and real-time bitmap screenshots of the VM console during boot. It enables administrators to diagnose blue screens (BSOD), kernel panics, and failed OS updates without remote desktop access.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics",
-    tags: ["Boot Diagnostics", "Virtual Machines", "Troubleshooting", "Compute"]
+    tags: ["Boot Diagnostics","Virtual Machines","Troubleshooting","Compute"]
   }
 ];
 

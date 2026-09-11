@@ -221,7 +221,7 @@ export const AZURE_AZ104_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Run the machine learning models inside an unmanaged Azure App Service instance." },
       { id: 'B', text: "Deploy two separate AKS clusters and connect them via an unencrypted public VPN." },
-      { id: 'C', text: "Configure a dedicated System node pool for core pods and add a specialized User node pool with GPU VM SKUs." },
+      { id: 'C', text: "A dedicated system node pool plus a user node pool with GPU SKUs." },
       { id: 'D', text: "Deploy all Kubernetes pods onto a single shared general-purpose VM node." }
     ],
     correctAnswers: ['C'],
@@ -243,7 +243,7 @@ export const AZURE_AZ104_QUESTIONS_16 = [
       { id: 'A', text: "Deploy two separate AKS clusters and connect them via an unencrypted public VPN." },
       { id: 'B', text: "Run the machine learning models inside an unmanaged Azure App Service instance." },
       { id: 'C', text: "Deploy all Kubernetes pods onto a single shared general-purpose VM node." },
-      { id: 'D', text: "Configure a dedicated System node pool for core pods and add a specialized User node pool with GPU VM SKUs." }
+      { id: 'D', text: "A dedicated system node pool plus a user node pool with GPU SKUs." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -264,7 +264,7 @@ export const AZURE_AZ104_QUESTIONS_16 = [
       { id: 'A', text: "Deploy two separate AKS clusters and connect them via an unencrypted public VPN." },
       { id: 'B', text: "Deploy all Kubernetes pods onto a single shared general-purpose VM node." },
       { id: 'C', text: "Run the machine learning models inside an unmanaged Azure App Service instance." },
-      { id: 'D', text: "Configure a dedicated System node pool for core pods and add a specialized User node pool with GPU VM SKUs." }
+      { id: 'D', text: "A dedicated system node pool plus a user node pool with GPU SKUs." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -283,7 +283,7 @@ export const AZURE_AZ104_QUESTIONS_16 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy two separate AKS clusters and connect them via an unencrypted public VPN." },
-      { id: 'B', text: "Configure a dedicated System node pool for core pods and add a specialized User node pool with GPU VM SKUs." },
+      { id: 'B', text: "A dedicated system node pool plus a user node pool with GPU SKUs." },
       { id: 'C', text: "Deploy all Kubernetes pods onto a single shared general-purpose VM node." },
       { id: 'D', text: "Run the machine learning models inside an unmanaged Azure App Service instance." }
     ],
@@ -303,7 +303,7 @@ export const AZURE_AZ104_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure Kubernetes Service to host critical Kubernetes cluster system pods on dedicated nodes while running specialized GPU machine learning training jobs on distinct, autoscaling GPU nodes.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Configure a dedicated System node pool for core pods and add a specialized User node pool with GPU VM SKUs." },
+      { id: 'A', text: "A dedicated system node pool plus a user node pool with GPU SKUs." },
       { id: 'B', text: "Deploy all Kubernetes pods onto a single shared general-purpose VM node." },
       { id: 'C', text: "Deploy two separate AKS clusters and connect them via an unencrypted public VPN." },
       { id: 'D', text: "Run the machine learning models inside an unmanaged Azure App Service instance." }
@@ -324,7 +324,7 @@ export const AZURE_AZ104_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Virtual Networks to connect a hub virtual network containing an Azure VPN Gateway to multiple spoke virtual networks so on-premises clients can reach spoke workloads seamlessly.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Configure VNet peering with 'Allow gateway transit' on the hub VNet and 'Use remote gateways' on the spoke VNets." },
+      { id: 'A', text: "Gateway transit on the hub, remote gateways on the spokes." },
       { id: 'B', text: "Connect all virtual networks through public internet public IP addresses." },
       { id: 'C', text: "Configure point-to-site VPN clients on every virtual machine in the spokes." },
       { id: 'D', text: "Deploy separate VPN gateways inside every individual spoke virtual network." }
@@ -348,7 +348,7 @@ export const AZURE_AZ104_QUESTIONS_16 = [
       { id: 'A', text: "Deploy separate VPN gateways inside every individual spoke virtual network." },
       { id: 'B', text: "Configure point-to-site VPN clients on every virtual machine in the spokes." },
       { id: 'C', text: "Connect all virtual networks through public internet public IP addresses." },
-      { id: 'D', text: "Configure VNet peering with 'Allow gateway transit' on the hub VNet and 'Use remote gateways' on the spoke VNets." }
+      { id: 'D', text: "Gateway transit on the hub, remote gateways on the spokes." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -369,7 +369,7 @@ export const AZURE_AZ104_QUESTIONS_16 = [
       { id: 'A', text: "Deploy separate VPN gateways inside every individual spoke virtual network." },
       { id: 'B', text: "Configure point-to-site VPN clients on every virtual machine in the spokes." },
       { id: 'C', text: "Connect all virtual networks through public internet public IP addresses." },
-      { id: 'D', text: "Configure VNet peering with 'Allow gateway transit' on the hub VNet and 'Use remote gateways' on the spoke VNets." }
+      { id: 'D', text: "Gateway transit on the hub, remote gateways on the spokes." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -388,7 +388,7 @@ export const AZURE_AZ104_QUESTIONS_16 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Connect all virtual networks through public internet public IP addresses." },
-      { id: 'B', text: "Configure VNet peering with 'Allow gateway transit' on the hub VNet and 'Use remote gateways' on the spoke VNets." },
+      { id: 'B', text: "Gateway transit on the hub, remote gateways on the spokes." },
       { id: 'C', text: "Configure point-to-site VPN clients on every virtual machine in the spokes." },
       { id: 'D', text: "Deploy separate VPN gateways inside every individual spoke virtual network." }
     ],
@@ -410,7 +410,7 @@ export const AZURE_AZ104_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Configure point-to-site VPN clients on every virtual machine in the spokes." },
       { id: 'B', text: "Deploy separate VPN gateways inside every individual spoke virtual network." },
-      { id: 'C', text: "Configure VNet peering with 'Allow gateway transit' on the hub VNet and 'Use remote gateways' on the spoke VNets." },
+      { id: 'C', text: "Gateway transit on the hub, remote gateways on the spokes." },
       { id: 'D', text: "Connect all virtual networks through public internet public IP addresses." }
     ],
     correctAnswers: ['C'],
@@ -429,8 +429,8 @@ export const AZURE_AZ104_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Network Security to create a firewall rule in a Network Security Group (NSG) that allows inbound HTTPS (port 443) from a specific partner IP while blocking all other inbound internet traffic.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Create an inbound rule allowing port 443 with priority 100, relying on the default DenyAllInBound rule at priority 65500." },
-      { id: 'B', text: "Delete all default rules in the Network Security Group." },
+      { id: 'A', text: "Allow 443 at priority 100 and let the default deny handle the rest." },
+      { id: 'B', text: "Raise the priority of the default allow rules above the custom ones." },
       { id: 'C', text: "Create a rule with priority 65500 that permits all inbound internet traffic." },
       { id: 'D', text: "Assign an Azure Policy definition that blocks outbound internet access." }
     ],
@@ -451,9 +451,9 @@ export const AZURE_AZ104_QUESTIONS_16 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Assign an Azure Policy definition that blocks outbound internet access." },
-      { id: 'B', text: "Create an inbound rule allowing port 443 with priority 100, relying on the default DenyAllInBound rule at priority 65500." },
+      { id: 'B', text: "Allow 443 at priority 100 and let the default deny handle the rest." },
       { id: 'C', text: "Create a rule with priority 65500 that permits all inbound internet traffic." },
-      { id: 'D', text: "Delete all default rules in the Network Security Group." }
+      { id: 'D', text: "Raise the priority of the default allow rules above the custom ones." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,10 +471,10 @@ export const AZURE_AZ104_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Azure Network Security to create a firewall rule in a Network Security Group (NSG) that allows inbound HTTPS (port 443) from a specific partner IP while blocking all other inbound internet traffic.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Delete all default rules in the Network Security Group." },
+      { id: 'A', text: "Raise the priority of the default allow rules above the custom ones." },
       { id: 'B', text: "Assign an Azure Policy definition that blocks outbound internet access." },
       { id: 'C', text: "Create a rule with priority 65500 that permits all inbound internet traffic." },
-      { id: 'D', text: "Create an inbound rule allowing port 443 with priority 100, relying on the default DenyAllInBound rule at priority 65500." }
+      { id: 'D', text: "Allow 443 at priority 100 and let the default deny handle the rest." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -493,9 +493,9 @@ export const AZURE_AZ104_QUESTIONS_16 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Create a rule with priority 65500 that permits all inbound internet traffic." },
-      { id: 'B', text: "Delete all default rules in the Network Security Group." },
+      { id: 'B', text: "Raise the priority of the default allow rules above the custom ones." },
       { id: 'C', text: "Assign an Azure Policy definition that blocks outbound internet access." },
-      { id: 'D', text: "Create an inbound rule allowing port 443 with priority 100, relying on the default DenyAllInBound rule at priority 65500." }
+      { id: 'D', text: "Allow 443 at priority 100 and let the default deny handle the rest." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -514,8 +514,8 @@ export const AZURE_AZ104_QUESTIONS_16 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Create a rule with priority 65500 that permits all inbound internet traffic." },
-      { id: 'B', text: "Create an inbound rule allowing port 443 with priority 100, relying on the default DenyAllInBound rule at priority 65500." },
-      { id: 'C', text: "Delete all default rules in the Network Security Group." },
+      { id: 'B', text: "Allow 443 at priority 100 and let the default deny handle the rest." },
+      { id: 'C', text: "Raise the priority of the default allow rules above the custom ones." },
       { id: 'D', text: "Assign an Azure Policy definition that blocks outbound internet access." }
     ],
     correctAnswers: ['B'],

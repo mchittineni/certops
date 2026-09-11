@@ -222,7 +222,7 @@ export const AZURE_AZ104_QUESTIONS_14 = [
       { id: 'A', text: "Deploy an Azure Virtual Machine that polls the source container and downloads files via HTTP." },
       { id: 'B', text: "Configure Azure Storage Object Replication between the source and destination storage accounts." },
       { id: 'C', text: "Enable Locally Redundant Storage (LRS) on the source storage account." },
-      { id: 'D', text: "Manually copy blobs using Azure Storage Explorer at the end of each business day." }
+      { id: 'D', text: "Schedule an AzCopy job on a VM to mirror the container nightly." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -240,7 +240,7 @@ export const AZURE_AZ104_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure Storage Replication to asynchronously replicate block blobs between separate Azure Storage accounts located in different regions to satisfy low-latency local read requirements in Europe and the US.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Manually copy blobs using Azure Storage Explorer at the end of each business day." },
+      { id: 'A', text: "Schedule an AzCopy job on a VM to mirror the container nightly." },
       { id: 'B', text: "Enable Locally Redundant Storage (LRS) on the source storage account." },
       { id: 'C', text: "Deploy an Azure Virtual Machine that polls the source container and downloads files via HTTP." },
       { id: 'D', text: "Configure Azure Storage Object Replication between the source and destination storage accounts." }
@@ -262,7 +262,7 @@ export const AZURE_AZ104_QUESTIONS_14 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Configure Azure Storage Object Replication between the source and destination storage accounts." },
-      { id: 'B', text: "Manually copy blobs using Azure Storage Explorer at the end of each business day." },
+      { id: 'B', text: "Schedule an AzCopy job on a VM to mirror the container nightly." },
       { id: 'C', text: "Deploy an Azure Virtual Machine that polls the source container and downloads files via HTTP." },
       { id: 'D', text: "Enable Locally Redundant Storage (LRS) on the source storage account." }
     ],
@@ -283,7 +283,7 @@ export const AZURE_AZ104_QUESTIONS_14 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Configure Azure Storage Object Replication between the source and destination storage accounts." },
-      { id: 'B', text: "Manually copy blobs using Azure Storage Explorer at the end of each business day." },
+      { id: 'B', text: "Schedule an AzCopy job on a VM to mirror the container nightly." },
       { id: 'C', text: "Enable Locally Redundant Storage (LRS) on the source storage account." },
       { id: 'D', text: "Deploy an Azure Virtual Machine that polls the source container and downloads files via HTTP." }
     ],
@@ -305,7 +305,7 @@ export const AZURE_AZ104_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Deploy an Azure Virtual Machine that polls the source container and downloads files via HTTP." },
       { id: 'B', text: "Configure Azure Storage Object Replication between the source and destination storage accounts." },
-      { id: 'C', text: "Manually copy blobs using Azure Storage Explorer at the end of each business day." },
+      { id: 'C', text: "Schedule an AzCopy job on a VM to mirror the container nightly." },
       { id: 'D', text: "Enable Locally Redundant Storage (LRS) on the source storage account." }
     ],
     correctAnswers: ['B'],
@@ -325,7 +325,7 @@ export const AZURE_AZ104_QUESTIONS_14 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Delete the virtual machine and OS disk, then recreate everything from scratch." },
-      { id: 'B', text: "Deallocate (stop) the virtual machine first, change the VM size, and restart the VM on a cluster supporting the new size." },
+      { id: 'B', text: "Deallocate the VM, change the size, then start it on a new cluster." },
       { id: 'C', text: "Change the VM size on the fly while it is running without any downtime." },
       { id: 'D', text: "Convert the VM to an Azure Function app to adjust compute capacity." }
     ],
@@ -345,7 +345,7 @@ export const AZURE_AZ104_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure Virtual Machines to resize an existing Azure Virtual Machine to a larger instance family that is not supported on the current physical host hardware cluster.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Deallocate (stop) the virtual machine first, change the VM size, and restart the VM on a cluster supporting the new size." },
+      { id: 'A', text: "Deallocate the VM, change the size, then start it on a new cluster." },
       { id: 'B', text: "Delete the virtual machine and OS disk, then recreate everything from scratch." },
       { id: 'C', text: "Change the VM size on the fly while it is running without any downtime." },
       { id: 'D', text: "Convert the VM to an Azure Function app to adjust compute capacity." }
@@ -369,7 +369,7 @@ export const AZURE_AZ104_QUESTIONS_14 = [
       { id: 'A', text: "Convert the VM to an Azure Function app to adjust compute capacity." },
       { id: 'B', text: "Delete the virtual machine and OS disk, then recreate everything from scratch." },
       { id: 'C', text: "Change the VM size on the fly while it is running without any downtime." },
-      { id: 'D', text: "Deallocate (stop) the virtual machine first, change the VM size, and restart the VM on a cluster supporting the new size." }
+      { id: 'D', text: "Deallocate the VM, change the size, then start it on a new cluster." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -389,7 +389,7 @@ export const AZURE_AZ104_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Change the VM size on the fly while it is running without any downtime." },
       { id: 'B', text: "Convert the VM to an Azure Function app to adjust compute capacity." },
-      { id: 'C', text: "Deallocate (stop) the virtual machine first, change the VM size, and restart the VM on a cluster supporting the new size." },
+      { id: 'C', text: "Deallocate the VM, change the size, then start it on a new cluster." },
       { id: 'D', text: "Delete the virtual machine and OS disk, then recreate everything from scratch." }
     ],
     correctAnswers: ['C'],
@@ -409,7 +409,7 @@ export const AZURE_AZ104_QUESTIONS_14 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Change the VM size on the fly while it is running without any downtime." },
-      { id: 'B', text: "Deallocate (stop) the virtual machine first, change the VM size, and restart the VM on a cluster supporting the new size." },
+      { id: 'B', text: "Deallocate the VM, change the size, then start it on a new cluster." },
       { id: 'C', text: "Delete the virtual machine and OS disk, then recreate everything from scratch." },
       { id: 'D', text: "Convert the VM to an Azure Function app to adjust compute capacity." }
     ],
@@ -431,7 +431,7 @@ export const AZURE_AZ104_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Place both virtual machines on the same physical host hardware rack." },
       { id: 'B', text: "Deploy both virtual machines into the same Azure App Service Plan." },
-      { id: 'C', text: "Deploy the virtual machines into an Azure Availability Set configured with fault domains and update domains." },
+      { id: 'C', text: "Put the VMs in an availability set with fault and update domains." },
       { id: 'D', text: "Configure an Azure Bastion host to manage both virtual machines." }
     ],
     correctAnswers: ['C'],
@@ -451,7 +451,7 @@ export const AZURE_AZ104_QUESTIONS_14 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy both virtual machines into the same Azure App Service Plan." },
-      { id: 'B', text: "Deploy the virtual machines into an Azure Availability Set configured with fault domains and update domains." },
+      { id: 'B', text: "Put the VMs in an availability set with fault and update domains." },
       { id: 'C', text: "Configure an Azure Bastion host to manage both virtual machines." },
       { id: 'D', text: "Place both virtual machines on the same physical host hardware rack." }
     ],
@@ -472,7 +472,7 @@ export const AZURE_AZ104_QUESTIONS_14 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Configure an Azure Bastion host to manage both virtual machines." },
-      { id: 'B', text: "Deploy the virtual machines into an Azure Availability Set configured with fault domains and update domains." },
+      { id: 'B', text: "Put the VMs in an availability set with fault and update domains." },
       { id: 'C', text: "Deploy both virtual machines into the same Azure App Service Plan." },
       { id: 'D', text: "Place both virtual machines on the same physical host hardware rack." }
     ],
@@ -494,7 +494,7 @@ export const AZURE_AZ104_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Place both virtual machines on the same physical host hardware rack." },
       { id: 'B', text: "Configure an Azure Bastion host to manage both virtual machines." },
-      { id: 'C', text: "Deploy the virtual machines into an Azure Availability Set configured with fault domains and update domains." },
+      { id: 'C', text: "Put the VMs in an availability set with fault and update domains." },
       { id: 'D', text: "Deploy both virtual machines into the same Azure App Service Plan." }
     ],
     correctAnswers: ['C'],
@@ -514,7 +514,7 @@ export const AZURE_AZ104_QUESTIONS_14 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Deploy both virtual machines into the same Azure App Service Plan." },
-      { id: 'B', text: "Deploy the virtual machines into an Azure Availability Set configured with fault domains and update domains." },
+      { id: 'B', text: "Put the VMs in an availability set with fault and update domains." },
       { id: 'C', text: "Configure an Azure Bastion host to manage both virtual machines." },
       { id: 'D', text: "Place both virtual machines on the same physical host hardware rack." }
     ],

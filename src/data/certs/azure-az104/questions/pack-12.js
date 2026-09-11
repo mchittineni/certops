@@ -10,7 +10,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy an Azure Automation runbook scheduled to delete untagged resource groups daily." },
-      { id: 'B', text: "Assign an Azure Policy definition with the 'Modify' effect and trigger a remediation task for existing resources." },
+      { id: 'B', text: "An Azure Policy with the Modify effect, plus a remediation task." },
       { id: 'C', text: "Send email notifications requesting resource owners to add the missing tags manually." },
       { id: 'D', text: "Assign an Azure Policy definition with the 'Audit' effect and review the compliance report." }
     ],
@@ -31,7 +31,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Send email notifications requesting resource owners to add the missing tags manually." },
-      { id: 'B', text: "Assign an Azure Policy definition with the 'Modify' effect and trigger a remediation task for existing resources." },
+      { id: 'B', text: "An Azure Policy with the Modify effect, plus a remediation task." },
       { id: 'C', text: "Deploy an Azure Automation runbook scheduled to delete untagged resource groups daily." },
       { id: 'D', text: "Assign an Azure Policy definition with the 'Audit' effect and review the compliance report." }
     ],
@@ -52,7 +52,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy an Azure Automation runbook scheduled to delete untagged resource groups daily." },
-      { id: 'B', text: "Assign an Azure Policy definition with the 'Modify' effect and trigger a remediation task for existing resources." },
+      { id: 'B', text: "An Azure Policy with the Modify effect, plus a remediation task." },
       { id: 'C', text: "Send email notifications requesting resource owners to add the missing tags manually." },
       { id: 'D', text: "Assign an Azure Policy definition with the 'Audit' effect and review the compliance report." }
     ],
@@ -75,7 +75,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
       { id: 'A', text: "Deploy an Azure Automation runbook scheduled to delete untagged resource groups daily." },
       { id: 'B', text: "Assign an Azure Policy definition with the 'Audit' effect and review the compliance report." },
       { id: 'C', text: "Send email notifications requesting resource owners to add the missing tags manually." },
-      { id: 'D', text: "Assign an Azure Policy definition with the 'Modify' effect and trigger a remediation task for existing resources." }
+      { id: 'D', text: "An Azure Policy with the Modify effect, plus a remediation task." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -96,7 +96,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
       { id: 'A', text: "Assign an Azure Policy definition with the 'Audit' effect and review the compliance report." },
       { id: 'B', text: "Send email notifications requesting resource owners to add the missing tags manually." },
       { id: 'C', text: "Deploy an Azure Automation runbook scheduled to delete untagged resource groups daily." },
-      { id: 'D', text: "Assign an Azure Policy definition with the 'Modify' effect and trigger a remediation task for existing resources." }
+      { id: 'D', text: "An Azure Policy with the Modify effect, plus a remediation task." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -114,7 +114,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Governance to organize 50 enterprise subscriptions into environments (Production, Development, Sandbox) and ensure governance policies cascade automatically to all child subscriptions.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Structure subscriptions beneath a root Management Group with child Management Groups and assign policies at parent scopes." },
+      { id: 'A', text: "Subscriptions under nested management groups, with policies at the parents." },
       { id: 'B', text: "Manage all 50 subscriptions independently with duplicate standalone policy assignments." },
       { id: 'C', text: "Disable management groups and rely on resource group naming conventions." },
       { id: 'D', text: "Merge all 50 subscriptions into a single monolithic Azure subscription." }
@@ -135,7 +135,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure Governance to organize 50 enterprise subscriptions into environments (Production, Development, Sandbox) and ensure governance policies cascade automatically to all child subscriptions.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Structure subscriptions beneath a root Management Group with child Management Groups and assign policies at parent scopes." },
+      { id: 'A', text: "Subscriptions under nested management groups, with policies at the parents." },
       { id: 'B', text: "Merge all 50 subscriptions into a single monolithic Azure subscription." },
       { id: 'C', text: "Manage all 50 subscriptions independently with duplicate standalone policy assignments." },
       { id: 'D', text: "Disable management groups and rely on resource group naming conventions." }
@@ -156,7 +156,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Azure Governance to organize 50 enterprise subscriptions into environments (Production, Development, Sandbox) and ensure governance policies cascade automatically to all child subscriptions.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Structure subscriptions beneath a root Management Group with child Management Groups and assign policies at parent scopes." },
+      { id: 'A', text: "Subscriptions under nested management groups, with policies at the parents." },
       { id: 'B', text: "Disable management groups and rely on resource group naming conventions." },
       { id: 'C', text: "Merge all 50 subscriptions into a single monolithic Azure subscription." },
       { id: 'D', text: "Manage all 50 subscriptions independently with duplicate standalone policy assignments." }
@@ -178,7 +178,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Disable management groups and rely on resource group naming conventions." },
-      { id: 'B', text: "Structure subscriptions beneath a root Management Group with child Management Groups and assign policies at parent scopes." },
+      { id: 'B', text: "Subscriptions under nested management groups, with policies at the parents." },
       { id: 'C', text: "Manage all 50 subscriptions independently with duplicate standalone policy assignments." },
       { id: 'D', text: "Merge all 50 subscriptions into a single monolithic Azure subscription." }
     ],
@@ -200,7 +200,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Manage all 50 subscriptions independently with duplicate standalone policy assignments." },
       { id: 'B', text: "Merge all 50 subscriptions into a single monolithic Azure subscription." },
-      { id: 'C', text: "Structure subscriptions beneath a root Management Group with child Management Groups and assign policies at parent scopes." },
+      { id: 'C', text: "Subscriptions under nested management groups, with policies at the parents." },
       { id: 'D', text: "Disable management groups and rely on resource group naming conventions." }
     ],
     correctAnswers: ['C'],
@@ -325,7 +325,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Set virtual machine quotas to zero in the Azure subscription settings." },
-      { id: 'B', text: "Configure an Azure Cost Management budget with an alert threshold linked to an Azure Monitor Action Group." },
+      { id: 'B', text: "A Cost Management budget with an alert threshold on an action group." },
       { id: 'C', text: "Check the billing invoice manually at the end of each calendar quarter." },
       { id: 'D', text: "Assign an Azure Policy definition to deny all VM creation when cost thresholds are exceeded." }
     ],
@@ -348,7 +348,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
       { id: 'A', text: "Check the billing invoice manually at the end of each calendar quarter." },
       { id: 'B', text: "Set virtual machine quotas to zero in the Azure subscription settings." },
       { id: 'C', text: "Assign an Azure Policy definition to deny all VM creation when cost thresholds are exceeded." },
-      { id: 'D', text: "Configure an Azure Cost Management budget with an alert threshold linked to an Azure Monitor Action Group." }
+      { id: 'D', text: "A Cost Management budget with an alert threshold on an action group." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -367,7 +367,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Check the billing invoice manually at the end of each calendar quarter." },
-      { id: 'B', text: "Configure an Azure Cost Management budget with an alert threshold linked to an Azure Monitor Action Group." },
+      { id: 'B', text: "A Cost Management budget with an alert threshold on an action group." },
       { id: 'C', text: "Assign an Azure Policy definition to deny all VM creation when cost thresholds are exceeded." },
       { id: 'D', text: "Set virtual machine quotas to zero in the Azure subscription settings." }
     ],
@@ -390,7 +390,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
       { id: 'A', text: "Set virtual machine quotas to zero in the Azure subscription settings." },
       { id: 'B', text: "Check the billing invoice manually at the end of each calendar quarter." },
       { id: 'C', text: "Assign an Azure Policy definition to deny all VM creation when cost thresholds are exceeded." },
-      { id: 'D', text: "Configure an Azure Cost Management budget with an alert threshold linked to an Azure Monitor Action Group." }
+      { id: 'D', text: "A Cost Management budget with an alert threshold on an action group." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -409,7 +409,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Assign an Azure Policy definition to deny all VM creation when cost thresholds are exceeded." },
-      { id: 'B', text: "Configure an Azure Cost Management budget with an alert threshold linked to an Azure Monitor Action Group." },
+      { id: 'B', text: "A Cost Management budget with an alert threshold on an action group." },
       { id: 'C', text: "Set virtual machine quotas to zero in the Azure subscription settings." },
       { id: 'D', text: "Check the billing invoice manually at the end of each calendar quarter." }
     ],
@@ -432,7 +432,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
       { id: 'A', text: "Create secondary administrative accounts with static passwords stored in desktop text files." },
       { id: 'B', text: "Require administrators to request password resets from the helpdesk whenever they need to make changes." },
       { id: 'C', text: "Grant permanent Owner permissions to all cloud engineers across the production subscription." },
-      { id: 'D', text: "Implement Microsoft Entra Privileged Identity Management (PIM) with eligible role assignments and approval workflows." }
+      { id: 'D', text: "Microsoft Entra PIM with eligible assignments and approval workflows." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -451,7 +451,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Create secondary administrative accounts with static passwords stored in desktop text files." },
-      { id: 'B', text: "Implement Microsoft Entra Privileged Identity Management (PIM) with eligible role assignments and approval workflows." },
+      { id: 'B', text: "Microsoft Entra PIM with eligible assignments and approval workflows." },
       { id: 'C', text: "Require administrators to request password resets from the helpdesk whenever they need to make changes." },
       { id: 'D', text: "Grant permanent Owner permissions to all cloud engineers across the production subscription." }
     ],
@@ -472,7 +472,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Require administrators to request password resets from the helpdesk whenever they need to make changes." },
-      { id: 'B', text: "Implement Microsoft Entra Privileged Identity Management (PIM) with eligible role assignments and approval workflows." },
+      { id: 'B', text: "Microsoft Entra PIM with eligible assignments and approval workflows." },
       { id: 'C', text: "Grant permanent Owner permissions to all cloud engineers across the production subscription." },
       { id: 'D', text: "Create secondary administrative accounts with static passwords stored in desktop text files." }
     ],
@@ -495,7 +495,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
       { id: 'A', text: "Require administrators to request password resets from the helpdesk whenever they need to make changes." },
       { id: 'B', text: "Create secondary administrative accounts with static passwords stored in desktop text files." },
       { id: 'C', text: "Grant permanent Owner permissions to all cloud engineers across the production subscription." },
-      { id: 'D', text: "Implement Microsoft Entra Privileged Identity Management (PIM) with eligible role assignments and approval workflows." }
+      { id: 'D', text: "Microsoft Entra PIM with eligible assignments and approval workflows." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -514,7 +514,7 @@ export const AZURE_AZ104_QUESTIONS_12 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Grant permanent Owner permissions to all cloud engineers across the production subscription." },
-      { id: 'B', text: "Implement Microsoft Entra Privileged Identity Management (PIM) with eligible role assignments and approval workflows." },
+      { id: 'B', text: "Microsoft Entra PIM with eligible assignments and approval workflows." },
       { id: 'C', text: "Create secondary administrative accounts with static passwords stored in desktop text files." },
       { id: 'D', text: "Require administrators to request password resets from the helpdesk whenever they need to make changes." }
     ],
