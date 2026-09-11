@@ -67,7 +67,6 @@ export function renderQuiz(state) {
 
         <div class="question-header">
           <div class="question-domain">${quiz.mode === 'daily' ? `<span class="from-cert">${escapeHtml(q.certId)}</span> · ` : ''}${escapeHtml(q.domainName)} ${quiz.difficulty === 'adaptive' ? difficultyPill(q.difficulty) : ''}</div>
-          <h2 class="question-title">${escapeHtml(q.title)}</h2>
           <div class="question-scenario">${escapeHtml(q.scenario)}</div>
           <div class="question-prompt">${escapeHtml(q.question)}</div>
           ${q.type === 'multiple' ? '<div class="multi-hint">Multiple answers required — select every option that applies.</div>' : ''}

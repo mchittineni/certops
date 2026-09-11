@@ -39,40 +39,74 @@ export const terms = s => new Set(
  * @returns {null|{n, longest, strawman, leak, delta, breached, worst}} percentages,
  *   or null when nothing in the list is scoreable.
  */
+/**
+ * How often a term may appear across a bank's stems and still count as a
+ * giveaway. A word the bank uses everywhere ("azure" in an Azure exam) tells a
+ * candidate nothing; a word used by a handful of items ("gvisor", "snapstart")
+ * points straight at one answer.
+ */
+const distinctiveCap = n => Math.max(3, Math.round(n * 0.02));
+
+/**
+ * The text a candidate actually reads while answering. Titles are deliberately
+ * excluded: src/views/quiz.js renders the scenario and the question, and the
+ * bank browser and results review are the only places a title is shown, where
+ * the answer is already visible anyway.
+ */
+const stemOf = q => `${q.question} ${q.scenario}`;
+
+const splitOptions = q => {
+  const key = new Set(q.correctAnswers);
+  const keys = q.options.filter(o => key.has(o.id));
+  return { keys, distractors: q.options.filter(o => !key.has(o.id)) };
+};
+
+/**
+ * @param {object[]} questions items with options[] and correctAnswers[]
+ * @returns {null|{n, longest, strawman, leak, delta, breached, worst}} percentages,
+ *   or null when nothing in the list is scoreable.
+ */
 export function scoreCertification(questions) {
   const usable = (questions || []).filter(q => q.options?.length && q.correctAnswers?.length);
   if (!usable.length) return null;
+
+  // How widely each term is used across this bank's own stems, so that
+  // distinctiveness is judged against the subject matter rather than English.
+  const df = new Map();
+  for (const q of usable) {
+    for (const t of terms(stemOf(q))) df.set(t, (df.get(t) || 0) + 1);
+  }
+  const cap = distinctiveCap(usable.length);
 
   let longestHit = 0, longestN = 0, strawQ = 0, leakQ = 0;
   let keyLen = 0, keyN = 0, distLen = 0, distN = 0;
   const worst = [];
 
   for (const q of usable) {
-    const key = new Set(q.correctAnswers);
-    const opts = q.options.map(o => ({ ok: key.has(o.id), text: o.text || '', len: (o.text || '').length }));
-    const keys = opts.filter(o => o.ok);
-    const distractors = opts.filter(o => !o.ok);
+    const { keys, distractors } = splitOptions(q);
     if (!keys.length || !distractors.length) continue;
 
-    const max = Math.max(...opts.map(o => o.len));
-    const longest = opts.filter(o => o.len === max);
-    if (longest.length === 1) { longestN++; if (longest[0].ok) longestHit++; }
+    const lens = q.options.map(o => (o.text || '').length);
+    const max = Math.max(...lens);
+    const longest = q.options.filter(o => (o.text || '').length === max);
+    const keyIds = new Set(keys.map(o => o.id));
+    if (longest.length === 1) { longestN++; if (keyIds.has(longest[0].id)) longestHit++; }
 
-    keyLen += keys.reduce((s, o) => s + o.len, 0); keyN += keys.length;
-    distLen += distractors.reduce((s, o) => s + o.len, 0); distN += distractors.length;
+    keyLen += keys.reduce((s, o) => s + (o.text || '').length, 0); keyN += keys.length;
+    distLen += distractors.reduce((s, o) => s + (o.text || '').length, 0); distN += distractors.length;
 
-    const straw = distractors.some(o => STRAWMAN.some(re => re.test(o.text)));
+    const straw = distractors.some(o => STRAWMAN.some(re => re.test(o.text || '')));
     if (straw) strawQ++;
 
-    // The scenario counts: a candidate reads it alongside the stem, so a topic
-    // named there gives the answer away just as effectively as one in the title.
-    const stem = terms(`${q.title} ${q.question} ${q.scenario}`);
-    const keyTerms = new Set(keys.flatMap(o => [...terms(o.text)]));
-    const distTerms = new Set(distractors.flatMap(o => [...terms(o.text)]));
-    const leaked = [...keyTerms].filter(t => stem.has(t) && !distTerms.has(t));
+    const stem = terms(stemOf(q));
+    const keyTerms = new Set(keys.flatMap(o => [...terms(o.text || '')]));
+    const distTerms = new Set(distractors.flatMap(o => [...terms(o.text || '')]));
+    const leaked = [...keyTerms].filter(
+      t => stem.has(t) && !distTerms.has(t) && (df.get(t) || 0) <= cap
+    );
     if (leaked.length) leakQ++;
 
-    if (worst.length < 3 && straw && leaked.length && longest.length === 1 && longest[0].ok) {
+    if (worst.length < 3 && straw && leaked.length && longest.length === 1 && keyIds.has(longest[0].id)) {
       worst.push({ id: q.id, leaked: leaked.slice(0, 3) });
     }
   }
