@@ -18,7 +18,16 @@ const QUESTION_SIGNALS = [
   [/Comprehensive .*explanation for .*topic #\d+/i, 'templated explanation'],
   [/Optimal recommended solution/i, 'answer is self-labelled as correct'],
   [/^Option [A-F]:/m, 'option text hard-codes a letter'],
-  [/requirement #\d+/i, 'templated scenario']
+  [/requirement #\d+/i, 'templated scenario'],
+  // A second template family, which the signals above miss entirely. The key is
+  // boilerplate with the topic name interpolated into it, so the item asserts
+  // nothing a candidate could know or verify, and every instance shares one pool
+  // of three distractors. Rewriting the distractors cannot rescue these: the
+  // question itself has no content.
+  [/^Deploy native automation for /im, 'key is boilerplate with the topic interpolated'],
+  [/^Implementing declarative automation and native policy guardrails/im, 'templated explanation'],
+  [/Operational Strategy \(Part \d+\)/i, 'templated title'],
+  [/is evaluating .+ practices specifically regarding/i, 'templated scenario']
 ];
 const CARD_SIGNALS = [
   [/(?:Topic|Concept|card) #\d+/i, 'templated card'],
