@@ -6,7 +6,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Pod Topology Spread Constraints: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Topology Spread to distribute web application pods evenly across multiple availability zones to maintain balanced capacity and resilience against regional zone outages.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to distribute web application pods evenly across multiple availability zones to maintain balanced capacity and resilience against regional zone outages.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Set `maxSkew: 100` to allow all pods to cluster in a single zone." },
@@ -27,7 +27,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Pod Topology Spread Constraints: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Topology Spread to distribute web application pods evenly across multiple availability zones to maintain balanced capacity and resilience against regional zone outages.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to distribute web application pods evenly across multiple availability zones to maintain balanced capacity and resilience against regional zone outages.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Define `topologySpreadConstraints` in the pod spec with `topologyKey: topology.kubernetes.io/zone`, a defined `maxSkew`, and `whenUnsatisfiable: DoNotSchedule`." },
@@ -48,7 +48,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Pod Topology Spread Constraints: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Topology Spread to distribute web application pods evenly across multiple availability zones to maintain balanced capacity and resilience against regional zone outages.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to distribute web application pods evenly across multiple availability zones to maintain balanced capacity and resilience against regional zone outages.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Disable multi-zone scheduling in kube-scheduler configuration." },
@@ -69,7 +69,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Pod Topology Spread Constraints: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Topology Spread to distribute web application pods evenly across multiple availability zones to maintain balanced capacity and resilience against regional zone outages.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to distribute web application pods evenly across multiple availability zones to maintain balanced capacity and resilience against regional zone outages.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Disable multi-zone scheduling in kube-scheduler configuration." },
@@ -90,7 +90,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Pod Topology Spread Constraints: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Topology Spread to distribute web application pods evenly across multiple availability zones to maintain balanced capacity and resilience against regional zone outages.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to distribute web application pods evenly across multiple availability zones to maintain balanced capacity and resilience against regional zone outages.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Disable multi-zone scheduling in kube-scheduler configuration." },
@@ -111,7 +111,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Pod Disruption Budgets (PDB): Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Availability Safeguards to prevent node drains and voluntary cluster maintenance from taking down too many replicas of an essential payment processing service simultaneously.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to prevent node drains and voluntary cluster maintenance from taking down too many replicas of an essential payment processing service simultaneously.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Create a `PodDisruptionBudget` (PDB) resource specifying `minAvailable: 80%` or `maxUnavailable: 1` matching the payment deployment selector." },
@@ -132,7 +132,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Pod Disruption Budgets (PDB): High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Availability Safeguards to prevent node drains and voluntary cluster maintenance from taking down too many replicas of an essential payment processing service simultaneously.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to prevent node drains and voluntary cluster maintenance from taking down too many replicas of an essential payment processing service simultaneously.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Set `maxUnavailable: 100%` in the deployment manifest." },
@@ -153,7 +153,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Pod Disruption Budgets (PDB): Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Availability Safeguards to prevent node drains and voluntary cluster maintenance from taking down too many replicas of an essential payment processing service simultaneously.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to prevent node drains and voluntary cluster maintenance from taking down too many replicas of an essential payment processing service simultaneously.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Set `maxUnavailable: 100%` in the deployment manifest." },
@@ -174,7 +174,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Pod Disruption Budgets (PDB): Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Availability Safeguards to prevent node drains and voluntary cluster maintenance from taking down too many replicas of an essential payment processing service simultaneously.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to prevent node drains and voluntary cluster maintenance from taking down too many replicas of an essential payment processing service simultaneously.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Set `maxUnavailable: 100%` in the deployment manifest." },
@@ -195,7 +195,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Pod Disruption Budgets (PDB): Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Availability Safeguards to prevent node drains and voluntary cluster maintenance from taking down too many replicas of an essential payment processing service simultaneously.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to prevent node drains and voluntary cluster maintenance from taking down too many replicas of an essential payment processing service simultaneously.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Disable the Kubernetes Eviction API across all control plane nodes." },
@@ -216,7 +216,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Horizontal Pod Autoscaler (HPA): Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Workload Autoscaling to automatically increase or decrease the number of web frontend pod replicas based on incoming HTTP traffic and CPU consumption spikes.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to automatically increase or decrease the number of web frontend pod replicas based on incoming HTTP traffic and CPU consumption spikes.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Set container CPU requests to zero so pods appear to use infinite CPU." },
@@ -237,7 +237,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Horizontal Pod Autoscaler (HPA): High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Workload Autoscaling to automatically increase or decrease the number of web frontend pod replicas based on incoming HTTP traffic and CPU consumption spikes.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to automatically increase or decrease the number of web frontend pod replicas based on incoming HTTP traffic and CPU consumption spikes.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Deploy a `HorizontalPodAutoscaler` (HPA) targeting the Deployment with a defined target average CPU utilization percentage." },
@@ -258,7 +258,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Horizontal Pod Autoscaler (HPA): Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Workload Autoscaling to automatically increase or decrease the number of web frontend pod replicas based on incoming HTTP traffic and CPU consumption spikes.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to automatically increase or decrease the number of web frontend pod replicas based on incoming HTTP traffic and CPU consumption spikes.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Deploy a `HorizontalPodAutoscaler` (HPA) targeting the Deployment with a defined target average CPU utilization percentage." },
@@ -279,7 +279,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Horizontal Pod Autoscaler (HPA): Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Workload Autoscaling to automatically increase or decrease the number of web frontend pod replicas based on incoming HTTP traffic and CPU consumption spikes.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to automatically increase or decrease the number of web frontend pod replicas based on incoming HTTP traffic and CPU consumption spikes.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Manually scale the deployment up to 500 replicas permanently to handle potential peak traffic." },
@@ -300,7 +300,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Horizontal Pod Autoscaler (HPA): Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Workload Autoscaling to automatically increase or decrease the number of web frontend pod replicas based on incoming HTTP traffic and CPU consumption spikes.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to automatically increase or decrease the number of web frontend pod replicas based on incoming HTTP traffic and CPU consumption spikes.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Deploy a `HorizontalPodAutoscaler` (HPA) targeting the Deployment with a defined target average CPU utilization percentage." },
@@ -321,7 +321,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Kubeadm Cluster Initialization: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Cluster Bootstrap to initialize a production-ready Kubernetes control plane node using kubeadm with support for standard CNI pod networking.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to initialize a production-ready Kubernetes control plane node using kubeadm with support for standard CNI pod networking.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Manually compile the apiserver, scheduler, and controller-manager binaries from source code." },
@@ -342,7 +342,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Kubeadm Cluster Initialization: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Cluster Bootstrap to initialize a production-ready Kubernetes control plane node using kubeadm with support for standard CNI pod networking.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to initialize a production-ready Kubernetes control plane node using kubeadm with support for standard CNI pod networking.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Manually compile the apiserver, scheduler, and controller-manager binaries from source code." },
@@ -363,7 +363,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Kubeadm Cluster Initialization: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Cluster Bootstrap to initialize a production-ready Kubernetes control plane node using kubeadm with support for standard CNI pod networking.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to initialize a production-ready Kubernetes control plane node using kubeadm with support for standard CNI pod networking.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Manually compile the apiserver, scheduler, and controller-manager binaries from source code." },
@@ -384,7 +384,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Kubeadm Cluster Initialization: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Cluster Bootstrap to initialize a production-ready Kubernetes control plane node using kubeadm with support for standard CNI pod networking.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to initialize a production-ready Kubernetes control plane node using kubeadm with support for standard CNI pod networking.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Execute `kubeadm init --pod-network-cidr=192.168.0.0/16` with pre-configured container runtime prerequisites." },
@@ -405,7 +405,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Kubeadm Cluster Initialization: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Cluster Bootstrap to initialize a production-ready Kubernetes control plane node using kubeadm with support for standard CNI pod networking.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to initialize a production-ready Kubernetes control plane node using kubeadm with support for standard CNI pod networking.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Install all Kubernetes components as systemd units without containerization or certificates." },
@@ -426,7 +426,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Kubeadm Cluster Upgrades: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Cluster Upgrades to upgrade a Kubernetes cluster safely from version 1.28 to 1.29 without skipping minor versions or causing API downtime.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to upgrade a Kubernetes cluster safely from version 1.28 to 1.29 without skipping minor versions or causing API downtime.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Upgrade `kubeadm` first, execute `kubeadm upgrade plan` and `kubeadm upgrade apply`, then upgrade `kubectl` and `kubelet` followed by node daemon reload." },
@@ -447,7 +447,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Kubeadm Cluster Upgrades: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Cluster Upgrades to upgrade a Kubernetes cluster safely from version 1.28 to 1.29 without skipping minor versions or causing API downtime.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to upgrade a Kubernetes cluster safely from version 1.28 to 1.29 without skipping minor versions or causing API downtime.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Upgrade all worker node kubelets before upgrading the control plane apiserver." },
@@ -468,7 +468,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Kubeadm Cluster Upgrades: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Cluster Upgrades to upgrade a Kubernetes cluster safely from version 1.28 to 1.29 without skipping minor versions or causing API downtime.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to upgrade a Kubernetes cluster safely from version 1.28 to 1.29 without skipping minor versions or causing API downtime.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Upgrade all worker node kubelets before upgrading the control plane apiserver." },
@@ -489,7 +489,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Kubeadm Cluster Upgrades: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Cluster Upgrades to upgrade a Kubernetes cluster safely from version 1.28 to 1.29 without skipping minor versions or causing API downtime.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to upgrade a Kubernetes cluster safely from version 1.28 to 1.29 without skipping minor versions or causing API downtime.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Delete the cluster and restore etcd on a fresh server running the new version." },
@@ -510,7 +510,7 @@ export const K8S_CKA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Kubeadm Cluster Upgrades: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Cluster Upgrades to upgrade a Kubernetes cluster safely from version 1.28 to 1.29 without skipping minor versions or causing API downtime.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to upgrade a Kubernetes cluster safely from version 1.28 to 1.29 without skipping minor versions or causing API downtime.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Delete the cluster and restore etcd on a fresh server running the new version." },

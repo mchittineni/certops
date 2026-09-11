@@ -6,7 +6,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Argo CD ApplicationSet Controller: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates ApplicationSet to automatically deploy a standard security and monitoring stack across 50 regional Kubernetes clusters based on cluster metadata.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to automatically deploy a standard security and monitoring stack across 50 regional Kubernetes clusters based on cluster metadata.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Create and maintain 50 individual Application YAML manifests manually." },
@@ -27,7 +27,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Argo CD ApplicationSet Controller: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates ApplicationSet to automatically deploy a standard security and monitoring stack across 50 regional Kubernetes clusters based on cluster metadata.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to automatically deploy a standard security and monitoring stack across 50 regional Kubernetes clusters based on cluster metadata.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Create and maintain 50 individual Application YAML manifests manually." },
@@ -48,7 +48,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Argo CD ApplicationSet Controller: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates ApplicationSet to automatically deploy a standard security and monitoring stack across 50 regional Kubernetes clusters based on cluster metadata.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to automatically deploy a standard security and monitoring stack across 50 regional Kubernetes clusters based on cluster metadata.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Deploy an Argo CD `ApplicationSet` resource using the `Cluster` or `Git` generator to dynamically generate Applications across target clusters." },
@@ -69,7 +69,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Argo CD ApplicationSet Controller: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates ApplicationSet to automatically deploy a standard security and monitoring stack across 50 regional Kubernetes clusters based on cluster metadata.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to automatically deploy a standard security and monitoring stack across 50 regional Kubernetes clusters based on cluster metadata.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Deploy the applications to only one cluster and ignore the other 49." },
@@ -90,7 +90,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Argo CD ApplicationSet Controller: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates ApplicationSet to automatically deploy a standard security and monitoring stack across 50 regional Kubernetes clusters based on cluster metadata.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to automatically deploy a standard security and monitoring stack across 50 regional Kubernetes clusters based on cluster metadata.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Deploy the applications to only one cluster and ignore the other 49." },
@@ -111,7 +111,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Flux Kustomization Controller and Dependencies: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Flux Architecture to ensure that cluster CRDs and foundational infrastructure (like cert-manager) are fully installed before application workloads are reconciled.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to ensure that cluster CRDs and foundational infrastructure (like cert-manager) are fully installed before application workloads are reconciled.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Put all CRDs and applications into a single un-ordered folder." },
@@ -132,7 +132,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Flux Kustomization Controller and Dependencies: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Flux Architecture to ensure that cluster CRDs and foundational infrastructure (like cert-manager) are fully installed before application workloads are reconciled.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to ensure that cluster CRDs and foundational infrastructure (like cert-manager) are fully installed before application workloads are reconciled.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Install CRDs manually before starting the Flux controller." },
@@ -153,7 +153,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Flux Kustomization Controller and Dependencies: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Flux Architecture to ensure that cluster CRDs and foundational infrastructure (like cert-manager) are fully installed before application workloads are reconciled.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to ensure that cluster CRDs and foundational infrastructure (like cert-manager) are fully installed before application workloads are reconciled.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Rely on random controller reconciliation order." },
@@ -174,7 +174,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Flux Kustomization Controller and Dependencies: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Flux Architecture to ensure that cluster CRDs and foundational infrastructure (like cert-manager) are fully installed before application workloads are reconciled.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to ensure that cluster CRDs and foundational infrastructure (like cert-manager) are fully installed before application workloads are reconciled.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Put all CRDs and applications into a single un-ordered folder." },
@@ -195,7 +195,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Flux Kustomization Controller and Dependencies: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Flux Architecture to ensure that cluster CRDs and foundational infrastructure (like cert-manager) are fully installed before application workloads are reconciled.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to ensure that cluster CRDs and foundational infrastructure (like cert-manager) are fully installed before application workloads are reconciled.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Put all CRDs and applications into a single un-ordered folder." },
@@ -216,7 +216,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "GitOps Repository Branch Protection and PR Workflow: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Repository Governance to guarantee that no single engineer can unilaterally push unreviewed configuration changes directly into production GitOps repositories.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to guarantee that no single engineer can unilaterally push unreviewed configuration changes directly into production GitOps repositories.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Share the repository administrator password with all contractors." },
@@ -237,7 +237,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "GitOps Repository Branch Protection and PR Workflow: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Repository Governance to guarantee that no single engineer can unilaterally push unreviewed configuration changes directly into production GitOps repositories.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to guarantee that no single engineer can unilaterally push unreviewed configuration changes directly into production GitOps repositories.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Allow all developers to push directly to `main` via `git push origin main`." },
@@ -258,7 +258,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "GitOps Repository Branch Protection and PR Workflow: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Repository Governance to guarantee that no single engineer can unilaterally push unreviewed configuration changes directly into production GitOps repositories.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to guarantee that no single engineer can unilaterally push unreviewed configuration changes directly into production GitOps repositories.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Allow all developers to push directly to `main` via `git push origin main`." },
@@ -279,7 +279,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "GitOps Repository Branch Protection and PR Workflow: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Repository Governance to guarantee that no single engineer can unilaterally push unreviewed configuration changes directly into production GitOps repositories.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to guarantee that no single engineer can unilaterally push unreviewed configuration changes directly into production GitOps repositories.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Enable GitHub/GitLab branch protection on the deployment branch requiring peer reviews, passing CI validation checks, and linear history." },
@@ -300,7 +300,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "GitOps Repository Branch Protection and PR Workflow: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Repository Governance to guarantee that no single engineer can unilaterally push unreviewed configuration changes directly into production GitOps repositories.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to guarantee that no single engineer can unilaterally push unreviewed configuration changes directly into production GitOps repositories.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Disable pull requests and rely on verbal peer reviews." },
@@ -321,7 +321,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Multi-Cluster GitOps Architecture Patterns: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Multi-Cluster GitOps to choose an architecture for managing 100 edge Kubernetes clusters across retail store locations with intermittent WAN connectivity.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to choose an architecture for managing 100 edge Kubernetes clusters across retail store locations with intermittent WAN connectivity.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Deploy a single central Argo CD server and open inbound firewall ports on all 100 edge clusters." },
@@ -342,7 +342,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Multi-Cluster GitOps Architecture Patterns: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Multi-Cluster GitOps to choose an architecture for managing 100 edge Kubernetes clusters across retail store locations with intermittent WAN connectivity.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to choose an architecture for managing 100 edge Kubernetes clusters across retail store locations with intermittent WAN connectivity.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Manage edge clusters manually via kubectl over cellular connections." },
@@ -363,7 +363,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Multi-Cluster GitOps Architecture Patterns: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Multi-Cluster GitOps to choose an architecture for managing 100 edge Kubernetes clusters across retail store locations with intermittent WAN connectivity.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to choose an architecture for managing 100 edge Kubernetes clusters across retail store locations with intermittent WAN connectivity.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Manage edge clusters manually via kubectl over cellular connections." },
@@ -384,7 +384,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Multi-Cluster GitOps Architecture Patterns: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Multi-Cluster GitOps to choose an architecture for managing 100 edge Kubernetes clusters across retail store locations with intermittent WAN connectivity.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to choose an architecture for managing 100 edge Kubernetes clusters across retail store locations with intermittent WAN connectivity.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Deploy decentralized standalone GitOps agents (Argo CD or Flux) inside each edge cluster pulling from a central Git repository." },
@@ -405,7 +405,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Multi-Cluster GitOps Architecture Patterns: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Multi-Cluster GitOps to choose an architecture for managing 100 edge Kubernetes clusters across retail store locations with intermittent WAN connectivity.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to choose an architecture for managing 100 edge Kubernetes clusters across retail store locations with intermittent WAN connectivity.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Manage edge clusters manually via kubectl over cellular connections." },
@@ -426,7 +426,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Infrastructure as Code (Terraform/Crossplane) in GitOps: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Cloud Resource GitOps to manage external cloud infrastructure (like Amazon RDS and S3) using the same Kubernetes-native GitOps reconciliation loop as container pods.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to manage external cloud infrastructure (like Amazon RDS and S3) using the same Kubernetes-native GitOps reconciliation loop as container pods.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Deploy a cloud-native control plane like Crossplane or Flux TF-controller to reconcile declarative cloud resource CRDs from Git." },
@@ -447,7 +447,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Infrastructure as Code (Terraform/Crossplane) in GitOps: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Cloud Resource GitOps to manage external cloud infrastructure (like Amazon RDS and S3) using the same Kubernetes-native GitOps reconciliation loop as container pods.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to manage external cloud infrastructure (like Amazon RDS and S3) using the same Kubernetes-native GitOps reconciliation loop as container pods.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Cloud resources cannot be managed using GitOps principles." },
@@ -468,7 +468,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Infrastructure as Code (Terraform/Crossplane) in GitOps: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Cloud Resource GitOps to manage external cloud infrastructure (like Amazon RDS and S3) using the same Kubernetes-native GitOps reconciliation loop as container pods.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to manage external cloud infrastructure (like Amazon RDS and S3) using the same Kubernetes-native GitOps reconciliation loop as container pods.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Cloud resources cannot be managed using GitOps principles." },
@@ -489,7 +489,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Infrastructure as Code (Terraform/Crossplane) in GitOps: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Cloud Resource GitOps to manage external cloud infrastructure (like Amazon RDS and S3) using the same Kubernetes-native GitOps reconciliation loop as container pods.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to manage external cloud infrastructure (like Amazon RDS and S3) using the same Kubernetes-native GitOps reconciliation loop as container pods.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Deploy a cloud-native control plane like Crossplane or Flux TF-controller to reconcile declarative cloud resource CRDs from Git." },
@@ -510,7 +510,7 @@ export const CNCF_CGOA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Infrastructure as Code (Terraform/Crossplane) in GitOps: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Cloud Resource GitOps to manage external cloud infrastructure (like Amazon RDS and S3) using the same Kubernetes-native GitOps reconciliation loop as container pods.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to manage external cloud infrastructure (like Amazon RDS and S3) using the same Kubernetes-native GitOps reconciliation loop as container pods.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Create cloud infrastructure by hand in the cloud web console." },

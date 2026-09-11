@@ -6,7 +6,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Git Repository Access Authentication: SSH Keys vs Deploy Keys: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Repo Authentication to grant an in-cluster GitOps controller access to clone a private GitHub repository while enforcing strict least privilege.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to grant an in-cluster GitOps controller access to clone a private GitHub repository while enforcing strict least privilege.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Make the private company repository public to avoid authentication." },
@@ -27,7 +27,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Git Repository Access Authentication: SSH Keys vs Deploy Keys: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Repo Authentication to grant an in-cluster GitOps controller access to clone a private GitHub repository while enforcing strict least privilege.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to grant an in-cluster GitOps controller access to clone a private GitHub repository while enforcing strict least privilege.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Make the private company repository public to avoid authentication." },
@@ -48,7 +48,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Git Repository Access Authentication: SSH Keys vs Deploy Keys: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Repo Authentication to grant an in-cluster GitOps controller access to clone a private GitHub repository while enforcing strict least privilege.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to grant an in-cluster GitOps controller access to clone a private GitHub repository while enforcing strict least privilege.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Make the private company repository public to avoid authentication." },
@@ -69,7 +69,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Git Repository Access Authentication: SSH Keys vs Deploy Keys: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Repo Authentication to grant an in-cluster GitOps controller access to clone a private GitHub repository while enforcing strict least privilege.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to grant an in-cluster GitOps controller access to clone a private GitHub repository while enforcing strict least privilege.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Configure a repository-specific, read-only SSH Deploy Key (or fine-grained Personal Access Token) with access restricted strictly to that repository." },
@@ -90,7 +90,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Git Repository Access Authentication: SSH Keys vs Deploy Keys: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Repo Authentication to grant an in-cluster GitOps controller access to clone a private GitHub repository while enforcing strict least privilege.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to grant an in-cluster GitOps controller access to clone a private GitHub repository while enforcing strict least privilege.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Generate a personal access token with organization-wide administrator privileges on a developer account." },
@@ -111,7 +111,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "RBAC for GitOps Engines: In-Cluster Controller Permissions: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Controller RBAC to prevent an in-cluster GitOps controller from accidentally or maliciously modifying cluster-wide security policies or kube-system resources.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to prevent an in-cluster GitOps controller from accidentally or maliciously modifying cluster-wide security policies or kube-system resources.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Disable Kubernetes RBAC authorization entirely." },
@@ -132,7 +132,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "RBAC for GitOps Engines: In-Cluster Controller Permissions: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Controller RBAC to prevent an in-cluster GitOps controller from accidentally or maliciously modifying cluster-wide security policies or kube-system resources.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to prevent an in-cluster GitOps controller from accidentally or maliciously modifying cluster-wide security policies or kube-system resources.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Run the controller under the default namespace ServiceAccount with no restrictions." },
@@ -153,7 +153,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "RBAC for GitOps Engines: In-Cluster Controller Permissions: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Controller RBAC to prevent an in-cluster GitOps controller from accidentally or maliciously modifying cluster-wide security policies or kube-system resources.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to prevent an in-cluster GitOps controller from accidentally or maliciously modifying cluster-wide security policies or kube-system resources.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Bind the GitOps controller ServiceAccount to namespace-scoped Roles or restricted ClusterRoles that prohibit modifying cluster-admin bindings or core namespaces." },
@@ -174,7 +174,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "RBAC for GitOps Engines: In-Cluster Controller Permissions: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Controller RBAC to prevent an in-cluster GitOps controller from accidentally or maliciously modifying cluster-wide security policies or kube-system resources.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to prevent an in-cluster GitOps controller from accidentally or maliciously modifying cluster-wide security policies or kube-system resources.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Disable Kubernetes RBAC authorization entirely." },
@@ -195,7 +195,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "RBAC for GitOps Engines: In-Cluster Controller Permissions: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Controller RBAC to prevent an in-cluster GitOps controller from accidentally or maliciously modifying cluster-wide security policies or kube-system resources.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to prevent an in-cluster GitOps controller from accidentally or maliciously modifying cluster-wide security policies or kube-system resources.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Grant `cluster-admin` wildcard (`*`) access to all resources and API groups across the entire cluster unconditionally." },
@@ -216,7 +216,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Validating Manifests in Pre-Commit with Policy Engines: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Pre-Commit Validation to catch syntax errors, deprecated Kubernetes API versions, and security violations in GitOps manifests before pull requests are merged.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to catch syntax errors, deprecated Kubernetes API versions, and security violations in GitOps manifests before pull requests are merged.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Disable CI validation checks to speed up developer pull requests." },
@@ -237,7 +237,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Validating Manifests in Pre-Commit with Policy Engines: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Pre-Commit Validation to catch syntax errors, deprecated Kubernetes API versions, and security violations in GitOps manifests before pull requests are merged.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to catch syntax errors, deprecated Kubernetes API versions, and security violations in GitOps manifests before pull requests are merged.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Disable CI validation checks to speed up developer pull requests." },
@@ -258,7 +258,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Validating Manifests in Pre-Commit with Policy Engines: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Pre-Commit Validation to catch syntax errors, deprecated Kubernetes API versions, and security violations in GitOps manifests before pull requests are merged.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to catch syntax errors, deprecated Kubernetes API versions, and security violations in GitOps manifests before pull requests are merged.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Disable CI validation checks to speed up developer pull requests." },
@@ -279,7 +279,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Validating Manifests in Pre-Commit with Policy Engines: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Pre-Commit Validation to catch syntax errors, deprecated Kubernetes API versions, and security violations in GitOps manifests before pull requests are merged.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to catch syntax errors, deprecated Kubernetes API versions, and security violations in GitOps manifests before pull requests are merged.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Wait for pods to crash in production before diagnosing manifest errors." },
@@ -300,7 +300,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Validating Manifests in Pre-Commit with Policy Engines: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Pre-Commit Validation to catch syntax errors, deprecated Kubernetes API versions, and security violations in GitOps manifests before pull requests are merged.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to catch syntax errors, deprecated Kubernetes API versions, and security violations in GitOps manifests before pull requests are merged.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Disable CI validation checks to speed up developer pull requests." },
@@ -321,7 +321,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Argo CD User Management and SSO Integration: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Argo CD SSO to enable enterprise developers to log into the Argo CD Web UI using corporate Single Sign-On (SSO) with team-based permissions.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to enable enterprise developers to log into the Argo CD Web UI using corporate Single Sign-On (SSO) with team-based permissions.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Disable authentication on the Argo CD web server." },
@@ -342,7 +342,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Argo CD User Management and SSO Integration: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Argo CD SSO to enable enterprise developers to log into the Argo CD Web UI using corporate Single Sign-On (SSO) with team-based permissions.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to enable enterprise developers to log into the Argo CD Web UI using corporate Single Sign-On (SSO) with team-based permissions.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Disable authentication on the Argo CD web server." },
@@ -363,7 +363,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Argo CD User Management and SSO Integration: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Argo CD SSO to enable enterprise developers to log into the Argo CD Web UI using corporate Single Sign-On (SSO) with team-based permissions.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to enable enterprise developers to log into the Argo CD Web UI using corporate Single Sign-On (SSO) with team-based permissions.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Share the root `admin` password on an internal Slack channel." },
@@ -384,7 +384,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Argo CD User Management and SSO Integration: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Argo CD SSO to enable enterprise developers to log into the Argo CD Web UI using corporate Single Sign-On (SSO) with team-based permissions.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to enable enterprise developers to log into the Argo CD Web UI using corporate Single Sign-On (SSO) with team-based permissions.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Configure Dex or native OIDC integration in Argo CD with Microsoft Entra ID or Okta, mapping OIDC groups to Argo CD RBAC roles." },
@@ -405,7 +405,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Argo CD User Management and SSO Integration: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Argo CD SSO to enable enterprise developers to log into the Argo CD Web UI using corporate Single Sign-On (SSO) with team-based permissions.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to enable enterprise developers to log into the Argo CD Web UI using corporate Single Sign-On (SSO) with team-based permissions.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Configure Dex or native OIDC integration in Argo CD with Microsoft Entra ID or Okta, mapping OIDC groups to Argo CD RBAC roles." },
@@ -426,7 +426,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Cryptographic Verification of Manifests in GitOps (Cosign): Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Manifest Signing to guarantee that the GitOps controller only deploys manifests and container images that carry verified cryptographic signatures from approved build engineers.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to guarantee that the GitOps controller only deploys manifests and container images that carry verified cryptographic signatures from approved build engineers.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Allow anonymous developers to push unsigned commits to deployment branches." },
@@ -447,7 +447,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Cryptographic Verification of Manifests in GitOps (Cosign): High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Manifest Signing to guarantee that the GitOps controller only deploys manifests and container images that carry verified cryptographic signatures from approved build engineers.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to guarantee that the GitOps controller only deploys manifests and container images that carry verified cryptographic signatures from approved build engineers.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Allow anonymous developers to push unsigned commits to deployment branches." },
@@ -468,7 +468,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Cryptographic Verification of Manifests in GitOps (Cosign): Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Manifest Signing to guarantee that the GitOps controller only deploys manifests and container images that carry verified cryptographic signatures from approved build engineers.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to guarantee that the GitOps controller only deploys manifests and container images that carry verified cryptographic signatures from approved build engineers.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Disable commit signing checks to reduce developer friction." },
@@ -489,7 +489,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Cryptographic Verification of Manifests in GitOps (Cosign): Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Manifest Signing to guarantee that the GitOps controller only deploys manifests and container images that carry verified cryptographic signatures from approved build engineers.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to guarantee that the GitOps controller only deploys manifests and container images that carry verified cryptographic signatures from approved build engineers.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Allow anonymous developers to push unsigned commits to deployment branches." },
@@ -510,7 +510,7 @@ export const CNCF_CGOA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Cryptographic Verification of Manifests in GitOps (Cosign): Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Manifest Signing to guarantee that the GitOps controller only deploys manifests and container images that carry verified cryptographic signatures from approved build engineers.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to guarantee that the GitOps controller only deploys manifests and container images that carry verified cryptographic signatures from approved build engineers.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Trust all commits and image tags blindly without cryptographic verification." },

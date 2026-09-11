@@ -6,7 +6,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "JavaScript Actions with @actions/core and @actions/github: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates JavaScript Actions to author a custom JavaScript action that retrieves workflow inputs, calls the GitHub REST API, and sets output parameters.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to author a custom JavaScript action that retrieves workflow inputs, calls the GitHub REST API, and sets output parameters.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives? Authoring Node.",
     options: [
       { id: 'A', text: "Use `@actions/core` to read inputs (`core.getInput`) and set outputs (`core.setOutput`), and `@actions/github` for Octokit API interactions." },
@@ -27,7 +27,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "JavaScript Actions with @actions/core and @actions/github: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates JavaScript Actions to author a custom JavaScript action that retrieves workflow inputs, calls the GitHub REST API, and sets output parameters.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to author a custom JavaScript action that retrieves workflow inputs, calls the GitHub REST API, and sets output parameters.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency? Authoring Node.",
     options: [
       { id: 'A', text: "Parse raw command line arguments manually from process.argv." },
@@ -48,7 +48,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "JavaScript Actions with @actions/core and @actions/github: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates JavaScript Actions to author a custom JavaScript action that retrieves workflow inputs, calls the GitHub REST API, and sets output parameters.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to author a custom JavaScript action that retrieves workflow inputs, calls the GitHub REST API, and sets output parameters.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls? Authoring Node.",
     options: [
       { id: 'A', text: "Parse raw command line arguments manually from process.argv." },
@@ -69,7 +69,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "JavaScript Actions with @actions/core and @actions/github: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates JavaScript Actions to author a custom JavaScript action that retrieves workflow inputs, calls the GitHub REST API, and sets output parameters.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to author a custom JavaScript action that retrieves workflow inputs, calls the GitHub REST API, and sets output parameters.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction? Authoring Node.",
     options: [
       { id: 'A', text: "Use `@actions/core` to read inputs (`core.getInput`) and set outputs (`core.setOutput`), and `@actions/github` for Octokit API interactions." },
@@ -90,7 +90,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "JavaScript Actions with @actions/core and @actions/github: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates JavaScript Actions to author a custom JavaScript action that retrieves workflow inputs, calls the GitHub REST API, and sets output parameters.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to author a custom JavaScript action that retrieves workflow inputs, calls the GitHub REST API, and sets output parameters.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Authoring Node.",
     options: [
       { id: 'A', text: "Use `@actions/core` to read inputs (`core.getInput`) and set outputs (`core.setOutput`), and `@actions/github` for Octokit API interactions." },
@@ -111,7 +111,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Packaging JavaScript Actions with ncc: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Action Packaging to package a JavaScript action with all its external npm dependencies into a single distributable file so it runs without `npm install` on runners.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to package a JavaScript action with all its external npm dependencies into a single distributable file so it runs without `npm install` on runners.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives? Bundling node_modules into a single self-contained index.",
     options: [
       { id: 'A', text: "Host dependencies on an external public FTP server." },
@@ -132,7 +132,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Packaging JavaScript Actions with ncc: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Action Packaging to package a JavaScript action with all its external npm dependencies into a single distributable file so it runs without `npm install` on runners.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to package a JavaScript action with all its external npm dependencies into a single distributable file so it runs without `npm install` on runners.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency? Bundling node_modules into a single self-contained index.",
     options: [
       { id: 'A', text: "Require the consuming workflow to run `npm install` before calling the action." },
@@ -153,7 +153,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Packaging JavaScript Actions with ncc: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Action Packaging to package a JavaScript action with all its external npm dependencies into a single distributable file so it runs without `npm install` on runners.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to package a JavaScript action with all its external npm dependencies into a single distributable file so it runs without `npm install` on runners.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls? Bundling node_modules into a single self-contained index.",
     options: [
       { id: 'A', text: "Host dependencies on an external public FTP server." },
@@ -174,7 +174,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Packaging JavaScript Actions with ncc: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Action Packaging to package a JavaScript action with all its external npm dependencies into a single distributable file so it runs without `npm install` on runners.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to package a JavaScript action with all its external npm dependencies into a single distributable file so it runs without `npm install` on runners.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction? Bundling node_modules into a single self-contained index.",
     options: [
       { id: 'A', text: "Host dependencies on an external public FTP server." },
@@ -195,7 +195,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Packaging JavaScript Actions with ncc: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Action Packaging to package a JavaScript action with all its external npm dependencies into a single distributable file so it runs without `npm install` on runners.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to package a JavaScript action with all its external npm dependencies into a single distributable file so it runs without `npm install` on runners.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Bundling node_modules into a single self-contained index.",
     options: [
       { id: 'A', text: "Host dependencies on an external public FTP server." },
@@ -216,7 +216,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Authoring Docker Container Actions: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Docker Actions to author a custom action that requires specific Linux operating system libraries, custom binaries, and utilities not present on default runners.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to author a custom action that requires specific Linux operating system libraries, custom binaries, and utilities not present on default runners.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives? Authoring Docker actions with Dockerfile and entrypoint.",
     options: [
       { id: 'A', text: "Create a `Dockerfile` and `entrypoint.sh`, specifying `runs: using: 'docker' image: 'Dockerfile'` in `action.yml`." },
@@ -237,7 +237,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Authoring Docker Container Actions: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Docker Actions to author a custom action that requires specific Linux operating system libraries, custom binaries, and utilities not present on default runners.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to author a custom action that requires specific Linux operating system libraries, custom binaries, and utilities not present on default runners.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency? Authoring Docker actions with Dockerfile and entrypoint.",
     options: [
       { id: 'A', text: "Docker container actions are not supported in GitHub Actions." },
@@ -258,7 +258,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Authoring Docker Container Actions: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Docker Actions to author a custom action that requires specific Linux operating system libraries, custom binaries, and utilities not present on default runners.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to author a custom action that requires specific Linux operating system libraries, custom binaries, and utilities not present on default runners.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls? Authoring Docker actions with Dockerfile and entrypoint.",
     options: [
       { id: 'A', text: "Docker container actions are not supported in GitHub Actions." },
@@ -279,7 +279,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Authoring Docker Container Actions: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Docker Actions to author a custom action that requires specific Linux operating system libraries, custom binaries, and utilities not present on default runners.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to author a custom action that requires specific Linux operating system libraries, custom binaries, and utilities not present on default runners.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction? Authoring Docker actions with Dockerfile and entrypoint.",
     options: [
       { id: 'A', text: "Docker container actions are not supported in GitHub Actions." },
@@ -300,7 +300,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Authoring Docker Container Actions: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Docker Actions to author a custom action that requires specific Linux operating system libraries, custom binaries, and utilities not present on default runners.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to author a custom action that requires specific Linux operating system libraries, custom binaries, and utilities not present on default runners.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Authoring Docker actions with Dockerfile and entrypoint.",
     options: [
       { id: 'A', text: "Use a composite action and attempt to compile Linux libraries on Windows runners." },
@@ -321,7 +321,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Versioning and Releasing Actions: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Action Versioning to manage releases for an enterprise custom action so consumers can pin to a stable major version (`@v1`) while receiving non-breaking bug fixes.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to manage releases for an enterprise custom action so consumers can pin to a stable major version (`@v1`) while receiving non-breaking bug fixes.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Create a completely new repository for every bug fix release." },
@@ -342,7 +342,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Versioning and Releasing Actions: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Action Versioning to manage releases for an enterprise custom action so consumers can pin to a stable major version (`@v1`) while receiving non-breaking bug fixes.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to manage releases for an enterprise custom action so consumers can pin to a stable major version (`@v1`) while receiving non-breaking bug fixes.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Force all consumers to reference the mutable `@main` branch." },
@@ -363,7 +363,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Versioning and Releasing Actions: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Action Versioning to manage releases for an enterprise custom action so consumers can pin to a stable major version (`@v1`) while receiving non-breaking bug fixes.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to manage releases for an enterprise custom action so consumers can pin to a stable major version (`@v1`) while receiving non-breaking bug fixes.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Create a completely new repository for every bug fix release." },
@@ -384,7 +384,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Versioning and Releasing Actions: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Action Versioning to manage releases for an enterprise custom action so consumers can pin to a stable major version (`@v1`) while receiving non-breaking bug fixes.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to manage releases for an enterprise custom action so consumers can pin to a stable major version (`@v1`) while receiving non-breaking bug fixes.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Force all consumers to reference the mutable `@main` branch." },
@@ -405,7 +405,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Versioning and Releasing Actions: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Action Versioning to manage releases for an enterprise custom action so consumers can pin to a stable major version (`@v1`) while receiving non-breaking bug fixes.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to manage releases for an enterprise custom action so consumers can pin to a stable major version (`@v1`) while receiving non-breaking bug fixes.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Create semantic release tags (e.g., `v1.2.3`) and update the moving major tag (`v1`) to point to the latest `v1.x.x` release commit." },
@@ -426,7 +426,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Publishing Custom Actions to GitHub Marketplace: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Marketplace Publishing to publish a custom GitHub Action to GitHub Marketplace so the wider global developer community can discover and use it.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to publish a custom GitHub Action to GitHub Marketplace so the wider global developer community can discover and use it.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Upload the action as a raw binary zip file to Marketplace." },
@@ -447,7 +447,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Publishing Custom Actions to GitHub Marketplace: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Marketplace Publishing to publish a custom GitHub Action to GitHub Marketplace so the wider global developer community can discover and use it.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to publish a custom GitHub Action to GitHub Marketplace so the wider global developer community can discover and use it.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Ensure the repository is public, include `action.yml` with `branding:` icons in the root, add a descriptive `README.md`, and publish via GitHub Releases." },
@@ -468,7 +468,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Publishing Custom Actions to GitHub Marketplace: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Marketplace Publishing to publish a custom GitHub Action to GitHub Marketplace so the wider global developer community can discover and use it.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to publish a custom GitHub Action to GitHub Marketplace so the wider global developer community can discover and use it.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Omit the action.yml metadata file." },
@@ -489,7 +489,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Publishing Custom Actions to GitHub Marketplace: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Marketplace Publishing to publish a custom GitHub Action to GitHub Marketplace so the wider global developer community can discover and use it.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to publish a custom GitHub Action to GitHub Marketplace so the wider global developer community can discover and use it.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Upload the action as a raw binary zip file to Marketplace." },
@@ -510,7 +510,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Author and maintain actions",
     title: "Publishing Custom Actions to GitHub Marketplace: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Marketplace Publishing to publish a custom GitHub Action to GitHub Marketplace so the wider global developer community can discover and use it.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to publish a custom GitHub Action to GitHub Marketplace so the wider global developer community can discover and use it.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Upload the action as a raw binary zip file to Marketplace." },

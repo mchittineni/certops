@@ -6,7 +6,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Encoding Categorical Features (One-Hot vs Target vs Embeddings): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Feature Engineering to encode a categorical feature representing 50,000 distinct product SKU identifiers without causing dimensionality explosion or memory exhaustion in a neural network.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to encode a categorical feature representing 50,000 distinct product SKU identifiers without causing dimensionality explosion or memory exhaustion in a neural network.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Apply one-hot encoding creating 50,000 binary columns for every record." },
@@ -27,7 +27,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Encoding Categorical Features (One-Hot vs Target vs Embeddings): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Feature Engineering to encode a categorical feature representing 50,000 distinct product SKU identifiers without causing dimensionality explosion or memory exhaustion in a neural network.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to encode a categorical feature representing 50,000 distinct product SKU identifiers without causing dimensionality explosion or memory exhaustion in a neural network.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Drop the product SKU feature completely from the training dataset." },
@@ -48,7 +48,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Encoding Categorical Features (One-Hot vs Target vs Embeddings): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Feature Engineering to encode a categorical feature representing 50,000 distinct product SKU identifiers without causing dimensionality explosion or memory exhaustion in a neural network.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to encode a categorical feature representing 50,000 distinct product SKU identifiers without causing dimensionality explosion or memory exhaustion in a neural network.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Train low-dimensional categorical entity embeddings (e.g. 64 dimensions) or use feature hashing." },
@@ -69,7 +69,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Encoding Categorical Features (One-Hot vs Target vs Embeddings): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Feature Engineering to encode a categorical feature representing 50,000 distinct product SKU identifiers without causing dimensionality explosion or memory exhaustion in a neural network.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to encode a categorical feature representing 50,000 distinct product SKU identifiers without causing dimensionality explosion or memory exhaustion in a neural network.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Train low-dimensional categorical entity embeddings (e.g. 64 dimensions) or use feature hashing." },
@@ -90,7 +90,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Encoding Categorical Features (One-Hot vs Target vs Embeddings): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Feature Engineering to encode a categorical feature representing 50,000 distinct product SKU identifiers without causing dimensionality explosion or memory exhaustion in a neural network.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to encode a categorical feature representing 50,000 distinct product SKU identifiers without causing dimensionality explosion or memory exhaustion in a neural network.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Train low-dimensional categorical entity embeddings (e.g. 64 dimensions) or use feature hashing." },
@@ -111,7 +111,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Scaling and Normalization (MinMax vs Z-Score vs Robust): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Feature Engineering to scale numerical features with significant positive skewness and extreme outliers before training a gradient-based deep neural network.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to scale numerical features with significant positive skewness and extreme outliers before training a gradient-based deep neural network.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Apply MinMax scaling between 0 and 1 without handling extreme outliers." },
@@ -132,7 +132,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Scaling and Normalization (MinMax vs Z-Score vs Robust): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Feature Engineering to scale numerical features with significant positive skewness and extreme outliers before training a gradient-based deep neural network.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to scale numerical features with significant positive skewness and extreme outliers before training a gradient-based deep neural network.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Divide all values by a constant hardcoded integer." },
@@ -153,7 +153,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Scaling and Normalization (MinMax vs Z-Score vs Robust): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Feature Engineering to scale numerical features with significant positive skewness and extreme outliers before training a gradient-based deep neural network.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to scale numerical features with significant positive skewness and extreme outliers before training a gradient-based deep neural network.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Divide all values by a constant hardcoded integer." },
@@ -174,7 +174,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Scaling and Normalization (MinMax vs Z-Score vs Robust): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Feature Engineering to scale numerical features with significant positive skewness and extreme outliers before training a gradient-based deep neural network.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to scale numerical features with significant positive skewness and extreme outliers before training a gradient-based deep neural network.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Divide all values by a constant hardcoded integer." },
@@ -195,7 +195,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Scaling and Normalization (MinMax vs Z-Score vs Robust): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Feature Engineering to scale numerical features with significant positive skewness and extreme outliers before training a gradient-based deep neural network.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to scale numerical features with significant positive skewness and extreme outliers before training a gradient-based deep neural network.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Apply MinMax scaling between 0 and 1 without handling extreme outliers." },
@@ -216,7 +216,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Feature Crosses and Non-Linear Combinations: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Feature Engineering to enable a linear model to learn non-linear spatial interactions between latitude and longitude coordinates without increasing model architecture complexity.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to enable a linear model to learn non-linear spatial interactions between latitude and longitude coordinates without increasing model architecture complexity.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Drop geographic coordinates and use only customer IP addresses." },
@@ -237,7 +237,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Feature Crosses and Non-Linear Combinations: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Feature Engineering to enable a linear model to learn non-linear spatial interactions between latitude and longitude coordinates without increasing model architecture complexity.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to enable a linear model to learn non-linear spatial interactions between latitude and longitude coordinates without increasing model architecture complexity.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Multiply latitude by a random floating-point scalar constant." },
@@ -258,7 +258,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Feature Crosses and Non-Linear Combinations: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Feature Engineering to enable a linear model to learn non-linear spatial interactions between latitude and longitude coordinates without increasing model architecture complexity.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to enable a linear model to learn non-linear spatial interactions between latitude and longitude coordinates without increasing model architecture complexity.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Multiply latitude by a random floating-point scalar constant." },
@@ -279,7 +279,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Feature Crosses and Non-Linear Combinations: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Feature Engineering to enable a linear model to learn non-linear spatial interactions between latitude and longitude coordinates without increasing model architecture complexity.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to enable a linear model to learn non-linear spatial interactions between latitude and longitude coordinates without increasing model architecture complexity.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Multiply latitude by a random floating-point scalar constant." },
@@ -300,7 +300,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Feature Crosses and Non-Linear Combinations: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Feature Engineering to enable a linear model to learn non-linear spatial interactions between latitude and longitude coordinates without increasing model architecture complexity.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to enable a linear model to learn non-linear spatial interactions between latitude and longitude coordinates without increasing model architecture complexity.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Multiply latitude by a random floating-point scalar constant." },
@@ -321,7 +321,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Class Imbalance Mitigation (Downsampling, SMOTE, Class Weights): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Data Preprocessing to train an effective fraud detection model where fraudulent transactions constitute only 0.01% of the historical training dataset.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to train an effective fraud detection model where fraudulent transactions constitute only 0.01% of the historical training dataset.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely on standard accuracy as the evaluation metric on the unweighted raw dataset." },
@@ -342,7 +342,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Class Imbalance Mitigation (Downsampling, SMOTE, Class Weights): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Data Preprocessing to train an effective fraud detection model where fraudulent transactions constitute only 0.01% of the historical training dataset.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to train an effective fraud detection model where fraudulent transactions constitute only 0.01% of the historical training dataset.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Rely on standard accuracy as the evaluation metric on the unweighted raw dataset." },
@@ -363,7 +363,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Class Imbalance Mitigation (Downsampling, SMOTE, Class Weights): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Data Preprocessing to train an effective fraud detection model where fraudulent transactions constitute only 0.01% of the historical training dataset.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to train an effective fraud detection model where fraudulent transactions constitute only 0.01% of the historical training dataset.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Duplicate every fraudulent row 1,000,000 times without evaluating validation splits." },
@@ -384,7 +384,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Class Imbalance Mitigation (Downsampling, SMOTE, Class Weights): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Data Preprocessing to train an effective fraud detection model where fraudulent transactions constitute only 0.01% of the historical training dataset.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to train an effective fraud detection model where fraudulent transactions constitute only 0.01% of the historical training dataset.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Apply class weighting in the loss function (or focal loss) and use precision-recall AUC (PR-AUC) for model evaluation." },
@@ -405,7 +405,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Class Imbalance Mitigation (Downsampling, SMOTE, Class Weights): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Data Preprocessing to train an effective fraud detection model where fraudulent transactions constitute only 0.01% of the historical training dataset.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to train an effective fraud detection model where fraudulent transactions constitute only 0.01% of the historical training dataset.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Rely on standard accuracy as the evaluation metric on the unweighted raw dataset." },
@@ -426,7 +426,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Data Leakage Prevention (Target Leakage & Temporal Splits): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Data Quality to prevent future information from contaminating model training when predicting customer churn on monthly subscription accounts.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to prevent future information from contaminating model training when predicting customer churn on monthly subscription accounts.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Perform a strict temporal train/validation/test split based on event dates, ensuring no future features are included." },
@@ -447,7 +447,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Data Leakage Prevention (Target Leakage & Temporal Splits): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Data Quality to prevent future information from contaminating model training when predicting customer churn on monthly subscription accounts.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to prevent future information from contaminating model training when predicting customer churn on monthly subscription accounts.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Randomly shuffle records across all years and split into 80/20 train/test sets." },
@@ -468,7 +468,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Data Leakage Prevention (Target Leakage & Temporal Splits): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Data Quality to prevent future information from contaminating model training when predicting customer churn on monthly subscription accounts.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to prevent future information from contaminating model training when predicting customer churn on monthly subscription accounts.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Perform a strict temporal train/validation/test split based on event dates, ensuring no future features are included." },
@@ -489,7 +489,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Data Leakage Prevention (Target Leakage & Temporal Splits): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Data Quality to prevent future information from contaminating model training when predicting customer churn on monthly subscription accounts.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to prevent future information from contaminating model training when predicting customer churn on monthly subscription accounts.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Perform a strict temporal train/validation/test split based on event dates, ensuring no future features are included." },
@@ -510,7 +510,7 @@ export const GCP_PMLE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Data Leakage Prevention (Target Leakage & Temporal Splits): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Data Quality to prevent future information from contaminating model training when predicting customer churn on monthly subscription accounts.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to prevent future information from contaminating model training when predicting customer churn on monthly subscription accounts.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Perform a strict temporal train/validation/test split based on event dates, ensuring no future features are included." },

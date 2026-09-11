@@ -6,7 +6,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "AWS Config Continuous Compliance and Configuration Recorders: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates AWS Config to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Perform quarterly manual audits where engineers inspect EC2 security groups in the management console." },
@@ -27,7 +27,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "AWS Config Continuous Compliance and Configuration Recorders: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates AWS Config to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Perform quarterly manual audits where engineers inspect EC2 security groups in the management console." },
@@ -48,7 +48,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "AWS Config Continuous Compliance and Configuration Recorders: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates AWS Config to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Rely on developers to voluntarily restrict their security group rules." },
@@ -69,7 +69,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "AWS Config Continuous Compliance and Configuration Recorders: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates AWS Config to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Disable AWS Config to reduce monthly configuration snapshot recording fees." },
@@ -90,7 +90,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "AWS Config Continuous Compliance and Configuration Recorders: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates AWS Config to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Rely on developers to voluntarily restrict their security group rules." },
@@ -111,7 +111,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Network Firewall Centralized Inspection Architecture: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Network Firewall to inspect and filter all north-south internet egress and east-west VPC traffic centrally across an entire AWS Organization.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to inspect and filter all north-south internet egress and east-west VPC traffic centrally across an entire AWS Organization.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." },
@@ -132,7 +132,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Network Firewall Centralized Inspection Architecture: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Network Firewall to inspect and filter all north-south internet egress and east-west VPC traffic centrally across an entire AWS Organization.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to inspect and filter all north-south internet egress and east-west VPC traffic centrally across an entire AWS Organization.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." },
@@ -153,7 +153,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Network Firewall Centralized Inspection Architecture: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Network Firewall to inspect and filter all north-south internet egress and east-west VPC traffic centrally across an entire AWS Organization.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to inspect and filter all north-south internet egress and east-west VPC traffic centrally across an entire AWS Organization.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." },
@@ -174,7 +174,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Network Firewall Centralized Inspection Architecture: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Network Firewall to inspect and filter all north-south internet egress and east-west VPC traffic centrally across an entire AWS Organization.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to inspect and filter all north-south internet egress and east-west VPC traffic centrally across an entire AWS Organization.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Deploy AWS Network Firewall in a centralized inspection VPC with Transit Gateway route tables directing traffic through firewall endpoints." },
@@ -195,7 +195,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Network Firewall Centralized Inspection Architecture: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Network Firewall to inspect and filter all north-south internet egress and east-west VPC traffic centrally across an entire AWS Organization.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to inspect and filter all north-south internet egress and east-west VPC traffic centrally across an entire AWS Organization.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Deploy AWS Network Firewall in a centralized inspection VPC with Transit Gateway route tables directing traffic through firewall endpoints." },
@@ -216,7 +216,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS WAF Rate-Based Rules and Bot Control: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates AWS WAF to protect an e-commerce login API from distributed credential stuffing attacks originating from thousands of rotating IP addresses.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to protect an e-commerce login API from distributed credential stuffing attacks originating from thousands of rotating IP addresses.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Implement an AWS WAF Web ACL with a rate-based rule limiting requests to `/login` and enable AWS WAF Bot Control." },
@@ -237,7 +237,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS WAF Rate-Based Rules and Bot Control: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates AWS WAF to protect an e-commerce login API from distributed credential stuffing attacks originating from thousands of rotating IP addresses.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to protect an e-commerce login API from distributed credential stuffing attacks originating from thousands of rotating IP addresses.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Implement an AWS WAF Web ACL with a rate-based rule limiting requests to `/login` and enable AWS WAF Bot Control." },
@@ -258,7 +258,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS WAF Rate-Based Rules and Bot Control: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates AWS WAF to protect an e-commerce login API from distributed credential stuffing attacks originating from thousands of rotating IP addresses.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to protect an e-commerce login API from distributed credential stuffing attacks originating from thousands of rotating IP addresses.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Implement an AWS WAF Web ACL with a rate-based rule limiting requests to `/login` and enable AWS WAF Bot Control." },
@@ -279,7 +279,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS WAF Rate-Based Rules and Bot Control: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates AWS WAF to protect an e-commerce login API from distributed credential stuffing attacks originating from thousands of rotating IP addresses.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to protect an e-commerce login API from distributed credential stuffing attacks originating from thousands of rotating IP addresses.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Rely on client-side JavaScript popups to deter automated attack scripts." },
@@ -300,7 +300,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS WAF Rate-Based Rules and Bot Control: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates AWS WAF to protect an e-commerce login API from distributed credential stuffing attacks originating from thousands of rotating IP addresses.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to protect an e-commerce login API from distributed credential stuffing attacks originating from thousands of rotating IP addresses.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Disable rate limiting to prevent blocking legitimate customers who forget their passwords." },
@@ -321,7 +321,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Shield Advanced and DDoS Mitigation: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates AWS Shield Advanced to protect mission-critical web applications against sophisticated multi-gigabit layer 3/4 and layer 7 DDoS attacks with financial indemnity.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to protect mission-critical web applications against sophisticated multi-gigabit layer 3/4 and layer 7 DDoS attacks with financial indemnity.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Rely on default AWS Shield Standard which only provides basic layer 3/4 SYN flood protection without financial guarantees." },
@@ -342,7 +342,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Shield Advanced and DDoS Mitigation: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates AWS Shield Advanced to protect mission-critical web applications against sophisticated multi-gigabit layer 3/4 and layer 7 DDoS attacks with financial indemnity.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to protect mission-critical web applications against sophisticated multi-gigabit layer 3/4 and layer 7 DDoS attacks with financial indemnity.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Manually add individual attacker IP addresses to VPC Network ACLs during the DDoS event." },
@@ -363,7 +363,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Shield Advanced and DDoS Mitigation: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates AWS Shield Advanced to protect mission-critical web applications against sophisticated multi-gigabit layer 3/4 and layer 7 DDoS attacks with financial indemnity.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to protect mission-critical web applications against sophisticated multi-gigabit layer 3/4 and layer 7 DDoS attacks with financial indemnity.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Shut down all public web servers whenever a DDoS attack begins to save bandwidth costs." },
@@ -384,7 +384,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Shield Advanced and DDoS Mitigation: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates AWS Shield Advanced to protect mission-critical web applications against sophisticated multi-gigabit layer 3/4 and layer 7 DDoS attacks with financial indemnity.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to protect mission-critical web applications against sophisticated multi-gigabit layer 3/4 and layer 7 DDoS attacks with financial indemnity.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Shut down all public web servers whenever a DDoS attack begins to save bandwidth costs." },
@@ -405,7 +405,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Shield Advanced and DDoS Mitigation: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates AWS Shield Advanced to protect mission-critical web applications against sophisticated multi-gigabit layer 3/4 and layer 7 DDoS attacks with financial indemnity.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to protect mission-critical web applications against sophisticated multi-gigabit layer 3/4 and layer 7 DDoS attacks with financial indemnity.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Shut down all public web servers whenever a DDoS attack begins to save bandwidth costs." },
@@ -426,7 +426,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "VPC Security Groups vs Network ACLs Deep Dive: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Security Groups & NACLs to block a specific malicious IP subnet from reaching any resources in a subnet while allowing stateful return traffic for application servers.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to block a specific malicious IP subnet from reaching any resources in a subnet while allowing stateful return traffic for application servers.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Add an explicit `DENY` rule for the CIDR block in the subnet's stateless Network ACL, while managing stateful application rules in Security Groups." },
@@ -447,7 +447,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "VPC Security Groups vs Network ACLs Deep Dive: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Security Groups & NACLs to block a specific malicious IP subnet from reaching any resources in a subnet while allowing stateful return traffic for application servers.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to block a specific malicious IP subnet from reaching any resources in a subnet while allowing stateful return traffic for application servers.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Attempt to add a DENY rule to a Security Group, which only supports permissive ALLOW rules." },
@@ -468,7 +468,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "VPC Security Groups vs Network ACLs Deep Dive: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Security Groups & NACLs to block a specific malicious IP subnet from reaching any resources in a subnet while allowing stateful return traffic for application servers.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to block a specific malicious IP subnet from reaching any resources in a subnet while allowing stateful return traffic for application servers.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Disable Network ACLs and leave subnets completely unshielded." },
@@ -489,7 +489,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "VPC Security Groups vs Network ACLs Deep Dive: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Security Groups & NACLs to block a specific malicious IP subnet from reaching any resources in a subnet while allowing stateful return traffic for application servers.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to block a specific malicious IP subnet from reaching any resources in a subnet while allowing stateful return traffic for application servers.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Add an explicit `DENY` rule for the CIDR block in the subnet's stateless Network ACL, while managing stateful application rules in Security Groups." },
@@ -510,7 +510,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "VPC Security Groups vs Network ACLs Deep Dive: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Security Groups & NACLs to block a specific malicious IP subnet from reaching any resources in a subnet while allowing stateful return traffic for application servers.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to block a specific malicious IP subnet from reaching any resources in a subnet while allowing stateful return traffic for application servers.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Add an explicit `DENY` rule for the CIDR block in the subnet's stateless Network ACL, while managing stateful application rules in Security Groups." },

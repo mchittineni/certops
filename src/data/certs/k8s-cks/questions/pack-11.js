@@ -6,7 +6,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "CIS Kubernetes Benchmark Verification: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates CIS Benchmarks to audit a newly installed Kubernetes control plane and worker nodes against official CIS Security Benchmarks.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to audit a newly installed Kubernetes control plane and worker nodes against official CIS Security Benchmarks.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Inspect cluster logs manually with grep without a standardized benchmark." },
@@ -27,7 +27,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "CIS Kubernetes Benchmark Verification: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates CIS Benchmarks to audit a newly installed Kubernetes control plane and worker nodes against official CIS Security Benchmarks.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to audit a newly installed Kubernetes control plane and worker nodes against official CIS Security Benchmarks.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Execute `kube-bench` against master and node components and remediate reported FAIL findings." },
@@ -48,7 +48,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "CIS Kubernetes Benchmark Verification: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates CIS Benchmarks to audit a newly installed Kubernetes control plane and worker nodes against official CIS Security Benchmarks.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to audit a newly installed Kubernetes control plane and worker nodes against official CIS Security Benchmarks.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Disable all authentication flags on the apiserver to simplify audit testing." },
@@ -69,7 +69,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "CIS Kubernetes Benchmark Verification: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates CIS Benchmarks to audit a newly installed Kubernetes control plane and worker nodes against official CIS Security Benchmarks.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to audit a newly installed Kubernetes control plane and worker nodes against official CIS Security Benchmarks.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Assume the default kubeadm installation passes all CIS benchmark criteria automatically." },
@@ -90,7 +90,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "CIS Kubernetes Benchmark Verification: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates CIS Benchmarks to audit a newly installed Kubernetes control plane and worker nodes against official CIS Security Benchmarks.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to audit a newly installed Kubernetes control plane and worker nodes against official CIS Security Benchmarks.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Inspect cluster logs manually with grep without a standardized benchmark." },
@@ -111,7 +111,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Securing the Kube-apiserver: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Control Plane Hardening to harden the Kubernetes API server against unauthenticated requests and enforce RBAC and Node authorization.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to harden the Kubernetes API server against unauthenticated requests and enforce RBAC and Node authorization.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Set `--anonymous-auth=false` and `--authorization-mode=Node,RBAC` in `/etc/kubernetes/manifests/kube-apiserver.yaml`." },
@@ -132,7 +132,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Securing the Kube-apiserver: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Control Plane Hardening to harden the Kubernetes API server against unauthenticated requests and enforce RBAC and Node authorization.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to harden the Kubernetes API server against unauthenticated requests and enforce RBAC and Node authorization.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Set `--anonymous-auth=false` and `--authorization-mode=Node,RBAC` in `/etc/kubernetes/manifests/kube-apiserver.yaml`." },
@@ -153,7 +153,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Securing the Kube-apiserver: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Control Plane Hardening to harden the Kubernetes API server against unauthenticated requests and enforce RBAC and Node authorization.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to harden the Kubernetes API server against unauthenticated requests and enforce RBAC and Node authorization.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Expose the unencrypted insecure port 8080 on all network interfaces." },
@@ -174,7 +174,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Securing the Kube-apiserver: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Control Plane Hardening to harden the Kubernetes API server against unauthenticated requests and enforce RBAC and Node authorization.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to harden the Kubernetes API server against unauthenticated requests and enforce RBAC and Node authorization.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Set `--anonymous-auth=false` and `--authorization-mode=Node,RBAC` in `/etc/kubernetes/manifests/kube-apiserver.yaml`." },
@@ -195,7 +195,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Securing the Kube-apiserver: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Control Plane Hardening to harden the Kubernetes API server against unauthenticated requests and enforce RBAC and Node authorization.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to harden the Kubernetes API server against unauthenticated requests and enforce RBAC and Node authorization.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Disable TLS client certificate verification on the API server." },
@@ -216,7 +216,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Securing Kubelet Configuration: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Kubelet Hardening to prevent unauthorized attackers from querying kubelet endpoints or running arbitrary commands via kubelet port 10250.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent unauthorized attackers from querying kubelet endpoints or running arbitrary commands via kubelet port 10250.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Grant full root sudo permissions to anonymous callers on the node." },
@@ -237,7 +237,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Securing Kubelet Configuration: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Kubelet Hardening to prevent unauthorized attackers from querying kubelet endpoints or running arbitrary commands via kubelet port 10250.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent unauthorized attackers from querying kubelet endpoints or running arbitrary commands via kubelet port 10250.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "In `/var/lib/kubelet/config.yaml`, set `authentication.anonymous.enabled: false`, `authorization.mode: Webhook`, and `readOnlyPort: 0`." },
@@ -258,7 +258,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Securing Kubelet Configuration: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Kubelet Hardening to prevent unauthorized attackers from querying kubelet endpoints or running arbitrary commands via kubelet port 10250.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent unauthorized attackers from querying kubelet endpoints or running arbitrary commands via kubelet port 10250.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Open the kubelet read-only port 10255 to public internet access." },
@@ -279,7 +279,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Securing Kubelet Configuration: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Kubelet Hardening to prevent unauthorized attackers from querying kubelet endpoints or running arbitrary commands via kubelet port 10250.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent unauthorized attackers from querying kubelet endpoints or running arbitrary commands via kubelet port 10250.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Grant full root sudo permissions to anonymous callers on the node." },
@@ -300,7 +300,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Securing Kubelet Configuration: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Kubelet Hardening to prevent unauthorized attackers from querying kubelet endpoints or running arbitrary commands via kubelet port 10250.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent unauthorized attackers from querying kubelet endpoints or running arbitrary commands via kubelet port 10250.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "In `/var/lib/kubelet/config.yaml`, set `authentication.anonymous.enabled: false`, `authorization.mode: Webhook`, and `readOnlyPort: 0`." },
@@ -321,7 +321,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Encrypting Secret Data at Rest: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Data-at-Rest Encryption to ensure that all Kubernetes Secret resources stored within the etcd database are encrypted at rest on disk.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to ensure that all Kubernetes Secret resources stored within the etcd database are encrypted at rest on disk.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely on standard Linux ext4 filesystem encryption without etcd configuration." },
@@ -342,7 +342,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Encrypting Secret Data at Rest: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Data-at-Rest Encryption to ensure that all Kubernetes Secret resources stored within the etcd database are encrypted at rest on disk.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to ensure that all Kubernetes Secret resources stored within the etcd database are encrypted at rest on disk.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Configure an `EncryptionConfiguration` provider file (e.g., using `aescbc` or `kms`) and pass `--encryption-provider-config` to the apiserver." },
@@ -363,7 +363,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Encrypting Secret Data at Rest: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Data-at-Rest Encryption to ensure that all Kubernetes Secret resources stored within the etcd database are encrypted at rest on disk.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to ensure that all Kubernetes Secret resources stored within the etcd database are encrypted at rest on disk.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Store Secrets in plaintext ConfigMaps instead." },
@@ -384,7 +384,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Encrypting Secret Data at Rest: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Data-at-Rest Encryption to ensure that all Kubernetes Secret resources stored within the etcd database are encrypted at rest on disk.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to ensure that all Kubernetes Secret resources stored within the etcd database are encrypted at rest on disk.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Configure an `EncryptionConfiguration` provider file (e.g., using `aescbc` or `kms`) and pass `--encryption-provider-config` to the apiserver." },
@@ -405,7 +405,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Encrypting Secret Data at Rest: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Data-at-Rest Encryption to ensure that all Kubernetes Secret resources stored within the etcd database are encrypted at rest on disk.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to ensure that all Kubernetes Secret resources stored within the etcd database are encrypted at rest on disk.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Store Secrets in plaintext ConfigMaps instead." },
@@ -426,7 +426,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Securing Network Ingress with NetworkPolicies: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Network Isolation to prevent workloads in a multi-tenant cluster from accessing sensitive services running in other namespaces.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent workloads in a multi-tenant cluster from accessing sensitive services running in other namespaces.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Assign unique DNS domain suffixes without network firewall rules." },
@@ -447,7 +447,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Securing Network Ingress with NetworkPolicies: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Network Isolation to prevent workloads in a multi-tenant cluster from accessing sensitive services running in other namespaces.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent workloads in a multi-tenant cluster from accessing sensitive services running in other namespaces.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Apply a default-deny NetworkPolicy in every tenant namespace and whitelist only required ingress/egress CIDRs and selectors." },
@@ -468,7 +468,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Securing Network Ingress with NetworkPolicies: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Network Isolation to prevent workloads in a multi-tenant cluster from accessing sensitive services running in other namespaces.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent workloads in a multi-tenant cluster from accessing sensitive services running in other namespaces.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Apply a default-deny NetworkPolicy in every tenant namespace and whitelist only required ingress/egress CIDRs and selectors." },
@@ -489,7 +489,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Securing Network Ingress with NetworkPolicies: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Network Isolation to prevent workloads in a multi-tenant cluster from accessing sensitive services running in other namespaces.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent workloads in a multi-tenant cluster from accessing sensitive services running in other namespaces.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Disable CNI network plugins across tenant nodes." },
@@ -510,7 +510,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Securing Network Ingress with NetworkPolicies: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Network Isolation to prevent workloads in a multi-tenant cluster from accessing sensitive services running in other namespaces.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent workloads in a multi-tenant cluster from accessing sensitive services running in other namespaces.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Disable CNI network plugins across tenant nodes." },

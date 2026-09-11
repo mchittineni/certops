@@ -6,7 +6,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Version Updates and Configuration (.github/dependabot.yml): Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Version Updates to keep application packages continuously up to date through scheduled weekly maintenance pull requests.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to keep application packages continuously up to date through scheduled weekly maintenance pull requests.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives? Automating routine dependency maintenance across package ecosystems using dependabot.",
     options: [
       { id: 'A', text: "Disable automated updates and maintain dependencies manually every five years." },
@@ -27,7 +27,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Version Updates and Configuration (.github/dependabot.yml): Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Version Updates to keep application packages continuously up to date through scheduled weekly maintenance pull requests.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to keep application packages continuously up to date through scheduled weekly maintenance pull requests.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively? Automating routine dependency maintenance across package ecosystems using dependabot.",
     options: [
       { id: 'A', text: "Disable automated updates and maintain dependencies manually every five years." },
@@ -48,7 +48,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Version Updates and Configuration (.github/dependabot.yml): Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Version Updates to keep application packages continuously up to date through scheduled weekly maintenance pull requests.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to keep application packages continuously up to date through scheduled weekly maintenance pull requests.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure? Automating routine dependency maintenance across package ecosystems using dependabot.",
     options: [
       { id: 'A', text: "Manually check package registries for new library releases every morning." },
@@ -69,7 +69,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Version Updates and Configuration (.github/dependabot.yml): Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Version Updates to keep application packages continuously up to date through scheduled weekly maintenance pull requests.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to keep application packages continuously up to date through scheduled weekly maintenance pull requests.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge? Automating routine dependency maintenance across package ecosystems using dependabot.",
     options: [
       { id: 'A', text: "Commit a `.github/dependabot.yml` configuration file specifying `package-ecosystem: npm`, `directory: '/'`, and `schedule: weekly`." },
@@ -90,7 +90,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Version Updates and Configuration (.github/dependabot.yml): Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Version Updates to keep application packages continuously up to date through scheduled weekly maintenance pull requests.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to keep application packages continuously up to date through scheduled weekly maintenance pull requests.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance? Automating routine dependency maintenance across package ecosystems using dependabot.",
     options: [
       { id: 'A', text: "Manually check package registries for new library releases every morning." },
@@ -111,7 +111,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Auto-Triage Rules and Alert Prioritization: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Auto-Triage Rules to automatically dismiss low-severity development dependency alerts while automatically opening urgent PRs for production CVEs.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to automatically dismiss low-severity development dependency alerts while automatically opening urgent PRs for production CVEs.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Manually review and dismiss 2,000 individual development alerts by hand every week." },
@@ -132,7 +132,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Auto-Triage Rules and Alert Prioritization: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Auto-Triage Rules to automatically dismiss low-severity development dependency alerts while automatically opening urgent PRs for production CVEs.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to automatically dismiss low-severity development dependency alerts while automatically opening urgent PRs for production CVEs.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Manually review and dismiss 2,000 individual development alerts by hand every week." },
@@ -153,7 +153,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Auto-Triage Rules and Alert Prioritization: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Auto-Triage Rules to automatically dismiss low-severity development dependency alerts while automatically opening urgent PRs for production CVEs.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to automatically dismiss low-severity development dependency alerts while automatically opening urgent PRs for production CVEs.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Manually review and dismiss 2,000 individual development alerts by hand every week." },
@@ -174,7 +174,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Auto-Triage Rules and Alert Prioritization: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Auto-Triage Rules to automatically dismiss low-severity development dependency alerts while automatically opening urgent PRs for production CVEs.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to automatically dismiss low-severity development dependency alerts while automatically opening urgent PRs for production CVEs.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Disable Dependabot completely to avoid alert fatigue." },
@@ -195,7 +195,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Auto-Triage Rules and Alert Prioritization: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Auto-Triage Rules to automatically dismiss low-severity development dependency alerts while automatically opening urgent PRs for production CVEs.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to automatically dismiss low-severity development dependency alerts while automatically opening urgent PRs for production CVEs.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Configure Dependabot Auto-Triage rules that evaluate alert severity, dependency scope (`development` vs `runtime`), and patch availability." },
@@ -216,7 +216,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependency Review Action in Pull Requests: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Dependency Review to block pull requests from merging if a developer introduces a new dependency with a known critical CVE or an unapproved AGPL license.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to block pull requests from merging if a developer introduces a new dependency with a known critical CVE or an unapproved AGPL license.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Scan dependencies only after code is merged into the production main branch." },
@@ -237,7 +237,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependency Review Action in Pull Requests: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Dependency Review to block pull requests from merging if a developer introduces a new dependency with a known critical CVE or an unapproved AGPL license.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to block pull requests from merging if a developer introduces a new dependency with a known critical CVE or an unapproved AGPL license.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Disable pull request status checks to speed up merge velocity." },
@@ -258,7 +258,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependency Review Action in Pull Requests: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Dependency Review to block pull requests from merging if a developer introduces a new dependency with a known critical CVE or an unapproved AGPL license.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to block pull requests from merging if a developer introduces a new dependency with a known critical CVE or an unapproved AGPL license.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Scan dependencies only after code is merged into the production main branch." },
@@ -279,7 +279,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependency Review Action in Pull Requests: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Dependency Review to block pull requests from merging if a developer introduces a new dependency with a known critical CVE or an unapproved AGPL license.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to block pull requests from merging if a developer introduces a new dependency with a known critical CVE or an unapproved AGPL license.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Add the `actions/dependency-review-action` workflow to pull requests, configured to fail on `fail-on-severity: high` and unapproved licenses." },
@@ -300,7 +300,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependency Review Action in Pull Requests: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Dependency Review to block pull requests from merging if a developer introduces a new dependency with a known critical CVE or an unapproved AGPL license.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to block pull requests from merging if a developer introduces a new dependency with a known critical CVE or an unapproved AGPL license.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Disable pull request status checks to speed up merge velocity." },
@@ -321,7 +321,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Software Bill of Materials (SBOM) Export and Formats: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates SBOM Export to provide enterprise compliance auditors with a machine-readable Software Bill of Materials (SBOM) conforming to the SPDX standard.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to provide enterprise compliance auditors with a machine-readable Software Bill of Materials (SBOM) conforming to the SPDX standard.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Generate an SBOM by taking screenshots of the repository package.json file." },
@@ -342,7 +342,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Software Bill of Materials (SBOM) Export and Formats: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates SBOM Export to provide enterprise compliance auditors with a machine-readable Software Bill of Materials (SBOM) conforming to the SPDX standard.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to provide enterprise compliance auditors with a machine-readable Software Bill of Materials (SBOM) conforming to the SPDX standard.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Type an unformatted text list of library names into an email message." },
@@ -363,7 +363,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Software Bill of Materials (SBOM) Export and Formats: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates SBOM Export to provide enterprise compliance auditors with a machine-readable Software Bill of Materials (SBOM) conforming to the SPDX standard.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to provide enterprise compliance auditors with a machine-readable Software Bill of Materials (SBOM) conforming to the SPDX standard.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Generate an SBOM by taking screenshots of the repository package.json file." },
@@ -384,7 +384,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Software Bill of Materials (SBOM) Export and Formats: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates SBOM Export to provide enterprise compliance auditors with a machine-readable Software Bill of Materials (SBOM) conforming to the SPDX standard.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to provide enterprise compliance auditors with a machine-readable Software Bill of Materials (SBOM) conforming to the SPDX standard.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Generate an SBOM by taking screenshots of the repository package.json file." },
@@ -405,7 +405,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Software Bill of Materials (SBOM) Export and Formats: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates SBOM Export to provide enterprise compliance auditors with a machine-readable Software Bill of Materials (SBOM) conforming to the SPDX standard.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to provide enterprise compliance auditors with a machine-readable Software Bill of Materials (SBOM) conforming to the SPDX standard.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Export the repository Software Bill of Materials (SBOM) using the GitHub REST API or UI in standard SPDX 2.3 JSON format." },
@@ -426,7 +426,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Private Registry Authentication: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Private Registries to enable Dependabot to check for updates and security advisories on proprietary internal packages hosted in a private Artifactory registry.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to enable Dependabot to check for updates and security advisories on proprietary internal packages hosted in a private Artifactory registry.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives? Authenticating Dependabot with private Artifactory, npm, and NuGet registries via dependabot.",
     options: [
       { id: 'A', text: "Configure private registry credentials in `.github/dependabot.yml` using `registries` with repository secrets for tokens." },
@@ -447,7 +447,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Private Registry Authentication: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Private Registries to enable Dependabot to check for updates and security advisories on proprietary internal packages hosted in a private Artifactory registry.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to enable Dependabot to check for updates and security advisories on proprietary internal packages hosted in a private Artifactory registry.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively? Authenticating Dependabot with private Artifactory, npm, and NuGet registries via dependabot.",
     options: [
       { id: 'A', text: "Make the internal enterprise package registry publicly accessible to the entire internet." },
@@ -468,7 +468,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Private Registry Authentication: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Private Registries to enable Dependabot to check for updates and security advisories on proprietary internal packages hosted in a private Artifactory registry.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to enable Dependabot to check for updates and security advisories on proprietary internal packages hosted in a private Artifactory registry.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure? Authenticating Dependabot with private Artifactory, npm, and NuGet registries via dependabot.",
     options: [
       { id: 'A', text: "Configure private registry credentials in `.github/dependabot.yml` using `registries` with repository secrets for tokens." },
@@ -489,7 +489,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Private Registry Authentication: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Private Registries to enable Dependabot to check for updates and security advisories on proprietary internal packages hosted in a private Artifactory registry.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to enable Dependabot to check for updates and security advisories on proprietary internal packages hosted in a private Artifactory registry.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge? Authenticating Dependabot with private Artifactory, npm, and NuGet registries via dependabot.",
     options: [
       { id: 'A', text: "Disable private package scanning and assume internal packages are completely immune to vulnerabilities." },
@@ -510,7 +510,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Private Registry Authentication: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Private Registries to enable Dependabot to check for updates and security advisories on proprietary internal packages hosted in a private Artifactory registry.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to enable Dependabot to check for updates and security advisories on proprietary internal packages hosted in a private Artifactory registry.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance? Authenticating Dependabot with private Artifactory, npm, and NuGet registries via dependabot.",
     options: [
       { id: 'A', text: "Disable private package scanning and assume internal packages are completely immune to vulnerabilities." },

@@ -6,7 +6,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Three Pillars of Observability and OpenTelemetry Signals: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates OTel Signals to standardize an enterprise observability strategy across distributed systems using a single vendor-agnostic framework.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to standardize an enterprise observability strategy across distributed systems using a single vendor-agnostic framework.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Adopt OpenTelemetry as the unified standard for collecting distributed traces, metrics, logs, and contextual baggage." },
@@ -27,7 +27,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Three Pillars of Observability and OpenTelemetry Signals: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates OTel Signals to standardize an enterprise observability strategy across distributed systems using a single vendor-agnostic framework.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to standardize an enterprise observability strategy across distributed systems using a single vendor-agnostic framework.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Deploy three separate proprietary vendor SDKs for traces, metrics, and logs independently." },
@@ -48,7 +48,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Three Pillars of Observability and OpenTelemetry Signals: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates OTel Signals to standardize an enterprise observability strategy across distributed systems using a single vendor-agnostic framework.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to standardize an enterprise observability strategy across distributed systems using a single vendor-agnostic framework.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Adopt OpenTelemetry as the unified standard for collecting distributed traces, metrics, logs, and contextual baggage." },
@@ -69,7 +69,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Three Pillars of Observability and OpenTelemetry Signals: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates OTel Signals to standardize an enterprise observability strategy across distributed systems using a single vendor-agnostic framework.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to standardize an enterprise observability strategy across distributed systems using a single vendor-agnostic framework.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Deploy three separate proprietary vendor SDKs for traces, metrics, and logs independently." },
@@ -90,7 +90,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Three Pillars of Observability and OpenTelemetry Signals: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates OTel Signals to standardize an enterprise observability strategy across distributed systems using a single vendor-agnostic framework.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to standardize an enterprise observability strategy across distributed systems using a single vendor-agnostic framework.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Rely on unstructured plaintext log files printed to console output." },
@@ -111,7 +111,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "API vs SDK Separation in OpenTelemetry: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates API vs SDK to instrument a shared open-source library so that consuming applications can choose whether and how to collect telemetry without adding heavy dependencies.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to instrument a shared open-source library so that consuming applications can choose whether and how to collect telemetry without adding heavy dependencies.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Force library users to install a local Redis database for telemetry buffering." },
@@ -132,7 +132,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "API vs SDK Separation in OpenTelemetry: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates API vs SDK to instrument a shared open-source library so that consuming applications can choose whether and how to collect telemetry without adding heavy dependencies.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to instrument a shared open-source library so that consuming applications can choose whether and how to collect telemetry without adding heavy dependencies.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Force library users to install a local Redis database for telemetry buffering." },
@@ -153,7 +153,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "API vs SDK Separation in OpenTelemetry: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates API vs SDK to instrument a shared open-source library so that consuming applications can choose whether and how to collect telemetry without adding heavy dependencies.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to instrument a shared open-source library so that consuming applications can choose whether and how to collect telemetry without adding heavy dependencies.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Force library users to install a local Redis database for telemetry buffering." },
@@ -174,7 +174,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "API vs SDK Separation in OpenTelemetry: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates API vs SDK to instrument a shared open-source library so that consuming applications can choose whether and how to collect telemetry without adding heavy dependencies.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to instrument a shared open-source library so that consuming applications can choose whether and how to collect telemetry without adding heavy dependencies.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Instrument library code using the lightweight `OpenTelemetry API` exclusively, allowing consuming applications to register the `OpenTelemetry SDK` at runtime." },
@@ -195,7 +195,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "API vs SDK Separation in OpenTelemetry: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates API vs SDK to instrument a shared open-source library so that consuming applications can choose whether and how to collect telemetry without adding heavy dependencies.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to instrument a shared open-source library so that consuming applications can choose whether and how to collect telemetry without adding heavy dependencies.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Instrument library code using the lightweight `OpenTelemetry API` exclusively, allowing consuming applications to register the `OpenTelemetry SDK` at runtime." },
@@ -216,7 +216,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "OpenTelemetry Protocol (OTLP): Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates OTLP Standard to transmit high-throughput distributed tracing and metric payloads across network boundaries with minimal latency and serialization overhead.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to transmit high-throughput distributed tracing and metric payloads across network boundaries with minimal latency and serialization overhead.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Use proprietary legacy vendor wire protocols." },
@@ -237,7 +237,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "OpenTelemetry Protocol (OTLP): High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates OTLP Standard to transmit high-throughput distributed tracing and metric payloads across network boundaries with minimal latency and serialization overhead.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to transmit high-throughput distributed tracing and metric payloads across network boundaries with minimal latency and serialization overhead.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Use proprietary legacy vendor wire protocols." },
@@ -258,7 +258,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "OpenTelemetry Protocol (OTLP): Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates OTLP Standard to transmit high-throughput distributed tracing and metric payloads across network boundaries with minimal latency and serialization overhead.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to transmit high-throughput distributed tracing and metric payloads across network boundaries with minimal latency and serialization overhead.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Use proprietary legacy vendor wire protocols." },
@@ -279,7 +279,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "OpenTelemetry Protocol (OTLP): Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates OTLP Standard to transmit high-throughput distributed tracing and metric payloads across network boundaries with minimal latency and serialization overhead.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to transmit high-throughput distributed tracing and metric payloads across network boundaries with minimal latency and serialization overhead.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Use the OpenTelemetry Protocol (OTLP) over gRPC (port 4317) or HTTP/Protobuf (port 4318)." },
@@ -300,7 +300,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "OpenTelemetry Protocol (OTLP): Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates OTLP Standard to transmit high-throughput distributed tracing and metric payloads across network boundaries with minimal latency and serialization overhead.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to transmit high-throughput distributed tracing and metric payloads across network boundaries with minimal latency and serialization overhead.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Use the OpenTelemetry Protocol (OTLP) over gRPC (port 4317) or HTTP/Protobuf (port 4318)." },
@@ -321,7 +321,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Semantic Conventions (SemConv): Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Semantic Conventions to ensure that HTTP requests, database queries, and cloud resource metadata use identical attribute key names across all development teams and programming languages.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to ensure that HTTP requests, database queries, and cloud resource metadata use identical attribute key names across all development teams and programming languages.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Adhere strictly to OpenTelemetry Semantic Conventions (e.g., `http.request.method`, `db.system.name`, `cloud.provider`)." },
@@ -342,7 +342,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Semantic Conventions (SemConv): High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Semantic Conventions to ensure that HTTP requests, database queries, and cloud resource metadata use identical attribute key names across all development teams and programming languages.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to ensure that HTTP requests, database queries, and cloud resource metadata use identical attribute key names across all development teams and programming languages.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Omit all metadata attributes to conserve byte sizes." },
@@ -363,7 +363,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Semantic Conventions (SemConv): Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Semantic Conventions to ensure that HTTP requests, database queries, and cloud resource metadata use identical attribute key names across all development teams and programming languages.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to ensure that HTTP requests, database queries, and cloud resource metadata use identical attribute key names across all development teams and programming languages.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Omit all metadata attributes to conserve byte sizes." },
@@ -384,7 +384,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Semantic Conventions (SemConv): Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Semantic Conventions to ensure that HTTP requests, database queries, and cloud resource metadata use identical attribute key names across all development teams and programming languages.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to ensure that HTTP requests, database queries, and cloud resource metadata use identical attribute key names across all development teams and programming languages.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Adhere strictly to OpenTelemetry Semantic Conventions (e.g., `http.request.method`, `db.system.name`, `cloud.provider`)." },
@@ -405,7 +405,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Semantic Conventions (SemConv): Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Semantic Conventions to ensure that HTTP requests, database queries, and cloud resource metadata use identical attribute key names across all development teams and programming languages.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to ensure that HTTP requests, database queries, and cloud resource metadata use identical attribute key names across all development teams and programming languages.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Translate attribute keys manually using external SQL conversion scripts." },
@@ -426,7 +426,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Context Propagation and W3C TraceContext: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Context Propagation to correlate an HTTP request originating in a mobile app across three microservices and a message queue into a single unified trace.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to correlate an HTTP request originating in a mobile app across three microservices and a message queue into a single unified trace.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Generate a brand new trace ID at every microservice hop." },
@@ -447,7 +447,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Context Propagation and W3C TraceContext: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Context Propagation to correlate an HTTP request originating in a mobile app across three microservices and a message queue into a single unified trace.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to correlate an HTTP request originating in a mobile app across three microservices and a message queue into a single unified trace.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Pass user email addresses in URL query strings as trace identifiers." },
@@ -468,7 +468,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Context Propagation and W3C TraceContext: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Context Propagation to correlate an HTTP request originating in a mobile app across three microservices and a message queue into a single unified trace.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to correlate an HTTP request originating in a mobile app across three microservices and a message queue into a single unified trace.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Generate a brand new trace ID at every microservice hop." },
@@ -489,7 +489,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Context Propagation and W3C TraceContext: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Context Propagation to correlate an HTTP request originating in a mobile app across three microservices and a message queue into a single unified trace.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to correlate an HTTP request originating in a mobile app across three microservices and a message queue into a single unified trace.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Inject and extract W3C TraceContext headers (`traceparent`, `tracestate`) across HTTP request headers and message metadata boundaries." },
@@ -510,7 +510,7 @@ export const CNCF_OTCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Context Propagation and W3C TraceContext: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Context Propagation to correlate an HTTP request originating in a mobile app across three microservices and a message queue into a single unified trace.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to correlate an HTTP request originating in a mobile app across three microservices and a message queue into a single unified trace.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Inject and extract W3C TraceContext headers (`traceparent`, `tracestate`) across HTTP request headers and message metadata boundaries." },

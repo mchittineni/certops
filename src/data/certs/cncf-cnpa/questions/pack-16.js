@@ -6,7 +6,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Platform Cost Visibility and Chargeback/Showback: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Cost Visibility to foster cost awareness and financial accountability among application teams by surfacing cloud spend on their services.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to foster cost awareness and financial accountability among application teams by surfacing cloud spend on their services.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Require developers to calculate cloud server electrical power consumption by hand." },
@@ -27,7 +27,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Platform Cost Visibility and Chargeback/Showback: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Cost Visibility to foster cost awareness and financial accountability among application teams by surfacing cloud spend on their services.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to foster cost awareness and financial accountability among application teams by surfacing cloud spend on their services.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Impose arbitrary compute quota bans without providing any visibility into resource utilization." },
@@ -48,7 +48,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Platform Cost Visibility and Chargeback/Showback: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Cost Visibility to foster cost awareness and financial accountability among application teams by surfacing cloud spend on their services.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to foster cost awareness and financial accountability among application teams by surfacing cloud spend on their services.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Impose arbitrary compute quota bans without providing any visibility into resource utilization." },
@@ -69,7 +69,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Platform Cost Visibility and Chargeback/Showback: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Cost Visibility to foster cost awareness and financial accountability among application teams by surfacing cloud spend on their services.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to foster cost awareness and financial accountability among application teams by surfacing cloud spend on their services.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Require developers to calculate cloud server electrical power consumption by hand." },
@@ -90,7 +90,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Platform Cost Visibility and Chargeback/Showback: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Cost Visibility to foster cost awareness and financial accountability among application teams by surfacing cloud spend on their services.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to foster cost awareness and financial accountability among application teams by surfacing cloud spend on their services.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Impose arbitrary compute quota bans without providing any visibility into resource utilization." },
@@ -111,7 +111,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Feedback Loops and Continuous Platform Improvement: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Feedback Loops to ensure platform investments directly address the most painful bottlenecks currently facing software development teams.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to ensure platform investments directly address the most painful bottlenecks currently facing software development teams.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Cancel all communication channels between platform engineers and product development teams." },
@@ -132,7 +132,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Feedback Loops and Continuous Platform Improvement: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Feedback Loops to ensure platform investments directly address the most painful bottlenecks currently facing software development teams.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to ensure platform investments directly address the most painful bottlenecks currently facing software development teams.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Mandate new platform features without testing usability or gathering feedback." },
@@ -153,7 +153,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Feedback Loops and Continuous Platform Improvement: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Feedback Loops to ensure platform investments directly address the most painful bottlenecks currently facing software development teams.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to ensure platform investments directly address the most painful bottlenecks currently facing software development teams.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Mandate new platform features without testing usability or gathering feedback." },
@@ -174,7 +174,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Feedback Loops and Continuous Platform Improvement: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Feedback Loops to ensure platform investments directly address the most painful bottlenecks currently facing software development teams.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to ensure platform investments directly address the most painful bottlenecks currently facing software development teams.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Establish structured feedback channels including quarterly developer surveys, automated telemetry on tool usage, and office hours." },
@@ -195,7 +195,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Feedback Loops and Continuous Platform Improvement: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Feedback Loops to ensure platform investments directly address the most painful bottlenecks currently facing software development teams.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to ensure platform investments directly address the most painful bottlenecks currently facing software development teams.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Cancel all communication channels between platform engineers and product development teams." },
@@ -216,7 +216,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Golden Paths (Paved Roads) Philosophy: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Golden Paths to encourage enterprise engineering teams to adopt secure, observable, and compliant deployment standards voluntarily.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to encourage enterprise engineering teams to adopt secure, observable, and compliant deployment standards voluntarily.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Impose punitive mandates that block developers from shipping code without offering viable automated tooling." },
@@ -237,7 +237,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Golden Paths (Paved Roads) Philosophy: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Golden Paths to encourage enterprise engineering teams to adopt secure, observable, and compliant deployment standards voluntarily.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to encourage enterprise engineering teams to adopt secure, observable, and compliant deployment standards voluntarily.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Provide 'Golden Paths' (paved roads)—well-supported, automated opt-in workflows that make the right architectural choice the easiest choice." },
@@ -258,7 +258,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Golden Paths (Paved Roads) Philosophy: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Golden Paths to encourage enterprise engineering teams to adopt secure, observable, and compliant deployment standards voluntarily.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to encourage enterprise engineering teams to adopt secure, observable, and compliant deployment standards voluntarily.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Ban all open-source frameworks and force developers to write custom web servers." },
@@ -279,7 +279,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Golden Paths (Paved Roads) Philosophy: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Golden Paths to encourage enterprise engineering teams to adopt secure, observable, and compliant deployment standards voluntarily.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to encourage enterprise engineering teams to adopt secure, observable, and compliant deployment standards voluntarily.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Ban all open-source frameworks and force developers to write custom web servers." },
@@ -300,7 +300,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Golden Paths (Paved Roads) Philosophy: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Golden Paths to encourage enterprise engineering teams to adopt secure, observable, and compliant deployment standards voluntarily.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to encourage enterprise engineering teams to adopt secure, observable, and compliant deployment standards voluntarily.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Ban all open-source frameworks and force developers to write custom web servers." },
@@ -321,7 +321,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Service Scaffolding and Standardized Starter Kits: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Service Scaffolding to ensure newly created microservices immediately include standard Dockerfiles, health checks, and CI/CD pipelines.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to ensure newly created microservices immediately include standard Dockerfiles, health checks, and CI/CD pipelines.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Disable containerization and deploy raw scripts directly to production virtual machines." },
@@ -342,7 +342,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Service Scaffolding and Standardized Starter Kits: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Service Scaffolding to ensure newly created microservices immediately include standard Dockerfiles, health checks, and CI/CD pipelines.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to ensure newly created microservices immediately include standard Dockerfiles, health checks, and CI/CD pipelines.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Leave repository configuration entirely up to individual developers with no baseline standards." },
@@ -363,7 +363,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Service Scaffolding and Standardized Starter Kits: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Service Scaffolding to ensure newly created microservices immediately include standard Dockerfiles, health checks, and CI/CD pipelines.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to ensure newly created microservices immediately include standard Dockerfiles, health checks, and CI/CD pipelines.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Instruct developers to copy obsolete codebases from deprecated repositories on developer laptops." },
@@ -384,7 +384,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Service Scaffolding and Standardized Starter Kits: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Service Scaffolding to ensure newly created microservices immediately include standard Dockerfiles, health checks, and CI/CD pipelines.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to ensure newly created microservices immediately include standard Dockerfiles, health checks, and CI/CD pipelines.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Leave repository configuration entirely up to individual developers with no baseline standards." },
@@ -405,7 +405,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Service Scaffolding and Standardized Starter Kits: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Service Scaffolding to ensure newly created microservices immediately include standard Dockerfiles, health checks, and CI/CD pipelines.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to ensure newly created microservices immediately include standard Dockerfiles, health checks, and CI/CD pipelines.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Instruct developers to copy obsolete codebases from deprecated repositories on developer laptops." },
@@ -426,7 +426,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Reusable CI/CD Workflows and Pipeline Templates: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Reusable Workflows to update a security vulnerability scanner across 500 microservice pipelines simultaneously without modifying individual repositories.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to update a security vulnerability scanner across 500 microservice pipelines simultaneously without modifying individual repositories.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Manually open 500 individual pull requests editing duplicated pipeline YAML files by hand." },
@@ -447,7 +447,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Reusable CI/CD Workflows and Pipeline Templates: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Reusable Workflows to update a security vulnerability scanner across 500 microservice pipelines simultaneously without modifying individual repositories.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to update a security vulnerability scanner across 500 microservice pipelines simultaneously without modifying individual repositories.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Disable security scanning across all repositories to avoid pipeline maintenance." },
@@ -468,7 +468,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Reusable CI/CD Workflows and Pipeline Templates: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Reusable Workflows to update a security vulnerability scanner across 500 microservice pipelines simultaneously without modifying individual repositories.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to update a security vulnerability scanner across 500 microservice pipelines simultaneously without modifying individual repositories.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Instruct developers to run security scans manually on local workstations before committing code." },
@@ -489,7 +489,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Reusable CI/CD Workflows and Pipeline Templates: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Reusable Workflows to update a security vulnerability scanner across 500 microservice pipelines simultaneously without modifying individual repositories.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to update a security vulnerability scanner across 500 microservice pipelines simultaneously without modifying individual repositories.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Disable security scanning across all repositories to avoid pipeline maintenance." },
@@ -510,7 +510,7 @@ export const CNCF_CNPA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Reusable CI/CD Workflows and Pipeline Templates: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Reusable Workflows to update a security vulnerability scanner across 500 microservice pipelines simultaneously without modifying individual repositories.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to update a security vulnerability scanner across 500 microservice pipelines simultaneously without modifying individual repositories.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Disable security scanning across all repositories to avoid pipeline maintenance." },

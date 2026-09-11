@@ -6,7 +6,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Automated Remediation with EventBridge and Systems Manager Automation: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Automated Remediation to automatically remediate an unapproved public Amazon S3 bucket within seconds of creation without human intervention.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to automatically remediate an unapproved public Amazon S3 bucket within seconds of creation without human intervention.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Delete all S3 buckets in the AWS account immediately." },
@@ -27,7 +27,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Automated Remediation with EventBridge and Systems Manager Automation: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Automated Remediation to automatically remediate an unapproved public Amazon S3 bucket within seconds of creation without human intervention.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to automatically remediate an unapproved public Amazon S3 bucket within seconds of creation without human intervention.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Send an email to the employee who created the bucket asking them to delete it." },
@@ -48,7 +48,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Automated Remediation with EventBridge and Systems Manager Automation: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Automated Remediation to automatically remediate an unapproved public Amazon S3 bucket within seconds of creation without human intervention.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to automatically remediate an unapproved public Amazon S3 bucket within seconds of creation without human intervention.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Delete all S3 buckets in the AWS account immediately." },
@@ -69,7 +69,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Automated Remediation with EventBridge and Systems Manager Automation: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Automated Remediation to automatically remediate an unapproved public Amazon S3 bucket within seconds of creation without human intervention.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to automatically remediate an unapproved public Amazon S3 bucket within seconds of creation without human intervention.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Send an email to the employee who created the bucket asking them to delete it." },
@@ -90,7 +90,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Automated Remediation with EventBridge and Systems Manager Automation: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Automated Remediation to automatically remediate an unapproved public Amazon S3 bucket within seconds of creation without human intervention.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to automatically remediate an unapproved public Amazon S3 bucket within seconds of creation without human intervention.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Wait for a human security auditor to inspect the bucket during monthly audits." },
@@ -111,7 +111,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "AWS Systems Manager Incident Manager: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Incident Operations to streamline major operational incident response with automated chat channel creation, on-call paging, and structured post-incident reviews.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to streamline major operational incident response with automated chat channel creation, on-call paging, and structured post-incident reviews.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Manage major production outages through uncoordinated email threads." },
@@ -132,7 +132,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "AWS Systems Manager Incident Manager: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Incident Operations to streamline major operational incident response with automated chat channel creation, on-call paging, and structured post-incident reviews.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to streamline major operational incident response with automated chat channel creation, on-call paging, and structured post-incident reviews.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Assign blame to the engineer on call during the outage." },
@@ -153,7 +153,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "AWS Systems Manager Incident Manager: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Incident Operations to streamline major operational incident response with automated chat channel creation, on-call paging, and structured post-incident reviews.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to streamline major operational incident response with automated chat channel creation, on-call paging, and structured post-incident reviews.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Assign blame to the engineer on call during the outage." },
@@ -174,7 +174,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "AWS Systems Manager Incident Manager: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Incident Operations to streamline major operational incident response with automated chat channel creation, on-call paging, and structured post-incident reviews.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to streamline major operational incident response with automated chat channel creation, on-call paging, and structured post-incident reviews.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Manage major production outages through uncoordinated email threads." },
@@ -195,7 +195,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "AWS Systems Manager Incident Manager: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Incident Operations to streamline major operational incident response with automated chat channel creation, on-call paging, and structured post-incident reviews.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to streamline major operational incident response with automated chat channel creation, on-call paging, and structured post-incident reviews.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Configure AWS Systems Manager Incident Manager with response plans, integrated PagerDuty/OpsCenter contacts, and automated post-incident analysis templates." },
@@ -216,7 +216,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "AWS Chatbot Integration for ChatOps: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates ChatOps to allow DevOps engineers to receive critical operational alerts, invoke SSM runbooks, and approve CodePipeline releases directly within Microsoft Teams or Slack.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to allow DevOps engineers to receive critical operational alerts, invoke SSM runbooks, and approve CodePipeline releases directly within Microsoft Teams or Slack.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Require engineers to log into the AWS Management Console for every single notification." },
@@ -237,7 +237,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "AWS Chatbot Integration for ChatOps: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates ChatOps to allow DevOps engineers to receive critical operational alerts, invoke SSM runbooks, and approve CodePipeline releases directly within Microsoft Teams or Slack.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to allow DevOps engineers to receive critical operational alerts, invoke SSM runbooks, and approve CodePipeline releases directly within Microsoft Teams or Slack.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Configure custom unauthenticated webhooks from third-party servers." },
@@ -258,7 +258,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "AWS Chatbot Integration for ChatOps: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates ChatOps to allow DevOps engineers to receive critical operational alerts, invoke SSM runbooks, and approve CodePipeline releases directly within Microsoft Teams or Slack.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to allow DevOps engineers to receive critical operational alerts, invoke SSM runbooks, and approve CodePipeline releases directly within Microsoft Teams or Slack.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Require engineers to log into the AWS Management Console for every single notification." },
@@ -279,7 +279,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "AWS Chatbot Integration for ChatOps: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates ChatOps to allow DevOps engineers to receive critical operational alerts, invoke SSM runbooks, and approve CodePipeline releases directly within Microsoft Teams or Slack.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to allow DevOps engineers to receive critical operational alerts, invoke SSM runbooks, and approve CodePipeline releases directly within Microsoft Teams or Slack.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Configure AWS Chatbot with an Amazon SNS topic and bind it to enterprise Slack or Microsoft Teams channels with IAM permissions." },
@@ -300,7 +300,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "AWS Chatbot Integration for ChatOps: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates ChatOps to allow DevOps engineers to receive critical operational alerts, invoke SSM runbooks, and approve CodePipeline releases directly within Microsoft Teams or Slack.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to allow DevOps engineers to receive critical operational alerts, invoke SSM runbooks, and approve CodePipeline releases directly within Microsoft Teams or Slack.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Configure custom unauthenticated webhooks from third-party servers." },
@@ -321,7 +321,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Automated EC2 Auto Recovery: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Auto Recovery to automatically recover an Amazon EC2 instance hosting a legacy stateful service when underlying host hardware experiences failure.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to automatically recover an Amazon EC2 instance hosting a legacy stateful service when underlying host hardware experiences failure.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Create a CloudWatch Alarm for `StatusCheckFailed_System` with an alarm action configured for `Recover this instance`." },
@@ -342,7 +342,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Automated EC2 Auto Recovery: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Auto Recovery to automatically recover an Amazon EC2 instance hosting a legacy stateful service when underlying host hardware experiences failure.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to automatically recover an Amazon EC2 instance hosting a legacy stateful service when underlying host hardware experiences failure.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Rely on operating system reboot commands executed from inside the guest OS." },
@@ -363,7 +363,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Automated EC2 Auto Recovery: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Auto Recovery to automatically recover an Amazon EC2 instance hosting a legacy stateful service when underlying host hardware experiences failure.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to automatically recover an Amazon EC2 instance hosting a legacy stateful service when underlying host hardware experiences failure.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Set the alarm action to terminate the instance permanently." },
@@ -384,7 +384,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Automated EC2 Auto Recovery: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Auto Recovery to automatically recover an Amazon EC2 instance hosting a legacy stateful service when underlying host hardware experiences failure.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to automatically recover an Amazon EC2 instance hosting a legacy stateful service when underlying host hardware experiences failure.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Create a CloudWatch Alarm for `StatusCheckFailed_System` with an alarm action configured for `Recover this instance`." },
@@ -405,7 +405,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Automated EC2 Auto Recovery: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Auto Recovery to automatically recover an Amazon EC2 instance hosting a legacy stateful service when underlying host hardware experiences failure.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to automatically recover an Amazon EC2 instance hosting a legacy stateful service when underlying host hardware experiences failure.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Rely on operating system reboot commands executed from inside the guest OS." },
@@ -426,7 +426,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Blameless Post-Mortem and Root Cause Analysis: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates SRE Culture to conduct an engineering post-incident review following a severe outage where a developer deployed an unvalidated configuration update.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to conduct an engineering post-incident review following a severe outage where a developer deployed an unvalidated configuration update.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Cancel all future deployments to prevent any risk of outages." },
@@ -447,7 +447,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Blameless Post-Mortem and Root Cause Analysis: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates SRE Culture to conduct an engineering post-incident review following a severe outage where a developer deployed an unvalidated configuration update.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to conduct an engineering post-incident review following a severe outage where a developer deployed an unvalidated configuration update.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Conduct a blameless post-mortem focused on systemic safeguards (e.g., missing pre-commit validators, automated rollback gaps) and prioritize corrective engineering backlog items." },
@@ -468,7 +468,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Blameless Post-Mortem and Root Cause Analysis: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates SRE Culture to conduct an engineering post-incident review following a severe outage where a developer deployed an unvalidated configuration update.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to conduct an engineering post-incident review following a severe outage where a developer deployed an unvalidated configuration update.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Cancel all future deployments to prevent any risk of outages." },
@@ -489,7 +489,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Blameless Post-Mortem and Root Cause Analysis: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates SRE Culture to conduct an engineering post-incident review following a severe outage where a developer deployed an unvalidated configuration update.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to conduct an engineering post-incident review following a severe outage where a developer deployed an unvalidated configuration update.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Conceal incident findings from other engineering teams." },
@@ -510,7 +510,7 @@ export const AWS_DOP_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Blameless Post-Mortem and Root Cause Analysis: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates SRE Culture to conduct an engineering post-incident review following a severe outage where a developer deployed an unvalidated configuration update.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to conduct an engineering post-incident review following a severe outage where a developer deployed an unvalidated configuration update.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Conceal incident findings from other engineering teams." },

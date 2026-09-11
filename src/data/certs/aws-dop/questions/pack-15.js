@@ -6,7 +6,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Route 53 Application Recovery Controller (ARC): Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Route 53 ARC to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Route all traffic through a single EC2 instance running BIND DNS." },
@@ -27,7 +27,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Route 53 Application Recovery Controller (ARC): High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Route 53 ARC to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Perform manual Route 53 DNS record updates using the AWS Console during an active outage." },
@@ -48,7 +48,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Route 53 Application Recovery Controller (ARC): Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Route 53 ARC to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Route all traffic through a single EC2 instance running BIND DNS." },
@@ -69,7 +69,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Route 53 Application Recovery Controller (ARC): Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Route 53 ARC to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Perform manual Route 53 DNS record updates using the AWS Console during an active outage." },
@@ -90,7 +90,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Route 53 Application Recovery Controller (ARC): Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Route 53 ARC to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Perform manual Route 53 DNS record updates using the AWS Console during an active outage." },
@@ -111,7 +111,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Auto Scaling Predictive and Target Tracking Scaling: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Auto Scaling to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Over-provision thousands of static EC2 instances permanently." },
@@ -132,7 +132,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Auto Scaling Predictive and Target Tracking Scaling: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Auto Scaling to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Use Simple Scaling policies with static thresholds and 10-minute cooldown periods." },
@@ -153,7 +153,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Auto Scaling Predictive and Target Tracking Scaling: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Auto Scaling to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Configure Predictive Scaling based on historical metrics combined with a Target Tracking scaling policy maintaining 60% average CPU utilization." },
@@ -174,7 +174,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Auto Scaling Predictive and Target Tracking Scaling: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Auto Scaling to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Use Simple Scaling policies with static thresholds and 10-minute cooldown periods." },
@@ -195,7 +195,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Auto Scaling Predictive and Target Tracking Scaling: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Auto Scaling to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Configure Predictive Scaling based on historical metrics combined with a Target Tracking scaling policy maintaining 60% average CPU utilization." },
@@ -216,7 +216,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "AWS Fault Injection Service (FIS) for Chaos Engineering: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Chaos Engineering to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers." },
@@ -237,7 +237,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "AWS Fault Injection Service (FIS) for Chaos Engineering: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Chaos Engineering to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Assume multi-AZ deployment guarantees high availability without empirical validation." },
@@ -258,7 +258,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "AWS Fault Injection Service (FIS) for Chaos Engineering: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Chaos Engineering to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Shut down random production servers during peak business hours without stop conditions." },
@@ -279,7 +279,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "AWS Fault Injection Service (FIS) for Chaos Engineering: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Chaos Engineering to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Shut down random production servers during peak business hours without stop conditions." },
@@ -300,7 +300,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "AWS Fault Injection Service (FIS) for Chaos Engineering: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Chaos Engineering to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Assume multi-AZ deployment guarantees high availability without empirical validation." },
@@ -321,7 +321,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Decoupling with Amazon SQS and Dead Letter Queues (DLQ): Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Asynchronous Decoupling to prevent backend order processing services from crashing during traffic spikes while isolating malformed messages that fail processing repeatedly.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to prevent backend order processing services from crashing during traffic spikes while isolating malformed messages that fail processing repeatedly.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Call backend worker APIs synchronously from the frontend web servers." },
@@ -342,7 +342,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Decoupling with Amazon SQS and Dead Letter Queues (DLQ): High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Asynchronous Decoupling to prevent backend order processing services from crashing during traffic spikes while isolating malformed messages that fail processing repeatedly.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to prevent backend order processing services from crashing during traffic spikes while isolating malformed messages that fail processing repeatedly.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Place an Amazon SQS queue between frontend APIs and backend workers, and configure a Dead Letter Queue (DLQ) with `maxReceiveCount: 5` and a CloudWatch alarm." },
@@ -363,7 +363,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Decoupling with Amazon SQS and Dead Letter Queues (DLQ): Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Asynchronous Decoupling to prevent backend order processing services from crashing during traffic spikes while isolating malformed messages that fail processing repeatedly.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to prevent backend order processing services from crashing during traffic spikes while isolating malformed messages that fail processing repeatedly.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Place an Amazon SQS queue between frontend APIs and backend workers, and configure a Dead Letter Queue (DLQ) with `maxReceiveCount: 5` and a CloudWatch alarm." },
@@ -384,7 +384,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Decoupling with Amazon SQS and Dead Letter Queues (DLQ): Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Asynchronous Decoupling to prevent backend order processing services from crashing during traffic spikes while isolating malformed messages that fail processing repeatedly.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to prevent backend order processing services from crashing during traffic spikes while isolating malformed messages that fail processing repeatedly.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Call backend worker APIs synchronously from the frontend web servers." },
@@ -405,7 +405,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Decoupling with Amazon SQS and Dead Letter Queues (DLQ): Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Asynchronous Decoupling to prevent backend order processing services from crashing during traffic spikes while isolating malformed messages that fail processing repeatedly.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to prevent backend order processing services from crashing during traffic spikes while isolating malformed messages that fail processing repeatedly.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Discard any message that encounters an error immediately without logging." },
@@ -426,7 +426,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Automating RDS Automated Backups and Cross-Region Copies: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Database Resilience to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Take manual database dumps using mysqldump and store them on the local database host disk." },
@@ -447,7 +447,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Automating RDS Automated Backups and Cross-Region Copies: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Database Resilience to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Disable snapshot encryption to speed up copy times." },
@@ -468,7 +468,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Automating RDS Automated Backups and Cross-Region Copies: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Database Resilience to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Take manual database dumps using mysqldump and store them on the local database host disk." },
@@ -489,7 +489,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Automating RDS Automated Backups and Cross-Region Copies: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Database Resilience to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Rely on single-AZ database storage without backups." },
@@ -510,7 +510,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Automating RDS Automated Backups and Cross-Region Copies: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Database Resilience to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Rely on single-AZ database storage without backups." },

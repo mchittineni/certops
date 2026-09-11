@@ -6,7 +6,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Cloud Build for ML (Continuous Integration for Model Code): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates MLOps CI to automate the testing of data preprocessing routines, model architecture definitions, and custom container building upon every Git pull request.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to automate the testing of data preprocessing routines, model architecture definitions, and custom container building upon every Git pull request.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Configure Google Cloud Build triggers to run unit tests and build custom training containers upon Git commits." },
@@ -27,7 +27,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Cloud Build for ML (Continuous Integration for Model Code): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates MLOps CI to automate the testing of data preprocessing routines, model architecture definitions, and custom container building upon every Git pull request.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to automate the testing of data preprocessing routines, model architecture definitions, and custom container building upon every Git pull request.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Commit unverified training scripts directly to the production branch without automated testing." },
@@ -48,7 +48,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Cloud Build for ML (Continuous Integration for Model Code): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates MLOps CI to automate the testing of data preprocessing routines, model architecture definitions, and custom container building upon every Git pull request.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to automate the testing of data preprocessing routines, model architecture definitions, and custom container building upon every Git pull request.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Commit unverified training scripts directly to the production branch without automated testing." },
@@ -69,7 +69,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Cloud Build for ML (Continuous Integration for Model Code): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates MLOps CI to automate the testing of data preprocessing routines, model architecture definitions, and custom container building upon every Git pull request.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to automate the testing of data preprocessing routines, model architecture definitions, and custom container building upon every Git pull request.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Configure Google Cloud Build triggers to run unit tests and build custom training containers upon Git commits." },
@@ -90,7 +90,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Cloud Build for ML (Continuous Integration for Model Code): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates MLOps CI to automate the testing of data preprocessing routines, model architecture definitions, and custom container building upon every Git pull request.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to automate the testing of data preprocessing routines, model architecture definitions, and custom container building upon every Git pull request.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Test machine learning code manually by running Jupyter notebooks on personal laptops." },
@@ -111,7 +111,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "BigQuery ML Model Export to Vertex AI: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates BigQuery ML to Vertex to train a gradient boosted tree model inside BigQuery on enterprise data warehouse tables and deploy it to a low-latency Vertex AI Endpoint for sub-50ms real-time online serving.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to train a gradient boosted tree model inside BigQuery on enterprise data warehouse tables and deploy it to a low-latency Vertex AI Endpoint for sub-50ms real-time online serving.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Export the BigQuery ML model using 'EXPORT MODEL' to Cloud Storage, register in Vertex AI Model Registry, and deploy to an Endpoint." },
@@ -132,7 +132,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "BigQuery ML Model Export to Vertex AI: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates BigQuery ML to Vertex to train a gradient boosted tree model inside BigQuery on enterprise data warehouse tables and deploy it to a low-latency Vertex AI Endpoint for sub-50ms real-time online serving.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to train a gradient boosted tree model inside BigQuery on enterprise data warehouse tables and deploy it to a low-latency Vertex AI Endpoint for sub-50ms real-time online serving.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Export the BigQuery ML model using 'EXPORT MODEL' to Cloud Storage, register in Vertex AI Model Registry, and deploy to an Endpoint." },
@@ -153,7 +153,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "BigQuery ML Model Export to Vertex AI: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates BigQuery ML to Vertex to train a gradient boosted tree model inside BigQuery on enterprise data warehouse tables and deploy it to a low-latency Vertex AI Endpoint for sub-50ms real-time online serving.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to train a gradient boosted tree model inside BigQuery on enterprise data warehouse tables and deploy it to a low-latency Vertex AI Endpoint for sub-50ms real-time online serving.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Export the BigQuery ML model using 'EXPORT MODEL' to Cloud Storage, register in Vertex AI Model Registry, and deploy to an Endpoint." },
@@ -174,7 +174,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "BigQuery ML Model Export to Vertex AI: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates BigQuery ML to Vertex to train a gradient boosted tree model inside BigQuery on enterprise data warehouse tables and deploy it to a low-latency Vertex AI Endpoint for sub-50ms real-time online serving.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to train a gradient boosted tree model inside BigQuery on enterprise data warehouse tables and deploy it to a low-latency Vertex AI Endpoint for sub-50ms real-time online serving.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Use a batch SQL script scheduled to run every 1 second inside BigQuery." },
@@ -195,7 +195,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "BigQuery ML Model Export to Vertex AI: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates BigQuery ML to Vertex to train a gradient boosted tree model inside BigQuery on enterprise data warehouse tables and deploy it to a low-latency Vertex AI Endpoint for sub-50ms real-time online serving.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to train a gradient boosted tree model inside BigQuery on enterprise data warehouse tables and deploy it to a low-latency Vertex AI Endpoint for sub-50ms real-time online serving.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Retrain the entire model manually in Python from scratch." },
@@ -216,7 +216,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Feature Store Real-Time Feature Ingestion and Syncing: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Feature Engineering to stream dynamic user click events from Pub/Sub into Vertex AI Feature Store to ensure online real-time inference models access the latest customer behavior within seconds.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to stream dynamic user click events from Pub/Sub into Vertex AI Feature Store to ensure online real-time inference models access the latest customer behavior within seconds.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Run a nightly batch script that updates feature tables once every 24 hours." },
@@ -237,7 +237,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Feature Store Real-Time Feature Ingestion and Syncing: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Feature Engineering to stream dynamic user click events from Pub/Sub into Vertex AI Feature Store to ensure online real-time inference models access the latest customer behavior within seconds.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to stream dynamic user click events from Pub/Sub into Vertex AI Feature Store to ensure online real-time inference models access the latest customer behavior within seconds.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Configure streaming ingestion into Vertex AI Feature Store using the streaming ingestion API." },
@@ -258,7 +258,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Feature Store Real-Time Feature Ingestion and Syncing: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Feature Engineering to stream dynamic user click events from Pub/Sub into Vertex AI Feature Store to ensure online real-time inference models access the latest customer behavior within seconds.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to stream dynamic user click events from Pub/Sub into Vertex AI Feature Store to ensure online real-time inference models access the latest customer behavior within seconds.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Run a nightly batch script that updates feature tables once every 24 hours." },
@@ -279,7 +279,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Feature Store Real-Time Feature Ingestion and Syncing: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Feature Engineering to stream dynamic user click events from Pub/Sub into Vertex AI Feature Store to ensure online real-time inference models access the latest customer behavior within seconds.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to stream dynamic user click events from Pub/Sub into Vertex AI Feature Store to ensure online real-time inference models access the latest customer behavior within seconds.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Calculate features in client web browsers and pass them in HTTP headers." },
@@ -300,7 +300,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Feature Store Real-Time Feature Ingestion and Syncing: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Feature Engineering to stream dynamic user click events from Pub/Sub into Vertex AI Feature Store to ensure online real-time inference models access the latest customer behavior within seconds.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to stream dynamic user click events from Pub/Sub into Vertex AI Feature Store to ensure online real-time inference models access the latest customer behavior within seconds.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Calculate features in client web browsers and pass them in HTTP headers." },
@@ -321,7 +321,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Model Checkpointing and Resumable Training: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Fault-Tolerant Training to ensure that a 7-day distributed deep learning training job running on preemptible Spot VMs or TPUs can recover from node terminations without losing progress.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to ensure that a 7-day distributed deep learning training job running on preemptible Spot VMs or TPUs can recover from node terminations without losing progress.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Start the 7-day training job from epoch 1 every time a Spot VM node is reclaimed." },
@@ -342,7 +342,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Model Checkpointing and Resumable Training: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Fault-Tolerant Training to ensure that a 7-day distributed deep learning training job running on preemptible Spot VMs or TPUs can recover from node terminations without losing progress.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to ensure that a 7-day distributed deep learning training job running on preemptible Spot VMs or TPUs can recover from node terminations without losing progress.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Start the 7-day training job from epoch 1 every time a Spot VM node is reclaimed." },
@@ -363,7 +363,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Model Checkpointing and Resumable Training: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Fault-Tolerant Training to ensure that a 7-day distributed deep learning training job running on preemptible Spot VMs or TPUs can recover from node terminations without losing progress.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to ensure that a 7-day distributed deep learning training job running on preemptible Spot VMs or TPUs can recover from node terminations without losing progress.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Configure training scripts to save model checkpoints periodically to a Cloud Storage bucket and resume from the latest checkpoint." },
@@ -384,7 +384,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Model Checkpointing and Resumable Training: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Fault-Tolerant Training to ensure that a 7-day distributed deep learning training job running on preemptible Spot VMs or TPUs can recover from node terminations without losing progress.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to ensure that a 7-day distributed deep learning training job running on preemptible Spot VMs or TPUs can recover from node terminations without losing progress.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Keep all model weights in local RAM memory without saving checkpoints." },
@@ -405,7 +405,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Model Checkpointing and Resumable Training: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Fault-Tolerant Training to ensure that a 7-day distributed deep learning training job running on preemptible Spot VMs or TPUs can recover from node terminations without losing progress.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to ensure that a 7-day distributed deep learning training job running on preemptible Spot VMs or TPUs can recover from node terminations without losing progress.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Configure training scripts to save model checkpoints periodically to a Cloud Storage bucket and resume from the latest checkpoint." },
@@ -426,7 +426,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Search and Conversation (GenAI Agent Architecture): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Enterprise GenAI to build an enterprise generative AI conversational search assistant grounded in internal corporate Google Drive documents and intranet wikis.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to build an enterprise generative AI conversational search assistant grounded in internal corporate Google Drive documents and intranet wikis.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Hardcode enterprise document text into a prompt template." },
@@ -447,7 +447,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Search and Conversation (GenAI Agent Architecture): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Enterprise GenAI to build an enterprise generative AI conversational search assistant grounded in internal corporate Google Drive documents and intranet wikis.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to build an enterprise generative AI conversational search assistant grounded in internal corporate Google Drive documents and intranet wikis.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Train a base foundational model from scratch on internal PDFs." },
@@ -468,7 +468,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Search and Conversation (GenAI Agent Architecture): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Enterprise GenAI to build an enterprise generative AI conversational search assistant grounded in internal corporate Google Drive documents and intranet wikis.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to build an enterprise generative AI conversational search assistant grounded in internal corporate Google Drive documents and intranet wikis.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Train a base foundational model from scratch on internal PDFs." },
@@ -489,7 +489,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Search and Conversation (GenAI Agent Architecture): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Enterprise GenAI to build an enterprise generative AI conversational search assistant grounded in internal corporate Google Drive documents and intranet wikis.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to build an enterprise generative AI conversational search assistant grounded in internal corporate Google Drive documents and intranet wikis.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Prompt a public consumer LLM without providing enterprise context or document grounding." },
@@ -510,7 +510,7 @@ export const GCP_PMLE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Search and Conversation (GenAI Agent Architecture): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Enterprise GenAI to build an enterprise generative AI conversational search assistant grounded in internal corporate Google Drive documents and intranet wikis.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to build an enterprise generative AI conversational search assistant grounded in internal corporate Google Drive documents and intranet wikis.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Train a base foundational model from scratch on internal PDFs." },

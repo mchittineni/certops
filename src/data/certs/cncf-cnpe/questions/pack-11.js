@@ -6,7 +6,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Declarative Platform API Schemas and CEL Validation: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Platform APIs to enforce complex business validation rules on custom platform resources directly in the Kubernetes API server without admission webhooks.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to enforce complex business validation rules on custom platform resources directly in the Kubernetes API server without admission webhooks.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Deploy fragile external webhook containers that introduce network latency and single points of failure for basic schema checks." },
@@ -27,7 +27,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Declarative Platform API Schemas and CEL Validation: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Platform APIs to enforce complex business validation rules on custom platform resources directly in the Kubernetes API server without admission webhooks.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to enforce complex business validation rules on custom platform resources directly in the Kubernetes API server without admission webhooks.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Disable API validation to maximize manifest ingestion speed." },
@@ -48,7 +48,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Declarative Platform API Schemas and CEL Validation: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Platform APIs to enforce complex business validation rules on custom platform resources directly in the Kubernetes API server without admission webhooks.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to enforce complex business validation rules on custom platform resources directly in the Kubernetes API server without admission webhooks.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Incorporate Common Expression Language (CEL) validation rules (`x-kubernetes-validations`) directly within the CRD OpenAPI v3 schema." },
@@ -69,7 +69,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Declarative Platform API Schemas and CEL Validation: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Platform APIs to enforce complex business validation rules on custom platform resources directly in the Kubernetes API server without admission webhooks.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to enforce complex business validation rules on custom platform resources directly in the Kubernetes API server without admission webhooks.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Allow unvalidated JSON payloads into etcd and hope downstream controllers handle parse errors." },
@@ -90,7 +90,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Declarative Platform API Schemas and CEL Validation: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Platform APIs to enforce complex business validation rules on custom platform resources directly in the Kubernetes API server without admission webhooks.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to enforce complex business validation rules on custom platform resources directly in the Kubernetes API server without admission webhooks.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Deploy fragile external webhook containers that introduce network latency and single points of failure for basic schema checks." },
@@ -111,7 +111,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Crossplane Composite Resource Definitions (XRDs) Architecture: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Crossplane XRDs to publish a clean internal database API (`PostgreSQLInstance`) that abstracts underlying AWS RDS, Azure Flexible Server, or GCP Cloud SQL.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to publish a clean internal database API (`PostgreSQLInstance`) that abstracts underlying AWS RDS, Azure Flexible Server, or GCP Cloud SQL.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Author a Crossplane CompositeResourceDefinition (XRD) defining the schema, parameters, and published connection secret keys." },
@@ -132,7 +132,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Crossplane Composite Resource Definitions (XRDs) Architecture: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Crossplane XRDs to publish a clean internal database API (`PostgreSQLInstance`) that abstracts underlying AWS RDS, Azure Flexible Server, or GCP Cloud SQL.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to publish a clean internal database API (`PostgreSQLInstance`) that abstracts underlying AWS RDS, Azure Flexible Server, or GCP Cloud SQL.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Require developers to write raw cloud provider CloudFormation or ARM templates directly." },
@@ -153,7 +153,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Crossplane Composite Resource Definitions (XRDs) Architecture: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Crossplane XRDs to publish a clean internal database API (`PostgreSQLInstance`) that abstracts underlying AWS RDS, Azure Flexible Server, or GCP Cloud SQL.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to publish a clean internal database API (`PostgreSQLInstance`) that abstracts underlying AWS RDS, Azure Flexible Server, or GCP Cloud SQL.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Author a Crossplane CompositeResourceDefinition (XRD) defining the schema, parameters, and published connection secret keys." },
@@ -174,7 +174,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Crossplane Composite Resource Definitions (XRDs) Architecture: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Crossplane XRDs to publish a clean internal database API (`PostgreSQLInstance`) that abstracts underlying AWS RDS, Azure Flexible Server, or GCP Cloud SQL.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to publish a clean internal database API (`PostgreSQLInstance`) that abstracts underlying AWS RDS, Azure Flexible Server, or GCP Cloud SQL.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Require developers to write raw cloud provider CloudFormation or ARM templates directly." },
@@ -195,7 +195,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Crossplane Composite Resource Definitions (XRDs) Architecture: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Crossplane XRDs to publish a clean internal database API (`PostgreSQLInstance`) that abstracts underlying AWS RDS, Azure Flexible Server, or GCP Cloud SQL.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to publish a clean internal database API (`PostgreSQLInstance`) that abstracts underlying AWS RDS, Azure Flexible Server, or GCP Cloud SQL.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Author a Crossplane CompositeResourceDefinition (XRD) defining the schema, parameters, and published connection secret keys." },
@@ -216,7 +216,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Composition Functions in Crossplane: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Composition Functions to implement conditional resource creation, loops, and complex logic inside Crossplane compositions cleanly and testably.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to implement conditional resource creation, loops, and complex logic inside Crossplane compositions cleanly and testably.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Fork the Crossplane source code to add hardcoded business logic." },
@@ -237,7 +237,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Composition Functions in Crossplane: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Composition Functions to implement conditional resource creation, loops, and complex logic inside Crossplane compositions cleanly and testably.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to implement conditional resource creation, loops, and complex logic inside Crossplane compositions cleanly and testably.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Execute shell scripts directly on the host Kubernetes nodes during reconciliation." },
@@ -258,7 +258,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Composition Functions in Crossplane: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Composition Functions to implement conditional resource creation, loops, and complex logic inside Crossplane compositions cleanly and testably.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to implement conditional resource creation, loops, and complex logic inside Crossplane compositions cleanly and testably.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Execute shell scripts directly on the host Kubernetes nodes during reconciliation." },
@@ -279,7 +279,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Composition Functions in Crossplane: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Composition Functions to implement conditional resource creation, loops, and complex logic inside Crossplane compositions cleanly and testably.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to implement conditional resource creation, loops, and complex logic inside Crossplane compositions cleanly and testably.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Write thousands of fragile, unmaintainable YAML patch-and-transform blocks that cannot express conditional logic." },
@@ -300,7 +300,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Composition Functions in Crossplane: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Composition Functions to implement conditional resource creation, loops, and complex logic inside Crossplane compositions cleanly and testably.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to implement conditional resource creation, loops, and complex logic inside Crossplane compositions cleanly and testably.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Execute shell scripts directly on the host Kubernetes nodes during reconciliation." },
@@ -321,7 +321,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Kubernetes Controller Architecture and Reconciliation Loops: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Controller Architecture to build an enterprise operator that provisions external SaaS accounts and cleans up remote resources reliably upon CR deletion.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to build an enterprise operator that provisions external SaaS accounts and cleans up remote resources reliably upon CR deletion.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Delete the Kubernetes object immediately without cleaning up external SaaS resources, leaving orphaned cloud spend." },
@@ -342,7 +342,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Kubernetes Controller Architecture and Reconciliation Loops: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Controller Architecture to build an enterprise operator that provisions external SaaS accounts and cleans up remote resources reliably upon CR deletion.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to build an enterprise operator that provisions external SaaS accounts and cleans up remote resources reliably upon CR deletion.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Implement a custom controller using Kubebuilder, attaching a finalizer to the custom resource to execute teardown before deletion." },
@@ -363,7 +363,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Kubernetes Controller Architecture and Reconciliation Loops: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Controller Architecture to build an enterprise operator that provisions external SaaS accounts and cleans up remote resources reliably upon CR deletion.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to build an enterprise operator that provisions external SaaS accounts and cleans up remote resources reliably upon CR deletion.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Execute cron jobs every midnight that scrape Kubernetes manifests using regex." },
@@ -384,7 +384,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Kubernetes Controller Architecture and Reconciliation Loops: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Controller Architecture to build an enterprise operator that provisions external SaaS accounts and cleans up remote resources reliably upon CR deletion.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to build an enterprise operator that provisions external SaaS accounts and cleans up remote resources reliably upon CR deletion.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Execute cron jobs every midnight that scrape Kubernetes manifests using regex." },
@@ -405,7 +405,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Kubernetes Controller Architecture and Reconciliation Loops: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Controller Architecture to build an enterprise operator that provisions external SaaS accounts and cleans up remote resources reliably upon CR deletion.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to build an enterprise operator that provisions external SaaS accounts and cleans up remote resources reliably upon CR deletion.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Delete the Kubernetes object immediately without cleaning up external SaaS resources, leaving orphaned cloud spend." },
@@ -426,7 +426,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Workload Specification Abstractions: Score Specification: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Score Spec to enable developers to describe application requirements (containers, ports, variables, resources) once without knowing target cluster topologies.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to enable developers to describe application requirements (containers, ports, variables, resources) once without knowing target cluster topologies.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives? Decoupling application workload definitions from environment infrastructure details via score.",
     options: [
       { id: 'A', text: "Require developers to duplicate and maintain separate 500-line Helm charts for every development, staging, and production cluster." },
@@ -447,7 +447,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Workload Specification Abstractions: Score Specification: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Score Spec to enable developers to describe application requirements (containers, ports, variables, resources) once without knowing target cluster topologies.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to enable developers to describe application requirements (containers, ports, variables, resources) once without knowing target cluster topologies.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift? Decoupling application workload definitions from environment infrastructure details via score.",
     options: [
       { id: 'A', text: "Adopt the CNCF Score specification (`score.yaml`), allowing developers to declare workload requirements independently of environments." },
@@ -468,7 +468,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Workload Specification Abstractions: Score Specification: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Score Spec to enable developers to describe application requirements (containers, ports, variables, resources) once without knowing target cluster topologies.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to enable developers to describe application requirements (containers, ports, variables, resources) once without knowing target cluster topologies.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls? Decoupling application workload definitions from environment infrastructure details via score.",
     options: [
       { id: 'A', text: "Force developers to learn raw cloud provider infrastructure templates." },
@@ -489,7 +489,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Workload Specification Abstractions: Score Specification: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Score Spec to enable developers to describe application requirements (containers, ports, variables, resources) once without knowing target cluster topologies.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to enable developers to describe application requirements (containers, ports, variables, resources) once without knowing target cluster topologies.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely? Decoupling application workload definitions from environment infrastructure details via score.",
     options: [
       { id: 'A', text: "Force developers to learn raw cloud provider infrastructure templates." },
@@ -510,7 +510,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Workload Specification Abstractions: Score Specification: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Score Spec to enable developers to describe application requirements (containers, ports, variables, resources) once without knowing target cluster topologies.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to enable developers to describe application requirements (containers, ports, variables, resources) once without knowing target cluster topologies.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution? Decoupling application workload definitions from environment infrastructure details via score.",
     options: [
       { id: 'A', text: "Force developers to learn raw cloud provider infrastructure templates." },

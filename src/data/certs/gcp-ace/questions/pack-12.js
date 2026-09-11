@@ -6,7 +6,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "IAM Predefined vs Custom Roles: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Google Cloud IAM to grant a junior operator permission to start and stop Compute Engine virtual machines without granting permission to delete disks or modify network firewalls.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to grant a junior operator permission to start and stop Compute Engine virtual machines without granting permission to delete disks or modify network firewalls.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Grant the junior operator the basic 'Owner' role on the project." },
@@ -27,7 +27,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "IAM Predefined vs Custom Roles: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Google Cloud IAM to grant a junior operator permission to start and stop Compute Engine virtual machines without granting permission to delete disks or modify network firewalls.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to grant a junior operator permission to start and stop Compute Engine virtual machines without granting permission to delete disks or modify network firewalls.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Assign the predefined 'Compute Instance Admin (v1)' role or create a tailored custom role with compute.instances.start and compute.instances.stop." },
@@ -48,7 +48,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "IAM Predefined vs Custom Roles: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Google Cloud IAM to grant a junior operator permission to start and stop Compute Engine virtual machines without granting permission to delete disks or modify network firewalls.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to grant a junior operator permission to start and stop Compute Engine virtual machines without granting permission to delete disks or modify network firewalls.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Grant the junior operator the basic 'Owner' role on the project." },
@@ -69,7 +69,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "IAM Predefined vs Custom Roles: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Google Cloud IAM to grant a junior operator permission to start and stop Compute Engine virtual machines without granting permission to delete disks or modify network firewalls.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to grant a junior operator permission to start and stop Compute Engine virtual machines without granting permission to delete disks or modify network firewalls.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Grant the junior operator the basic 'Owner' role on the project." },
@@ -90,7 +90,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "IAM Predefined vs Custom Roles: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Google Cloud IAM to grant a junior operator permission to start and stop Compute Engine virtual machines without granting permission to delete disks or modify network firewalls.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to grant a junior operator permission to start and stop Compute Engine virtual machines without granting permission to delete disks or modify network firewalls.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Grant the junior operator the basic 'Editor' role on the project." },
@@ -111,7 +111,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Service Accounts and Service Account Keys: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Google Cloud IAM to allow an application running on an on-premises server to write backup files to a Cloud Storage bucket securely without downloading long-lived JSON service account keys.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to allow an application running on an on-premises server to write backup files to a Cloud Storage bucket securely without downloading long-lived JSON service account keys.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Generate a long-lived JSON service account key and commit it to a public GitHub repository." },
@@ -132,7 +132,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Service Accounts and Service Account Keys: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Google Cloud IAM to allow an application running on an on-premises server to write backup files to a Cloud Storage bucket securely without downloading long-lived JSON service account keys.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to allow an application running on an on-premises server to write backup files to a Cloud Storage bucket securely without downloading long-lived JSON service account keys.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Make the Cloud Storage bucket publicly readable and writable by allUsers." },
@@ -153,7 +153,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Service Accounts and Service Account Keys: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Google Cloud IAM to allow an application running on an on-premises server to write backup files to a Cloud Storage bucket securely without downloading long-lived JSON service account keys.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to allow an application running on an on-premises server to write backup files to a Cloud Storage bucket securely without downloading long-lived JSON service account keys.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Make the Cloud Storage bucket publicly readable and writable by allUsers." },
@@ -174,7 +174,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Service Accounts and Service Account Keys: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Google Cloud IAM to allow an application running on an on-premises server to write backup files to a Cloud Storage bucket securely without downloading long-lived JSON service account keys.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to allow an application running on an on-premises server to write backup files to a Cloud Storage bucket securely without downloading long-lived JSON service account keys.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Generate a long-lived JSON service account key and commit it to a public GitHub repository." },
@@ -195,7 +195,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Service Accounts and Service Account Keys: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Google Cloud IAM to allow an application running on an on-premises server to write backup files to a Cloud Storage bucket securely without downloading long-lived JSON service account keys.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to allow an application running on an on-premises server to write backup files to a Cloud Storage bucket securely without downloading long-lived JSON service account keys.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Store service account credentials in a plaintext text file on an unencrypted network share." },
@@ -216,7 +216,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Audit Logs (Admin Activity vs Data Access): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Google Cloud Observability to maintain an immutable compliance audit record of every administrative configuration change made to cloud infrastructure, retaining records for legal audits.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to maintain an immutable compliance audit record of every administrative configuration change made to cloud infrastructure, retaining records for legal audits.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely on developers to document their administrative CLI commands in shared documents." },
@@ -237,7 +237,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Audit Logs (Admin Activity vs Data Access): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Google Cloud Observability to maintain an immutable compliance audit record of every administrative configuration change made to cloud infrastructure, retaining records for legal audits.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to maintain an immutable compliance audit record of every administrative configuration change made to cloud infrastructure, retaining records for legal audits.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Rely on Cloud Audit Logs Admin Activity logs (enabled by default and retained for 400 days at no charge)." },
@@ -258,7 +258,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Audit Logs (Admin Activity vs Data Access): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Google Cloud Observability to maintain an immutable compliance audit record of every administrative configuration change made to cloud infrastructure, retaining records for legal audits.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to maintain an immutable compliance audit record of every administrative configuration change made to cloud infrastructure, retaining records for legal audits.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Disable all logging across the project to reduce data ingestion fees." },
@@ -279,7 +279,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Audit Logs (Admin Activity vs Data Access): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Google Cloud Observability to maintain an immutable compliance audit record of every administrative configuration change made to cloud infrastructure, retaining records for legal audits.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to maintain an immutable compliance audit record of every administrative configuration change made to cloud infrastructure, retaining records for legal audits.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Disable all logging across the project to reduce data ingestion fees." },
@@ -300,7 +300,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Audit Logs (Admin Activity vs Data Access): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Google Cloud Observability to maintain an immutable compliance audit record of every administrative configuration change made to cloud infrastructure, retaining records for legal audits.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to maintain an immutable compliance audit record of every administrative configuration change made to cloud infrastructure, retaining records for legal audits.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Export local browser history logs from developer workstations." },
@@ -321,7 +321,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Shell and Cloud Shell Persistent Storage: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Google Cloud Management to provide cloud administrators with an instant, browser-based administrative terminal pre-loaded with gcloud, kubectl, and Terraform with persistent user storage.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to provide cloud administrators with an instant, browser-based administrative terminal pre-loaded with gcloud, kubectl, and Terraform with persistent user storage.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Use unauthenticated web scraping to interact with the Google Cloud Console." },
@@ -342,7 +342,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Shell and Cloud Shell Persistent Storage: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Google Cloud Management to provide cloud administrators with an instant, browser-based administrative terminal pre-loaded with gcloud, kubectl, and Terraform with persistent user storage.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to provide cloud administrators with an instant, browser-based administrative terminal pre-loaded with gcloud, kubectl, and Terraform with persistent user storage.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Use unauthenticated web scraping to interact with the Google Cloud Console." },
@@ -363,7 +363,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Shell and Cloud Shell Persistent Storage: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Google Cloud Management to provide cloud administrators with an instant, browser-based administrative terminal pre-loaded with gcloud, kubectl, and Terraform with persistent user storage.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to provide cloud administrators with an instant, browser-based administrative terminal pre-loaded with gcloud, kubectl, and Terraform with persistent user storage.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Install desktop virtualization software on personal workstations to run local Linux VMs." },
@@ -384,7 +384,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Shell and Cloud Shell Persistent Storage: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Google Cloud Management to provide cloud administrators with an instant, browser-based administrative terminal pre-loaded with gcloud, kubectl, and Terraform with persistent user storage.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to provide cloud administrators with an instant, browser-based administrative terminal pre-loaded with gcloud, kubectl, and Terraform with persistent user storage.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Launch Google Cloud Shell directly from the Google Cloud Console." },
@@ -405,7 +405,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Shell and Cloud Shell Persistent Storage: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Google Cloud Management to provide cloud administrators with an instant, browser-based administrative terminal pre-loaded with gcloud, kubectl, and Terraform with persistent user storage.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to provide cloud administrators with an instant, browser-based administrative terminal pre-loaded with gcloud, kubectl, and Terraform with persistent user storage.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Use unauthenticated web scraping to interact with the Google Cloud Console." },
@@ -426,7 +426,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Google Cloud Organization Policies: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Google Cloud Governance to enforce a mandatory corporate security constraint that prevents any virtual machine in the entire organization from being assigned an external public IP address.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to enforce a mandatory corporate security constraint that prevents any virtual machine in the entire organization from being assigned an external public IP address.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Apply the 'compute.vmExternalIpAccess' Organization Policy constraint at the Organization root level." },
@@ -447,7 +447,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Google Cloud Organization Policies: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Google Cloud Governance to enforce a mandatory corporate security constraint that prevents any virtual machine in the entire organization from being assigned an external public IP address.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to enforce a mandatory corporate security constraint that prevents any virtual machine in the entire organization from being assigned an external public IP address.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Rely on manual code reviews of Terraform files to spot public IP declarations." },
@@ -468,7 +468,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Google Cloud Organization Policies: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Google Cloud Governance to enforce a mandatory corporate security constraint that prevents any virtual machine in the entire organization from being assigned an external public IP address.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to enforce a mandatory corporate security constraint that prevents any virtual machine in the entire organization from being assigned an external public IP address.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Ask developers to agree verbally to avoid configuring public IP addresses." },
@@ -489,7 +489,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Google Cloud Organization Policies: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Google Cloud Governance to enforce a mandatory corporate security constraint that prevents any virtual machine in the entire organization from being assigned an external public IP address.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to enforce a mandatory corporate security constraint that prevents any virtual machine in the entire organization from being assigned an external public IP address.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Ask developers to agree verbally to avoid configuring public IP addresses." },
@@ -510,7 +510,7 @@ export const GCP_ACE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Google Cloud Organization Policies: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Google Cloud Governance to enforce a mandatory corporate security constraint that prevents any virtual machine in the entire organization from being assigned an external public IP address.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to enforce a mandatory corporate security constraint that prevents any virtual machine in the entire organization from being assigned an external public IP address.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Rely on manual code reviews of Terraform files to spot public IP declarations." },

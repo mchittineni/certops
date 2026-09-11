@@ -6,7 +6,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Synthetics Canaries: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Synthetic Monitoring to continuously monitor customer login and checkout flows from an external perspective even during periods of low organic user traffic.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to continuously monitor customer login and checkout flows from an external perspective even during periods of low organic user traffic.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Rely on internal ping checks to load balancer health check endpoints." },
@@ -27,7 +27,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Synthetics Canaries: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Synthetic Monitoring to continuously monitor customer login and checkout flows from an external perspective even during periods of low organic user traffic.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to continuously monitor customer login and checkout flows from an external perspective even during periods of low organic user traffic.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Test login manually once a week from an engineer's laptop." },
@@ -48,7 +48,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Synthetics Canaries: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Synthetic Monitoring to continuously monitor customer login and checkout flows from an external perspective even during periods of low organic user traffic.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to continuously monitor customer login and checkout flows from an external perspective even during periods of low organic user traffic.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Test login manually once a week from an engineer's laptop." },
@@ -69,7 +69,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Synthetics Canaries: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Synthetic Monitoring to continuously monitor customer login and checkout flows from an external perspective even during periods of low organic user traffic.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to continuously monitor customer login and checkout flows from an external perspective even during periods of low organic user traffic.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Wait for customer support calls to discover checkout breakage." },
@@ -90,7 +90,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Synthetics Canaries: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Synthetic Monitoring to continuously monitor customer login and checkout flows from an external perspective even during periods of low organic user traffic.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to continuously monitor customer login and checkout flows from an external perspective even during periods of low organic user traffic.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Deploy Amazon CloudWatch Synthetics Canaries running Puppeteer/Node.js scripts on a recurring 5-minute schedule." },
@@ -111,7 +111,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "Amazon CloudWatch Logs Insights: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Log Analytics to troubleshoot an intermittent payment failure by querying and aggregating millions of log entries across multiple log groups in seconds.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to troubleshoot an intermittent payment failure by querying and aggregating millions of log entries across multiple log groups in seconds.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Inspect log streams one by one in the CloudWatch management console." },
@@ -132,7 +132,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "Amazon CloudWatch Logs Insights: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Log Analytics to troubleshoot an intermittent payment failure by querying and aggregating millions of log entries across multiple log groups in seconds.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to troubleshoot an intermittent payment failure by querying and aggregating millions of log entries across multiple log groups in seconds.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Download gigabytes of log files and use local grep in a terminal." },
@@ -153,7 +153,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "Amazon CloudWatch Logs Insights: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Log Analytics to troubleshoot an intermittent payment failure by querying and aggregating millions of log entries across multiple log groups in seconds.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to troubleshoot an intermittent payment failure by querying and aggregating millions of log entries across multiple log groups in seconds.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Write a custom MapReduce job on Amazon EMR to scan log files." },
@@ -174,7 +174,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "Amazon CloudWatch Logs Insights: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Log Analytics to troubleshoot an intermittent payment failure by querying and aggregating millions of log entries across multiple log groups in seconds.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to troubleshoot an intermittent payment failure by querying and aggregating millions of log entries across multiple log groups in seconds.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Write a custom MapReduce job on Amazon EMR to scan log files." },
@@ -195,7 +195,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "Amazon CloudWatch Logs Insights: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Log Analytics to troubleshoot an intermittent payment failure by querying and aggregating millions of log entries across multiple log groups in seconds.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to troubleshoot an intermittent payment failure by querying and aggregating millions of log entries across multiple log groups in seconds.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Write a custom MapReduce job on Amazon EMR to scan log files." },
@@ -216,7 +216,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Container Insights for ECS and EKS: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Container Telemetry to collect and visualize CPU, memory, network, and disk performance metrics from pods, tasks, and worker nodes across Amazon EKS and ECS clusters.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to collect and visualize CPU, memory, network, and disk performance metrics from pods, tasks, and worker nodes across Amazon EKS and ECS clusters.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Disable container metric collection to save disk storage." },
@@ -237,7 +237,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Container Insights for ECS and EKS: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Container Telemetry to collect and visualize CPU, memory, network, and disk performance metrics from pods, tasks, and worker nodes across Amazon EKS and ECS clusters.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to collect and visualize CPU, memory, network, and disk performance metrics from pods, tasks, and worker nodes across Amazon EKS and ECS clusters.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Disable container metric collection to save disk storage." },
@@ -258,7 +258,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Container Insights for ECS and EKS: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Container Telemetry to collect and visualize CPU, memory, network, and disk performance metrics from pods, tasks, and worker nodes across Amazon EKS and ECS clusters.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to collect and visualize CPU, memory, network, and disk performance metrics from pods, tasks, and worker nodes across Amazon EKS and ECS clusters.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Write a custom bash script inside each Docker container to push metrics." },
@@ -279,7 +279,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Container Insights for ECS and EKS: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Container Telemetry to collect and visualize CPU, memory, network, and disk performance metrics from pods, tasks, and worker nodes across Amazon EKS and ECS clusters.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to collect and visualize CPU, memory, network, and disk performance metrics from pods, tasks, and worker nodes across Amazon EKS and ECS clusters.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Disable container metric collection to save disk storage." },
@@ -300,7 +300,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Container Insights for ECS and EKS: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Container Telemetry to collect and visualize CPU, memory, network, and disk performance metrics from pods, tasks, and worker nodes across Amazon EKS and ECS clusters.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to collect and visualize CPU, memory, network, and disk performance metrics from pods, tasks, and worker nodes across Amazon EKS and ECS clusters.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Write a custom bash script inside each Docker container to push metrics." },
@@ -321,7 +321,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Composite Alarms: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Alert Optimization to prevent false-positive pages to on-call engineers by alerting only when both high CPU utilization and high 5xx error rates occur simultaneously.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to prevent false-positive pages to on-call engineers by alerting only when both high CPU utilization and high 5xx error rates occur simultaneously.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Send all alerts to a junk email folder." },
@@ -342,7 +342,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Composite Alarms: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Alert Optimization to prevent false-positive pages to on-call engineers by alerting only when both high CPU utilization and high 5xx error rates occur simultaneously.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to prevent false-positive pages to on-call engineers by alerting only when both high CPU utilization and high 5xx error rates occur simultaneously.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Disable alerts whenever CPU utilization exceeds 80%." },
@@ -363,7 +363,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Composite Alarms: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Alert Optimization to prevent false-positive pages to on-call engineers by alerting only when both high CPU utilization and high 5xx error rates occur simultaneously.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to prevent false-positive pages to on-call engineers by alerting only when both high CPU utilization and high 5xx error rates occur simultaneously.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Send all alerts to a junk email folder." },
@@ -384,7 +384,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Composite Alarms: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Alert Optimization to prevent false-positive pages to on-call engineers by alerting only when both high CPU utilization and high 5xx error rates occur simultaneously.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to prevent false-positive pages to on-call engineers by alerting only when both high CPU utilization and high 5xx error rates occur simultaneously.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Configure separate individual alarms that both send high-priority SMS pages." },
@@ -405,7 +405,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Composite Alarms: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Alert Optimization to prevent false-positive pages to on-call engineers by alerting only when both high CPU utilization and high 5xx error rates occur simultaneously.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to prevent false-positive pages to on-call engineers by alerting only when both high CPU utilization and high 5xx error rates occur simultaneously.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Send all alerts to a junk email folder." },
@@ -426,7 +426,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "Cross-Account Cross-Region CloudWatch Dashboards: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Unified Observability to provide leadership and operations teams a unified single-pane-of-glass observability dashboard across all corporate AWS accounts and regions.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to provide leadership and operations teams a unified single-pane-of-glass observability dashboard across all corporate AWS accounts and regions.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Open multiple browser windows logged into separate AWS accounts simultaneously." },
@@ -447,7 +447,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "Cross-Account Cross-Region CloudWatch Dashboards: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Unified Observability to provide leadership and operations teams a unified single-pane-of-glass observability dashboard across all corporate AWS accounts and regions.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to provide leadership and operations teams a unified single-pane-of-glass observability dashboard across all corporate AWS accounts and regions.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Enable CloudWatch cross-account cross-region observability by sharing monitoring accounts with source accounts and building unified dashboards." },
@@ -468,7 +468,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "Cross-Account Cross-Region CloudWatch Dashboards: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Unified Observability to provide leadership and operations teams a unified single-pane-of-glass observability dashboard across all corporate AWS accounts and regions.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to provide leadership and operations teams a unified single-pane-of-glass observability dashboard across all corporate AWS accounts and regions.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Export metrics to CSV files and build manual graphs in Excel." },
@@ -489,7 +489,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "Cross-Account Cross-Region CloudWatch Dashboards: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Unified Observability to provide leadership and operations teams a unified single-pane-of-glass observability dashboard across all corporate AWS accounts and regions.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to provide leadership and operations teams a unified single-pane-of-glass observability dashboard across all corporate AWS accounts and regions.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Enable CloudWatch cross-account cross-region observability by sharing monitoring accounts with source accounts and building unified dashboards." },
@@ -510,7 +510,7 @@ export const AWS_DOP_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "Cross-Account Cross-Region CloudWatch Dashboards: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Unified Observability to provide leadership and operations teams a unified single-pane-of-glass observability dashboard across all corporate AWS accounts and regions.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to provide leadership and operations teams a unified single-pane-of-glass observability dashboard across all corporate AWS accounts and regions.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Enable CloudWatch cross-account cross-region observability by sharing monitoring accounts with source accounts and building unified dashboards." },

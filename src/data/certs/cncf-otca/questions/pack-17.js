@@ -6,7 +6,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Recording Exceptions and Setting Span Status: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Span Status to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Using recordException and setStatus(StatusCode.",
     options: [
       { id: 'A', text: "Delete the span so it does not show up in the tracing dashboard." },
@@ -27,7 +27,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Recording Exceptions and Setting Span Status: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Span Status to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Using recordException and setStatus(StatusCode.",
     options: [
       { id: 'A', text: "Call `span.RecordError(err)` to attach exception details as a Span Event and call `span.SetStatus(codes.Error, err.Error())` to set the error flag." },
@@ -48,7 +48,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Recording Exceptions and Setting Span Status: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Span Status to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Using recordException and setStatus(StatusCode.",
     options: [
       { id: 'A', text: "Log the error to a text file and leave the span status as OK." },
@@ -69,7 +69,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Recording Exceptions and Setting Span Status: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Span Status to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Using recordException and setStatus(StatusCode.",
     options: [
       { id: 'A', text: "Catch the exception silently and return HTTP 200." },
@@ -90,7 +90,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Recording Exceptions and Setting Span Status: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Span Status to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to ensure that an unhandled database exception caught in a microservice is properly reflected in the distributed trace and marks the span as failed.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Using recordException and setStatus(StatusCode.",
     options: [
       { id: 'A', text: "Log the error to a text file and leave the span status as OK." },
@@ -111,7 +111,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Span Links for Asynchronous and Fan-Out Workflows: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Span Links to model a batch processing job that pulls 50 orders from an Amazon SQS queue and processes them in a single transaction.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to model a batch processing job that pulls 50 orders from an Amazon SQS queue and processes them in a single transaction.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Create 50 duplicate batch processing jobs." },
@@ -132,7 +132,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Span Links for Asynchronous and Fan-Out Workflows: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Span Links to model a batch processing job that pulls 50 orders from an Amazon SQS queue and processes them in a single transaction.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to model a batch processing job that pulls 50 orders from an Amazon SQS queue and processes them in a single transaction.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Force all 50 orders to share a single parent trace ID sequentially." },
@@ -153,7 +153,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Span Links for Asynchronous and Fan-Out Workflows: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Span Links to model a batch processing job that pulls 50 orders from an Amazon SQS queue and processes them in a single transaction.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to model a batch processing job that pulls 50 orders from an Amazon SQS queue and processes them in a single transaction.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Force all 50 orders to share a single parent trace ID sequentially." },
@@ -174,7 +174,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Span Links for Asynchronous and Fan-Out Workflows: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Span Links to model a batch processing job that pulls 50 orders from an Amazon SQS queue and processes them in a single transaction.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to model a batch processing job that pulls 50 orders from an Amazon SQS queue and processes them in a single transaction.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Create 50 duplicate batch processing jobs." },
@@ -195,7 +195,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Span Links for Asynchronous and Fan-Out Workflows: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Span Links to model a batch processing job that pulls 50 orders from an Amazon SQS queue and processes them in a single transaction.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to model a batch processing job that pulls 50 orders from an Amazon SQS queue and processes them in a single transaction.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Create 50 duplicate batch processing jobs." },
@@ -216,7 +216,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Metrics: Counters vs Histograms in Practice: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Metrics Instrumentation to instrument a payment processing endpoint to track the total volume of processed transactions and the 95th percentile latency distribution.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to instrument a payment processing endpoint to track the total volume of processed transactions and the 95th percentile latency distribution.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Create a single Counter instrument to measure both latency and total volume." },
@@ -237,7 +237,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Metrics: Counters vs Histograms in Practice: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Metrics Instrumentation to instrument a payment processing endpoint to track the total volume of processed transactions and the 95th percentile latency distribution.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to instrument a payment processing endpoint to track the total volume of processed transactions and the 95th percentile latency distribution.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Create a Gauge instrument for total payments." },
@@ -258,7 +258,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Metrics: Counters vs Histograms in Practice: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Metrics Instrumentation to instrument a payment processing endpoint to track the total volume of processed transactions and the 95th percentile latency distribution.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to instrument a payment processing endpoint to track the total volume of processed transactions and the 95th percentile latency distribution.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Create a Gauge instrument for total payments." },
@@ -279,7 +279,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Metrics: Counters vs Histograms in Practice: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Metrics Instrumentation to instrument a payment processing endpoint to track the total volume of processed transactions and the 95th percentile latency distribution.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to instrument a payment processing endpoint to track the total volume of processed transactions and the 95th percentile latency distribution.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Create a `Counter` instrument (`payments.processed.total`) and a `Histogram` instrument (`payments.processing.duration`)." },
@@ -300,7 +300,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Metrics: Counters vs Histograms in Practice: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Metrics Instrumentation to instrument a payment processing endpoint to track the total volume of processed transactions and the 95th percentile latency distribution.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to instrument a payment processing endpoint to track the total volume of processed transactions and the 95th percentile latency distribution.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Calculate percentiles in client code and emit static strings." },
@@ -321,7 +321,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Metrics: Asynchronous (Observable) Gauges and Counters: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Asynchronous Metrics to report current memory usage and active thread counts from the underlying runtime environment without modifying application transaction loops.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to report current memory usage and active thread counts from the underlying runtime environment without modifying application transaction loops.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Register an `ObservableGauge` with a callback function that queries the runtime memory API whenever the metric reader collects data." },
@@ -342,7 +342,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Metrics: Asynchronous (Observable) Gauges and Counters: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Asynchronous Metrics to report current memory usage and active thread counts from the underlying runtime environment without modifying application transaction loops.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to report current memory usage and active thread counts from the underlying runtime environment without modifying application transaction loops.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Call a synchronous Counter inside every application function." },
@@ -363,7 +363,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Metrics: Asynchronous (Observable) Gauges and Counters: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Asynchronous Metrics to report current memory usage and active thread counts from the underlying runtime environment without modifying application transaction loops.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to report current memory usage and active thread counts from the underlying runtime environment without modifying application transaction loops.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Asynchronous instruments are not supported in OpenTelemetry." },
@@ -384,7 +384,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Metrics: Asynchronous (Observable) Gauges and Counters: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Asynchronous Metrics to report current memory usage and active thread counts from the underlying runtime environment without modifying application transaction loops.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to report current memory usage and active thread counts from the underlying runtime environment without modifying application transaction loops.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Asynchronous instruments are not supported in OpenTelemetry." },
@@ -405,7 +405,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Metrics: Asynchronous (Observable) Gauges and Counters: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Asynchronous Metrics to report current memory usage and active thread counts from the underlying runtime environment without modifying application transaction loops.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to report current memory usage and active thread counts from the underlying runtime environment without modifying application transaction loops.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Asynchronous instruments are not supported in OpenTelemetry." },
@@ -426,7 +426,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Metric Exemplars: Linking Metrics to Traces: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Metric Exemplars to investigate an unexpected latency spike in a Prometheus histogram bucket and immediately jump to the exact distributed trace of the outlier request.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to investigate an unexpected latency spike in a Prometheus histogram bucket and immediately jump to the exact distributed trace of the outlier request.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Manually log the trace ID and search through billions of log lines by eye." },
@@ -447,7 +447,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Metric Exemplars: Linking Metrics to Traces: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Metric Exemplars to investigate an unexpected latency spike in a Prometheus histogram bucket and immediately jump to the exact distributed trace of the outlier request.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to investigate an unexpected latency spike in a Prometheus histogram bucket and immediately jump to the exact distributed trace of the outlier request.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Disable histograms and use distributed traces exclusively." },
@@ -468,7 +468,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Metric Exemplars: Linking Metrics to Traces: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Metric Exemplars to investigate an unexpected latency spike in a Prometheus histogram bucket and immediately jump to the exact distributed trace of the outlier request.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to investigate an unexpected latency spike in a Prometheus histogram bucket and immediately jump to the exact distributed trace of the outlier request.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Exemplars require third-party proprietary software." },
@@ -489,7 +489,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Metric Exemplars: Linking Metrics to Traces: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Metric Exemplars to investigate an unexpected latency spike in a Prometheus histogram bucket and immediately jump to the exact distributed trace of the outlier request.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to investigate an unexpected latency spike in a Prometheus histogram bucket and immediately jump to the exact distributed trace of the outlier request.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Disable histograms and use distributed traces exclusively." },
@@ -510,7 +510,7 @@ export const CNCF_OTCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Metric Exemplars: Linking Metrics to Traces: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Metric Exemplars to investigate an unexpected latency spike in a Prometheus histogram bucket and immediately jump to the exact distributed trace of the outlier request.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to investigate an unexpected latency spike in a Prometheus histogram bucket and immediately jump to the exact distributed trace of the outlier request.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Disable histograms and use distributed traces exclusively." },

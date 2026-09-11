@@ -6,7 +6,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "GitOps Continuous Delivery Workflows: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates GitOps Delivery to eliminate human access to production clusters while ensuring automated, auditable deployments and self-healing drift correction.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to eliminate human access to production clusters while ensuring automated, auditable deployments and self-healing drift correction.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Grant direct SSH and kubectl access to production cluster nodes for all software developers." },
@@ -27,7 +27,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "GitOps Continuous Delivery Workflows: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates GitOps Delivery to eliminate human access to production clusters while ensuring automated, auditable deployments and self-healing drift correction.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to eliminate human access to production clusters while ensuring automated, auditable deployments and self-healing drift correction.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Grant direct SSH and kubectl access to production cluster nodes for all software developers." },
@@ -48,7 +48,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "GitOps Continuous Delivery Workflows: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates GitOps Delivery to eliminate human access to production clusters while ensuring automated, auditable deployments and self-healing drift correction.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to eliminate human access to production clusters while ensuring automated, auditable deployments and self-healing drift correction.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Implement GitOps continuous delivery using ArgoCD or Flux, where clusters pull and reconcile configurations directly from Git." },
@@ -69,7 +69,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "GitOps Continuous Delivery Workflows: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates GitOps Delivery to eliminate human access to production clusters while ensuring automated, auditable deployments and self-healing drift correction.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to eliminate human access to production clusters while ensuring automated, auditable deployments and self-healing drift correction.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Grant direct SSH and kubectl access to production cluster nodes for all software developers." },
@@ -90,7 +90,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "GitOps Continuous Delivery Workflows: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates GitOps Delivery to eliminate human access to production clusters while ensuring automated, auditable deployments and self-healing drift correction.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to eliminate human access to production clusters while ensuring automated, auditable deployments and self-healing drift correction.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Deploy applications by manually copying binary files over unencrypted FTP." },
@@ -111,7 +111,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Progressive Delivery and Automated Canary Rollouts: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Progressive Delivery to roll out a new version of a critical payments service gradually to 5% of customer traffic while automatically aborting if error rates spike.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to roll out a new version of a critical payments service gradually to 5% of customer traffic while automatically aborting if error rates spike.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Implement progressive delivery using Argo Rollouts or Flagger to execute automated canary analysis and dynamic traffic shifting." },
@@ -132,7 +132,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Progressive Delivery and Automated Canary Rollouts: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Progressive Delivery to roll out a new version of a critical payments service gradually to 5% of customer traffic while automatically aborting if error rates spike.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to roll out a new version of a critical payments service gradually to 5% of customer traffic while automatically aborting if error rates spike.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Implement progressive delivery using Argo Rollouts or Flagger to execute automated canary analysis and dynamic traffic shifting." },
@@ -153,7 +153,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Progressive Delivery and Automated Canary Rollouts: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Progressive Delivery to roll out a new version of a critical payments service gradually to 5% of customer traffic while automatically aborting if error rates spike.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to roll out a new version of a critical payments service gradually to 5% of customer traffic while automatically aborting if error rates spike.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Deploy new releases immediately to 100% of production traffic during peak business hours without monitoring." },
@@ -174,7 +174,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Progressive Delivery and Automated Canary Rollouts: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Progressive Delivery to roll out a new version of a critical payments service gradually to 5% of customer traffic while automatically aborting if error rates spike.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to roll out a new version of a critical payments service gradually to 5% of customer traffic while automatically aborting if error rates spike.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Prohibit updating production software to avoid any potential downtime." },
@@ -195,7 +195,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Progressive Delivery and Automated Canary Rollouts: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Progressive Delivery to roll out a new version of a critical payments service gradually to 5% of customer traffic while automatically aborting if error rates spike.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to roll out a new version of a critical payments service gradually to 5% of customer traffic while automatically aborting if error rates spike.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Prohibit updating production software to avoid any potential downtime." },
@@ -216,7 +216,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Automated Quality Gates and Contract Testing: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Quality Gates to prevent breaking API schema changes from deploying to staging or production environments and breaking dependent services.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to prevent breaking API schema changes from deploying to staging or production environments and breaking dependent services.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Instruct teams to never alter any API endpoints under any circumstances." },
@@ -237,7 +237,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Automated Quality Gates and Contract Testing: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Quality Gates to prevent breaking API schema changes from deploying to staging or production environments and breaking dependent services.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to prevent breaking API schema changes from deploying to staging or production environments and breaking dependent services.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Disable all automated integration tests to improve build pipeline speed." },
@@ -258,7 +258,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Automated Quality Gates and Contract Testing: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Quality Gates to prevent breaking API schema changes from deploying to staging or production environments and breaking dependent services.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to prevent breaking API schema changes from deploying to staging or production environments and breaking dependent services.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Integrate automated contract testing (such as Pact) and integration quality gates into the continuous delivery pipeline." },
@@ -279,7 +279,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Automated Quality Gates and Contract Testing: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Quality Gates to prevent breaking API schema changes from deploying to staging or production environments and breaking dependent services.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to prevent breaking API schema changes from deploying to staging or production environments and breaking dependent services.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Integrate automated contract testing (such as Pact) and integration quality gates into the continuous delivery pipeline." },
@@ -300,7 +300,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Automated Quality Gates and Contract Testing: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Quality Gates to prevent breaking API schema changes from deploying to staging or production environments and breaking dependent services.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to prevent breaking API schema changes from deploying to staging or production environments and breaking dependent services.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Disable all automated integration tests to improve build pipeline speed." },
@@ -321,7 +321,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Automated Security Scanning: SAST, DAST, and Container CVEs: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Security Gates to detect critical vulnerabilities in open-source dependencies and base container images before workloads reach production.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to detect critical vulnerabilities in open-source dependencies and base container images before workloads reach production.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Disable vulnerability scanners because they generate security warnings that delay deployment deadlines." },
@@ -342,7 +342,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Automated Security Scanning: SAST, DAST, and Container CVEs: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Security Gates to detect critical vulnerabilities in open-source dependencies and base container images before workloads reach production.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to detect critical vulnerabilities in open-source dependencies and base container images before workloads reach production.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Scan production containers once every three years using manual penetration testers." },
@@ -363,7 +363,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Automated Security Scanning: SAST, DAST, and Container CVEs: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Security Gates to detect critical vulnerabilities in open-source dependencies and base container images before workloads reach production.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to detect critical vulnerabilities in open-source dependencies and base container images before workloads reach production.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Rely on developers to visually inspect compiled container binary files for malicious exploits." },
@@ -384,7 +384,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Automated Security Scanning: SAST, DAST, and Container CVEs: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Security Gates to detect critical vulnerabilities in open-source dependencies and base container images before workloads reach production.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to detect critical vulnerabilities in open-source dependencies and base container images before workloads reach production.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Integrate automated container image scanning (e.g., Trivy, Grype) and SAST into CI pipelines to block builds containing critical CVEs." },
@@ -405,7 +405,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Automated Security Scanning: SAST, DAST, and Container CVEs: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Security Gates to detect critical vulnerabilities in open-source dependencies and base container images before workloads reach production.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to detect critical vulnerabilities in open-source dependencies and base container images before workloads reach production.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Disable vulnerability scanners because they generate security warnings that delay deployment deadlines." },
@@ -426,7 +426,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Software Supply Chain Security: SBOM and Cryptographic Signing: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Supply Chain Security to guarantee that only verified, tamper-proof container images built by authorized CI pipelines can execute in production clusters.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to guarantee that only verified, tamper-proof container images built by authorized CI pipelines can execute in production clusters.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Allow clusters to pull untracked, unsigned container images from arbitrary public repositories." },
@@ -447,7 +447,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Software Supply Chain Security: SBOM and Cryptographic Signing: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Supply Chain Security to guarantee that only verified, tamper-proof container images built by authorized CI pipelines can execute in production clusters.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to guarantee that only verified, tamper-proof container images built by authorized CI pipelines can execute in production clusters.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Disable admission controllers that verify image provenance." },
@@ -468,7 +468,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Software Supply Chain Security: SBOM and Cryptographic Signing: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Supply Chain Security to guarantee that only verified, tamper-proof container images built by authorized CI pipelines can execute in production clusters.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to guarantee that only verified, tamper-proof container images built by authorized CI pipelines can execute in production clusters.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Disable admission controllers that verify image provenance." },
@@ -489,7 +489,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Software Supply Chain Security: SBOM and Cryptographic Signing: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Supply Chain Security to guarantee that only verified, tamper-proof container images built by authorized CI pipelines can execute in production clusters.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to guarantee that only verified, tamper-proof container images built by authorized CI pipelines can execute in production clusters.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Generate Software Bills of Materials (SBOMs) using Syft and cryptographically sign container images using Cosign (Sigstore)." },
@@ -510,7 +510,7 @@ export const CNCF_CNPA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Software Supply Chain Security: SBOM and Cryptographic Signing: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Supply Chain Security to guarantee that only verified, tamper-proof container images built by authorized CI pipelines can execute in production clusters.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to guarantee that only verified, tamper-proof container images built by authorized CI pipelines can execute in production clusters.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Allow clusters to pull untracked, unsigned container images from arbitrary public repositories." },

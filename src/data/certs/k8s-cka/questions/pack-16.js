@@ -6,7 +6,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Deployments and Rolling Updates: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Deployments to update a stateless web application deployment to a new container image version without dropping incoming user requests.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to update a stateless web application deployment to a new container image version without dropping incoming user requests.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Delete the deployment and recreate it using kubectl create deployment." },
@@ -27,7 +27,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Deployments and Rolling Updates: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Deployments to update a stateless web application deployment to a new container image version without dropping incoming user requests.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to update a stateless web application deployment to a new container image version without dropping incoming user requests.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Configure a RollingUpdate strategy in the Deployment spec with appropriate `maxSurge` and `maxUnavailable` parameters." },
@@ -48,7 +48,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Deployments and Rolling Updates: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Deployments to update a stateless web application deployment to a new container image version without dropping incoming user requests.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to update a stateless web application deployment to a new container image version without dropping incoming user requests.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Scale the deployment down to zero replicas before applying the update." },
@@ -69,7 +69,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Deployments and Rolling Updates: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Deployments to update a stateless web application deployment to a new container image version without dropping incoming user requests.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to update a stateless web application deployment to a new container image version without dropping incoming user requests.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Delete the deployment and recreate it using kubectl create deployment." },
@@ -90,7 +90,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Deployments and Rolling Updates: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Deployments to update a stateless web application deployment to a new container image version without dropping incoming user requests.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to update a stateless web application deployment to a new container image version without dropping incoming user requests.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Set the deployment strategy type to Recreate to kill all old pods before starting new ones." },
@@ -111,7 +111,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "DaemonSets for Node-Level Services: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates DaemonSets to ensure that an operational monitoring agent and log forwarder runs exactly once on every worker node in the cluster, including newly added nodes.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to ensure that an operational monitoring agent and log forwarder runs exactly once on every worker node in the cluster, including newly added nodes.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Instruct cluster administrators to manually run Docker containers on each host VM." },
@@ -132,7 +132,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "DaemonSets for Node-Level Services: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates DaemonSets to ensure that an operational monitoring agent and log forwarder runs exactly once on every worker node in the cluster, including newly added nodes.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to ensure that an operational monitoring agent and log forwarder runs exactly once on every worker node in the cluster, including newly added nodes.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Configure a CronJob to start pods on nodes every sixty seconds." },
@@ -153,7 +153,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "DaemonSets for Node-Level Services: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates DaemonSets to ensure that an operational monitoring agent and log forwarder runs exactly once on every worker node in the cluster, including newly added nodes.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to ensure that an operational monitoring agent and log forwarder runs exactly once on every worker node in the cluster, including newly added nodes.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Deploy the monitoring agent as a `DaemonSet` with appropriate tolerations for control plane or tainted nodes." },
@@ -174,7 +174,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "DaemonSets for Node-Level Services: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates DaemonSets to ensure that an operational monitoring agent and log forwarder runs exactly once on every worker node in the cluster, including newly added nodes.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to ensure that an operational monitoring agent and log forwarder runs exactly once on every worker node in the cluster, including newly added nodes.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Deploy the monitoring agent as a `DaemonSet` with appropriate tolerations for control plane or tainted nodes." },
@@ -195,7 +195,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "DaemonSets for Node-Level Services: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates DaemonSets to ensure that an operational monitoring agent and log forwarder runs exactly once on every worker node in the cluster, including newly added nodes.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to ensure that an operational monitoring agent and log forwarder runs exactly once on every worker node in the cluster, including newly added nodes.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Instruct cluster administrators to manually run Docker containers on each host VM." },
@@ -216,7 +216,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "StatefulSets and Persistent Identity: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates StatefulSets to deploy a distributed clustered database (like Cassandra or ZooKeeper) requiring stable network hostnames and dedicated persistent storage per replica.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to deploy a distributed clustered database (like Cassandra or ZooKeeper) requiring stable network hostnames and dedicated persistent storage per replica.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Deploy the database as a `StatefulSet` accompanied by a Headless Service and `volumeClaimTemplates`." },
@@ -237,7 +237,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "StatefulSets and Persistent Identity: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates StatefulSets to deploy a distributed clustered database (like Cassandra or ZooKeeper) requiring stable network hostnames and dedicated persistent storage per replica.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to deploy a distributed clustered database (like Cassandra or ZooKeeper) requiring stable network hostnames and dedicated persistent storage per replica.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Run the database inside an ephemeral Job controller." },
@@ -258,7 +258,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "StatefulSets and Persistent Identity: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates StatefulSets to deploy a distributed clustered database (like Cassandra or ZooKeeper) requiring stable network hostnames and dedicated persistent storage per replica.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to deploy a distributed clustered database (like Cassandra or ZooKeeper) requiring stable network hostnames and dedicated persistent storage per replica.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Deploy the database as a standard stateless Deployment sharing a single PersistentVolume." },
@@ -279,7 +279,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "StatefulSets and Persistent Identity: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates StatefulSets to deploy a distributed clustered database (like Cassandra or ZooKeeper) requiring stable network hostnames and dedicated persistent storage per replica.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to deploy a distributed clustered database (like Cassandra or ZooKeeper) requiring stable network hostnames and dedicated persistent storage per replica.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Run the database inside an ephemeral Job controller." },
@@ -300,7 +300,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "StatefulSets and Persistent Identity: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates StatefulSets to deploy a distributed clustered database (like Cassandra or ZooKeeper) requiring stable network hostnames and dedicated persistent storage per replica.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to deploy a distributed clustered database (like Cassandra or ZooKeeper) requiring stable network hostnames and dedicated persistent storage per replica.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Deploy the database as a `StatefulSet` accompanied by a Headless Service and `volumeClaimTemplates`." },
@@ -321,7 +321,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Jobs and CronJobs for Batch Processing: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Batch Workloads to execute a nightly database backup script that runs at 2:00 AM, retries up to three times on failure, and avoids launching concurrent duplicate runs.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to execute a nightly database backup script that runs at 2:00 AM, retries up to three times on failure, and avoids launching concurrent duplicate runs.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Create a DaemonSet that runs the backup script simultaneously on every worker node." },
@@ -342,7 +342,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Jobs and CronJobs for Batch Processing: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Batch Workloads to execute a nightly database backup script that runs at 2:00 AM, retries up to three times on failure, and avoids launching concurrent duplicate runs.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to execute a nightly database backup script that runs at 2:00 AM, retries up to three times on failure, and avoids launching concurrent duplicate runs.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Set `concurrencyPolicy: Allow` so failing jobs launch infinite simultaneous backup attempts." },
@@ -363,7 +363,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Jobs and CronJobs for Batch Processing: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Batch Workloads to execute a nightly database backup script that runs at 2:00 AM, retries up to three times on failure, and avoids launching concurrent duplicate runs.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to execute a nightly database backup script that runs at 2:00 AM, retries up to three times on failure, and avoids launching concurrent duplicate runs.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Deploy a long-running Deployment that sleeps in a bash loop for 24 hours." },
@@ -384,7 +384,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Jobs and CronJobs for Batch Processing: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Batch Workloads to execute a nightly database backup script that runs at 2:00 AM, retries up to three times on failure, and avoids launching concurrent duplicate runs.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to execute a nightly database backup script that runs at 2:00 AM, retries up to three times on failure, and avoids launching concurrent duplicate runs.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Create a DaemonSet that runs the backup script simultaneously on every worker node." },
@@ -405,7 +405,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Jobs and CronJobs for Batch Processing: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Batch Workloads to execute a nightly database backup script that runs at 2:00 AM, retries up to three times on failure, and avoids launching concurrent duplicate runs.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to execute a nightly database backup script that runs at 2:00 AM, retries up to three times on failure, and avoids launching concurrent duplicate runs.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Set `concurrencyPolicy: Allow` so failing jobs launch infinite simultaneous backup attempts." },
@@ -426,7 +426,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Node Affinity and Pod Anti-Affinity: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Pod Scheduling to ensure that replica pods of a critical payment service are never placed on the same worker node to eliminate single node failure risk.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to ensure that replica pods of a critical payment service are never placed on the same worker node to eliminate single node failure risk.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Configure `podAntiAffinity` in the deployment pod template using `requiredDuringSchedulingIgnoredDuringExecution` matching the payment pod labels." },
@@ -447,7 +447,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Node Affinity and Pod Anti-Affinity: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Pod Scheduling to ensure that replica pods of a critical payment service are never placed on the same worker node to eliminate single node failure risk.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to ensure that replica pods of a critical payment service are never placed on the same worker node to eliminate single node failure risk.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Configure `nodeSelector` targeting a single specific node hostname." },
@@ -468,7 +468,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Node Affinity and Pod Anti-Affinity: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Pod Scheduling to ensure that replica pods of a critical payment service are never placed on the same worker node to eliminate single node failure risk.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to ensure that replica pods of a critical payment service are never placed on the same worker node to eliminate single node failure risk.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Set `podAffinity` so all payment replicas are forced onto the same node." },
@@ -489,7 +489,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Node Affinity and Pod Anti-Affinity: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Pod Scheduling to ensure that replica pods of a critical payment service are never placed on the same worker node to eliminate single node failure risk.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to ensure that replica pods of a critical payment service are never placed on the same worker node to eliminate single node failure risk.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Rely on random default scheduler placement without affinity rules." },
@@ -510,7 +510,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Workloads & Scheduling",
     title: "Node Affinity and Pod Anti-Affinity: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Pod Scheduling to ensure that replica pods of a critical payment service are never placed on the same worker node to eliminate single node failure risk.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to ensure that replica pods of a critical payment service are never placed on the same worker node to eliminate single node failure risk.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Set `podAffinity` so all payment replicas are forced onto the same node." },

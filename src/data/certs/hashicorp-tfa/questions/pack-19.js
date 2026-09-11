@@ -6,7 +6,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "Remote State Data Source (terraform_remote_state): Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates Cross-State Sharing to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Hardcode the subnet IDs directly into the application `.tf` file." },
@@ -27,7 +27,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "Remote State Data Source (terraform_remote_state): High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates Cross-State Sharing to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Grant full read access to all developer AWS accounts." },
@@ -48,7 +48,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "Remote State Data Source (terraform_remote_state): Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates Cross-State Sharing to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Hardcode the subnet IDs directly into the application `.tf` file." },
@@ -69,7 +69,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "Remote State Data Source (terraform_remote_state): Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates Cross-State Sharing to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Hardcode the subnet IDs directly into the application `.tf` file." },
@@ -90,7 +90,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "Remote State Data Source (terraform_remote_state): Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates Cross-State Sharing to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Hardcode the subnet IDs directly into the application `.tf` file." },
@@ -111,7 +111,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "HCL Data Types: Primitive and Complex: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates HCL Data Types to declare a strongly typed variable representing a collection of server configurations with names, port numbers, and enabled flags.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to declare a strongly typed variable representing a collection of server configurations with names, port numbers, and enabled flags.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Store all configurations as comma-separated strings inside a single text variable." },
@@ -132,7 +132,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "HCL Data Types: Primitive and Complex: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates HCL Data Types to declare a strongly typed variable representing a collection of server configurations with names, port numbers, and enabled flags.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to declare a strongly typed variable representing a collection of server configurations with names, port numbers, and enabled flags.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Terraform variables only support string and number types." },
@@ -153,7 +153,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "HCL Data Types: Primitive and Complex: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates HCL Data Types to declare a strongly typed variable representing a collection of server configurations with names, port numbers, and enabled flags.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to declare a strongly typed variable representing a collection of server configurations with names, port numbers, and enabled flags.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Define the variable type as `list(object({ name = string, port = number, enabled = bool }))`." },
@@ -174,7 +174,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "HCL Data Types: Primitive and Complex: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates HCL Data Types to declare a strongly typed variable representing a collection of server configurations with names, port numbers, and enabled flags.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to declare a strongly typed variable representing a collection of server configurations with names, port numbers, and enabled flags.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Define the variable type as `list(object({ name = string, port = number, enabled = bool }))`." },
@@ -195,7 +195,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "HCL Data Types: Primitive and Complex: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates HCL Data Types to declare a strongly typed variable representing a collection of server configurations with names, port numbers, and enabled flags.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to declare a strongly typed variable representing a collection of server configurations with names, port numbers, and enabled flags.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Define the variable type as `list(object({ name = string, port = number, enabled = bool }))`." },
@@ -216,7 +216,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "Terraform Expressions and Built-in Functions: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates HCL Functions to merge default server tags with environment-specific tags into a single unified tag map across all cloud resources.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to merge default server tags with environment-specific tags into a single unified tag map across all cloud resources.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Write a custom Python script to concatenate dictionaries outside of Terraform." },
@@ -237,7 +237,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "Terraform Expressions and Built-in Functions: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates HCL Functions to merge default server tags with environment-specific tags into a single unified tag map across all cloud resources.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to merge default server tags with environment-specific tags into a single unified tag map across all cloud resources.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Use the built-in `merge(var.default_tags, var.environment_tags)` function in the resource `tags` attribute." },
@@ -258,7 +258,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "Terraform Expressions and Built-in Functions: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates HCL Functions to merge default server tags with environment-specific tags into a single unified tag map across all cloud resources.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to merge default server tags with environment-specific tags into a single unified tag map across all cloud resources.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Hand-code all tags repeatedly on every single resource block." },
@@ -279,7 +279,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "Terraform Expressions and Built-in Functions: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates HCL Functions to merge default server tags with environment-specific tags into a single unified tag map across all cloud resources.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to merge default server tags with environment-specific tags into a single unified tag map across all cloud resources.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Use the built-in `merge(var.default_tags, var.environment_tags)` function in the resource `tags` attribute." },
@@ -300,7 +300,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "Terraform Expressions and Built-in Functions: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates HCL Functions to merge default server tags with environment-specific tags into a single unified tag map across all cloud resources.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to merge default server tags with environment-specific tags into a single unified tag map across all cloud resources.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Functions are not supported in Terraform HCL expressions." },
@@ -321,7 +321,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "Dynamic Blocks and Content Iteration: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates Dynamic Blocks to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Manually write out 20 identical ingress blocks by hand in the configuration file." },
@@ -342,7 +342,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "Dynamic Blocks and Content Iteration: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates Dynamic Blocks to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Use `for_each` on the entire security group resource, creating 20 separate security groups." },
@@ -363,7 +363,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "Dynamic Blocks and Content Iteration: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates Dynamic Blocks to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Nested blocks cannot be generated dynamically in Terraform." },
@@ -384,7 +384,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "Dynamic Blocks and Content Iteration: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates Dynamic Blocks to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters." },
@@ -405,7 +405,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "Dynamic Blocks and Content Iteration: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates Dynamic Blocks to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Nested blocks cannot be generated dynamically in Terraform." },
@@ -426,7 +426,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "for Expressions and List/Map Comprehensions: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates for Expressions to transform a list of uppercase server names into lowercase strings with an environment suffix for resource naming.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to transform a list of uppercase server names into lowercase strings with an environment suffix for resource naming.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Write a custom provider to handle string formatting." },
@@ -447,7 +447,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "for Expressions and List/Map Comprehensions: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates for Expressions to transform a list of uppercase server names into lowercase strings with an environment suffix for resource naming.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to transform a list of uppercase server names into lowercase strings with an environment suffix for resource naming.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Use a list comprehension `[for name in var.server_names : lower(\"${name}-${var.env}\")]`." },
@@ -468,7 +468,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "for Expressions and List/Map Comprehensions: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates for Expressions to transform a list of uppercase server names into lowercase strings with an environment suffix for resource naming.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to transform a list of uppercase server names into lowercase strings with an environment suffix for resource naming.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Run a shell script to rewrite the variable file before applying." },
@@ -489,7 +489,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "for Expressions and List/Map Comprehensions: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates for Expressions to transform a list of uppercase server names into lowercase strings with an environment suffix for resource naming.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to transform a list of uppercase server names into lowercase strings with an environment suffix for resource naming.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Write a custom provider to handle string formatting." },
@@ -510,7 +510,7 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Read, generate, and modify configuration",
     title: "for Expressions and List/Map Comprehensions: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates for Expressions to transform a list of uppercase server names into lowercase strings with an environment suffix for resource naming.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to transform a list of uppercase server names into lowercase strings with an environment suffix for resource naming.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Use a list comprehension `[for name in var.server_names : lower(\"${name}-${var.env}\")]`." },

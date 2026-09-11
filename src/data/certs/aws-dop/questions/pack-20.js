@@ -6,7 +6,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "Amazon Inspector Automated Container Scanning: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Vulnerability Management to automatically scan container images for operating system and application package CVEs upon push to Amazon ECR and continuously thereafter.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to automatically scan container images for operating system and application package CVEs upon push to Amazon ECR and continuously thereafter.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Rely on developers manually running local vulnerability scanners before pushing." },
@@ -27,7 +27,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "Amazon Inspector Automated Container Scanning: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Vulnerability Management to automatically scan container images for operating system and application package CVEs upon push to Amazon ECR and continuously thereafter.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to automatically scan container images for operating system and application package CVEs upon push to Amazon ECR and continuously thereafter.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Enable Amazon Inspector enhanced scanning for Amazon ECR repositories." },
@@ -48,7 +48,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "Amazon Inspector Automated Container Scanning: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Vulnerability Management to automatically scan container images for operating system and application package CVEs upon push to Amazon ECR and continuously thereafter.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to automatically scan container images for operating system and application package CVEs upon push to Amazon ECR and continuously thereafter.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Disable vulnerability scanning to accelerate CI/CD push speeds." },
@@ -69,7 +69,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "Amazon Inspector Automated Container Scanning: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Vulnerability Management to automatically scan container images for operating system and application package CVEs upon push to Amazon ECR and continuously thereafter.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to automatically scan container images for operating system and application package CVEs upon push to Amazon ECR and continuously thereafter.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Disable vulnerability scanning to accelerate CI/CD push speeds." },
@@ -90,7 +90,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "Amazon Inspector Automated Container Scanning: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Vulnerability Management to automatically scan container images for operating system and application package CVEs upon push to Amazon ECR and continuously thereafter.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to automatically scan container images for operating system and application package CVEs upon push to Amazon ECR and continuously thereafter.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Rely on developers manually running local vulnerability scanners before pushing." },
@@ -111,7 +111,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS KMS Key Policies and Multi-Region Keys: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates KMS Encryption to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Disable encryption to simplify multi-region disaster recovery." },
@@ -132,7 +132,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS KMS Key Policies and Multi-Region Keys: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates KMS Encryption to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Export KMS private key material and email it to the secondary region team." },
@@ -153,7 +153,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS KMS Key Policies and Multi-Region Keys: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates KMS Encryption to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Disable encryption to simplify multi-region disaster recovery." },
@@ -174,7 +174,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS KMS Key Policies and Multi-Region Keys: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates KMS Encryption to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies." },
@@ -195,7 +195,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS KMS Key Policies and Multi-Region Keys: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates KMS Encryption to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Export KMS private key material and email it to the secondary region team." },
@@ -216,7 +216,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS Security Hub Automated Compliance Scoring: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Security Posture to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation." },
@@ -237,7 +237,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS Security Hub Automated Compliance Scoring: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Security Posture to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Disable Security Hub to reduce cloud management overhead." },
@@ -258,7 +258,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS Security Hub Automated Compliance Scoring: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Security Posture to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Rely solely on developer self-reporting." },
@@ -279,7 +279,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS Security Hub Automated Compliance Scoring: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Security Posture to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Rely solely on developer self-reporting." },
@@ -300,7 +300,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS Security Hub Automated Compliance Scoring: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Security Posture to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Rely solely on developer self-reporting." },
@@ -321,7 +321,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "IAM Roles Anywhere for On-Premises Workloads: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Hybrid Authentication to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives? Obtaining short-lived AWS IAM credentials for on-premises servers using X.",
     options: [
       { id: 'A', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },
@@ -342,7 +342,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "IAM Roles Anywhere for On-Premises Workloads: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Hybrid Authentication to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention? Obtaining short-lived AWS IAM credentials for on-premises servers using X.",
     options: [
       { id: 'A', text: "Open public internet access to AWS APIs with no authentication." },
@@ -363,7 +363,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "IAM Roles Anywhere for On-Premises Workloads: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Hybrid Authentication to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
     question: "Which solution implements these mandatory compliance and security controls? Obtaining short-lived AWS IAM credentials for on-premises servers using X.",
     options: [
       { id: 'A', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },
@@ -384,7 +384,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "IAM Roles Anywhere for On-Premises Workloads: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Hybrid Authentication to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Obtaining short-lived AWS IAM credentials for on-premises servers using X.",
     options: [
       { id: 'A', text: "Open public internet access to AWS APIs with no authentication." },
@@ -405,7 +405,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "IAM Roles Anywhere for On-Premises Workloads: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Hybrid Authentication to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability? Obtaining short-lived AWS IAM credentials for on-premises servers using X.",
     options: [
       { id: 'A', text: "Generate permanent IAM user access keys and hardcode them on on-premises disks." },
@@ -426,7 +426,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "Amazon Macie Automated Sensitive Data Discovery: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Data Privacy to discover and protect unencrypted Personally Identifiable Information (PII) or credit card numbers stored across enterprise Amazon S3 buckets.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to discover and protect unencrypted Personally Identifiable Information (PII) or credit card numbers stored across enterprise Amazon S3 buckets.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Assume no developers ever upload sensitive data to S3 buckets." },
@@ -447,7 +447,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "Amazon Macie Automated Sensitive Data Discovery: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Data Privacy to discover and protect unencrypted Personally Identifiable Information (PII) or credit card numbers stored across enterprise Amazon S3 buckets.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to discover and protect unencrypted Personally Identifiable Information (PII) or credit card numbers stored across enterprise Amazon S3 buckets.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Disable S3 bucket logging to prevent discovering sensitive information." },
@@ -468,7 +468,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "Amazon Macie Automated Sensitive Data Discovery: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Data Privacy to discover and protect unencrypted Personally Identifiable Information (PII) or credit card numbers stored across enterprise Amazon S3 buckets.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to discover and protect unencrypted Personally Identifiable Information (PII) or credit card numbers stored across enterprise Amazon S3 buckets.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Enable Amazon Macie across the organization to automatically scan S3 buckets for sensitive data and generate findings for unencrypted PII." },
@@ -489,7 +489,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "Amazon Macie Automated Sensitive Data Discovery: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Data Privacy to discover and protect unencrypted Personally Identifiable Information (PII) or credit card numbers stored across enterprise Amazon S3 buckets.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to discover and protect unencrypted Personally Identifiable Information (PII) or credit card numbers stored across enterprise Amazon S3 buckets.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Enable Amazon Macie across the organization to automatically scan S3 buckets for sensitive data and generate findings for unencrypted PII." },
@@ -510,7 +510,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "Amazon Macie Automated Sensitive Data Discovery: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Data Privacy to discover and protect unencrypted Personally Identifiable Information (PII) or credit card numbers stored across enterprise Amazon S3 buckets.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to discover and protect unencrypted Personally Identifiable Information (PII) or credit card numbers stored across enterprise Amazon S3 buckets.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Enable Amazon Macie across the organization to automatically scan S3 buckets for sensitive data and generate findings for unencrypted PII." },

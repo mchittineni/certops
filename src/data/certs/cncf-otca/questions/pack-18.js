@@ -6,7 +6,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Correlating Logs and Traces via Injected Context: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Log Correlation to enable developers to query an error in a centralized logging system and instantly retrieve the complete distributed trace of that failure.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to enable developers to query an error in a centralized logging system and instantly retrieve the complete distributed trace of that failure.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Disable structured logging." },
@@ -27,7 +27,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Correlating Logs and Traces via Injected Context: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Log Correlation to enable developers to query an error in a centralized logging system and instantly retrieve the complete distributed trace of that failure.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to enable developers to query an error in a centralized logging system and instantly retrieve the complete distributed trace of that failure.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Configure the logging library to inject active `trace_id` and `span_id` context into structured JSON log fields." },
@@ -48,7 +48,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Correlating Logs and Traces via Injected Context: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Log Correlation to enable developers to query an error in a centralized logging system and instantly retrieve the complete distributed trace of that failure.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to enable developers to query an error in a centralized logging system and instantly retrieve the complete distributed trace of that failure.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Disable structured logging." },
@@ -69,7 +69,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Correlating Logs and Traces via Injected Context: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Log Correlation to enable developers to query an error in a centralized logging system and instantly retrieve the complete distributed trace of that failure.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to enable developers to query an error in a centralized logging system and instantly retrieve the complete distributed trace of that failure.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Disable structured logging." },
@@ -90,7 +90,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Correlating Logs and Traces via Injected Context: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Log Correlation to enable developers to query an error in a centralized logging system and instantly retrieve the complete distributed trace of that failure.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to enable developers to query an error in a centralized logging system and instantly retrieve the complete distributed trace of that failure.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Disable structured logging." },
@@ -111,7 +111,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Custom Span Attributes and Cardinality Management: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Cardinality Management to prevent high-cardinality explosions that can crash Prometheus or incur massive cloud monitoring bills.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to prevent high-cardinality explosions that can crash Prometheus or incur massive cloud monitoring bills.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Disable all attributes across all metrics and traces." },
@@ -132,7 +132,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Custom Span Attributes and Cardinality Management: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Cardinality Management to prevent high-cardinality explosions that can crash Prometheus or incur massive cloud monitoring bills.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to prevent high-cardinality explosions that can crash Prometheus or incur massive cloud monitoring bills.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Avoid adding high-cardinality values (e.g., user UUIDs, timestamps) as metric attributes, recording them in trace span attributes instead." },
@@ -153,7 +153,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Custom Span Attributes and Cardinality Management: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Cardinality Management to prevent high-cardinality explosions that can crash Prometheus or incur massive cloud monitoring bills.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to prevent high-cardinality explosions that can crash Prometheus or incur massive cloud monitoring bills.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Avoid adding high-cardinality values (e.g., user UUIDs, timestamps) as metric attributes, recording them in trace span attributes instead." },
@@ -174,7 +174,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Custom Span Attributes and Cardinality Management: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Cardinality Management to prevent high-cardinality explosions that can crash Prometheus or incur massive cloud monitoring bills.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to prevent high-cardinality explosions that can crash Prometheus or incur massive cloud monitoring bills.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Avoid adding high-cardinality values (e.g., user UUIDs, timestamps) as metric attributes, recording them in trace span attributes instead." },
@@ -195,7 +195,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Custom Span Attributes and Cardinality Management: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Cardinality Management to prevent high-cardinality explosions that can crash Prometheus or incur massive cloud monitoring bills.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to prevent high-cardinality explosions that can crash Prometheus or incur massive cloud monitoring bills.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Add unique user credit card numbers as metric dimensions." },
@@ -216,7 +216,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Sampling at the SDK: ParentBased and TraceIdRatioBased: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates SDK Samplers to configure an application SDK to sample 10% of new root traces while respecting the sampling decision of upstream parent callers.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to configure an application SDK to sample 10% of new root traces while respecting the sampling decision of upstream parent callers.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Configure the SDK with `ParentBased(TraceIdRatioBased(0.10))` sampling policy." },
@@ -237,7 +237,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Sampling at the SDK: ParentBased and TraceIdRatioBased: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates SDK Samplers to configure an application SDK to sample 10% of new root traces while respecting the sampling decision of upstream parent callers.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to configure an application SDK to sample 10% of new root traces while respecting the sampling decision of upstream parent callers.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Use `AlwaysOff` sampler which disables all tracing." },
@@ -258,7 +258,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Sampling at the SDK: ParentBased and TraceIdRatioBased: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates SDK Samplers to configure an application SDK to sample 10% of new root traces while respecting the sampling decision of upstream parent callers.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to configure an application SDK to sample 10% of new root traces while respecting the sampling decision of upstream parent callers.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Configure the SDK with `ParentBased(TraceIdRatioBased(0.10))` sampling policy." },
@@ -279,7 +279,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Sampling at the SDK: ParentBased and TraceIdRatioBased: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates SDK Samplers to configure an application SDK to sample 10% of new root traces while respecting the sampling decision of upstream parent callers.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to configure an application SDK to sample 10% of new root traces while respecting the sampling decision of upstream parent callers.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Use `AlwaysOn` sampler which captures 100% of all traffic." },
@@ -300,7 +300,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Sampling at the SDK: ParentBased and TraceIdRatioBased: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates SDK Samplers to configure an application SDK to sample 10% of new root traces while respecting the sampling decision of upstream parent callers.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to configure an application SDK to sample 10% of new root traces while respecting the sampling decision of upstream parent callers.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Configure the SDK with `ParentBased(TraceIdRatioBased(0.10))` sampling policy." },
@@ -321,7 +321,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Graceful SDK Shutdown in Short-Lived / Serverless Functions: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Graceful Shutdown to prevent telemetry loss when an AWS Lambda function or short-lived CLI batch script completes execution and terminates.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to prevent telemetry loss when an AWS Lambda function or short-lived CLI batch script completes execution and terminates.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Invoke `tracerProvider.ForceFlush(ctx)` or `tracerProvider.Shutdown(ctx)` before the process exits." },
@@ -342,7 +342,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Graceful SDK Shutdown in Short-Lived / Serverless Functions: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Graceful Shutdown to prevent telemetry loss when an AWS Lambda function or short-lived CLI batch script completes execution and terminates.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to prevent telemetry loss when an AWS Lambda function or short-lived CLI batch script completes execution and terminates.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Serverless functions cannot emit OpenTelemetry data." },
@@ -363,7 +363,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Graceful SDK Shutdown in Short-Lived / Serverless Functions: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Graceful Shutdown to prevent telemetry loss when an AWS Lambda function or short-lived CLI batch script completes execution and terminates.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to prevent telemetry loss when an AWS Lambda function or short-lived CLI batch script completes execution and terminates.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Kill the process with SIGKILL immediately." },
@@ -384,7 +384,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Graceful SDK Shutdown in Short-Lived / Serverless Functions: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Graceful Shutdown to prevent telemetry loss when an AWS Lambda function or short-lived CLI batch script completes execution and terminates.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to prevent telemetry loss when an AWS Lambda function or short-lived CLI batch script completes execution and terminates.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Kill the process with SIGKILL immediately." },
@@ -405,7 +405,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Graceful SDK Shutdown in Short-Lived / Serverless Functions: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Graceful Shutdown to prevent telemetry loss when an AWS Lambda function or short-lived CLI batch script completes execution and terminates.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to prevent telemetry loss when an AWS Lambda function or short-lived CLI batch script completes execution and terminates.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Invoke `tracerProvider.ForceFlush(ctx)` or `tracerProvider.Shutdown(ctx)` before the process exits." },
@@ -426,7 +426,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "OTLP Exporter Configuration: gRPC vs HTTP/Protobuf: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates OTLP Exporters to configure an application SDK or collector to export telemetry securely over OTLP gRPC with TLS and gzip compression.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to configure an application SDK or collector to export telemetry securely over OTLP gRPC with TLS and gzip compression.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Use non-standard custom binary ports." },
@@ -447,7 +447,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "OTLP Exporter Configuration: gRPC vs HTTP/Protobuf: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates OTLP Exporters to configure an application SDK or collector to export telemetry securely over OTLP gRPC with TLS and gzip compression.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to configure an application SDK or collector to export telemetry securely over OTLP gRPC with TLS and gzip compression.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Configure the OTLP exporter with `endpoint: https://collector:4317`, `compression: gzip`, and TLS certificates." },
@@ -468,7 +468,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "OTLP Exporter Configuration: gRPC vs HTTP/Protobuf: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates OTLP Exporters to configure an application SDK or collector to export telemetry securely over OTLP gRPC with TLS and gzip compression.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to configure an application SDK or collector to export telemetry securely over OTLP gRPC with TLS and gzip compression.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Configure the OTLP exporter with `endpoint: https://collector:4317`, `compression: gzip`, and TLS certificates." },
@@ -489,7 +489,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "OTLP Exporter Configuration: gRPC vs HTTP/Protobuf: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates OTLP Exporters to configure an application SDK or collector to export telemetry securely over OTLP gRPC with TLS and gzip compression.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to configure an application SDK or collector to export telemetry securely over OTLP gRPC with TLS and gzip compression.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Disable compression on high-volume networks." },
@@ -510,7 +510,7 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "OTLP Exporter Configuration: gRPC vs HTTP/Protobuf: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates OTLP Exporters to configure an application SDK or collector to export telemetry securely over OTLP gRPC with TLS and gzip compression.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to configure an application SDK or collector to export telemetry securely over OTLP gRPC with TLS and gzip compression.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Transmit telemetry over unencrypted HTTP port 80 across public networks." },

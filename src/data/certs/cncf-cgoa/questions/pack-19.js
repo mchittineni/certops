@@ -6,7 +6,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "The Secret Management Problem in GitOps: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Secret Fundamentals to manage sensitive database passwords in a GitOps workflow without committing plaintext credentials to version control.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to manage sensitive database passwords in a GitOps workflow without committing plaintext credentials to version control.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Use encrypted secret repositories (e.g., Sealed Secrets, SOPS) or external secret operators that resolve credentials from KMS/Vault at runtime." },
@@ -27,7 +27,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "The Secret Management Problem in GitOps: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Secret Fundamentals to manage sensitive database passwords in a GitOps workflow without committing plaintext credentials to version control.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to manage sensitive database passwords in a GitOps workflow without committing plaintext credentials to version control.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Use encrypted secret repositories (e.g., Sealed Secrets, SOPS) or external secret operators that resolve credentials from KMS/Vault at runtime." },
@@ -48,7 +48,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "The Secret Management Problem in GitOps: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Secret Fundamentals to manage sensitive database passwords in a GitOps workflow without committing plaintext credentials to version control.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to manage sensitive database passwords in a GitOps workflow without committing plaintext credentials to version control.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Disable passwords across all production database instances." },
@@ -69,7 +69,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "The Secret Management Problem in GitOps: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Secret Fundamentals to manage sensitive database passwords in a GitOps workflow without committing plaintext credentials to version control.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to manage sensitive database passwords in a GitOps workflow without committing plaintext credentials to version control.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Hardcode passwords inside Docker container images." },
@@ -90,7 +90,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "The Secret Management Problem in GitOps: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Secret Fundamentals to manage sensitive database passwords in a GitOps workflow without committing plaintext credentials to version control.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to manage sensitive database passwords in a GitOps workflow without committing plaintext credentials to version control.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Hardcode passwords inside Docker container images." },
@@ -111,7 +111,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Sealed Secrets by Bitnami: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Sealed Secrets to allow developers to commit encrypted secrets to Git that can only be decrypted by the specific Kubernetes cluster controller.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to allow developers to commit encrypted secrets to Git that can only be decrypted by the specific Kubernetes cluster controller.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Encrypt secrets locally using `kubeseal` with the cluster's public key, generating a `SealedSecret` custom resource committed to Git." },
@@ -132,7 +132,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Sealed Secrets by Bitnami: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Sealed Secrets to allow developers to commit encrypted secrets to Git that can only be decrypted by the specific Kubernetes cluster controller.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to allow developers to commit encrypted secrets to Git that can only be decrypted by the specific Kubernetes cluster controller.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Encrypt secrets locally using `kubeseal` with the cluster's public key, generating a `SealedSecret` custom resource committed to Git." },
@@ -153,7 +153,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Sealed Secrets by Bitnami: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Sealed Secrets to allow developers to commit encrypted secrets to Git that can only be decrypted by the specific Kubernetes cluster controller.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to allow developers to commit encrypted secrets to Git that can only be decrypted by the specific Kubernetes cluster controller.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Commit unencrypted secrets and delete the Git commit history later." },
@@ -174,7 +174,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Sealed Secrets by Bitnami: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Sealed Secrets to allow developers to commit encrypted secrets to Git that can only be decrypted by the specific Kubernetes cluster controller.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to allow developers to commit encrypted secrets to Git that can only be decrypted by the specific Kubernetes cluster controller.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Commit unencrypted secrets and delete the Git commit history later." },
@@ -195,7 +195,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Sealed Secrets by Bitnami: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Sealed Secrets to allow developers to commit encrypted secrets to Git that can only be decrypted by the specific Kubernetes cluster controller.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to allow developers to commit encrypted secrets to Git that can only be decrypted by the specific Kubernetes cluster controller.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Share the cluster's private decryption key with all developers." },
@@ -216,7 +216,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Mozilla SOPS for GitOps Secret Encryption: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Mozilla SOPS to encrypt only the sensitive value fields in a Kubernetes Secret manifest while leaving metadata, keys, and structure visible in Git for diffing.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to encrypt only the sensitive value fields in a Kubernetes Secret manifest while leaving metadata, keys, and structure visible in Git for diffing.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Use Mozilla SOPS with cloud KMS (AWS KMS, GCP KMS, Azure Key Vault, or age) and integrate with Flux decryption or Argo CD plugins." },
@@ -237,7 +237,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Mozilla SOPS for GitOps Secret Encryption: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Mozilla SOPS to encrypt only the sensitive value fields in a Kubernetes Secret manifest while leaving metadata, keys, and structure visible in Git for diffing.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to encrypt only the sensitive value fields in a Kubernetes Secret manifest while leaving metadata, keys, and structure visible in Git for diffing.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Use standard GPG encryption on the entire repository." },
@@ -258,7 +258,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Mozilla SOPS for GitOps Secret Encryption: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Mozilla SOPS to encrypt only the sensitive value fields in a Kubernetes Secret manifest while leaving metadata, keys, and structure visible in Git for diffing.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to encrypt only the sensitive value fields in a Kubernetes Secret manifest while leaving metadata, keys, and structure visible in Git for diffing.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Encrypt the entire YAML file into an unreadable binary blob that cannot be diffed in pull requests." },
@@ -279,7 +279,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Mozilla SOPS for GitOps Secret Encryption: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Mozilla SOPS to encrypt only the sensitive value fields in a Kubernetes Secret manifest while leaving metadata, keys, and structure visible in Git for diffing.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to encrypt only the sensitive value fields in a Kubernetes Secret manifest while leaving metadata, keys, and structure visible in Git for diffing.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Encrypt the entire YAML file into an unreadable binary blob that cannot be diffed in pull requests." },
@@ -300,7 +300,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "Mozilla SOPS for GitOps Secret Encryption: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Mozilla SOPS to encrypt only the sensitive value fields in a Kubernetes Secret manifest while leaving metadata, keys, and structure visible in Git for diffing.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to encrypt only the sensitive value fields in a Kubernetes Secret manifest while leaving metadata, keys, and structure visible in Git for diffing.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Use standard GPG encryption on the entire repository." },
@@ -321,7 +321,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "External Secrets Operator (ESO): Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates External Secrets to synchronize production database credentials managed in AWS Secrets Manager or HashiCorp Vault into native Kubernetes Secrets automatically.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to synchronize production database credentials managed in AWS Secrets Manager or HashiCorp Vault into native Kubernetes Secrets automatically.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Write a custom bash script running on an EC2 instance that runs `kubectl create secret` every 5 minutes." },
@@ -342,7 +342,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "External Secrets Operator (ESO): High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates External Secrets to synchronize production database credentials managed in AWS Secrets Manager or HashiCorp Vault into native Kubernetes Secrets automatically.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to synchronize production database credentials managed in AWS Secrets Manager or HashiCorp Vault into native Kubernetes Secrets automatically.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Deploy the External Secrets Operator (ESO) and configure `SecretStore` and `ExternalSecret` CRDs in Git." },
@@ -363,7 +363,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "External Secrets Operator (ESO): Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates External Secrets to synchronize production database credentials managed in AWS Secrets Manager or HashiCorp Vault into native Kubernetes Secrets automatically.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to synchronize production database credentials managed in AWS Secrets Manager or HashiCorp Vault into native Kubernetes Secrets automatically.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Deploy the External Secrets Operator (ESO) and configure `SecretStore` and `ExternalSecret` CRDs in Git." },
@@ -384,7 +384,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "External Secrets Operator (ESO): Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates External Secrets to synchronize production database credentials managed in AWS Secrets Manager or HashiCorp Vault into native Kubernetes Secrets automatically.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to synchronize production database credentials managed in AWS Secrets Manager or HashiCorp Vault into native Kubernetes Secrets automatically.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Copy passwords manually from the AWS Console and paste them into terminal commands." },
@@ -405,7 +405,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "External Secrets Operator (ESO): Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates External Secrets to synchronize production database credentials managed in AWS Secrets Manager or HashiCorp Vault into native Kubernetes Secrets automatically.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to synchronize production database credentials managed in AWS Secrets Manager or HashiCorp Vault into native Kubernetes Secrets automatically.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Copy passwords manually from the AWS Console and paste them into terminal commands." },
@@ -426,7 +426,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "HashiCorp Vault Integration with GitOps: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Vault Integration to inject dynamically rotated database credentials from HashiCorp Vault into application pods without persisting Secrets in etcd or Git.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to inject dynamically rotated database credentials from HashiCorp Vault into application pods without persisting Secrets in etcd or Git.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Export Vault secrets to plaintext CSV files stored in Git." },
@@ -447,7 +447,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "HashiCorp Vault Integration with GitOps: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Vault Integration to inject dynamically rotated database credentials from HashiCorp Vault into application pods without persisting Secrets in etcd or Git.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to inject dynamically rotated database credentials from HashiCorp Vault into application pods without persisting Secrets in etcd or Git.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Disable Vault encryption policies." },
@@ -468,7 +468,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "HashiCorp Vault Integration with GitOps: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Vault Integration to inject dynamically rotated database credentials from HashiCorp Vault into application pods without persisting Secrets in etcd or Git.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to inject dynamically rotated database credentials from HashiCorp Vault into application pods without persisting Secrets in etcd or Git.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Use the HashiCorp Vault Secrets Operator or Vault Agent Injector sidecar to inject secrets directly into ephemeral pod in-memory volumes." },
@@ -489,7 +489,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "HashiCorp Vault Integration with GitOps: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Vault Integration to inject dynamically rotated database credentials from HashiCorp Vault into application pods without persisting Secrets in etcd or Git.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to inject dynamically rotated database credentials from HashiCorp Vault into application pods without persisting Secrets in etcd or Git.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Disable Vault encryption policies." },
@@ -510,7 +510,7 @@ export const CNCF_CGOA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "GitOps Security and Secret Management",
     title: "HashiCorp Vault Integration with GitOps: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Vault Integration to inject dynamically rotated database credentials from HashiCorp Vault into application pods without persisting Secrets in etcd or Git.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to inject dynamically rotated database credentials from HashiCorp Vault into application pods without persisting Secrets in etcd or Git.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Hardcode the Vault root token inside the Git repository." },

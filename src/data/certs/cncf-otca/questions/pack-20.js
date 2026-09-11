@@ -6,7 +6,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "Security: TLS, Authentication, and Secret Redaction: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Collector Security to prevent unauthorized clients from submitting telemetry and ensure sensitive user data (passwords, PII) is redacted before export.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to prevent unauthorized clients from submitting telemetry and ensure sensitive user data (passwords, PII) is redacted before export.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Store plain text authentication passwords inside Git repositories." },
@@ -27,7 +27,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "Security: TLS, Authentication, and Secret Redaction: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Collector Security to prevent unauthorized clients from submitting telemetry and ensure sensitive user data (passwords, PII) is redacted before export.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to prevent unauthorized clients from submitting telemetry and ensure sensitive user data (passwords, PII) is redacted before export.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Allow unauthenticated, unencrypted public internet access to collector ports." },
@@ -48,7 +48,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "Security: TLS, Authentication, and Secret Redaction: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Collector Security to prevent unauthorized clients from submitting telemetry and ensure sensitive user data (passwords, PII) is redacted before export.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to prevent unauthorized clients from submitting telemetry and ensure sensitive user data (passwords, PII) is redacted before export.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Store plain text authentication passwords inside Git repositories." },
@@ -69,7 +69,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "Security: TLS, Authentication, and Secret Redaction: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Collector Security to prevent unauthorized clients from submitting telemetry and ensure sensitive user data (passwords, PII) is redacted before export.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to prevent unauthorized clients from submitting telemetry and ensure sensitive user data (passwords, PII) is redacted before export.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Allow unauthenticated, unencrypted public internet access to collector ports." },
@@ -90,7 +90,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "Security: TLS, Authentication, and Secret Redaction: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Collector Security to prevent unauthorized clients from submitting telemetry and ensure sensitive user data (passwords, PII) is redacted before export.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to prevent unauthorized clients from submitting telemetry and ensure sensitive user data (passwords, PII) is redacted before export.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Store plain text authentication passwords inside Git repositories." },
@@ -111,7 +111,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "Managing Backpressure and Drop Policies: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Backpressure Handling to prevent an OpenTelemetry Collector gateway from crashing when incoming telemetry volume exceeds processing capacity by 300%.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to prevent an OpenTelemetry Collector gateway from crashing when incoming telemetry volume exceeds processing capacity by 300%.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Configure `memory_limiter` to return backpressure (HTTP 429 / gRPC ResourceExhausted) to upstream clients, forcing senders to throttle." },
@@ -132,7 +132,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "Managing Backpressure and Drop Policies: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Backpressure Handling to prevent an OpenTelemetry Collector gateway from crashing when incoming telemetry volume exceeds processing capacity by 300%.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to prevent an OpenTelemetry Collector gateway from crashing when incoming telemetry volume exceeds processing capacity by 300%.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Disable all rate limiting and backpressure mechanisms." },
@@ -153,7 +153,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "Managing Backpressure and Drop Policies: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Backpressure Handling to prevent an OpenTelemetry Collector gateway from crashing when incoming telemetry volume exceeds processing capacity by 300%.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to prevent an OpenTelemetry Collector gateway from crashing when incoming telemetry volume exceeds processing capacity by 300%.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Silently buffer infinite data in unconstrained memory until OOM crash." },
@@ -174,7 +174,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "Managing Backpressure and Drop Policies: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Backpressure Handling to prevent an OpenTelemetry Collector gateway from crashing when incoming telemetry volume exceeds processing capacity by 300%.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to prevent an OpenTelemetry Collector gateway from crashing when incoming telemetry volume exceeds processing capacity by 300%.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Silently buffer infinite data in unconstrained memory until OOM crash." },
@@ -195,7 +195,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "Managing Backpressure and Drop Policies: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Backpressure Handling to prevent an OpenTelemetry Collector gateway from crashing when incoming telemetry volume exceeds processing capacity by 300%.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to prevent an OpenTelemetry Collector gateway from crashing when incoming telemetry volume exceeds processing capacity by 300%.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Configure `memory_limiter` to return backpressure (HTTP 429 / gRPC ResourceExhausted) to upstream clients, forcing senders to throttle." },
@@ -216,7 +216,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "OTLP Ingestion in Cloud and APM Backends: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Cloud Ingestion to stream telemetry from an OpenTelemetry Collector directly into commercial cloud APM backends without installing proprietary vendor collectors.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to stream telemetry from an OpenTelemetry Collector directly into commercial cloud APM backends without installing proprietary vendor collectors.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Configure the standard `otlp` or `otlphttp` exporter pointing directly to the cloud vendor's native OTLP ingestion endpoint with API headers." },
@@ -237,7 +237,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "OTLP Ingestion in Cloud and APM Backends: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Cloud Ingestion to stream telemetry from an OpenTelemetry Collector directly into commercial cloud APM backends without installing proprietary vendor collectors.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to stream telemetry from an OpenTelemetry Collector directly into commercial cloud APM backends without installing proprietary vendor collectors.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Configure the standard `otlp` or `otlphttp` exporter pointing directly to the cloud vendor's native OTLP ingestion endpoint with API headers." },
@@ -258,7 +258,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "OTLP Ingestion in Cloud and APM Backends: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Cloud Ingestion to stream telemetry from an OpenTelemetry Collector directly into commercial cloud APM backends without installing proprietary vendor collectors.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to stream telemetry from an OpenTelemetry Collector directly into commercial cloud APM backends without installing proprietary vendor collectors.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Export telemetry to local text files and email them to vendor support." },
@@ -279,7 +279,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "OTLP Ingestion in Cloud and APM Backends: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Cloud Ingestion to stream telemetry from an OpenTelemetry Collector directly into commercial cloud APM backends without installing proprietary vendor collectors.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to stream telemetry from an OpenTelemetry Collector directly into commercial cloud APM backends without installing proprietary vendor collectors.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Convert all telemetry to custom proprietary vendor formats before transmission." },
@@ -300,7 +300,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "OTLP Ingestion in Cloud and APM Backends: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Cloud Ingestion to stream telemetry from an OpenTelemetry Collector directly into commercial cloud APM backends without installing proprietary vendor collectors.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to stream telemetry from an OpenTelemetry Collector directly into commercial cloud APM backends without installing proprietary vendor collectors.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Convert all telemetry to custom proprietary vendor formats before transmission." },
@@ -321,7 +321,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "OpenTelemetry Collector Prometheus Receiver (Scraping): Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Prometheus Scraping to collect metrics from third-party infrastructure (e.g., MySQL exporter, NGINX exporter, Redis) without running a standalone Prometheus server.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to collect metrics from third-party infrastructure (e.g., MySQL exporter, NGINX exporter, Redis) without running a standalone Prometheus server.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Configure the `prometheus` receiver in the OpenTelemetry Collector with standard Prometheus scrape configurations and job definitions." },
@@ -342,7 +342,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "OpenTelemetry Collector Prometheus Receiver (Scraping): High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Prometheus Scraping to collect metrics from third-party infrastructure (e.g., MySQL exporter, NGINX exporter, Redis) without running a standalone Prometheus server.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to collect metrics from third-party infrastructure (e.g., MySQL exporter, NGINX exporter, Redis) without running a standalone Prometheus server.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Prometheus format metrics cannot be ingested by OpenTelemetry." },
@@ -363,7 +363,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "OpenTelemetry Collector Prometheus Receiver (Scraping): Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Prometheus Scraping to collect metrics from third-party infrastructure (e.g., MySQL exporter, NGINX exporter, Redis) without running a standalone Prometheus server.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to collect metrics from third-party infrastructure (e.g., MySQL exporter, NGINX exporter, Redis) without running a standalone Prometheus server.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Recompile third-party database exporters from source code." },
@@ -384,7 +384,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "OpenTelemetry Collector Prometheus Receiver (Scraping): Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Prometheus Scraping to collect metrics from third-party infrastructure (e.g., MySQL exporter, NGINX exporter, Redis) without running a standalone Prometheus server.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to collect metrics from third-party infrastructure (e.g., MySQL exporter, NGINX exporter, Redis) without running a standalone Prometheus server.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Configure the `prometheus` receiver in the OpenTelemetry Collector with standard Prometheus scrape configurations and job definitions." },
@@ -405,7 +405,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "OpenTelemetry Collector Prometheus Receiver (Scraping): Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Prometheus Scraping to collect metrics from third-party infrastructure (e.g., MySQL exporter, NGINX exporter, Redis) without running a standalone Prometheus server.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to collect metrics from third-party infrastructure (e.g., MySQL exporter, NGINX exporter, Redis) without running a standalone Prometheus server.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Prometheus format metrics cannot be ingested by OpenTelemetry." },
@@ -426,7 +426,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "Auditing and Validating Telemetry Pipelines: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Telemetry Validation to generate synthetic telemetry to test collector pipeline rules, sampling filters, and load performance in a pre-production environment.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to generate synthetic telemetry to test collector pipeline rules, sampling filters, and load performance in a pre-production environment.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Assume collectors never drop telemetry under load." },
@@ -447,7 +447,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "Auditing and Validating Telemetry Pipelines: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Telemetry Validation to generate synthetic telemetry to test collector pipeline rules, sampling filters, and load performance in a pre-production environment.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to generate synthetic telemetry to test collector pipeline rules, sampling filters, and load performance in a pre-production environment.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Manually write curl scripts sending malformed JSON." },
@@ -468,7 +468,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "Auditing and Validating Telemetry Pipelines: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Telemetry Validation to generate synthetic telemetry to test collector pipeline rules, sampling filters, and load performance in a pre-production environment.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to generate synthetic telemetry to test collector pipeline rules, sampling filters, and load performance in a pre-production environment.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Manually write curl scripts sending malformed JSON." },
@@ -489,7 +489,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "Auditing and Validating Telemetry Pipelines: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Telemetry Validation to generate synthetic telemetry to test collector pipeline rules, sampling filters, and load performance in a pre-production environment.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to generate synthetic telemetry to test collector pipeline rules, sampling filters, and load performance in a pre-production environment.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Assume collectors never drop telemetry under load." },
@@ -510,7 +510,7 @@ export const CNCF_OTCA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Operationalizing and Exporters",
     title: "Auditing and Validating Telemetry Pipelines: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Telemetry Validation to generate synthetic telemetry to test collector pipeline rules, sampling filters, and load performance in a pre-production environment.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to generate synthetic telemetry to test collector pipeline rules, sampling filters, and load performance in a pre-production environment.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Use `telemetrygen` to generate synthetic traces, metrics, and logs, and monitor `otelcol_processor_dropped_spans` metrics on the Collector." },

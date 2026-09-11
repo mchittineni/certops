@@ -6,7 +6,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Shared Cost Allocation Strategies: Cultural Transformation",
-    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner evaluates Shared Costs to fairly allocate shared monthly cloud costs like an enterprise AWS Business Support fee, centralized Transit Gateways, and shared EKS clusters.",
+    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to fairly allocate shared monthly cloud costs like an enterprise AWS Business Support fee, centralized Transit Gateways, and shared EKS clusters.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Dump all shared costs into an unallocated corporate holding bucket and ignore them." },
@@ -27,7 +27,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Shared Cost Allocation Strategies: Rate And Usage Optimization",
-    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner evaluates Shared Costs to fairly allocate shared monthly cloud costs like an enterprise AWS Business Support fee, centralized Transit Gateways, and shared EKS clusters.",
+    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to fairly allocate shared monthly cloud costs like an enterprise AWS Business Support fee, centralized Transit Gateways, and shared EKS clusters.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Implement shared cost allocation strategies: distribute shared infrastructure proportionally based on each team's percentage of direct cloud spend." },
@@ -48,7 +48,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Shared Cost Allocation Strategies: Visibility And Allocation",
-    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner evaluates Shared Costs to fairly allocate shared monthly cloud costs like an enterprise AWS Business Support fee, centralized Transit Gateways, and shared EKS clusters.",
+    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to fairly allocate shared monthly cloud costs like an enterprise AWS Business Support fee, centralized Transit Gateways, and shared EKS clusters.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Implement shared cost allocation strategies: distribute shared infrastructure proportionally based on each team's percentage of direct cloud spend." },
@@ -69,7 +69,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Shared Cost Allocation Strategies: Unit Economics And Forecasting",
-    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner evaluates Shared Costs to fairly allocate shared monthly cloud costs like an enterprise AWS Business Support fee, centralized Transit Gateways, and shared EKS clusters.",
+    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to fairly allocate shared monthly cloud costs like an enterprise AWS Business Support fee, centralized Transit Gateways, and shared EKS clusters.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Distribute shared costs equally among all employees regardless of whether their teams use the cloud." },
@@ -90,7 +90,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Shared Cost Allocation Strategies: Governance And Maturity",
-    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner evaluates Shared Costs to fairly allocate shared monthly cloud costs like an enterprise AWS Business Support fee, centralized Transit Gateways, and shared EKS clusters.",
+    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to fairly allocate shared monthly cloud costs like an enterprise AWS Business Support fee, centralized Transit Gateways, and shared EKS clusters.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Implement shared cost allocation strategies: distribute shared infrastructure proportionally based on each team's percentage of direct cloud spend." },
@@ -111,7 +111,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "FinOps Open Cost and Usage Specification (FOCUS): Cultural Transformation",
-    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner evaluates FOCUS Specification to normalize billing data across AWS, Microsoft Azure, Google Cloud, and Datadog into a single unified schema for enterprise analysis.",
+    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to normalize billing data across AWS, Microsoft Azure, Google Cloud, and Datadog into a single unified schema for enterprise analysis.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Adopt the FinOps Open Cost and Usage Specification (FOCUS), standardizing multi-cloud billing schemas into common normalized columns." },
@@ -132,7 +132,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "FinOps Open Cost and Usage Specification (FOCUS): Rate And Usage Optimization",
-    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner evaluates FOCUS Specification to normalize billing data across AWS, Microsoft Azure, Google Cloud, and Datadog into a single unified schema for enterprise analysis.",
+    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to normalize billing data across AWS, Microsoft Azure, Google Cloud, and Datadog into a single unified schema for enterprise analysis.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Analyze each cloud provider's bill in complete isolation without multi-cloud aggregation." },
@@ -153,7 +153,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "FinOps Open Cost and Usage Specification (FOCUS): Visibility And Allocation",
-    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner evaluates FOCUS Specification to normalize billing data across AWS, Microsoft Azure, Google Cloud, and Datadog into a single unified schema for enterprise analysis.",
+    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to normalize billing data across AWS, Microsoft Azure, Google Cloud, and Datadog into a single unified schema for enterprise analysis.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Write bespoke, fragile manual ETL transformation scripts trying to map hundreds of conflicting proprietary vendor billing columns." },
@@ -174,7 +174,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "FinOps Open Cost and Usage Specification (FOCUS): Unit Economics And Forecasting",
-    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner evaluates FOCUS Specification to normalize billing data across AWS, Microsoft Azure, Google Cloud, and Datadog into a single unified schema for enterprise analysis.",
+    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to normalize billing data across AWS, Microsoft Azure, Google Cloud, and Datadog into a single unified schema for enterprise analysis.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Force all cloud providers to change their native billing formats to match an internal company spreadsheet." },
@@ -195,7 +195,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "FinOps Open Cost and Usage Specification (FOCUS): Governance And Maturity",
-    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner evaluates FOCUS Specification to normalize billing data across AWS, Microsoft Azure, Google Cloud, and Datadog into a single unified schema for enterprise analysis.",
+    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to normalize billing data across AWS, Microsoft Azure, Google Cloud, and Datadog into a single unified schema for enterprise analysis.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Force all cloud providers to change their native billing formats to match an internal company spreadsheet." },
@@ -216,7 +216,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Rate Optimization: Reserved Instances (RIs): Cultural Transformation",
-    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner evaluates Reserved Instances to maximize cost savings on a fleet of 100 steady-state production database instances that will run continuously for three years.",
+    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to maximize cost savings on a fleet of 100 steady-state production database instances that will run continuously for three years.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Turn off databases during business hours to avoid committing to reserved instances." },
@@ -237,7 +237,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Rate Optimization: Reserved Instances (RIs): Rate And Usage Optimization",
-    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner evaluates Reserved Instances to maximize cost savings on a fleet of 100 steady-state production database instances that will run continuously for three years.",
+    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to maximize cost savings on a fleet of 100 steady-state production database instances that will run continuously for three years.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Run steady-state production databases on 100% on-demand pricing indefinitely." },
@@ -258,7 +258,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Rate Optimization: Reserved Instances (RIs): Visibility And Allocation",
-    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner evaluates Reserved Instances to maximize cost savings on a fleet of 100 steady-state production database instances that will run continuously for three years.",
+    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to maximize cost savings on a fleet of 100 steady-state production database instances that will run continuously for three years.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Purchase 3-year non-convertible RIs for experimental development instances that will be deleted next week." },
@@ -279,7 +279,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Rate Optimization: Reserved Instances (RIs): Unit Economics And Forecasting",
-    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner evaluates Reserved Instances to maximize cost savings on a fleet of 100 steady-state production database instances that will run continuously for three years.",
+    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to maximize cost savings on a fleet of 100 steady-state production database instances that will run continuously for three years.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Purchase 3-year Reserved Instances (RIs) or Savings Plans with Partial or All Upfront payments to achieve up to 60-70% discounts." },
@@ -300,7 +300,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Rate Optimization: Reserved Instances (RIs): Governance And Maturity",
-    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner evaluates Reserved Instances to maximize cost savings on a fleet of 100 steady-state production database instances that will run continuously for three years.",
+    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to maximize cost savings on a fleet of 100 steady-state production database instances that will run continuously for three years.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Purchase 3-year non-convertible RIs for experimental development instances that will be deleted next week." },
@@ -321,7 +321,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Rate Optimization: Savings Plans: Cultural Transformation",
-    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner evaluates Savings Plans to commit to cloud savings across flexible compute options including EC2, AWS Fargate, and AWS Lambda across multiple regions.",
+    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to commit to cloud savings across flexible compute options including EC2, AWS Fargate, and AWS Lambda across multiple regions.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Purchase rigid, region-locked EC2 Instance Savings Plans for workloads that are actively migrating to serverless Lambda in other regions." },
@@ -342,7 +342,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Rate Optimization: Savings Plans: Rate And Usage Optimization",
-    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner evaluates Savings Plans to commit to cloud savings across flexible compute options including EC2, AWS Fargate, and AWS Lambda across multiple regions.",
+    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to commit to cloud savings across flexible compute options including EC2, AWS Fargate, and AWS Lambda across multiple regions.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Purchase rigid, region-locked EC2 Instance Savings Plans for workloads that are actively migrating to serverless Lambda in other regions." },
@@ -363,7 +363,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Rate Optimization: Savings Plans: Visibility And Allocation",
-    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner evaluates Savings Plans to commit to cloud savings across flexible compute options including EC2, AWS Fargate, and AWS Lambda across multiple regions.",
+    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to commit to cloud savings across flexible compute options including EC2, AWS Fargate, and AWS Lambda across multiple regions.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Purchase rigid, region-locked EC2 Instance Savings Plans for workloads that are actively migrating to serverless Lambda in other regions." },
@@ -384,7 +384,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Rate Optimization: Savings Plans: Unit Economics And Forecasting",
-    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner evaluates Savings Plans to commit to cloud savings across flexible compute options including EC2, AWS Fargate, and AWS Lambda across multiple regions.",
+    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to commit to cloud savings across flexible compute options including EC2, AWS Fargate, and AWS Lambda across multiple regions.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Purchase Compute Savings Plans, committing to a consistent dollar-per-hour compute spend across instances, Fargate, and Lambda." },
@@ -405,7 +405,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Rate Optimization: Savings Plans: Governance And Maturity",
-    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner evaluates Savings Plans to commit to cloud savings across flexible compute options including EC2, AWS Fargate, and AWS Lambda across multiple regions.",
+    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to commit to cloud savings across flexible compute options including EC2, AWS Fargate, and AWS Lambda across multiple regions.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Avoid all commitments and pay full on-demand rates to maintain maximum agility." },
@@ -426,7 +426,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Usage Optimization: Workload Rightsizing: Cultural Transformation",
-    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner evaluates Workload Rightsizing to safely reduce cloud spend on a cluster of virtual machines consistently running at an average of 4% CPU utilization.",
+    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to safely reduce cloud spend on a cluster of virtual machines consistently running at an average of 4% CPU utilization.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Immediately terminate all instances running under 10% CPU without checking memory utilization." },
@@ -447,7 +447,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Usage Optimization: Workload Rightsizing: Rate And Usage Optimization",
-    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner evaluates Workload Rightsizing to safely reduce cloud spend on a cluster of virtual machines consistently running at an average of 4% CPU utilization.",
+    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to safely reduce cloud spend on a cluster of virtual machines consistently running at an average of 4% CPU utilization.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Double the instance size to ensure application performance never degrades under any scenario." },
@@ -468,7 +468,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Usage Optimization: Workload Rightsizing: Visibility And Allocation",
-    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner evaluates Workload Rightsizing to safely reduce cloud spend on a cluster of virtual machines consistently running at an average of 4% CPU utilization.",
+    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to safely reduce cloud spend on a cluster of virtual machines consistently running at an average of 4% CPU utilization.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Double the instance size to ensure application performance never degrades under any scenario." },
@@ -489,7 +489,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Usage Optimization: Workload Rightsizing: Unit Economics And Forecasting",
-    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner evaluates Workload Rightsizing to safely reduce cloud spend on a cluster of virtual machines consistently running at an average of 4% CPU utilization.",
+    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to safely reduce cloud spend on a cluster of virtual machines consistently running at an average of 4% CPU utilization.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Analyze 30-day p95 CPU and memory metrics and downsize the instances to an appropriately sized instance family." },
@@ -510,7 +510,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "FinOps Capabilities & Optimization",
     title: "Usage Optimization: Workload Rightsizing: Governance And Maturity",
-    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner evaluates Workload Rightsizing to safely reduce cloud spend on a cluster of virtual machines consistently running at an average of 4% CPU utilization.",
+    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to safely reduce cloud spend on a cluster of virtual machines consistently running at an average of 4% CPU utilization.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Immediately terminate all instances running under 10% CPU without checking memory utilization." },

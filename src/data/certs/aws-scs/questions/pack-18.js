@@ -6,7 +6,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS KMS Cryptographic Access Control and Separation of Duties: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates KMS Key Policies to prevent KMS key administrators from decrypting sensitive corporate payroll data while allowing payroll applications to use the key.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to prevent KMS key administrators from decrypting sensitive corporate payroll data while allowing payroll applications to use the key.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Separate Key Administrator permissions (`kms:Create*`, `kms:Put*`) from Key User permissions (`kms:Decrypt`), and enforce `kms:ViaService`." },
@@ -27,7 +27,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS KMS Cryptographic Access Control and Separation of Duties: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates KMS Key Policies to prevent KMS key administrators from decrypting sensitive corporate payroll data while allowing payroll applications to use the key.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to prevent KMS key administrators from decrypting sensitive corporate payroll data while allowing payroll applications to use the key.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Separate Key Administrator permissions (`kms:Create*`, `kms:Put*`) from Key User permissions (`kms:Decrypt`), and enforce `kms:ViaService`." },
@@ -48,7 +48,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS KMS Cryptographic Access Control and Separation of Duties: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates KMS Key Policies to prevent KMS key administrators from decrypting sensitive corporate payroll data while allowing payroll applications to use the key.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to prevent KMS key administrators from decrypting sensitive corporate payroll data while allowing payroll applications to use the key.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Allow all IAM users in the account to perform `kms:Decrypt` unconditionally." },
@@ -69,7 +69,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS KMS Cryptographic Access Control and Separation of Duties: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates KMS Key Policies to prevent KMS key administrators from decrypting sensitive corporate payroll data while allowing payroll applications to use the key.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to prevent KMS key administrators from decrypting sensitive corporate payroll data while allowing payroll applications to use the key.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Separate Key Administrator permissions (`kms:Create*`, `kms:Put*`) from Key User permissions (`kms:Decrypt`), and enforce `kms:ViaService`." },
@@ -90,7 +90,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS KMS Cryptographic Access Control and Separation of Duties: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates KMS Key Policies to prevent KMS key administrators from decrypting sensitive corporate payroll data while allowing payroll applications to use the key.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to prevent KMS key administrators from decrypting sensitive corporate payroll data while allowing payroll applications to use the key.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Disable key policies and rely exclusively on IAM identity policies." },
@@ -111,7 +111,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Envelope Encryption and GenerateDataKey Architecture: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Envelope Encryption to encrypt large 50-gigabyte video files efficiently without sending massive binary payloads across the network to AWS KMS.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to encrypt large 50-gigabyte video files efficiently without sending massive binary payloads across the network to AWS KMS.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Send the entire 50-gigabyte video file directly to the KMS `Encrypt` API, exceeding the 4KB payload limit." },
@@ -132,7 +132,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Envelope Encryption and GenerateDataKey Architecture: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Envelope Encryption to encrypt large 50-gigabyte video files efficiently without sending massive binary payloads across the network to AWS KMS.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to encrypt large 50-gigabyte video files efficiently without sending massive binary payloads across the network to AWS KMS.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Send the entire 50-gigabyte video file directly to the KMS `Encrypt` API, exceeding the 4KB payload limit." },
@@ -153,7 +153,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Envelope Encryption and GenerateDataKey Architecture: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Envelope Encryption to encrypt large 50-gigabyte video files efficiently without sending massive binary payloads across the network to AWS KMS.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to encrypt large 50-gigabyte video files efficiently without sending massive binary payloads across the network to AWS KMS.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Use Envelope Encryption: call `kms:GenerateDataKey`, encrypt the file locally using the plaintext data key, erase it from RAM, and store the ciphertext data key alongside the file." },
@@ -174,7 +174,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Envelope Encryption and GenerateDataKey Architecture: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Envelope Encryption to encrypt large 50-gigabyte video files efficiently without sending massive binary payloads across the network to AWS KMS.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to encrypt large 50-gigabyte video files efficiently without sending massive binary payloads across the network to AWS KMS.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Store files in plaintext on unencrypted storage to avoid encryption overhead." },
@@ -195,7 +195,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Envelope Encryption and GenerateDataKey Architecture: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Envelope Encryption to encrypt large 50-gigabyte video files efficiently without sending massive binary payloads across the network to AWS KMS.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to encrypt large 50-gigabyte video files efficiently without sending massive binary payloads across the network to AWS KMS.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Send the entire 50-gigabyte video file directly to the KMS `Encrypt` API, exceeding the 4KB payload limit." },
@@ -216,7 +216,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS Secrets Manager Automated Multi-User Secret Rotation: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Secrets Manager Rotation to rotate production Amazon RDS PostgreSQL master database credentials every 30 days automatically without disconnecting active applications.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to rotate production Amazon RDS PostgreSQL master database credentials every 30 days automatically without disconnecting active applications.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Hardcode database credentials in application environment variables that require full redeployments to update." },
@@ -237,7 +237,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS Secrets Manager Automated Multi-User Secret Rotation: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Secrets Manager Rotation to rotate production Amazon RDS PostgreSQL master database credentials every 30 days automatically without disconnecting active applications.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to rotate production Amazon RDS PostgreSQL master database credentials every 30 days automatically without disconnecting active applications.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Configure AWS Secrets Manager automatic rotation using the multi-user rotation Lambda strategy with an administrative secret." },
@@ -258,7 +258,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS Secrets Manager Automated Multi-User Secret Rotation: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Secrets Manager Rotation to rotate production Amazon RDS PostgreSQL master database credentials every 30 days automatically without disconnecting active applications.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to rotate production Amazon RDS PostgreSQL master database credentials every 30 days automatically without disconnecting active applications.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Never rotate database passwords to avoid the risk of application connection failures." },
@@ -279,7 +279,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS Secrets Manager Automated Multi-User Secret Rotation: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Secrets Manager Rotation to rotate production Amazon RDS PostgreSQL master database credentials every 30 days automatically without disconnecting active applications.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to rotate production Amazon RDS PostgreSQL master database credentials every 30 days automatically without disconnecting active applications.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Hardcode database credentials in application environment variables that require full redeployments to update." },
@@ -300,7 +300,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS Secrets Manager Automated Multi-User Secret Rotation: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Secrets Manager Rotation to rotate production Amazon RDS PostgreSQL master database credentials every 30 days automatically without disconnecting active applications.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to rotate production Amazon RDS PostgreSQL master database credentials every 30 days automatically without disconnecting active applications.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Never rotate database passwords to avoid the risk of application connection failures." },
@@ -321,7 +321,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS Certificate Manager (ACM) and Private Certificate Authority: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates AWS ACM & Private CA to provide public websites with automatically renewing SSL/TLS certificates and issue private certificates for internal microservices.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to provide public websites with automatically renewing SSL/TLS certificates and issue private certificates for internal microservices.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Use AWS Certificate Manager (ACM) with DNS validation for public endpoints, and AWS Private CA for internal microservice mTLS." },
@@ -342,7 +342,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS Certificate Manager (ACM) and Private Certificate Authority: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates AWS ACM & Private CA to provide public websites with automatically renewing SSL/TLS certificates and issue private certificates for internal microservices.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to provide public websites with automatically renewing SSL/TLS certificates and issue private certificates for internal microservices.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Disable TLS and operate all internal microservices over unencrypted plaintext HTTP." },
@@ -363,7 +363,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS Certificate Manager (ACM) and Private Certificate Authority: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates AWS ACM & Private CA to provide public websites with automatically renewing SSL/TLS certificates and issue private certificates for internal microservices.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to provide public websites with automatically renewing SSL/TLS certificates and issue private certificates for internal microservices.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Use self-signed certificates that trigger browser security warnings for all customers." },
@@ -384,7 +384,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS Certificate Manager (ACM) and Private Certificate Authority: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates AWS ACM & Private CA to provide public websites with automatically renewing SSL/TLS certificates and issue private certificates for internal microservices.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to provide public websites with automatically renewing SSL/TLS certificates and issue private certificates for internal microservices.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Purchase manual public certificates that require yearly manual CSR generation, renewal, and server installation." },
@@ -405,7 +405,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS Certificate Manager (ACM) and Private Certificate Authority: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates AWS ACM & Private CA to provide public websites with automatically renewing SSL/TLS certificates and issue private certificates for internal microservices.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to provide public websites with automatically renewing SSL/TLS certificates and issue private certificates for internal microservices.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Disable TLS and operate all internal microservices over unencrypted plaintext HTTP." },
@@ -426,7 +426,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Amazon S3 Bucket Security Hardening and TLS Enforcement: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates S3 Hardening to ensure all data transmitted to and from an S3 bucket is encrypted in transit and all stored objects use customer-managed KMS encryption.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to ensure all data transmitted to and from an S3 bucket is encrypted in transit and all stored objects use customer-managed KMS encryption.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Allow plaintext HTTP connections to the S3 bucket to support legacy clients." },
@@ -447,7 +447,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Amazon S3 Bucket Security Hardening and TLS Enforcement: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates S3 Hardening to ensure all data transmitted to and from an S3 bucket is encrypted in transit and all stored objects use customer-managed KMS encryption.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to ensure all data transmitted to and from an S3 bucket is encrypted in transit and all stored objects use customer-managed KMS encryption.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Disable S3 bucket encryption to save CPU processing cycles." },
@@ -468,7 +468,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Amazon S3 Bucket Security Hardening and TLS Enforcement: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates S3 Hardening to ensure all data transmitted to and from an S3 bucket is encrypted in transit and all stored objects use customer-managed KMS encryption.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to ensure all data transmitted to and from an S3 bucket is encrypted in transit and all stored objects use customer-managed KMS encryption.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Enforce an S3 bucket policy with an explicit Deny when `aws:SecureTransport` is false, and configure bucket default encryption with a KMS CMK." },
@@ -489,7 +489,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Amazon S3 Bucket Security Hardening and TLS Enforcement: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates S3 Hardening to ensure all data transmitted to and from an S3 bucket is encrypted in transit and all stored objects use customer-managed KMS encryption.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to ensure all data transmitted to and from an S3 bucket is encrypted in transit and all stored objects use customer-managed KMS encryption.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Turn off S3 Block Public Access to simplify third-party file uploads." },
@@ -510,7 +510,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Amazon S3 Bucket Security Hardening and TLS Enforcement: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates S3 Hardening to ensure all data transmitted to and from an S3 bucket is encrypted in transit and all stored objects use customer-managed KMS encryption.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to ensure all data transmitted to and from an S3 bucket is encrypted in transit and all stored objects use customer-managed KMS encryption.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Enforce an S3 bucket policy with an explicit Deny when `aws:SecureTransport` is false, and configure bucket default encryption with a KMS CMK." },

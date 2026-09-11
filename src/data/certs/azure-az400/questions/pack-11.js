@@ -6,7 +6,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure Boards Process Customization: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Azure Boards to add custom regulatory compliance fields and custom workflow states to Product Backlog Items in Azure Boards without breaking system templates.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to add custom regulatory compliance fields and custom workflow states to Product Backlog Items in Azure Boards without breaking system templates.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Switch the entire organization to a deprecated hosted XML process model." },
@@ -27,7 +27,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure Boards Process Customization: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Azure Boards to add custom regulatory compliance fields and custom workflow states to Product Backlog Items in Azure Boards without breaking system templates.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to add custom regulatory compliance fields and custom workflow states to Product Backlog Items in Azure Boards without breaking system templates.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Create an inherited process from the default Scrum or Agile process and add the custom fields, states, and rules to the inherited process." },
@@ -48,7 +48,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure Boards Process Customization: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Azure Boards to add custom regulatory compliance fields and custom workflow states to Product Backlog Items in Azure Boards without breaking system templates.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to add custom regulatory compliance fields and custom workflow states to Product Backlog Items in Azure Boards without breaking system templates.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Directly edit the XML of the locked system Scrum process template." },
@@ -69,7 +69,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure Boards Process Customization: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Azure Boards to add custom regulatory compliance fields and custom workflow states to Product Backlog Items in Azure Boards without breaking system templates.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to add custom regulatory compliance fields and custom workflow states to Product Backlog Items in Azure Boards without breaking system templates.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Directly edit the XML of the locked system Scrum process template." },
@@ -90,7 +90,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure Boards Process Customization: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Azure Boards to add custom regulatory compliance fields and custom workflow states to Product Backlog Items in Azure Boards without breaking system templates.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to add custom regulatory compliance fields and custom workflow states to Product Backlog Items in Azure Boards without breaking system templates.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Directly edit the XML of the locked system Scrum process template." },
@@ -111,7 +111,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Team and Area Path Hierarchy: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Project Organization to organize fifty distinct agile feature teams within a single Azure DevOps project so each team manages its own backlog while sharing a unified project backlog.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to organize fifty distinct agile feature teams within a single Azure DevOps project so each team manages its own backlog while sharing a unified project backlog.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Assign all 50 teams to the root default Area Path with no filtering." },
@@ -132,7 +132,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Team and Area Path Hierarchy: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Project Organization to organize fifty distinct agile feature teams within a single Azure DevOps project so each team manages its own backlog while sharing a unified project backlog.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to organize fifty distinct agile feature teams within a single Azure DevOps project so each team manages its own backlog while sharing a unified project backlog.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Create 50 completely independent Azure DevOps projects, isolating code and work tracking." },
@@ -153,7 +153,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Team and Area Path Hierarchy: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Project Organization to organize fifty distinct agile feature teams within a single Azure DevOps project so each team manages its own backlog while sharing a unified project backlog.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to organize fifty distinct agile feature teams within a single Azure DevOps project so each team manages its own backlog while sharing a unified project backlog.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Create 50 completely independent Azure DevOps projects, isolating code and work tracking." },
@@ -174,7 +174,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Team and Area Path Hierarchy: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Project Organization to organize fifty distinct agile feature teams within a single Azure DevOps project so each team manages its own backlog while sharing a unified project backlog.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to organize fifty distinct agile feature teams within a single Azure DevOps project so each team manages its own backlog while sharing a unified project backlog.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Assign all 50 teams to the root default Area Path with no filtering." },
@@ -195,7 +195,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Team and Area Path Hierarchy: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Project Organization to organize fifty distinct agile feature teams within a single Azure DevOps project so each team manages its own backlog while sharing a unified project backlog.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to organize fifty distinct agile feature teams within a single Azure DevOps project so each team manages its own backlog while sharing a unified project backlog.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Manage all team tasks inside external Excel spreadsheets." },
@@ -216,7 +216,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Dashboard Widgets and Analytics: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates DevOps Dashboards to provide development managers and scrum masters with real-time visibility into sprint burndown, team velocity, and cycle time bottlenecks.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to provide development managers and scrum masters with real-time visibility into sprint burndown, team velocity, and cycle time bottlenecks.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely solely on commit messages to track agile project velocity." },
@@ -237,7 +237,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Dashboard Widgets and Analytics: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates DevOps Dashboards to provide development managers and scrum masters with real-time visibility into sprint burndown, team velocity, and cycle time bottlenecks.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to provide development managers and scrum masters with real-time visibility into sprint burndown, team velocity, and cycle time bottlenecks.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Require developers to send weekly manual email status reports with estimated completion dates." },
@@ -258,7 +258,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Dashboard Widgets and Analytics: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates DevOps Dashboards to provide development managers and scrum masters with real-time visibility into sprint burndown, team velocity, and cycle time bottlenecks.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to provide development managers and scrum masters with real-time visibility into sprint burndown, team velocity, and cycle time bottlenecks.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Rely solely on commit messages to track agile project velocity." },
@@ -279,7 +279,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Dashboard Widgets and Analytics: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates DevOps Dashboards to provide development managers and scrum masters with real-time visibility into sprint burndown, team velocity, and cycle time bottlenecks.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to provide development managers and scrum masters with real-time visibility into sprint burndown, team velocity, and cycle time bottlenecks.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Require developers to send weekly manual email status reports with estimated completion dates." },
@@ -300,7 +300,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Dashboard Widgets and Analytics: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates DevOps Dashboards to provide development managers and scrum masters with real-time visibility into sprint burndown, team velocity, and cycle time bottlenecks.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to provide development managers and scrum masters with real-time visibility into sprint burndown, team velocity, and cycle time bottlenecks.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Rely solely on commit messages to track agile project velocity." },
@@ -321,7 +321,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Notification Subscriptions: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Notification Management to alert an on-call engineering team in Microsoft Teams immediately when a build pipeline fails or a pull request reviewer is requested.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to alert an on-call engineering team in Microsoft Teams immediately when a build pipeline fails or a pull request reviewer is requested.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Configure all team members to receive every notification email generated by the entire organization." },
@@ -342,7 +342,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Notification Subscriptions: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Notification Management to alert an on-call engineering team in Microsoft Teams immediately when a build pipeline fails or a pull request reviewer is requested.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to alert an on-call engineering team in Microsoft Teams immediately when a build pipeline fails or a pull request reviewer is requested.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Configure all team members to receive every notification email generated by the entire organization." },
@@ -363,7 +363,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Notification Subscriptions: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Notification Management to alert an on-call engineering team in Microsoft Teams immediately when a build pipeline fails or a pull request reviewer is requested.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to alert an on-call engineering team in Microsoft Teams immediately when a build pipeline fails or a pull request reviewer is requested.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Disable all automated notifications and review failures during daily standups." },
@@ -384,7 +384,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Notification Subscriptions: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Notification Management to alert an on-call engineering team in Microsoft Teams immediately when a build pipeline fails or a pull request reviewer is requested.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to alert an on-call engineering team in Microsoft Teams immediately when a build pipeline fails or a pull request reviewer is requested.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Disable all automated notifications and review failures during daily standups." },
@@ -405,7 +405,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Notification Subscriptions: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Notification Management to alert an on-call engineering team in Microsoft Teams immediately when a build pipeline fails or a pull request reviewer is requested.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to alert an on-call engineering team in Microsoft Teams immediately when a build pipeline fails or a pull request reviewer is requested.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Disable all automated notifications and review failures during daily standups." },
@@ -426,7 +426,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "GitHub and Azure Boards Integration: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Cross-Tool Integration to link GitHub commits, pull requests, and branches automatically to Azure Boards work items using commit message syntax (e.g., AB#123).",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to link GitHub commits, pull requests, and branches automatically to Azure Boards work items using commit message syntax (e.g., AB#123).",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Prohibit developers from using GitHub, forcing all code into Azure Repos." },
@@ -447,7 +447,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "GitHub and Azure Boards Integration: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Cross-Tool Integration to link GitHub commits, pull requests, and branches automatically to Azure Boards work items using commit message syntax (e.g., AB#123).",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to link GitHub commits, pull requests, and branches automatically to Azure Boards work items using commit message syntax (e.g., AB#123).",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Prohibit developers from using GitHub, forcing all code into Azure Repos." },
@@ -468,7 +468,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "GitHub and Azure Boards Integration: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Cross-Tool Integration to link GitHub commits, pull requests, and branches automatically to Azure Boards work items using commit message syntax (e.g., AB#123).",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to link GitHub commits, pull requests, and branches automatically to Azure Boards work items using commit message syntax (e.g., AB#123).",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Install the Azure Boards app for GitHub and connect GitHub repositories to the Azure DevOps project, referencing work items using `AB#&lt;ID&gt;`." },
@@ -489,7 +489,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "GitHub and Azure Boards Integration: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Cross-Tool Integration to link GitHub commits, pull requests, and branches automatically to Azure Boards work items using commit message syntax (e.g., AB#123).",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to link GitHub commits, pull requests, and branches automatically to Azure Boards work items using commit message syntax (e.g., AB#123).",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Write a custom daily Python scraping script to match commit strings to work items." },
@@ -510,7 +510,7 @@ export const AZURE_AZ400_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "GitHub and Azure Boards Integration: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Cross-Tool Integration to link GitHub commits, pull requests, and branches automatically to Azure Boards work items using commit message syntax (e.g., AB#123).",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to link GitHub commits, pull requests, and branches automatically to Azure Boards work items using commit message syntax (e.g., AB#123).",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Prohibit developers from using GitHub, forcing all code into Azure Repos." },

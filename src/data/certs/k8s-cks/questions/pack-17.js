@@ -6,7 +6,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Immutable Image References by Digest: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Image Digests to ensure that pods across all cluster nodes run the exact bit-for-bit identical binary image and prevent tag-hijacking attacks.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to ensure that pods across all cluster nodes run the exact bit-for-bit identical binary image and prevent tag-hijacking attacks.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Allow container runtimes to pull arbitrary versions if tags change." },
@@ -27,7 +27,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Immutable Image References by Digest: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Image Digests to ensure that pods across all cluster nodes run the exact bit-for-bit identical binary image and prevent tag-hijacking attacks.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to ensure that pods across all cluster nodes run the exact bit-for-bit identical binary image and prevent tag-hijacking attacks.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Configure imagePullPolicy: IfNotPresent with mutable tags." },
@@ -48,7 +48,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Immutable Image References by Digest: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Image Digests to ensure that pods across all cluster nodes run the exact bit-for-bit identical binary image and prevent tag-hijacking attacks.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to ensure that pods across all cluster nodes run the exact bit-for-bit identical binary image and prevent tag-hijacking attacks.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Allow container runtimes to pull arbitrary versions if tags change." },
@@ -69,7 +69,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Immutable Image References by Digest: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Image Digests to ensure that pods across all cluster nodes run the exact bit-for-bit identical binary image and prevent tag-hijacking attacks.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to ensure that pods across all cluster nodes run the exact bit-for-bit identical binary image and prevent tag-hijacking attacks.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Deploy images using the mutable :latest tag." },
@@ -90,7 +90,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Immutable Image References by Digest: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Image Digests to ensure that pods across all cluster nodes run the exact bit-for-bit identical binary image and prevent tag-hijacking attacks.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to ensure that pods across all cluster nodes run the exact bit-for-bit identical binary image and prevent tag-hijacking attacks.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Specify container images using the immutable SHA256 digest (`image: repo/app@sha256:...`) instead of mutable tags." },
@@ -111,7 +111,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Private Container Registry Authentication: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Registry Security to restrict container image downloads so that only authenticated cluster worker nodes can pull proprietary enterprise software images.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to restrict container image downloads so that only authenticated cluster worker nodes can pull proprietary enterprise software images.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Distribute raw docker config files manually across worker node file systems." },
@@ -132,7 +132,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Private Container Registry Authentication: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Registry Security to restrict container image downloads so that only authenticated cluster worker nodes can pull proprietary enterprise software images.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to restrict container image downloads so that only authenticated cluster worker nodes can pull proprietary enterprise software images.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Store private registry credentials in a Kubernetes Secret of type `kubernetes.io/dockerconfigjson` and reference it via `imagePullSecrets`." },
@@ -153,7 +153,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Private Container Registry Authentication: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Registry Security to restrict container image downloads so that only authenticated cluster worker nodes can pull proprietary enterprise software images.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to restrict container image downloads so that only authenticated cluster worker nodes can pull proprietary enterprise software images.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Store private registry credentials in a Kubernetes Secret of type `kubernetes.io/dockerconfigjson` and reference it via `imagePullSecrets`." },
@@ -174,7 +174,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Private Container Registry Authentication: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Registry Security to restrict container image downloads so that only authenticated cluster worker nodes can pull proprietary enterprise software images.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to restrict container image downloads so that only authenticated cluster worker nodes can pull proprietary enterprise software images.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Distribute raw docker config files manually across worker node file systems." },
@@ -195,7 +195,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Private Container Registry Authentication: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Registry Security to restrict container image downloads so that only authenticated cluster worker nodes can pull proprietary enterprise software images.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to restrict container image downloads so that only authenticated cluster worker nodes can pull proprietary enterprise software images.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Hardcode registry admin passwords in the container entrypoint script." },
@@ -216,7 +216,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Dockerfile Security Best Practices: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Dockerfile Hardening to prevent malicious script injection and maintain build repeatability during container image construction.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent malicious script injection and maintain build repeatability during container image construction.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Pin base image digests, avoid downloading unverified scripts via `curl | sh`, create an unprivileged user, and run multi-stage builds." },
@@ -237,7 +237,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Dockerfile Security Best Practices: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Dockerfile Hardening to prevent malicious script injection and maintain build repeatability during container image construction.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent malicious script injection and maintain build repeatability during container image construction.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Pin base image digests, avoid downloading unverified scripts via `curl | sh`, create an unprivileged user, and run multi-stage builds." },
@@ -258,7 +258,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Dockerfile Security Best Practices: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Dockerfile Hardening to prevent malicious script injection and maintain build repeatability during container image construction.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent malicious script injection and maintain build repeatability during container image construction.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Pin base image digests, avoid downloading unverified scripts via `curl | sh`, create an unprivileged user, and run multi-stage builds." },
@@ -279,7 +279,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Dockerfile Security Best Practices: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Dockerfile Hardening to prevent malicious script injection and maintain build repeatability during container image construction.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent malicious script injection and maintain build repeatability during container image construction.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Pin base image digests, avoid downloading unverified scripts via `curl | sh`, create an unprivileged user, and run multi-stage builds." },
@@ -300,7 +300,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Dockerfile Security Best Practices: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Dockerfile Hardening to prevent malicious script injection and maintain build repeatability during container image construction.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent malicious script injection and maintain build repeatability during container image construction.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Execute curl piped directly to bash inside Dockerfile RUN instructions." },
@@ -321,7 +321,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Restricting Container Base Registries via Policy: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Registry Governance to prevent developers from deploying containers sourced from unvetted public registries (like personal Docker Hub accounts) to production clusters.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent developers from deploying containers sourced from unvetted public registries (like personal Docker Hub accounts) to production clusters.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Trust developers not to deploy images from unapproved registries." },
@@ -342,7 +342,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Restricting Container Base Registries via Policy: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Registry Governance to prevent developers from deploying containers sourced from unvetted public registries (like personal Docker Hub accounts) to production clusters.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent developers from deploying containers sourced from unvetted public registries (like personal Docker Hub accounts) to production clusters.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Trust developers not to deploy images from unapproved registries." },
@@ -363,7 +363,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Restricting Container Base Registries via Policy: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Registry Governance to prevent developers from deploying containers sourced from unvetted public registries (like personal Docker Hub accounts) to production clusters.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent developers from deploying containers sourced from unvetted public registries (like personal Docker Hub accounts) to production clusters.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Deploy an admission policy (OPA Gatekeeper or Kyverno) that rejects any pod whose image does not originate from approved corporate registries." },
@@ -384,7 +384,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Restricting Container Base Registries via Policy: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Registry Governance to prevent developers from deploying containers sourced from unvetted public registries (like personal Docker Hub accounts) to production clusters.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent developers from deploying containers sourced from unvetted public registries (like personal Docker Hub accounts) to production clusters.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Deploy an admission policy (OPA Gatekeeper or Kyverno) that rejects any pod whose image does not originate from approved corporate registries." },
@@ -405,7 +405,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Restricting Container Base Registries via Policy: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Registry Governance to prevent developers from deploying containers sourced from unvetted public registries (like personal Docker Hub accounts) to production clusters.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent developers from deploying containers sourced from unvetted public registries (like personal Docker Hub accounts) to production clusters.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Trust developers not to deploy images from unapproved registries." },
@@ -426,7 +426,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Automated Dependency Auditing (npm audit / govulncheck): Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Dependency Auditing to detect vulnerable third-party open-source dependencies in application code before containerization.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to detect vulnerable third-party open-source dependencies in application code before containerization.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Disable automated dependency updates to prevent code changes." },
@@ -447,7 +447,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Automated Dependency Auditing (npm audit / govulncheck): High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Dependency Auditing to detect vulnerable third-party open-source dependencies in application code before containerization.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to detect vulnerable third-party open-source dependencies in application code before containerization.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Ignore all dependency vulnerability alerts until an exploit is reported in the news." },
@@ -468,7 +468,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Automated Dependency Auditing (npm audit / govulncheck): Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Dependency Auditing to detect vulnerable third-party open-source dependencies in application code before containerization.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to detect vulnerable third-party open-source dependencies in application code before containerization.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Ignore all dependency vulnerability alerts until an exploit is reported in the news." },
@@ -489,7 +489,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Automated Dependency Auditing (npm audit / govulncheck): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Dependency Auditing to detect vulnerable third-party open-source dependencies in application code before containerization.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to detect vulnerable third-party open-source dependencies in application code before containerization.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Ignore all dependency vulnerability alerts until an exploit is reported in the news." },
@@ -510,7 +510,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Automated Dependency Auditing (npm audit / govulncheck): Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Dependency Auditing to detect vulnerable third-party open-source dependencies in application code before containerization.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to detect vulnerable third-party open-source dependencies in application code before containerization.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Disable automated dependency updates to prevent code changes." },

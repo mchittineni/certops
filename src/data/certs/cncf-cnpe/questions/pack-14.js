@@ -6,7 +6,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Enterprise GitOps at Scale: ArgoCD ApplicationSets: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates ApplicationSets to deploy a microservice automatically across 100 regional Kubernetes clusters with cluster-specific configuration overrides.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to deploy a microservice automatically across 100 regional Kubernetes clusters with cluster-specific configuration overrides.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Deploy applications by running manual kubectl apply commands from local laptops." },
@@ -27,7 +27,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Enterprise GitOps at Scale: ArgoCD ApplicationSets: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates ApplicationSets to deploy a microservice automatically across 100 regional Kubernetes clusters with cluster-specific configuration overrides.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to deploy a microservice automatically across 100 regional Kubernetes clusters with cluster-specific configuration overrides.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Rely on manual SSH scripts executing concurrent git clones across server fleets." },
@@ -48,7 +48,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Enterprise GitOps at Scale: ArgoCD ApplicationSets: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates ApplicationSets to deploy a microservice automatically across 100 regional Kubernetes clusters with cluster-specific configuration overrides.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to deploy a microservice automatically across 100 regional Kubernetes clusters with cluster-specific configuration overrides.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Rely on manual SSH scripts executing concurrent git clones across server fleets." },
@@ -69,7 +69,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Enterprise GitOps at Scale: ArgoCD ApplicationSets: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates ApplicationSets to deploy a microservice automatically across 100 regional Kubernetes clusters with cluster-specific configuration overrides.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to deploy a microservice automatically across 100 regional Kubernetes clusters with cluster-specific configuration overrides.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Implement an ArgoCD `ApplicationSet` utilizing cluster and git directory generators to synthesize applications across clusters dynamically." },
@@ -90,7 +90,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Enterprise GitOps at Scale: ArgoCD ApplicationSets: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates ApplicationSets to deploy a microservice automatically across 100 regional Kubernetes clusters with cluster-specific configuration overrides.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to deploy a microservice automatically across 100 regional Kubernetes clusters with cluster-specific configuration overrides.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Manually create and maintain 100 individual ArgoCD Application manifests by hand in the web console." },
@@ -111,7 +111,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Progressive Rollout Orchestration: Argo Rollouts and Flagger: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Progressive Rollouts to safely deploy a mission-critical banking service by testing new versions against live production traffic before full cutover.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to safely deploy a mission-critical banking service by testing new versions against live production traffic before full cutover.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Perform an instant 100% replacement of all running production pods without health checks or traffic analysis." },
@@ -132,7 +132,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Progressive Rollout Orchestration: Argo Rollouts and Flagger: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Progressive Rollouts to safely deploy a mission-critical banking service by testing new versions against live production traffic before full cutover.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to safely deploy a mission-critical banking service by testing new versions against live production traffic before full cutover.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Rely on customer support ticket volume to determine whether a newly deployed release contains fatal defects." },
@@ -153,7 +153,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Progressive Rollout Orchestration: Argo Rollouts and Flagger: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Progressive Rollouts to safely deploy a mission-critical banking service by testing new versions against live production traffic before full cutover.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to safely deploy a mission-critical banking service by testing new versions against live production traffic before full cutover.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Perform an instant 100% replacement of all running production pods without health checks or traffic analysis." },
@@ -174,7 +174,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Progressive Rollout Orchestration: Argo Rollouts and Flagger: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Progressive Rollouts to safely deploy a mission-critical banking service by testing new versions against live production traffic before full cutover.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to safely deploy a mission-critical banking service by testing new versions against live production traffic before full cutover.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Prevent developers from deploying software updates to eliminate operational risk." },
@@ -195,7 +195,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Progressive Rollout Orchestration: Argo Rollouts and Flagger: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Progressive Rollouts to safely deploy a mission-critical banking service by testing new versions against live production traffic before full cutover.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to safely deploy a mission-critical banking service by testing new versions against live production traffic before full cutover.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Deploy an Argo Rollouts resource configured with automated canary steps, Prometheus metric analysis, and automated abort thresholds." },
@@ -216,7 +216,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Vault Secrets Operator (VSO) and Dynamic Secret Leasing: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Vault Operator to eliminate static database passwords by provisioning short-lived, automatically rotated database credentials for application pods.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to eliminate static database passwords by provisioning short-lived, automatically rotated database credentials for application pods.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Print database passwords in plaintext container startup logs." },
@@ -237,7 +237,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Vault Secrets Operator (VSO) and Dynamic Secret Leasing: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Vault Operator to eliminate static database passwords by provisioning short-lived, automatically rotated database credentials for application pods.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to eliminate static database passwords by provisioning short-lived, automatically rotated database credentials for application pods.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Print database passwords in plaintext container startup logs." },
@@ -258,7 +258,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Vault Secrets Operator (VSO) and Dynamic Secret Leasing: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Vault Operator to eliminate static database passwords by provisioning short-lived, automatically rotated database credentials for application pods.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to eliminate static database passwords by provisioning short-lived, automatically rotated database credentials for application pods.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Share a single hardcoded database password across all microservices for five years without rotation." },
@@ -279,7 +279,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Vault Secrets Operator (VSO) and Dynamic Secret Leasing: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Vault Operator to eliminate static database passwords by provisioning short-lived, automatically rotated database credentials for application pods.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to eliminate static database passwords by provisioning short-lived, automatically rotated database credentials for application pods.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Deploy the HashiCorp Vault Secrets Operator (VSO) to dynamically generate, lease, and rotate short-lived database credentials directly into pod secrets." },
@@ -300,7 +300,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Vault Secrets Operator (VSO) and Dynamic Secret Leasing: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Vault Operator to eliminate static database passwords by provisioning short-lived, automatically rotated database credentials for application pods.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to eliminate static database passwords by provisioning short-lived, automatically rotated database credentials for application pods.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Store long-lived database root credentials in plaintext inside application git repositories." },
@@ -321,7 +321,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Automated Dependency Campaigns and Renovate Bot: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Dependency Automation to upgrade a vulnerable logging library across 400 microservice repositories simultaneously without human engineering toil.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to upgrade a vulnerable logging library across 400 microservice repositories simultaneously without human engineering toil.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Block all production deployments permanently until manual updates are complete." },
@@ -342,7 +342,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Automated Dependency Campaigns and Renovate Bot: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Dependency Automation to upgrade a vulnerable logging library across 400 microservice repositories simultaneously without human engineering toil.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to upgrade a vulnerable logging library across 400 microservice repositories simultaneously without human engineering toil.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Ignore critical security vulnerabilities and hope attackers do not notice." },
@@ -363,7 +363,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Automated Dependency Campaigns and Renovate Bot: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Dependency Automation to upgrade a vulnerable logging library across 400 microservice repositories simultaneously without human engineering toil.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to upgrade a vulnerable logging library across 400 microservice repositories simultaneously without human engineering toil.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Deploy an enterprise Renovate bot instance with curated presets that automatically opens tested, rebasing pull requests across all repositories." },
@@ -384,7 +384,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Automated Dependency Campaigns and Renovate Bot: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Dependency Automation to upgrade a vulnerable logging library across 400 microservice repositories simultaneously without human engineering toil.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to upgrade a vulnerable logging library across 400 microservice repositories simultaneously without human engineering toil.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Deploy an enterprise Renovate bot instance with curated presets that automatically opens tested, rebasing pull requests across all repositories." },
@@ -405,7 +405,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Automated Dependency Campaigns and Renovate Bot: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Dependency Automation to upgrade a vulnerable logging library across 400 microservice repositories simultaneously without human engineering toil.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to upgrade a vulnerable logging library across 400 microservice repositories simultaneously without human engineering toil.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Send an email blast begging 400 developers to manually update their dependencies over the next six months." },
@@ -426,7 +426,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Cloud-Native Database Operators: CloudNativePG: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Database Operators to provide development teams with production-grade, highly available PostgreSQL clusters with automated failover and backups via self-service.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to provide development teams with production-grade, highly available PostgreSQL clusters with automated failover and backups via self-service.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Deploy standalone un-replicated PostgreSQL pods on ephemeral host disks without backups." },
@@ -447,7 +447,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Cloud-Native Database Operators: CloudNativePG: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Database Operators to provide development teams with production-grade, highly available PostgreSQL clusters with automated failover and backups via self-service.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to provide development teams with production-grade, highly available PostgreSQL clusters with automated failover and backups via self-service.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Require all applications to write data to flat text files on shared network drives." },
@@ -468,7 +468,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Cloud-Native Database Operators: CloudNativePG: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Database Operators to provide development teams with production-grade, highly available PostgreSQL clusters with automated failover and backups via self-service.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to provide development teams with production-grade, highly available PostgreSQL clusters with automated failover and backups via self-service.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Deploy standalone un-replicated PostgreSQL pods on ephemeral host disks without backups." },
@@ -489,7 +489,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Cloud-Native Database Operators: CloudNativePG: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Database Operators to provide development teams with production-grade, highly available PostgreSQL clusters with automated failover and backups via self-service.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to provide development teams with production-grade, highly available PostgreSQL clusters with automated failover and backups via self-service.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Deploy CloudNativePG (or CrunchyData PGO) to manage declarative PostgreSQL clusters with automated streaming replication and failover." },
@@ -510,7 +510,7 @@ export const CNCF_CNPE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Cloud-Native Database Operators: CloudNativePG: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Database Operators to provide development teams with production-grade, highly available PostgreSQL clusters with automated failover and backups via self-service.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to provide development teams with production-grade, highly available PostgreSQL clusters with automated failover and backups via self-service.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Require all applications to write data to flat text files on shared network drives." },

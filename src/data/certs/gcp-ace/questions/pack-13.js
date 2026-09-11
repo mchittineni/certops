@@ -6,7 +6,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Google Cloud Pricing Calculator: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Google Cloud Pricing to model and estimate the monthly operational cost of a new multi-tier architecture consisting of GKE, Cloud SQL, and Cloud Storage before provisioning resources.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to model and estimate the monthly operational cost of a new multi-tier architecture consisting of GKE, Cloud SQL, and Cloud Storage before provisioning resources.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy the complete architecture for 30 days and inspect the final billing invoice." },
@@ -27,7 +27,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Google Cloud Pricing Calculator: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Google Cloud Pricing to model and estimate the monthly operational cost of a new multi-tier architecture consisting of GKE, Cloud SQL, and Cloud Storage before provisioning resources.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to model and estimate the monthly operational cost of a new multi-tier architecture consisting of GKE, Cloud SQL, and Cloud Storage before provisioning resources.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Consult informal public forum estimates from unverified sources." },
@@ -48,7 +48,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Google Cloud Pricing Calculator: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Google Cloud Pricing to model and estimate the monthly operational cost of a new multi-tier architecture consisting of GKE, Cloud SQL, and Cloud Storage before provisioning resources.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to model and estimate the monthly operational cost of a new multi-tier architecture consisting of GKE, Cloud SQL, and Cloud Storage before provisioning resources.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Use the official Google Cloud Pricing Calculator to model resource specifications and generate cost estimates." },
@@ -69,7 +69,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Google Cloud Pricing Calculator: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Google Cloud Pricing to model and estimate the monthly operational cost of a new multi-tier architecture consisting of GKE, Cloud SQL, and Cloud Storage before provisioning resources.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to model and estimate the monthly operational cost of a new multi-tier architecture consisting of GKE, Cloud SQL, and Cloud Storage before provisioning resources.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Estimate costs based on physical on-premises hardware rack pricing." },
@@ -90,7 +90,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Google Cloud Pricing Calculator: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Google Cloud Pricing to model and estimate the monthly operational cost of a new multi-tier architecture consisting of GKE, Cloud SQL, and Cloud Storage before provisioning resources.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to model and estimate the monthly operational cost of a new multi-tier architecture consisting of GKE, Cloud SQL, and Cloud Storage before provisioning resources.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Use the official Google Cloud Pricing Calculator to model resource specifications and generate cost estimates." },
@@ -111,7 +111,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Compute Engine Machine Families (General, Compute, Memory, Accelerator): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Compute Engine to select the optimal Compute Engine machine family for an in-memory SAP HANA relational database requiring 4 TB of RAM and predictable high performance.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to select the optimal Compute Engine machine family for an in-memory SAP HANA relational database requiring 4 TB of RAM and predictable high performance.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Select a C2 (Compute-Optimized) machine series instance." },
@@ -132,7 +132,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Compute Engine Machine Families (General, Compute, Memory, Accelerator): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Compute Engine to select the optimal Compute Engine machine family for an in-memory SAP HANA relational database requiring 4 TB of RAM and predictable high performance.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to select the optimal Compute Engine machine family for an in-memory SAP HANA relational database requiring 4 TB of RAM and predictable high performance.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Select an N1 standard virtual machine with 2 GB of RAM." },
@@ -153,7 +153,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Compute Engine Machine Families (General, Compute, Memory, Accelerator): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Compute Engine to select the optimal Compute Engine machine family for an in-memory SAP HANA relational database requiring 4 TB of RAM and predictable high performance.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to select the optimal Compute Engine machine family for an in-memory SAP HANA relational database requiring 4 TB of RAM and predictable high performance.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Select an E2 (cost-optimized general-purpose) shared-core instance." },
@@ -174,7 +174,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Compute Engine Machine Families (General, Compute, Memory, Accelerator): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Compute Engine to select the optimal Compute Engine machine family for an in-memory SAP HANA relational database requiring 4 TB of RAM and predictable high performance.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to select the optimal Compute Engine machine family for an in-memory SAP HANA relational database requiring 4 TB of RAM and predictable high performance.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Select an M2 (Memory-Optimized) machine series instance." },
@@ -195,7 +195,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Compute Engine Machine Families (General, Compute, Memory, Accelerator): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Compute Engine to select the optimal Compute Engine machine family for an in-memory SAP HANA relational database requiring 4 TB of RAM and predictable high performance.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to select the optimal Compute Engine machine family for an in-memory SAP HANA relational database requiring 4 TB of RAM and predictable high performance.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Select an E2 (cost-optimized general-purpose) shared-core instance." },
@@ -216,7 +216,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Compute Engine Persistent Disks (Standard vs Balanced vs SSD vs Extreme): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Compute Engine Storage to configure block storage for a high-performance transactional database that requires sub-millisecond I/O latency and up to 100,000 IOPS.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to configure block storage for a high-performance transactional database that requires sub-millisecond I/O latency and up to 100,000 IOPS.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Attach a Standard HDD Persistent Disk (pd-standard)." },
@@ -237,7 +237,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Compute Engine Persistent Disks (Standard vs Balanced vs SSD vs Extreme): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Compute Engine Storage to configure block storage for a high-performance transactional database that requires sub-millisecond I/O latency and up to 100,000 IOPS.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to configure block storage for a high-performance transactional database that requires sub-millisecond I/O latency and up to 100,000 IOPS.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Store database tables in a Cloud Storage Coldline bucket." },
@@ -258,7 +258,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Compute Engine Persistent Disks (Standard vs Balanced vs SSD vs Extreme): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Compute Engine Storage to configure block storage for a high-performance transactional database that requires sub-millisecond I/O latency and up to 100,000 IOPS.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to configure block storage for a high-performance transactional database that requires sub-millisecond I/O latency and up to 100,000 IOPS.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Attach an Extreme Persistent Disk (pd-extreme) or SSD Persistent Disk (pd-ssd) to the VM." },
@@ -279,7 +279,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Compute Engine Persistent Disks (Standard vs Balanced vs SSD vs Extreme): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Compute Engine Storage to configure block storage for a high-performance transactional database that requires sub-millisecond I/O latency and up to 100,000 IOPS.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to configure block storage for a high-performance transactional database that requires sub-millisecond I/O latency and up to 100,000 IOPS.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Attach an Extreme Persistent Disk (pd-extreme) or SSD Persistent Disk (pd-ssd) to the VM." },
@@ -300,7 +300,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Compute Engine Persistent Disks (Standard vs Balanced vs SSD vs Extreme): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Compute Engine Storage to configure block storage for a high-performance transactional database that requires sub-millisecond I/O latency and up to 100,000 IOPS.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to configure block storage for a high-performance transactional database that requires sub-millisecond I/O latency and up to 100,000 IOPS.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Store database tables in a Cloud Storage Coldline bucket." },
@@ -321,7 +321,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud Storage Storage Classes (Standard, Nearline, Coldline, Archive): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Storage to store regulatory medical archives that are accessed less than once a year, must be retained for 7 years, and require the lowest storage cost per gigabyte.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to store regulatory medical archives that are accessed less than once a year, must be retained for 7 years, and require the lowest storage cost per gigabyte.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Store the medical records in Cloud Storage using the Archive storage class." },
@@ -342,7 +342,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud Storage Storage Classes (Standard, Nearline, Coldline, Archive): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Storage to store regulatory medical archives that are accessed less than once a year, must be retained for 7 years, and require the lowest storage cost per gigabyte.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to store regulatory medical archives that are accessed less than once a year, must be retained for 7 years, and require the lowest storage cost per gigabyte.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Store the medical records in Cloud Storage using the Archive storage class." },
@@ -363,7 +363,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud Storage Storage Classes (Standard, Nearline, Coldline, Archive): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Storage to store regulatory medical archives that are accessed less than once a year, must be retained for 7 years, and require the lowest storage cost per gigabyte.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to store regulatory medical archives that are accessed less than once a year, must be retained for 7 years, and require the lowest storage cost per gigabyte.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Store the records in Cloud Storage using the Standard storage class." },
@@ -384,7 +384,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud Storage Storage Classes (Standard, Nearline, Coldline, Archive): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Storage to store regulatory medical archives that are accessed less than once a year, must be retained for 7 years, and require the lowest storage cost per gigabyte.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to store regulatory medical archives that are accessed less than once a year, must be retained for 7 years, and require the lowest storage cost per gigabyte.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Store the records in a Cloud Bigtable cluster with 10 worker nodes." },
@@ -405,7 +405,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud Storage Storage Classes (Standard, Nearline, Coldline, Archive): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Storage to store regulatory medical archives that are accessed less than once a year, must be retained for 7 years, and require the lowest storage cost per gigabyte.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to store regulatory medical archives that are accessed less than once a year, must be retained for 7 years, and require the lowest storage cost per gigabyte.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Store the records in Cloud Storage using the Standard storage class." },
@@ -426,7 +426,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud SQL High Availability (Regional HA with Automated Failover): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud SQL to configure an enterprise PostgreSQL database on Cloud SQL to automatically fail over to a standby replica in another availability zone with zero data loss if a zone fails.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to configure an enterprise PostgreSQL database on Cloud SQL to automatically fail over to a standby replica in another availability zone with zero data loss if a zone fails.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy a single-zone Cloud SQL instance and schedule daily automated backups." },
@@ -447,7 +447,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud SQL High Availability (Regional HA with Automated Failover): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud SQL to configure an enterprise PostgreSQL database on Cloud SQL to automatically fail over to a standby replica in another availability zone with zero data loss if a zone fails.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to configure an enterprise PostgreSQL database on Cloud SQL to automatically fail over to a standby replica in another availability zone with zero data loss if a zone fails.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy two independent standalone Cloud SQL instances in different regions without replication." },
@@ -468,7 +468,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud SQL High Availability (Regional HA with Automated Failover): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud SQL to configure an enterprise PostgreSQL database on Cloud SQL to automatically fail over to a standby replica in another availability zone with zero data loss if a zone fails.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to configure an enterprise PostgreSQL database on Cloud SQL to automatically fail over to a standby replica in another availability zone with zero data loss if a zone fails.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Manually export SQL database dumps to Cloud Storage every 4 hours." },
@@ -489,7 +489,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud SQL High Availability (Regional HA with Automated Failover): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud SQL to configure an enterprise PostgreSQL database on Cloud SQL to automatically fail over to a standby replica in another availability zone with zero data loss if a zone fails.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to configure an enterprise PostgreSQL database on Cloud SQL to automatically fail over to a standby replica in another availability zone with zero data loss if a zone fails.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Enable High Availability (regional configuration) on the Cloud SQL instance with an automatic failover standby." },
@@ -510,7 +510,7 @@ export const GCP_ACE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud SQL High Availability (Regional HA with Automated Failover): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud SQL to configure an enterprise PostgreSQL database on Cloud SQL to automatically fail over to a standby replica in another availability zone with zero data loss if a zone fails.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to configure an enterprise PostgreSQL database on Cloud SQL to automatically fail over to a standby replica in another availability zone with zero data loss if a zone fails.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Deploy two independent standalone Cloud SQL instances in different regions without replication." },

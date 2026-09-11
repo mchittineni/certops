@@ -6,7 +6,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Rollback Strategies and Deployment Redo: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Rollback Automation to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Terminate the application servers and delete all DNS records." },
@@ -27,7 +27,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Rollback Strategies and Deployment Redo: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Rollback Automation to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Instruct customer support to advise users to clear their browser caches." },
@@ -48,7 +48,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Rollback Strategies and Deployment Redo: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Rollback Automation to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." },
@@ -69,7 +69,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Rollback Strategies and Deployment Redo: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Rollback Automation to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Instruct customer support to advise users to clear their browser caches." },
@@ -90,7 +90,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Rollback Strategies and Deployment Redo: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Rollback Automation to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Leave the broken application in production while developers write an emergency patch." },
@@ -111,7 +111,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Static Application Security Testing (SAST) with SonarQube / SonarCloud: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates SAST to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Run static analysis only once a year during external audit reviews." },
@@ -132,7 +132,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Static Application Security Testing (SAST) with SonarQube / SonarCloud: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates SAST to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Manually review hundreds of lines of code by sight looking for SQL injection flaws." },
@@ -153,7 +153,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Static Application Security Testing (SAST) with SonarQube / SonarCloud: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates SAST to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Run static analysis only once a year during external audit reviews." },
@@ -174,7 +174,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Static Application Security Testing (SAST) with SonarQube / SonarCloud: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates SAST to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." },
@@ -195,7 +195,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Static Application Security Testing (SAST) with SonarQube / SonarCloud: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates SAST to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Manually review hundreds of lines of code by sight looking for SQL injection flaws." },
@@ -216,7 +216,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Dependency Scanning and Software Composition Analysis (SCA): Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates SCA to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely on developers manually checking CVE databases before importing libraries." },
@@ -237,7 +237,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Dependency Scanning and Software Composition Analysis (SCA): High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates SCA to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Rely on developers manually checking CVE databases before importing libraries." },
@@ -258,7 +258,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Dependency Scanning and Software Composition Analysis (SCA): Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates SCA to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Rely on developers manually checking CVE databases before importing libraries." },
@@ -279,7 +279,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Dependency Scanning and Software Composition Analysis (SCA): Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates SCA to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Rely on developers manually checking CVE databases before importing libraries." },
@@ -300,7 +300,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Dependency Scanning and Software Composition Analysis (SCA): Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates SCA to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Rely on developers manually checking CVE databases before importing libraries." },
@@ -321,7 +321,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Secret Scanning and Push Protection: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Secret Scanning to prevent developers from accidentally committing Azure connection strings, API keys, or private SSH keys into Azure Repos.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to prevent developers from accidentally committing Azure connection strings, API keys, or private SSH keys into Azure Repos.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Scan repositories for secrets only after code is published to public mirrors." },
@@ -342,7 +342,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Secret Scanning and Push Protection: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Secret Scanning to prevent developers from accidentally committing Azure connection strings, API keys, or private SSH keys into Azure Repos.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to prevent developers from accidentally committing Azure connection strings, API keys, or private SSH keys into Azure Repos.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Send an email reminder to developers once a quarter reminding them not to commit secrets." },
@@ -363,7 +363,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Secret Scanning and Push Protection: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Secret Scanning to prevent developers from accidentally committing Azure connection strings, API keys, or private SSH keys into Azure Repos.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to prevent developers from accidentally committing Azure connection strings, API keys, or private SSH keys into Azure Repos.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Enable Secret Scanning with Push Protection in GitHub Advanced Security for Azure DevOps." },
@@ -384,7 +384,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Secret Scanning and Push Protection: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Secret Scanning to prevent developers from accidentally committing Azure connection strings, API keys, or private SSH keys into Azure Repos.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to prevent developers from accidentally committing Azure connection strings, API keys, or private SSH keys into Azure Repos.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Scan repositories for secrets only after code is published to public mirrors." },
@@ -405,7 +405,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Secret Scanning and Push Protection: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Secret Scanning to prevent developers from accidentally committing Azure connection strings, API keys, or private SSH keys into Azure Repos.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to prevent developers from accidentally committing Azure connection strings, API keys, or private SSH keys into Azure Repos.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Enable Secret Scanning with Push Protection in GitHub Advanced Security for Azure DevOps." },
@@ -426,7 +426,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Container Vulnerability Scanning with Microsoft Defender for Cloud: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Container Security to ensure container images uploaded to Azure Container Registry (ACR) are automatically scanned for OS and package vulnerabilities.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to ensure container images uploaded to Azure Container Registry (ACR) are automatically scanned for OS and package vulnerabilities.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely on developer self-attestation that container images are safe." },
@@ -447,7 +447,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Container Vulnerability Scanning with Microsoft Defender for Cloud: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Container Security to ensure container images uploaded to Azure Container Registry (ACR) are automatically scanned for OS and package vulnerabilities.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to ensure container images uploaded to Azure Container Registry (ACR) are automatically scanned for OS and package vulnerabilities.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Enable Microsoft Defender for Container Registries on the target Azure Container Registry." },
@@ -468,7 +468,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Container Vulnerability Scanning with Microsoft Defender for Cloud: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Container Security to ensure container images uploaded to Azure Container Registry (ACR) are automatically scanned for OS and package vulnerabilities.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to ensure container images uploaded to Azure Container Registry (ACR) are automatically scanned for OS and package vulnerabilities.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Disable container vulnerability scanning to reduce registry storage costs." },
@@ -489,7 +489,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Container Vulnerability Scanning with Microsoft Defender for Cloud: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Container Security to ensure container images uploaded to Azure Container Registry (ACR) are automatically scanned for OS and package vulnerabilities.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to ensure container images uploaded to Azure Container Registry (ACR) are automatically scanned for OS and package vulnerabilities.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Rely on developer self-attestation that container images are safe." },
@@ -510,7 +510,7 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Develop a security and compliance plan",
     title: "Container Vulnerability Scanning with Microsoft Defender for Cloud: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Container Security to ensure container images uploaded to Azure Container Registry (ACR) are automatically scanned for OS and package vulnerabilities.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to ensure container images uploaded to Azure Container Registry (ACR) are automatically scanned for OS and package vulnerabilities.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Enable Microsoft Defender for Container Registries on the target Azure Container Registry." },

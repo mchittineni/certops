@@ -6,7 +6,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps User Entitlement and Access Levels: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates User Access Governance to grant business analysts and product owners ability to create and edit backlog items without consuming paid Basic user licenses.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to grant business analysts and product owners ability to create and edit backlog items without consuming paid Basic user licenses.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Deny business stakeholders all access to Azure DevOps." },
@@ -27,7 +27,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps User Entitlement and Access Levels: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates User Access Governance to grant business analysts and product owners ability to create and edit backlog items without consuming paid Basic user licenses.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to grant business analysts and product owners ability to create and edit backlog items without consuming paid Basic user licenses.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Create a single shared generic user account with Basic access." },
@@ -48,7 +48,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps User Entitlement and Access Levels: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates User Access Governance to grant business analysts and product owners ability to create and edit backlog items without consuming paid Basic user licenses.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to grant business analysts and product owners ability to create and edit backlog items without consuming paid Basic user licenses.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Assign paid `Basic + Test Plans` licenses to all casual business users." },
@@ -69,7 +69,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps User Entitlement and Access Levels: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates User Access Governance to grant business analysts and product owners ability to create and edit backlog items without consuming paid Basic user licenses.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to grant business analysts and product owners ability to create and edit backlog items without consuming paid Basic user licenses.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Create a single shared generic user account with Basic access." },
@@ -90,7 +90,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps User Entitlement and Access Levels: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates User Access Governance to grant business analysts and product owners ability to create and edit backlog items without consuming paid Basic user licenses.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to grant business analysts and product owners ability to create and edit backlog items without consuming paid Basic user licenses.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Create a single shared generic user account with Basic access." },
@@ -111,7 +111,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Wiki for Project Documentation: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Documentation to maintain enterprise system architectural documentation version-controlled in Markdown directly alongside application source code in Git.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to maintain enterprise system architectural documentation version-controlled in Markdown directly alongside application source code in Git.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Write documentation in proprietary binary files stored on network file shares." },
@@ -132,7 +132,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Wiki for Project Documentation: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Documentation to maintain enterprise system architectural documentation version-controlled in Markdown directly alongside application source code in Git.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to maintain enterprise system architectural documentation version-controlled in Markdown directly alongside application source code in Git.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Keep architecture documentation exclusively in chat message channels." },
@@ -153,7 +153,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Wiki for Project Documentation: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Documentation to maintain enterprise system architectural documentation version-controlled in Markdown directly alongside application source code in Git.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to maintain enterprise system architectural documentation version-controlled in Markdown directly alongside application source code in Git.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Keep architecture documentation exclusively in chat message channels." },
@@ -174,7 +174,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Wiki for Project Documentation: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Documentation to maintain enterprise system architectural documentation version-controlled in Markdown directly alongside application source code in Git.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to maintain enterprise system architectural documentation version-controlled in Markdown directly alongside application source code in Git.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Use the 'Publish code as wiki' feature in Azure DevOps to publish Markdown files from a designated repository branch." },
@@ -195,7 +195,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Wiki for Project Documentation: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Documentation to maintain enterprise system architectural documentation version-controlled in Markdown directly alongside application source code in Git.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to maintain enterprise system architectural documentation version-controlled in Markdown directly alongside application source code in Git.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Create an untracked, unversioned project wiki detached from the code repository." },
@@ -216,7 +216,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Audit Logging and Streams: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Audit Logging to stream security and administrative audit events (user privilege elevations, policy modifications, project deletions) to a central SIEM for compliance auditing.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to stream security and administrative audit events (user privilege elevations, policy modifications, project deletions) to a central SIEM for compliance auditing.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Disable audit logging to reduce organizational cloud consumption." },
@@ -237,7 +237,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Audit Logging and Streams: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Audit Logging to stream security and administrative audit events (user privilege elevations, policy modifications, project deletions) to a central SIEM for compliance auditing.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to stream security and administrative audit events (user privilege elevations, policy modifications, project deletions) to a central SIEM for compliance auditing.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Disable audit logging to reduce organizational cloud consumption." },
@@ -258,7 +258,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Audit Logging and Streams: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Audit Logging to stream security and administrative audit events (user privilege elevations, policy modifications, project deletions) to a central SIEM for compliance auditing.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to stream security and administrative audit events (user privilege elevations, policy modifications, project deletions) to a central SIEM for compliance auditing.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Disable audit logging to reduce organizational cloud consumption." },
@@ -279,7 +279,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Audit Logging and Streams: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Audit Logging to stream security and administrative audit events (user privilege elevations, policy modifications, project deletions) to a central SIEM for compliance auditing.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to stream security and administrative audit events (user privilege elevations, policy modifications, project deletions) to a central SIEM for compliance auditing.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Disable audit logging to reduce organizational cloud consumption." },
@@ -300,7 +300,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Configure processes and communications",
     title: "Azure DevOps Audit Logging and Streams: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Audit Logging to stream security and administrative audit events (user privilege elevations, policy modifications, project deletions) to a central SIEM for compliance auditing.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to stream security and administrative audit events (user privilege elevations, policy modifications, project deletions) to a central SIEM for compliance auditing.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Manually download audit log CSV files once a quarter from the web interface." },
@@ -321,7 +321,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Git Branching Strategies: Trunk-Based vs GitFlow: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Branching Strategies to select a source control branching model that minimizes merge conflicts, eliminates long-lived release branches, and enables continuous daily deployment.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to select a source control branching model that minimizes merge conflicts, eliminates long-lived release branches, and enables continuous daily deployment.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Adopt Trunk-Based Development with short-lived feature branches (lasting less than a day) and feature toggles merged into the main branch." },
@@ -342,7 +342,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Git Branching Strategies: Trunk-Based vs GitFlow: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Branching Strategies to select a source control branching model that minimizes merge conflicts, eliminates long-lived release branches, and enables continuous daily deployment.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to select a source control branching model that minimizes merge conflicts, eliminates long-lived release branches, and enables continuous daily deployment.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Maintain separate Git repositories for every individual developer." },
@@ -363,7 +363,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Git Branching Strategies: Trunk-Based vs GitFlow: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Branching Strategies to select a source control branching model that minimizes merge conflicts, eliminates long-lived release branches, and enables continuous daily deployment.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to select a source control branching model that minimizes merge conflicts, eliminates long-lived release branches, and enables continuous daily deployment.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Implement traditional GitFlow with multiple permanent release, hotfix, develop, and feature branches lasting several months." },
@@ -384,7 +384,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Git Branching Strategies: Trunk-Based vs GitFlow: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Branching Strategies to select a source control branching model that minimizes merge conflicts, eliminates long-lived release branches, and enables continuous daily deployment.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to select a source control branching model that minimizes merge conflicts, eliminates long-lived release branches, and enables continuous daily deployment.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Adopt Trunk-Based Development with short-lived feature branches (lasting less than a day) and feature toggles merged into the main branch." },
@@ -405,7 +405,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Git Branching Strategies: Trunk-Based vs GitFlow: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Branching Strategies to select a source control branching model that minimizes merge conflicts, eliminates long-lived release branches, and enables continuous daily deployment.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to select a source control branching model that minimizes merge conflicts, eliminates long-lived release branches, and enables continuous daily deployment.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Have all developers commit directly to the production main branch without pull requests or testing." },
@@ -426,7 +426,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Branch Policies and Pull Request Quality Gates: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Branch Policies to prevent direct pushes to the `main` branch and ensure all changes build successfully and receive at least two peer approvals before merging.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to prevent direct pushes to the `main` branch and ensure all changes build successfully and receive at least two peer approvals before merging.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely on developers promising not to run `git push origin main`." },
@@ -447,7 +447,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Branch Policies and Pull Request Quality Gates: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Branch Policies to prevent direct pushes to the `main` branch and ensure all changes build successfully and receive at least two peer approvals before merging.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to prevent direct pushes to the `main` branch and ensure all changes build successfully and receive at least two peer approvals before merging.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Grant bypass branch policies permissions to all junior developers." },
@@ -468,7 +468,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Branch Policies and Pull Request Quality Gates: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Branch Policies to prevent direct pushes to the `main` branch and ensure all changes build successfully and receive at least two peer approvals before merging.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to prevent direct pushes to the `main` branch and ensure all changes build successfully and receive at least two peer approvals before merging.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Configure Branch Policies on `main` requiring a minimum of two reviewers, Build Validation pipeline passing, linked work items, and comment resolution." },
@@ -489,7 +489,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Branch Policies and Pull Request Quality Gates: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Branch Policies to prevent direct pushes to the `main` branch and ensure all changes build successfully and receive at least two peer approvals before merging.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to prevent direct pushes to the `main` branch and ensure all changes build successfully and receive at least two peer approvals before merging.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Grant bypass branch policies permissions to all junior developers." },
@@ -510,7 +510,7 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Branch Policies and Pull Request Quality Gates: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Branch Policies to prevent direct pushes to the `main` branch and ensure all changes build successfully and receive at least two peer approvals before merging.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to prevent direct pushes to the `main` branch and ensure all changes build successfully and receive at least two peer approvals before merging.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Configure Branch Policies on `main` requiring a minimum of two reviewers, Build Validation pipeline passing, linked work items, and comment resolution." },

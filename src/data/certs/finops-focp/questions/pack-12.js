@@ -6,7 +6,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "FinOps Principle: Decisions Are Driven by Business Value: Cultural Transformation",
-    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner evaluates Business Value to justify an increase in monthly cloud spend from $50,000 to $100,000 when business customer transactions have tripled over the same period.",
+    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to justify an increase in monthly cloud spend from $50,000 to $100,000 when business customer transactions have tripled over the same period.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Demand an immediate budget freeze and cancel the marketing campaign to bring total cloud spend back down to $50,000." },
@@ -27,7 +27,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "FinOps Principle: Decisions Are Driven by Business Value: Rate And Usage Optimization",
-    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner evaluates Business Value to justify an increase in monthly cloud spend from $50,000 to $100,000 when business customer transactions have tripled over the same period.",
+    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to justify an increase in monthly cloud spend from $50,000 to $100,000 when business customer transactions have tripled over the same period.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Frame decisions through business value and unit economics: show that cloud spend per transaction decreased even though total spend increased." },
@@ -48,7 +48,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "FinOps Principle: Decisions Are Driven by Business Value: Visibility And Allocation",
-    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner evaluates Business Value to justify an increase in monthly cloud spend from $50,000 to $100,000 when business customer transactions have tripled over the same period.",
+    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to justify an increase in monthly cloud spend from $50,000 to $100,000 when business customer transactions have tripled over the same period.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Demand an immediate budget freeze and cancel the marketing campaign to bring total cloud spend back down to $50,000." },
@@ -69,7 +69,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "FinOps Principle: Decisions Are Driven by Business Value: Unit Economics And Forecasting",
-    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner evaluates Business Value to justify an increase in monthly cloud spend from $50,000 to $100,000 when business customer transactions have tripled over the same period.",
+    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to justify an increase in monthly cloud spend from $50,000 to $100,000 when business customer transactions have tripled over the same period.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Shut down production database clusters whenever cloud spend crosses an arbitrary threshold." },
@@ -90,7 +90,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "FinOps Principle: Decisions Are Driven by Business Value: Governance And Maturity",
-    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner evaluates Business Value to justify an increase in monthly cloud spend from $50,000 to $100,000 when business customer transactions have tripled over the same period.",
+    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to justify an increase in monthly cloud spend from $50,000 to $100,000 when business customer transactions have tripled over the same period.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Demand an immediate budget freeze and cancel the marketing campaign to bring total cloud spend back down to $50,000." },
@@ -111,7 +111,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "FinOps Principle: Take Advantage of the Variable Cost Model: Cultural Transformation",
-    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner evaluates Variable Cost Model to transition an enterprise from traditional rigid multi-year data center capacity planning to dynamic cloud elasticity.",
+    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to transition an enterprise from traditional rigid multi-year data center capacity planning to dynamic cloud elasticity.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Purchase five years of non-refundable server capacity on day one before launching the product." },
@@ -132,7 +132,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "FinOps Principle: Take Advantage of the Variable Cost Model: Rate And Usage Optimization",
-    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner evaluates Variable Cost Model to transition an enterprise from traditional rigid multi-year data center capacity planning to dynamic cloud elasticity.",
+    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to transition an enterprise from traditional rigid multi-year data center capacity planning to dynamic cloud elasticity.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Purchase five years of non-refundable server capacity on day one before launching the product." },
@@ -153,7 +153,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "FinOps Principle: Take Advantage of the Variable Cost Model: Visibility And Allocation",
-    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner evaluates Variable Cost Model to transition an enterprise from traditional rigid multi-year data center capacity planning to dynamic cloud elasticity.",
+    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to transition an enterprise from traditional rigid multi-year data center capacity planning to dynamic cloud elasticity.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Overprovision static cloud instances running at 100% capacity 24/7/365 to mimic on-premises data center hardware." },
@@ -174,7 +174,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "FinOps Principle: Take Advantage of the Variable Cost Model: Unit Economics And Forecasting",
-    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner evaluates Variable Cost Model to transition an enterprise from traditional rigid multi-year data center capacity planning to dynamic cloud elasticity.",
+    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to transition an enterprise from traditional rigid multi-year data center capacity planning to dynamic cloud elasticity.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Overprovision static cloud instances running at 100% capacity 24/7/365 to mimic on-premises data center hardware." },
@@ -195,7 +195,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "FinOps Principle: Take Advantage of the Variable Cost Model: Governance And Maturity",
-    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner evaluates Variable Cost Model to transition an enterprise from traditional rigid multi-year data center capacity planning to dynamic cloud elasticity.",
+    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to transition an enterprise from traditional rigid multi-year data center capacity planning to dynamic cloud elasticity.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Embrace the variable cost model: dynamically scale workloads up and down based on real-time traffic, paying only for consumed resources." },
@@ -216,7 +216,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "CapEx vs OpEx Accounting Models in Cloud Computing: Cultural Transformation",
-    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner evaluates CapEx vs OpEx to explain the financial accounting implications of migrating from on-premises hardware to public cloud infrastructure to a Chief Financial Officer.",
+    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to explain the financial accounting implications of migrating from on-premises hardware to public cloud infrastructure to a Chief Financial Officer.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Explain the shift from Capital Expenditures (CapEx: upfront investments depreciated over multi-year useful lives) to Operational Expenditures (OpEx: ongoing operational costs deducted in the period incurred)." },
@@ -237,7 +237,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "CapEx vs OpEx Accounting Models in Cloud Computing: Rate And Usage Optimization",
-    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner evaluates CapEx vs OpEx to explain the financial accounting implications of migrating from on-premises hardware to public cloud infrastructure to a Chief Financial Officer.",
+    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to explain the financial accounting implications of migrating from on-premises hardware to public cloud infrastructure to a Chief Financial Officer.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Claim that public cloud infrastructure is capitalized as physical real estate assets on corporate balance sheets." },
@@ -258,7 +258,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "CapEx vs OpEx Accounting Models in Cloud Computing: Visibility And Allocation",
-    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner evaluates CapEx vs OpEx to explain the financial accounting implications of migrating from on-premises hardware to public cloud infrastructure to a Chief Financial Officer.",
+    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to explain the financial accounting implications of migrating from on-premises hardware to public cloud infrastructure to a Chief Financial Officer.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Explain that cloud providers reimburse companies for all depreciated hardware costs." },
@@ -279,7 +279,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "CapEx vs OpEx Accounting Models in Cloud Computing: Unit Economics And Forecasting",
-    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner evaluates CapEx vs OpEx to explain the financial accounting implications of migrating from on-premises hardware to public cloud infrastructure to a Chief Financial Officer.",
+    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to explain the financial accounting implications of migrating from on-premises hardware to public cloud infrastructure to a Chief Financial Officer.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Explain the shift from Capital Expenditures (CapEx: upfront investments depreciated over multi-year useful lives) to Operational Expenditures (OpEx: ongoing operational costs deducted in the period incurred)." },
@@ -300,7 +300,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "CapEx vs OpEx Accounting Models in Cloud Computing: Governance And Maturity",
-    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner evaluates CapEx vs OpEx to explain the financial accounting implications of migrating from on-premises hardware to public cloud infrastructure to a Chief Financial Officer.",
+    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to explain the financial accounting implications of migrating from on-premises hardware to public cloud infrastructure to a Chief Financial Officer.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Explain the shift from Capital Expenditures (CapEx: upfront investments depreciated over multi-year useful lives) to Operational Expenditures (OpEx: ongoing operational costs deducted in the period incurred)." },
@@ -321,7 +321,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "The Iron Triangle in Cloud Financial Management: Cultural Transformation",
-    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner evaluates Iron Triangle to manage an engineering initiative that must accelerate time-to-market for a new product while staying within funding constraints.",
+    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to manage an engineering initiative that must accelerate time-to-market for a new product while staying within funding constraints.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Ignore cost completely and assume speed is the only metric that matters in business." },
@@ -342,7 +342,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "The Iron Triangle in Cloud Financial Management: Rate And Usage Optimization",
-    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner evaluates Iron Triangle to manage an engineering initiative that must accelerate time-to-market for a new product while staying within funding constraints.",
+    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to manage an engineering initiative that must accelerate time-to-market for a new product while staying within funding constraints.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Demand that engineering achieve maximum speed, zero cost, and infinite quality simultaneously with no trade-offs." },
@@ -363,7 +363,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "The Iron Triangle in Cloud Financial Management: Visibility And Allocation",
-    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner evaluates Iron Triangle to manage an engineering initiative that must accelerate time-to-market for a new product while staying within funding constraints.",
+    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to manage an engineering initiative that must accelerate time-to-market for a new product while staying within funding constraints.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Apply the Iron Triangle concept: recognize the continuous trade-offs between Cost, Speed, and Quality, making intentional business choices based on transparent data." },
@@ -384,7 +384,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "The Iron Triangle in Cloud Financial Management: Unit Economics And Forecasting",
-    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner evaluates Iron Triangle to manage an engineering initiative that must accelerate time-to-market for a new product while staying within funding constraints.",
+    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to manage an engineering initiative that must accelerate time-to-market for a new product while staying within funding constraints.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Apply the Iron Triangle concept: recognize the continuous trade-offs between Cost, Speed, and Quality, making intentional business choices based on transparent data." },
@@ -405,7 +405,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "The Iron Triangle in Cloud Financial Management: Governance And Maturity",
-    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner evaluates Iron Triangle to manage an engineering initiative that must accelerate time-to-market for a new product while staying within funding constraints.",
+    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to manage an engineering initiative that must accelerate time-to-market for a new product while staying within funding constraints.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Apply the Iron Triangle concept: recognize the continuous trade-offs between Cost, Speed, and Quality, making intentional business choices based on transparent data." },
@@ -426,7 +426,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "Fostering a Blameless FinOps Culture: Cultural Transformation",
-    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner evaluates Blameless Culture to encourage developers to experiment with cloud AI services without fearing severe personal reprimands if an experimental run incurs unexpected costs.",
+    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to encourage developers to experiment with cloud AI services without fearing severe personal reprimands if an experimental run incurs unexpected costs.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Publicly reprimand developers in company all-hands meetings whenever their cloud bills exceed projections." },
@@ -447,7 +447,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "Fostering a Blameless FinOps Culture: Rate And Usage Optimization",
-    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner evaluates Blameless Culture to encourage developers to experiment with cloud AI services without fearing severe personal reprimands if an experimental run incurs unexpected costs.",
+    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to encourage developers to experiment with cloud AI services without fearing severe personal reprimands if an experimental run incurs unexpected costs.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Ban all exploratory technology research to ensure cloud spending never fluctuates." },
@@ -468,7 +468,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "Fostering a Blameless FinOps Culture: Visibility And Allocation",
-    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner evaluates Blameless Culture to encourage developers to experiment with cloud AI services without fearing severe personal reprimands if an experimental run incurs unexpected costs.",
+    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to encourage developers to experiment with cloud AI services without fearing severe personal reprimands if an experimental run incurs unexpected costs.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Ban all exploratory technology research to ensure cloud spending never fluctuates." },
@@ -489,7 +489,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "Fostering a Blameless FinOps Culture: Unit Economics And Forecasting",
-    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner evaluates Blameless Culture to encourage developers to experiment with cloud AI services without fearing severe personal reprimands if an experimental run incurs unexpected costs.",
+    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to encourage developers to experiment with cloud AI services without fearing severe personal reprimands if an experimental run incurs unexpected costs.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Publicly reprimand developers in company all-hands meetings whenever their cloud bills exceed projections." },
@@ -510,7 +510,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Understand Cloud & FinOps Principles",
     title: "Fostering a Blameless FinOps Culture: Governance And Maturity",
-    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner evaluates Blameless Culture to encourage developers to experiment with cloud AI services without fearing severe personal reprimands if an experimental run incurs unexpected costs.",
+    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to encourage developers to experiment with cloud AI services without fearing severe personal reprimands if an experimental run incurs unexpected costs.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Dock employee salaries to recover cloud cost overruns." },

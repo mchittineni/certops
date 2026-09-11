@@ -6,7 +6,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "FinOps and Cloud Cost Allocation in Kubernetes: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates FinOps Governance to attribute cloud infrastructure and Kubernetes cluster costs accurately to specific business units, products, and cost centers.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to attribute cloud infrastructure and Kubernetes cluster costs accurately to specific business units, products, and cost centers.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Guess team cost allocations based on headcount rather than actual cloud consumption." },
@@ -27,7 +27,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "FinOps and Cloud Cost Allocation in Kubernetes: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates FinOps Governance to attribute cloud infrastructure and Kubernetes cluster costs accurately to specific business units, products, and cost centers.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to attribute cloud infrastructure and Kubernetes cluster costs accurately to specific business units, products, and cost centers.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Guess team cost allocations based on headcount rather than actual cloud consumption." },
@@ -48,7 +48,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "FinOps and Cloud Cost Allocation in Kubernetes: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates FinOps Governance to attribute cloud infrastructure and Kubernetes cluster costs accurately to specific business units, products, and cost centers.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to attribute cloud infrastructure and Kubernetes cluster costs accurately to specific business units, products, and cost centers.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Guess team cost allocations based on headcount rather than actual cloud consumption." },
@@ -69,7 +69,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "FinOps and Cloud Cost Allocation in Kubernetes: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates FinOps Governance to attribute cloud infrastructure and Kubernetes cluster costs accurately to specific business units, products, and cost centers.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to attribute cloud infrastructure and Kubernetes cluster costs accurately to specific business units, products, and cost centers.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Guess team cost allocations based on headcount rather than actual cloud consumption." },
@@ -90,7 +90,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "FinOps and Cloud Cost Allocation in Kubernetes: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates FinOps Governance to attribute cloud infrastructure and Kubernetes cluster costs accurately to specific business units, products, and cost centers.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to attribute cloud infrastructure and Kubernetes cluster costs accurately to specific business units, products, and cost centers.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Ban all cloud infrastructure usage to eliminate costs entirely." },
@@ -111,7 +111,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Compliance as Code and Continuous Audit Trails: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Compliance as Code to satisfy enterprise SOC 2 and ISO 27001 audit requirements without requiring engineering teams to gather manual screenshots.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to satisfy enterprise SOC 2 and ISO 27001 audit requirements without requiring engineering teams to gather manual screenshots.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Spend four weeks every quarter capturing manual browser screenshots of security settings." },
@@ -132,7 +132,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Compliance as Code and Continuous Audit Trails: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Compliance as Code to satisfy enterprise SOC 2 and ISO 27001 audit requirements without requiring engineering teams to gather manual screenshots.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to satisfy enterprise SOC 2 and ISO 27001 audit requirements without requiring engineering teams to gather manual screenshots.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Implement Compliance as Code: continuously audit cluster configurations and pull request histories against security baselines." },
@@ -153,7 +153,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Compliance as Code and Continuous Audit Trails: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Compliance as Code to satisfy enterprise SOC 2 and ISO 27001 audit requirements without requiring engineering teams to gather manual screenshots.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to satisfy enterprise SOC 2 and ISO 27001 audit requirements without requiring engineering teams to gather manual screenshots.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Falsify audit compliance logs to pass regulatory reviews." },
@@ -174,7 +174,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Compliance as Code and Continuous Audit Trails: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Compliance as Code to satisfy enterprise SOC 2 and ISO 27001 audit requirements without requiring engineering teams to gather manual screenshots.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to satisfy enterprise SOC 2 and ISO 27001 audit requirements without requiring engineering teams to gather manual screenshots.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Ignore compliance requirements until regulatory fines are assessed." },
@@ -195,7 +195,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Compliance as Code and Continuous Audit Trails: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Compliance as Code to satisfy enterprise SOC 2 and ISO 27001 audit requirements without requiring engineering teams to gather manual screenshots.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to satisfy enterprise SOC 2 and ISO 27001 audit requirements without requiring engineering teams to gather manual screenshots.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Implement Compliance as Code: continuously audit cluster configurations and pull request histories against security baselines." },
@@ -216,7 +216,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Platform Health Dashboards and Proactive Alerting: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Platform Dashboards to detect and resolve internal platform degradations before they impact software developers and deployment pipelines.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to detect and resolve internal platform degradations before they impact software developers and deployment pipelines.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Build centralized Grafana platform dashboards displaying runner queue depths, API latencies, and actionable multi-window SLO alerts." },
@@ -237,7 +237,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Platform Health Dashboards and Proactive Alerting: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Platform Dashboards to detect and resolve internal platform degradations before they impact software developers and deployment pipelines.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to detect and resolve internal platform degradations before they impact software developers and deployment pipelines.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Hide all platform performance metrics from the operations team." },
@@ -258,7 +258,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Platform Health Dashboards and Proactive Alerting: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Platform Dashboards to detect and resolve internal platform degradations before they impact software developers and deployment pipelines.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to detect and resolve internal platform degradations before they impact software developers and deployment pipelines.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Configure noisy alert rules that trigger hundreds of false-positive pager alerts every hour." },
@@ -279,7 +279,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Platform Health Dashboards and Proactive Alerting: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Platform Dashboards to detect and resolve internal platform degradations before they impact software developers and deployment pipelines.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to detect and resolve internal platform degradations before they impact software developers and deployment pipelines.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Hide all platform performance metrics from the operations team." },
@@ -300,7 +300,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Platform Health Dashboards and Proactive Alerting: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Platform Dashboards to detect and resolve internal platform degradations before they impact software developers and deployment pipelines.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to detect and resolve internal platform degradations before they impact software developers and deployment pipelines.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Configure noisy alert rules that trigger hundreds of false-positive pager alerts every hour." },
@@ -321,7 +321,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Blameless Postmortems and Continuous Learning: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Blameless Postmortems to turn a major platform outage into long-term systemic resilience improvements without fostering a culture of fear or finger-pointing.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to turn a major platform outage into long-term systemic resilience improvements without fostering a culture of fear or finger-pointing.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Sweep outages under the rug and refuse to document what caused the system failure." },
@@ -342,7 +342,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Blameless Postmortems and Continuous Learning: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Blameless Postmortems to turn a major platform outage into long-term systemic resilience improvements without fostering a culture of fear or finger-pointing.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to turn a major platform outage into long-term systemic resilience improvements without fostering a culture of fear or finger-pointing.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Ban all software deployments following an outage to prevent future incidents." },
@@ -363,7 +363,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Blameless Postmortems and Continuous Learning: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Blameless Postmortems to turn a major platform outage into long-term systemic resilience improvements without fostering a culture of fear or finger-pointing.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to turn a major platform outage into long-term systemic resilience improvements without fostering a culture of fear or finger-pointing.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Sweep outages under the rug and refuse to document what caused the system failure." },
@@ -384,7 +384,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Blameless Postmortems and Continuous Learning: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Blameless Postmortems to turn a major platform outage into long-term systemic resilience improvements without fostering a culture of fear or finger-pointing.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to turn a major platform outage into long-term systemic resilience improvements without fostering a culture of fear or finger-pointing.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Identify and publicly fire the individual engineer who typed the erroneous command." },
@@ -405,7 +405,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Blameless Postmortems and Continuous Learning: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Blameless Postmortems to turn a major platform outage into long-term systemic resilience improvements without fostering a culture of fear or finger-pointing.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to turn a major platform outage into long-term systemic resilience improvements without fostering a culture of fear or finger-pointing.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Sweep outages under the rug and refuse to document what caused the system failure." },
@@ -426,7 +426,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Technology Radar and Deprecation Management: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Tech Radar to guide thousands of software developers away from legacy, vulnerable open-source libraries toward modern corporate standards.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to guide thousands of software developers away from legacy, vulnerable open-source libraries toward modern corporate standards.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Publish a quarterly internal Technology Radar and run automated PR campaigns (e.g., via Renovate) to migrate deprecated libraries." },
@@ -447,7 +447,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Technology Radar and Deprecation Management: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Tech Radar to guide thousands of software developers away from legacy, vulnerable open-source libraries toward modern corporate standards.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to guide thousands of software developers away from legacy, vulnerable open-source libraries toward modern corporate standards.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Silently block developer builds without prior warning when an unapproved library is detected." },
@@ -468,7 +468,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Technology Radar and Deprecation Management: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Tech Radar to guide thousands of software developers away from legacy, vulnerable open-source libraries toward modern corporate standards.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to guide thousands of software developers away from legacy, vulnerable open-source libraries toward modern corporate standards.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Allow every team to adopt arbitrary unvetted libraries resulting in severe dependency fragmentation." },
@@ -489,7 +489,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Technology Radar and Deprecation Management: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Tech Radar to guide thousands of software developers away from legacy, vulnerable open-source libraries toward modern corporate standards.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to guide thousands of software developers away from legacy, vulnerable open-source libraries toward modern corporate standards.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Allow every team to adopt arbitrary unvetted libraries resulting in severe dependency fragmentation." },
@@ -510,7 +510,7 @@ export const CNCF_CNPA_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Technology Radar and Deprecation Management: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Tech Radar to guide thousands of software developers away from legacy, vulnerable open-source libraries toward modern corporate standards.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to guide thousands of software developers away from legacy, vulnerable open-source libraries toward modern corporate standards.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Allow every team to adopt arbitrary unvetted libraries resulting in severe dependency fragmentation." },

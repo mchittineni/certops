@@ -6,7 +6,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Compute Engine Instance Templates and Managed Instance Groups (MIGs): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Compute Engine to deploy a fleet of identical, auto-healing Compute Engine virtual machines that automatically scale across multiple zones within a region based on CPU utilization.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to deploy a fleet of identical, auto-healing Compute Engine virtual machines that automatically scale across multiple zones within a region based on CPU utilization.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Use an unmanaged instance group without health checks or autoscaling." },
@@ -27,7 +27,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Compute Engine Instance Templates and Managed Instance Groups (MIGs): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Compute Engine to deploy a fleet of identical, auto-healing Compute Engine virtual machines that automatically scale across multiple zones within a region based on CPU utilization.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to deploy a fleet of identical, auto-healing Compute Engine virtual machines that automatically scale across multiple zones within a region based on CPU utilization.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy five independent standalone VMs in a single zone without an instance template." },
@@ -48,7 +48,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Compute Engine Instance Templates and Managed Instance Groups (MIGs): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Compute Engine to deploy a fleet of identical, auto-healing Compute Engine virtual machines that automatically scale across multiple zones within a region based on CPU utilization.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to deploy a fleet of identical, auto-healing Compute Engine virtual machines that automatically scale across multiple zones within a region based on CPU utilization.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Use an unmanaged instance group without health checks or autoscaling." },
@@ -69,7 +69,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Compute Engine Instance Templates and Managed Instance Groups (MIGs): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Compute Engine to deploy a fleet of identical, auto-healing Compute Engine virtual machines that automatically scale across multiple zones within a region based on CPU utilization.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to deploy a fleet of identical, auto-healing Compute Engine virtual machines that automatically scale across multiple zones within a region based on CPU utilization.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Create an Instance Template and deploy a regional Managed Instance Group (MIG) with autoscaling enabled." },
@@ -90,7 +90,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Compute Engine Instance Templates and Managed Instance Groups (MIGs): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Compute Engine to deploy a fleet of identical, auto-healing Compute Engine virtual machines that automatically scale across multiple zones within a region based on CPU utilization.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to deploy a fleet of identical, auto-healing Compute Engine virtual machines that automatically scale across multiple zones within a region based on CPU utilization.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Configure an on-premises hypervisor cluster to clone virtual machines manually." },
@@ -111,7 +111,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Google Kubernetes Engine (GKE) Cluster Creation: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Google Kubernetes Engine to deploy a production-grade Kubernetes cluster in Google Cloud with automated node management, security hardening, and Google-managed control planes.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to deploy a production-grade Kubernetes cluster in Google Cloud with automated node management, security hardening, and Google-managed control planes.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy a bare-metal Kubernetes cluster on on-premises physical servers." },
@@ -132,7 +132,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Google Kubernetes Engine (GKE) Cluster Creation: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Google Kubernetes Engine to deploy a production-grade Kubernetes cluster in Google Cloud with automated node management, security hardening, and Google-managed control planes.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to deploy a production-grade Kubernetes cluster in Google Cloud with automated node management, security hardening, and Google-managed control planes.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Install Minikube on a single Compute Engine virtual machine." },
@@ -153,7 +153,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Google Kubernetes Engine (GKE) Cluster Creation: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Google Kubernetes Engine to deploy a production-grade Kubernetes cluster in Google Cloud with automated node management, security hardening, and Google-managed control planes.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to deploy a production-grade Kubernetes cluster in Google Cloud with automated node management, security hardening, and Google-managed control planes.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Run Docker containers manually using docker-compose on a standalone VM." },
@@ -174,7 +174,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Google Kubernetes Engine (GKE) Cluster Creation: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Google Kubernetes Engine to deploy a production-grade Kubernetes cluster in Google Cloud with automated node management, security hardening, and Google-managed control planes.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to deploy a production-grade Kubernetes cluster in Google Cloud with automated node management, security hardening, and Google-managed control planes.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Run Docker containers manually using docker-compose on a standalone VM." },
@@ -195,7 +195,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Google Kubernetes Engine (GKE) Cluster Creation: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Google Kubernetes Engine to deploy a production-grade Kubernetes cluster in Google Cloud with automated node management, security hardening, and Google-managed control planes.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to deploy a production-grade Kubernetes cluster in Google Cloud with automated node management, security hardening, and Google-managed control planes.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Install Minikube on a single Compute Engine virtual machine." },
@@ -216,7 +216,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Kubernetes Workload Deployment (Deployments and Services): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Kubernetes to deploy a multi-replica web application to a GKE cluster and expose it to the internet with an external IP address and automated health probes.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to deploy a multi-replica web application to a GKE cluster and expose it to the internet with an external IP address and automated health probes.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Apply a Kubernetes Deployment manifest with readiness probes and expose it via a Service of type: LoadBalancer." },
@@ -237,7 +237,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Kubernetes Workload Deployment (Deployments and Services): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Kubernetes to deploy a multi-replica web application to a GKE cluster and expose it to the internet with an external IP address and automated health probes.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to deploy a multi-replica web application to a GKE cluster and expose it to the internet with an external IP address and automated health probes.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Apply a Kubernetes Deployment manifest with readiness probes and expose it via a Service of type: LoadBalancer." },
@@ -258,7 +258,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Kubernetes Workload Deployment (Deployments and Services): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Kubernetes to deploy a multi-replica web application to a GKE cluster and expose it to the internet with an external IP address and automated health probes.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to deploy a multi-replica web application to a GKE cluster and expose it to the internet with an external IP address and automated health probes.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Apply a Kubernetes Deployment manifest with readiness probes and expose it via a Service of type: LoadBalancer." },
@@ -279,7 +279,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Kubernetes Workload Deployment (Deployments and Services): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Kubernetes to deploy a multi-replica web application to a GKE cluster and expose it to the internet with an external IP address and automated health probes.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to deploy a multi-replica web application to a GKE cluster and expose it to the internet with an external IP address and automated health probes.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Manually install nginx inside each running node container filesystem." },
@@ -300,7 +300,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Kubernetes Workload Deployment (Deployments and Services): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Kubernetes to deploy a multi-replica web application to a GKE cluster and expose it to the internet with an external IP address and automated health probes.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to deploy a multi-replica web application to a GKE cluster and expose it to the internet with an external IP address and automated health probes.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Apply a Kubernetes Deployment manifest with readiness probes and expose it via a Service of type: LoadBalancer." },
@@ -321,7 +321,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud Run Container Deployment: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Run to deploy a stateless microservice packaged as a Docker container that automatically scales to zero when idle and scales out to 1,000 instances under load.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to deploy a stateless microservice packaged as a Docker container that automatically scales to zero when idle and scales out to 1,000 instances under load.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Host the application inside an App Engine Standard environment without container support." },
@@ -342,7 +342,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud Run Container Deployment: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Run to deploy a stateless microservice packaged as a Docker container that automatically scales to zero when idle and scales out to 1,000 instances under load.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to deploy a stateless microservice packaged as a Docker container that automatically scales to zero when idle and scales out to 1,000 instances under load.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Host the application inside an App Engine Standard environment without container support." },
@@ -363,7 +363,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud Run Container Deployment: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Run to deploy a stateless microservice packaged as a Docker container that automatically scales to zero when idle and scales out to 1,000 instances under load.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to deploy a stateless microservice packaged as a Docker container that automatically scales to zero when idle and scales out to 1,000 instances under load.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Host the application inside an App Engine Standard environment without container support." },
@@ -384,7 +384,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud Run Container Deployment: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Run to deploy a stateless microservice packaged as a Docker container that automatically scales to zero when idle and scales out to 1,000 instances under load.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to deploy a stateless microservice packaged as a Docker container that automatically scales to zero when idle and scales out to 1,000 instances under load.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy the container image to Cloud Run using 'gcloud run deploy' with authentication flags." },
@@ -405,7 +405,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud Run Container Deployment: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Run to deploy a stateless microservice packaged as a Docker container that automatically scales to zero when idle and scales out to 1,000 instances under load.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to deploy a stateless microservice packaged as a Docker container that automatically scales to zero when idle and scales out to 1,000 instances under load.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Host the application inside an App Engine Standard environment without container support." },
@@ -426,7 +426,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud Functions (2nd Gen) Deployment: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Functions to execute lightweight Python code in response to a new file being uploaded to a specific Cloud Storage bucket without managing server infrastructure.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to execute lightweight Python code in response to a new file being uploaded to a specific Cloud Storage bucket without managing server infrastructure.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Configure a cron job inside a local database server." },
@@ -447,7 +447,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud Functions (2nd Gen) Deployment: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Functions to execute lightweight Python code in response to a new file being uploaded to a specific Cloud Storage bucket without managing server infrastructure.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to execute lightweight Python code in response to a new file being uploaded to a specific Cloud Storage bucket without managing server infrastructure.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Run an infinite while loop on a Compute Engine VM polling the Cloud Storage API." },
@@ -468,7 +468,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud Functions (2nd Gen) Deployment: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Functions to execute lightweight Python code in response to a new file being uploaded to a specific Cloud Storage bucket without managing server infrastructure.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to execute lightweight Python code in response to a new file being uploaded to a specific Cloud Storage bucket without managing server infrastructure.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy a Cloud Function (2nd gen) with a Cloud Storage Eventarc trigger using 'gcloud functions deploy'." },
@@ -489,7 +489,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud Functions (2nd Gen) Deployment: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Functions to execute lightweight Python code in response to a new file being uploaded to a specific Cloud Storage bucket without managing server infrastructure.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to execute lightweight Python code in response to a new file being uploaded to a specific Cloud Storage bucket without managing server infrastructure.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Configure a cron job inside a local database server." },
@@ -510,7 +510,7 @@ export const GCP_ACE_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud Functions (2nd Gen) Deployment: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Functions to execute lightweight Python code in response to a new file being uploaded to a specific Cloud Storage bucket without managing server infrastructure.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to execute lightweight Python code in response to a new file being uploaded to a specific Cloud Storage bucket without managing server infrastructure.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Deploy a Cloud Function (2nd gen) with a Cloud Storage Eventarc trigger using 'gcloud functions deploy'." },

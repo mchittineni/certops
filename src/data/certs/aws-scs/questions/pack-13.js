@@ -6,7 +6,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Centralized Security Log Immutability: S3 Object Lock: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates S3 Object Lock to guarantee that security audit logs cannot be deleted or modified by any user, including the root account, during a 7-year regulatory retention period.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to guarantee that security audit logs cannot be deleted or modified by any user, including the root account, during a 7-year regulatory retention period.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Store logs in standard S3 buckets and rely on IAM policies alone to prevent deletion." },
@@ -27,7 +27,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Centralized Security Log Immutability: S3 Object Lock: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates S3 Object Lock to guarantee that security audit logs cannot be deleted or modified by any user, including the root account, during a 7-year regulatory retention period.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to guarantee that security audit logs cannot be deleted or modified by any user, including the root account, during a 7-year regulatory retention period.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Store logs in standard S3 buckets and rely on IAM policies alone to prevent deletion." },
@@ -48,7 +48,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Centralized Security Log Immutability: S3 Object Lock: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates S3 Object Lock to guarantee that security audit logs cannot be deleted or modified by any user, including the root account, during a 7-year regulatory retention period.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to guarantee that security audit logs cannot be deleted or modified by any user, including the root account, during a 7-year regulatory retention period.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Store logs on an unencrypted on-premises NAS drive with no write protection." },
@@ -69,7 +69,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Centralized Security Log Immutability: S3 Object Lock: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates S3 Object Lock to guarantee that security audit logs cannot be deleted or modified by any user, including the root account, during a 7-year regulatory retention period.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to guarantee that security audit logs cannot be deleted or modified by any user, including the root account, during a 7-year regulatory retention period.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Store logs in an S3 bucket with S3 Object Lock enabled in Compliance Mode with a 7-year retention period." },
@@ -90,7 +90,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Centralized Security Log Immutability: S3 Object Lock: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates S3 Object Lock to guarantee that security audit logs cannot be deleted or modified by any user, including the root account, during a 7-year regulatory retention period.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to guarantee that security audit logs cannot be deleted or modified by any user, including the root account, during a 7-year regulatory retention period.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Use S3 Object Lock in Governance Mode where privileged administrative users can override retention rules." },
@@ -111,7 +111,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "CloudWatch Metric Filters and Critical Security Alarms: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates CloudWatch Alarms to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Check the AWS billing statement at the end of the month to see if root account fees were charged." },
@@ -132,7 +132,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "CloudWatch Metric Filters and Critical Security Alarms: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates CloudWatch Alarms to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Disable root account alerting to avoid distracting the security team." },
@@ -153,7 +153,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "CloudWatch Metric Filters and Critical Security Alarms: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates CloudWatch Alarms to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Rely on human team members to verbally notify the team when they use the root account." },
@@ -174,7 +174,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "CloudWatch Metric Filters and Critical Security Alarms: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates CloudWatch Alarms to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Disable root account alerting to avoid distracting the security team." },
@@ -195,7 +195,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "CloudWatch Metric Filters and Critical Security Alarms: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates CloudWatch Alarms to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Create a CloudWatch Logs metric filter matching `$.userIdentity.type = \"Root\"` on CloudTrail events and trigger an SNS alarm." },
@@ -216,7 +216,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "AWS Network Firewall Logging and Rule Engine Alerts: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Network Firewall Logging to analyze dropped network packets and Suricata intrusion prevention alerts generated by AWS Network Firewall.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to analyze dropped network packets and Suricata intrusion prevention alerts generated by AWS Network Firewall.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Disable logging to improve network firewall throughput by 5%." },
@@ -237,7 +237,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "AWS Network Firewall Logging and Rule Engine Alerts: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Network Firewall Logging to analyze dropped network packets and Suricata intrusion prevention alerts generated by AWS Network Firewall.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to analyze dropped network packets and Suricata intrusion prevention alerts generated by AWS Network Firewall.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Configure AWS Network Firewall logging to stream `Alert` and `Flow` logs directly to Amazon S3 or CloudWatch Logs." },
@@ -258,7 +258,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "AWS Network Firewall Logging and Rule Engine Alerts: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Network Firewall Logging to analyze dropped network packets and Suricata intrusion prevention alerts generated by AWS Network Firewall.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to analyze dropped network packets and Suricata intrusion prevention alerts generated by AWS Network Firewall.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Log into the firewall appliance operating system directly via SSH to run tcpdump." },
@@ -279,7 +279,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "AWS Network Firewall Logging and Rule Engine Alerts: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Network Firewall Logging to analyze dropped network packets and Suricata intrusion prevention alerts generated by AWS Network Firewall.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to analyze dropped network packets and Suricata intrusion prevention alerts generated by AWS Network Firewall.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Disable logging to improve network firewall throughput by 5%." },
@@ -300,7 +300,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "AWS Network Firewall Logging and Rule Engine Alerts: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Network Firewall Logging to analyze dropped network packets and Suricata intrusion prevention alerts generated by AWS Network Firewall.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to analyze dropped network packets and Suricata intrusion prevention alerts generated by AWS Network Firewall.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Log into the firewall appliance operating system directly via SSH to run tcpdump." },
@@ -321,7 +321,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "AWS WAF Traffic Logging and Sensitive Field Redaction: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates WAF Logging to log all incoming HTTP requests blocked by AWS WAF while ensuring sensitive user passwords and authorization headers are never logged.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to log all incoming HTTP requests blocked by AWS WAF while ensuring sensitive user passwords and authorization headers are never logged.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Enable AWS WAF full logging to Amazon Kinesis Data Firehose with `RedactedFields` configured for `Authorization` and `Cookie` headers." },
@@ -342,7 +342,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "AWS WAF Traffic Logging and Sensitive Field Redaction: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates WAF Logging to log all incoming HTTP requests blocked by AWS WAF while ensuring sensitive user passwords and authorization headers are never logged.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to log all incoming HTTP requests blocked by AWS WAF while ensuring sensitive user passwords and authorization headers are never logged.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Log traffic only when the web application crashes." },
@@ -363,7 +363,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "AWS WAF Traffic Logging and Sensitive Field Redaction: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates WAF Logging to log all incoming HTTP requests blocked by AWS WAF while ensuring sensitive user passwords and authorization headers are never logged.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to log all incoming HTTP requests blocked by AWS WAF while ensuring sensitive user passwords and authorization headers are never logged.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Enable AWS WAF full logging to Amazon Kinesis Data Firehose with `RedactedFields` configured for `Authorization` and `Cookie` headers." },
@@ -384,7 +384,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "AWS WAF Traffic Logging and Sensitive Field Redaction: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates WAF Logging to log all incoming HTTP requests blocked by AWS WAF while ensuring sensitive user passwords and authorization headers are never logged.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to log all incoming HTTP requests blocked by AWS WAF while ensuring sensitive user passwords and authorization headers are never logged.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Enable AWS WAF full logging to Amazon Kinesis Data Firehose with `RedactedFields` configured for `Authorization` and `Cookie` headers." },
@@ -405,7 +405,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "AWS WAF Traffic Logging and Sensitive Field Redaction: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates WAF Logging to log all incoming HTTP requests blocked by AWS WAF while ensuring sensitive user passwords and authorization headers are never logged.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to log all incoming HTTP requests blocked by AWS WAF while ensuring sensitive user passwords and authorization headers are never logged.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Store plaintext HTTP request bodies containing user passwords in public S3 buckets." },
@@ -426,7 +426,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Athena Partition Projection for High-Scale Log Analytics: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Athena Analytics to perform fast forensic queries across terabytes of multi-account CloudTrail logs in Amazon S3 without incurring query timeouts.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to perform fast forensic queries across terabytes of multi-account CloudTrail logs in Amazon S3 without incurring query timeouts.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Download all S3 log files to a local database server before running SQL queries." },
@@ -447,7 +447,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Athena Partition Projection for High-Scale Log Analytics: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Athena Analytics to perform fast forensic queries across terabytes of multi-account CloudTrail logs in Amazon S3 without incurring query timeouts.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to perform fast forensic queries across terabytes of multi-account CloudTrail logs in Amazon S3 without incurring query timeouts.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Download all S3 log files to a local database server before running SQL queries." },
@@ -468,7 +468,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Athena Partition Projection for High-Scale Log Analytics: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Athena Analytics to perform fast forensic queries across terabytes of multi-account CloudTrail logs in Amazon S3 without incurring query timeouts.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to perform fast forensic queries across terabytes of multi-account CloudTrail logs in Amazon S3 without incurring query timeouts.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Execute full table scans across millions of unindexed S3 objects using standard relational SELECT queries." },
@@ -489,7 +489,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Athena Partition Projection for High-Scale Log Analytics: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Athena Analytics to perform fast forensic queries across terabytes of multi-account CloudTrail logs in Amazon S3 without incurring query timeouts.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to perform fast forensic queries across terabytes of multi-account CloudTrail logs in Amazon S3 without incurring query timeouts.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Delete historical log files older than 24 hours to keep query sizes small." },
@@ -510,7 +510,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Athena Partition Projection for High-Scale Log Analytics: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Athena Analytics to perform fast forensic queries across terabytes of multi-account CloudTrail logs in Amazon S3 without incurring query timeouts.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to perform fast forensic queries across terabytes of multi-account CloudTrail logs in Amazon S3 without incurring query timeouts.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Delete historical log files older than 24 hours to keep query sizes small." },

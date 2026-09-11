@@ -6,7 +6,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Disabling Host Access: hostNetwork, hostPID, hostIPC: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Host Isolation to prevent a container from snooping on host network packets, inspecting host process IDs, or accessing host shared memory.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent a container from snooping on host network packets, inspecting host process IDs, or accessing host shared memory.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Mount `/proc` and `/sys` from the host directly into the container." },
@@ -27,7 +27,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Disabling Host Access: hostNetwork, hostPID, hostIPC: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Host Isolation to prevent a container from snooping on host network packets, inspecting host process IDs, or accessing host shared memory.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent a container from snooping on host network packets, inspecting host process IDs, or accessing host shared memory.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Run containers in the host root cgroup namespace." },
@@ -48,7 +48,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Disabling Host Access: hostNetwork, hostPID, hostIPC: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Host Isolation to prevent a container from snooping on host network packets, inspecting host process IDs, or accessing host shared memory.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent a container from snooping on host network packets, inspecting host process IDs, or accessing host shared memory.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Set hostNetwork: true and hostPID: true on all application pods." },
@@ -69,7 +69,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Disabling Host Access: hostNetwork, hostPID, hostIPC: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Host Isolation to prevent a container from snooping on host network packets, inspecting host process IDs, or accessing host shared memory.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent a container from snooping on host network packets, inspecting host process IDs, or accessing host shared memory.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Run containers in the host root cgroup namespace." },
@@ -90,7 +90,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Disabling Host Access: hostNetwork, hostPID, hostIPC: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Host Isolation to prevent a container from snooping on host network packets, inspecting host process IDs, or accessing host shared memory.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent a container from snooping on host network packets, inspecting host process IDs, or accessing host shared memory.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Set hostNetwork: true and hostPID: true on all application pods." },
@@ -111,7 +111,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "HostPath Volume Restriction and Alternatives: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Storage Security to prevent a pod from mounting the host `/etc/shadow` file or Docker/containerd socket and gaining root host takeover.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent a pod from mounting the host `/etc/shadow` file or Docker/containerd socket and gaining root host takeover.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Share the root directory of the master node with all pod developers." },
@@ -132,7 +132,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "HostPath Volume Restriction and Alternatives: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Storage Security to prevent a pod from mounting the host `/etc/shadow` file or Docker/containerd socket and gaining root host takeover.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent a pod from mounting the host `/etc/shadow` file or Docker/containerd socket and gaining root host takeover.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Share the root directory of the master node with all pod developers." },
@@ -153,7 +153,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "HostPath Volume Restriction and Alternatives: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Storage Security to prevent a pod from mounting the host `/etc/shadow` file or Docker/containerd socket and gaining root host takeover.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent a pod from mounting the host `/etc/shadow` file or Docker/containerd socket and gaining root host takeover.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Store application database files on hostPath volumes in `/root/`." },
@@ -174,7 +174,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "HostPath Volume Restriction and Alternatives: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Storage Security to prevent a pod from mounting the host `/etc/shadow` file or Docker/containerd socket and gaining root host takeover.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent a pod from mounting the host `/etc/shadow` file or Docker/containerd socket and gaining root host takeover.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Store application database files on hostPath volumes in `/root/`." },
@@ -195,7 +195,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "HostPath Volume Restriction and Alternatives: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Storage Security to prevent a pod from mounting the host `/etc/shadow` file or Docker/containerd socket and gaining root host takeover.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent a pod from mounting the host `/etc/shadow` file or Docker/containerd socket and gaining root host takeover.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Store application database files on hostPath volumes in `/root/`." },
@@ -216,7 +216,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Node Operating System Hardening: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates OS Hardening to harden Linux worker node operating systems against unauthorized lateral movement and privilege escalation.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to harden Linux worker node operating systems against unauthorized lateral movement and privilege escalation.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Disable unused systemd services, remove unnecessary compilers/packages, close unused ports with UFW/iptables, and apply security kernel updates." },
@@ -237,7 +237,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Node Operating System Hardening: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates OS Hardening to harden Linux worker node operating systems against unauthorized lateral movement and privilege escalation.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to harden Linux worker node operating systems against unauthorized lateral movement and privilege escalation.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Allow SSH login using empty passwords for root users." },
@@ -258,7 +258,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Node Operating System Hardening: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates OS Hardening to harden Linux worker node operating systems against unauthorized lateral movement and privilege escalation.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to harden Linux worker node operating systems against unauthorized lateral movement and privilege escalation.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Disable unused systemd services, remove unnecessary compilers/packages, close unused ports with UFW/iptables, and apply security kernel updates." },
@@ -279,7 +279,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Node Operating System Hardening: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates OS Hardening to harden Linux worker node operating systems against unauthorized lateral movement and privilege escalation.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to harden Linux worker node operating systems against unauthorized lateral movement and privilege escalation.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Disable unused systemd services, remove unnecessary compilers/packages, close unused ports with UFW/iptables, and apply security kernel updates." },
@@ -300,7 +300,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Node Operating System Hardening: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates OS Hardening to harden Linux worker node operating systems against unauthorized lateral movement and privilege escalation.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to harden Linux worker node operating systems against unauthorized lateral movement and privilege escalation.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Allow SSH login using empty passwords for root users." },
@@ -321,7 +321,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Linux Capabilities: Restricting CAP_SYS_ADMIN: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Kernel Capabilities to prevent a container from mounting filesystems, creating cgroups, or modifying network routing tables inside the host kernel.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent a container from mounting filesystems, creating cgroups, or modifying network routing tables inside the host kernel.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Run the container with `--cap-add=ALL`." },
@@ -342,7 +342,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Linux Capabilities: Restricting CAP_SYS_ADMIN: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Kernel Capabilities to prevent a container from mounting filesystems, creating cgroups, or modifying network routing tables inside the host kernel.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent a container from mounting filesystems, creating cgroups, or modifying network routing tables inside the host kernel.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Explicitly disallow `CAP_SYS_ADMIN` and `CAP_NET_ADMIN` in container securityContext, adhering to restricted Pod Security Standards." },
@@ -363,7 +363,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Linux Capabilities: Restricting CAP_SYS_ADMIN: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Kernel Capabilities to prevent a container from mounting filesystems, creating cgroups, or modifying network routing tables inside the host kernel.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent a container from mounting filesystems, creating cgroups, or modifying network routing tables inside the host kernel.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Add all Linux capabilities to the container process." },
@@ -384,7 +384,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Linux Capabilities: Restricting CAP_SYS_ADMIN: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Kernel Capabilities to prevent a container from mounting filesystems, creating cgroups, or modifying network routing tables inside the host kernel.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent a container from mounting filesystems, creating cgroups, or modifying network routing tables inside the host kernel.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Add all Linux capabilities to the container process." },
@@ -405,7 +405,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Linux Capabilities: Restricting CAP_SYS_ADMIN: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Kernel Capabilities to prevent a container from mounting filesystems, creating cgroups, or modifying network routing tables inside the host kernel.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent a container from mounting filesystems, creating cgroups, or modifying network routing tables inside the host kernel.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Grant `CAP_SYS_ADMIN` to all application containers by default." },
@@ -426,7 +426,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Auditing Open Ports and Processes with ss and lsof: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Port Auditing to identify unauthorized network listeners and unknown processes running on a Kubernetes worker node.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to identify unauthorized network listeners and unknown processes running on a Kubernetes worker node.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Inspect DNS query logs exclusively without examining listening TCP sockets." },
@@ -447,7 +447,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Auditing Open Ports and Processes with ss and lsof: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Port Auditing to identify unauthorized network listeners and unknown processes running on a Kubernetes worker node.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to identify unauthorized network listeners and unknown processes running on a Kubernetes worker node.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Reboot the worker node and assume unauthorized listeners will not restart." },
@@ -468,7 +468,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Auditing Open Ports and Processes with ss and lsof: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Port Auditing to identify unauthorized network listeners and unknown processes running on a Kubernetes worker node.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to identify unauthorized network listeners and unknown processes running on a Kubernetes worker node.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Inspect DNS query logs exclusively without examining listening TCP sockets." },
@@ -489,7 +489,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Auditing Open Ports and Processes with ss and lsof: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Port Auditing to identify unauthorized network listeners and unknown processes running on a Kubernetes worker node.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to identify unauthorized network listeners and unknown processes running on a Kubernetes worker node.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Query the Kubernetes API server for pod names without checking host ports." },
@@ -510,7 +510,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Auditing Open Ports and Processes with ss and lsof: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Port Auditing to identify unauthorized network listeners and unknown processes running on a Kubernetes worker node.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to identify unauthorized network listeners and unknown processes running on a Kubernetes worker node.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Reboot the worker node and assume unauthorized listeners will not restart." },

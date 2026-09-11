@@ -6,7 +6,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Edge ML and Model Optimization (TF Lite): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Edge Machine Learning to deploy a defect detection computer vision model to IoT factory cameras with intermittent internet connectivity and strict 10ms local inference requirements.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to deploy a defect detection computer vision model to IoT factory cameras with intermittent internet connectivity and strict 10ms local inference requirements.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Quantize the model using TensorFlow Lite (TFLite) and deploy directly to edge IoT devices." },
@@ -27,7 +27,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Edge ML and Model Optimization (TF Lite): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Edge Machine Learning to deploy a defect detection computer vision model to IoT factory cameras with intermittent internet connectivity and strict 10ms local inference requirements.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to deploy a defect detection computer vision model to IoT factory cameras with intermittent internet connectivity and strict 10ms local inference requirements.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Stream full 4K video frames over public satellite internet to a central Cloud Run endpoint." },
@@ -48,7 +48,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Edge ML and Model Optimization (TF Lite): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Edge Machine Learning to deploy a defect detection computer vision model to IoT factory cameras with intermittent internet connectivity and strict 10ms local inference requirements.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to deploy a defect detection computer vision model to IoT factory cameras with intermittent internet connectivity and strict 10ms local inference requirements.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Stream full 4K video frames over public satellite internet to a central Cloud Run endpoint." },
@@ -69,7 +69,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Edge ML and Model Optimization (TF Lite): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Edge Machine Learning to deploy a defect detection computer vision model to IoT factory cameras with intermittent internet connectivity and strict 10ms local inference requirements.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to deploy a defect detection computer vision model to IoT factory cameras with intermittent internet connectivity and strict 10ms local inference requirements.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Quantize the model using TensorFlow Lite (TFLite) and deploy directly to edge IoT devices." },
@@ -90,7 +90,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Edge ML and Model Optimization (TF Lite): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Edge Machine Learning to deploy a defect detection computer vision model to IoT factory cameras with intermittent internet connectivity and strict 10ms local inference requirements.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to deploy a defect detection computer vision model to IoT factory cameras with intermittent internet connectivity and strict 10ms local inference requirements.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Quantize the model using TensorFlow Lite (TFLite) and deploy directly to edge IoT devices." },
@@ -111,7 +111,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Responsible AI and Fairness (What-If Tool / Explainability): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Responsible AI to evaluate a loan approval model to ensure it does not exhibit disparate impact or algorithmic bias across demographic and gender subgroups.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to evaluate a loan approval model to ensure it does not exhibit disparate impact or algorithmic bias across demographic and gender subgroups.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely solely on overall global accuracy across the entire population." },
@@ -132,7 +132,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Responsible AI and Fairness (What-If Tool / Explainability): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Responsible AI to evaluate a loan approval model to ensure it does not exhibit disparate impact or algorithmic bias across demographic and gender subgroups.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to evaluate a loan approval model to ensure it does not exhibit disparate impact or algorithmic bias across demographic and gender subgroups.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Train the model exclusively on historical approvals without demographic auditing." },
@@ -153,7 +153,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Responsible AI and Fairness (What-If Tool / Explainability): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Responsible AI to evaluate a loan approval model to ensure it does not exhibit disparate impact or algorithmic bias across demographic and gender subgroups.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to evaluate a loan approval model to ensure it does not exhibit disparate impact or algorithmic bias across demographic and gender subgroups.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Remove demographic labels from the test dataset and assume the model cannot be biased." },
@@ -174,7 +174,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Responsible AI and Fairness (What-If Tool / Explainability): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Responsible AI to evaluate a loan approval model to ensure it does not exhibit disparate impact or algorithmic bias across demographic and gender subgroups.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to evaluate a loan approval model to ensure it does not exhibit disparate impact or algorithmic bias across demographic and gender subgroups.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Remove demographic labels from the test dataset and assume the model cannot be biased." },
@@ -195,7 +195,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Responsible AI and Fairness (What-If Tool / Explainability): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Responsible AI to evaluate a loan approval model to ensure it does not exhibit disparate impact or algorithmic bias across demographic and gender subgroups.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to evaluate a loan approval model to ensure it does not exhibit disparate impact or algorithmic bias across demographic and gender subgroups.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Remove demographic labels from the test dataset and assume the model cannot be biased." },
@@ -216,7 +216,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Privacy-Preserving ML (Federated Learning & Differential Privacy): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Privacy-Preserving ML to train a mobile predictive text keyboard model across millions of user smartphones without uploading personal keystrokes or private messages to central servers.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to train a mobile predictive text keyboard model across millions of user smartphones without uploading personal keystrokes or private messages to central servers.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Disable predictive text modeling to avoid privacy concerns." },
@@ -237,7 +237,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Privacy-Preserving ML (Federated Learning & Differential Privacy): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Privacy-Preserving ML to train a mobile predictive text keyboard model across millions of user smartphones without uploading personal keystrokes or private messages to central servers.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to train a mobile predictive text keyboard model across millions of user smartphones without uploading personal keystrokes or private messages to central servers.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Store unencrypted user chat logs in a public Cloud Storage bucket." },
@@ -258,7 +258,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Privacy-Preserving ML (Federated Learning & Differential Privacy): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Privacy-Preserving ML to train a mobile predictive text keyboard model across millions of user smartphones without uploading personal keystrokes or private messages to central servers.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to train a mobile predictive text keyboard model across millions of user smartphones without uploading personal keystrokes or private messages to central servers.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Implement Federated Learning where models train locally on client devices and only encrypted gradient updates are aggregated." },
@@ -279,7 +279,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Privacy-Preserving ML (Federated Learning & Differential Privacy): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Privacy-Preserving ML to train a mobile predictive text keyboard model across millions of user smartphones without uploading personal keystrokes or private messages to central servers.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to train a mobile predictive text keyboard model across millions of user smartphones without uploading personal keystrokes or private messages to central servers.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Implement Federated Learning where models train locally on client devices and only encrypted gradient updates are aggregated." },
@@ -300,7 +300,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Privacy-Preserving ML (Federated Learning & Differential Privacy): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Privacy-Preserving ML to train a mobile predictive text keyboard model across millions of user smartphones without uploading personal keystrokes or private messages to central servers.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to train a mobile predictive text keyboard model across millions of user smartphones without uploading personal keystrokes or private messages to central servers.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Upload all raw user keystrokes and SMS text messages to a central BigQuery table." },
@@ -321,7 +321,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Multimodal GenAI Architecture (Gemini on Vertex AI): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Generative AI to build an automated customer support solution that analyzes customer voice calls, customer-submitted photos of damaged products, and text chat logs simultaneously.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to build an automated customer support solution that analyzes customer voice calls, customer-submitted photos of damaged products, and text chat logs simultaneously.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy the Gemini Multimodal foundation model via Vertex AI Model Garden and Generative AI Studio." },
@@ -342,7 +342,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Multimodal GenAI Architecture (Gemini on Vertex AI): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Generative AI to build an automated customer support solution that analyzes customer voice calls, customer-submitted photos of damaged products, and text chat logs simultaneously.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to build an automated customer support solution that analyzes customer voice calls, customer-submitted photos of damaged products, and text chat logs simultaneously.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Train separate custom convolutional neural networks and acoustic models from scratch." },
@@ -363,7 +363,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Multimodal GenAI Architecture (Gemini on Vertex AI): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Generative AI to build an automated customer support solution that analyzes customer voice calls, customer-submitted photos of damaged products, and text chat logs simultaneously.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to build an automated customer support solution that analyzes customer voice calls, customer-submitted photos of damaged products, and text chat logs simultaneously.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy the Gemini Multimodal foundation model via Vertex AI Model Garden and Generative AI Studio." },
@@ -384,7 +384,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Multimodal GenAI Architecture (Gemini on Vertex AI): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Generative AI to build an automated customer support solution that analyzes customer voice calls, customer-submitted photos of damaged products, and text chat logs simultaneously.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to build an automated customer support solution that analyzes customer voice calls, customer-submitted photos of damaged products, and text chat logs simultaneously.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Convert all audio and images into base64 strings and store in an unindexed Cloud SQL database." },
@@ -405,7 +405,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Multimodal GenAI Architecture (Gemini on Vertex AI): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Generative AI to build an automated customer support solution that analyzes customer voice calls, customer-submitted photos of damaged products, and text chat logs simultaneously.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to build an automated customer support solution that analyzes customer voice calls, customer-submitted photos of damaged products, and text chat logs simultaneously.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Use a simple regex pattern matching script in Python." },
@@ -426,7 +426,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Vector Search & Embeddings Architecture (Vertex AI Vector Search): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Vector Search to build a real-time semantic search and retrieval-augmented generation (RAG) engine over 50 million enterprise PDF documents with sub-10ms query latency.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to build a real-time semantic search and retrieval-augmented generation (RAG) engine over 50 million enterprise PDF documents with sub-10ms query latency.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Execute SQL LIKE '%keyword%' queries over unstructured text columns in Cloud SQL." },
@@ -447,7 +447,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Vector Search & Embeddings Architecture (Vertex AI Vector Search): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Vector Search to build a real-time semantic search and retrieval-augmented generation (RAG) engine over 50 million enterprise PDF documents with sub-10ms query latency.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to build a real-time semantic search and retrieval-augmented generation (RAG) engine over 50 million enterprise PDF documents with sub-10ms query latency.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Store raw PDF binary data in a Redis in-memory cache without embedding vectors." },
@@ -468,7 +468,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Vector Search & Embeddings Architecture (Vertex AI Vector Search): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Vector Search to build a real-time semantic search and retrieval-augmented generation (RAG) engine over 50 million enterprise PDF documents with sub-10ms query latency.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to build a real-time semantic search and retrieval-augmented generation (RAG) engine over 50 million enterprise PDF documents with sub-10ms query latency.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Scan all PDF documents sequentially using desktop text search software." },
@@ -489,7 +489,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Vector Search & Embeddings Architecture (Vertex AI Vector Search): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Vector Search to build a real-time semantic search and retrieval-augmented generation (RAG) engine over 50 million enterprise PDF documents with sub-10ms query latency.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to build a real-time semantic search and retrieval-augmented generation (RAG) engine over 50 million enterprise PDF documents with sub-10ms query latency.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Store raw PDF binary data in a Redis in-memory cache without embedding vectors." },
@@ -510,7 +510,7 @@ export const GCP_PMLE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Vector Search & Embeddings Architecture (Vertex AI Vector Search): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Vector Search to build a real-time semantic search and retrieval-augmented generation (RAG) engine over 50 million enterprise PDF documents with sub-10ms query latency.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to build a real-time semantic search and retrieval-augmented generation (RAG) engine over 50 million enterprise PDF documents with sub-10ms query latency.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Store raw PDF binary data in a Redis in-memory cache without embedding vectors." },

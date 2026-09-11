@@ -6,7 +6,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Event-Driven Platform Architecture and CloudEvents: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Platform Event Bus to trigger automated security audits, notification webhooks, and environment provisioning asynchronously across diverse platform services.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to trigger automated security audits, notification webhooks, and environment provisioning asynchronously across diverse platform services.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Couple all platform tools synchronously via blocking REST HTTP calls that timeout during network glitches." },
@@ -27,7 +27,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Event-Driven Platform Architecture and CloudEvents: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Platform Event Bus to trigger automated security audits, notification webhooks, and environment provisioning asynchronously across diverse platform services.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to trigger automated security audits, notification webhooks, and environment provisioning asynchronously across diverse platform services.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Manually trigger downstream operations via interactive chat messages." },
@@ -48,7 +48,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Event-Driven Platform Architecture and CloudEvents: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Platform Event Bus to trigger automated security audits, notification webhooks, and environment provisioning asynchronously across diverse platform services.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to trigger automated security audits, notification webhooks, and environment provisioning asynchronously across diverse platform services.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Write raw event payloads to temporary local disk files without delivery guarantees." },
@@ -69,7 +69,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Event-Driven Platform Architecture and CloudEvents: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Platform Event Bus to trigger automated security audits, notification webhooks, and environment provisioning asynchronously across diverse platform services.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to trigger automated security audits, notification webhooks, and environment provisioning asynchronously across diverse platform services.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Implement an event-driven platform bus using the CNCF CloudEvents standard and Knative Eventing brokers." },
@@ -90,7 +90,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Event-Driven Platform Architecture and CloudEvents: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Platform Event Bus to trigger automated security audits, notification webhooks, and environment provisioning asynchronously across diverse platform services.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to trigger automated security audits, notification webhooks, and environment provisioning asynchronously across diverse platform services.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Manually trigger downstream operations via interactive chat messages." },
@@ -111,7 +111,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Multi-Cluster Control Plane Topology: Hub-and-Spoke: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Control Plane Topology to architect an enterprise platform managing 200 Kubernetes clusters across three cloud providers securely and reliably.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to architect an enterprise platform managing 200 Kubernetes clusters across three cloud providers securely and reliably.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Adopt a hub-and-spoke topology: host management controllers (Cluster API, ArgoCD, Crossplane) on dedicated management clusters controlling spoke workload clusters." },
@@ -132,7 +132,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Multi-Cluster Control Plane Topology: Hub-and-Spoke: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Control Plane Topology to architect an enterprise platform managing 200 Kubernetes clusters across three cloud providers securely and reliably.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to architect an enterprise platform managing 200 Kubernetes clusters across three cloud providers securely and reliably.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Install heavy control plane management tools inside every single application worker cluster." },
@@ -153,7 +153,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Multi-Cluster Control Plane Topology: Hub-and-Spoke: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Control Plane Topology to architect an enterprise platform managing 200 Kubernetes clusters across three cloud providers securely and reliably.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to architect an enterprise platform managing 200 Kubernetes clusters across three cloud providers securely and reliably.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Merge all 200 clusters into one giant global flat network with no security perimeter." },
@@ -174,7 +174,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Multi-Cluster Control Plane Topology: Hub-and-Spoke: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Control Plane Topology to architect an enterprise platform managing 200 Kubernetes clusters across three cloud providers securely and reliably.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to architect an enterprise platform managing 200 Kubernetes clusters across three cloud providers securely and reliably.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Manage 200 clusters by connecting from a single engineer's laptop running background shell scripts." },
@@ -195,7 +195,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Multi-Cluster Control Plane Topology: Hub-and-Spoke: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Control Plane Topology to architect an enterprise platform managing 200 Kubernetes clusters across three cloud providers securely and reliably.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to architect an enterprise platform managing 200 Kubernetes clusters across three cloud providers securely and reliably.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Adopt a hub-and-spoke topology: host management controllers (Cluster API, ArgoCD, Crossplane) on dedicated management clusters controlling spoke workload clusters." },
@@ -216,7 +216,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "API Versioning and Conversion Webhooks: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates API Versioning to evolve a widely adopted custom platform CRD schema without breaking existing manifests or interrupting running deployments.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to evolve a widely adopted custom platform CRD schema without breaking existing manifests or interrupting running deployments.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Refuse to evolve the API and remain trapped on deprecated alpha schemas forever." },
@@ -237,7 +237,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "API Versioning and Conversion Webhooks: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates API Versioning to evolve a widely adopted custom platform CRD schema without breaking existing manifests or interrupting running deployments.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to evolve a widely adopted custom platform CRD schema without breaking existing manifests or interrupting running deployments.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Force all development teams to update thousands of repository manifests in a single coordinated maintenance outage." },
@@ -258,7 +258,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "API Versioning and Conversion Webhooks: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates API Versioning to evolve a widely adopted custom platform CRD schema without breaking existing manifests or interrupting running deployments.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to evolve a widely adopted custom platform CRD schema without breaking existing manifests or interrupting running deployments.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Implement CRD conversion webhooks that seamlessly translate between storage versions (`v1alpha1`, `v1beta1`, `v1`) on the fly." },
@@ -279,7 +279,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "API Versioning and Conversion Webhooks: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates API Versioning to evolve a widely adopted custom platform CRD schema without breaking existing manifests or interrupting running deployments.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to evolve a widely adopted custom platform CRD schema without breaking existing manifests or interrupting running deployments.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Force all development teams to update thousands of repository manifests in a single coordinated maintenance outage." },
@@ -300,7 +300,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "API Versioning and Conversion Webhooks: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates API Versioning to evolve a widely adopted custom platform CRD schema without breaking existing manifests or interrupting running deployments.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to evolve a widely adopted custom platform CRD schema without breaking existing manifests or interrupting running deployments.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Force all development teams to update thousands of repository manifests in a single coordinated maintenance outage." },
@@ -321,7 +321,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Platform API Gateway and OIDC Authentication: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Platform Gateway to secure internal platform REST and gRPC endpoints against unauthorized access and denial-of-service traffic spikes.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to secure internal platform REST and gRPC endpoints against unauthorized access and denial-of-service traffic spikes.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Hardcode static administrative passwords in client frontend source code." },
@@ -342,7 +342,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Platform API Gateway and OIDC Authentication: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Platform Gateway to secure internal platform REST and gRPC endpoints against unauthorized access and denial-of-service traffic spikes.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to secure internal platform REST and gRPC endpoints against unauthorized access and denial-of-service traffic spikes.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Disable network firewalls and rate limiters to optimize throughput." },
@@ -363,7 +363,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Platform API Gateway and OIDC Authentication: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Platform Gateway to secure internal platform REST and gRPC endpoints against unauthorized access and denial-of-service traffic spikes.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to secure internal platform REST and gRPC endpoints against unauthorized access and denial-of-service traffic spikes.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Hardcode static administrative passwords in client frontend source code." },
@@ -384,7 +384,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Platform API Gateway and OIDC Authentication: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Platform Gateway to secure internal platform REST and gRPC endpoints against unauthorized access and denial-of-service traffic spikes.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to secure internal platform REST and gRPC endpoints against unauthorized access and denial-of-service traffic spikes.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Disable network firewalls and rate limiters to optimize throughput." },
@@ -405,7 +405,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Platform API Gateway and OIDC Authentication: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Platform Gateway to secure internal platform REST and gRPC endpoints against unauthorized access and denial-of-service traffic spikes.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to secure internal platform REST and gRPC endpoints against unauthorized access and denial-of-service traffic spikes.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Hardcode static administrative passwords in client frontend source code." },
@@ -426,7 +426,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Dynamic Webhook Interception and Failure Policies: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Admission Webhooks to ensure custom platform admission webhooks do not cause catastrophic cluster-wide outages if webhook pods temporarily fail.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to ensure custom platform admission webhooks do not cause catastrophic cluster-wide outages if webhook pods temporarily fail.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Set `failurePolicy: Ignore` for non-critical webhooks, configure strict `timeoutSeconds: 2`, and exclude the `kube-system` namespace." },
@@ -447,7 +447,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Dynamic Webhook Interception and Failure Policies: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Admission Webhooks to ensure custom platform admission webhooks do not cause catastrophic cluster-wide outages if webhook pods temporarily fail.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to ensure custom platform admission webhooks do not cause catastrophic cluster-wide outages if webhook pods temporarily fail.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Set `failurePolicy: Fail` on all cluster resources including kube-system with a 30-second timeout, freezing the entire cluster if the pod crashes." },
@@ -468,7 +468,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Dynamic Webhook Interception and Failure Policies: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Admission Webhooks to ensure custom platform admission webhooks do not cause catastrophic cluster-wide outages if webhook pods temporarily fail.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to ensure custom platform admission webhooks do not cause catastrophic cluster-wide outages if webhook pods temporarily fail.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Set `failurePolicy: Fail` on all cluster resources including kube-system with a 30-second timeout, freezing the entire cluster if the pod crashes." },
@@ -489,7 +489,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Dynamic Webhook Interception and Failure Policies: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Admission Webhooks to ensure custom platform admission webhooks do not cause catastrophic cluster-wide outages if webhook pods temporarily fail.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to ensure custom platform admission webhooks do not cause catastrophic cluster-wide outages if webhook pods temporarily fail.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Set `failurePolicy: Ignore` for non-critical webhooks, configure strict `timeoutSeconds: 2`, and exclude the `kube-system` namespace." },
@@ -510,7 +510,7 @@ export const CNCF_CNPE_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Dynamic Webhook Interception and Failure Policies: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Admission Webhooks to ensure custom platform admission webhooks do not cause catastrophic cluster-wide outages if webhook pods temporarily fail.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to ensure custom platform admission webhooks do not cause catastrophic cluster-wide outages if webhook pods temporarily fail.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Allow admission webhooks to intercept their own deployment pods, creating recursive deadlock loops." },

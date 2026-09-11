@@ -6,7 +6,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Secret Manager Rotation and Automatic Secret Notification: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Secret Management to automatically trigger a Cloud Function to rotate an external database password every 30 days and update Secret Manager with the new version.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to automatically trigger a Cloud Function to rotate an external database password every 30 days and update Secret Manager with the new version.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Hardcode database credentials in application source code files." },
@@ -27,7 +27,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Secret Manager Rotation and Automatic Secret Notification: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Secret Management to automatically trigger a Cloud Function to rotate an external database password every 30 days and update Secret Manager with the new version.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to automatically trigger a Cloud Function to rotate an external database password every 30 days and update Secret Manager with the new version.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Hardcode database credentials in application source code files." },
@@ -48,7 +48,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Secret Manager Rotation and Automatic Secret Notification: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Secret Management to automatically trigger a Cloud Function to rotate an external database password every 30 days and update Secret Manager with the new version.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to automatically trigger a Cloud Function to rotate an external database password every 30 days and update Secret Manager with the new version.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Hardcode database credentials in application source code files." },
@@ -69,7 +69,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Secret Manager Rotation and Automatic Secret Notification: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Secret Management to automatically trigger a Cloud Function to rotate an external database password every 30 days and update Secret Manager with the new version.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to automatically trigger a Cloud Function to rotate an external database password every 30 days and update Secret Manager with the new version.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Keep the same database password permanently without rotation to avoid breaking applications." },
@@ -90,7 +90,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Secret Manager Rotation and Automatic Secret Notification: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Secret Management to automatically trigger a Cloud Function to rotate an external database password every 30 days and update Secret Manager with the new version.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to automatically trigger a Cloud Function to rotate an external database password every 30 days and update Secret Manager with the new version.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Hardcode database credentials in application source code files." },
@@ -111,7 +111,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Committed Use Discounts (CUDs) vs Spot VMs: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Cloud Cost Optimization to optimize compute spending for a predictable 24/7 production core database running 100 vCPUs, alongside a batch video encoding pipeline that can tolerate sudden VM preemptions.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to optimize compute spending for a predictable 24/7 production core database running 100 vCPUs, alongside a batch video encoding pipeline that can tolerate sudden VM preemptions.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Purchase 1-year or 3-year Committed Use Discounts (CUDs) for the database, and use Spot VMs for the batch encoding pipeline." },
@@ -132,7 +132,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Committed Use Discounts (CUDs) vs Spot VMs: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Cloud Cost Optimization to optimize compute spending for a predictable 24/7 production core database running 100 vCPUs, alongside a batch video encoding pipeline that can tolerate sudden VM preemptions.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to optimize compute spending for a predictable 24/7 production core database running 100 vCPUs, alongside a batch video encoding pipeline that can tolerate sudden VM preemptions.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Purchase 1-year or 3-year Committed Use Discounts (CUDs) for the database, and use Spot VMs for the batch encoding pipeline." },
@@ -153,7 +153,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Committed Use Discounts (CUDs) vs Spot VMs: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Cloud Cost Optimization to optimize compute spending for a predictable 24/7 production core database running 100 vCPUs, alongside a batch video encoding pipeline that can tolerate sudden VM preemptions.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to optimize compute spending for a predictable 24/7 production core database running 100 vCPUs, alongside a batch video encoding pipeline that can tolerate sudden VM preemptions.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Run all workloads on on-demand instances at list price." },
@@ -174,7 +174,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Committed Use Discounts (CUDs) vs Spot VMs: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Cloud Cost Optimization to optimize compute spending for a predictable 24/7 production core database running 100 vCPUs, alongside a batch video encoding pipeline that can tolerate sudden VM preemptions.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to optimize compute spending for a predictable 24/7 production core database running 100 vCPUs, alongside a batch video encoding pipeline that can tolerate sudden VM preemptions.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Purchase 1-year or 3-year Committed Use Discounts (CUDs) for the database, and use Spot VMs for the batch encoding pipeline." },
@@ -195,7 +195,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Committed Use Discounts (CUDs) vs Spot VMs: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Cloud Cost Optimization to optimize compute spending for a predictable 24/7 production core database running 100 vCPUs, alongside a batch video encoding pipeline that can tolerate sudden VM preemptions.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to optimize compute spending for a predictable 24/7 production core database running 100 vCPUs, alongside a batch video encoding pipeline that can tolerate sudden VM preemptions.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Run the production mission-critical database on Spot VMs without persistent backups." },
@@ -216,7 +216,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Google Cloud Active Assist Recommender: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Cloud Optimization to identify oversized virtual machines across 50 projects and uncover unattached persistent disks to reduce enterprise cloud waste automatically.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to identify oversized virtual machines across 50 projects and uncover unattached persistent disks to reduce enterprise cloud waste automatically.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Delete all virtual machines that have less than 90% average CPU utilization." },
@@ -237,7 +237,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Google Cloud Active Assist Recommender: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Cloud Optimization to identify oversized virtual machines across 50 projects and uncover unattached persistent disks to reduce enterprise cloud waste automatically.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to identify oversized virtual machines across 50 projects and uncover unattached persistent disks to reduce enterprise cloud waste automatically.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Review and apply VM rightsizing and idle resource recommendations provided by Active Assist Recommender." },
@@ -258,7 +258,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Google Cloud Active Assist Recommender: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Cloud Optimization to identify oversized virtual machines across 50 projects and uncover unattached persistent disks to reduce enterprise cloud waste automatically.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to identify oversized virtual machines across 50 projects and uncover unattached persistent disks to reduce enterprise cloud waste automatically.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Manually inspect task managers on all 1,000 virtual machines over several weeks." },
@@ -279,7 +279,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Google Cloud Active Assist Recommender: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Cloud Optimization to identify oversized virtual machines across 50 projects and uncover unattached persistent disks to reduce enterprise cloud waste automatically.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to identify oversized virtual machines across 50 projects and uncover unattached persistent disks to reduce enterprise cloud waste automatically.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Manually inspect task managers on all 1,000 virtual machines over several weeks." },
@@ -300,7 +300,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Google Cloud Active Assist Recommender: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Cloud Optimization to identify oversized virtual machines across 50 projects and uncover unattached persistent disks to reduce enterprise cloud waste automatically.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to identify oversized virtual machines across 50 projects and uncover unattached persistent disks to reduce enterprise cloud waste automatically.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Review and apply VM rightsizing and idle resource recommendations provided by Active Assist Recommender." },
@@ -321,7 +321,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Cloud Architecture Framework Five Pillars: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Cloud Architecture Framework to conduct a formal architectural well-architected review of an enterprise banking solution before production launch against Google Cloud best practices.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to conduct a formal architectural well-architected review of an enterprise banking solution before production launch against Google Cloud best practices.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely solely on developer intuition and informal verbal discussions." },
@@ -342,7 +342,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Cloud Architecture Framework Five Pillars: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Cloud Architecture Framework to conduct a formal architectural well-architected review of an enterprise banking solution before production launch against Google Cloud best practices.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to conduct a formal architectural well-architected review of an enterprise banking solution before production launch against Google Cloud best practices.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Evaluate the architecture against the five pillars of the Google Cloud Architecture Framework." },
@@ -363,7 +363,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Cloud Architecture Framework Five Pillars: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Cloud Architecture Framework to conduct a formal architectural well-architected review of an enterprise banking solution before production launch against Google Cloud best practices.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to conduct a formal architectural well-architected review of an enterprise banking solution before production launch against Google Cloud best practices.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Rely solely on developer intuition and informal verbal discussions." },
@@ -384,7 +384,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Cloud Architecture Framework Five Pillars: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Cloud Architecture Framework to conduct a formal architectural well-architected review of an enterprise banking solution before production launch against Google Cloud best practices.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to conduct a formal architectural well-architected review of an enterprise banking solution before production launch against Google Cloud best practices.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Skip architecture validation to accelerate immediate feature deployment." },
@@ -405,7 +405,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Cloud Architecture Framework Five Pillars: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Cloud Architecture Framework to conduct a formal architectural well-architected review of an enterprise banking solution before production launch against Google Cloud best practices.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to conduct a formal architectural well-architected review of an enterprise banking solution before production launch against Google Cloud best practices.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Conduct a compliance review focused strictly on physical data center door locks." },
@@ -426,7 +426,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Cloud Storage Autoclass for Dynamic Tiering: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Cloud Storage Optimization to eliminate manual lifecycle management rules for an unstructured analytics bucket with unpredictable, shifting data access patterns.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to eliminate manual lifecycle management rules for an unstructured analytics bucket with unpredictable, shifting data access patterns.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Write a custom background thread that modifies storage classes daily via REST API calls." },
@@ -447,7 +447,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Cloud Storage Autoclass for Dynamic Tiering: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Cloud Storage Optimization to eliminate manual lifecycle management rules for an unstructured analytics bucket with unpredictable, shifting data access patterns.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to eliminate manual lifecycle management rules for an unstructured analytics bucket with unpredictable, shifting data access patterns.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Set all objects permanently to Standard storage class." },
@@ -468,7 +468,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Cloud Storage Autoclass for Dynamic Tiering: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Cloud Storage Optimization to eliminate manual lifecycle management rules for an unstructured analytics bucket with unpredictable, shifting data access patterns.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to eliminate manual lifecycle management rules for an unstructured analytics bucket with unpredictable, shifting data access patterns.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Delete data after 30 days regardless of whether analysts still need it." },
@@ -489,7 +489,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Cloud Storage Autoclass for Dynamic Tiering: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Cloud Storage Optimization to eliminate manual lifecycle management rules for an unstructured analytics bucket with unpredictable, shifting data access patterns.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to eliminate manual lifecycle management rules for an unstructured analytics bucket with unpredictable, shifting data access patterns.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Enable Cloud Storage Autoclass on the bucket to automatically transition objects between hot and cold classes based on access history." },
@@ -510,7 +510,7 @@ export const GCP_PCA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Cloud Storage Autoclass for Dynamic Tiering: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Cloud Storage Optimization to eliminate manual lifecycle management rules for an unstructured analytics bucket with unpredictable, shifting data access patterns.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to eliminate manual lifecycle management rules for an unstructured analytics bucket with unpredictable, shifting data access patterns.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Enable Cloud Storage Autoclass on the bucket to automatically transition objects between hot and cold classes based on access history." },

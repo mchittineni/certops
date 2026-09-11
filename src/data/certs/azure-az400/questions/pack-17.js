@@ -6,7 +6,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Infrastructure Deployment with Bicep and Terraform in CI/CD: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates IaC Pipelines to validate and preview infrastructure changes in pull requests before automatically deploying them upon merge to the main branch.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to validate and preview infrastructure changes in pull requests before automatically deploying them upon merge to the main branch.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Run deployment scripts with manual confirmation directly from developer laptops." },
@@ -27,7 +27,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Infrastructure Deployment with Bicep and Terraform in CI/CD: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates IaC Pipelines to validate and preview infrastructure changes in pull requests before automatically deploying them upon merge to the main branch.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to validate and preview infrastructure changes in pull requests before automatically deploying them upon merge to the main branch.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Run `az deployment sub what-if` (or `terraform plan`) during pull request validation, and execute deployment only after merge to main." },
@@ -48,7 +48,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Infrastructure Deployment with Bicep and Terraform in CI/CD: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates IaC Pipelines to validate and preview infrastructure changes in pull requests before automatically deploying them upon merge to the main branch.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to validate and preview infrastructure changes in pull requests before automatically deploying them upon merge to the main branch.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Run deployment scripts with manual confirmation directly from developer laptops." },
@@ -69,7 +69,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Infrastructure Deployment with Bicep and Terraform in CI/CD: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates IaC Pipelines to validate and preview infrastructure changes in pull requests before automatically deploying them upon merge to the main branch.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to validate and preview infrastructure changes in pull requests before automatically deploying them upon merge to the main branch.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Disable infrastructure as code and configure Azure resources via the portal." },
@@ -90,7 +90,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Infrastructure Deployment with Bicep and Terraform in CI/CD: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates IaC Pipelines to validate and preview infrastructure changes in pull requests before automatically deploying them upon merge to the main branch.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to validate and preview infrastructure changes in pull requests before automatically deploying them upon merge to the main branch.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Run deployment scripts with manual confirmation directly from developer laptops." },
@@ -111,7 +111,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Docker and Kubernetes Deployments with Helm in Pipelines: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Container Delivery to automate container building, pushing to Azure Container Registry (ACR), and deploying to Azure Kubernetes Service (AKS) using Helm.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to automate container building, pushing to Azure Container Registry (ACR), and deploying to Azure Kubernetes Service (AKS) using Helm.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Manually execute `kubectl apply` commands over an SSH connection to an AKS node." },
@@ -132,7 +132,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Docker and Kubernetes Deployments with Helm in Pipelines: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Container Delivery to automate container building, pushing to Azure Container Registry (ACR), and deploying to Azure Kubernetes Service (AKS) using Helm.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to automate container building, pushing to Azure Container Registry (ACR), and deploying to Azure Kubernetes Service (AKS) using Helm.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Reinstall the AKS cluster for every new application version." },
@@ -153,7 +153,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Docker and Kubernetes Deployments with Helm in Pipelines: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Container Delivery to automate container building, pushing to Azure Container Registry (ACR), and deploying to Azure Kubernetes Service (AKS) using Helm.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to automate container building, pushing to Azure Container Registry (ACR), and deploying to Azure Kubernetes Service (AKS) using Helm.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Manually execute `kubectl apply` commands over an SSH connection to an AKS node." },
@@ -174,7 +174,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Docker and Kubernetes Deployments with Helm in Pipelines: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Container Delivery to automate container building, pushing to Azure Container Registry (ACR), and deploying to Azure Kubernetes Service (AKS) using Helm.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to automate container building, pushing to Azure Container Registry (ACR), and deploying to Azure Kubernetes Service (AKS) using Helm.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Reinstall the AKS cluster for every new application version." },
@@ -195,7 +195,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Docker and Kubernetes Deployments with Helm in Pipelines: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Container Delivery to automate container building, pushing to Azure Container Registry (ACR), and deploying to Azure Kubernetes Service (AKS) using Helm.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to automate container building, pushing to Azure Container Registry (ACR), and deploying to Azure Kubernetes Service (AKS) using Helm.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Bake application secrets into the container image and deploy using raw manifests." },
@@ -216,7 +216,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Pipeline Decorators for Organization-Wide Governance: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Pipeline Decorators to enforce a requirement that every pipeline in an Azure DevOps organization must run a security compliance scan without modifying individual pipeline YAML files.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to enforce a requirement that every pipeline in an Azure DevOps organization must run a security compliance scan without modifying individual pipeline YAML files.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Implement a custom Azure DevOps Pipeline Decorator that automatically injects the security scanning task into every pipeline job." },
@@ -237,7 +237,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Pipeline Decorators for Organization-Wide Governance: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Pipeline Decorators to enforce a requirement that every pipeline in an Azure DevOps organization must run a security compliance scan without modifying individual pipeline YAML files.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to enforce a requirement that every pipeline in an Azure DevOps organization must run a security compliance scan without modifying individual pipeline YAML files.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Implement a custom Azure DevOps Pipeline Decorator that automatically injects the security scanning task into every pipeline job." },
@@ -258,7 +258,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Pipeline Decorators for Organization-Wide Governance: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Pipeline Decorators to enforce a requirement that every pipeline in an Azure DevOps organization must run a security compliance scan without modifying individual pipeline YAML files.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to enforce a requirement that every pipeline in an Azure DevOps organization must run a security compliance scan without modifying individual pipeline YAML files.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Open pull requests against 500 individual repositories to manually paste the security task." },
@@ -279,7 +279,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Pipeline Decorators for Organization-Wide Governance: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Pipeline Decorators to enforce a requirement that every pipeline in an Azure DevOps organization must run a security compliance scan without modifying individual pipeline YAML files.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to enforce a requirement that every pipeline in an Azure DevOps organization must run a security compliance scan without modifying individual pipeline YAML files.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Implement a custom Azure DevOps Pipeline Decorator that automatically injects the security scanning task into every pipeline job." },
@@ -300,7 +300,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Pipeline Decorators for Organization-Wide Governance: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Pipeline Decorators to enforce a requirement that every pipeline in an Azure DevOps organization must run a security compliance scan without modifying individual pipeline YAML files.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to enforce a requirement that every pipeline in an Azure DevOps organization must run a security compliance scan without modifying individual pipeline YAML files.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Trust all development teams to voluntarily remember to include the security scanner." },
@@ -321,7 +321,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Automating Database Deployments with DACPAC and Liquibase: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Database CI/CD to deploy relational database schema updates to Azure SQL Database automatically in continuous delivery pipelines without data loss.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to deploy relational database schema updates to Azure SQL Database automatically in continuous delivery pipelines without data loss.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Run ad-hoc SQL update scripts manually through SQL Server Management Studio during outages." },
@@ -342,7 +342,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Automating Database Deployments with DACPAC and Liquibase: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Database CI/CD to deploy relational database schema updates to Azure SQL Database automatically in continuous delivery pipelines without data loss.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to deploy relational database schema updates to Azure SQL Database automatically in continuous delivery pipelines without data loss.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Use the `SqlAzureDacpacDeployment@1` task or Liquibase CLI in the pipeline to generate and apply incremental schema changes." },
@@ -363,7 +363,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Automating Database Deployments with DACPAC and Liquibase: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Database CI/CD to deploy relational database schema updates to Azure SQL Database automatically in continuous delivery pipelines without data loss.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to deploy relational database schema updates to Azure SQL Database automatically in continuous delivery pipelines without data loss.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Run ad-hoc SQL update scripts manually through SQL Server Management Studio during outages." },
@@ -384,7 +384,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Automating Database Deployments with DACPAC and Liquibase: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Database CI/CD to deploy relational database schema updates to Azure SQL Database automatically in continuous delivery pipelines without data loss.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to deploy relational database schema updates to Azure SQL Database automatically in continuous delivery pipelines without data loss.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Recreate the production database from scratch on every application release." },
@@ -405,7 +405,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Automating Database Deployments with DACPAC and Liquibase: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Database CI/CD to deploy relational database schema updates to Azure SQL Database automatically in continuous delivery pipelines without data loss.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to deploy relational database schema updates to Azure SQL Database automatically in continuous delivery pipelines without data loss.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Recreate the production database from scratch on every application release." },
@@ -426,7 +426,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Pipeline Triggers and PR Validation Filters: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Pipeline Triggers to configure a pipeline to run comprehensive integration tests only on pull requests targeting `main` and run nightly builds on a schedule.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to configure a pipeline to run comprehensive integration tests only on pull requests targeting `main` and run nightly builds on a schedule.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Trigger the full 4-hour test suite on every single commit to all personal feature branches." },
@@ -447,7 +447,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Pipeline Triggers and PR Validation Filters: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Pipeline Triggers to configure a pipeline to run comprehensive integration tests only on pull requests targeting `main` and run nightly builds on a schedule.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to configure a pipeline to run comprehensive integration tests only on pull requests targeting `main` and run nightly builds on a schedule.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Configure `pr: branches: include: [main]` for pull requests and `schedules: - cron: \"0 2 * * *\"` for nightly executions in the YAML file." },
@@ -468,7 +468,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Pipeline Triggers and PR Validation Filters: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Pipeline Triggers to configure a pipeline to run comprehensive integration tests only on pull requests targeting `main` and run nightly builds on a schedule.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to configure a pipeline to run comprehensive integration tests only on pull requests targeting `main` and run nightly builds on a schedule.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Configure `pr: branches: include: [main]` for pull requests and `schedules: - cron: \"0 2 * * *\"` for nightly executions in the YAML file." },
@@ -489,7 +489,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Pipeline Triggers and PR Validation Filters: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Pipeline Triggers to configure a pipeline to run comprehensive integration tests only on pull requests targeting `main` and run nightly builds on a schedule.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to configure a pipeline to run comprehensive integration tests only on pull requests targeting `main` and run nightly builds on a schedule.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Trigger the full 4-hour test suite on every single commit to all personal feature branches." },
@@ -510,7 +510,7 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Pipeline Triggers and PR Validation Filters: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Pipeline Triggers to configure a pipeline to run comprehensive integration tests only on pull requests targeting `main` and run nightly builds on a schedule.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to configure a pipeline to run comprehensive integration tests only on pull requests targeting `main` and run nightly builds on a schedule.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Disable all automated triggers and rely entirely on manual pipeline dispatches." },

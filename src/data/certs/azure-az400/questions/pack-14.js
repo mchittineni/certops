@@ -6,7 +6,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Forking Workflows for Secure InnerSource Collaboration: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates InnerSource & Forking to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Instruct developers to email zipped code folders to the core team." },
@@ -27,7 +27,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Forking Workflows for Secure InnerSource Collaboration: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates InnerSource & Forking to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Keep the core repository strictly private and prohibit contributions from other teams." },
@@ -48,7 +48,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Forking Workflows for Secure InnerSource Collaboration: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates InnerSource & Forking to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Instruct developers to email zipped code folders to the core team." },
@@ -69,7 +69,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Forking Workflows for Secure InnerSource Collaboration: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates InnerSource & Forking to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Keep the core repository strictly private and prohibit contributions from other teams." },
@@ -90,7 +90,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Forking Workflows for Secure InnerSource Collaboration: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates InnerSource & Forking to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Instruct developers to email zipped code folders to the core team." },
@@ -111,7 +111,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "YAML Multi-Stage Pipelines Structure: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Pipeline Architecture to author an enterprise CI/CD pipeline with distinct build, staging deployment, and production deployment stages governed by dependencies.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to author an enterprise CI/CD pipeline with distinct build, staging deployment, and production deployment stages governed by dependencies.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Put all build and deployment tasks into a single monolithic script with no stages." },
@@ -132,7 +132,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "YAML Multi-Stage Pipelines Structure: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Pipeline Architecture to author an enterprise CI/CD pipeline with distinct build, staging deployment, and production deployment stages governed by dependencies.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to author an enterprise CI/CD pipeline with distinct build, staging deployment, and production deployment stages governed by dependencies.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Define an Azure Pipelines YAML file using `stages`, `jobs`, and `steps` hierarchy with `dependsOn` declarations linking sequential stages." },
@@ -153,7 +153,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "YAML Multi-Stage Pipelines Structure: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Pipeline Architecture to author an enterprise CI/CD pipeline with distinct build, staging deployment, and production deployment stages governed by dependencies.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to author an enterprise CI/CD pipeline with distinct build, staging deployment, and production deployment stages governed by dependencies.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Define an Azure Pipelines YAML file using `stages`, `jobs`, and `steps` hierarchy with `dependsOn` declarations linking sequential stages." },
@@ -174,7 +174,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "YAML Multi-Stage Pipelines Structure: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Pipeline Architecture to author an enterprise CI/CD pipeline with distinct build, staging deployment, and production deployment stages governed by dependencies.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to author an enterprise CI/CD pipeline with distinct build, staging deployment, and production deployment stages governed by dependencies.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Define an Azure Pipelines YAML file using `stages`, `jobs`, and `steps` hierarchy with `dependsOn` declarations linking sequential stages." },
@@ -195,7 +195,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "YAML Multi-Stage Pipelines Structure: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Pipeline Architecture to author an enterprise CI/CD pipeline with distinct build, staging deployment, and production deployment stages governed by dependencies.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to author an enterprise CI/CD pipeline with distinct build, staging deployment, and production deployment stages governed by dependencies.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Create three completely disconnected Classic release pipelines in the web UI." },
@@ -216,7 +216,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Microsoft-Hosted vs Self-Hosted Build Agents: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Agent Architecture to run build pipelines that require direct private network line-of-sight to on-premises database servers and custom licensed compilers.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to run build pipelines that require direct private network line-of-sight to on-premises database servers and custom licensed compilers.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Perform builds manually on an engineer's desktop without build agents." },
@@ -237,7 +237,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Microsoft-Hosted vs Self-Hosted Build Agents: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Agent Architecture to run build pipelines that require direct private network line-of-sight to on-premises database servers and custom licensed compilers.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to run build pipelines that require direct private network line-of-sight to on-premises database servers and custom licensed compilers.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Use Microsoft-Hosted agents which run on public Azure networks without on-premises connectivity." },
@@ -258,7 +258,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Microsoft-Hosted vs Self-Hosted Build Agents: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Agent Architecture to run build pipelines that require direct private network line-of-sight to on-premises database servers and custom licensed compilers.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to run build pipelines that require direct private network line-of-sight to on-premises database servers and custom licensed compilers.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Perform builds manually on an engineer's desktop without build agents." },
@@ -279,7 +279,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Microsoft-Hosted vs Self-Hosted Build Agents: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Agent Architecture to run build pipelines that require direct private network line-of-sight to on-premises database servers and custom licensed compilers.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to run build pipelines that require direct private network line-of-sight to on-premises database servers and custom licensed compilers.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Perform builds manually on an engineer's desktop without build agents." },
@@ -300,7 +300,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Microsoft-Hosted vs Self-Hosted Build Agents: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Agent Architecture to run build pipelines that require direct private network line-of-sight to on-premises database servers and custom licensed compilers.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to run build pipelines that require direct private network line-of-sight to on-premises database servers and custom licensed compilers.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Deploy Self-Hosted Azure DevOps Agents inside the private network configured in a dedicated Agent Pool." },
@@ -321,7 +321,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Azure Pipelines Agent Pools and Demands: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Agent Demands to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Manually assign jobs to specific agent IP addresses in the console." },
@@ -342,7 +342,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Azure Pipelines Agent Pools and Demands: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Agent Demands to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Install Xcode on Windows Server agents." },
@@ -363,7 +363,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Azure Pipelines Agent Pools and Demands: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Agent Demands to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Install Xcode on Windows Server agents." },
@@ -384,7 +384,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Azure Pipelines Agent Pools and Demands: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Agent Demands to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Install Xcode on Windows Server agents." },
@@ -405,7 +405,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Azure Pipelines Agent Pools and Demands: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Agent Demands to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Install Xcode on Windows Server agents." },
@@ -426,7 +426,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Containerized Build Jobs in Azure Pipelines: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Container Jobs to execute build and test steps inside an isolated, customized Linux container image without installing dependencies on the underlying host build agent.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to execute build and test steps inside an isolated, customized Linux container image without installing dependencies on the underlying host build agent.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Specify `container: &lt;image-name&gt;` at the job level in the Azure Pipelines YAML file." },
@@ -447,7 +447,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Containerized Build Jobs in Azure Pipelines: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Container Jobs to execute build and test steps inside an isolated, customized Linux container image without installing dependencies on the underlying host build agent.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to execute build and test steps inside an isolated, customized Linux container image without installing dependencies on the underlying host build agent.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Require all developers to install identical build tools on their personal workstations." },
@@ -468,7 +468,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Containerized Build Jobs in Azure Pipelines: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Container Jobs to execute build and test steps inside an isolated, customized Linux container image without installing dependencies on the underlying host build agent.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to execute build and test steps inside an isolated, customized Linux container image without installing dependencies on the underlying host build agent.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Install Docker manually inside a shell script and run `docker run` commands with volume mounts." },
@@ -489,7 +489,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Containerized Build Jobs in Azure Pipelines: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Container Jobs to execute build and test steps inside an isolated, customized Linux container image without installing dependencies on the underlying host build agent.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to execute build and test steps inside an isolated, customized Linux container image without installing dependencies on the underlying host build agent.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Require all developers to install identical build tools on their personal workstations." },
@@ -510,7 +510,7 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Containerized Build Jobs in Azure Pipelines: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Container Jobs to execute build and test steps inside an isolated, customized Linux container image without installing dependencies on the underlying host build agent.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to execute build and test steps inside an isolated, customized Linux container image without installing dependencies on the underlying host build agent.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Reimage the physical build agent VM before every build." },

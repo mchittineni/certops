@@ -6,7 +6,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Virtual Clusters (vcluster) Syncer Architecture: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates vcluster Syncer to provide 50 feature teams with independent cluster-admin rights and CRDs on shared infrastructure without API server performance degradation.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to provide 50 feature teams with independent cluster-admin rights and CRDs on shared infrastructure without API server performance degradation.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Deploy virtual clusters (vcluster), which run lightweight tenant control planes while a syncer forwards worker pods to the underlying host cluster." },
@@ -27,7 +27,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Virtual Clusters (vcluster) Syncer Architecture: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates vcluster Syncer to provide 50 feature teams with independent cluster-admin rights and CRDs on shared infrastructure without API server performance degradation.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to provide 50 feature teams with independent cluster-admin rights and CRDs on shared infrastructure without API server performance degradation.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Provision 50 costly, dedicated physical Kubernetes clusters with dedicated master and worker nodes." },
@@ -48,7 +48,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Virtual Clusters (vcluster) Syncer Architecture: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates vcluster Syncer to provide 50 feature teams with independent cluster-admin rights and CRDs on shared infrastructure without API server performance degradation.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to provide 50 feature teams with independent cluster-admin rights and CRDs on shared infrastructure without API server performance degradation.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Deploy virtual clusters (vcluster), which run lightweight tenant control planes while a syncer forwards worker pods to the underlying host cluster." },
@@ -69,7 +69,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Virtual Clusters (vcluster) Syncer Architecture: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates vcluster Syncer to provide 50 feature teams with independent cluster-admin rights and CRDs on shared infrastructure without API server performance degradation.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to provide 50 feature teams with independent cluster-admin rights and CRDs on shared infrastructure without API server performance degradation.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Deploy virtual clusters (vcluster), which run lightweight tenant control planes while a syncer forwards worker pods to the underlying host cluster." },
@@ -90,7 +90,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Virtual Clusters (vcluster) Syncer Architecture: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates vcluster Syncer to provide 50 feature teams with independent cluster-admin rights and CRDs on shared infrastructure without API server performance degradation.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to provide 50 feature teams with independent cluster-admin rights and CRDs on shared infrastructure without API server performance degradation.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Deploy virtual clusters (vcluster), which run lightweight tenant control planes while a syncer forwards worker pods to the underlying host cluster." },
@@ -111,7 +111,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Multi-Tenant Network Isolation with Cilium and eBPF: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Cilium eBPF to isolate multi-tenant microservices cryptographically and enforce strict L7 HTTP API path filtering without iptables overhead.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to isolate multi-tenant microservices cryptographically and enforce strict L7 HTTP API path filtering without iptables overhead.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Leave all internal cluster networking completely unsegmented and unencrypted." },
@@ -132,7 +132,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Multi-Tenant Network Isolation with Cilium and eBPF: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Cilium eBPF to isolate multi-tenant microservices cryptographically and enforce strict L7 HTTP API path filtering without iptables overhead.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to isolate multi-tenant microservices cryptographically and enforce strict L7 HTTP API path filtering without iptables overhead.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Rely on legacy iptables with tens of thousands of rules that cause severe packet processing latency and CPU bottlenecks." },
@@ -153,7 +153,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Multi-Tenant Network Isolation with Cilium and eBPF: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Cilium eBPF to isolate multi-tenant microservices cryptographically and enforce strict L7 HTTP API path filtering without iptables overhead.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to isolate multi-tenant microservices cryptographically and enforce strict L7 HTTP API path filtering without iptables overhead.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Disable network firewalls between application workloads and sensitive internal databases." },
@@ -174,7 +174,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Multi-Tenant Network Isolation with Cilium and eBPF: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Cilium eBPF to isolate multi-tenant microservices cryptographically and enforce strict L7 HTTP API path filtering without iptables overhead.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to isolate multi-tenant microservices cryptographically and enforce strict L7 HTTP API path filtering without iptables overhead.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Rely on legacy iptables with tens of thousands of rules that cause severe packet processing latency and CPU bottlenecks." },
@@ -195,7 +195,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Multi-Tenant Network Isolation with Cilium and eBPF: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Cilium eBPF to isolate multi-tenant microservices cryptographically and enforce strict L7 HTTP API path filtering without iptables overhead.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to isolate multi-tenant microservices cryptographically and enforce strict L7 HTTP API path filtering without iptables overhead.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Disable network firewalls between application workloads and sensitive internal databases." },
@@ -216,7 +216,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Hierarchical Namespace Management: Hierarchical Namespace Controller (HNC): Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Hierarchical Namespaces to manage multi-tenancy for an engineering department that requires shared quotas and role bindings across 20 child team namespaces.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to manage multi-tenancy for an engineering department that requires shared quotas and role bindings across 20 child team namespaces.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Disable resource quotas and allow a single misconfigured pod to starve the entire cluster of memory." },
@@ -237,7 +237,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Hierarchical Namespace Management: Hierarchical Namespace Controller (HNC): High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Hierarchical Namespaces to manage multi-tenancy for an engineering department that requires shared quotas and role bindings across 20 child team namespaces.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to manage multi-tenancy for an engineering department that requires shared quotas and role bindings across 20 child team namespaces.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Manually duplicate identical RBAC manifests and quota files across 20 separate namespaces using shell scripts." },
@@ -258,7 +258,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Hierarchical Namespace Management: Hierarchical Namespace Controller (HNC): Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Hierarchical Namespaces to manage multi-tenancy for an engineering department that requires shared quotas and role bindings across 20 child team namespaces.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to manage multi-tenancy for an engineering department that requires shared quotas and role bindings across 20 child team namespaces.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Deploy the Hierarchical Namespace Controller (HNC) to establish parent-child namespace relationships with automated policy inheritance." },
@@ -279,7 +279,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Hierarchical Namespace Management: Hierarchical Namespace Controller (HNC): Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Hierarchical Namespaces to manage multi-tenancy for an engineering department that requires shared quotas and role bindings across 20 child team namespaces.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to manage multi-tenancy for an engineering department that requires shared quotas and role bindings across 20 child team namespaces.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Merge all 20 teams into a single flat namespace where developers can accidentally delete each other's pods." },
@@ -300,7 +300,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Hierarchical Namespace Management: Hierarchical Namespace Controller (HNC): Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Hierarchical Namespaces to manage multi-tenancy for an engineering department that requires shared quotas and role bindings across 20 child team namespaces.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to manage multi-tenancy for an engineering department that requires shared quotas and role bindings across 20 child team namespaces.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Merge all 20 teams into a single flat namespace where developers can accidentally delete each other's pods." },
@@ -321,7 +321,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Advanced Compute Isolation: Kata Containers and MicroVMs: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates MicroVM Isolation to run multi-tenant untrusted user-submitted code or multi-tenant AI inference jobs with hardware-level virtualization isolation.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to run multi-tenant untrusted user-submitted code or multi-tenant AI inference jobs with hardware-level virtualization isolation.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Disable Linux kernel seccomp, AppArmor, and cgroup isolation." },
@@ -342,7 +342,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Advanced Compute Isolation: Kata Containers and MicroVMs: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates MicroVM Isolation to run multi-tenant untrusted user-submitted code or multi-tenant AI inference jobs with hardware-level virtualization isolation.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to run multi-tenant untrusted user-submitted code or multi-tenant AI inference jobs with hardware-level virtualization isolation.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Configure Kubernetes `RuntimeClass` pointing to Kata Containers, executing each pod within a dedicated, lightweight QEMU/Cloud-Hypervisor microVM." },
@@ -363,7 +363,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Advanced Compute Isolation: Kata Containers and MicroVMs: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates MicroVM Isolation to run multi-tenant untrusted user-submitted code or multi-tenant AI inference jobs with hardware-level virtualization isolation.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to run multi-tenant untrusted user-submitted code or multi-tenant AI inference jobs with hardware-level virtualization isolation.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Disable Linux kernel seccomp, AppArmor, and cgroup isolation." },
@@ -384,7 +384,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Advanced Compute Isolation: Kata Containers and MicroVMs: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates MicroVM Isolation to run multi-tenant untrusted user-submitted code or multi-tenant AI inference jobs with hardware-level virtualization isolation.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to run multi-tenant untrusted user-submitted code or multi-tenant AI inference jobs with hardware-level virtualization isolation.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Execute untrusted code directly inside privileged root containers on shared bare-metal host kernels." },
@@ -405,7 +405,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Advanced Compute Isolation: Kata Containers and MicroVMs: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates MicroVM Isolation to run multi-tenant untrusted user-submitted code or multi-tenant AI inference jobs with hardware-level virtualization isolation.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to run multi-tenant untrusted user-submitted code or multi-tenant AI inference jobs with hardware-level virtualization isolation.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Configure Kubernetes `RuntimeClass` pointing to Kata Containers, executing each pod within a dedicated, lightweight QEMU/Cloud-Hypervisor microVM." },
@@ -426,7 +426,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Stateful Storage Orchestration: Rook-Ceph and Dynamic CSI: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Stateful Storage to provide stateful database pods with distributed, self-healing block and filesystem storage across on-premises bare-metal Kubernetes clusters.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to provide stateful database pods with distributed, self-healing block and filesystem storage across on-premises bare-metal Kubernetes clusters.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Deploy Rook-Ceph to orchestrate software-defined distributed Ceph storage pools exposed via dynamic Kubernetes `StorageClasses`." },
@@ -447,7 +447,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Stateful Storage Orchestration: Rook-Ceph and Dynamic CSI: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Stateful Storage to provide stateful database pods with distributed, self-healing block and filesystem storage across on-premises bare-metal Kubernetes clusters.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to provide stateful database pods with distributed, self-healing block and filesystem storage across on-premises bare-metal Kubernetes clusters.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Deploy Rook-Ceph to orchestrate software-defined distributed Ceph storage pools exposed via dynamic Kubernetes `StorageClasses`." },
@@ -468,7 +468,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Stateful Storage Orchestration: Rook-Ceph and Dynamic CSI: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Stateful Storage to provide stateful database pods with distributed, self-healing block and filesystem storage across on-premises bare-metal Kubernetes clusters.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to provide stateful database pods with distributed, self-healing block and filesystem storage across on-premises bare-metal Kubernetes clusters.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Deploy Rook-Ceph to orchestrate software-defined distributed Ceph storage pools exposed via dynamic Kubernetes `StorageClasses`." },
@@ -489,7 +489,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Stateful Storage Orchestration: Rook-Ceph and Dynamic CSI: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Stateful Storage to provide stateful database pods with distributed, self-healing block and filesystem storage across on-premises bare-metal Kubernetes clusters.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to provide stateful database pods with distributed, self-healing block and filesystem storage across on-premises bare-metal Kubernetes clusters.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Deploy Rook-Ceph to orchestrate software-defined distributed Ceph storage pools exposed via dynamic Kubernetes `StorageClasses`." },
@@ -510,7 +510,7 @@ export const CNCF_CNPE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Stateful Storage Orchestration: Rook-Ceph and Dynamic CSI: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Stateful Storage to provide stateful database pods with distributed, self-healing block and filesystem storage across on-premises bare-metal Kubernetes clusters.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to provide stateful database pods with distributed, self-healing block and filesystem storage across on-premises bare-metal Kubernetes clusters.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Deploy Rook-Ceph to orchestrate software-defined distributed Ceph storage pools exposed via dynamic Kubernetes `StorageClasses`." },

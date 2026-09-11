@@ -6,7 +6,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "BigQuery ML (BQML) Feature Engineering & Modeling: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates BigQuery ML to train and evaluate a customer churn prediction model directly on 10 terabytes of tabular data in BigQuery using standard SQL without exporting data to external Python runtimes.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to train and evaluate a customer churn prediction model directly on 10 terabytes of tabular data in BigQuery using standard SQL without exporting data to external Python runtimes.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? TRANSFORM clause, ML.",
     options: [
       { id: 'A', text: "Write custom MapReduce jobs in Java on an on-premises Hadoop cluster." },
@@ -27,7 +27,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "BigQuery ML (BQML) Feature Engineering & Modeling: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates BigQuery ML to train and evaluate a customer churn prediction model directly on 10 terabytes of tabular data in BigQuery using standard SQL without exporting data to external Python runtimes.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to train and evaluate a customer churn prediction model directly on 10 terabytes of tabular data in BigQuery using standard SQL without exporting data to external Python runtimes.",
     question: "Which architectural approach should the team select to manage this demand efficiently? TRANSFORM clause, ML.",
     options: [
       { id: 'A', text: "Manually calculate probabilities in Excel spreadsheets." },
@@ -48,7 +48,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "BigQuery ML (BQML) Feature Engineering & Modeling: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates BigQuery ML to train and evaluate a customer churn prediction model directly on 10 terabytes of tabular data in BigQuery using standard SQL without exporting data to external Python runtimes.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to train and evaluate a customer churn prediction model directly on 10 terabytes of tabular data in BigQuery using standard SQL without exporting data to external Python runtimes.",
     question: "Which solution properly implements these mandatory security and governance controls? TRANSFORM clause, ML.",
     options: [
       { id: 'A', text: "Train a classification model using BigQuery ML (CREATE OR REPLACE MODEL ... OPTIONS(model_type='boosted_tree_classifier'))." },
@@ -69,7 +69,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "BigQuery ML (BQML) Feature Engineering & Modeling: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates BigQuery ML to train and evaluate a customer churn prediction model directly on 10 terabytes of tabular data in BigQuery using standard SQL without exporting data to external Python runtimes.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to train and evaluate a customer churn prediction model directly on 10 terabytes of tabular data in BigQuery using standard SQL without exporting data to external Python runtimes.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? TRANSFORM clause, ML.",
     options: [
       { id: 'A', text: "Export all 10 TB of data to local CSV files on developer laptops and train using scikit-learn." },
@@ -90,7 +90,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "BigQuery ML (BQML) Feature Engineering & Modeling: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates BigQuery ML to train and evaluate a customer churn prediction model directly on 10 terabytes of tabular data in BigQuery using standard SQL without exporting data to external Python runtimes.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to train and evaluate a customer churn prediction model directly on 10 terabytes of tabular data in BigQuery using standard SQL without exporting data to external Python runtimes.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? TRANSFORM clause, ML.",
     options: [
       { id: 'A', text: "Train a classification model using BigQuery ML (CREATE OR REPLACE MODEL ... OPTIONS(model_type='boosted_tree_classifier'))." },
@@ -111,7 +111,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Dataflow and Apache Beam for Distributed Preprocessing: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Data Preprocessing to preprocess, tokenize, and normalize terabytes of raw unstructured text records in parallel before feeding them into a deep learning training pipeline.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to preprocess, tokenize, and normalize terabytes of raw unstructured text records in parallel before feeding them into a deep learning training pipeline.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Build an Apache Beam pipeline executing distributed transformations and run it on Google Cloud Dataflow." },
@@ -132,7 +132,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Dataflow and Apache Beam for Distributed Preprocessing: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Data Preprocessing to preprocess, tokenize, and normalize terabytes of raw unstructured text records in parallel before feeding them into a deep learning training pipeline.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to preprocess, tokenize, and normalize terabytes of raw unstructured text records in parallel before feeding them into a deep learning training pipeline.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Use manual string search-and-replace scripts inside a desktop text editor." },
@@ -153,7 +153,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Dataflow and Apache Beam for Distributed Preprocessing: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Data Preprocessing to preprocess, tokenize, and normalize terabytes of raw unstructured text records in parallel before feeding them into a deep learning training pipeline.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to preprocess, tokenize, and normalize terabytes of raw unstructured text records in parallel before feeding them into a deep learning training pipeline.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Store raw unprocessed text directly in the training pipeline and perform CPU tokenization inside the training loop." },
@@ -174,7 +174,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Dataflow and Apache Beam for Distributed Preprocessing: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Data Preprocessing to preprocess, tokenize, and normalize terabytes of raw unstructured text records in parallel before feeding them into a deep learning training pipeline.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to preprocess, tokenize, and normalize terabytes of raw unstructured text records in parallel before feeding them into a deep learning training pipeline.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Build an Apache Beam pipeline executing distributed transformations and run it on Google Cloud Dataflow." },
@@ -195,7 +195,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Dataflow and Apache Beam for Distributed Preprocessing: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Data Preprocessing to preprocess, tokenize, and normalize terabytes of raw unstructured text records in parallel before feeding them into a deep learning training pipeline.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to preprocess, tokenize, and normalize terabytes of raw unstructured text records in parallel before feeding them into a deep learning training pipeline.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Store raw unprocessed text directly in the training pipeline and perform CPU tokenization inside the training loop." },
@@ -216,7 +216,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "TensorFlow Transform (tf.transform) for Train-Serve Parity: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Feature Engineering to eliminate training-serving skew by ensuring that identical numerical scaling and categorical vocabulary transformations apply during both batch training and real-time online serving.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to eliminate training-serving skew by ensuring that identical numerical scaling and categorical vocabulary transformations apply during both batch training and real-time online serving.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? tf.",
     options: [
       { id: 'A', text: "Disable all feature scaling and normalization to avoid discrepancies." },
@@ -237,7 +237,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "TensorFlow Transform (tf.transform) for Train-Serve Parity: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Feature Engineering to eliminate training-serving skew by ensuring that identical numerical scaling and categorical vocabulary transformations apply during both batch training and real-time online serving.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to eliminate training-serving skew by ensuring that identical numerical scaling and categorical vocabulary transformations apply during both batch training and real-time online serving.",
     question: "Which architectural approach should the team select to manage this demand efficiently? tf.",
     options: [
       { id: 'A', text: "Calculate scaling factors dynamically on each individual incoming online prediction request." },
@@ -258,7 +258,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "TensorFlow Transform (tf.transform) for Train-Serve Parity: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Feature Engineering to eliminate training-serving skew by ensuring that identical numerical scaling and categorical vocabulary transformations apply during both batch training and real-time online serving.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to eliminate training-serving skew by ensuring that identical numerical scaling and categorical vocabulary transformations apply during both batch training and real-time online serving.",
     question: "Which solution properly implements these mandatory security and governance controls? tf.",
     options: [
       { id: 'A', text: "Calculate scaling factors dynamically on each individual incoming online prediction request." },
@@ -279,7 +279,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "TensorFlow Transform (tf.transform) for Train-Serve Parity: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Feature Engineering to eliminate training-serving skew by ensuring that identical numerical scaling and categorical vocabulary transformations apply during both batch training and real-time online serving.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to eliminate training-serving skew by ensuring that identical numerical scaling and categorical vocabulary transformations apply during both batch training and real-time online serving.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? tf.",
     options: [
       { id: 'A', text: "Implement preprocessing in Python for training and rewrite the logic in JavaScript for serving." },
@@ -300,7 +300,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "TensorFlow Transform (tf.transform) for Train-Serve Parity: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Feature Engineering to eliminate training-serving skew by ensuring that identical numerical scaling and categorical vocabulary transformations apply during both batch training and real-time online serving.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to eliminate training-serving skew by ensuring that identical numerical scaling and categorical vocabulary transformations apply during both batch training and real-time online serving.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? tf.",
     options: [
       { id: 'A', text: "Calculate scaling factors dynamically on each individual incoming online prediction request." },
@@ -321,7 +321,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Feature Store (Vertex AI Feature Store): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Vertex AI Feature Store to share, discover, and serve calculated customer features (e.g. 30-day purchase count) across 10 different ML models with sub-10ms online serving and point-in-time historical correctness.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to share, discover, and serve calculated customer features (e.g. 30-day purchase count) across 10 different ML models with sub-10ms online serving and point-in-time historical correctness.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Hardcode calculated feature values directly into application source code." },
@@ -342,7 +342,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Feature Store (Vertex AI Feature Store): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Vertex AI Feature Store to share, discover, and serve calculated customer features (e.g. 30-day purchase count) across 10 different ML models with sub-10ms online serving and point-in-time historical correctness.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to share, discover, and serve calculated customer features (e.g. 30-day purchase count) across 10 different ML models with sub-10ms online serving and point-in-time historical correctness.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy Vertex AI Feature Store to manage feature registries, online low-latency serving, and point-in-time time-travel lookups." },
@@ -363,7 +363,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Feature Store (Vertex AI Feature Store): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Vertex AI Feature Store to share, discover, and serve calculated customer features (e.g. 30-day purchase count) across 10 different ML models with sub-10ms online serving and point-in-time historical correctness.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to share, discover, and serve calculated customer features (e.g. 30-day purchase count) across 10 different ML models with sub-10ms online serving and point-in-time historical correctness.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Hardcode calculated feature values directly into application source code." },
@@ -384,7 +384,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Feature Store (Vertex AI Feature Store): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Vertex AI Feature Store to share, discover, and serve calculated customer features (e.g. 30-day purchase count) across 10 different ML models with sub-10ms online serving and point-in-time historical correctness.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to share, discover, and serve calculated customer features (e.g. 30-day purchase count) across 10 different ML models with sub-10ms online serving and point-in-time historical correctness.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy Vertex AI Feature Store to manage feature registries, online low-latency serving, and point-in-time time-travel lookups." },
@@ -405,7 +405,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Feature Store (Vertex AI Feature Store): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Vertex AI Feature Store to share, discover, and serve calculated customer features (e.g. 30-day purchase count) across 10 different ML models with sub-10ms online serving and point-in-time historical correctness.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to share, discover, and serve calculated customer features (e.g. 30-day purchase count) across 10 different ML models with sub-10ms online serving and point-in-time historical correctness.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Have each data science team re-calculate features independently in their own training scripts." },
@@ -426,7 +426,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Handling Missing Data and Imputation Strategies: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Data Quality to handle missing numerical and categorical values in a tabular training dataset without dropping 40% of valuable customer transaction rows.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to handle missing numerical and categorical values in a tabular training dataset without dropping 40% of valuable customer transaction rows.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Delete all rows that contain at least one missing value." },
@@ -447,7 +447,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Handling Missing Data and Imputation Strategies: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Data Quality to handle missing numerical and categorical values in a tabular training dataset without dropping 40% of valuable customer transaction rows.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to handle missing numerical and categorical values in a tabular training dataset without dropping 40% of valuable customer transaction rows.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Apply appropriate imputation strategies (median for skewed numbers, mode or dedicated 'MISSING' category for categorical features)." },
@@ -468,7 +468,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Handling Missing Data and Imputation Strategies: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Data Quality to handle missing numerical and categorical values in a tabular training dataset without dropping 40% of valuable customer transaction rows.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to handle missing numerical and categorical values in a tabular training dataset without dropping 40% of valuable customer transaction rows.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Delete all rows that contain at least one missing value." },
@@ -489,7 +489,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Handling Missing Data and Imputation Strategies: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Data Quality to handle missing numerical and categorical values in a tabular training dataset without dropping 40% of valuable customer transaction rows.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to handle missing numerical and categorical values in a tabular training dataset without dropping 40% of valuable customer transaction rows.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Apply appropriate imputation strategies (median for skewed numbers, mode or dedicated 'MISSING' category for categorical features)." },
@@ -510,7 +510,7 @@ export const GCP_PMLE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Preparing data and feature engineering",
     title: "Handling Missing Data and Imputation Strategies: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Data Quality to handle missing numerical and categorical values in a tabular training dataset without dropping 40% of valuable customer transaction rows.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to handle missing numerical and categorical values in a tabular training dataset without dropping 40% of valuable customer transaction rows.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Delete all rows that contain at least one missing value." },

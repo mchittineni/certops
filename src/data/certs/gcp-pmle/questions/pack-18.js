@@ -6,7 +6,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex ML Metadata and Artifact Lineage: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates MLOps Governance to audit the exact training dataset, hyperparameters, container image version, and git commit SHA that produced a model currently serving production predictions.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to audit the exact training dataset, hyperparameters, container image version, and git commit SHA that produced a model currently serving production predictions.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Assume all models are identical and skip lineage tracking." },
@@ -27,7 +27,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex ML Metadata and Artifact Lineage: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates MLOps Governance to audit the exact training dataset, hyperparameters, container image version, and git commit SHA that produced a model currently serving production predictions.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to audit the exact training dataset, hyperparameters, container image version, and git commit SHA that produced a model currently serving production predictions.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Ask the former data scientist who originally trained the model to check their personal notes." },
@@ -48,7 +48,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex ML Metadata and Artifact Lineage: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates MLOps Governance to audit the exact training dataset, hyperparameters, container image version, and git commit SHA that produced a model currently serving production predictions.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to audit the exact training dataset, hyperparameters, container image version, and git commit SHA that produced a model currently serving production predictions.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Inspect the date timestamp on the model artifact in Cloud Storage." },
@@ -69,7 +69,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex ML Metadata and Artifact Lineage: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates MLOps Governance to audit the exact training dataset, hyperparameters, container image version, and git commit SHA that produced a model currently serving production predictions.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to audit the exact training dataset, hyperparameters, container image version, and git commit SHA that produced a model currently serving production predictions.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Assume all models are identical and skip lineage tracking." },
@@ -90,7 +90,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex ML Metadata and Artifact Lineage: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates MLOps Governance to audit the exact training dataset, hyperparameters, container image version, and git commit SHA that produced a model currently serving production predictions.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to audit the exact training dataset, hyperparameters, container image version, and git commit SHA that produced a model currently serving production predictions.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Inspect the date timestamp on the model artifact in Cloud Storage." },
@@ -111,7 +111,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Model Registry & Model Versioning: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Model Governance to manage multiple versions of a trained fraud model in a central repository, tagging the best performing model with the alias 'champion' for deployment.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to manage multiple versions of a trained fraud model in a central repository, tagging the best performing model with the alias 'champion' for deployment.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Overwrite existing model weights on production servers directly without versioning." },
@@ -132,7 +132,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Model Registry & Model Versioning: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Model Governance to manage multiple versions of a trained fraud model in a central repository, tagging the best performing model with the alias 'champion' for deployment.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to manage multiple versions of a trained fraud model in a central repository, tagging the best performing model with the alias 'champion' for deployment.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Overwrite existing model weights on production servers directly without versioning." },
@@ -153,7 +153,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Model Registry & Model Versioning: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Model Governance to manage multiple versions of a trained fraud model in a central repository, tagging the best performing model with the alias 'champion' for deployment.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to manage multiple versions of a trained fraud model in a central repository, tagging the best performing model with the alias 'champion' for deployment.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Rename model files manually in a Cloud Storage bucket using timestamps (e.g. model_final_v2_new.h5)." },
@@ -174,7 +174,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Model Registry & Model Versioning: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Model Governance to manage multiple versions of a trained fraud model in a central repository, tagging the best performing model with the alias 'champion' for deployment.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to manage multiple versions of a trained fraud model in a central repository, tagging the best performing model with the alias 'champion' for deployment.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Register the model in the Vertex AI Model Registry and assign version aliases (e.g. 'champion' and 'challenger')." },
@@ -195,7 +195,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Model Registry & Model Versioning: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Model Governance to manage multiple versions of a trained fraud model in a central repository, tagging the best performing model with the alias 'champion' for deployment.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to manage multiple versions of a trained fraud model in a central repository, tagging the best performing model with the alias 'champion' for deployment.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Overwrite existing model weights on production servers directly without versioning." },
@@ -216,7 +216,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Model Monitoring (Drift & Skew Detection): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Model Monitoring to automatically detect when production user input distributions drift significantly away from the baseline training distribution (covariate shift).",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to automatically detect when production user input distributions drift significantly away from the baseline training distribution (covariate shift).",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Wait for customer complaints to discover that model predictions have degraded." },
@@ -237,7 +237,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Model Monitoring (Drift & Skew Detection): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Model Monitoring to automatically detect when production user input distributions drift significantly away from the baseline training distribution (covariate shift).",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to automatically detect when production user input distributions drift significantly away from the baseline training distribution (covariate shift).",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Check server CPU and memory utilization graphs in Cloud Monitoring." },
@@ -258,7 +258,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Model Monitoring (Drift & Skew Detection): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Model Monitoring to automatically detect when production user input distributions drift significantly away from the baseline training distribution (covariate shift).",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to automatically detect when production user input distributions drift significantly away from the baseline training distribution (covariate shift).",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Enable Vertex AI Model Monitoring on the deployed endpoint with feature drift detection thresholds." },
@@ -279,7 +279,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Model Monitoring (Drift & Skew Detection): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Model Monitoring to automatically detect when production user input distributions drift significantly away from the baseline training distribution (covariate shift).",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to automatically detect when production user input distributions drift significantly away from the baseline training distribution (covariate shift).",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Enable Vertex AI Model Monitoring on the deployed endpoint with feature drift detection thresholds." },
@@ -300,7 +300,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Model Monitoring (Drift & Skew Detection): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Model Monitoring to automatically detect when production user input distributions drift significantly away from the baseline training distribution (covariate shift).",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to automatically detect when production user input distributions drift significantly away from the baseline training distribution (covariate shift).",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Retrain the model once every 5 years regardless of accuracy." },
@@ -321,7 +321,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Canary Deployments and Traffic Splitting on Vertex AI: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Model Deployment to safely test a newly trained model version in production by routing 10% of live inference traffic to it while serving 90% from the existing stable version.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to safely test a newly trained model version in production by routing 10% of live inference traffic to it while serving 90% from the existing stable version.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Shut down the existing model completely before starting the new version." },
@@ -342,7 +342,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Canary Deployments and Traffic Splitting on Vertex AI: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Model Deployment to safely test a newly trained model version in production by routing 10% of live inference traffic to it while serving 90% from the existing stable version.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to safely test a newly trained model version in production by routing 10% of live inference traffic to it while serving 90% from the existing stable version.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Shut down the existing model completely before starting the new version." },
@@ -363,7 +363,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Canary Deployments and Traffic Splitting on Vertex AI: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Model Deployment to safely test a newly trained model version in production by routing 10% of live inference traffic to it while serving 90% from the existing stable version.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to safely test a newly trained model version in production by routing 10% of live inference traffic to it while serving 90% from the existing stable version.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Route traffic based on uncoordinated DNS round-robin routing." },
@@ -384,7 +384,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Canary Deployments and Traffic Splitting on Vertex AI: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Model Deployment to safely test a newly trained model version in production by routing 10% of live inference traffic to it while serving 90% from the existing stable version.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to safely test a newly trained model version in production by routing 10% of live inference traffic to it while serving 90% from the existing stable version.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Shut down the existing model completely before starting the new version." },
@@ -405,7 +405,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Canary Deployments and Traffic Splitting on Vertex AI: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Model Deployment to safely test a newly trained model version in production by routing 10% of live inference traffic to it while serving 90% from the existing stable version.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to safely test a newly trained model version in production by routing 10% of live inference traffic to it while serving 90% from the existing stable version.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Shut down the existing model completely before starting the new version." },
@@ -426,7 +426,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "A/B Testing and Shadow Deployments (Champion/Challenger): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Model Deployment to evaluate a challenger recommendation model in real production conditions without risking customer experience or returning untested predictions.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to evaluate a challenger recommendation model in real production conditions without risking customer experience or returning untested predictions.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Implement Shadow Deployment: duplicate incoming live inference requests, serve the champion model's response, and log the challenger model's predictions asynchronously." },
@@ -447,7 +447,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "A/B Testing and Shadow Deployments (Champion/Challenger): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Model Deployment to evaluate a challenger recommendation model in real production conditions without risking customer experience or returning untested predictions.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to evaluate a challenger recommendation model in real production conditions without risking customer experience or returning untested predictions.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Replace the champion model immediately with the challenger model without validation." },
@@ -468,7 +468,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "A/B Testing and Shadow Deployments (Champion/Challenger): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Model Deployment to evaluate a challenger recommendation model in real production conditions without risking customer experience or returning untested predictions.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to evaluate a challenger recommendation model in real production conditions without risking customer experience or returning untested predictions.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Implement Shadow Deployment: duplicate incoming live inference requests, serve the champion model's response, and log the challenger model's predictions asynchronously." },
@@ -489,7 +489,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "A/B Testing and Shadow Deployments (Champion/Challenger): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Model Deployment to evaluate a challenger recommendation model in real production conditions without risking customer experience or returning untested predictions.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to evaluate a challenger recommendation model in real production conditions without risking customer experience or returning untested predictions.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Implement Shadow Deployment: duplicate incoming live inference requests, serve the champion model's response, and log the challenger model's predictions asynchronously." },
@@ -510,7 +510,7 @@ export const GCP_PMLE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "A/B Testing and Shadow Deployments (Champion/Challenger): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Model Deployment to evaluate a challenger recommendation model in real production conditions without risking customer experience or returning untested predictions.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to evaluate a challenger recommendation model in real production conditions without risking customer experience or returning untested predictions.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Run the challenger model on a synthetic test dataset in a local notebook." },

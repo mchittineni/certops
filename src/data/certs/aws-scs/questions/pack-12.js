@@ -6,7 +6,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Threat Detection and Incident Response",
     title: "Amazon Inspector Automated Vulnerability Management: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Amazon Inspector to continuously scan container images in Amazon ECR and running EC2 instances for newly published zero-day CVEs.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to continuously scan container images in Amazon ECR and running EC2 instances for newly published zero-day CVEs.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Rely on developers to self-certify that their software dependencies are free of security vulnerabilities." },
@@ -27,7 +27,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Threat Detection and Incident Response",
     title: "Amazon Inspector Automated Vulnerability Management: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Amazon Inspector to continuously scan container images in Amazon ECR and running EC2 instances for newly published zero-day CVEs.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to continuously scan container images in Amazon ECR and running EC2 instances for newly published zero-day CVEs.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Rely on developers to self-certify that their software dependencies are free of security vulnerabilities." },
@@ -48,7 +48,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Threat Detection and Incident Response",
     title: "Amazon Inspector Automated Vulnerability Management: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Amazon Inspector to continuously scan container images in Amazon ECR and running EC2 instances for newly published zero-day CVEs.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to continuously scan container images in Amazon ECR and running EC2 instances for newly published zero-day CVEs.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Scan EC2 instances once a year using a manual network port scanner from an external host." },
@@ -69,7 +69,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Threat Detection and Incident Response",
     title: "Amazon Inspector Automated Vulnerability Management: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Amazon Inspector to continuously scan container images in Amazon ECR and running EC2 instances for newly published zero-day CVEs.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to continuously scan container images in Amazon ECR and running EC2 instances for newly published zero-day CVEs.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Prohibit scanning running workloads to avoid consuming CPU cycles." },
@@ -90,7 +90,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Threat Detection and Incident Response",
     title: "Amazon Inspector Automated Vulnerability Management: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Amazon Inspector to continuously scan container images in Amazon ECR and running EC2 instances for newly published zero-day CVEs.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to continuously scan container images in Amazon ECR and running EC2 instances for newly published zero-day CVEs.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Enable Amazon Inspector across the AWS Organization with automated continuous scanning for EC2, ECR, and Lambda workloads." },
@@ -111,7 +111,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Threat Detection and Incident Response",
     title: "Amazon Macie Sensitive Data Discovery and S3 Protection: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Amazon Macie to identify and automatically restrict public access to S3 buckets containing unencrypted personally identifiable information (PII).",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to identify and automatically restrict public access to S3 buckets containing unencrypted personally identifiable information (PII).",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Ignore sensitive data discovery and assume developers never upload PII to object storage." },
@@ -132,7 +132,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Threat Detection and Incident Response",
     title: "Amazon Macie Sensitive Data Discovery and S3 Protection: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Amazon Macie to identify and automatically restrict public access to S3 buckets containing unencrypted personally identifiable information (PII).",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to identify and automatically restrict public access to S3 buckets containing unencrypted personally identifiable information (PII).",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Download all S3 objects to an on-premises desktop and run manual regex searches across files." },
@@ -153,7 +153,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Threat Detection and Incident Response",
     title: "Amazon Macie Sensitive Data Discovery and S3 Protection: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Amazon Macie to identify and automatically restrict public access to S3 buckets containing unencrypted personally identifiable information (PII).",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to identify and automatically restrict public access to S3 buckets containing unencrypted personally identifiable information (PII).",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Download all S3 objects to an on-premises desktop and run manual regex searches across files." },
@@ -174,7 +174,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Threat Detection and Incident Response",
     title: "Amazon Macie Sensitive Data Discovery and S3 Protection: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Amazon Macie to identify and automatically restrict public access to S3 buckets containing unencrypted personally identifiable information (PII).",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to identify and automatically restrict public access to S3 buckets containing unencrypted personally identifiable information (PII).",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Ignore sensitive data discovery and assume developers never upload PII to object storage." },
@@ -195,7 +195,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Threat Detection and Incident Response",
     title: "Amazon Macie Sensitive Data Discovery and S3 Protection: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Amazon Macie to identify and automatically restrict public access to S3 buckets containing unencrypted personally identifiable information (PII).",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to identify and automatically restrict public access to S3 buckets containing unencrypted personally identifiable information (PII).",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Download all S3 objects to an on-premises desktop and run manual regex searches across files." },
@@ -216,7 +216,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Centralized Multi-Account CloudTrail Organization Trail: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates AWS CloudTrail to ensure all API activity across 100 AWS accounts is captured in an immutable, tamper-resistant audit trail.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to ensure all API activity across 100 AWS accounts is captured in an immutable, tamper-resistant audit trail.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Create individual local trails in each account delivering logs to locally managed unencrypted S3 buckets." },
@@ -237,7 +237,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Centralized Multi-Account CloudTrail Organization Trail: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates AWS CloudTrail to ensure all API activity across 100 AWS accounts is captured in an immutable, tamper-resistant audit trail.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to ensure all API activity across 100 AWS accounts is captured in an immutable, tamper-resistant audit trail.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Deliver CloudTrail logs to a public S3 bucket with no access controls." },
@@ -258,7 +258,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Centralized Multi-Account CloudTrail Organization Trail: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates AWS CloudTrail to ensure all API activity across 100 AWS accounts is captured in an immutable, tamper-resistant audit trail.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to ensure all API activity across 100 AWS accounts is captured in an immutable, tamper-resistant audit trail.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Create individual local trails in each account delivering logs to locally managed unencrypted S3 buckets." },
@@ -279,7 +279,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Centralized Multi-Account CloudTrail Organization Trail: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates AWS CloudTrail to ensure all API activity across 100 AWS accounts is captured in an immutable, tamper-resistant audit trail.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to ensure all API activity across 100 AWS accounts is captured in an immutable, tamper-resistant audit trail.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Create an AWS Organizations CloudTrail trail with log file integrity validation enabled, encrypted with KMS, delivering to a Log Archive S3 bucket." },
@@ -300,7 +300,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Centralized Multi-Account CloudTrail Organization Trail: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates AWS CloudTrail to ensure all API activity across 100 AWS accounts is captured in an immutable, tamper-resistant audit trail.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to ensure all API activity across 100 AWS accounts is captured in an immutable, tamper-resistant audit trail.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Disable CloudTrail in development accounts to reduce S3 storage consumption." },
@@ -321,7 +321,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "VPC Flow Logs Aggregation and Network Traffic Inspection: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates VPC Flow Logs to monitor unauthorized network connection attempts and detect port scanning activity across all VPC subnets.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to monitor unauthorized network connection attempts and detect port scanning activity across all VPC subnets.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Inspect network packets manually by placing promiscuous network taps on virtual switches." },
@@ -342,7 +342,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "VPC Flow Logs Aggregation and Network Traffic Inspection: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates VPC Flow Logs to monitor unauthorized network connection attempts and detect port scanning activity across all VPC subnets.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to monitor unauthorized network connection attempts and detect port scanning activity across all VPC subnets.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Rely on application access logs that only record established HTTP sessions." },
@@ -363,7 +363,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "VPC Flow Logs Aggregation and Network Traffic Inspection: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates VPC Flow Logs to monitor unauthorized network connection attempts and detect port scanning activity across all VPC subnets.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to monitor unauthorized network connection attempts and detect port scanning activity across all VPC subnets.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Disable VPC Flow Logs to prevent generating network metadata." },
@@ -384,7 +384,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "VPC Flow Logs Aggregation and Network Traffic Inspection: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates VPC Flow Logs to monitor unauthorized network connection attempts and detect port scanning activity across all VPC subnets.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to monitor unauthorized network connection attempts and detect port scanning activity across all VPC subnets.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Inspect network packets manually by placing promiscuous network taps on virtual switches." },
@@ -405,7 +405,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "VPC Flow Logs Aggregation and Network Traffic Inspection: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates VPC Flow Logs to monitor unauthorized network connection attempts and detect port scanning activity across all VPC subnets.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to monitor unauthorized network connection attempts and detect port scanning activity across all VPC subnets.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Inspect network packets manually by placing promiscuous network taps on virtual switches." },
@@ -426,7 +426,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Amazon Route 53 Resolver DNS Firewall and Query Logging: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Route 53 DNS Firewall to prevent malware running on internal EC2 instances from exfiltrating sensitive data via DNS tunneling to malicious domains.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to prevent malware running on internal EC2 instances from exfiltrating sensitive data via DNS tunneling to malicious domains.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Implement Route 53 Resolver DNS Firewall with AWS Managed Domain Lists and enable Route 53 Resolver Query Logging to S3." },
@@ -447,7 +447,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Amazon Route 53 Resolver DNS Firewall and Query Logging: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Route 53 DNS Firewall to prevent malware running on internal EC2 instances from exfiltrating sensitive data via DNS tunneling to malicious domains.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to prevent malware running on internal EC2 instances from exfiltrating sensitive data via DNS tunneling to malicious domains.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Disable internal DNS resolution across all corporate VPCs." },
@@ -468,7 +468,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Amazon Route 53 Resolver DNS Firewall and Query Logging: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Route 53 DNS Firewall to prevent malware running on internal EC2 instances from exfiltrating sensitive data via DNS tunneling to malicious domains.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to prevent malware running on internal EC2 instances from exfiltrating sensitive data via DNS tunneling to malicious domains.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Allow instances to query arbitrary public DNS servers directly over UDP port 53 without filtering." },
@@ -489,7 +489,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Amazon Route 53 Resolver DNS Firewall and Query Logging: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Route 53 DNS Firewall to prevent malware running on internal EC2 instances from exfiltrating sensitive data via DNS tunneling to malicious domains.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to prevent malware running on internal EC2 instances from exfiltrating sensitive data via DNS tunneling to malicious domains.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Rely on web browser proxy settings that can be disabled by local malware." },
@@ -510,7 +510,7 @@ export const AWS_SCS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "Security Logging and Monitoring",
     title: "Amazon Route 53 Resolver DNS Firewall and Query Logging: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Route 53 DNS Firewall to prevent malware running on internal EC2 instances from exfiltrating sensitive data via DNS tunneling to malicious domains.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to prevent malware running on internal EC2 instances from exfiltrating sensitive data via DNS tunneling to malicious domains.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Disable internal DNS resolution across all corporate VPCs." },

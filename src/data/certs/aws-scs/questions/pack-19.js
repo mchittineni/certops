@@ -6,7 +6,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Amazon S3 Object Lock: Compliance vs Governance Mode: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates S3 Object Lock Modes to protect regulatory financial records from deletion by anyone including AWS account root, while allowing test logs to be deleted by administrators.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to protect regulatory financial records from deletion by anyone including AWS account root, while allowing test logs to be deleted by administrators.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Use Compliance Mode for test logs, resulting in storage costs for data that can never be deleted before the timer expires." },
@@ -27,7 +27,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Amazon S3 Object Lock: Compliance vs Governance Mode: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates S3 Object Lock Modes to protect regulatory financial records from deletion by anyone including AWS account root, while allowing test logs to be deleted by administrators.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to protect regulatory financial records from deletion by anyone including AWS account root, while allowing test logs to be deleted by administrators.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Use S3 Object Lock in Compliance Mode for financial records, and Governance Mode with `s3:BypassGovernanceRetention` for operational test logs." },
@@ -48,7 +48,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Amazon S3 Object Lock: Compliance vs Governance Mode: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates S3 Object Lock Modes to protect regulatory financial records from deletion by anyone including AWS account root, while allowing test logs to be deleted by administrators.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to protect regulatory financial records from deletion by anyone including AWS account root, while allowing test logs to be deleted by administrators.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Use Compliance Mode for test logs, resulting in storage costs for data that can never be deleted before the timer expires." },
@@ -69,7 +69,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Amazon S3 Object Lock: Compliance vs Governance Mode: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates S3 Object Lock Modes to protect regulatory financial records from deletion by anyone including AWS account root, while allowing test logs to be deleted by administrators.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to protect regulatory financial records from deletion by anyone including AWS account root, while allowing test logs to be deleted by administrators.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Use S3 Object Lock in Compliance Mode for financial records, and Governance Mode with `s3:BypassGovernanceRetention` for operational test logs." },
@@ -90,7 +90,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Amazon S3 Object Lock: Compliance vs Governance Mode: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates S3 Object Lock Modes to protect regulatory financial records from deletion by anyone including AWS account root, while allowing test logs to be deleted by administrators.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to protect regulatory financial records from deletion by anyone including AWS account root, while allowing test logs to be deleted by administrators.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Use Compliance Mode for test logs, resulting in storage costs for data that can never be deleted before the timer expires." },
@@ -111,7 +111,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Amazon EBS Account-Level Default Encryption: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates EBS Default Encryption to guarantee that no unencrypted Amazon EBS volume or snapshot can ever be created in an enterprise AWS account.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to guarantee that no unencrypted Amazon EBS volume or snapshot can ever be created in an enterprise AWS account.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Store unencrypted EBS snapshots in public S3 buckets for backup purposes." },
@@ -132,7 +132,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Amazon EBS Account-Level Default Encryption: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates EBS Default Encryption to guarantee that no unencrypted Amazon EBS volume or snapshot can ever be created in an enterprise AWS account.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to guarantee that no unencrypted Amazon EBS volume or snapshot can ever be created in an enterprise AWS account.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Rely on developers to manually check the 'Encrypt' checkbox when launching every EC2 instance." },
@@ -153,7 +153,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Amazon EBS Account-Level Default Encryption: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates EBS Default Encryption to guarantee that no unencrypted Amazon EBS volume or snapshot can ever be created in an enterprise AWS account.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to guarantee that no unencrypted Amazon EBS volume or snapshot can ever be created in an enterprise AWS account.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Enable EBS Encryption by Default at the region/account level, specifying a customer-managed KMS key." },
@@ -174,7 +174,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Amazon EBS Account-Level Default Encryption: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates EBS Default Encryption to guarantee that no unencrypted Amazon EBS volume or snapshot can ever be created in an enterprise AWS account.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to guarantee that no unencrypted Amazon EBS volume or snapshot can ever be created in an enterprise AWS account.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Enable EBS Encryption by Default at the region/account level, specifying a customer-managed KMS key." },
@@ -195,7 +195,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Amazon EBS Account-Level Default Encryption: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates EBS Default Encryption to guarantee that no unencrypted Amazon EBS volume or snapshot can ever be created in an enterprise AWS account.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to guarantee that no unencrypted Amazon EBS volume or snapshot can ever be created in an enterprise AWS account.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Store unencrypted EBS snapshots in public S3 buckets for backup purposes." },
@@ -216,7 +216,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Encrypting Existing Unencrypted Amazon RDS / Aurora Databases: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates RDS Database Encryption to encrypt an existing unencrypted Amazon Aurora PostgreSQL cluster in production with zero data loss.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to encrypt an existing unencrypted Amazon Aurora PostgreSQL cluster in production with zero data loss.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Export all database tables to unencrypted CSV files on developer laptops and re-import them." },
@@ -237,7 +237,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Encrypting Existing Unencrypted Amazon RDS / Aurora Databases: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates RDS Database Encryption to encrypt an existing unencrypted Amazon Aurora PostgreSQL cluster in production with zero data loss.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to encrypt an existing unencrypted Amazon Aurora PostgreSQL cluster in production with zero data loss.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "It is impossible to encrypt an existing RDS database without writing custom application-layer encryption." },
@@ -258,7 +258,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Encrypting Existing Unencrypted Amazon RDS / Aurora Databases: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates RDS Database Encryption to encrypt an existing unencrypted Amazon Aurora PostgreSQL cluster in production with zero data loss.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to encrypt an existing unencrypted Amazon Aurora PostgreSQL cluster in production with zero data loss.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "It is impossible to encrypt an existing RDS database without writing custom application-layer encryption." },
@@ -279,7 +279,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Encrypting Existing Unencrypted Amazon RDS / Aurora Databases: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates RDS Database Encryption to encrypt an existing unencrypted Amazon Aurora PostgreSQL cluster in production with zero data loss.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to encrypt an existing unencrypted Amazon Aurora PostgreSQL cluster in production with zero data loss.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Run an in-place `ALTER DATABASE ENCRYPT` SQL query on the live production cluster." },
@@ -300,7 +300,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "Encrypting Existing Unencrypted Amazon RDS / Aurora Databases: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates RDS Database Encryption to encrypt an existing unencrypted Amazon Aurora PostgreSQL cluster in production with zero data loss.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to encrypt an existing unencrypted Amazon Aurora PostgreSQL cluster in production with zero data loss.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Export all database tables to unencrypted CSV files on developer laptops and re-import them." },
@@ -321,7 +321,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Control Tower Guardrails and Landing Zone Baselines: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Control Tower to enforce mandatory organizational security baselines automatically whenever a new AWS account is vended to a development team.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to enforce mandatory organizational security baselines automatically whenever a new AWS account is vended to a development team.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Disable organizational landing zones to minimize AWS management fees." },
@@ -342,7 +342,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Control Tower Guardrails and Landing Zone Baselines: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Control Tower to enforce mandatory organizational security baselines automatically whenever a new AWS account is vended to a development team.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to enforce mandatory organizational security baselines automatically whenever a new AWS account is vended to a development team.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Manually configure security settings, IAM roles, and logging on each new account using interactive console clicks." },
@@ -363,7 +363,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Control Tower Guardrails and Landing Zone Baselines: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Control Tower to enforce mandatory organizational security baselines automatically whenever a new AWS account is vended to a development team.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to enforce mandatory organizational security baselines automatically whenever a new AWS account is vended to a development team.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Manually configure security settings, IAM roles, and logging on each new account using interactive console clicks." },
@@ -384,7 +384,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Control Tower Guardrails and Landing Zone Baselines: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Control Tower to enforce mandatory organizational security baselines automatically whenever a new AWS account is vended to a development team.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to enforce mandatory organizational security baselines automatically whenever a new AWS account is vended to a development team.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Manually configure security settings, IAM roles, and logging on each new account using interactive console clicks." },
@@ -405,7 +405,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Control Tower Guardrails and Landing Zone Baselines: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Control Tower to enforce mandatory organizational security baselines automatically whenever a new AWS account is vended to a development team.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to enforce mandatory organizational security baselines automatically whenever a new AWS account is vended to a development team.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Allow developers to create standalone personal AWS accounts with corporate credit cards." },
@@ -426,7 +426,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Config Conformance Packs for Regulatory Compliance: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Conformance Packs to demonstrate compliance with the CIS AWS Foundations Benchmark across 150 enterprise accounts using automated conformance packs.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to demonstrate compliance with the CIS AWS Foundations Benchmark across 150 enterprise accounts using automated conformance packs.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Disable compliance monitoring to prevent generating non-compliance alerts." },
@@ -447,7 +447,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Config Conformance Packs for Regulatory Compliance: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Conformance Packs to demonstrate compliance with the CIS AWS Foundations Benchmark across 150 enterprise accounts using automated conformance packs.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to demonstrate compliance with the CIS AWS Foundations Benchmark across 150 enterprise accounts using automated conformance packs.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Falsify regulatory compliance reports and submit them to external auditors." },
@@ -468,7 +468,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Config Conformance Packs for Regulatory Compliance: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Conformance Packs to demonstrate compliance with the CIS AWS Foundations Benchmark across 150 enterprise accounts using automated conformance packs.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to demonstrate compliance with the CIS AWS Foundations Benchmark across 150 enterprise accounts using automated conformance packs.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Disable compliance monitoring to prevent generating non-compliance alerts." },
@@ -489,7 +489,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Config Conformance Packs for Regulatory Compliance: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Conformance Packs to demonstrate compliance with the CIS AWS Foundations Benchmark across 150 enterprise accounts using automated conformance packs.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to demonstrate compliance with the CIS AWS Foundations Benchmark across 150 enterprise accounts using automated conformance packs.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Disable compliance monitoring to prevent generating non-compliance alerts." },
@@ -510,7 +510,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Config Conformance Packs for Regulatory Compliance: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Conformance Packs to demonstrate compliance with the CIS AWS Foundations Benchmark across 150 enterprise accounts using automated conformance packs.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to demonstrate compliance with the CIS AWS Foundations Benchmark across 150 enterprise accounts using automated conformance packs.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Disable compliance monitoring to prevent generating non-compliance alerts." },

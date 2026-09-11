@@ -6,7 +6,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Application Load Balancer Cross-Zone Load Balancing: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Load Balancing to prevent uneven server load and request queuing when client connections are distributed unevenly across Availability Zones.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to prevent uneven server load and request queuing when client connections are distributed unevenly across Availability Zones.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Use DNS round-robin without a load balancer." },
@@ -27,7 +27,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Application Load Balancer Cross-Zone Load Balancing: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Load Balancing to prevent uneven server load and request queuing when client connections are distributed unevenly across Availability Zones.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to prevent uneven server load and request queuing when client connections are distributed unevenly across Availability Zones.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Deploy independent monolithic servers in each AZ without shared state." },
@@ -48,7 +48,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Application Load Balancer Cross-Zone Load Balancing: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Load Balancing to prevent uneven server load and request queuing when client connections are distributed unevenly across Availability Zones.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to prevent uneven server load and request queuing when client connections are distributed unevenly across Availability Zones.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Use DNS round-robin without a load balancer." },
@@ -69,7 +69,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Application Load Balancer Cross-Zone Load Balancing: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Load Balancing to prevent uneven server load and request queuing when client connections are distributed unevenly across Availability Zones.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to prevent uneven server load and request queuing when client connections are distributed unevenly across Availability Zones.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Deploy independent monolithic servers in each AZ without shared state." },
@@ -90,7 +90,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Application Load Balancer Cross-Zone Load Balancing: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Load Balancing to prevent uneven server load and request queuing when client connections are distributed unevenly across Availability Zones.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to prevent uneven server load and request queuing when client connections are distributed unevenly across Availability Zones.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Enable cross-zone load balancing on the Application Load Balancer (enabled by default on ALB)." },
@@ -111,7 +111,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Self-Healing Auto Scaling Groups with Health Checks: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Self-Healing Infrastructure to ensure that EC2 instances failing application HTTP health checks are automatically terminated and replaced by healthy instances in the Auto Scaling group.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to ensure that EC2 instances failing application HTTP health checks are automatically terminated and replaced by healthy instances in the Auto Scaling group.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Set the health check type to `EC2` exclusively, ignoring application-level web server crashes." },
@@ -132,7 +132,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Self-Healing Auto Scaling Groups with Health Checks: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Self-Healing Infrastructure to ensure that EC2 instances failing application HTTP health checks are automatically terminated and replaced by healthy instances in the Auto Scaling group.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to ensure that EC2 instances failing application HTTP health checks are automatically terminated and replaced by healthy instances in the Auto Scaling group.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Disable Auto Scaling health checks entirely." },
@@ -153,7 +153,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Self-Healing Auto Scaling Groups with Health Checks: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Self-Healing Infrastructure to ensure that EC2 instances failing application HTTP health checks are automatically terminated and replaced by healthy instances in the Auto Scaling group.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to ensure that EC2 instances failing application HTTP health checks are automatically terminated and replaced by healthy instances in the Auto Scaling group.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Set the health check type to `EC2` exclusively, ignoring application-level web server crashes." },
@@ -174,7 +174,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Self-Healing Auto Scaling Groups with Health Checks: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Self-Healing Infrastructure to ensure that EC2 instances failing application HTTP health checks are automatically terminated and replaced by healthy instances in the Auto Scaling group.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to ensure that EC2 instances failing application HTTP health checks are automatically terminated and replaced by healthy instances in the Auto Scaling group.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Configure the Auto Scaling group health check type to `ELB` and set a reasonable `HealthCheckGracePeriod`." },
@@ -195,7 +195,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Resilient Cloud Solutions",
     title: "Self-Healing Auto Scaling Groups with Health Checks: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Self-Healing Infrastructure to ensure that EC2 instances failing application HTTP health checks are automatically terminated and replaced by healthy instances in the Auto Scaling group.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to ensure that EC2 instances failing application HTTP health checks are automatically terminated and replaced by healthy instances in the Auto Scaling group.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Configure the Auto Scaling group health check type to `ELB` and set a reasonable `HealthCheckGracePeriod`." },
@@ -216,7 +216,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Metric Filters and Alarms: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates CloudWatch Metric Filters to monitor application error frequency and trigger automated notifications whenever HTTP 500 error occurrences exceed 50 in a 5-minute window.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to monitor application error frequency and trigger automated notifications whenever HTTP 500 error occurrences exceed 50 in a 5-minute window.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Disable application error logging to suppress alarms." },
@@ -237,7 +237,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Metric Filters and Alarms: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates CloudWatch Metric Filters to monitor application error frequency and trigger automated notifications whenever HTTP 500 error occurrences exceed 50 in a 5-minute window.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to monitor application error frequency and trigger automated notifications whenever HTTP 500 error occurrences exceed 50 in a 5-minute window.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Download raw log files daily to run manual grep commands." },
@@ -258,7 +258,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Metric Filters and Alarms: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates CloudWatch Metric Filters to monitor application error frequency and trigger automated notifications whenever HTTP 500 error occurrences exceed 50 in a 5-minute window.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to monitor application error frequency and trigger automated notifications whenever HTTP 500 error occurrences exceed 50 in a 5-minute window.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Disable application error logging to suppress alarms." },
@@ -279,7 +279,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Metric Filters and Alarms: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates CloudWatch Metric Filters to monitor application error frequency and trigger automated notifications whenever HTTP 500 error occurrences exceed 50 in a 5-minute window.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to monitor application error frequency and trigger automated notifications whenever HTTP 500 error occurrences exceed 50 in a 5-minute window.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Configure an alarm directly on EC2 CPU utilization." },
@@ -300,7 +300,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "CloudWatch Metric Filters and Alarms: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates CloudWatch Metric Filters to monitor application error frequency and trigger automated notifications whenever HTTP 500 error occurrences exceed 50 in a 5-minute window.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to monitor application error frequency and trigger automated notifications whenever HTTP 500 error occurrences exceed 50 in a 5-minute window.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Disable application error logging to suppress alarms." },
@@ -321,7 +321,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "Centralized Logging with Kinesis Data Firehose: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Log Aggregation to aggregate application and system logs from hundreds of AWS accounts into a centralized security data lake in Amazon S3 for long-term compliance retention.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to aggregate application and system logs from hundreds of AWS accounts into a centralized security data lake in Amazon S3 for long-term compliance retention.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Email log archives to a centralized distribution list." },
@@ -342,7 +342,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "Centralized Logging with Kinesis Data Firehose: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Log Aggregation to aggregate application and system logs from hundreds of AWS accounts into a centralized security data lake in Amazon S3 for long-term compliance retention.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to aggregate application and system logs from hundreds of AWS accounts into a centralized security data lake in Amazon S3 for long-term compliance retention.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Store logs in local instance filesystems without off-instance streaming." },
@@ -363,7 +363,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "Centralized Logging with Kinesis Data Firehose: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Log Aggregation to aggregate application and system logs from hundreds of AWS accounts into a centralized security data lake in Amazon S3 for long-term compliance retention.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to aggregate application and system logs from hundreds of AWS accounts into a centralized security data lake in Amazon S3 for long-term compliance retention.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Set up cross-account VPC peering between every account and SCP raw log files over SSH." },
@@ -384,7 +384,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "Centralized Logging with Kinesis Data Firehose: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Log Aggregation to aggregate application and system logs from hundreds of AWS accounts into a centralized security data lake in Amazon S3 for long-term compliance retention.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to aggregate application and system logs from hundreds of AWS accounts into a centralized security data lake in Amazon S3 for long-term compliance retention.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Configure CloudWatch Logs Subscription Filters to stream logs to an Amazon Kinesis Data Firehose delivery stream backed by a centralized S3 bucket." },
@@ -405,7 +405,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "Centralized Logging with Kinesis Data Firehose: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Log Aggregation to aggregate application and system logs from hundreds of AWS accounts into a centralized security data lake in Amazon S3 for long-term compliance retention.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to aggregate application and system logs from hundreds of AWS accounts into a centralized security data lake in Amazon S3 for long-term compliance retention.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Store logs in local instance filesystems without off-instance streaming." },
@@ -426,7 +426,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "AWS X-Ray Distributed Tracing: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Distributed Tracing to identify which downstream microservice or database query is responsible for latency spikes in an e-commerce checkout flow.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to identify which downstream microservice or database query is responsible for latency spikes in an e-commerce checkout flow.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Add print statements in code and attempt to align log timestamps manually." },
@@ -447,7 +447,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "AWS X-Ray Distributed Tracing: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Distributed Tracing to identify which downstream microservice or database query is responsible for latency spikes in an e-commerce checkout flow.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to identify which downstream microservice or database query is responsible for latency spikes in an e-commerce checkout flow.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Restart all microservices simultaneously whenever a slow request occurs." },
@@ -468,7 +468,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "AWS X-Ray Distributed Tracing: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Distributed Tracing to identify which downstream microservice or database query is responsible for latency spikes in an e-commerce checkout flow.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to identify which downstream microservice or database query is responsible for latency spikes in an e-commerce checkout flow.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Restart all microservices simultaneously whenever a slow request occurs." },
@@ -489,7 +489,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "AWS X-Ray Distributed Tracing: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Distributed Tracing to identify which downstream microservice or database query is responsible for latency spikes in an e-commerce checkout flow.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to identify which downstream microservice or database query is responsible for latency spikes in an e-commerce checkout flow.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Inspect individual EC2 CPU graphs without correlating request IDs." },
@@ -510,7 +510,7 @@ export const AWS_DOP_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Monitoring and Logging",
     title: "AWS X-Ray Distributed Tracing: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Distributed Tracing to identify which downstream microservice or database query is responsible for latency spikes in an e-commerce checkout flow.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to identify which downstream microservice or database query is responsible for latency spikes in an e-commerce checkout flow.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Instrument services with the AWS X-Ray SDK or AWS Distro for OpenTelemetry (ADOT) to propagate trace headers and view trace maps in CloudWatch ServiceLens." },

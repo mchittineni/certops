@@ -6,7 +6,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "SPACE Framework for Holistic Developer Productivity: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates SPACE Framework to evaluate developer productivity comprehensively without relying on simplistic, misleading activity metrics.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to evaluate developer productivity comprehensively without relying on simplistic, misleading activity metrics.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Rely solely on git commit counts and pull request volume to judge developer productivity." },
@@ -27,7 +27,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "SPACE Framework for Holistic Developer Productivity: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates SPACE Framework to evaluate developer productivity comprehensively without relying on simplistic, misleading activity metrics.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to evaluate developer productivity comprehensively without relying on simplistic, misleading activity metrics.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Rank engineers publicly on a leaderboard based on keyboard keystrokes." },
@@ -48,7 +48,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "SPACE Framework for Holistic Developer Productivity: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates SPACE Framework to evaluate developer productivity comprehensively without relying on simplistic, misleading activity metrics.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to evaluate developer productivity comprehensively without relying on simplistic, misleading activity metrics.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Rank engineers publicly on a leaderboard based on keyboard keystrokes." },
@@ -69,7 +69,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "SPACE Framework for Holistic Developer Productivity: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates SPACE Framework to evaluate developer productivity comprehensively without relying on simplistic, misleading activity metrics.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to evaluate developer productivity comprehensively without relying on simplistic, misleading activity metrics.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Rank engineers publicly on a leaderboard based on keyboard keystrokes." },
@@ -90,7 +90,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "SPACE Framework for Holistic Developer Productivity: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates SPACE Framework to evaluate developer productivity comprehensively without relying on simplistic, misleading activity metrics.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to evaluate developer productivity comprehensively without relying on simplistic, misleading activity metrics.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Rank engineers publicly on a leaderboard based on keyboard keystrokes." },
@@ -111,7 +111,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Unified Platform Telemetry: The OpenTelemetry Standard: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates OpenTelemetry to eliminate proprietary observability vendor lock-in across diverse platform clusters and microservices.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to eliminate proprietary observability vendor lock-in across diverse platform clusters and microservices.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Log all events as unstructured text files saved to temporary local disks." },
@@ -132,7 +132,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Unified Platform Telemetry: The OpenTelemetry Standard: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates OpenTelemetry to eliminate proprietary observability vendor lock-in across diverse platform clusters and microservices.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to eliminate proprietary observability vendor lock-in across diverse platform clusters and microservices.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Disable telemetry collection entirely to conserve network bandwidth." },
@@ -153,7 +153,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Unified Platform Telemetry: The OpenTelemetry Standard: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates OpenTelemetry to eliminate proprietary observability vendor lock-in across diverse platform clusters and microservices.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to eliminate proprietary observability vendor lock-in across diverse platform clusters and microservices.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Log all events as unstructured text files saved to temporary local disks." },
@@ -174,7 +174,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Unified Platform Telemetry: The OpenTelemetry Standard: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates OpenTelemetry to eliminate proprietary observability vendor lock-in across diverse platform clusters and microservices.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to eliminate proprietary observability vendor lock-in across diverse platform clusters and microservices.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Deploy five different proprietary commercial monitoring agents on every host operating system." },
@@ -195,7 +195,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Unified Platform Telemetry: The OpenTelemetry Standard: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates OpenTelemetry to eliminate proprietary observability vendor lock-in across diverse platform clusters and microservices.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to eliminate proprietary observability vendor lock-in across diverse platform clusters and microservices.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Deploy five different proprietary commercial monitoring agents on every host operating system." },
@@ -216,7 +216,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Centralized Logging Substrates: Loki and Fluent Bit: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Centralized Logging to aggregate and search terabytes of container logs across hundreds of Kubernetes nodes efficiently without indexing entire log texts.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to aggregate and search terabytes of container logs across hundreds of Kubernetes nodes efficiently without indexing entire log texts.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Require developers to SSH directly into worker nodes and run grep commands on raw container log files." },
@@ -237,7 +237,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Centralized Logging Substrates: Loki and Fluent Bit: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Centralized Logging to aggregate and search terabytes of container logs across hundreds of Kubernetes nodes efficiently without indexing entire log texts.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to aggregate and search terabytes of container logs across hundreds of Kubernetes nodes efficiently without indexing entire log texts.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Require developers to SSH directly into worker nodes and run grep commands on raw container log files." },
@@ -258,7 +258,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Centralized Logging Substrates: Loki and Fluent Bit: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Centralized Logging to aggregate and search terabytes of container logs across hundreds of Kubernetes nodes efficiently without indexing entire log texts.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to aggregate and search terabytes of container logs across hundreds of Kubernetes nodes efficiently without indexing entire log texts.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Store all cluster logs in unindexed CSV files sent as email attachments." },
@@ -279,7 +279,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Centralized Logging Substrates: Loki and Fluent Bit: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Centralized Logging to aggregate and search terabytes of container logs across hundreds of Kubernetes nodes efficiently without indexing entire log texts.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to aggregate and search terabytes of container logs across hundreds of Kubernetes nodes efficiently without indexing entire log texts.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Delete all container logs immediately upon container termination." },
@@ -300,7 +300,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Centralized Logging Substrates: Loki and Fluent Bit: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Centralized Logging to aggregate and search terabytes of container logs across hundreds of Kubernetes nodes efficiently without indexing entire log texts.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to aggregate and search terabytes of container logs across hundreds of Kubernetes nodes efficiently without indexing entire log texts.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Delete all container logs immediately upon container termination." },
@@ -321,7 +321,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Distributed Tracing and Service Graphs: Tempo and Jaeger: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Distributed Tracing to pinpoint which downstream microservice or database query is causing high latency during a complex user checkout transaction.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to pinpoint which downstream microservice or database query is causing high latency during a complex user checkout transaction.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Guess the slow microservice by asking developers in a chat channel." },
@@ -342,7 +342,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Distributed Tracing and Service Graphs: Tempo and Jaeger: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Distributed Tracing to pinpoint which downstream microservice or database query is causing high latency during a complex user checkout transaction.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to pinpoint which downstream microservice or database query is causing high latency during a complex user checkout transaction.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Deploy distributed tracing with Grafana Tempo or Jaeger, propagating W3C Trace Context across microservice boundaries." },
@@ -363,7 +363,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Distributed Tracing and Service Graphs: Tempo and Jaeger: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Distributed Tracing to pinpoint which downstream microservice or database query is causing high latency during a complex user checkout transaction.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to pinpoint which downstream microservice or database query is causing high latency during a complex user checkout transaction.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Deploy distributed tracing with Grafana Tempo or Jaeger, propagating W3C Trace Context across microservice boundaries." },
@@ -384,7 +384,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Distributed Tracing and Service Graphs: Tempo and Jaeger: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Distributed Tracing to pinpoint which downstream microservice or database query is causing high latency during a complex user checkout transaction.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to pinpoint which downstream microservice or database query is causing high latency during a complex user checkout transaction.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Deploy distributed tracing with Grafana Tempo or Jaeger, propagating W3C Trace Context across microservice boundaries." },
@@ -405,7 +405,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Distributed Tracing and Service Graphs: Tempo and Jaeger: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Distributed Tracing to pinpoint which downstream microservice or database query is causing high latency during a complex user checkout transaction.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to pinpoint which downstream microservice or database query is causing high latency during a complex user checkout transaction.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Restart all microservice pods whenever a slow request occurs." },
@@ -426,7 +426,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Metrics and Alerting Infrastructure: Prometheus and Thanos: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Prometheus & Thanos to retain and query two years of historical performance and capacity metrics across multi-region Kubernetes clusters.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to retain and query two years of historical performance and capacity metrics across multi-region Kubernetes clusters.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Deploy Prometheus instances for local metric collection and Thanos or Cortex for centralized long-term object storage retention." },
@@ -447,7 +447,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Metrics and Alerting Infrastructure: Prometheus and Thanos: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Prometheus & Thanos to retain and query two years of historical performance and capacity metrics across multi-region Kubernetes clusters.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to retain and query two years of historical performance and capacity metrics across multi-region Kubernetes clusters.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Maintain a single standalone Prometheus instance trying to scrape 10 million active time series." },
@@ -468,7 +468,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Metrics and Alerting Infrastructure: Prometheus and Thanos: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Prometheus & Thanos to retain and query two years of historical performance and capacity metrics across multi-region Kubernetes clusters.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to retain and query two years of historical performance and capacity metrics across multi-region Kubernetes clusters.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Maintain a single standalone Prometheus instance trying to scrape 10 million active time series." },
@@ -489,7 +489,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Metrics and Alerting Infrastructure: Prometheus and Thanos: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Prometheus & Thanos to retain and query two years of historical performance and capacity metrics across multi-region Kubernetes clusters.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to retain and query two years of historical performance and capacity metrics across multi-region Kubernetes clusters.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Maintain a single standalone Prometheus instance trying to scrape 10 million active time series." },
@@ -510,7 +510,7 @@ export const CNCF_CNPA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "Metrics and Alerting Infrastructure: Prometheus and Thanos: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Prometheus & Thanos to retain and query two years of historical performance and capacity metrics across multi-region Kubernetes clusters.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to retain and query two years of historical performance and capacity metrics across multi-region Kubernetes clusters.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Store all historical metrics on ephemeral local node SSDs that are wiped weekly." },

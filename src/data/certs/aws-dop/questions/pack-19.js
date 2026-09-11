@@ -6,7 +6,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Amazon GuardDuty Automated Threat Response: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Threat Detection to automatically isolate an Amazon EC2 instance that Amazon GuardDuty detects communicating with a known cryptocurrency mining pool.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to automatically isolate an Amazon EC2 instance that Amazon GuardDuty detects communicating with a known cryptocurrency mining pool.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Delete the AWS account hosting the instance." },
@@ -27,7 +27,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Amazon GuardDuty Automated Threat Response: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Threat Detection to automatically isolate an Amazon EC2 instance that Amazon GuardDuty detects communicating with a known cryptocurrency mining pool.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to automatically isolate an Amazon EC2 instance that Amazon GuardDuty detects communicating with a known cryptocurrency mining pool.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Delete the AWS account hosting the instance." },
@@ -48,7 +48,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Amazon GuardDuty Automated Threat Response: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Threat Detection to automatically isolate an Amazon EC2 instance that Amazon GuardDuty detects communicating with a known cryptocurrency mining pool.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to automatically isolate an Amazon EC2 instance that Amazon GuardDuty detects communicating with a known cryptocurrency mining pool.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Delete the AWS account hosting the instance." },
@@ -69,7 +69,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Amazon GuardDuty Automated Threat Response: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Threat Detection to automatically isolate an Amazon EC2 instance that Amazon GuardDuty detects communicating with a known cryptocurrency mining pool.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to automatically isolate an Amazon EC2 instance that Amazon GuardDuty detects communicating with a known cryptocurrency mining pool.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Configure an EventBridge rule for GuardDuty findings that triggers an AWS Lambda function to attach an isolated security group to the compromised instance." },
@@ -90,7 +90,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Amazon GuardDuty Automated Threat Response: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Threat Detection to automatically isolate an Amazon EC2 instance that Amazon GuardDuty detects communicating with a known cryptocurrency mining pool.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to automatically isolate an Amazon EC2 instance that Amazon GuardDuty detects communicating with a known cryptocurrency mining pool.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Delete the AWS account hosting the instance." },
@@ -111,7 +111,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Dead Man's Snitch / Heartbeat Monitoring with Synthetics: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Heartbeat Monitoring to detect when a critical nightly data synchronization batch job completely fails to run due to an upstream scheduler crash.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to detect when a critical nightly data synchronization batch job completely fails to run due to an upstream scheduler crash.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Manually check the database row count once every three months." },
@@ -132,7 +132,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Dead Man's Snitch / Heartbeat Monitoring with Synthetics: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Heartbeat Monitoring to detect when a critical nightly data synchronization batch job completely fails to run due to an upstream scheduler crash.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to detect when a critical nightly data synchronization batch job completely fails to run due to an upstream scheduler crash.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Rely on job error logs that are never generated when a job fails to launch." },
@@ -153,7 +153,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Dead Man's Snitch / Heartbeat Monitoring with Synthetics: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Heartbeat Monitoring to detect when a critical nightly data synchronization batch job completely fails to run due to an upstream scheduler crash.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to detect when a critical nightly data synchronization batch job completely fails to run due to an upstream scheduler crash.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Manually check the database row count once every three months." },
@@ -174,7 +174,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Dead Man's Snitch / Heartbeat Monitoring with Synthetics: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Heartbeat Monitoring to detect when a critical nightly data synchronization batch job completely fails to run due to an upstream scheduler crash.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to detect when a critical nightly data synchronization batch job completely fails to run due to an upstream scheduler crash.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Manually check the database row count once every three months." },
@@ -195,7 +195,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Incident and Event Response",
     title: "Dead Man's Snitch / Heartbeat Monitoring with Synthetics: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Heartbeat Monitoring to detect when a critical nightly data synchronization batch job completely fails to run due to an upstream scheduler crash.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to detect when a critical nightly data synchronization batch job completely fails to run due to an upstream scheduler crash.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Assume the job ran successfully if no error alerts are received." },
@@ -216,7 +216,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS Config Conformance Packs and Remediation: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates AWS Config to enforce organizational compliance rules (e.g., EBS encryption, S3 public read denial) across 50 AWS accounts with automated remediation.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to enforce organizational compliance rules (e.g., EBS encryption, S3 public read denial) across 50 AWS accounts with automated remediation.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Manually review AWS resources in each account console every month." },
@@ -237,7 +237,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS Config Conformance Packs and Remediation: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates AWS Config to enforce organizational compliance rules (e.g., EBS encryption, S3 public read denial) across 50 AWS accounts with automated remediation.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to enforce organizational compliance rules (e.g., EBS encryption, S3 public read denial) across 50 AWS accounts with automated remediation.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Write custom compliance polling scripts running on a developer laptop." },
@@ -258,7 +258,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS Config Conformance Packs and Remediation: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates AWS Config to enforce organizational compliance rules (e.g., EBS encryption, S3 public read denial) across 50 AWS accounts with automated remediation.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to enforce organizational compliance rules (e.g., EBS encryption, S3 public read denial) across 50 AWS accounts with automated remediation.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Manually review AWS resources in each account console every month." },
@@ -279,7 +279,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS Config Conformance Packs and Remediation: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates AWS Config to enforce organizational compliance rules (e.g., EBS encryption, S3 public read denial) across 50 AWS accounts with automated remediation.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to enforce organizational compliance rules (e.g., EBS encryption, S3 public read denial) across 50 AWS accounts with automated remediation.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Manually review AWS resources in each account console every month." },
@@ -300,7 +300,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS Config Conformance Packs and Remediation: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates AWS Config to enforce organizational compliance rules (e.g., EBS encryption, S3 public read denial) across 50 AWS accounts with automated remediation.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to enforce organizational compliance rules (e.g., EBS encryption, S3 public read denial) across 50 AWS accounts with automated remediation.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Manually review AWS resources in each account console every month." },
@@ -321,7 +321,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "IAM Permission Boundaries for Delegated Administration: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates IAM Governance to allow developers to create IAM roles and policies for their applications without allowing them to escalate their own privileges or create admin roles.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to allow developers to create IAM roles and policies for their applications without allowing them to escalate their own privileges or create admin roles.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Share the root account credentials with all development teams." },
@@ -342,7 +342,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "IAM Permission Boundaries for Delegated Administration: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates IAM Governance to allow developers to create IAM roles and policies for their applications without allowing them to escalate their own privileges or create admin roles.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to allow developers to create IAM roles and policies for their applications without allowing them to escalate their own privileges or create admin roles.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Grant full `iam:*` permissions to developers with no restrictions." },
@@ -363,7 +363,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "IAM Permission Boundaries for Delegated Administration: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates IAM Governance to allow developers to create IAM roles and policies for their applications without allowing them to escalate their own privileges or create admin roles.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to allow developers to create IAM roles and policies for their applications without allowing them to escalate their own privileges or create admin roles.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Attach an IAM Permission Boundary to the developer role requiring all newly created roles to include the same permission boundary." },
@@ -384,7 +384,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "IAM Permission Boundaries for Delegated Administration: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates IAM Governance to allow developers to create IAM roles and policies for their applications without allowing them to escalate their own privileges or create admin roles.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to allow developers to create IAM roles and policies for their applications without allowing them to escalate their own privileges or create admin roles.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Refuse to allow developers to create any IAM roles, forcing all requests through a central ticket queue." },
@@ -405,7 +405,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "IAM Permission Boundaries for Delegated Administration: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates IAM Governance to allow developers to create IAM roles and policies for their applications without allowing them to escalate their own privileges or create admin roles.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to allow developers to create IAM roles and policies for their applications without allowing them to escalate their own privileges or create admin roles.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Grant full `iam:*` permissions to developers with no restrictions." },
@@ -426,7 +426,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS Secrets Manager Automated Rotation for RDS: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Secret Rotation to rotate production database master and application passwords every 30 days automatically without causing application connection drops.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to rotate production database master and application passwords every 30 days automatically without causing application connection drops.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Configure AWS Secrets Manager automated rotation using the built-in multi-user rotation Lambda function for Amazon RDS." },
@@ -447,7 +447,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS Secrets Manager Automated Rotation for RDS: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Secret Rotation to rotate production database master and application passwords every 30 days automatically without causing application connection drops.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to rotate production database master and application passwords every 30 days automatically without causing application connection drops.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Store database passwords in a plaintext S3 bucket." },
@@ -468,7 +468,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS Secrets Manager Automated Rotation for RDS: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Secret Rotation to rotate production database master and application passwords every 30 days automatically without causing application connection drops.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to rotate production database master and application passwords every 30 days automatically without causing application connection drops.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Change database passwords manually at 2:00 AM once a year." },
@@ -489,7 +489,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS Secrets Manager Automated Rotation for RDS: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Secret Rotation to rotate production database master and application passwords every 30 days automatically without causing application connection drops.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to rotate production database master and application passwords every 30 days automatically without causing application connection drops.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Configure AWS Secrets Manager automated rotation using the built-in multi-user rotation Lambda function for Amazon RDS." },
@@ -510,7 +510,7 @@ export const AWS_DOP_QUESTIONS_19 = [
     domainId: "d6",
     domainName: "Security and Compliance",
     title: "AWS Secrets Manager Automated Rotation for RDS: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Secret Rotation to rotate production database master and application passwords every 30 days automatically without causing application connection drops.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to rotate production database master and application passwords every 30 days automatically without causing application connection drops.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Configure AWS Secrets Manager automated rotation using the built-in multi-user rotation Lambda function for Amazon RDS." },

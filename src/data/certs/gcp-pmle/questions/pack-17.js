@@ -6,7 +6,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Explainable AI (Shapley Values & Integrated Gradients): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Explainable AI to provide regulatory auditors with exact quantitative feature attribution scores showing which customer inputs drove a mortgage approval model's decision.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to provide regulatory auditors with exact quantitative feature attribution scores showing which customer inputs drove a mortgage approval model's decision.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Provide auditors with the raw floating-point neural network weight matrices." },
@@ -27,7 +27,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Explainable AI (Shapley Values & Integrated Gradients): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Explainable AI to provide regulatory auditors with exact quantitative feature attribution scores showing which customer inputs drove a mortgage approval model's decision.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to provide regulatory auditors with exact quantitative feature attribution scores showing which customer inputs drove a mortgage approval model's decision.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Enable Vertex Explainable AI to compute feature attributions (Sampled Shapley for tabular data or Integrated Gradients for neural networks)." },
@@ -48,7 +48,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Explainable AI (Shapley Values & Integrated Gradients): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Explainable AI to provide regulatory auditors with exact quantitative feature attribution scores showing which customer inputs drove a mortgage approval model's decision.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to provide regulatory auditors with exact quantitative feature attribution scores showing which customer inputs drove a mortgage approval model's decision.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Claim that machine learning models are complete black boxes that cannot be explained." },
@@ -69,7 +69,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Explainable AI (Shapley Values & Integrated Gradients): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Explainable AI to provide regulatory auditors with exact quantitative feature attribution scores showing which customer inputs drove a mortgage approval model's decision.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to provide regulatory auditors with exact quantitative feature attribution scores showing which customer inputs drove a mortgage approval model's decision.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Enable Vertex Explainable AI to compute feature attributions (Sampled Shapley for tabular data or Integrated Gradients for neural networks)." },
@@ -90,7 +90,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Explainable AI (Shapley Values & Integrated Gradients): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Explainable AI to provide regulatory auditors with exact quantitative feature attribution scores showing which customer inputs drove a mortgage approval model's decision.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to provide regulatory auditors with exact quantitative feature attribution scores showing which customer inputs drove a mortgage approval model's decision.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Claim that machine learning models are complete black boxes that cannot be explained." },
@@ -111,7 +111,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Loss Function Selection for Specialized Tasks: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Machine Learning Theory to select the mathematical loss function for a multi-class image classification model where each image belongs to exactly one of 10 mutually exclusive categories.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to select the mathematical loss function for a multi-class image classification model where each image belongs to exactly one of 10 mutually exclusive categories.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Use Categorical Cross-Entropy loss with a softmax output activation function." },
@@ -132,7 +132,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Loss Function Selection for Specialized Tasks: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Machine Learning Theory to select the mathematical loss function for a multi-class image classification model where each image belongs to exactly one of 10 mutually exclusive categories.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to select the mathematical loss function for a multi-class image classification model where each image belongs to exactly one of 10 mutually exclusive categories.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Use Mean Squared Error (MSE) loss with linear activation." },
@@ -153,7 +153,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Loss Function Selection for Specialized Tasks: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Machine Learning Theory to select the mathematical loss function for a multi-class image classification model where each image belongs to exactly one of 10 mutually exclusive categories.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to select the mathematical loss function for a multi-class image classification model where each image belongs to exactly one of 10 mutually exclusive categories.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Use Hinge loss designed for binary support vector machines." },
@@ -174,7 +174,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Loss Function Selection for Specialized Tasks: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Machine Learning Theory to select the mathematical loss function for a multi-class image classification model where each image belongs to exactly one of 10 mutually exclusive categories.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to select the mathematical loss function for a multi-class image classification model where each image belongs to exactly one of 10 mutually exclusive categories.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Use Hinge loss designed for binary support vector machines." },
@@ -195,7 +195,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Loss Function Selection for Specialized Tasks: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Machine Learning Theory to select the mathematical loss function for a multi-class image classification model where each image belongs to exactly one of 10 mutually exclusive categories.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to select the mathematical loss function for a multi-class image classification model where each image belongs to exactly one of 10 mutually exclusive categories.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Use Categorical Cross-Entropy loss with a softmax output activation function." },
@@ -216,7 +216,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Model Quantization and Pruning: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Model Optimization to reduce the memory footprint of a deep learning model by 75% and double inference throughput on mobile edge devices with minimal accuracy degradation.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to reduce the memory footprint of a deep learning model by 75% and double inference throughput on mobile edge devices with minimal accuracy degradation.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Apply post-training INT8 quantization and weight pruning to the model graph." },
@@ -237,7 +237,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Model Quantization and Pruning: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Model Optimization to reduce the memory footprint of a deep learning model by 75% and double inference throughput on mobile edge devices with minimal accuracy degradation.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to reduce the memory footprint of a deep learning model by 75% and double inference throughput on mobile edge devices with minimal accuracy degradation.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy the model on an unoptimized high-power cloud server." },
@@ -258,7 +258,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Model Quantization and Pruning: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Model Optimization to reduce the memory footprint of a deep learning model by 75% and double inference throughput on mobile edge devices with minimal accuracy degradation.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to reduce the memory footprint of a deep learning model by 75% and double inference throughput on mobile edge devices with minimal accuracy degradation.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Apply post-training INT8 quantization and weight pruning to the model graph." },
@@ -279,7 +279,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Model Quantization and Pruning: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Model Optimization to reduce the memory footprint of a deep learning model by 75% and double inference throughput on mobile edge devices with minimal accuracy degradation.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to reduce the memory footprint of a deep learning model by 75% and double inference throughput on mobile edge devices with minimal accuracy degradation.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Double the floating-point precision from FP32 to FP64." },
@@ -300,7 +300,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Model Quantization and Pruning: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Model Optimization to reduce the memory footprint of a deep learning model by 75% and double inference throughput on mobile edge devices with minimal accuracy degradation.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to reduce the memory footprint of a deep learning model by 75% and double inference throughput on mobile edge devices with minimal accuracy degradation.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Double the floating-point precision from FP32 to FP64." },
@@ -321,7 +321,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Reinforcement Learning from Human Feedback (RLHF): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Generative AI Training to align a generative language model to follow human instructions safely, produce helpful responses, and avoid generating toxic or harmful content.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to align a generative language model to follow human instructions safely, produce helpful responses, and avoid generating toxic or harmful content.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Hardcode a list of banned words using static string replace operations." },
@@ -342,7 +342,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Reinforcement Learning from Human Feedback (RLHF): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Generative AI Training to align a generative language model to follow human instructions safely, produce helpful responses, and avoid generating toxic or harmful content.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to align a generative language model to follow human instructions safely, produce helpful responses, and avoid generating toxic or harmful content.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Instruct human operators to manually approve every generated response in real time." },
@@ -363,7 +363,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Reinforcement Learning from Human Feedback (RLHF): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Generative AI Training to align a generative language model to follow human instructions safely, produce helpful responses, and avoid generating toxic or harmful content.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to align a generative language model to follow human instructions safely, produce helpful responses, and avoid generating toxic or harmful content.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Hardcode a list of banned words using static string replace operations." },
@@ -384,7 +384,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Reinforcement Learning from Human Feedback (RLHF): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Generative AI Training to align a generative language model to follow human instructions safely, produce helpful responses, and avoid generating toxic or harmful content.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to align a generative language model to follow human instructions safely, produce helpful responses, and avoid generating toxic or harmful content.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Hardcode a list of banned words using static string replace operations." },
@@ -405,7 +405,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Reinforcement Learning from Human Feedback (RLHF): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Generative AI Training to align a generative language model to follow human instructions safely, produce helpful responses, and avoid generating toxic or harmful content.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to align a generative language model to follow human instructions safely, produce helpful responses, and avoid generating toxic or harmful content.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Instruct human operators to manually approve every generated response in real time." },
@@ -426,7 +426,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Pipelines (Kubeflow & TFX): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates MLOps Pipelines to orchestrate an automated, reproducible end-to-end MLOps workflow spanning data extraction, validation, training, evaluation, and model deployment.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to orchestrate an automated, reproducible end-to-end MLOps workflow spanning data extraction, validation, training, evaluation, and model deployment.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Write a monolithic Python script executing all steps sequentially on an individual VM." },
@@ -447,7 +447,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Pipelines (Kubeflow & TFX): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates MLOps Pipelines to orchestrate an automated, reproducible end-to-end MLOps workflow spanning data extraction, validation, training, evaluation, and model deployment.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to orchestrate an automated, reproducible end-to-end MLOps workflow spanning data extraction, validation, training, evaluation, and model deployment.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Run manual shell commands sequentially in Cloud Shell whenever a model update is needed." },
@@ -468,7 +468,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Pipelines (Kubeflow & TFX): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates MLOps Pipelines to orchestrate an automated, reproducible end-to-end MLOps workflow spanning data extraction, validation, training, evaluation, and model deployment.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to orchestrate an automated, reproducible end-to-end MLOps workflow spanning data extraction, validation, training, evaluation, and model deployment.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Schedule separate cron jobs across 5 independent virtual machines without dependency coordination." },
@@ -489,7 +489,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Pipelines (Kubeflow & TFX): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates MLOps Pipelines to orchestrate an automated, reproducible end-to-end MLOps workflow spanning data extraction, validation, training, evaluation, and model deployment.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to orchestrate an automated, reproducible end-to-end MLOps workflow spanning data extraction, validation, training, evaluation, and model deployment.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Schedule separate cron jobs across 5 independent virtual machines without dependency coordination." },
@@ -510,7 +510,7 @@ export const GCP_PMLE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Pipelines (Kubeflow & TFX): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates MLOps Pipelines to orchestrate an automated, reproducible end-to-end MLOps workflow spanning data extraction, validation, training, evaluation, and model deployment.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to orchestrate an automated, reproducible end-to-end MLOps workflow spanning data extraction, validation, training, evaluation, and model deployment.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Build and execute an MLOps pipeline using Kubeflow Pipelines (KFP) or TFX deployed on Vertex AI Pipelines." },

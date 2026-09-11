@@ -6,7 +6,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Google Cloud Resource Hierarchy: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Google Cloud Resource Management to structure enterprise cloud governance so that corporate policies and IAM permissions cascade from the organization down through department folders to development and production projects.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to structure enterprise cloud governance so that corporate policies and IAM permissions cascade from the organization down through department folders to development and production projects.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Manage cloud infrastructure using independent personal Gmail accounts without an organization node." },
@@ -27,7 +27,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Google Cloud Resource Hierarchy: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Google Cloud Resource Management to structure enterprise cloud governance so that corporate policies and IAM permissions cascade from the organization down through department folders to development and production projects.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to structure enterprise cloud governance so that corporate policies and IAM permissions cascade from the organization down through department folders to development and production projects.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy all company workloads into a single flat project without folders." },
@@ -48,7 +48,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Google Cloud Resource Hierarchy: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Google Cloud Resource Management to structure enterprise cloud governance so that corporate policies and IAM permissions cascade from the organization down through department folders to development and production projects.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to structure enterprise cloud governance so that corporate policies and IAM permissions cascade from the organization down through department folders to development and production projects.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy all company workloads into a single flat project without folders." },
@@ -69,7 +69,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Google Cloud Resource Hierarchy: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Google Cloud Resource Management to structure enterprise cloud governance so that corporate policies and IAM permissions cascade from the organization down through department folders to development and production projects.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to structure enterprise cloud governance so that corporate policies and IAM permissions cascade from the organization down through department folders to development and production projects.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy all company workloads into a single flat project without folders." },
@@ -90,7 +90,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Google Cloud Resource Hierarchy: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Google Cloud Resource Management to structure enterprise cloud governance so that corporate policies and IAM permissions cascade from the organization down through department folders to development and production projects.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to structure enterprise cloud governance so that corporate policies and IAM permissions cascade from the organization down through department folders to development and production projects.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Establish a resource hierarchy with an Organization node, structured department Folders, and scoped Projects." },
@@ -111,7 +111,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Billing Accounts and Project Billing Association: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Google Cloud Billing to link multiple independent development and production projects to a central enterprise billing account and export daily billing metrics to BigQuery for analysis.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to link multiple independent development and production projects to a central enterprise billing account and export daily billing metrics to BigQuery for analysis.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Enter individual physical credit cards separately into every project." },
@@ -132,7 +132,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Billing Accounts and Project Billing Association: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Google Cloud Billing to link multiple independent development and production projects to a central enterprise billing account and export daily billing metrics to BigQuery for analysis.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to link multiple independent development and production projects to a central enterprise billing account and export daily billing metrics to BigQuery for analysis.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Rely on quarterly paper invoices sent by mail without automated data export." },
@@ -153,7 +153,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Billing Accounts and Project Billing Association: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Google Cloud Billing to link multiple independent development and production projects to a central enterprise billing account and export daily billing metrics to BigQuery for analysis.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to link multiple independent development and production projects to a central enterprise billing account and export daily billing metrics to BigQuery for analysis.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Link the projects to the central Cloud Billing Account and configure daily Cloud Billing data export to BigQuery." },
@@ -174,7 +174,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Billing Accounts and Project Billing Association: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Google Cloud Billing to link multiple independent development and production projects to a central enterprise billing account and export daily billing metrics to BigQuery for analysis.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to link multiple independent development and production projects to a central enterprise billing account and export daily billing metrics to BigQuery for analysis.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Link the projects to the central Cloud Billing Account and configure daily Cloud Billing data export to BigQuery." },
@@ -195,7 +195,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Billing Accounts and Project Billing Association: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Google Cloud Billing to link multiple independent development and production projects to a central enterprise billing account and export daily billing metrics to BigQuery for analysis.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to link multiple independent development and production projects to a central enterprise billing account and export daily billing metrics to BigQuery for analysis.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Rely on quarterly paper invoices sent by mail without automated data export." },
@@ -216,7 +216,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Billing Budgets and Alert Thresholds: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Google Cloud Billing to notify finance managers via email and publish a message to a Pub/Sub topic when a department's monthly cloud expenditure reaches 50%, 90%, and 100% of its budget.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to notify finance managers via email and publish a message to a Pub/Sub topic when a department's monthly cloud expenditure reaches 50%, 90%, and 100% of its budget.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Set compute engine quota limits to zero when estimated costs exceed expectations." },
@@ -237,7 +237,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Billing Budgets and Alert Thresholds: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Google Cloud Billing to notify finance managers via email and publish a message to a Pub/Sub topic when a department's monthly cloud expenditure reaches 50%, 90%, and 100% of its budget.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to notify finance managers via email and publish a message to a Pub/Sub topic when a department's monthly cloud expenditure reaches 50%, 90%, and 100% of its budget.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Manually check the billing console on the last day of each billing cycle." },
@@ -258,7 +258,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Billing Budgets and Alert Thresholds: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Google Cloud Billing to notify finance managers via email and publish a message to a Pub/Sub topic when a department's monthly cloud expenditure reaches 50%, 90%, and 100% of its budget.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to notify finance managers via email and publish a message to a Pub/Sub topic when a department's monthly cloud expenditure reaches 50%, 90%, and 100% of its budget.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Set compute engine quota limits to zero when estimated costs exceed expectations." },
@@ -279,7 +279,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Billing Budgets and Alert Thresholds: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Google Cloud Billing to notify finance managers via email and publish a message to a Pub/Sub topic when a department's monthly cloud expenditure reaches 50%, 90%, and 100% of its budget.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to notify finance managers via email and publish a message to a Pub/Sub topic when a department's monthly cloud expenditure reaches 50%, 90%, and 100% of its budget.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Create a Cloud Billing Budget with threshold rules at 50%, 90%, and 100% connected to email recipients and a Pub/Sub topic." },
@@ -300,7 +300,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Billing Budgets and Alert Thresholds: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Google Cloud Billing to notify finance managers via email and publish a message to a Pub/Sub topic when a department's monthly cloud expenditure reaches 50%, 90%, and 100% of its budget.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to notify finance managers via email and publish a message to a Pub/Sub topic when a department's monthly cloud expenditure reaches 50%, 90%, and 100% of its budget.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Create a Cloud Billing Budget with threshold rules at 50%, 90%, and 100% connected to email recipients and a Pub/Sub topic." },
@@ -321,7 +321,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Google Cloud CLI (gcloud) Configuration and Authentication: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Google Cloud CLI to switch administrative CLI contexts seamlessly between production and staging projects across different service accounts on a local workstation.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to switch administrative CLI contexts seamlessly between production and staging projects across different service accounts on a local workstation.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Reinstall the entire Google Cloud SDK every time a project context change is needed." },
@@ -342,7 +342,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Google Cloud CLI (gcloud) Configuration and Authentication: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Google Cloud CLI to switch administrative CLI contexts seamlessly between production and staging projects across different service accounts on a local workstation.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to switch administrative CLI contexts seamlessly between production and staging projects across different service accounts on a local workstation.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Create named gcloud configurations using 'gcloud config configurations create' and activate them with 'gcloud config configurations activate'." },
@@ -363,7 +363,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Google Cloud CLI (gcloud) Configuration and Authentication: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Google Cloud CLI to switch administrative CLI contexts seamlessly between production and staging projects across different service accounts on a local workstation.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to switch administrative CLI contexts seamlessly between production and staging projects across different service accounts on a local workstation.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Use only the Cloud Console web interface to avoid configuring local CLI profiles." },
@@ -384,7 +384,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Google Cloud CLI (gcloud) Configuration and Authentication: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Google Cloud CLI to switch administrative CLI contexts seamlessly between production and staging projects across different service accounts on a local workstation.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to switch administrative CLI contexts seamlessly between production and staging projects across different service accounts on a local workstation.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Reinstall the entire Google Cloud SDK every time a project context change is needed." },
@@ -405,7 +405,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Google Cloud CLI (gcloud) Configuration and Authentication: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Google Cloud CLI to switch administrative CLI contexts seamlessly between production and staging projects across different service accounts on a local workstation.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to switch administrative CLI contexts seamlessly between production and staging projects across different service accounts on a local workstation.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Create named gcloud configurations using 'gcloud config configurations create' and activate them with 'gcloud config configurations activate'." },
@@ -426,7 +426,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Identity and Google Workspace Directory Sync: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Identity to synchronize 5,000 corporate employee user accounts and security groups from an on-premises Microsoft Active Directory to Google Cloud automatically.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to synchronize 5,000 corporate employee user accounts and security groups from an on-premises Microsoft Active Directory to Google Cloud automatically.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Export employee usernames to a public CSV file and upload it to Cloud Storage." },
@@ -447,7 +447,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Identity and Google Workspace Directory Sync: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Identity to synchronize 5,000 corporate employee user accounts and security groups from an on-premises Microsoft Active Directory to Google Cloud automatically.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to synchronize 5,000 corporate employee user accounts and security groups from an on-premises Microsoft Active Directory to Google Cloud automatically.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Instruct employees to create personal consumer Google accounts using corporate email addresses." },
@@ -468,7 +468,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Identity and Google Workspace Directory Sync: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Identity to synchronize 5,000 corporate employee user accounts and security groups from an on-premises Microsoft Active Directory to Google Cloud automatically.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to synchronize 5,000 corporate employee user accounts and security groups from an on-premises Microsoft Active Directory to Google Cloud automatically.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Manually create 5,000 user accounts in the Google Cloud Console one by one." },
@@ -489,7 +489,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Identity and Google Workspace Directory Sync: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Identity to synchronize 5,000 corporate employee user accounts and security groups from an on-premises Microsoft Active Directory to Google Cloud automatically.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to synchronize 5,000 corporate employee user accounts and security groups from an on-premises Microsoft Active Directory to Google Cloud automatically.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Instruct employees to create personal consumer Google accounts using corporate email addresses." },
@@ -510,7 +510,7 @@ export const GCP_ACE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Setting up a cloud solution environment",
     title: "Cloud Identity and Google Workspace Directory Sync: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Identity to synchronize 5,000 corporate employee user accounts and security groups from an on-premises Microsoft Active Directory to Google Cloud automatically.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to synchronize 5,000 corporate employee user accounts and security groups from an on-premises Microsoft Active Directory to Google Cloud automatically.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Export employee usernames to a public CSV file and upload it to Cloud Storage." },

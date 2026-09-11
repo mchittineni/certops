@@ -6,7 +6,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "Gateway Load Balancer (GWLB) Transparent Appliance Routing: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Gateway Load Balancers to route all ingress and egress VPC traffic transparently through a scalable fleet of third-party deep packet inspection appliances.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to route all ingress and egress VPC traffic transparently through a scalable fleet of third-party deep packet inspection appliances.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Route traffic through public internet VPN tunnels to on-premises hardware appliances." },
@@ -27,7 +27,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "Gateway Load Balancer (GWLB) Transparent Appliance Routing: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Gateway Load Balancers to route all ingress and egress VPC traffic transparently through a scalable fleet of third-party deep packet inspection appliances.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to route all ingress and egress VPC traffic transparently through a scalable fleet of third-party deep packet inspection appliances.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Deploy a Gateway Load Balancer (GWLB) backed by a firewall appliance fleet, using Gateway Load Balancer Endpoints (GWLBE) in consumer VPCs." },
@@ -48,7 +48,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "Gateway Load Balancer (GWLB) Transparent Appliance Routing: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Gateway Load Balancers to route all ingress and egress VPC traffic transparently through a scalable fleet of third-party deep packet inspection appliances.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to route all ingress and egress VPC traffic transparently through a scalable fleet of third-party deep packet inspection appliances.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Disable deep packet inspection to improve network throughput." },
@@ -69,7 +69,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "Gateway Load Balancer (GWLB) Transparent Appliance Routing: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Gateway Load Balancers to route all ingress and egress VPC traffic transparently through a scalable fleet of third-party deep packet inspection appliances.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to route all ingress and egress VPC traffic transparently through a scalable fleet of third-party deep packet inspection appliances.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Route traffic through public internet VPN tunnels to on-premises hardware appliances." },
@@ -90,7 +90,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "Gateway Load Balancer (GWLB) Transparent Appliance Routing: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Gateway Load Balancers to route all ingress and egress VPC traffic transparently through a scalable fleet of third-party deep packet inspection appliances.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to route all ingress and egress VPC traffic transparently through a scalable fleet of third-party deep packet inspection appliances.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Deploy a Gateway Load Balancer (GWLB) backed by a firewall appliance fleet, using Gateway Load Balancer Endpoints (GWLBE) in consumer VPCs." },
@@ -111,7 +111,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Systems Manager (SSM) Session Manager for Secure Administration: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates SSM Session Manager to allow systems engineers to access private EC2 instances administrative shells without opening inbound port 22 or maintaining bastion hosts.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to allow systems engineers to access private EC2 instances administrative shells without opening inbound port 22 or maintaining bastion hosts.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Use AWS Systems Manager Session Manager, encrypting sessions with a customer-managed KMS key and streaming audit logs to CloudWatch." },
@@ -132,7 +132,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Systems Manager (SSM) Session Manager for Secure Administration: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates SSM Session Manager to allow systems engineers to access private EC2 instances administrative shells without opening inbound port 22 or maintaining bastion hosts.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to allow systems engineers to access private EC2 instances administrative shells without opening inbound port 22 or maintaining bastion hosts.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Deploy a single unpatched Linux bastion host with public IP and static credentials." },
@@ -153,7 +153,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Systems Manager (SSM) Session Manager for Secure Administration: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates SSM Session Manager to allow systems engineers to access private EC2 instances administrative shells without opening inbound port 22 or maintaining bastion hosts.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to allow systems engineers to access private EC2 instances administrative shells without opening inbound port 22 or maintaining bastion hosts.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Deploy a single unpatched Linux bastion host with public IP and static credentials." },
@@ -174,7 +174,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Systems Manager (SSM) Session Manager for Secure Administration: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates SSM Session Manager to allow systems engineers to access private EC2 instances administrative shells without opening inbound port 22 or maintaining bastion hosts.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to allow systems engineers to access private EC2 instances administrative shells without opening inbound port 22 or maintaining bastion hosts.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Store private SSH keys in a public GitHub repository so all team members can access them." },
@@ -195,7 +195,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Systems Manager (SSM) Session Manager for Secure Administration: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates SSM Session Manager to allow systems engineers to access private EC2 instances administrative shells without opening inbound port 22 or maintaining bastion hosts.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to allow systems engineers to access private EC2 instances administrative shells without opening inbound port 22 or maintaining bastion hosts.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Store private SSH keys in a public GitHub repository so all team members can access them." },
@@ -216,7 +216,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Systems Manager Patch Manager Baseline Governance: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates SSM Patch Manager to automate the installation of critical operating system security patches across thousands of Linux and Windows EC2 instances.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to automate the installation of critical operating system security patches across thousands of Linux and Windows EC2 instances.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Configure SSM Patch Manager with custom patch baselines, auto-approval delays, and scheduled Maintenance Windows." },
@@ -237,7 +237,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Systems Manager Patch Manager Baseline Governance: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates SSM Patch Manager to automate the installation of critical operating system security patches across thousands of Linux and Windows EC2 instances.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to automate the installation of critical operating system security patches across thousands of Linux and Windows EC2 instances.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Disable operating system security updates to avoid testing application compatibility." },
@@ -258,7 +258,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Systems Manager Patch Manager Baseline Governance: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates SSM Patch Manager to automate the installation of critical operating system security patches across thousands of Linux and Windows EC2 instances.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to automate the installation of critical operating system security patches across thousands of Linux and Windows EC2 instances.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Reboot servers at random times during peak customer business hours without notice." },
@@ -279,7 +279,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Systems Manager Patch Manager Baseline Governance: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates SSM Patch Manager to automate the installation of critical operating system security patches across thousands of Linux and Windows EC2 instances.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to automate the installation of critical operating system security patches across thousands of Linux and Windows EC2 instances.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Configure SSM Patch Manager with custom patch baselines, auto-approval delays, and scheduled Maintenance Windows." },
@@ -300,7 +300,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Systems Manager Patch Manager Baseline Governance: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates SSM Patch Manager to automate the installation of critical operating system security patches across thousands of Linux and Windows EC2 instances.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to automate the installation of critical operating system security patches across thousands of Linux and Windows EC2 instances.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Configure SSM Patch Manager with custom patch baselines, auto-approval delays, and scheduled Maintenance Windows." },
@@ -321,7 +321,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "Amazon EKS Cluster Security and IRSA Hardening: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Amazon EKS Security to restrict pods in an Amazon EKS cluster so they can only access their specific DynamoDB table and prevent cluster API exposure to the internet.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to restrict pods in an Amazon EKS cluster so they can only access their specific DynamoDB table and prevent cluster API exposure to the internet.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Configure IAM Roles for Service Accounts (IRSA) with least-privilege policies, and set the EKS cluster API endpoint to Private-only." },
@@ -342,7 +342,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "Amazon EKS Cluster Security and IRSA Hardening: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Amazon EKS Security to restrict pods in an Amazon EKS cluster so they can only access their specific DynamoDB table and prevent cluster API exposure to the internet.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to restrict pods in an Amazon EKS cluster so they can only access their specific DynamoDB table and prevent cluster API exposure to the internet.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Expose the Kubernetes API server endpoint to 0.0.0.0/0 without authentication." },
@@ -363,7 +363,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "Amazon EKS Cluster Security and IRSA Hardening: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Amazon EKS Security to restrict pods in an Amazon EKS cluster so they can only access their specific DynamoDB table and prevent cluster API exposure to the internet.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to restrict pods in an Amazon EKS cluster so they can only access their specific DynamoDB table and prevent cluster API exposure to the internet.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Store AWS access keys as plaintext environment variables inside pod definitions." },
@@ -384,7 +384,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "Amazon EKS Cluster Security and IRSA Hardening: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Amazon EKS Security to restrict pods in an Amazon EKS cluster so they can only access their specific DynamoDB table and prevent cluster API exposure to the internet.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to restrict pods in an Amazon EKS cluster so they can only access their specific DynamoDB table and prevent cluster API exposure to the internet.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Configure IAM Roles for Service Accounts (IRSA) with least-privilege policies, and set the EKS cluster API endpoint to Private-only." },
@@ -405,7 +405,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "Amazon EKS Cluster Security and IRSA Hardening: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Amazon EKS Security to restrict pods in an Amazon EKS cluster so they can only access their specific DynamoDB table and prevent cluster API exposure to the internet.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to restrict pods in an Amazon EKS cluster so they can only access their specific DynamoDB table and prevent cluster API exposure to the internet.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Attach the AdministratorAccess IAM policy to the worker node EC2 instance profile, granting all pods full AWS permissions." },
@@ -426,7 +426,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "Amazon CloudFront Origin Access Control (OAC): Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates CloudFront OAC to ensure users can only access private S3 bucket static assets through an encrypted CloudFront CDN distribution and not directly via S3 URLs.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to ensure users can only access private S3 bucket static assets through an encrypted CloudFront CDN distribution and not directly via S3 URLs.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Use deprecated Origin Access Identity (OAI) which lacks support for SSE-KMS encryption and dynamic PUT requests." },
@@ -447,7 +447,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "Amazon CloudFront Origin Access Control (OAC): Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates CloudFront OAC to ensure users can only access private S3 bucket static assets through an encrypted CloudFront CDN distribution and not directly via S3 URLs.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to ensure users can only access private S3 bucket static assets through an encrypted CloudFront CDN distribution and not directly via S3 URLs.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Configure CloudFront Origin Access Control (OAC) with an S3 bucket policy allowing `s3:GetObject` only to the CloudFront distribution ARN." },
@@ -468,7 +468,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "Amazon CloudFront Origin Access Control (OAC): Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates CloudFront OAC to ensure users can only access private S3 bucket static assets through an encrypted CloudFront CDN distribution and not directly via S3 URLs.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to ensure users can only access private S3 bucket static assets through an encrypted CloudFront CDN distribution and not directly via S3 URLs.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Make the S3 bucket publicly readable to 0.0.0.0/0 so CloudFront can fetch objects." },
@@ -489,7 +489,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "Amazon CloudFront Origin Access Control (OAC): Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates CloudFront OAC to ensure users can only access private S3 bucket static assets through an encrypted CloudFront CDN distribution and not directly via S3 URLs.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to ensure users can only access private S3 bucket static assets through an encrypted CloudFront CDN distribution and not directly via S3 URLs.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Configure CloudFront Origin Access Control (OAC) with an S3 bucket policy allowing `s3:GetObject` only to the CloudFront distribution ARN." },
@@ -510,7 +510,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "Amazon CloudFront Origin Access Control (OAC): Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates CloudFront OAC to ensure users can only access private S3 bucket static assets through an encrypted CloudFront CDN distribution and not directly via S3 URLs.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to ensure users can only access private S3 bucket static assets through an encrypted CloudFront CDN distribution and not directly via S3 URLs.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Disable CloudFront caching and force all requests to hit the backend origin directly." },

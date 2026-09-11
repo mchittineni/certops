@@ -6,7 +6,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Self-Hosted Runners vs GitHub-Hosted Runners: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Runner Architecture to select a runner architecture for workloads requiring specialized GPU hardware and direct connectivity to internal private on-premises networks.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to select a runner architecture for workloads requiring specialized GPU hardware and direct connectivity to internal private on-premises networks.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Use GitHub-hosted Ubuntu runners which run in public cloud environments without private network peering." },
@@ -27,7 +27,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Self-Hosted Runners vs GitHub-Hosted Runners: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Runner Architecture to select a runner architecture for workloads requiring specialized GPU hardware and direct connectivity to internal private on-premises networks.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to select a runner architecture for workloads requiring specialized GPU hardware and direct connectivity to internal private on-premises networks.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Disable workflows and execute builds manually on developer workstations." },
@@ -48,7 +48,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Self-Hosted Runners vs GitHub-Hosted Runners: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Runner Architecture to select a runner architecture for workloads requiring specialized GPU hardware and direct connectivity to internal private on-premises networks.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to select a runner architecture for workloads requiring specialized GPU hardware and direct connectivity to internal private on-premises networks.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Run all workflows on public shared web servers." },
@@ -69,7 +69,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Self-Hosted Runners vs GitHub-Hosted Runners: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Runner Architecture to select a runner architecture for workloads requiring specialized GPU hardware and direct connectivity to internal private on-premises networks.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to select a runner architecture for workloads requiring specialized GPU hardware and direct connectivity to internal private on-premises networks.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Use GitHub-hosted Ubuntu runners which run in public cloud environments without private network peering." },
@@ -90,7 +90,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Self-Hosted Runners vs GitHub-Hosted Runners: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Runner Architecture to select a runner architecture for workloads requiring specialized GPU hardware and direct connectivity to internal private on-premises networks.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to select a runner architecture for workloads requiring specialized GPU hardware and direct connectivity to internal private on-premises networks.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Deploy Self-Hosted Runners on customer-managed virtual machines inside the private network." },
@@ -111,7 +111,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Ephemeral Self-Hosted Runners with Autoscaling (ARC): Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Autoscaling Runners to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Manually boot and configure new VMs whenever build queues back up." },
@@ -132,7 +132,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Ephemeral Self-Hosted Runners with Autoscaling (ARC): High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Autoscaling Runners to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Manually boot and configure new VMs whenever build queues back up." },
@@ -153,7 +153,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Ephemeral Self-Hosted Runners with Autoscaling (ARC): Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Autoscaling Runners to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Disable self-hosted runners and use public runners exclusively." },
@@ -174,7 +174,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Ephemeral Self-Hosted Runners with Autoscaling (ARC): Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Autoscaling Runners to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Manually boot and configure new VMs whenever build queues back up." },
@@ -195,7 +195,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Ephemeral Self-Hosted Runners with Autoscaling (ARC): Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Autoscaling Runners to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods." },
@@ -216,7 +216,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Self-Hosted Runner Groups and Access Control: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Runner Governance to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories." },
@@ -237,7 +237,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Self-Hosted Runner Groups and Access Control: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Runner Governance to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Allow any repository to use any runner without authorization." },
@@ -258,7 +258,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Self-Hosted Runner Groups and Access Control: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Runner Governance to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Share the runner registration token on public wikis." },
@@ -279,7 +279,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Self-Hosted Runner Groups and Access Control: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Runner Governance to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Allow any repository to use any runner without authorization." },
@@ -300,7 +300,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Self-Hosted Runner Groups and Access Control: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Runner Governance to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Allow any repository to use any runner without authorization." },
@@ -321,7 +321,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "OpenID Connect (OIDC) Keyless Cloud Authentication: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates OIDC Authentication to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Create a permanent IAM user with AdministratorAccess and paste access keys in repository secrets." },
@@ -342,7 +342,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "OpenID Connect (OIDC) Keyless Cloud Authentication: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates OIDC Authentication to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Configure an OpenID Connect (OIDC) identity provider in AWS IAM trust policy and use `aws-actions/configure-aws-credentials` with `role-to-assume`." },
@@ -363,7 +363,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "OpenID Connect (OIDC) Keyless Cloud Authentication: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates OIDC Authentication to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Create a permanent IAM user with AdministratorAccess and paste access keys in repository secrets." },
@@ -384,7 +384,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "OpenID Connect (OIDC) Keyless Cloud Authentication: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates OIDC Authentication to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Create a permanent IAM user with AdministratorAccess and paste access keys in repository secrets." },
@@ -405,7 +405,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "OpenID Connect (OIDC) Keyless Cloud Authentication: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates OIDC Authentication to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Configure an OpenID Connect (OIDC) identity provider in AWS IAM trust policy and use `aws-actions/configure-aws-credentials` with `role-to-assume`." },
@@ -426,7 +426,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Least-Privilege GITHUB_TOKEN Permissions (permissions:): Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Token Permissions to enforce the principle of least privilege on the automatic `GITHUB_TOKEN` so a workflow can only read repository contents and request OIDC tokens.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to enforce the principle of least privilege on the automatic `GITHUB_TOKEN` so a workflow can only read repository contents and request OIDC tokens.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Specify `permissions: contents: read, id-token: write` at the workflow or job level." },
@@ -447,7 +447,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Least-Privilege GITHUB_TOKEN Permissions (permissions:): High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Token Permissions to enforce the principle of least privilege on the automatic `GITHUB_TOKEN` so a workflow can only read repository contents and request OIDC tokens.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to enforce the principle of least privilege on the automatic `GITHUB_TOKEN` so a workflow can only read repository contents and request OIDC tokens.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Specify `permissions: contents: read, id-token: write` at the workflow or job level." },
@@ -468,7 +468,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Least-Privilege GITHUB_TOKEN Permissions (permissions:): Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Token Permissions to enforce the principle of least privilege on the automatic `GITHUB_TOKEN` so a workflow can only read repository contents and request OIDC tokens.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to enforce the principle of least privilege on the automatic `GITHUB_TOKEN` so a workflow can only read repository contents and request OIDC tokens.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Disable permissions entirely in repository settings." },
@@ -489,7 +489,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Least-Privilege GITHUB_TOKEN Permissions (permissions:): Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Token Permissions to enforce the principle of least privilege on the automatic `GITHUB_TOKEN` so a workflow can only read repository contents and request OIDC tokens.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to enforce the principle of least privilege on the automatic `GITHUB_TOKEN` so a workflow can only read repository contents and request OIDC tokens.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Specify `permissions: contents: read, id-token: write` at the workflow or job level." },
@@ -510,7 +510,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Least-Privilege GITHUB_TOKEN Permissions (permissions:): Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Token Permissions to enforce the principle of least privilege on the automatic `GITHUB_TOKEN` so a workflow can only read repository contents and request OIDC tokens.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to enforce the principle of least privilege on the automatic `GITHUB_TOKEN` so a workflow can only read repository contents and request OIDC tokens.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Use a personal access token with admin privileges instead of GITHUB_TOKEN." },

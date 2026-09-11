@@ -6,7 +6,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Prediction Autoscaling (Min/Max Replicas & Metrics): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Model Serving to configure a production Vertex AI Online Prediction Endpoint to automatically scale from 2 to 20 nodes during traffic surges while guaranteeing baseline availability.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to configure a production Vertex AI Online Prediction Endpoint to automatically scale from 2 to 20 nodes during traffic surges while guaranteeing baseline availability.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Manually change the instance count slider in the Cloud Console during an active outage." },
@@ -27,7 +27,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Prediction Autoscaling (Min/Max Replicas & Metrics): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Model Serving to configure a production Vertex AI Online Prediction Endpoint to automatically scale from 2 to 20 nodes during traffic surges while guaranteeing baseline availability.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to configure a production Vertex AI Online Prediction Endpoint to automatically scale from 2 to 20 nodes during traffic surges while guaranteeing baseline availability.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Configure a static single-node endpoint with minReplicaCount=1 and maxReplicaCount=1." },
@@ -48,7 +48,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Prediction Autoscaling (Min/Max Replicas & Metrics): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Model Serving to configure a production Vertex AI Online Prediction Endpoint to automatically scale from 2 to 20 nodes during traffic surges while guaranteeing baseline availability.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to configure a production Vertex AI Online Prediction Endpoint to automatically scale from 2 to 20 nodes during traffic surges while guaranteeing baseline availability.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy the model specifying minReplicaCount=2, maxReplicaCount=20, and target CPU/GPU utilization." },
@@ -69,7 +69,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Prediction Autoscaling (Min/Max Replicas & Metrics): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Model Serving to configure a production Vertex AI Online Prediction Endpoint to automatically scale from 2 to 20 nodes during traffic surges while guaranteeing baseline availability.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to configure a production Vertex AI Online Prediction Endpoint to automatically scale from 2 to 20 nodes during traffic surges while guaranteeing baseline availability.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Configure a static single-node endpoint with minReplicaCount=1 and maxReplicaCount=1." },
@@ -90,7 +90,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Prediction Autoscaling (Min/Max Replicas & Metrics): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Model Serving to configure a production Vertex AI Online Prediction Endpoint to automatically scale from 2 to 20 nodes during traffic surges while guaranteeing baseline availability.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to configure a production Vertex AI Online Prediction Endpoint to automatically scale from 2 to 20 nodes during traffic surges while guaranteeing baseline availability.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Deploy the model on an unmanaged Compute Engine instance without load balancing." },
@@ -111,7 +111,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Batch Prediction Pipelines: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Batch Prediction to generate risk scores for 50 million customer accounts every Sunday night, reading input features from BigQuery and writing prediction scores directly back to BigQuery.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to generate risk scores for 50 million customer accounts every Sunday night, reading input features from BigQuery and writing prediction scores directly back to BigQuery.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Export the 50 million records to CSV files on a local laptop and run predictions locally." },
@@ -132,7 +132,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Batch Prediction Pipelines: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Batch Prediction to generate risk scores for 50 million customer accounts every Sunday night, reading input features from BigQuery and writing prediction scores directly back to BigQuery.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to generate risk scores for 50 million customer accounts every Sunday night, reading input features from BigQuery and writing prediction scores directly back to BigQuery.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Export the 50 million records to CSV files on a local laptop and run predictions locally." },
@@ -153,7 +153,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Batch Prediction Pipelines: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Batch Prediction to generate risk scores for 50 million customer accounts every Sunday night, reading input features from BigQuery and writing prediction scores directly back to BigQuery.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to generate risk scores for 50 million customer accounts every Sunday night, reading input features from BigQuery and writing prediction scores directly back to BigQuery.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Export the 50 million records to CSV files on a local laptop and run predictions locally." },
@@ -174,7 +174,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Batch Prediction Pipelines: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Batch Prediction to generate risk scores for 50 million customer accounts every Sunday night, reading input features from BigQuery and writing prediction scores directly back to BigQuery.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to generate risk scores for 50 million customer accounts every Sunday night, reading input features from BigQuery and writing prediction scores directly back to BigQuery.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Export the 50 million records to CSV files on a local laptop and run predictions locally." },
@@ -195,7 +195,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Vertex AI Batch Prediction Pipelines: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Batch Prediction to generate risk scores for 50 million customer accounts every Sunday night, reading input features from BigQuery and writing prediction scores directly back to BigQuery.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to generate risk scores for 50 million customer accounts every Sunday night, reading input features from BigQuery and writing prediction scores directly back to BigQuery.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Submit a Vertex AI Batch Prediction job with BigQuery input and output sources." },
@@ -216,7 +216,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Continuous Training (CT) Automation Triggered by Data Drift: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates MLOps Automation to automatically trigger a Vertex AI retraining pipeline whenever Vertex AI Model Monitoring detects significant feature drift in production data.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to automatically trigger a Vertex AI retraining pipeline whenever Vertex AI Model Monitoring detects significant feature drift in production data.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Configure a Cloud Monitoring alert on model drift metrics to invoke a Cloud Function that triggers the Vertex AI Pipeline." },
@@ -237,7 +237,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Continuous Training (CT) Automation Triggered by Data Drift: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates MLOps Automation to automatically trigger a Vertex AI retraining pipeline whenever Vertex AI Model Monitoring detects significant feature drift in production data.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to automatically trigger a Vertex AI retraining pipeline whenever Vertex AI Model Monitoring detects significant feature drift in production data.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Rely on quarterly manual retraining initiated by engineering managers." },
@@ -258,7 +258,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Continuous Training (CT) Automation Triggered by Data Drift: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates MLOps Automation to automatically trigger a Vertex AI retraining pipeline whenever Vertex AI Model Monitoring detects significant feature drift in production data.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to automatically trigger a Vertex AI retraining pipeline whenever Vertex AI Model Monitoring detects significant feature drift in production data.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Disable model retraining permanently once a model achieves 90% validation accuracy." },
@@ -279,7 +279,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Continuous Training (CT) Automation Triggered by Data Drift: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates MLOps Automation to automatically trigger a Vertex AI retraining pipeline whenever Vertex AI Model Monitoring detects significant feature drift in production data.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to automatically trigger a Vertex AI retraining pipeline whenever Vertex AI Model Monitoring detects significant feature drift in production data.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Disable model retraining permanently once a model achieves 90% validation accuracy." },
@@ -300,7 +300,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Continuous Training (CT) Automation Triggered by Data Drift: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates MLOps Automation to automatically trigger a Vertex AI retraining pipeline whenever Vertex AI Model Monitoring detects significant feature drift in production data.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to automatically trigger a Vertex AI retraining pipeline whenever Vertex AI Model Monitoring detects significant feature drift in production data.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Disable model retraining permanently once a model achieves 90% validation accuracy." },
@@ -321,7 +321,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Model Evaluation and Gating in CI/CD (TFX Evaluator): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates MLOps Gating to ensure that an automatically retrained model is deployed to production only if its ROC-AUC score exceeds the current production champion model by at least 1%.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to ensure that an automatically retrained model is deployed to production only if its ROC-AUC score exceeds the current production champion model by at least 1%.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Incorporate an automated evaluation and validation step in Vertex AI Pipelines that compares candidate metrics against the production baseline." },
@@ -342,7 +342,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Model Evaluation and Gating in CI/CD (TFX Evaluator): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates MLOps Gating to ensure that an automatically retrained model is deployed to production only if its ROC-AUC score exceeds the current production champion model by at least 1%.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to ensure that an automatically retrained model is deployed to production only if its ROC-AUC score exceeds the current production champion model by at least 1%.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Require a full committee vote and manual administrative approval for every automated pipeline execution." },
@@ -363,7 +363,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Model Evaluation and Gating in CI/CD (TFX Evaluator): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates MLOps Gating to ensure that an automatically retrained model is deployed to production only if its ROC-AUC score exceeds the current production champion model by at least 1%.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to ensure that an automatically retrained model is deployed to production only if its ROC-AUC score exceeds the current production champion model by at least 1%.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Evaluate the model by manually inspecting the first 5 rows of test predictions." },
@@ -384,7 +384,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Model Evaluation and Gating in CI/CD (TFX Evaluator): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates MLOps Gating to ensure that an automatically retrained model is deployed to production only if its ROC-AUC score exceeds the current production champion model by at least 1%.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to ensure that an automatically retrained model is deployed to production only if its ROC-AUC score exceeds the current production champion model by at least 1%.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Require a full committee vote and manual administrative approval for every automated pipeline execution." },
@@ -405,7 +405,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Model Evaluation and Gating in CI/CD (TFX Evaluator): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates MLOps Gating to ensure that an automatically retrained model is deployed to production only if its ROC-AUC score exceeds the current production champion model by at least 1%.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to ensure that an automatically retrained model is deployed to production only if its ROC-AUC score exceeds the current production champion model by at least 1%.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Require a full committee vote and manual administrative approval for every automated pipeline execution." },
@@ -426,7 +426,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Private Endpoints for Vertex AI Prediction (VPC Peering): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Secure Serving to serve real-time predictions from a deep learning model to internal microservices over private RFC 1918 IP addresses with zero exposure to the public internet.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to serve real-time predictions from a deep learning model to internal microservices over private RFC 1918 IP addresses with zero exposure to the public internet.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy the model to a public internet endpoint and rely on API keys." },
@@ -447,7 +447,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Private Endpoints for Vertex AI Prediction (VPC Peering): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Secure Serving to serve real-time predictions from a deep learning model to internal microservices over private RFC 1918 IP addresses with zero exposure to the public internet.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to serve real-time predictions from a deep learning model to internal microservices over private RFC 1918 IP addresses with zero exposure to the public internet.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy the model to a Vertex AI Endpoint configured with a private VPC network connection." },
@@ -468,7 +468,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Private Endpoints for Vertex AI Prediction (VPC Peering): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Secure Serving to serve real-time predictions from a deep learning model to internal microservices over private RFC 1918 IP addresses with zero exposure to the public internet.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to serve real-time predictions from a deep learning model to internal microservices over private RFC 1918 IP addresses with zero exposure to the public internet.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy the model to a public internet endpoint and rely on API keys." },
@@ -489,7 +489,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Private Endpoints for Vertex AI Prediction (VPC Peering): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Secure Serving to serve real-time predictions from a deep learning model to internal microservices over private RFC 1918 IP addresses with zero exposure to the public internet.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to serve real-time predictions from a deep learning model to internal microservices over private RFC 1918 IP addresses with zero exposure to the public internet.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy the model to a public internet endpoint and rely on API keys." },
@@ -510,7 +510,7 @@ export const GCP_PMLE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Deploying, scaling, and automating MLOps pipelines",
     title: "Private Endpoints for Vertex AI Prediction (VPC Peering): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Secure Serving to serve real-time predictions from a deep learning model to internal microservices over private RFC 1918 IP addresses with zero exposure to the public internet.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to serve real-time predictions from a deep learning model to internal microservices over private RFC 1918 IP addresses with zero exposure to the public internet.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Host the model inside a public Cloud Storage bucket." },

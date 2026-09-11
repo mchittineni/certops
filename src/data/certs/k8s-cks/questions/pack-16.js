@@ -6,7 +6,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Managing Pod Security with Network Egress Policies: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Egress Restriction to prevent a compromised microservice from connecting to external command-and-control (C2) servers or exfiltrating stolen customer data.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent a compromised microservice from connecting to external command-and-control (C2) servers or exfiltrating stolen customer data.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Delete the DNS configuration from the pod." },
@@ -27,7 +27,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Managing Pod Security with Network Egress Policies: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Egress Restriction to prevent a compromised microservice from connecting to external command-and-control (C2) servers or exfiltrating stolen customer data.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent a compromised microservice from connecting to external command-and-control (C2) servers or exfiltrating stolen customer data.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Apply an egress NetworkPolicy restricting outbound traffic strictly to approved cluster internal services and designated external payment API endpoints." },
@@ -48,7 +48,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Managing Pod Security with Network Egress Policies: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Egress Restriction to prevent a compromised microservice from connecting to external command-and-control (C2) servers or exfiltrating stolen customer data.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent a compromised microservice from connecting to external command-and-control (C2) servers or exfiltrating stolen customer data.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Allow unrestricted outbound egress to 0.0.0.0/0 on all ports." },
@@ -69,7 +69,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Managing Pod Security with Network Egress Policies: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Egress Restriction to prevent a compromised microservice from connecting to external command-and-control (C2) servers or exfiltrating stolen customer data.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent a compromised microservice from connecting to external command-and-control (C2) servers or exfiltrating stolen customer data.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Allow unrestricted outbound egress to 0.0.0.0/0 on all ports." },
@@ -90,7 +90,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Managing Pod Security with Network Egress Policies: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Egress Restriction to prevent a compromised microservice from connecting to external command-and-control (C2) servers or exfiltrating stolen customer data.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent a compromised microservice from connecting to external command-and-control (C2) servers or exfiltrating stolen customer data.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Delete the DNS configuration from the pod." },
@@ -111,7 +111,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Static Manifest Analysis with Kube-linter and Conftest: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Static Manifest Scanning to detect security misconfigurations (such as missing resource limits or running as root) in Kubernetes YAML manifests before merging pull requests.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to detect security misconfigurations (such as missing resource limits or running as root) in Kubernetes YAML manifests before merging pull requests.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy unvalidated manifests directly to production and test security at runtime." },
@@ -132,7 +132,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Static Manifest Analysis with Kube-linter and Conftest: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Static Manifest Scanning to detect security misconfigurations (such as missing resource limits or running as root) in Kubernetes YAML manifests before merging pull requests.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to detect security misconfigurations (such as missing resource limits or running as root) in Kubernetes YAML manifests before merging pull requests.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Deploy unvalidated manifests directly to production and test security at runtime." },
@@ -153,7 +153,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Static Manifest Analysis with Kube-linter and Conftest: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Static Manifest Scanning to detect security misconfigurations (such as missing resource limits or running as root) in Kubernetes YAML manifests before merging pull requests.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to detect security misconfigurations (such as missing resource limits or running as root) in Kubernetes YAML manifests before merging pull requests.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Rely on manual human code review of thousands of YAML files." },
@@ -174,7 +174,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Static Manifest Analysis with Kube-linter and Conftest: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Static Manifest Scanning to detect security misconfigurations (such as missing resource limits or running as root) in Kubernetes YAML manifests before merging pull requests.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to detect security misconfigurations (such as missing resource limits or running as root) in Kubernetes YAML manifests before merging pull requests.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Integrate static analysis tools like `kube-linter`, `checkov`, or `conftest` (OPA) into the CI pipeline to fail builds on insecure manifest patterns." },
@@ -195,7 +195,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Static Manifest Analysis with Kube-linter and Conftest: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Static Manifest Scanning to detect security misconfigurations (such as missing resource limits or running as root) in Kubernetes YAML manifests before merging pull requests.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to detect security misconfigurations (such as missing resource limits or running as root) in Kubernetes YAML manifests before merging pull requests.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Deploy unvalidated manifests directly to production and test security at runtime." },
@@ -216,7 +216,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Container Image Vulnerability Scanning with Trivy: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Vulnerability Scanning to prevent container images containing high or critical severity CVEs from being pushed to the enterprise container registry.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent container images containing high or critical severity CVEs from being pushed to the enterprise container registry.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely on public Docker Hub star ratings as proof of container security." },
@@ -237,7 +237,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Container Image Vulnerability Scanning with Trivy: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Vulnerability Scanning to prevent container images containing high or critical severity CVEs from being pushed to the enterprise container registry.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent container images containing high or critical severity CVEs from being pushed to the enterprise container registry.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Filter out all critical CVEs from scanner reports to prevent build interruptions." },
@@ -258,7 +258,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Container Image Vulnerability Scanning with Trivy: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Vulnerability Scanning to prevent container images containing high or critical severity CVEs from being pushed to the enterprise container registry.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent container images containing high or critical severity CVEs from being pushed to the enterprise container registry.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Execute `trivy image --severity HIGH,CRITICAL --exit-code 1 &lt;image-name&gt;` in the CI build step to block vulnerable artifacts." },
@@ -279,7 +279,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Container Image Vulnerability Scanning with Trivy: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Vulnerability Scanning to prevent container images containing high or critical severity CVEs from being pushed to the enterprise container registry.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent container images containing high or critical severity CVEs from being pushed to the enterprise container registry.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Rely on public Docker Hub star ratings as proof of container security." },
@@ -300,7 +300,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Container Image Vulnerability Scanning with Trivy: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Vulnerability Scanning to prevent container images containing high or critical severity CVEs from being pushed to the enterprise container registry.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent container images containing high or critical severity CVEs from being pushed to the enterprise container registry.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Scan containers only after they have run in production for six months." },
@@ -321,7 +321,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Image Signing and Verification with Cosign (Sigstore): Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Cryptographic Signing to guarantee that only container images built and signed by the authorized corporate CI pipeline can be executed in Kubernetes.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to guarantee that only container images built and signed by the authorized corporate CI pipeline can be executed in Kubernetes.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Commit unencrypted GPG private keys to public GitHub repositories." },
@@ -342,7 +342,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Image Signing and Verification with Cosign (Sigstore): High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Cryptographic Signing to guarantee that only container images built and signed by the authorized corporate CI pipeline can be executed in Kubernetes.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to guarantee that only container images built and signed by the authorized corporate CI pipeline can be executed in Kubernetes.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Allow developers to manually sign images using self-signed ad-hoc certificates." },
@@ -363,7 +363,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Image Signing and Verification with Cosign (Sigstore): Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Cryptographic Signing to guarantee that only container images built and signed by the authorized corporate CI pipeline can be executed in Kubernetes.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to guarantee that only container images built and signed by the authorized corporate CI pipeline can be executed in Kubernetes.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Commit unencrypted GPG private keys to public GitHub repositories." },
@@ -384,7 +384,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Image Signing and Verification with Cosign (Sigstore): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Cryptographic Signing to guarantee that only container images built and signed by the authorized corporate CI pipeline can be executed in Kubernetes.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to guarantee that only container images built and signed by the authorized corporate CI pipeline can be executed in Kubernetes.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Allow developers to manually sign images using self-signed ad-hoc certificates." },
@@ -405,7 +405,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Image Signing and Verification with Cosign (Sigstore): Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Cryptographic Signing to guarantee that only container images built and signed by the authorized corporate CI pipeline can be executed in Kubernetes.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to guarantee that only container images built and signed by the authorized corporate CI pipeline can be executed in Kubernetes.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Trust image tags without cryptographic verification." },
@@ -426,7 +426,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Software Bill of Materials (SBOM) Generation: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates SBOM to produce a comprehensive, machine-readable inventory of all software packages and open-source dependencies included in a production container image.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to produce a comprehensive, machine-readable inventory of all software packages and open-source dependencies included in a production container image.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Ask developers to recall dependencies from memory during compliance audits." },
@@ -447,7 +447,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Software Bill of Materials (SBOM) Generation: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates SBOM to produce a comprehensive, machine-readable inventory of all software packages and open-source dependencies included in a production container image.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to produce a comprehensive, machine-readable inventory of all software packages and open-source dependencies included in a production container image.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Ask developers to recall dependencies from memory during compliance audits." },
@@ -468,7 +468,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Software Bill of Materials (SBOM) Generation: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates SBOM to produce a comprehensive, machine-readable inventory of all software packages and open-source dependencies included in a production container image.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to produce a comprehensive, machine-readable inventory of all software packages and open-source dependencies included in a production container image.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Delete all package metadata from containers to save disk space." },
@@ -489,7 +489,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Software Bill of Materials (SBOM) Generation: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates SBOM to produce a comprehensive, machine-readable inventory of all software packages and open-source dependencies included in a production container image.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to produce a comprehensive, machine-readable inventory of all software packages and open-source dependencies included in a production container image.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Maintain a handwritten text file listing libraries remembered by the author." },
@@ -510,7 +510,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Supply Chain Security and Static Analysis",
     title: "Software Bill of Materials (SBOM) Generation: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates SBOM to produce a comprehensive, machine-readable inventory of all software packages and open-source dependencies included in a production container image.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to produce a comprehensive, machine-readable inventory of all software packages and open-source dependencies included in a production container image.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Delete all package metadata from containers to save disk space." },

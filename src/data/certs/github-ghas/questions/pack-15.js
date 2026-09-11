@@ -6,7 +6,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Grouped Dependabot Updates: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Grouped Updates to prevent developers from being overwhelmed by 30 individual Dependabot pull requests opening on Monday morning.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to prevent developers from being overwhelmed by 30 individual Dependabot pull requests opening on Monday morning.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Disable Dependabot updates entirely to eliminate pull request notifications." },
@@ -27,7 +27,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Grouped Dependabot Updates: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Grouped Updates to prevent developers from being overwhelmed by 30 individual Dependabot pull requests opening on Monday morning.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to prevent developers from being overwhelmed by 30 individual Dependabot pull requests opening on Monday morning.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Configure `groups` in `.github/dependabot.yml` to combine minor and patch updates for specific packages into a single pull request." },
@@ -48,7 +48,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Grouped Dependabot Updates: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Grouped Updates to prevent developers from being overwhelmed by 30 individual Dependabot pull requests opening on Monday morning.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to prevent developers from being overwhelmed by 30 individual Dependabot pull requests opening on Monday morning.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Merge all pull requests automatically without running automated test suites." },
@@ -69,7 +69,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Grouped Dependabot Updates: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Grouped Updates to prevent developers from being overwhelmed by 30 individual Dependabot pull requests opening on Monday morning.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to prevent developers from being overwhelmed by 30 individual Dependabot pull requests opening on Monday morning.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Require developers to approve and merge 30 separate pull requests manually every week." },
@@ -90,7 +90,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Grouped Dependabot Updates: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Grouped Updates to prevent developers from being overwhelmed by 30 individual Dependabot pull requests opening on Monday morning.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to prevent developers from being overwhelmed by 30 individual Dependabot pull requests opening on Monday morning.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Configure `groups` in `.github/dependabot.yml` to combine minor and patch updates for specific packages into a single pull request." },
@@ -111,7 +111,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "License Compliance and Policy Enforcement: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates License Compliance to prevent commercial software products from incorporating libraries with restrictive copyleft licenses like GNU Affero GPL (AGPL).",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to prevent commercial software products from incorporating libraries with restrictive copyleft licenses like GNU Affero GPL (AGPL).",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Assume all packages on npm and PyPI are released under the public domain." },
@@ -132,7 +132,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "License Compliance and Policy Enforcement: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates License Compliance to prevent commercial software products from incorporating libraries with restrictive copyleft licenses like GNU Affero GPL (AGPL).",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to prevent commercial software products from incorporating libraries with restrictive copyleft licenses like GNU Affero GPL (AGPL).",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Assume all packages on npm and PyPI are released under the public domain." },
@@ -153,7 +153,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "License Compliance and Policy Enforcement: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates License Compliance to prevent commercial software products from incorporating libraries with restrictive copyleft licenses like GNU Affero GPL (AGPL).",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to prevent commercial software products from incorporating libraries with restrictive copyleft licenses like GNU Affero GPL (AGPL).",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Allow developers to import arbitrary software without checking open-source license requirements." },
@@ -174,7 +174,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "License Compliance and Policy Enforcement: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates License Compliance to prevent commercial software products from incorporating libraries with restrictive copyleft licenses like GNU Affero GPL (AGPL).",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to prevent commercial software products from incorporating libraries with restrictive copyleft licenses like GNU Affero GPL (AGPL).",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Use Dependency Review with configured license policies in GitHub Actions to block PRs introducing unapproved licenses." },
@@ -195,7 +195,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "License Compliance and Policy Enforcement: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates License Compliance to prevent commercial software products from incorporating libraries with restrictive copyleft licenses like GNU Affero GPL (AGPL).",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to prevent commercial software products from incorporating libraries with restrictive copyleft licenses like GNU Affero GPL (AGPL).",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Assume all packages on npm and PyPI are released under the public domain." },
@@ -216,7 +216,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "GitHub Advisory Database and Community Submissions: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Advisory Database to understand how GitHub curates vulnerability data and how security researchers can submit zero-day fixes directly to GitHub.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to understand how GitHub curates vulnerability data and how security researchers can submit zero-day fixes directly to GitHub.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Assume vulnerability data is static and never updated after publication." },
@@ -237,7 +237,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "GitHub Advisory Database and Community Submissions: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Advisory Database to understand how GitHub curates vulnerability data and how security researchers can submit zero-day fixes directly to GitHub.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to understand how GitHub curates vulnerability data and how security researchers can submit zero-day fixes directly to GitHub.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Rely on unverified security blog posts on social media for vulnerability intelligence." },
@@ -258,7 +258,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "GitHub Advisory Database and Community Submissions: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Advisory Database to understand how GitHub curates vulnerability data and how security researchers can submit zero-day fixes directly to GitHub.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to understand how GitHub curates vulnerability data and how security researchers can submit zero-day fixes directly to GitHub.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Rely on unverified security blog posts on social media for vulnerability intelligence." },
@@ -279,7 +279,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "GitHub Advisory Database and Community Submissions: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Advisory Database to understand how GitHub curates vulnerability data and how security researchers can submit zero-day fixes directly to GitHub.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to understand how GitHub curates vulnerability data and how security researchers can submit zero-day fixes directly to GitHub.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Leverage the GitHub Advisory Database, which combines National Vulnerability Database (NVD) data with community-reviewed GHSA advisories." },
@@ -300,7 +300,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "GitHub Advisory Database and Community Submissions: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Advisory Database to understand how GitHub curates vulnerability data and how security researchers can submit zero-day fixes directly to GitHub.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to understand how GitHub curates vulnerability data and how security researchers can submit zero-day fixes directly to GitHub.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Keep all discovered security vulnerabilities secret to prevent software vendors from patching them." },
@@ -321,7 +321,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Artifact Attestation and SLSA Provenance: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Artifact Attestation to guarantee that binary container images and release artifacts were compiled directly by authorized GitHub Actions workflows.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to guarantee that binary container images and release artifacts were compiled directly by authorized GitHub Actions workflows.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Use the `actions/attest-build-provenance` action to generate cryptographically signed build provenance attestations backed by Sigstore." },
@@ -342,7 +342,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Artifact Attestation and SLSA Provenance: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Artifact Attestation to guarantee that binary container images and release artifacts were compiled directly by authorized GitHub Actions workflows.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to guarantee that binary container images and release artifacts were compiled directly by authorized GitHub Actions workflows.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Use the `actions/attest-build-provenance` action to generate cryptographically signed build provenance attestations backed by Sigstore." },
@@ -363,7 +363,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Artifact Attestation and SLSA Provenance: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Artifact Attestation to guarantee that binary container images and release artifacts were compiled directly by authorized GitHub Actions workflows.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to guarantee that binary container images and release artifacts were compiled directly by authorized GitHub Actions workflows.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Rely on filenames and MD5 checksums stored in unencrypted text files." },
@@ -384,7 +384,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Artifact Attestation and SLSA Provenance: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Artifact Attestation to guarantee that binary container images and release artifacts were compiled directly by authorized GitHub Actions workflows.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to guarantee that binary container images and release artifacts were compiled directly by authorized GitHub Actions workflows.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Use the `actions/attest-build-provenance` action to generate cryptographically signed build provenance attestations backed by Sigstore." },
@@ -405,7 +405,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Artifact Attestation and SLSA Provenance: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Artifact Attestation to guarantee that binary container images and release artifacts were compiled directly by authorized GitHub Actions workflows.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to guarantee that binary container images and release artifacts were compiled directly by authorized GitHub Actions workflows.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Disable build authentication to improve pipeline throughput." },
@@ -426,7 +426,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "CodeQL Architecture: Extractors and Relational Databases: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates CodeQL Architecture to understand how CodeQL transforms source code into a queryable relational database for semantic vulnerability analysis.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to understand how CodeQL transforms source code into a queryable relational database for semantic vulnerability analysis.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Run compiled binaries in a sandbox and inspect memory dumps for runtime errors." },
@@ -447,7 +447,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "CodeQL Architecture: Extractors and Relational Databases: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates CodeQL Architecture to understand how CodeQL transforms source code into a queryable relational database for semantic vulnerability analysis.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to understand how CodeQL transforms source code into a queryable relational database for semantic vulnerability analysis.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Decompile binaries and guess vulnerability locations based on function names." },
@@ -468,7 +468,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "CodeQL Architecture: Extractors and Relational Databases: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates CodeQL Architecture to understand how CodeQL transforms source code into a queryable relational database for semantic vulnerability analysis.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to understand how CodeQL transforms source code into a queryable relational database for semantic vulnerability analysis.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Execute simple regular expression searches on raw text files without compiling or parsing code syntax." },
@@ -489,7 +489,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "CodeQL Architecture: Extractors and Relational Databases: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates CodeQL Architecture to understand how CodeQL transforms source code into a queryable relational database for semantic vulnerability analysis.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to understand how CodeQL transforms source code into a queryable relational database for semantic vulnerability analysis.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Use CodeQL extractors to parse source code, building an Abstract Syntax Tree (AST) and dataflow graph stored in a relational database." },
@@ -510,7 +510,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "CodeQL Architecture: Extractors and Relational Databases: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates CodeQL Architecture to understand how CodeQL transforms source code into a queryable relational database for semantic vulnerability analysis.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to understand how CodeQL transforms source code into a queryable relational database for semantic vulnerability analysis.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Execute simple regular expression searches on raw text files without compiling or parsing code syntax." },

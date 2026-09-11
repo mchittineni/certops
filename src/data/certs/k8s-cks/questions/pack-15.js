@@ -6,7 +6,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Disallowing allowPrivilegeEscalation: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Privilege Escalation to prevent child processes inside a container from gaining more privileges than their parent process via setuid or setgid binaries.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent child processes inside a container from gaining more privileges than their parent process via setuid or setgid binaries.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." },
@@ -27,7 +27,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Disallowing allowPrivilegeEscalation: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Privilege Escalation to prevent child processes inside a container from gaining more privileges than their parent process via setuid or setgid binaries.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent child processes inside a container from gaining more privileges than their parent process via setuid or setgid binaries.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Run the container as root to bypass escalation checks." },
@@ -48,7 +48,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Disallowing allowPrivilegeEscalation: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Privilege Escalation to prevent child processes inside a container from gaining more privileges than their parent process via setuid or setgid binaries.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent child processes inside a container from gaining more privileges than their parent process via setuid or setgid binaries.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Run the container as root to bypass escalation checks." },
@@ -69,7 +69,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Disallowing allowPrivilegeEscalation: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Privilege Escalation to prevent child processes inside a container from gaining more privileges than their parent process via setuid or setgid binaries.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent child processes inside a container from gaining more privileges than their parent process via setuid or setgid binaries.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Run the container as root to bypass escalation checks." },
@@ -90,7 +90,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Disallowing allowPrivilegeEscalation: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Privilege Escalation to prevent child processes inside a container from gaining more privileges than their parent process via setuid or setgid binaries.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent child processes inside a container from gaining more privileges than their parent process via setuid or setgid binaries.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." },
@@ -111,7 +111,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Disabling Default ServiceAccount Token Automount: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Token Protection to protect microservices that do not communicate with the Kubernetes API from having their ServiceAccount credentials stolen by an attacker.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to protect microservices that do not communicate with the Kubernetes API from having their ServiceAccount credentials stolen by an attacker.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." },
@@ -132,7 +132,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Disabling Default ServiceAccount Token Automount: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Token Protection to protect microservices that do not communicate with the Kubernetes API from having their ServiceAccount credentials stolen by an attacker.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to protect microservices that do not communicate with the Kubernetes API from having their ServiceAccount credentials stolen by an attacker.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." },
@@ -153,7 +153,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Disabling Default ServiceAccount Token Automount: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Token Protection to protect microservices that do not communicate with the Kubernetes API from having their ServiceAccount credentials stolen by an attacker.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to protect microservices that do not communicate with the Kubernetes API from having their ServiceAccount credentials stolen by an attacker.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." },
@@ -174,7 +174,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Disabling Default ServiceAccount Token Automount: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Token Protection to protect microservices that do not communicate with the Kubernetes API from having their ServiceAccount credentials stolen by an attacker.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to protect microservices that do not communicate with the Kubernetes API from having their ServiceAccount credentials stolen by an attacker.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." },
@@ -195,7 +195,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Disabling Default ServiceAccount Token Automount: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Token Protection to protect microservices that do not communicate with the Kubernetes API from having their ServiceAccount credentials stolen by an attacker.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to protect microservices that do not communicate with the Kubernetes API from having their ServiceAccount credentials stolen by an attacker.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Allow all pods to mount the default ServiceAccount token automatically." },
@@ -216,7 +216,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "mTLS Service Mesh Communication: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Service Mesh mTLS to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Disable network policies and rely on perimeter corporate firewalls." },
@@ -237,7 +237,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "mTLS Service Mesh Communication: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Service Mesh mTLS to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Disable network policies and rely on perimeter corporate firewalls." },
@@ -258,7 +258,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "mTLS Service Mesh Communication: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Service Mesh mTLS to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Implement custom SSL certificate management manually inside every microservice binary." },
@@ -279,7 +279,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "mTLS Service Mesh Communication: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Service Mesh mTLS to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Implement custom SSL certificate management manually inside every microservice binary." },
@@ -300,7 +300,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "mTLS Service Mesh Communication: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Service Mesh mTLS to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Transmit all traffic in plaintext HTTP over the internal cluster network." },
@@ -321,7 +321,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Kubernetes Ingress with TLS and ModSecurity/WAF: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Ingress Security to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely solely on application developers writing custom sanitization code for every endpoint." },
@@ -342,7 +342,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Kubernetes Ingress with TLS and ModSecurity/WAF: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Ingress Security to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Expose backend microservices directly on unencrypted NodePort services." },
@@ -363,7 +363,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Kubernetes Ingress with TLS and ModSecurity/WAF: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Ingress Security to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin." },
@@ -384,7 +384,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Kubernetes Ingress with TLS and ModSecurity/WAF: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Ingress Security to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Expose backend microservices directly on unencrypted NodePort services." },
@@ -405,7 +405,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Kubernetes Ingress with TLS and ModSecurity/WAF: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Ingress Security to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Rely solely on application developers writing custom sanitization code for every endpoint." },
@@ -426,7 +426,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Container Vulnerability Mitigation and Patching: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates CVE Remediation to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "SSH into running production containers and execute apt-get upgrade manually." },
@@ -447,7 +447,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Container Vulnerability Mitigation and Patching: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates CVE Remediation to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Ignore the vulnerability until the next major annual application release." },
@@ -468,7 +468,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Container Vulnerability Mitigation and Patching: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates CVE Remediation to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "SSH into running production containers and execute apt-get upgrade manually." },
@@ -489,7 +489,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Container Vulnerability Mitigation and Patching: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates CVE Remediation to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Change the container image tag to latest without rebuilding." },
@@ -510,7 +510,7 @@ export const K8S_CKS_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Container Vulnerability Mitigation and Patching: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates CVE Remediation to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "SSH into running production containers and execute apt-get upgrade manually." },

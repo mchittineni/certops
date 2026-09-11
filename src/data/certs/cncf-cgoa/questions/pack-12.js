@@ -6,7 +6,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Single Source of Truth (SSOT): Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates GitOps Fundamentals to ensure that an enterprise's infrastructure and application runtime state can always be deterministically reproduced from scratch.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to ensure that an enterprise's infrastructure and application runtime state can always be deterministically reproduced from scratch.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Treat the live running cluster as the source of truth and export YAML from it." },
@@ -27,7 +27,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Single Source of Truth (SSOT): High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates GitOps Fundamentals to ensure that an enterprise's infrastructure and application runtime state can always be deterministically reproduced from scratch.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to ensure that an enterprise's infrastructure and application runtime state can always be deterministically reproduced from scratch.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Allow engineers to make direct console tweaks as long as they document them in chat." },
@@ -48,7 +48,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Single Source of Truth (SSOT): Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates GitOps Fundamentals to ensure that an enterprise's infrastructure and application runtime state can always be deterministically reproduced from scratch.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to ensure that an enterprise's infrastructure and application runtime state can always be deterministically reproduced from scratch.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Treat the live running cluster as the source of truth and export YAML from it." },
@@ -69,7 +69,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Single Source of Truth (SSOT): Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates GitOps Fundamentals to ensure that an enterprise's infrastructure and application runtime state can always be deterministically reproduced from scratch.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to ensure that an enterprise's infrastructure and application runtime state can always be deterministically reproduced from scratch.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Allow engineers to make direct console tweaks as long as they document them in chat." },
@@ -90,7 +90,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Single Source of Truth (SSOT): Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates GitOps Fundamentals to ensure that an enterprise's infrastructure and application runtime state can always be deterministically reproduced from scratch.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to ensure that an enterprise's infrastructure and application runtime state can always be deterministically reproduced from scratch.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Treat the live running cluster as the source of truth and export YAML from it." },
@@ -111,7 +111,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Continuous Drift Detection and Self-Healing: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Drift & Self-Healing to prevent configuration drift from accumulating across a fleet of 50 Kubernetes clusters over time.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to prevent configuration drift from accumulating across a fleet of 50 Kubernetes clusters over time.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Enable automated self-healing in the GitOps controller so that any out-of-band cluster modifications are automatically overwritten with the Git desired state." },
@@ -132,7 +132,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Continuous Drift Detection and Self-Healing: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Drift & Self-Healing to prevent configuration drift from accumulating across a fleet of 50 Kubernetes clusters over time.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to prevent configuration drift from accumulating across a fleet of 50 Kubernetes clusters over time.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Disable reconciliation and review drift manually once a month." },
@@ -153,7 +153,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Continuous Drift Detection and Self-Healing: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Drift & Self-Healing to prevent configuration drift from accumulating across a fleet of 50 Kubernetes clusters over time.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to prevent configuration drift from accumulating across a fleet of 50 Kubernetes clusters over time.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Enable automated self-healing in the GitOps controller so that any out-of-band cluster modifications are automatically overwritten with the Git desired state." },
@@ -174,7 +174,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Continuous Drift Detection and Self-Healing: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Drift & Self-Healing to prevent configuration drift from accumulating across a fleet of 50 Kubernetes clusters over time.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to prevent configuration drift from accumulating across a fleet of 50 Kubernetes clusters over time.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Enable automated self-healing in the GitOps controller so that any out-of-band cluster modifications are automatically overwritten with the Git desired state." },
@@ -195,7 +195,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Continuous Drift Detection and Self-Healing: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Drift & Self-Healing to prevent configuration drift from accumulating across a fleet of 50 Kubernetes clusters over time.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to prevent configuration drift from accumulating across a fleet of 50 Kubernetes clusters over time.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Enable automated self-healing in the GitOps controller so that any out-of-band cluster modifications are automatically overwritten with the Git desired state." },
@@ -216,7 +216,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Declarative vs Imperative Deployment Tools: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Deployment Tooling to understand why declarative tools like Argo CD and Flux are preferred over imperative shell scripts for enterprise platform scaling.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to understand why declarative tools like Argo CD and Flux are preferred over imperative shell scripts for enterprise platform scaling.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Declarative tools maintain continuous convergence loops and understand object schemas, whereas imperative scripts only execute once and cannot continuously reconcile drift." },
@@ -237,7 +237,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Declarative vs Imperative Deployment Tools: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Deployment Tooling to understand why declarative tools like Argo CD and Flux are preferred over imperative shell scripts for enterprise platform scaling.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to understand why declarative tools like Argo CD and Flux are preferred over imperative shell scripts for enterprise platform scaling.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Imperative scripts eliminate the need for version control." },
@@ -258,7 +258,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Declarative vs Imperative Deployment Tools: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Deployment Tooling to understand why declarative tools like Argo CD and Flux are preferred over imperative shell scripts for enterprise platform scaling.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to understand why declarative tools like Argo CD and Flux are preferred over imperative shell scripts for enterprise platform scaling.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Imperative scripts eliminate the need for version control." },
@@ -279,7 +279,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Declarative vs Imperative Deployment Tools: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Deployment Tooling to understand why declarative tools like Argo CD and Flux are preferred over imperative shell scripts for enterprise platform scaling.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to understand why declarative tools like Argo CD and Flux are preferred over imperative shell scripts for enterprise platform scaling.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Declarative tools require full root administrative access on every node host." },
@@ -300,7 +300,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Declarative vs Imperative Deployment Tools: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Deployment Tooling to understand why declarative tools like Argo CD and Flux are preferred over imperative shell scripts for enterprise platform scaling.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to understand why declarative tools like Argo CD and Flux are preferred over imperative shell scripts for enterprise platform scaling.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Imperative scripts eliminate the need for version control." },
@@ -321,7 +321,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Auditability and Non-Repudiation in GitOps: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Governance & Auditing to satisfy strict regulatory compliance mandates requiring proof of who authorized and deployed every production change.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to satisfy strict regulatory compliance mandates requiring proof of who authorized and deployed every production change.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Rely on unauthenticated SSH shell access logs on worker nodes." },
@@ -342,7 +342,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Auditability and Non-Repudiation in GitOps: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Governance & Auditing to satisfy strict regulatory compliance mandates requiring proof of who authorized and deployed every production change.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to satisfy strict regulatory compliance mandates requiring proof of who authorized and deployed every production change.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Require cryptographically signed Git commits (GPG or SSH) and mandatory peer-reviewed pull request approvals before merging into protected branches." },
@@ -363,7 +363,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Auditability and Non-Repudiation in GitOps: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Governance & Auditing to satisfy strict regulatory compliance mandates requiring proof of who authorized and deployed every production change.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to satisfy strict regulatory compliance mandates requiring proof of who authorized and deployed every production change.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Allow engineers to commit changes anonymously using shared generic accounts." },
@@ -384,7 +384,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Auditability and Non-Repudiation in GitOps: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Governance & Auditing to satisfy strict regulatory compliance mandates requiring proof of who authorized and deployed every production change.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to satisfy strict regulatory compliance mandates requiring proof of who authorized and deployed every production change.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Allow engineers to commit changes anonymously using shared generic accounts." },
@@ -405,7 +405,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Auditability and Non-Repudiation in GitOps: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Governance & Auditing to satisfy strict regulatory compliance mandates requiring proof of who authorized and deployed every production change.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to satisfy strict regulatory compliance mandates requiring proof of who authorized and deployed every production change.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Require cryptographically signed Git commits (GPG or SSH) and mandatory peer-reviewed pull request approvals before merging into protected branches." },
@@ -426,7 +426,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Separation of App Code and Configuration Repositories: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Repository Separation to prevent high-frequency application source code commits and unit test runs from triggering unnecessary deployment reconciliation cycles.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to prevent high-frequency application source code commits and unit test runs from triggering unnecessary deployment reconciliation cycles.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Store deployment manifests inside container image layers." },
@@ -447,7 +447,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Separation of App Code and Configuration Repositories: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Repository Separation to prevent high-frequency application source code commits and unit test runs from triggering unnecessary deployment reconciliation cycles.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to prevent high-frequency application source code commits and unit test runs from triggering unnecessary deployment reconciliation cycles.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Hardcode manifests inside the GitOps controller binary." },
@@ -468,7 +468,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Separation of App Code and Configuration Repositories: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Repository Separation to prevent high-frequency application source code commits and unit test runs from triggering unnecessary deployment reconciliation cycles.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to prevent high-frequency application source code commits and unit test runs from triggering unnecessary deployment reconciliation cycles.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Store all source code, build scripts, documentation, and production manifests in a single branch of one repo." },
@@ -489,7 +489,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Separation of App Code and Configuration Repositories: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Repository Separation to prevent high-frequency application source code commits and unit test runs from triggering unnecessary deployment reconciliation cycles.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to prevent high-frequency application source code commits and unit test runs from triggering unnecessary deployment reconciliation cycles.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Store all source code, build scripts, documentation, and production manifests in a single branch of one repo." },
@@ -510,7 +510,7 @@ export const CNCF_CGOA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Separation of App Code and Configuration Repositories: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Repository Separation to prevent high-frequency application source code commits and unit test runs from triggering unnecessary deployment reconciliation cycles.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to prevent high-frequency application source code commits and unit test runs from triggering unnecessary deployment reconciliation cycles.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Store deployment manifests inside container image layers." },

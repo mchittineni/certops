@@ -6,7 +6,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud NAT (Network Address Translation): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates VPC Egress Networking to allow private Compute Engine virtual machines without external public IP addresses to download operating system security patches from the internet securely.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to allow private Compute Engine virtual machines without external public IP addresses to download operating system security patches from the internet securely.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Open all inbound ports in the VPC firewall rules to 0.0.0.0/0." },
@@ -27,7 +27,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud NAT (Network Address Translation): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates VPC Egress Networking to allow private Compute Engine virtual machines without external public IP addresses to download operating system security patches from the internet securely.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to allow private Compute Engine virtual machines without external public IP addresses to download operating system security patches from the internet securely.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Open all inbound ports in the VPC firewall rules to 0.0.0.0/0." },
@@ -48,7 +48,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud NAT (Network Address Translation): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates VPC Egress Networking to allow private Compute Engine virtual machines without external public IP addresses to download operating system security patches from the internet securely.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to allow private Compute Engine virtual machines without external public IP addresses to download operating system security patches from the internet securely.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy Cloud NAT configured on the Cloud Router associated with the subnet." },
@@ -69,7 +69,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud NAT (Network Address Translation): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates VPC Egress Networking to allow private Compute Engine virtual machines without external public IP addresses to download operating system security patches from the internet securely.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to allow private Compute Engine virtual machines without external public IP addresses to download operating system security patches from the internet securely.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Open all inbound ports in the VPC firewall rules to 0.0.0.0/0." },
@@ -90,7 +90,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud NAT (Network Address Translation): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates VPC Egress Networking to allow private Compute Engine virtual machines without external public IP addresses to download operating system security patches from the internet securely.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to allow private Compute Engine virtual machines without external public IP addresses to download operating system security patches from the internet securely.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Deploy an unmanaged Linux virtual machine with iptables forwarding on a public subnet." },
@@ -111,7 +111,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Router and Dynamic BGP Routing: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates VPC Dynamic Routing to dynamically exchange IP route prefixes between an on-premises network and a Google Cloud VPC over an HA VPN tunnel with automated failover.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to dynamically exchange IP route prefixes between an on-premises network and a Google Cloud VPC over an HA VPN tunnel with automated failover.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Use DNS round-robin routing to advertise on-premises subnets." },
@@ -132,7 +132,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Router and Dynamic BGP Routing: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates VPC Dynamic Routing to dynamically exchange IP route prefixes between an on-premises network and a Google Cloud VPC over an HA VPN tunnel with automated failover.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to dynamically exchange IP route prefixes between an on-premises network and a Google Cloud VPC over an HA VPN tunnel with automated failover.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Edit local /etc/network/interfaces files on individual virtual machines." },
@@ -153,7 +153,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Router and Dynamic BGP Routing: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates VPC Dynamic Routing to dynamically exchange IP route prefixes between an on-premises network and a Google Cloud VPC over an HA VPN tunnel with automated failover.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to dynamically exchange IP route prefixes between an on-premises network and a Google Cloud VPC over an HA VPN tunnel with automated failover.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Edit local /etc/network/interfaces files on individual virtual machines." },
@@ -174,7 +174,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Router and Dynamic BGP Routing: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates VPC Dynamic Routing to dynamically exchange IP route prefixes between an on-premises network and a Google Cloud VPC over an HA VPN tunnel with automated failover.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to dynamically exchange IP route prefixes between an on-premises network and a Google Cloud VPC over an HA VPN tunnel with automated failover.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Edit local /etc/network/interfaces files on individual virtual machines." },
@@ -195,7 +195,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Router and Dynamic BGP Routing: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates VPC Dynamic Routing to dynamically exchange IP route prefixes between an on-premises network and a Google Cloud VPC over an HA VPN tunnel with automated failover.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to dynamically exchange IP route prefixes between an on-premises network and a Google Cloud VPC over an HA VPN tunnel with automated failover.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Use DNS round-robin routing to advertise on-premises subnets." },
@@ -216,7 +216,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Compute Engine Regional Managed Instance Groups (MIGs): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Compute Engine to deploy an auto-scaling application across three availability zones within a region so that a single zonal outage leaves two-thirds of compute capacity fully functional.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to deploy an auto-scaling application across three availability zones within a region so that a single zonal outage leaves two-thirds of compute capacity fully functional.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Host the application on an unmanaged local physical server." },
@@ -237,7 +237,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Compute Engine Regional Managed Instance Groups (MIGs): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Compute Engine to deploy an auto-scaling application across three availability zones within a region so that a single zonal outage leaves two-thirds of compute capacity fully functional.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to deploy an auto-scaling application across three availability zones within a region so that a single zonal outage leaves two-thirds of compute capacity fully functional.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy a Zonal Managed Instance Group in zone-a only." },
@@ -258,7 +258,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Compute Engine Regional Managed Instance Groups (MIGs): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Compute Engine to deploy an auto-scaling application across three availability zones within a region so that a single zonal outage leaves two-thirds of compute capacity fully functional.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to deploy an auto-scaling application across three availability zones within a region so that a single zonal outage leaves two-thirds of compute capacity fully functional.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy a Zonal Managed Instance Group in zone-a only." },
@@ -279,7 +279,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Compute Engine Regional Managed Instance Groups (MIGs): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Compute Engine to deploy an auto-scaling application across three availability zones within a region so that a single zonal outage leaves two-thirds of compute capacity fully functional.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to deploy an auto-scaling application across three availability zones within a region so that a single zonal outage leaves two-thirds of compute capacity fully functional.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy a Regional Managed Instance Group (MIG) distributing instances across multiple zones." },
@@ -300,7 +300,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Compute Engine Regional Managed Instance Groups (MIGs): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Compute Engine to deploy an auto-scaling application across three availability zones within a region so that a single zonal outage leaves two-thirds of compute capacity fully functional.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to deploy an auto-scaling application across three availability zones within a region so that a single zonal outage leaves two-thirds of compute capacity fully functional.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Deploy a Regional Managed Instance Group (MIG) distributing instances across multiple zones." },
@@ -321,7 +321,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Storage Dual-Region Buckets with Turbo Replication: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Cloud Storage to replicate regulatory compliance archive objects between two European regions (e.g. europe-west1 and europe-west4) with an SLA-backed replication window of under 15 minutes.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to replicate regulatory compliance archive objects between two European regions (e.g. europe-west1 and europe-west4) with an SLA-backed replication window of under 15 minutes.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Create a Dual-Region Cloud Storage bucket with Turbo Replication enabled." },
@@ -342,7 +342,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Storage Dual-Region Buckets with Turbo Replication: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Cloud Storage to replicate regulatory compliance archive objects between two European regions (e.g. europe-west1 and europe-west4) with an SLA-backed replication window of under 15 minutes.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to replicate regulatory compliance archive objects between two European regions (e.g. europe-west1 and europe-west4) with an SLA-backed replication window of under 15 minutes.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Create a standard multi-region bucket without replication SLAs." },
@@ -363,7 +363,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Storage Dual-Region Buckets with Turbo Replication: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Cloud Storage to replicate regulatory compliance archive objects between two European regions (e.g. europe-west1 and europe-west4) with an SLA-backed replication window of under 15 minutes.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to replicate regulatory compliance archive objects between two European regions (e.g. europe-west1 and europe-west4) with an SLA-backed replication window of under 15 minutes.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Create a Dual-Region Cloud Storage bucket with Turbo Replication enabled." },
@@ -384,7 +384,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Storage Dual-Region Buckets with Turbo Replication: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Cloud Storage to replicate regulatory compliance archive objects between two European regions (e.g. europe-west1 and europe-west4) with an SLA-backed replication window of under 15 minutes.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to replicate regulatory compliance archive objects between two European regions (e.g. europe-west1 and europe-west4) with an SLA-backed replication window of under 15 minutes.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Create a Dual-Region Cloud Storage bucket with Turbo Replication enabled." },
@@ -405,7 +405,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Storage Dual-Region Buckets with Turbo Replication: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Cloud Storage to replicate regulatory compliance archive objects between two European regions (e.g. europe-west1 and europe-west4) with an SLA-backed replication window of under 15 minutes.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to replicate regulatory compliance archive objects between two European regions (e.g. europe-west1 and europe-west4) with an SLA-backed replication window of under 15 minutes.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Create a standard multi-region bucket without replication SLAs." },
@@ -426,7 +426,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "GKE Private Clusters and Authorized Networks: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates GKE Security to deploy a GKE cluster where worker nodes have zero public IP addresses and the Kubernetes API server endpoint is accessible only from an authorized corporate office CIDR block.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to deploy a GKE cluster where worker nodes have zero public IP addresses and the Kubernetes API server endpoint is accessible only from an authorized corporate office CIDR block.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy a GKE Private Cluster and configure Master Authorized Networks with the corporate CIDR range." },
@@ -447,7 +447,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "GKE Private Clusters and Authorized Networks: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates GKE Security to deploy a GKE cluster where worker nodes have zero public IP addresses and the Kubernetes API server endpoint is accessible only from an authorized corporate office CIDR block.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to deploy a GKE cluster where worker nodes have zero public IP addresses and the Kubernetes API server endpoint is accessible only from an authorized corporate office CIDR block.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy a standard public GKE cluster with 0.0.0.0/0 master access." },
@@ -468,7 +468,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "GKE Private Clusters and Authorized Networks: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates GKE Security to deploy a GKE cluster where worker nodes have zero public IP addresses and the Kubernetes API server endpoint is accessible only from an authorized corporate office CIDR block.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to deploy a GKE cluster where worker nodes have zero public IP addresses and the Kubernetes API server endpoint is accessible only from an authorized corporate office CIDR block.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy a GKE Private Cluster and configure Master Authorized Networks with the corporate CIDR range." },
@@ -489,7 +489,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "GKE Private Clusters and Authorized Networks: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates GKE Security to deploy a GKE cluster where worker nodes have zero public IP addresses and the Kubernetes API server endpoint is accessible only from an authorized corporate office CIDR block.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to deploy a GKE cluster where worker nodes have zero public IP addresses and the Kubernetes API server endpoint is accessible only from an authorized corporate office CIDR block.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy a standard public GKE cluster with 0.0.0.0/0 master access." },
@@ -510,7 +510,7 @@ export const GCP_PCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "GKE Private Clusters and Authorized Networks: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates GKE Security to deploy a GKE cluster where worker nodes have zero public IP addresses and the Kubernetes API server endpoint is accessible only from an authorized corporate office CIDR block.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to deploy a GKE cluster where worker nodes have zero public IP addresses and the Kubernetes API server endpoint is accessible only from an authorized corporate office CIDR block.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Disable Kubernetes RBAC authentication on the cluster control plane." },

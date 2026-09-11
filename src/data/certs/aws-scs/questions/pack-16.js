@@ -6,7 +6,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Transit Gateway Route Table Network Segmentation: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Transit Gateway Isolation to prevent workloads in development VPCs from initiating network connections to production databases while sharing common security services.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to prevent workloads in development VPCs from initiating network connections to production databases while sharing common security services.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Associate each VPC attachment with a dedicated Transit Gateway route table and omit routes between development and production VPCs." },
@@ -27,7 +27,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Transit Gateway Route Table Network Segmentation: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Transit Gateway Isolation to prevent workloads in development VPCs from initiating network connections to production databases while sharing common security services.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to prevent workloads in development VPCs from initiating network connections to production databases while sharing common security services.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Route all traffic through a single default route table that interconnects every subnet across the enterprise." },
@@ -48,7 +48,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Transit Gateway Route Table Network Segmentation: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Transit Gateway Isolation to prevent workloads in development VPCs from initiating network connections to production databases while sharing common security services.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to prevent workloads in development VPCs from initiating network connections to production databases while sharing common security services.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Disable network firewalls between development and production environments." },
@@ -69,7 +69,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Transit Gateway Route Table Network Segmentation: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Transit Gateway Isolation to prevent workloads in development VPCs from initiating network connections to production databases while sharing common security services.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to prevent workloads in development VPCs from initiating network connections to production databases while sharing common security services.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Associate each VPC attachment with a dedicated Transit Gateway route table and omit routes between development and production VPCs." },
@@ -90,7 +90,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Security",
     title: "AWS Transit Gateway Route Table Network Segmentation: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Transit Gateway Isolation to prevent workloads in development VPCs from initiating network connections to production databases while sharing common security services.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to prevent workloads in development VPCs from initiating network connections to production databases while sharing common security services.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Associate each VPC attachment with a dedicated Transit Gateway route table and omit routes between development and production VPCs." },
@@ -111,7 +111,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "IAM Permission Boundaries for Delegated Administration: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates IAM Permission Boundaries to allow development team leads to create IAM roles for their microservices without allowing them to escalate privileges to AdministratorAccess.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to allow development team leads to create IAM roles for their microservices without allowing them to escalate privileges to AdministratorAccess.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Rely on annual code reviews to detect unauthorized administrative role creation." },
@@ -132,7 +132,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "IAM Permission Boundaries for Delegated Administration: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates IAM Permission Boundaries to allow development team leads to create IAM roles for their microservices without allowing them to escalate privileges to AdministratorAccess.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to allow development team leads to create IAM roles for their microservices without allowing them to escalate privileges to AdministratorAccess.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Attach an IAM Permissions Boundary to developer roles, requiring any newly created role to have that boundary attached." },
@@ -153,7 +153,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "IAM Permission Boundaries for Delegated Administration: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates IAM Permission Boundaries to allow development team leads to create IAM roles for their microservices without allowing them to escalate privileges to AdministratorAccess.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to allow development team leads to create IAM roles for their microservices without allowing them to escalate privileges to AdministratorAccess.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Disable IAM role creation and force all microservices to share a single static access key." },
@@ -174,7 +174,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "IAM Permission Boundaries for Delegated Administration: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates IAM Permission Boundaries to allow development team leads to create IAM roles for their microservices without allowing them to escalate privileges to AdministratorAccess.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to allow development team leads to create IAM roles for their microservices without allowing them to escalate privileges to AdministratorAccess.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Grant developers unrestricted `iam:*` permissions across all AWS accounts." },
@@ -195,7 +195,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "IAM Permission Boundaries for Delegated Administration: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates IAM Permission Boundaries to allow development team leads to create IAM roles for their microservices without allowing them to escalate privileges to AdministratorAccess.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to allow development team leads to create IAM roles for their microservices without allowing them to escalate privileges to AdministratorAccess.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Attach an IAM Permissions Boundary to developer roles, requiring any newly created role to have that boundary attached." },
@@ -216,7 +216,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Service Control Policies (SCPs) in AWS Organizations: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Organizations SCPs to prevent all member accounts in an AWS Organization from launching resources in unapproved geographic regions or disabling GuardDuty.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to prevent all member accounts in an AWS Organization from launching resources in unapproved geographic regions or disabling GuardDuty.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Rely on billing alerts to discover resources deployed in unapproved regions weeks after deployment." },
@@ -237,7 +237,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Service Control Policies (SCPs) in AWS Organizations: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Organizations SCPs to prevent all member accounts in an AWS Organization from launching resources in unapproved geographic regions or disabling GuardDuty.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to prevent all member accounts in an AWS Organization from launching resources in unapproved geographic regions or disabling GuardDuty.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Configure IAM policies on individual users in each account, leaving root accounts unrestricted." },
@@ -258,7 +258,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Service Control Policies (SCPs) in AWS Organizations: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Organizations SCPs to prevent all member accounts in an AWS Organization from launching resources in unapproved geographic regions or disabling GuardDuty.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to prevent all member accounts in an AWS Organization from launching resources in unapproved geographic regions or disabling GuardDuty.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Attach an AWS Organizations Service Control Policy (SCP) with an explicit Deny on non-whitelisted regions and security service disablement." },
@@ -279,7 +279,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Service Control Policies (SCPs) in AWS Organizations: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Organizations SCPs to prevent all member accounts in an AWS Organization from launching resources in unapproved geographic regions or disabling GuardDuty.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to prevent all member accounts in an AWS Organization from launching resources in unapproved geographic regions or disabling GuardDuty.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Configure IAM policies on individual users in each account, leaving root accounts unrestricted." },
@@ -300,7 +300,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Service Control Policies (SCPs) in AWS Organizations: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Organizations SCPs to prevent all member accounts in an AWS Organization from launching resources in unapproved geographic regions or disabling GuardDuty.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to prevent all member accounts in an AWS Organization from launching resources in unapproved geographic regions or disabling GuardDuty.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Send an executive email memo asking developers not to use overseas AWS regions." },
@@ -321,7 +321,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Attribute-Based Access Control (ABAC) with IAM Tags: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates IAM ABAC to grant developers access to manage only the EC2 instances, S3 buckets, and RDS databases matching their specific team tag.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to grant developers access to manage only the EC2 instances, S3 buckets, and RDS databases matching their specific team tag.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Require developers to switch AWS accounts for every individual resource modification." },
@@ -342,7 +342,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Attribute-Based Access Control (ABAC) with IAM Tags: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates IAM ABAC to grant developers access to manage only the EC2 instances, S3 buckets, and RDS databases matching their specific team tag.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to grant developers access to manage only the EC2 instances, S3 buckets, and RDS databases matching their specific team tag.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Implement Attribute-Based Access Control (ABAC) using IAM policies with the condition `StringEquals: { 'aws:ResourceTag/Team': '${aws:PrincipalTag/Team}' }`." },
@@ -363,7 +363,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Attribute-Based Access Control (ABAC) with IAM Tags: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates IAM ABAC to grant developers access to manage only the EC2 instances, S3 buckets, and RDS databases matching their specific team tag.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to grant developers access to manage only the EC2 instances, S3 buckets, and RDS databases matching their specific team tag.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Create hundreds of bespoke IAM policies listing explicit resource ARNs for every developer." },
@@ -384,7 +384,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Attribute-Based Access Control (ABAC) with IAM Tags: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates IAM ABAC to grant developers access to manage only the EC2 instances, S3 buckets, and RDS databases matching their specific team tag.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to grant developers access to manage only the EC2 instances, S3 buckets, and RDS databases matching their specific team tag.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Implement Attribute-Based Access Control (ABAC) using IAM policies with the condition `StringEquals: { 'aws:ResourceTag/Team': '${aws:PrincipalTag/Team}' }`." },
@@ -405,7 +405,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Attribute-Based Access Control (ABAC) with IAM Tags: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates IAM ABAC to grant developers access to manage only the EC2 instances, S3 buckets, and RDS databases matching their specific team tag.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to grant developers access to manage only the EC2 instances, S3 buckets, and RDS databases matching their specific team tag.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Create hundreds of bespoke IAM policies listing explicit resource ARNs for every developer." },
@@ -426,7 +426,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "AWS IAM Identity Center (SSO) and Permission Sets: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates IAM Identity Center to manage human access across 200 AWS accounts through corporate Okta or Azure AD with automated user offboarding.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to manage human access across 200 AWS accounts through corporate Okta or Azure AD with automated user offboarding.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Distribute a shared master root password spreadsheet to all developers." },
@@ -447,7 +447,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "AWS IAM Identity Center (SSO) and Permission Sets: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates IAM Identity Center to manage human access across 200 AWS accounts through corporate Okta or Azure AD with automated user offboarding.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to manage human access across 200 AWS accounts through corporate Okta or Azure AD with automated user offboarding.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Distribute a shared master root password spreadsheet to all developers." },
@@ -468,7 +468,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "AWS IAM Identity Center (SSO) and Permission Sets: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates IAM Identity Center to manage human access across 200 AWS accounts through corporate Okta or Azure AD with automated user offboarding.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to manage human access across 200 AWS accounts through corporate Okta or Azure AD with automated user offboarding.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Distribute a shared master root password spreadsheet to all developers." },
@@ -489,7 +489,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "AWS IAM Identity Center (SSO) and Permission Sets: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates IAM Identity Center to manage human access across 200 AWS accounts through corporate Okta or Azure AD with automated user offboarding.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to manage human access across 200 AWS accounts through corporate Okta or Azure AD with automated user offboarding.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Configure AWS IAM Identity Center (AWS SSO) with SCIM identity synchronization and assign scoped Permission Sets across accounts." },
@@ -510,7 +510,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "AWS IAM Identity Center (SSO) and Permission Sets: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates IAM Identity Center to manage human access across 200 AWS accounts through corporate Okta or Azure AD with automated user offboarding.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to manage human access across 200 AWS accounts through corporate Okta or Azure AD with automated user offboarding.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Configure AWS IAM Identity Center (AWS SSO) with SCIM identity synchronization and assign scoped Permission Sets across accounts." },

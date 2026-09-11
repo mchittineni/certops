@@ -6,7 +6,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Type-Safe Configuration Engines: CUE and KCL: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Configuration Engines to eliminate runtime YAML syntax errors and validate complex configuration constraints before manifests are applied to clusters.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to eliminate runtime YAML syntax errors and validate complex configuration constraints before manifests are applied to clusters.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Deploy unvalidated manifests and discover syntax errors during production rollouts." },
@@ -27,7 +27,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Type-Safe Configuration Engines: CUE and KCL: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Configuration Engines to eliminate runtime YAML syntax errors and validate complex configuration constraints before manifests are applied to clusters.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to eliminate runtime YAML syntax errors and validate complex configuration constraints before manifests are applied to clusters.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Ban configuration tooling and write raw JSON directly into etcd sockets." },
@@ -48,7 +48,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Type-Safe Configuration Engines: CUE and KCL: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Configuration Engines to eliminate runtime YAML syntax errors and validate complex configuration constraints before manifests are applied to clusters.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to eliminate runtime YAML syntax errors and validate complex configuration constraints before manifests are applied to clusters.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Ban configuration tooling and write raw JSON directly into etcd sockets." },
@@ -69,7 +69,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Type-Safe Configuration Engines: CUE and KCL: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Configuration Engines to eliminate runtime YAML syntax errors and validate complex configuration constraints before manifests are applied to clusters.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to eliminate runtime YAML syntax errors and validate complex configuration constraints before manifests are applied to clusters.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Deploy unvalidated manifests and discover syntax errors during production rollouts." },
@@ -90,7 +90,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Type-Safe Configuration Engines: CUE and KCL: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Configuration Engines to eliminate runtime YAML syntax errors and validate complex configuration constraints before manifests are applied to clusters.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to eliminate runtime YAML syntax errors and validate complex configuration constraints before manifests are applied to clusters.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Adopt type-safe configuration languages like CUE or KCL to validate schemas, enforce constraints, and generate clean Kubernetes YAML." },
@@ -111,7 +111,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Platform Architecture Alignment with Team Topologies: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Team Topologies to structure enterprise engineering teams to minimize organizational friction and eliminate dependency bottlenecks between ops and product.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to structure enterprise engineering teams to minimize organizational friction and eliminate dependency bottlenecks between ops and product.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Eliminate all operations roles and force product managers to configure Linux kernel drivers." },
@@ -132,7 +132,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Platform Architecture Alignment with Team Topologies: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Team Topologies to structure enterprise engineering teams to minimize organizational friction and eliminate dependency bottlenecks between ops and product.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to structure enterprise engineering teams to minimize organizational friction and eliminate dependency bottlenecks between ops and product.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Organize teams following Team Topologies: establish a dedicated Platform Team delivering self-service capabilities to Stream-Aligned Teams." },
@@ -153,7 +153,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Platform Architecture Alignment with Team Topologies: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Team Topologies to structure enterprise engineering teams to minimize organizational friction and eliminate dependency bottlenecks between ops and product.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to structure enterprise engineering teams to minimize organizational friction and eliminate dependency bottlenecks between ops and product.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Eliminate all operations roles and force product managers to configure Linux kernel drivers." },
@@ -174,7 +174,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Platform Architecture Alignment with Team Topologies: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Team Topologies to structure enterprise engineering teams to minimize organizational friction and eliminate dependency bottlenecks between ops and product.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to structure enterprise engineering teams to minimize organizational friction and eliminate dependency bottlenecks between ops and product.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Recreate a traditional siloed operations gatekeeper team that executes all deployments via manual tickets." },
@@ -195,7 +195,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Platform Architecture and API Design",
     title: "Platform Architecture Alignment with Team Topologies: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Team Topologies to structure enterprise engineering teams to minimize organizational friction and eliminate dependency bottlenecks between ops and product.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to structure enterprise engineering teams to minimize organizational friction and eliminate dependency bottlenecks between ops and product.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Recreate a traditional siloed operations gatekeeper team that executes all deployments via manual tickets." },
@@ -216,7 +216,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Advanced Backstage Scaffolder Custom Action Engineering: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Scaffolder Custom Actions to extend the Backstage portal to automate custom enterprise CMDB registration and cloud IPAM subnet reservation securely.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to extend the Backstage portal to automate custom enterprise CMDB registration and cloud IPAM subnet reservation securely.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Print sensitive cloud API tokens in plaintext to application console logs." },
@@ -237,7 +237,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Advanced Backstage Scaffolder Custom Action Engineering: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Scaffolder Custom Actions to extend the Backstage portal to automate custom enterprise CMDB registration and cloud IPAM subnet reservation securely.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to extend the Backstage portal to automate custom enterprise CMDB registration and cloud IPAM subnet reservation securely.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Author custom Scaffolder actions in TypeScript with strict JSONSchema validation, worker error handling, and masked `ctx.secrets`." },
@@ -258,7 +258,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Advanced Backstage Scaffolder Custom Action Engineering: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Scaffolder Custom Actions to extend the Backstage portal to automate custom enterprise CMDB registration and cloud IPAM subnet reservation securely.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to extend the Backstage portal to automate custom enterprise CMDB registration and cloud IPAM subnet reservation securely.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Print sensitive cloud API tokens in plaintext to application console logs." },
@@ -279,7 +279,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Advanced Backstage Scaffolder Custom Action Engineering: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Scaffolder Custom Actions to extend the Backstage portal to automate custom enterprise CMDB registration and cloud IPAM subnet reservation securely.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to extend the Backstage portal to automate custom enterprise CMDB registration and cloud IPAM subnet reservation securely.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Instruct developers to submit manual tickets to network administrators for subnet allocation." },
@@ -300,7 +300,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Advanced Backstage Scaffolder Custom Action Engineering: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Scaffolder Custom Actions to extend the Backstage portal to automate custom enterprise CMDB registration and cloud IPAM subnet reservation securely.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to extend the Backstage portal to automate custom enterprise CMDB registration and cloud IPAM subnet reservation securely.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Print sensitive cloud API tokens in plaintext to application console logs." },
@@ -321,7 +321,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Internal Developer Portal Blueprints: Port and Reshape: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Portal Blueprints to build an internal developer portal data model that connects microservices, cloud resources, deployment environments, and on-call schedules.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to build an internal developer portal data model that connects microservices, cloud resources, deployment environments, and on-call schedules.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Prohibit developers from discovering existing microservices to prevent reuse." },
@@ -342,7 +342,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Internal Developer Portal Blueprints: Port and Reshape: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Portal Blueprints to build an internal developer portal data model that connects microservices, cloud resources, deployment environments, and on-call schedules.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to build an internal developer portal data model that connects microservices, cloud resources, deployment environments, and on-call schedules.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Maintain service lists in disconnected, unversioned spreadsheet documents on local workstations." },
@@ -363,7 +363,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Internal Developer Portal Blueprints: Port and Reshape: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Portal Blueprints to build an internal developer portal data model that connects microservices, cloud resources, deployment environments, and on-call schedules.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to build an internal developer portal data model that connects microservices, cloud resources, deployment environments, and on-call schedules.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Prohibit developers from discovering existing microservices to prevent reuse." },
@@ -384,7 +384,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Internal Developer Portal Blueprints: Port and Reshape: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Portal Blueprints to build an internal developer portal data model that connects microservices, cloud resources, deployment environments, and on-call schedules.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to build an internal developer portal data model that connects microservices, cloud resources, deployment environments, and on-call schedules.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Prohibit developers from discovering existing microservices to prevent reuse." },
@@ -405,7 +405,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Internal Developer Portal Blueprints: Port and Reshape: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Portal Blueprints to build an internal developer portal data model that connects microservices, cloud resources, deployment environments, and on-call schedules.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to build an internal developer portal data model that connects microservices, cloud resources, deployment environments, and on-call schedules.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Maintain service lists in disconnected, unversioned spreadsheet documents on local workstations." },
@@ -426,7 +426,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Dynamic Ephemeral Environment Orchestration: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Ephemeral Environments to enable end-to-end integration testing of pull requests without incurring permanent cloud infrastructure expenses.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to enable end-to-end integration testing of pull requests without incurring permanent cloud infrastructure expenses.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Orchestrate ephemeral preview environments triggered by PR webhooks, deploying isolated namespaces with lightweight databases." },
@@ -447,7 +447,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Dynamic Ephemeral Environment Orchestration: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Ephemeral Environments to enable end-to-end integration testing of pull requests without incurring permanent cloud infrastructure expenses.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to enable end-to-end integration testing of pull requests without incurring permanent cloud infrastructure expenses.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Keep 5,000 ephemeral test environments running permanently in production cloud accounts." },
@@ -468,7 +468,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Dynamic Ephemeral Environment Orchestration: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Ephemeral Environments to enable end-to-end integration testing of pull requests without incurring permanent cloud infrastructure expenses.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to enable end-to-end integration testing of pull requests without incurring permanent cloud infrastructure expenses.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Force all development teams to test pull requests on a single shared staging cluster with constant collisions." },
@@ -489,7 +489,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Dynamic Ephemeral Environment Orchestration: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Ephemeral Environments to enable end-to-end integration testing of pull requests without incurring permanent cloud infrastructure expenses.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to enable end-to-end integration testing of pull requests without incurring permanent cloud infrastructure expenses.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Orchestrate ephemeral preview environments triggered by PR webhooks, deploying isolated namespaces with lightweight databases." },
@@ -510,7 +510,7 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Dynamic Ephemeral Environment Orchestration: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Ephemeral Environments to enable end-to-end integration testing of pull requests without incurring permanent cloud infrastructure expenses.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to enable end-to-end integration testing of pull requests without incurring permanent cloud infrastructure expenses.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Orchestrate ephemeral preview environments triggered by PR webhooks, deploying isolated namespaces with lightweight databases." },

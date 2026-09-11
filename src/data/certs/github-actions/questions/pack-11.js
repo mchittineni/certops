@@ -6,7 +6,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Triggers: push, pull_request, and schedule: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Workflow Triggers to configure a GitHub Actions CI workflow to run only when commits are pushed to the `main` branch or when pull requests modifying files in the `src/` directory are opened.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to configure a GitHub Actions CI workflow to run only when commits are pushed to the `main` branch or when pull requests modifying files in the `src/` directory are opened.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Run the workflow on a schedule every 10 seconds to poll the Git repository." },
@@ -27,7 +27,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Triggers: push, pull_request, and schedule: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Workflow Triggers to configure a GitHub Actions CI workflow to run only when commits are pushed to the `main` branch or when pull requests modifying files in the `src/` directory are opened.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to configure a GitHub Actions CI workflow to run only when commits are pushed to the `main` branch or when pull requests modifying files in the `src/` directory are opened.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Run the workflow on a schedule every 10 seconds to poll the Git repository." },
@@ -48,7 +48,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Triggers: push, pull_request, and schedule: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Workflow Triggers to configure a GitHub Actions CI workflow to run only when commits are pushed to the `main` branch or when pull requests modifying files in the `src/` directory are opened.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to configure a GitHub Actions CI workflow to run only when commits are pushed to the `main` branch or when pull requests modifying files in the `src/` directory are opened.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Define `on: [push, pull_request]` without any branch or path filters." },
@@ -69,7 +69,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Triggers: push, pull_request, and schedule: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Workflow Triggers to configure a GitHub Actions CI workflow to run only when commits are pushed to the `main` branch or when pull requests modifying files in the `src/` directory are opened.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to configure a GitHub Actions CI workflow to run only when commits are pushed to the `main` branch or when pull requests modifying files in the `src/` directory are opened.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Disable automated triggers and require manual workflow_dispatch exclusively." },
@@ -90,7 +90,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Triggers: push, pull_request, and schedule: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Workflow Triggers to configure a GitHub Actions CI workflow to run only when commits are pushed to the `main` branch or when pull requests modifying files in the `src/` directory are opened.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to configure a GitHub Actions CI workflow to run only when commits are pushed to the `main` branch or when pull requests modifying files in the `src/` directory are opened.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Define `on: [push, pull_request]` without any branch or path filters." },
@@ -111,7 +111,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Concurrency Control and cancel-in-progress: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Concurrency Management to prevent redundant CI runs from consuming runner capacity when a developer pushes several commits in rapid succession to the same pull request branch.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to prevent redundant CI runs from consuming runner capacity when a developer pushes several commits in rapid succession to the same pull request branch.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Set `strategy: fail-fast: true` on the matrix job." },
@@ -132,7 +132,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Concurrency Control and cancel-in-progress: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Concurrency Management to prevent redundant CI runs from consuming runner capacity when a developer pushes several commits in rapid succession to the same pull request branch.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to prevent redundant CI runs from consuming runner capacity when a developer pushes several commits in rapid succession to the same pull request branch.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Configure a `concurrency` block with `group: ${{ github.workflow }}-${{ github.ref }}` and `cancel-in-progress: true`." },
@@ -153,7 +153,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Concurrency Control and cancel-in-progress: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Concurrency Management to prevent redundant CI runs from consuming runner capacity when a developer pushes several commits in rapid succession to the same pull request branch.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to prevent redundant CI runs from consuming runner capacity when a developer pushes several commits in rapid succession to the same pull request branch.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Manually cancel running workflows via the GitHub web UI." },
@@ -174,7 +174,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Concurrency Control and cancel-in-progress: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Concurrency Management to prevent redundant CI runs from consuming runner capacity when a developer pushes several commits in rapid succession to the same pull request branch.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to prevent redundant CI runs from consuming runner capacity when a developer pushes several commits in rapid succession to the same pull request branch.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Configure a `concurrency` block with `group: ${{ github.workflow }}-${{ github.ref }}` and `cancel-in-progress: true`." },
@@ -195,7 +195,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Concurrency Control and cancel-in-progress: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Concurrency Management to prevent redundant CI runs from consuming runner capacity when a developer pushes several commits in rapid succession to the same pull request branch.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to prevent redundant CI runs from consuming runner capacity when a developer pushes several commits in rapid succession to the same pull request branch.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Set `timeout-minutes: 5` on the build steps." },
@@ -216,7 +216,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Matrix Strategy with include, exclude, and fail-fast: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Matrix Strategy to test a library across Node.js 18, 20 on Ubuntu and Windows while preventing a failure in Node 18 from cancelling other running matrix jobs.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to test a library across Node.js 18, 20 on Ubuntu and Windows while preventing a failure in Node 18 from cancelling other running matrix jobs.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Write four completely independent workflow YAML files." },
@@ -237,7 +237,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Matrix Strategy with include, exclude, and fail-fast: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Matrix Strategy to test a library across Node.js 18, 20 on Ubuntu and Windows while preventing a failure in Node 18 from cancelling other running matrix jobs.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to test a library across Node.js 18, 20 on Ubuntu and Windows while preventing a failure in Node 18 from cancelling other running matrix jobs.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Set `fail-fast: true` which aborts all sibling matrix jobs immediately upon any failure." },
@@ -258,7 +258,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Matrix Strategy with include, exclude, and fail-fast: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Matrix Strategy to test a library across Node.js 18, 20 on Ubuntu and Windows while preventing a failure in Node 18 from cancelling other running matrix jobs.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to test a library across Node.js 18, 20 on Ubuntu and Windows while preventing a failure in Node 18 from cancelling other running matrix jobs.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Configure `strategy: matrix:` with OS and Node arrays, and set `fail-fast: false`." },
@@ -279,7 +279,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Matrix Strategy with include, exclude, and fail-fast: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Matrix Strategy to test a library across Node.js 18, 20 on Ubuntu and Windows while preventing a failure in Node 18 from cancelling other running matrix jobs.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to test a library across Node.js 18, 20 on Ubuntu and Windows while preventing a failure in Node 18 from cancelling other running matrix jobs.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Set `fail-fast: true` which aborts all sibling matrix jobs immediately upon any failure." },
@@ -300,7 +300,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Matrix Strategy with include, exclude, and fail-fast: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Matrix Strategy to test a library across Node.js 18, 20 on Ubuntu and Windows while preventing a failure in Node 18 from cancelling other running matrix jobs.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to test a library across Node.js 18, 20 on Ubuntu and Windows while preventing a failure in Node 18 from cancelling other running matrix jobs.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Run tests sequentially inside a single bash script." },
@@ -321,7 +321,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Job Dependencies and Execution Flow (needs:): Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Job Dependencies to ensure that an integration test job and a deployment job run only after a linting and build job have completed successfully.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to ensure that an integration test job and a deployment job run only after a linting and build job have completed successfully.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Put all commands into a single monolithic job without separation." },
@@ -342,7 +342,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Job Dependencies and Execution Flow (needs:): High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Job Dependencies to ensure that an integration test job and a deployment job run only after a linting and build job have completed successfully.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to ensure that an integration test job and a deployment job run only after a linting and build job have completed successfully.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Put all commands into a single monolithic job without separation." },
@@ -363,7 +363,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Job Dependencies and Execution Flow (needs:): Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Job Dependencies to ensure that an integration test job and a deployment job run only after a linting and build job have completed successfully.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to ensure that an integration test job and a deployment job run only after a linting and build job have completed successfully.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Rely on GitHub Actions alphabetical job sorting for execution order." },
@@ -384,7 +384,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Job Dependencies and Execution Flow (needs:): Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Job Dependencies to ensure that an integration test job and a deployment job run only after a linting and build job have completed successfully.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to ensure that an integration test job and a deployment job run only after a linting and build job have completed successfully.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Put all commands into a single monolithic job without separation." },
@@ -405,7 +405,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Job Dependencies and Execution Flow (needs:): Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Job Dependencies to ensure that an integration test job and a deployment job run only after a linting and build job have completed successfully.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to ensure that an integration test job and a deployment job run only after a linting and build job have completed successfully.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Add `needs: [lint, build]` to the test and deployment job specifications." },
@@ -426,7 +426,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Conditional Execution and Status Check Functions: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Conditional Execution to send an incident notification to a team Slack channel or post a diagnostic report only when a previous test step fails.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to send an incident notification to a team Slack channel or post a diagnostic report only when a previous test step fails.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Use an operating system cron job to monitor the runner." },
@@ -447,7 +447,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Conditional Execution and Status Check Functions: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Conditional Execution to send an incident notification to a team Slack channel or post a diagnostic report only when a previous test step fails.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to send an incident notification to a team Slack channel or post a diagnostic report only when a previous test step fails.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Omit the if condition and let the step run unconditionally." },
@@ -468,7 +468,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Conditional Execution and Status Check Functions: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Conditional Execution to send an incident notification to a team Slack channel or post a diagnostic report only when a previous test step fails.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to send an incident notification to a team Slack channel or post a diagnostic report only when a previous test step fails.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Use an operating system cron job to monitor the runner." },
@@ -489,7 +489,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Conditional Execution and Status Check Functions: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Conditional Execution to send an incident notification to a team Slack channel or post a diagnostic report only when a previous test step fails.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to send an incident notification to a team Slack channel or post a diagnostic report only when a previous test step fails.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Omit the if condition and let the step run unconditionally." },
@@ -510,7 +510,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Conditional Execution and Status Check Functions: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Conditional Execution to send an incident notification to a team Slack channel or post a diagnostic report only when a previous test step fails.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to send an incident notification to a team Slack channel or post a diagnostic report only when a previous test step fails.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Add `if: success()` which only runs when all previous steps succeeded." },

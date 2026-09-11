@@ -6,7 +6,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Pinning Third-Party Actions to Full SHA: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Supply Chain Security to protect CI/CD pipelines from malicious upstream tag-hijacking attacks on third-party actions from GitHub Marketplace.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to protect CI/CD pipelines from malicious upstream tag-hijacking attacks on third-party actions from GitHub Marketplace.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Reference the action with the mutable `@v4` tag." },
@@ -27,7 +27,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Pinning Third-Party Actions to Full SHA: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Supply Chain Security to protect CI/CD pipelines from malicious upstream tag-hijacking attacks on third-party actions from GitHub Marketplace.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to protect CI/CD pipelines from malicious upstream tag-hijacking attacks on third-party actions from GitHub Marketplace.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Download action zip archives into personal developer workstations." },
@@ -48,7 +48,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Pinning Third-Party Actions to Full SHA: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Supply Chain Security to protect CI/CD pipelines from malicious upstream tag-hijacking attacks on third-party actions from GitHub Marketplace.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to protect CI/CD pipelines from malicious upstream tag-hijacking attacks on third-party actions from GitHub Marketplace.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Reference the action with the mutable `@v4` tag." },
@@ -69,7 +69,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Pinning Third-Party Actions to Full SHA: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Supply Chain Security to protect CI/CD pipelines from malicious upstream tag-hijacking attacks on third-party actions from GitHub Marketplace.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to protect CI/CD pipelines from malicious upstream tag-hijacking attacks on third-party actions from GitHub Marketplace.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Reference `@main` to always run bleeding-edge code." },
@@ -90,7 +90,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Pinning Third-Party Actions to Full SHA: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Supply Chain Security to protect CI/CD pipelines from malicious upstream tag-hijacking attacks on third-party actions from GitHub Marketplace.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to protect CI/CD pipelines from malicious upstream tag-hijacking attacks on third-party actions from GitHub Marketplace.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Reference `@main` to always run bleeding-edge code." },
@@ -111,7 +111,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Passing Inputs and Secrets to Reusable Workflows: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Reusable Inputs & Secrets to call a reusable deployment workflow and pass all caller repository secrets to it without declaring each secret individually.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to call a reusable deployment workflow and pass all caller repository secrets to it without declaring each secret individually.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Hardcode all secret values inside the reusable workflow YAML file." },
@@ -132,7 +132,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Passing Inputs and Secrets to Reusable Workflows: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Reusable Inputs & Secrets to call a reusable deployment workflow and pass all caller repository secrets to it without declaring each secret individually.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to call a reusable deployment workflow and pass all caller repository secrets to it without declaring each secret individually.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Pass secrets as plaintext `inputs:` parameters." },
@@ -153,7 +153,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Passing Inputs and Secrets to Reusable Workflows: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Reusable Inputs & Secrets to call a reusable deployment workflow and pass all caller repository secrets to it without declaring each secret individually.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to call a reusable deployment workflow and pass all caller repository secrets to it without declaring each secret individually.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "In the calling workflow, specify `secrets: inherit` under the reusable workflow invocation." },
@@ -174,7 +174,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Passing Inputs and Secrets to Reusable Workflows: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Reusable Inputs & Secrets to call a reusable deployment workflow and pass all caller repository secrets to it without declaring each secret individually.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to call a reusable deployment workflow and pass all caller repository secrets to it without declaring each secret individually.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Pass secrets as plaintext `inputs:` parameters." },
@@ -195,7 +195,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Passing Inputs and Secrets to Reusable Workflows: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Reusable Inputs & Secrets to call a reusable deployment workflow and pass all caller repository secrets to it without declaring each secret individually.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to call a reusable deployment workflow and pass all caller repository secrets to it without declaring each secret individually.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Reusable workflows cannot access secrets under any circumstance." },
@@ -216,7 +216,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Consuming Outputs from Reusable Workflows: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Reusable Outputs to capture a generated release version number produced by a reusable build workflow and use it in a subsequent notification job.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to capture a generated release version number produced by a reusable build workflow and use it in a subsequent notification job.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Declare `outputs:` in the reusable workflow mapped to job outputs, and reference `needs.&lt;reusable-job-id&gt;.outputs.&lt;output-name&gt;`." },
@@ -237,7 +237,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Consuming Outputs from Reusable Workflows: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Reusable Outputs to capture a generated release version number produced by a reusable build workflow and use it in a subsequent notification job.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to capture a generated release version number produced by a reusable build workflow and use it in a subsequent notification job.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Write the output to a text file on a shared network drive." },
@@ -258,7 +258,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Consuming Outputs from Reusable Workflows: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Reusable Outputs to capture a generated release version number produced by a reusable build workflow and use it in a subsequent notification job.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to capture a generated release version number produced by a reusable build workflow and use it in a subsequent notification job.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Reusable workflows cannot export outputs to caller workflows." },
@@ -279,7 +279,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Consuming Outputs from Reusable Workflows: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Reusable Outputs to capture a generated release version number produced by a reusable build workflow and use it in a subsequent notification job.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to capture a generated release version number produced by a reusable build workflow and use it in a subsequent notification job.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Write the output to a text file on a shared network drive." },
@@ -300,7 +300,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Consuming Outputs from Reusable Workflows: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Reusable Outputs to capture a generated release version number produced by a reusable build workflow and use it in a subsequent notification job.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to capture a generated release version number produced by a reusable build workflow and use it in a subsequent notification job.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Reusable workflows cannot export outputs to caller workflows." },
@@ -321,7 +321,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Managing GitHub Actions Cache Eviction Policies: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Cache Eviction to optimize workflow caching for a high-volume monorepo that frequently exceeds the 10GB GitHub Actions cache limit.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to optimize workflow caching for a high-volume monorepo that frequently exceeds the 10GB GitHub Actions cache limit.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Increase the cache limit to 100GB by filing a support ticket." },
@@ -342,7 +342,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Managing GitHub Actions Cache Eviction Policies: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Cache Eviction to optimize workflow caching for a high-volume monorepo that frequently exceeds the 10GB GitHub Actions cache limit.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to optimize workflow caching for a high-volume monorepo that frequently exceeds the 10GB GitHub Actions cache limit.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Increase the cache limit to 100GB by filing a support ticket." },
@@ -363,7 +363,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Managing GitHub Actions Cache Eviction Policies: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Cache Eviction to optimize workflow caching for a high-volume monorepo that frequently exceeds the 10GB GitHub Actions cache limit.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to optimize workflow caching for a high-volume monorepo that frequently exceeds the 10GB GitHub Actions cache limit.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Structure cache keys with granular prefixes, delete stale caches via the GitHub CLI or API, and let GitHub evict caches older than 7 days." },
@@ -384,7 +384,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Managing GitHub Actions Cache Eviction Policies: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Cache Eviction to optimize workflow caching for a high-volume monorepo that frequently exceeds the 10GB GitHub Actions cache limit.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to optimize workflow caching for a high-volume monorepo that frequently exceeds the 10GB GitHub Actions cache limit.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Store caches in Git repository branches as commit objects." },
@@ -405,7 +405,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Managing GitHub Actions Cache Eviction Policies: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Cache Eviction to optimize workflow caching for a high-volume monorepo that frequently exceeds the 10GB GitHub Actions cache limit.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to optimize workflow caching for a high-volume monorepo that frequently exceeds the 10GB GitHub Actions cache limit.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Increase the cache limit to 100GB by filing a support ticket." },
@@ -426,7 +426,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Workflow Run Visualization and Log Debugging: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Log Inspection to diagnose an obscure failure in a complex third-party composite action step by enabling verbose internal debugging logs.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to diagnose an obscure failure in a complex third-party composite action step by enabling verbose internal debugging logs.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Disable all logging to bypass the error." },
@@ -447,7 +447,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Workflow Run Visualization and Log Debugging: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Log Inspection to diagnose an obscure failure in a complex third-party composite action step by enabling verbose internal debugging logs.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to diagnose an obscure failure in a complex third-party composite action step by enabling verbose internal debugging logs.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Disable all logging to bypass the error." },
@@ -468,7 +468,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Workflow Run Visualization and Log Debugging: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Log Inspection to diagnose an obscure failure in a complex third-party composite action step by enabling verbose internal debugging logs.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to diagnose an obscure failure in a complex third-party composite action step by enabling verbose internal debugging logs.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Set repository secret or variable `ACTIONS_STEP_DEBUG` and `ACTIONS_RUNNER_DEBUG` to `true` and re-run the failed jobs." },
@@ -489,7 +489,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Workflow Run Visualization and Log Debugging: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Log Inspection to diagnose an obscure failure in a complex third-party composite action step by enabling verbose internal debugging logs.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to diagnose an obscure failure in a complex third-party composite action step by enabling verbose internal debugging logs.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Set repository secret or variable `ACTIONS_STEP_DEBUG` and `ACTIONS_RUNNER_DEBUG` to `true` and re-run the failed jobs." },
@@ -510,7 +510,7 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Consume workflows and manage GitHub Actions",
     title: "Workflow Run Visualization and Log Debugging: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Log Inspection to diagnose an obscure failure in a complex third-party composite action step by enabling verbose internal debugging logs.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to diagnose an obscure failure in a complex third-party composite action step by enabling verbose internal debugging logs.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Reinstall the GitHub runner operating system." },
