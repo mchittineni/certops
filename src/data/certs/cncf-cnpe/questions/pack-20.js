@@ -6,7 +6,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "FinOps Dynamic Workload Rightsizing: OpenCost and Goldilocks: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Workload Rightsizing to eliminate massive cloud compute waste caused by developers requesting 8 CPU cores for microservices utilizing only 0.1 cores.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to eliminate massive cloud compute waste caused by developers requesting 8 CPU cores for microservices utilizing only 0.1 cores.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Arbitrarily cap all microservice memory limits at 100MB, causing critical production services to crash with OOMKills." },
@@ -27,7 +27,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "FinOps Dynamic Workload Rightsizing: OpenCost and Goldilocks: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Workload Rightsizing to eliminate massive cloud compute waste caused by developers requesting 8 CPU cores for microservices utilizing only 0.1 cores.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to eliminate massive cloud compute waste caused by developers requesting 8 CPU cores for microservices utilizing only 0.1 cores.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Allow developers to allocate unlimited CPU and memory resources with zero monitoring or cost tracking." },
@@ -48,7 +48,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "FinOps Dynamic Workload Rightsizing: OpenCost and Goldilocks: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Workload Rightsizing to eliminate massive cloud compute waste caused by developers requesting 8 CPU cores for microservices utilizing only 0.1 cores.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to eliminate massive cloud compute waste caused by developers requesting 8 CPU cores for microservices utilizing only 0.1 cores.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Turn off all application pods on weekends to reduce compute consumption." },
@@ -69,7 +69,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "FinOps Dynamic Workload Rightsizing: OpenCost and Goldilocks: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Workload Rightsizing to eliminate massive cloud compute waste caused by developers requesting 8 CPU cores for microservices utilizing only 0.1 cores.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to eliminate massive cloud compute waste caused by developers requesting 8 CPU cores for microservices utilizing only 0.1 cores.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Arbitrarily cap all microservice memory limits at 100MB, causing critical production services to crash with OOMKills." },
@@ -90,7 +90,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "FinOps Dynamic Workload Rightsizing: OpenCost and Goldilocks: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Workload Rightsizing to eliminate massive cloud compute waste caused by developers requesting 8 CPU cores for microservices utilizing only 0.1 cores.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to eliminate massive cloud compute waste caused by developers requesting 8 CPU cores for microservices utilizing only 0.1 cores.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Allow developers to allocate unlimited CPU and memory resources with zero monitoring or cost tracking." },
@@ -111,7 +111,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Automated Incident Remediation and Runbook Automation: Robusta: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Incident Automation to collect logs, pod descriptions, and stack traces automatically and attach them to the alert ticket the moment a CrashLoopBackOff occurs.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to collect logs, pod descriptions, and stack traces automatically and attach them to the alert ticket the moment a CrashLoopBackOff occurs.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Force on-call engineers to wake up and spend 45 minutes manually typing basic kubectl commands to collect crash logs." },
@@ -132,7 +132,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Automated Incident Remediation and Runbook Automation: Robusta: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Incident Automation to collect logs, pod descriptions, and stack traces automatically and attach them to the alert ticket the moment a CrashLoopBackOff occurs.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to collect logs, pod descriptions, and stack traces automatically and attach them to the alert ticket the moment a CrashLoopBackOff occurs.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Automatically delete failing deployments to erase all traces of the software failure." },
@@ -153,7 +153,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Automated Incident Remediation and Runbook Automation: Robusta: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Incident Automation to collect logs, pod descriptions, and stack traces automatically and attach them to the alert ticket the moment a CrashLoopBackOff occurs.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to collect logs, pod descriptions, and stack traces automatically and attach them to the alert ticket the moment a CrashLoopBackOff occurs.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Deploy Robusta or similar incident automation engines to intercept Prometheus alerts, gather pod diagnostics, and trigger auto-remediation." },
@@ -174,7 +174,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Automated Incident Remediation and Runbook Automation: Robusta: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Incident Automation to collect logs, pod descriptions, and stack traces automatically and attach them to the alert ticket the moment a CrashLoopBackOff occurs.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to collect logs, pod descriptions, and stack traces automatically and attach them to the alert ticket the moment a CrashLoopBackOff occurs.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Force on-call engineers to wake up and spend 45 minutes manually typing basic kubectl commands to collect crash logs." },
@@ -195,7 +195,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Automated Incident Remediation and Runbook Automation: Robusta: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Incident Automation to collect logs, pod descriptions, and stack traces automatically and attach them to the alert ticket the moment a CrashLoopBackOff occurs.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to collect logs, pod descriptions, and stack traces automatically and attach them to the alert ticket the moment a CrashLoopBackOff occurs.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Force on-call engineers to wake up and spend 45 minutes manually typing basic kubectl commands to collect crash logs." },
@@ -216,7 +216,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Secret Scanning and Push Protection: TruffleHog and GitGuardian: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Secret Scanning to prevent developers from accidentally committing cloud provider access keys or private database passwords to Git repositories.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to prevent developers from accidentally committing cloud provider access keys or private database passwords to Git repositories.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Wait for attackers to find committed AWS credentials and drain enterprise cloud accounts before rotating keys." },
@@ -237,7 +237,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Secret Scanning and Push Protection: TruffleHog and GitGuardian: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Secret Scanning to prevent developers from accidentally committing cloud provider access keys or private database passwords to Git repositories.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to prevent developers from accidentally committing cloud provider access keys or private database passwords to Git repositories.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Disable git version control and transfer application code via unencrypted email attachments." },
@@ -258,7 +258,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Secret Scanning and Push Protection: TruffleHog and GitGuardian: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Secret Scanning to prevent developers from accidentally committing cloud provider access keys or private database passwords to Git repositories.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to prevent developers from accidentally committing cloud provider access keys or private database passwords to Git repositories.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Implement secret scanning with pre-commit hooks and GitHub push protection using tools like TruffleHog or GitGuardian." },
@@ -279,7 +279,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Secret Scanning and Push Protection: TruffleHog and GitGuardian: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Secret Scanning to prevent developers from accidentally committing cloud provider access keys or private database passwords to Git repositories.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to prevent developers from accidentally committing cloud provider access keys or private database passwords to Git repositories.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Wait for attackers to find committed AWS credentials and drain enterprise cloud accounts before rotating keys." },
@@ -300,7 +300,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Secret Scanning and Push Protection: TruffleHog and GitGuardian: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Secret Scanning to prevent developers from accidentally committing cloud provider access keys or private database passwords to Git repositories.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to prevent developers from accidentally committing cloud provider access keys or private database passwords to Git repositories.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Disable git version control and transfer application code via unencrypted email attachments." },
@@ -321,7 +321,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Blameless Systemic Incident Learning Culture: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Blameless Postmortems to foster an engineering culture where engineers openly report mistakes and vulnerabilities without fear of punishment.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to foster an engineering culture where engineers openly report mistakes and vulnerabilities without fear of punishment.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Prohibit writing incident documentation to avoid creating a legal paper trail." },
@@ -342,7 +342,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Blameless Systemic Incident Learning Culture: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Blameless Postmortems to foster an engineering culture where engineers openly report mistakes and vulnerabilities without fear of punishment.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to foster an engineering culture where engineers openly report mistakes and vulnerabilities without fear of punishment.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Conduct blameless post-incident reviews focusing on systemic tooling improvements and process safeguards rather than human error." },
@@ -363,7 +363,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Blameless Systemic Incident Learning Culture: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Blameless Postmortems to foster an engineering culture where engineers openly report mistakes and vulnerabilities without fear of punishment.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to foster an engineering culture where engineers openly report mistakes and vulnerabilities without fear of punishment.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Publicly reprimand and penalize engineers whenever a deployment causes downtime." },
@@ -384,7 +384,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Blameless Systemic Incident Learning Culture: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Blameless Postmortems to foster an engineering culture where engineers openly report mistakes and vulnerabilities without fear of punishment.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to foster an engineering culture where engineers openly report mistakes and vulnerabilities without fear of punishment.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Prohibit writing incident documentation to avoid creating a legal paper trail." },
@@ -405,7 +405,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Blameless Systemic Incident Learning Culture: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Blameless Postmortems to foster an engineering culture where engineers openly report mistakes and vulnerabilities without fear of punishment.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to foster an engineering culture where engineers openly report mistakes and vulnerabilities without fear of punishment.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Conduct blameless post-incident reviews focusing on systemic tooling improvements and process safeguards rather than human error." },
@@ -426,7 +426,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Platform Technology Lifecycle and Deprecation Governance: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Platform Evolution to retire an obsolete platform API version safely without breaking production services that still rely on it.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to retire an obsolete platform API version safely without breaking production services that still rely on it.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Delete the API endpoint abruptly on a Friday afternoon without prior warning." },
@@ -447,7 +447,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Platform Technology Lifecycle and Deprecation Governance: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Platform Evolution to retire an obsolete platform API version safely without breaking production services that still rely on it.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to retire an obsolete platform API version safely without breaking production services that still rely on it.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Maintain 50 obsolete, unpatched API versions indefinitely because a single developer refuses to upgrade." },
@@ -468,7 +468,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Platform Technology Lifecycle and Deprecation Governance: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Platform Evolution to retire an obsolete platform API version safely without breaking production services that still rely on it.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to retire an obsolete platform API version safely without breaking production services that still rely on it.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Delete the API endpoint abruptly on a Friday afternoon without prior warning." },
@@ -489,7 +489,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Platform Technology Lifecycle and Deprecation Governance: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Platform Evolution to retire an obsolete platform API version safely without breaking production services that still rely on it.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to retire an obsolete platform API version safely without breaking production services that still rely on it.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Delete the API endpoint abruptly on a Friday afternoon without prior warning." },
@@ -510,7 +510,7 @@ export const CNCF_CNPE_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Platform Technology Lifecycle and Deprecation Governance: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Platform Evolution to retire an obsolete platform API version safely without breaking production services that still rely on it.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to retire an obsolete platform API version safely without breaking production services that still rely on it.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Maintain 50 obsolete, unpatched API versions indefinitely because a single developer refuses to upgrade." },

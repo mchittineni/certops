@@ -6,7 +6,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Security Managers and Role-Based Access Control: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Security Manager Role to allow the corporate security operations team to view all alerts, triage findings, and configure security policies without granting them source code write access.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to allow the corporate security operations team to view all alerts, triage findings, and configure security policies without granting them source code write access.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Assign the `Security Manager` role to the security team at the organization level." },
@@ -27,7 +27,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Security Managers and Role-Based Access Control: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Security Manager Role to allow the corporate security operations team to view all alerts, triage findings, and configure security policies without granting them source code write access.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to allow the corporate security operations team to view all alerts, triage findings, and configure security policies without granting them source code write access.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Create individual personal accounts for security engineers and add them manually to every repository." },
@@ -48,7 +48,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Security Managers and Role-Based Access Control: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Security Manager Role to allow the corporate security operations team to view all alerts, triage findings, and configure security policies without granting them source code write access.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to allow the corporate security operations team to view all alerts, triage findings, and configure security policies without granting them source code write access.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Prohibit the security team from viewing developer repositories to protect code privacy." },
@@ -69,7 +69,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Security Managers and Role-Based Access Control: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Security Manager Role to allow the corporate security operations team to view all alerts, triage findings, and configure security policies without granting them source code write access.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to allow the corporate security operations team to view all alerts, triage findings, and configure security policies without granting them source code write access.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Prohibit the security team from viewing developer repositories to protect code privacy." },
@@ -90,7 +90,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Security Managers and Role-Based Access Control: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Security Manager Role to allow the corporate security operations team to view all alerts, triage findings, and configure security policies without granting them source code write access.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to allow the corporate security operations team to view all alerts, triage findings, and configure security policies without granting them source code write access.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Prohibit the security team from viewing developer repositories to protect code privacy." },
@@ -111,7 +111,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Repository Security Advisories and Private Vulnerability Reporting: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Security Advisories to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Ignore external researcher reports and threaten legal action." },
@@ -132,7 +132,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Repository Security Advisories and Private Vulnerability Reporting: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Security Advisories to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs." },
@@ -153,7 +153,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Repository Security Advisories and Private Vulnerability Reporting: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Security Advisories to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Ignore external researcher reports and threaten legal action." },
@@ -174,7 +174,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Repository Security Advisories and Private Vulnerability Reporting: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Security Advisories to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Ignore external researcher reports and threaten legal action." },
@@ -195,7 +195,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Repository Security Advisories and Private Vulnerability Reporting: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Security Advisories to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Ask security researchers to post exploit details publicly in open GitHub issues." },
@@ -216,7 +216,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "SECURITY.md Responsible Disclosure Policies: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates SECURITY.md to instruct external researchers and customers on how to responsibly disclose security vulnerabilities found in your software.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to instruct external researchers and customers on how to responsibly disclose security vulnerabilities found in your software.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Leave security reporting procedures undefined and unmonitored." },
@@ -237,7 +237,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "SECURITY.md Responsible Disclosure Policies: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates SECURITY.md to instruct external researchers and customers on how to responsibly disclose security vulnerabilities found in your software.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to instruct external researchers and customers on how to responsibly disclose security vulnerabilities found in your software.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Add a `SECURITY.md` file in the `.github` repository or project root detailing contact instructions, PGP keys, and disclosure policies." },
@@ -258,7 +258,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "SECURITY.md Responsible Disclosure Policies: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates SECURITY.md to instruct external researchers and customers on how to responsibly disclose security vulnerabilities found in your software.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to instruct external researchers and customers on how to responsibly disclose security vulnerabilities found in your software.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Require researchers to mail physical letters to corporate headquarters." },
@@ -279,7 +279,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "SECURITY.md Responsible Disclosure Policies: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates SECURITY.md to instruct external researchers and customers on how to responsibly disclose security vulnerabilities found in your software.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to instruct external researchers and customers on how to responsibly disclose security vulnerabilities found in your software.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Leave security reporting procedures undefined and unmonitored." },
@@ -300,7 +300,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "SECURITY.md Responsible Disclosure Policies: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates SECURITY.md to instruct external researchers and customers on how to responsibly disclose security vulnerabilities found in your software.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to instruct external researchers and customers on how to responsibly disclose security vulnerabilities found in your software.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Add a `SECURITY.md` file in the `.github` repository or project root detailing contact instructions, PGP keys, and disclosure policies." },
@@ -321,7 +321,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "GHAS REST and GraphQL APIs for Enterprise Auditing: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates GHAS APIs to extract all open High and Critical Code Scanning, Dependabot, and Secret Scanning alerts across 500 repos for an executive audit report.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to extract all open High and Critical Code Scanning, Dependabot, and Secret Scanning alerts across 500 repos for an executive audit report.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Query the GitHub REST and GraphQL APIs using a fine-grained personal access token or GitHub App with security permissions." },
@@ -342,7 +342,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "GHAS REST and GraphQL APIs for Enterprise Auditing: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates GHAS APIs to extract all open High and Critical Code Scanning, Dependabot, and Secret Scanning alerts across 500 repos for an executive audit report.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to extract all open High and Critical Code Scanning, Dependabot, and Secret Scanning alerts across 500 repos for an executive audit report.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Query the GitHub REST and GraphQL APIs using a fine-grained personal access token or GitHub App with security permissions." },
@@ -363,7 +363,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "GHAS REST and GraphQL APIs for Enterprise Auditing: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates GHAS APIs to extract all open High and Critical Code Scanning, Dependabot, and Secret Scanning alerts across 500 repos for an executive audit report.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to extract all open High and Critical Code Scanning, Dependabot, and Secret Scanning alerts across 500 repos for an executive audit report.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Manually copy and paste alert data from web pages into an Excel spreadsheet." },
@@ -384,7 +384,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "GHAS REST and GraphQL APIs for Enterprise Auditing: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates GHAS APIs to extract all open High and Critical Code Scanning, Dependabot, and Secret Scanning alerts across 500 repos for an executive audit report.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to extract all open High and Critical Code Scanning, Dependabot, and Secret Scanning alerts across 500 repos for an executive audit report.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Query the GitHub REST and GraphQL APIs using a fine-grained personal access token or GitHub App with security permissions." },
@@ -405,7 +405,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "GHAS REST and GraphQL APIs for Enterprise Auditing: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates GHAS APIs to extract all open High and Critical Code Scanning, Dependabot, and Secret Scanning alerts across 500 repos for an executive audit report.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to extract all open High and Critical Code Scanning, Dependabot, and Secret Scanning alerts across 500 repos for an executive audit report.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Query the GitHub REST and GraphQL APIs using a fine-grained personal access token or GitHub App with security permissions." },
@@ -426,7 +426,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Enterprise GHAS Licensing and Committer Quotas: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates GHAS Licensing to understand how GitHub Advanced Security licenses are counted and how to optimize license consumption across an enterprise.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to understand how GitHub Advanced Security licenses are counted and how to optimize license consumption across an enterprise.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Assume licenses are billed based on the total number of employee email accounts in the company." },
@@ -447,7 +447,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Enterprise GHAS Licensing and Committer Quotas: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates GHAS Licensing to understand how GitHub Advanced Security licenses are counted and how to optimize license consumption across an enterprise.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to understand how GitHub Advanced Security licenses are counted and how to optimize license consumption across an enterprise.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Assume read-only repository viewers consume full GHAS committer licenses." },
@@ -468,7 +468,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Enterprise GHAS Licensing and Committer Quotas: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates GHAS Licensing to understand how GitHub Advanced Security licenses are counted and how to optimize license consumption across an enterprise.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to understand how GitHub Advanced Security licenses are counted and how to optimize license consumption across an enterprise.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Track 'active committers' who have pushed code to GHAS-enabled private repositories within the last 90 days." },
@@ -489,7 +489,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Enterprise GHAS Licensing and Committer Quotas: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates GHAS Licensing to understand how GitHub Advanced Security licenses are counted and how to optimize license consumption across an enterprise.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to understand how GitHub Advanced Security licenses are counted and how to optimize license consumption across an enterprise.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Believe that an engineer requires five separate licenses if they commit to five different repositories." },
@@ -510,7 +510,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Enterprise GHAS Licensing and Committer Quotas: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates GHAS Licensing to understand how GitHub Advanced Security licenses are counted and how to optimize license consumption across an enterprise.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to understand how GitHub Advanced Security licenses are counted and how to optimize license consumption across an enterprise.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Assume read-only repository viewers consume full GHAS committer licenses." },

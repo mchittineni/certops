@@ -6,7 +6,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Kubernetes as an Extensible Control Plane Substrate: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Kubernetes Control Plane to provide a universal, declarative control plane where developers manage both infrastructure and application lifecycles using Kubernetes-native APIs.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to provide a universal, declarative control plane where developers manage both infrastructure and application lifecycles using Kubernetes-native APIs.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Disable Kubernetes API server reconciliation loops to eliminate etcd overhead." },
@@ -27,7 +27,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Kubernetes as an Extensible Control Plane Substrate: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Kubernetes Control Plane to provide a universal, declarative control plane where developers manage both infrastructure and application lifecycles using Kubernetes-native APIs.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to provide a universal, declarative control plane where developers manage both infrastructure and application lifecycles using Kubernetes-native APIs.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Deploy hundreds of disparate shell scripts triggered manually over SSH across multiple servers." },
@@ -48,7 +48,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Kubernetes as an Extensible Control Plane Substrate: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Kubernetes Control Plane to provide a universal, declarative control plane where developers manage both infrastructure and application lifecycles using Kubernetes-native APIs.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to provide a universal, declarative control plane where developers manage both infrastructure and application lifecycles using Kubernetes-native APIs.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Leverage Kubernetes as an extensible control plane using Custom Resource Definitions (CRDs) and custom controllers with continuous reconciliation." },
@@ -69,7 +69,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Kubernetes as an Extensible Control Plane Substrate: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Kubernetes Control Plane to provide a universal, declarative control plane where developers manage both infrastructure and application lifecycles using Kubernetes-native APIs.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to provide a universal, declarative control plane where developers manage both infrastructure and application lifecycles using Kubernetes-native APIs.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Disable Kubernetes API server reconciliation loops to eliminate etcd overhead." },
@@ -90,7 +90,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Kubernetes as an Extensible Control Plane Substrate: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Kubernetes Control Plane to provide a universal, declarative control plane where developers manage both infrastructure and application lifecycles using Kubernetes-native APIs.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to provide a universal, declarative control plane where developers manage both infrastructure and application lifecycles using Kubernetes-native APIs.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Leverage Kubernetes as an extensible control plane using Custom Resource Definitions (CRDs) and custom controllers with continuous reconciliation." },
@@ -111,7 +111,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Crossplane: Cloud-Native Infrastructure Composition: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Crossplane to empower developers to self-provision cloud databases without exposing complex raw AWS, Azure, or GCP IAM and networking primitives.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to empower developers to self-provision cloud databases without exposing complex raw AWS, Azure, or GCP IAM and networking primitives.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Grant full Cloud Provider root credentials to all application developer workstations." },
@@ -132,7 +132,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Crossplane: Cloud-Native Infrastructure Composition: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Crossplane to empower developers to self-provision cloud databases without exposing complex raw AWS, Azure, or GCP IAM and networking primitives.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to empower developers to self-provision cloud databases without exposing complex raw AWS, Azure, or GCP IAM and networking primitives.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Grant full Cloud Provider root credentials to all application developer workstations." },
@@ -153,7 +153,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Crossplane: Cloud-Native Infrastructure Composition: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Crossplane to empower developers to self-provision cloud databases without exposing complex raw AWS, Azure, or GCP IAM and networking primitives.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to empower developers to self-provision cloud databases without exposing complex raw AWS, Azure, or GCP IAM and networking primitives.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Define Crossplane Composite Resource Definitions (XRDs) and Compositions that expose simplified, standardized infrastructure APIs." },
@@ -174,7 +174,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Crossplane: Cloud-Native Infrastructure Composition: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Crossplane to empower developers to self-provision cloud databases without exposing complex raw AWS, Azure, or GCP IAM and networking primitives.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to empower developers to self-provision cloud databases without exposing complex raw AWS, Azure, or GCP IAM and networking primitives.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Define Crossplane Composite Resource Definitions (XRDs) and Compositions that expose simplified, standardized infrastructure APIs." },
@@ -195,7 +195,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Crossplane: Cloud-Native Infrastructure Composition: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Crossplane to empower developers to self-provision cloud databases without exposing complex raw AWS, Azure, or GCP IAM and networking primitives.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to empower developers to self-provision cloud databases without exposing complex raw AWS, Azure, or GCP IAM and networking primitives.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Define Crossplane Composite Resource Definitions (XRDs) and Compositions that expose simplified, standardized infrastructure APIs." },
@@ -216,7 +216,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Cluster API (CAPI): Declarative Multi-Cluster Lifecycle: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Cluster API to automate the provisioning, patching, and retirement of hundreds of worker Kubernetes clusters across hybrid clouds using declarative manifests.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to automate the provisioning, patching, and retirement of hundreds of worker Kubernetes clusters across hybrid clouds using declarative manifests.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Deploy Cluster API (CAPI) using declarative `Cluster`, `MachineDeployment`, and control plane provider resources." },
@@ -237,7 +237,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Cluster API (CAPI): Declarative Multi-Cluster Lifecycle: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Cluster API to automate the provisioning, patching, and retirement of hundreds of worker Kubernetes clusters across hybrid clouds using declarative manifests.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to automate the provisioning, patching, and retirement of hundreds of worker Kubernetes clusters across hybrid clouds using declarative manifests.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Manually click through cloud provider web consoles to launch virtual machines and install kubeadm via SSH." },
@@ -258,7 +258,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Cluster API (CAPI): Declarative Multi-Cluster Lifecycle: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Cluster API to automate the provisioning, patching, and retirement of hundreds of worker Kubernetes clusters across hybrid clouds using declarative manifests.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to automate the provisioning, patching, and retirement of hundreds of worker Kubernetes clusters across hybrid clouds using declarative manifests.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Manually click through cloud provider web consoles to launch virtual machines and install kubeadm via SSH." },
@@ -279,7 +279,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Cluster API (CAPI): Declarative Multi-Cluster Lifecycle: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Cluster API to automate the provisioning, patching, and retirement of hundreds of worker Kubernetes clusters across hybrid clouds using declarative manifests.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to automate the provisioning, patching, and retirement of hundreds of worker Kubernetes clusters across hybrid clouds using declarative manifests.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Rely on ad-hoc workstation bash scripts that execute unversioned curl commands." },
@@ -300,7 +300,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Cluster API (CAPI): Declarative Multi-Cluster Lifecycle: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Cluster API to automate the provisioning, patching, and retirement of hundreds of worker Kubernetes clusters across hybrid clouds using declarative manifests.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to automate the provisioning, patching, and retirement of hundreds of worker Kubernetes clusters across hybrid clouds using declarative manifests.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Manually click through cloud provider web consoles to launch virtual machines and install kubeadm via SSH." },
@@ -321,7 +321,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Multi-Cluster Fleet Management and Workload Placement: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Fleet Management to distribute containerized workloads across globally distributed regional clusters while maintaining centralized traffic routing and failover.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to distribute containerized workloads across globally distributed regional clusters while maintaining centralized traffic routing and failover.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Manually deploy manifests to each individual cluster using separate terminal sessions." },
@@ -342,7 +342,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Multi-Cluster Fleet Management and Workload Placement: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Fleet Management to distribute containerized workloads across globally distributed regional clusters while maintaining centralized traffic routing and failover.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to distribute containerized workloads across globally distributed regional clusters while maintaining centralized traffic routing and failover.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Expose all internal cluster IP addresses directly to the public internet." },
@@ -363,7 +363,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Multi-Cluster Fleet Management and Workload Placement: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Fleet Management to distribute containerized workloads across globally distributed regional clusters while maintaining centralized traffic routing and failover.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to distribute containerized workloads across globally distributed regional clusters while maintaining centralized traffic routing and failover.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Disable cluster networking and isolate each cluster completely from communication." },
@@ -384,7 +384,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Multi-Cluster Fleet Management and Workload Placement: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Fleet Management to distribute containerized workloads across globally distributed regional clusters while maintaining centralized traffic routing and failover.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to distribute containerized workloads across globally distributed regional clusters while maintaining centralized traffic routing and failover.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Disable cluster networking and isolate each cluster completely from communication." },
@@ -405,7 +405,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Multi-Cluster Fleet Management and Workload Placement: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Fleet Management to distribute containerized workloads across globally distributed regional clusters while maintaining centralized traffic routing and failover.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to distribute containerized workloads across globally distributed regional clusters while maintaining centralized traffic routing and failover.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Expose all internal cluster IP addresses directly to the public internet." },
@@ -426,7 +426,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Multi-Tenancy Models: Soft vs Hard Tenancy and vcluster: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Multi-Tenancy to provide development teams with dedicated cluster-admin access for testing CRDs and operators without the expense of physical clusters.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to provide development teams with dedicated cluster-admin access for testing CRDs and operators without the expense of physical clusters.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Grant full physical cluster-admin rights to developers on the shared production cluster." },
@@ -447,7 +447,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Multi-Tenancy Models: Soft vs Hard Tenancy and vcluster: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Multi-Tenancy to provide development teams with dedicated cluster-admin access for testing CRDs and operators without the expense of physical clusters.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to provide development teams with dedicated cluster-admin access for testing CRDs and operators without the expense of physical clusters.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Disable Kubernetes RBAC and security contexts entirely." },
@@ -468,7 +468,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Multi-Tenancy Models: Soft vs Hard Tenancy and vcluster: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Multi-Tenancy to provide development teams with dedicated cluster-admin access for testing CRDs and operators without the expense of physical clusters.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to provide development teams with dedicated cluster-admin access for testing CRDs and operators without the expense of physical clusters.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Provision lightweight virtual Kubernetes clusters (vcluster) running inside dedicated tenant namespaces on shared underlying hardware." },
@@ -489,7 +489,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Multi-Tenancy Models: Soft vs Hard Tenancy and vcluster: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Multi-Tenancy to provide development teams with dedicated cluster-admin access for testing CRDs and operators without the expense of physical clusters.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to provide development teams with dedicated cluster-admin access for testing CRDs and operators without the expense of physical clusters.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Provision lightweight virtual Kubernetes clusters (vcluster) running inside dedicated tenant namespaces on shared underlying hardware." },
@@ -510,7 +510,7 @@ export const CNCF_CNPA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Multi-Tenancy Models: Soft vs Hard Tenancy and vcluster: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Multi-Tenancy to provide development teams with dedicated cluster-admin access for testing CRDs and operators without the expense of physical clusters.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to provide development teams with dedicated cluster-admin access for testing CRDs and operators without the expense of physical clusters.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Provision lightweight virtual Kubernetes clusters (vcluster) running inside dedicated tenant namespaces on shared underlying hardware." },

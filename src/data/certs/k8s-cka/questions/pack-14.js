@@ -6,7 +6,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "CoreDNS Name Resolution Failures: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Cluster DNS to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements? Diagnosing CoreDNS pod crashes, upstream forwarders, and resolv.",
     options: [
       { id: 'A', text: "Instruct applications to use hardcoded IP addresses instead of DNS names." },
@@ -27,7 +27,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "CoreDNS Name Resolution Failures: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Cluster DNS to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability? Diagnosing CoreDNS pod crashes, upstream forwarders, and resolv.",
     options: [
       { id: 'A', text: "Instruct applications to use hardcoded IP addresses instead of DNS names." },
@@ -48,7 +48,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "CoreDNS Name Resolution Failures: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Cluster DNS to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls? Diagnosing CoreDNS pod crashes, upstream forwarders, and resolv.",
     options: [
       { id: 'A', text: "Replace the Linux kernel on every worker node with an older distribution." },
@@ -69,7 +69,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "CoreDNS Name Resolution Failures: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Cluster DNS to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity? Diagnosing CoreDNS pod crashes, upstream forwarders, and resolv.",
     options: [
       { id: 'A', text: "Reboot the etcd database cluster three times consecutively." },
@@ -90,7 +90,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "CoreDNS Name Resolution Failures: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Cluster DNS to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability? Diagnosing CoreDNS pod crashes, upstream forwarders, and resolv.",
     options: [
       { id: 'A', text: "Replace the Linux kernel on every worker node with an older distribution." },
@@ -111,7 +111,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Diagnosing Pending Pods Due to Resource Exhaustion: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Pod Scheduling to diagnose why several new pods remain permanently in `Pending` status after a batch deployment.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to diagnose why several new pods remain permanently in `Pending` status after a batch deployment.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Change the pod container ports to random dynamic ports." },
@@ -132,7 +132,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Diagnosing Pending Pods Due to Resource Exhaustion: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Pod Scheduling to diagnose why several new pods remain permanently in `Pending` status after a batch deployment.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to diagnose why several new pods remain permanently in `Pending` status after a batch deployment.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Run `kubectl describe pod &lt;pod-name&gt;` and inspect the Events section for `FailedScheduling` indicating insufficient CPU or memory." },
@@ -153,7 +153,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Diagnosing Pending Pods Due to Resource Exhaustion: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Pod Scheduling to diagnose why several new pods remain permanently in `Pending` status after a batch deployment.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to diagnose why several new pods remain permanently in `Pending` status after a batch deployment.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Run `kubectl describe pod &lt;pod-name&gt;` and inspect the Events section for `FailedScheduling` indicating insufficient CPU or memory." },
@@ -174,7 +174,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Diagnosing Pending Pods Due to Resource Exhaustion: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Pod Scheduling to diagnose why several new pods remain permanently in `Pending` status after a batch deployment.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to diagnose why several new pods remain permanently in `Pending` status after a batch deployment.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Restart the kube-apiserver service." },
@@ -195,7 +195,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Diagnosing Pending Pods Due to Resource Exhaustion: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Pod Scheduling to diagnose why several new pods remain permanently in `Pending` status after a batch deployment.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to diagnose why several new pods remain permanently in `Pending` status after a batch deployment.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Run `kubectl describe pod &lt;pod-name&gt;` and inspect the Events section for `FailedScheduling` indicating insufficient CPU or memory." },
@@ -216,7 +216,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Service Routing Failures and Endpoints Mismatch: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Service Routing to troubleshoot why traffic sent to a Kubernetes ClusterIP Service returns connection refused or timeouts even though backend pods are running.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to troubleshoot why traffic sent to a Kubernetes ClusterIP Service returns connection refused or timeouts even though backend pods are running.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Assume the Service object requires a public static IP address to function." },
@@ -237,7 +237,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Service Routing Failures and Endpoints Mismatch: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Service Routing to troubleshoot why traffic sent to a Kubernetes ClusterIP Service returns connection refused or timeouts even though backend pods are running.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to troubleshoot why traffic sent to a Kubernetes ClusterIP Service returns connection refused or timeouts even though backend pods are running.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Verify that the Service `spec.selector` labels exactly match the pod `metadata.labels` by inspecting `kubectl get endpoints &lt;service-name&gt;`." },
@@ -258,7 +258,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Service Routing Failures and Endpoints Mismatch: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Service Routing to troubleshoot why traffic sent to a Kubernetes ClusterIP Service returns connection refused or timeouts even though backend pods are running.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to troubleshoot why traffic sent to a Kubernetes ClusterIP Service returns connection refused or timeouts even though backend pods are running.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Assume the Service object requires a public static IP address to function." },
@@ -279,7 +279,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Service Routing Failures and Endpoints Mismatch: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Service Routing to troubleshoot why traffic sent to a Kubernetes ClusterIP Service returns connection refused or timeouts even though backend pods are running.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to troubleshoot why traffic sent to a Kubernetes ClusterIP Service returns connection refused or timeouts even though backend pods are running.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Verify that the Service `spec.selector` labels exactly match the pod `metadata.labels` by inspecting `kubectl get endpoints &lt;service-name&gt;`." },
@@ -300,7 +300,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Service Routing Failures and Endpoints Mismatch: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Service Routing to troubleshoot why traffic sent to a Kubernetes ClusterIP Service returns connection refused or timeouts even though backend pods are running.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to troubleshoot why traffic sent to a Kubernetes ClusterIP Service returns connection refused or timeouts even though backend pods are running.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Delete the kubelet systemd service on all worker nodes." },
@@ -321,7 +321,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "kube-proxy Failure and iptables Synchronization: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates kube-proxy Diagnostics to investigate why network traffic to ClusterIP Services fails on a specific worker node while working on all other nodes.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to investigate why network traffic to ClusterIP Services fails on a specific worker node while working on all other nodes.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Reinstall the Linux operating system on the master control plane node." },
@@ -342,7 +342,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "kube-proxy Failure and iptables Synchronization: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates kube-proxy Diagnostics to investigate why network traffic to ClusterIP Services fails on a specific worker node while working on all other nodes.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to investigate why network traffic to ClusterIP Services fails on a specific worker node while working on all other nodes.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Delete all PersistentVolumes across the entire cluster." },
@@ -363,7 +363,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "kube-proxy Failure and iptables Synchronization: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates kube-proxy Diagnostics to investigate why network traffic to ClusterIP Services fails on a specific worker node while working on all other nodes.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to investigate why network traffic to ClusterIP Services fails on a specific worker node while working on all other nodes.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Delete all PersistentVolumes across the entire cluster." },
@@ -384,7 +384,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "kube-proxy Failure and iptables Synchronization: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates kube-proxy Diagnostics to investigate why network traffic to ClusterIP Services fails on a specific worker node while working on all other nodes.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to investigate why network traffic to ClusterIP Services fails on a specific worker node while working on all other nodes.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Assume the pod CIDR range must be doubled." },
@@ -405,7 +405,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "kube-proxy Failure and iptables Synchronization: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates kube-proxy Diagnostics to investigate why network traffic to ClusterIP Services fails on a specific worker node while working on all other nodes.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to investigate why network traffic to ClusterIP Services fails on a specific worker node while working on all other nodes.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Check the status and logs of the `kube-proxy` pod running on that specific node and inspect host iptables/IPVS rules." },
@@ -426,7 +426,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "CNI Plugin Failures and Network Partitioning: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Container Network Interface to troubleshoot an error where new pods cannot be created on a worker node, failing with `NetworkPluginNotReady` or CNI IP allocation errors.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to troubleshoot an error where new pods cannot be created on a worker node, failing with `NetworkPluginNotReady` or CNI IP allocation errors.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Change the Kubernetes API server bind port." },
@@ -447,7 +447,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "CNI Plugin Failures and Network Partitioning: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Container Network Interface to troubleshoot an error where new pods cannot be created on a worker node, failing with `NetworkPluginNotReady` or CNI IP allocation errors.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to troubleshoot an error where new pods cannot be created on a worker node, failing with `NetworkPluginNotReady` or CNI IP allocation errors.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Inspect CNI DaemonSet pod logs (e.g., Calico, Flannel, Cilium) and verify that the node pod CIDR allocation is not exhausted." },
@@ -468,7 +468,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "CNI Plugin Failures and Network Partitioning: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Container Network Interface to troubleshoot an error where new pods cannot be created on a worker node, failing with `NetworkPluginNotReady` or CNI IP allocation errors.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to troubleshoot an error where new pods cannot be created on a worker node, failing with `NetworkPluginNotReady` or CNI IP allocation errors.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Inspect CNI DaemonSet pod logs (e.g., Calico, Flannel, Cilium) and verify that the node pod CIDR allocation is not exhausted." },
@@ -489,7 +489,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "CNI Plugin Failures and Network Partitioning: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Container Network Interface to troubleshoot an error where new pods cannot be created on a worker node, failing with `NetworkPluginNotReady` or CNI IP allocation errors.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to troubleshoot an error where new pods cannot be created on a worker node, failing with `NetworkPluginNotReady` or CNI IP allocation errors.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Change the Kubernetes API server bind port." },
@@ -510,7 +510,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "CNI Plugin Failures and Network Partitioning: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Container Network Interface to troubleshoot an error where new pods cannot be created on a worker node, failing with `NetworkPluginNotReady` or CNI IP allocation errors.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to troubleshoot an error where new pods cannot be created on a worker node, failing with `NetworkPluginNotReady` or CNI IP allocation errors.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Manually delete the loopback interface on the host node." },

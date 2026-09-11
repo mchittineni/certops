@@ -6,7 +6,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Cloud Spanner Multi-Region Global Consistency: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Cloud Spanner to architect a globally distributed financial transaction ledger that requires multi-region synchronous write scaling, ACID guarantees, and 99.999% availability.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to architect a globally distributed financial transaction ledger that requires multi-region synchronous write scaling, ACID guarantees, and 99.999% availability.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy a single-zone Firestore instance in Datastore mode." },
@@ -27,7 +27,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Cloud Spanner Multi-Region Global Consistency: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Cloud Spanner to architect a globally distributed financial transaction ledger that requires multi-region synchronous write scaling, ACID guarantees, and 99.999% availability.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to architect a globally distributed financial transaction ledger that requires multi-region synchronous write scaling, ACID guarantees, and 99.999% availability.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy a single-zone Firestore instance in Datastore mode." },
@@ -48,7 +48,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Cloud Spanner Multi-Region Global Consistency: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Cloud Spanner to architect a globally distributed financial transaction ledger that requires multi-region synchronous write scaling, ACID guarantees, and 99.999% availability.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to architect a globally distributed financial transaction ledger that requires multi-region synchronous write scaling, ACID guarantees, and 99.999% availability.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy a single-zone Firestore instance in Datastore mode." },
@@ -69,7 +69,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Cloud Spanner Multi-Region Global Consistency: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Cloud Spanner to architect a globally distributed financial transaction ledger that requires multi-region synchronous write scaling, ACID guarantees, and 99.999% availability.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to architect a globally distributed financial transaction ledger that requires multi-region synchronous write scaling, ACID guarantees, and 99.999% availability.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Store financial ledgers in flat CSV files inside a regional Cloud Storage bucket." },
@@ -90,7 +90,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Cloud Spanner Multi-Region Global Consistency: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Cloud Spanner to architect a globally distributed financial transaction ledger that requires multi-region synchronous write scaling, ACID guarantees, and 99.999% availability.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to architect a globally distributed financial transaction ledger that requires multi-region synchronous write scaling, ACID guarantees, and 99.999% availability.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Deploy Cloud SQL for PostgreSQL with cross-region asynchronous read replicas." },
@@ -111,7 +111,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Cloud Bigtable Time-Series Row Key Design: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Cloud Bigtable to ingest 1,000,000 telemetry sensor updates per second into Cloud Bigtable while preventing write hotspotting on tablet servers.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to ingest 1,000,000 telemetry sensor updates per second into Cloud Bigtable while preventing write hotspotting on tablet servers.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Use a raw Unix timestamp as the sole row key attribute." },
@@ -132,7 +132,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Cloud Bigtable Time-Series Row Key Design: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Cloud Bigtable to ingest 1,000,000 telemetry sensor updates per second into Cloud Bigtable while preventing write hotspotting on tablet servers.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to ingest 1,000,000 telemetry sensor updates per second into Cloud Bigtable while preventing write hotspotting on tablet servers.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Use a raw Unix timestamp as the sole row key attribute." },
@@ -153,7 +153,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Cloud Bigtable Time-Series Row Key Design: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Cloud Bigtable to ingest 1,000,000 telemetry sensor updates per second into Cloud Bigtable while preventing write hotspotting on tablet servers.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to ingest 1,000,000 telemetry sensor updates per second into Cloud Bigtable while preventing write hotspotting on tablet servers.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Use a sequential auto-incrementing integer as the row key." },
@@ -174,7 +174,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Cloud Bigtable Time-Series Row Key Design: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Cloud Bigtable to ingest 1,000,000 telemetry sensor updates per second into Cloud Bigtable while preventing write hotspotting on tablet servers.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to ingest 1,000,000 telemetry sensor updates per second into Cloud Bigtable while preventing write hotspotting on tablet servers.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Use a raw Unix timestamp as the sole row key attribute." },
@@ -195,7 +195,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Cloud Bigtable Time-Series Row Key Design: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Cloud Bigtable to ingest 1,000,000 telemetry sensor updates per second into Cloud Bigtable while preventing write hotspotting on tablet servers.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to ingest 1,000,000 telemetry sensor updates per second into Cloud Bigtable while preventing write hotspotting on tablet servers.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Use a raw Unix timestamp as the sole row key attribute." },
@@ -216,7 +216,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "GKE Autopilot vs GKE Standard: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Google Kubernetes Engine to minimize operational overhead by offloading node provisioning, OS patching, cluster hardening, and auto-repair entirely to Google Cloud.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to minimize operational overhead by offloading node provisioning, OS patching, cluster hardening, and auto-repair entirely to Google Cloud.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy applications into unmanaged Compute Engine VMs using docker-compose." },
@@ -237,7 +237,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "GKE Autopilot vs GKE Standard: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Google Kubernetes Engine to minimize operational overhead by offloading node provisioning, OS patching, cluster hardening, and auto-repair entirely to Google Cloud.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to minimize operational overhead by offloading node provisioning, OS patching, cluster hardening, and auto-repair entirely to Google Cloud.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Manage a self-hosted Kubernetes cluster on bare-metal Compute Engine instances." },
@@ -258,7 +258,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "GKE Autopilot vs GKE Standard: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Google Kubernetes Engine to minimize operational overhead by offloading node provisioning, OS patching, cluster hardening, and auto-repair entirely to Google Cloud.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to minimize operational overhead by offloading node provisioning, OS patching, cluster hardening, and auto-repair entirely to Google Cloud.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy applications into unmanaged Compute Engine VMs using docker-compose." },
@@ -279,7 +279,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "GKE Autopilot vs GKE Standard: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Google Kubernetes Engine to minimize operational overhead by offloading node provisioning, OS patching, cluster hardening, and auto-repair entirely to Google Cloud.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to minimize operational overhead by offloading node provisioning, OS patching, cluster hardening, and auto-repair entirely to Google Cloud.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy GKE Standard with manual node pool provisioning and unmanaged OS updates." },
@@ -300,7 +300,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "GKE Autopilot vs GKE Standard: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Google Kubernetes Engine to minimize operational overhead by offloading node provisioning, OS patching, cluster hardening, and auto-repair entirely to Google Cloud.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to minimize operational overhead by offloading node provisioning, OS patching, cluster hardening, and auto-repair entirely to Google Cloud.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Manage a self-hosted Kubernetes cluster on bare-metal Compute Engine instances." },
@@ -321,7 +321,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Global External Application Load Balancer (Anycast): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Cloud Load Balancing to provide a single Anycast IP address to serve global web traffic, routing users to the nearest regional GKE cluster over Google's private backbone network.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to provide a single Anycast IP address to serve global web traffic, routing users to the nearest regional GKE cluster over Google's private backbone network.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy an on-premises physical load balancing appliance." },
@@ -342,7 +342,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Global External Application Load Balancer (Anycast): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Cloud Load Balancing to provide a single Anycast IP address to serve global web traffic, routing users to the nearest regional GKE cluster over Google's private backbone network.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to provide a single Anycast IP address to serve global web traffic, routing users to the nearest regional GKE cluster over Google's private backbone network.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Rely on external DNS round-robin routing across individual regional virtual machines." },
@@ -363,7 +363,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Global External Application Load Balancer (Anycast): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Cloud Load Balancing to provide a single Anycast IP address to serve global web traffic, routing users to the nearest regional GKE cluster over Google's private backbone network.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to provide a single Anycast IP address to serve global web traffic, routing users to the nearest regional GKE cluster over Google's private backbone network.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy an on-premises physical load balancing appliance." },
@@ -384,7 +384,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Global External Application Load Balancer (Anycast): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Cloud Load Balancing to provide a single Anycast IP address to serve global web traffic, routing users to the nearest regional GKE cluster over Google's private backbone network.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to provide a single Anycast IP address to serve global web traffic, routing users to the nearest regional GKE cluster over Google's private backbone network.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Rely on external DNS round-robin routing across individual regional virtual machines." },
@@ -405,7 +405,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Global External Application Load Balancer (Anycast): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Cloud Load Balancing to provide a single Anycast IP address to serve global web traffic, routing users to the nearest regional GKE cluster over Google's private backbone network.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to provide a single Anycast IP address to serve global web traffic, routing users to the nearest regional GKE cluster over Google's private backbone network.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Rely on external DNS round-robin routing across individual regional virtual machines." },
@@ -426,7 +426,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Hybrid Interconnect: Dedicated vs Partner Interconnect: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Cloud Interconnect to establish a private, high-capacity 100 Gbps connection between an enterprise data center and Google Cloud that does not traverse the public internet.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to establish a private, high-capacity 100 Gbps connection between an enterprise data center and Google Cloud that does not traverse the public internet.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Use standard public internet routing with dynamic DNS." },
@@ -447,7 +447,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Hybrid Interconnect: Dedicated vs Partner Interconnect: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Cloud Interconnect to establish a private, high-capacity 100 Gbps connection between an enterprise data center and Google Cloud that does not traverse the public internet.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to establish a private, high-capacity 100 Gbps connection between an enterprise data center and Google Cloud that does not traverse the public internet.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Provision Google Cloud Dedicated Interconnect with 100 Gbps circuits at a designated colocation facility." },
@@ -468,7 +468,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Hybrid Interconnect: Dedicated vs Partner Interconnect: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Cloud Interconnect to establish a private, high-capacity 100 Gbps connection between an enterprise data center and Google Cloud that does not traverse the public internet.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to establish a private, high-capacity 100 Gbps connection between an enterprise data center and Google Cloud that does not traverse the public internet.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Provision Google Cloud Dedicated Interconnect with 100 Gbps circuits at a designated colocation facility." },
@@ -489,7 +489,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Hybrid Interconnect: Dedicated vs Partner Interconnect: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Cloud Interconnect to establish a private, high-capacity 100 Gbps connection between an enterprise data center and Google Cloud that does not traverse the public internet.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to establish a private, high-capacity 100 Gbps connection between an enterprise data center and Google Cloud that does not traverse the public internet.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Use standard public internet routing with dynamic DNS." },
@@ -510,7 +510,7 @@ export const GCP_PCA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Hybrid Interconnect: Dedicated vs Partner Interconnect: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Cloud Interconnect to establish a private, high-capacity 100 Gbps connection between an enterprise data center and Google Cloud that does not traverse the public internet.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to establish a private, high-capacity 100 Gbps connection between an enterprise data center and Google Cloud that does not traverse the public internet.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Establish an HA Cloud VPN tunnel over the public internet." },

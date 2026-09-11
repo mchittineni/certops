@@ -6,7 +6,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Memory Ballast and Memory Limiter Processors: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Memory Governance to prevent an OpenTelemetry Collector pod from crashing with an Out-Of-Memory (OOMKilled) exit code during sudden telemetry spikes.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to prevent an OpenTelemetry Collector pod from crashing with an Out-Of-Memory (OOMKilled) exit code during sudden telemetry spikes.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Increase pod memory limit to infinite." },
@@ -27,7 +27,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Memory Ballast and Memory Limiter Processors: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Memory Governance to prevent an OpenTelemetry Collector pod from crashing with an Out-Of-Memory (OOMKilled) exit code during sudden telemetry spikes.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to prevent an OpenTelemetry Collector pod from crashing with an Out-Of-Memory (OOMKilled) exit code during sudden telemetry spikes.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Drop all incoming network packets blindly." },
@@ -48,7 +48,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Memory Ballast and Memory Limiter Processors: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Memory Governance to prevent an OpenTelemetry Collector pod from crashing with an Out-Of-Memory (OOMKilled) exit code during sudden telemetry spikes.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to prevent an OpenTelemetry Collector pod from crashing with an Out-Of-Memory (OOMKilled) exit code during sudden telemetry spikes.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Drop all incoming network packets blindly." },
@@ -69,7 +69,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Memory Ballast and Memory Limiter Processors: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Memory Governance to prevent an OpenTelemetry Collector pod from crashing with an Out-Of-Memory (OOMKilled) exit code during sudden telemetry spikes.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to prevent an OpenTelemetry Collector pod from crashing with an Out-Of-Memory (OOMKilled) exit code during sudden telemetry spikes.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Increase pod memory limit to infinite." },
@@ -90,7 +90,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Memory Ballast and Memory Limiter Processors: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Memory Governance to prevent an OpenTelemetry Collector pod from crashing with an Out-Of-Memory (OOMKilled) exit code during sudden telemetry spikes.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to prevent an OpenTelemetry Collector pod from crashing with an Out-Of-Memory (OOMKilled) exit code during sudden telemetry spikes.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Increase pod memory limit to infinite." },
@@ -111,7 +111,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Transform Processor (OTTLEngine): Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Telemetry Transformation to rename an attribute `old_client_id` to `client.id` and mask credit card numbers appearing in span attributes across all incoming telemetry.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to rename an attribute `old_client_id` to `client.id` and mask credit card numbers appearing in span attributes across all incoming telemetry.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Drop all spans containing old attribute names." },
@@ -132,7 +132,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Transform Processor (OTTLEngine): High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Telemetry Transformation to rename an attribute `old_client_id` to `client.id` and mask credit card numbers appearing in span attributes across all incoming telemetry.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to rename an attribute `old_client_id` to `client.id` and mask credit card numbers appearing in span attributes across all incoming telemetry.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Write a custom regex proxy in Python outside the collector." },
@@ -153,7 +153,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Transform Processor (OTTLEngine): Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Telemetry Transformation to rename an attribute `old_client_id` to `client.id` and mask credit card numbers appearing in span attributes across all incoming telemetry.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to rename an attribute `old_client_id` to `client.id` and mask credit card numbers appearing in span attributes across all incoming telemetry.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Write a custom regex proxy in Python outside the collector." },
@@ -174,7 +174,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Transform Processor (OTTLEngine): Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Telemetry Transformation to rename an attribute `old_client_id` to `client.id` and mask credit card numbers appearing in span attributes across all incoming telemetry.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to rename an attribute `old_client_id` to `client.id` and mask credit card numbers appearing in span attributes across all incoming telemetry.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Drop all spans containing old attribute names." },
@@ -195,7 +195,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Transform Processor (OTTLEngine): Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Telemetry Transformation to rename an attribute `old_client_id` to `client.id` and mask credit card numbers appearing in span attributes across all incoming telemetry.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to rename an attribute `old_client_id` to `client.id` and mask credit card numbers appearing in span attributes across all incoming telemetry.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Modify application source code across 50 microservices to fix the name." },
@@ -216,7 +216,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Tail-Based Sampling Processor: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Tail Sampling to configure an OpenTelemetry Collector to sample 100% of traces with errors (HTTP 5xx) or duration &gt; 1.5s, while keeping 5% of healthy traces.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to configure an OpenTelemetry Collector to sample 100% of traces with errors (HTTP 5xx) or duration &gt; 1.5s, while keeping 5% of healthy traces.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Use a head-based sampler at the application SDK." },
@@ -237,7 +237,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Tail-Based Sampling Processor: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Tail Sampling to configure an OpenTelemetry Collector to sample 100% of traces with errors (HTTP 5xx) or duration &gt; 1.5s, while keeping 5% of healthy traces.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to configure an OpenTelemetry Collector to sample 100% of traces with errors (HTTP 5xx) or duration &gt; 1.5s, while keeping 5% of healthy traces.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Tail sampling is impossible in OpenTelemetry." },
@@ -258,7 +258,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Tail-Based Sampling Processor: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Tail Sampling to configure an OpenTelemetry Collector to sample 100% of traces with errors (HTTP 5xx) or duration &gt; 1.5s, while keeping 5% of healthy traces.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to configure an OpenTelemetry Collector to sample 100% of traces with errors (HTTP 5xx) or duration &gt; 1.5s, while keeping 5% of healthy traces.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Configure the `tail_sampling` processor with policy rules: `status_code` (ERROR), `latency` (&gt;1500ms), and `probabilistic` (5%)." },
@@ -279,7 +279,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Tail-Based Sampling Processor: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Tail Sampling to configure an OpenTelemetry Collector to sample 100% of traces with errors (HTTP 5xx) or duration &gt; 1.5s, while keeping 5% of healthy traces.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to configure an OpenTelemetry Collector to sample 100% of traces with errors (HTTP 5xx) or duration &gt; 1.5s, while keeping 5% of healthy traces.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Configure the `tail_sampling` processor with policy rules: `status_code` (ERROR), `latency` (&gt;1500ms), and `probabilistic` (5%)." },
@@ -300,7 +300,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Tail-Based Sampling Processor: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Tail Sampling to configure an OpenTelemetry Collector to sample 100% of traces with errors (HTTP 5xx) or duration &gt; 1.5s, while keeping 5% of healthy traces.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to configure an OpenTelemetry Collector to sample 100% of traces with errors (HTTP 5xx) or duration &gt; 1.5s, while keeping 5% of healthy traces.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Configure the `tail_sampling` processor with policy rules: `status_code` (ERROR), `latency` (&gt;1500ms), and `probabilistic` (5%)." },
@@ -321,7 +321,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Collector Deployment Patterns: Agent vs Gateway: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Collector Topologies to design an observability architecture for a 500-node Kubernetes cluster balancing local pod offloading with centralized governance.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to design an observability architecture for a 500-node Kubernetes cluster balancing local pod offloading with centralized governance.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Deploy a two-tier architecture: Collector DaemonSets (Agents) on worker nodes for local receipt, forwarding to a centralized Collector cluster (Gateway)." },
@@ -342,7 +342,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Collector Deployment Patterns: Agent vs Gateway: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Collector Topologies to design an observability architecture for a 500-node Kubernetes cluster balancing local pod offloading with centralized governance.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to design an observability architecture for a 500-node Kubernetes cluster balancing local pod offloading with centralized governance.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Deploy a two-tier architecture: Collector DaemonSets (Agents) on worker nodes for local receipt, forwarding to a centralized Collector cluster (Gateway)." },
@@ -363,7 +363,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Collector Deployment Patterns: Agent vs Gateway: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Collector Topologies to design an observability architecture for a 500-node Kubernetes cluster balancing local pod offloading with centralized governance.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to design an observability architecture for a 500-node Kubernetes cluster balancing local pod offloading with centralized governance.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Deploy a two-tier architecture: Collector DaemonSets (Agents) on worker nodes for local receipt, forwarding to a centralized Collector cluster (Gateway)." },
@@ -384,7 +384,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Collector Deployment Patterns: Agent vs Gateway: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Collector Topologies to design an observability architecture for a 500-node Kubernetes cluster balancing local pod offloading with centralized governance.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to design an observability architecture for a 500-node Kubernetes cluster balancing local pod offloading with centralized governance.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Deploy a single monolithic Collector instance handling all 500 nodes directly." },
@@ -405,7 +405,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Collector Deployment Patterns: Agent vs Gateway: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Collector Topologies to design an observability architecture for a 500-node Kubernetes cluster balancing local pod offloading with centralized governance.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to design an observability architecture for a 500-node Kubernetes cluster balancing local pod offloading with centralized governance.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Run collectors only on master control plane nodes." },
@@ -426,7 +426,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "OpenTelemetry Operator for Kubernetes: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates OTel Operator to automatically inject OpenTelemetry instrumentation libraries into Java, Node.js, and Python pods in a Kubernetes cluster without modifying Dockerfiles.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to automatically inject OpenTelemetry instrumentation libraries into Java, Node.js, and Python pods in a Kubernetes cluster without modifying Dockerfiles.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "SSH into running pods and execute npm install." },
@@ -447,7 +447,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "OpenTelemetry Operator for Kubernetes: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates OTel Operator to automatically inject OpenTelemetry instrumentation libraries into Java, Node.js, and Python pods in a Kubernetes cluster without modifying Dockerfiles.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to automatically inject OpenTelemetry instrumentation libraries into Java, Node.js, and Python pods in a Kubernetes cluster without modifying Dockerfiles.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Rebuild all container images with manual code instrumentation." },
@@ -468,7 +468,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "OpenTelemetry Operator for Kubernetes: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates OTel Operator to automatically inject OpenTelemetry instrumentation libraries into Java, Node.js, and Python pods in a Kubernetes cluster without modifying Dockerfiles.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to automatically inject OpenTelemetry instrumentation libraries into Java, Node.js, and Python pods in a Kubernetes cluster without modifying Dockerfiles.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "The operator can only deploy collectors and cannot inject instrumentation." },
@@ -489,7 +489,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "OpenTelemetry Operator for Kubernetes: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates OTel Operator to automatically inject OpenTelemetry instrumentation libraries into Java, Node.js, and Python pods in a Kubernetes cluster without modifying Dockerfiles.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to automatically inject OpenTelemetry instrumentation libraries into Java, Node.js, and Python pods in a Kubernetes cluster without modifying Dockerfiles.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Deploy the OpenTelemetry Operator and annotate target namespaces/pods with `instrumentation.opentelemetry.io/inject-java: \"true\"`." },
@@ -510,7 +510,7 @@ export const CNCF_OTCA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "OpenTelemetry Operator for Kubernetes: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates OTel Operator to automatically inject OpenTelemetry instrumentation libraries into Java, Node.js, and Python pods in a Kubernetes cluster without modifying Dockerfiles.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to automatically inject OpenTelemetry instrumentation libraries into Java, Node.js, and Python pods in a Kubernetes cluster without modifying Dockerfiles.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Deploy the OpenTelemetry Operator and annotate target namespaces/pods with `instrumentation.opentelemetry.io/inject-java: \"true\"`." },

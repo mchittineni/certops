@@ -6,7 +6,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Node Maintenance with Cordon and Drain: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Node Maintenance to prepare a physical Kubernetes worker node for kernel patching and reboot without disrupting running applications.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to prepare a physical Kubernetes worker node for kernel patching and reboot without disrupting running applications.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Run `kubectl cordon &lt;node&gt;` to mark it unschedulable, followed by `kubectl drain &lt;node&gt; --ignore-daemonsets --delete-emptydir-data`." },
@@ -27,7 +27,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Node Maintenance with Cordon and Drain: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Node Maintenance to prepare a physical Kubernetes worker node for kernel patching and reboot without disrupting running applications.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to prepare a physical Kubernetes worker node for kernel patching and reboot without disrupting running applications.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Run `kubectl cordon &lt;node&gt;` to mark it unschedulable, followed by `kubectl drain &lt;node&gt; --ignore-daemonsets --delete-emptydir-data`." },
@@ -48,7 +48,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Node Maintenance with Cordon and Drain: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Node Maintenance to prepare a physical Kubernetes worker node for kernel patching and reboot without disrupting running applications.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to prepare a physical Kubernetes worker node for kernel patching and reboot without disrupting running applications.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Delete the node object from the API server using kubectl delete node." },
@@ -69,7 +69,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Node Maintenance with Cordon and Drain: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Node Maintenance to prepare a physical Kubernetes worker node for kernel patching and reboot without disrupting running applications.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to prepare a physical Kubernetes worker node for kernel patching and reboot without disrupting running applications.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Run `kubectl cordon &lt;node&gt;` to mark it unschedulable, followed by `kubectl drain &lt;node&gt; --ignore-daemonsets --delete-emptydir-data`." },
@@ -90,7 +90,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Node Maintenance with Cordon and Drain: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Node Maintenance to prepare a physical Kubernetes worker node for kernel patching and reboot without disrupting running applications.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to prepare a physical Kubernetes worker node for kernel patching and reboot without disrupting running applications.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Run `kubectl cordon &lt;node&gt;` to mark it unschedulable, followed by `kubectl drain &lt;node&gt; --ignore-daemonsets --delete-emptydir-data`." },
@@ -111,7 +111,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Static Pods and Kubelet Manifests: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Static Pods to deploy a critical monitoring sidecar daemon on a specific master node that starts before the Kubernetes API server itself is running.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to deploy a critical monitoring sidecar daemon on a specific master node that starts before the Kubernetes API server itself is running.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Place the pod manifest YAML file into the kubelet static pod manifest directory (`/etc/kubernetes/manifests/`)." },
@@ -132,7 +132,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Static Pods and Kubelet Manifests: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Static Pods to deploy a critical monitoring sidecar daemon on a specific master node that starts before the Kubernetes API server itself is running.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to deploy a critical monitoring sidecar daemon on a specific master node that starts before the Kubernetes API server itself is running.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Add an entry to the host /etc/crontab file running docker run every minute." },
@@ -153,7 +153,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Static Pods and Kubelet Manifests: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Static Pods to deploy a critical monitoring sidecar daemon on a specific master node that starts before the Kubernetes API server itself is running.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to deploy a critical monitoring sidecar daemon on a specific master node that starts before the Kubernetes API server itself is running.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Edit the etcd database directly using an external SQL query tool." },
@@ -174,7 +174,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Static Pods and Kubelet Manifests: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Static Pods to deploy a critical monitoring sidecar daemon on a specific master node that starts before the Kubernetes API server itself is running.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to deploy a critical monitoring sidecar daemon on a specific master node that starts before the Kubernetes API server itself is running.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Add an entry to the host /etc/crontab file running docker run every minute." },
@@ -195,7 +195,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Static Pods and Kubelet Manifests: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Static Pods to deploy a critical monitoring sidecar daemon on a specific master node that starts before the Kubernetes API server itself is running.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to deploy a critical monitoring sidecar daemon on a specific master node that starts before the Kubernetes API server itself is running.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Edit the etcd database directly using an external SQL query tool." },
@@ -216,7 +216,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "High Availability Control Plane Topologies: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates HA Architecture to design a high-availability Kubernetes control plane architecture that provides fault tolerance against individual master node failures.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to design a high-availability Kubernetes control plane architecture that provides fault tolerance against individual master node failures.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Deploy at least three control plane nodes with a stacked etcd topology fronted by a TCP load balancer for the API server." },
@@ -237,7 +237,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "High Availability Control Plane Topologies: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates HA Architecture to design a high-availability Kubernetes control plane architecture that provides fault tolerance against individual master node failures.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to design a high-availability Kubernetes control plane architecture that provides fault tolerance against individual master node failures.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Deploy a single control plane node with hourly database backups." },
@@ -258,7 +258,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "High Availability Control Plane Topologies: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates HA Architecture to design a high-availability Kubernetes control plane architecture that provides fault tolerance against individual master node failures.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to design a high-availability Kubernetes control plane architecture that provides fault tolerance against individual master node failures.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Deploy at least three control plane nodes with a stacked etcd topology fronted by a TCP load balancer for the API server." },
@@ -279,7 +279,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "High Availability Control Plane Topologies: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates HA Architecture to design a high-availability Kubernetes control plane architecture that provides fault tolerance against individual master node failures.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to design a high-availability Kubernetes control plane architecture that provides fault tolerance against individual master node failures.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Run control plane components on worker nodes without etcd." },
@@ -300,7 +300,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "High Availability Control Plane Topologies: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates HA Architecture to design a high-availability Kubernetes control plane architecture that provides fault tolerance against individual master node failures.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to design a high-availability Kubernetes control plane architecture that provides fault tolerance against individual master node failures.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Run control plane components on worker nodes without etcd." },
@@ -321,7 +321,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Custom Resource Definitions (CRDs): Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates API Extensions to extend the Kubernetes API to introduce a declarative custom resource type (e.g., `PostgresCluster`) managed by an operator controller.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to extend the Kubernetes API to introduce a declarative custom resource type (e.g., `PostgresCluster`) managed by an operator controller.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Modify the Go source code of kube-apiserver and recompile the binary." },
@@ -342,7 +342,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Custom Resource Definitions (CRDs): High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates API Extensions to extend the Kubernetes API to introduce a declarative custom resource type (e.g., `PostgresCluster`) managed by an operator controller.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to extend the Kubernetes API to introduce a declarative custom resource type (e.g., `PostgresCluster`) managed by an operator controller.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Modify the Go source code of kube-apiserver and recompile the binary." },
@@ -363,7 +363,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Custom Resource Definitions (CRDs): Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates API Extensions to extend the Kubernetes API to introduce a declarative custom resource type (e.g., `PostgresCluster`) managed by an operator controller.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to extend the Kubernetes API to introduce a declarative custom resource type (e.g., `PostgresCluster`) managed by an operator controller.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Inject arbitrary key-value pairs into Kubernetes ConfigMaps without schema validation." },
@@ -384,7 +384,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Custom Resource Definitions (CRDs): Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates API Extensions to extend the Kubernetes API to introduce a declarative custom resource type (e.g., `PostgresCluster`) managed by an operator controller.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to extend the Kubernetes API to introduce a declarative custom resource type (e.g., `PostgresCluster`) managed by an operator controller.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Apply a `CustomResourceDefinition` (CRD) manifest defining the schema, group, version, and names for the new resource." },
@@ -405,7 +405,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Custom Resource Definitions (CRDs): Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates API Extensions to extend the Kubernetes API to introduce a declarative custom resource type (e.g., `PostgresCluster`) managed by an operator controller.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to extend the Kubernetes API to introduce a declarative custom resource type (e.g., `PostgresCluster`) managed by an operator controller.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Modify the Go source code of kube-apiserver and recompile the binary." },
@@ -426,7 +426,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Resource Quotas and LimitRanges: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Resource Governance to prevent teams sharing a multi-tenant cluster from monopolizing cluster compute resources or launching containers without resource limits.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to prevent teams sharing a multi-tenant cluster from monopolizing cluster compute resources or launching containers without resource limits.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Trust application developers to voluntarily set resource requests on every container." },
@@ -447,7 +447,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Resource Quotas and LimitRanges: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Resource Governance to prevent teams sharing a multi-tenant cluster from monopolizing cluster compute resources or launching containers without resource limits.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to prevent teams sharing a multi-tenant cluster from monopolizing cluster compute resources or launching containers without resource limits.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Trust application developers to voluntarily set resource requests on every container." },
@@ -468,7 +468,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Resource Quotas and LimitRanges: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Resource Governance to prevent teams sharing a multi-tenant cluster from monopolizing cluster compute resources or launching containers without resource limits.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to prevent teams sharing a multi-tenant cluster from monopolizing cluster compute resources or launching containers without resource limits.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Throttle node network interfaces whenever namespace memory consumption rises." },
@@ -489,7 +489,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Resource Quotas and LimitRanges: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Resource Governance to prevent teams sharing a multi-tenant cluster from monopolizing cluster compute resources or launching containers without resource limits.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to prevent teams sharing a multi-tenant cluster from monopolizing cluster compute resources or launching containers without resource limits.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Create a `ResourceQuota` to cap total CPU/memory per namespace and a `LimitRange` to enforce default requests and limits for containers." },
@@ -510,7 +510,7 @@ export const K8S_CKA_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Resource Quotas and LimitRanges: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Resource Governance to prevent teams sharing a multi-tenant cluster from monopolizing cluster compute resources or launching containers without resource limits.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to prevent teams sharing a multi-tenant cluster from monopolizing cluster compute resources or launching containers without resource limits.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Throttle node network interfaces whenever namespace memory consumption rises." },

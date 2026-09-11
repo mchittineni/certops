@@ -6,7 +6,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Artifacts: actions/upload-artifact and download-artifact: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Artifact Management to compile an application binary in a build job and pass it to a separate security scanning job and deployment job.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to compile an application binary in a build job and pass it to a separate security scanning job and deployment job.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Store the binary on an external unauthenticated public web server." },
@@ -27,7 +27,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Artifacts: actions/upload-artifact and download-artifact: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Artifact Management to compile an application binary in a build job and pass it to a separate security scanning job and deployment job.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to compile an application binary in a build job and pass it to a separate security scanning job and deployment job.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Commit the compiled binary into the Git repository branch." },
@@ -48,7 +48,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Artifacts: actions/upload-artifact and download-artifact: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Artifact Management to compile an application binary in a build job and pass it to a separate security scanning job and deployment job.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to compile an application binary in a build job and pass it to a separate security scanning job and deployment job.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Store the binary on an external unauthenticated public web server." },
@@ -69,7 +69,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Artifacts: actions/upload-artifact and download-artifact: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Artifact Management to compile an application binary in a build job and pass it to a separate security scanning job and deployment job.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to compile an application binary in a build job and pass it to a separate security scanning job and deployment job.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Assume job workspaces persist across different runner virtual machines." },
@@ -90,7 +90,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Artifacts: actions/upload-artifact and download-artifact: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Artifact Management to compile an application binary in a build job and pass it to a separate security scanning job and deployment job.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to compile an application binary in a build job and pass it to a separate security scanning job and deployment job.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Store the binary on an external unauthenticated public web server." },
@@ -111,7 +111,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Dependency Caching with actions/cache: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Workflow Caching to reduce workflow execution duration by avoiding re-downloading thousands of npm packages on every single commit.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to reduce workflow execution duration by avoiding re-downloading thousands of npm packages on every single commit.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Run `npm install` without package lockfiles." },
@@ -132,7 +132,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Dependency Caching with actions/cache: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Workflow Caching to reduce workflow execution duration by avoiding re-downloading thousands of npm packages on every single commit.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to reduce workflow execution duration by avoiding re-downloading thousands of npm packages on every single commit.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Store dependencies in Git LFS." },
@@ -153,7 +153,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Dependency Caching with actions/cache: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Workflow Caching to reduce workflow execution duration by avoiding re-downloading thousands of npm packages on every single commit.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to reduce workflow execution duration by avoiding re-downloading thousands of npm packages on every single commit.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Reinstall operating system packages on every run." },
@@ -174,7 +174,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Dependency Caching with actions/cache: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Workflow Caching to reduce workflow execution duration by avoiding re-downloading thousands of npm packages on every single commit.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to reduce workflow execution duration by avoiding re-downloading thousands of npm packages on every single commit.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Run `npm install` without package lockfiles." },
@@ -195,7 +195,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Dependency Caching with actions/cache: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Workflow Caching to reduce workflow execution duration by avoiding re-downloading thousands of npm packages on every single commit.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to reduce workflow execution duration by avoiding re-downloading thousands of npm packages on every single commit.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Store dependencies in Git LFS." },
@@ -216,7 +216,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Dispatch and Inputs (workflow_dispatch): Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Manual Workflows to allow operations engineers to trigger an on-demand deployment workflow manually via the GitHub UI with environment and debug parameters.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to allow operations engineers to trigger an on-demand deployment workflow manually via the GitHub UI with environment and debug parameters.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Configure `on: workflow_dispatch:` with `inputs:` defining types (`choice`, `string`, `boolean`), descriptions, and defaults." },
@@ -237,7 +237,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Dispatch and Inputs (workflow_dispatch): High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Manual Workflows to allow operations engineers to trigger an on-demand deployment workflow manually via the GitHub UI with environment and debug parameters.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to allow operations engineers to trigger an on-demand deployment workflow manually via the GitHub UI with environment and debug parameters.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Instruct engineers to push empty commits to Git to trigger workflows." },
@@ -258,7 +258,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Dispatch and Inputs (workflow_dispatch): Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Manual Workflows to allow operations engineers to trigger an on-demand deployment workflow manually via the GitHub UI with environment and debug parameters.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to allow operations engineers to trigger an on-demand deployment workflow manually via the GitHub UI with environment and debug parameters.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Instruct engineers to push empty commits to Git to trigger workflows." },
@@ -279,7 +279,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Dispatch and Inputs (workflow_dispatch): Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Manual Workflows to allow operations engineers to trigger an on-demand deployment workflow manually via the GitHub UI with environment and debug parameters.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to allow operations engineers to trigger an on-demand deployment workflow manually via the GitHub UI with environment and debug parameters.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Configure `on: workflow_dispatch:` with `inputs:` defining types (`choice`, `string`, `boolean`), descriptions, and defaults." },
@@ -300,7 +300,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Dispatch and Inputs (workflow_dispatch): Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Manual Workflows to allow operations engineers to trigger an on-demand deployment workflow manually via the GitHub UI with environment and debug parameters.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to allow operations engineers to trigger an on-demand deployment workflow manually via the GitHub UI with environment and debug parameters.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Instruct engineers to push empty commits to Git to trigger workflows." },
@@ -321,7 +321,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Reusable Workflows (workflow_call): Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Reusable Workflows to standardize a multi-job build, test, and container push workflow across 50 enterprise repositories without code duplication.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to standardize a multi-job build, test, and container push workflow across 50 enterprise repositories without code duplication.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Use composite actions for multi-job orchestration." },
@@ -342,7 +342,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Reusable Workflows (workflow_call): High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Reusable Workflows to standardize a multi-job build, test, and container push workflow across 50 enterprise repositories without code duplication.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to standardize a multi-job build, test, and container push workflow across 50 enterprise repositories without code duplication.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Author a reusable workflow in a central repository with `on: workflow_call:` and invoke it using `uses: org/repo/.github/workflows/reusable.yml@v1`." },
@@ -363,7 +363,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Reusable Workflows (workflow_call): Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Reusable Workflows to standardize a multi-job build, test, and container push workflow across 50 enterprise repositories without code duplication.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to standardize a multi-job build, test, and container push workflow across 50 enterprise repositories without code duplication.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Use composite actions for multi-job orchestration." },
@@ -384,7 +384,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Reusable Workflows (workflow_call): Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Reusable Workflows to standardize a multi-job build, test, and container push workflow across 50 enterprise repositories without code duplication.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to standardize a multi-job build, test, and container push workflow across 50 enterprise repositories without code duplication.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Use composite actions for multi-job orchestration." },
@@ -405,7 +405,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Reusable Workflows (workflow_call): Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Reusable Workflows to standardize a multi-job build, test, and container push workflow across 50 enterprise repositories without code duplication.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to standardize a multi-job build, test, and container push workflow across 50 enterprise repositories without code duplication.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Write a custom shell script that calls the GitHub API sequentially." },
@@ -426,7 +426,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Environment Secrets and Protection Rules: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Environments to prevent production deployments from executing until a senior security engineer approves and an automated 15-minute wait timer expires.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to prevent production deployments from executing until a senior security engineer approves and an automated 15-minute wait timer expires.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Put a `sleep 900` command inside the deployment bash script." },
@@ -447,7 +447,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Environment Secrets and Protection Rules: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Environments to prevent production deployments from executing until a senior security engineer approves and an automated 15-minute wait timer expires.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to prevent production deployments from executing until a senior security engineer approves and an automated 15-minute wait timer expires.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Delete the production branch protection rules." },
@@ -468,7 +468,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Environment Secrets and Protection Rules: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Environments to prevent production deployments from executing until a senior security engineer approves and an automated 15-minute wait timer expires.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to prevent production deployments from executing until a senior security engineer approves and an automated 15-minute wait timer expires.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Put a `sleep 900` command inside the deployment bash script." },
@@ -489,7 +489,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Environment Secrets and Protection Rules: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Environments to prevent production deployments from executing until a senior security engineer approves and an automated 15-minute wait timer expires.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to prevent production deployments from executing until a senior security engineer approves and an automated 15-minute wait timer expires.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Target an `environment: production` in the job, and configure Required Reviewers and Wait Timer in repository environment settings." },
@@ -510,7 +510,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Environment Secrets and Protection Rules: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Environments to prevent production deployments from executing until a senior security engineer approves and an automated 15-minute wait timer expires.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to prevent production deployments from executing until a senior security engineer approves and an automated 15-minute wait timer expires.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Rely on developers verbally confirming approval in chat." },

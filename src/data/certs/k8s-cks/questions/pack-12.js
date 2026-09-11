@@ -6,7 +6,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "RBAC Least Privilege and Role Auditing: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates RBAC Auditing to audit the cluster to detect users or ServiceAccounts that have been granted dangerous wildcard (`*`) permissions or unnecessary `cluster-admin` bindings.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to audit the cluster to detect users or ServiceAccounts that have been granted dangerous wildcard (`*`) permissions or unnecessary `cluster-admin` bindings.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Delete all RoleBindings and rely on anonymous access." },
@@ -27,7 +27,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "RBAC Least Privilege and Role Auditing: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates RBAC Auditing to audit the cluster to detect users or ServiceAccounts that have been granted dangerous wildcard (`*`) permissions or unnecessary `cluster-admin` bindings.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to audit the cluster to detect users or ServiceAccounts that have been granted dangerous wildcard (`*`) permissions or unnecessary `cluster-admin` bindings.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Ignore RBAC permissions because containers run in isolated cgroups." },
@@ -48,7 +48,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "RBAC Least Privilege and Role Auditing: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates RBAC Auditing to audit the cluster to detect users or ServiceAccounts that have been granted dangerous wildcard (`*`) permissions or unnecessary `cluster-admin` bindings.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to audit the cluster to detect users or ServiceAccounts that have been granted dangerous wildcard (`*`) permissions or unnecessary `cluster-admin` bindings.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Ignore RBAC permissions because containers run in isolated cgroups." },
@@ -69,7 +69,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "RBAC Least Privilege and Role Auditing: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates RBAC Auditing to audit the cluster to detect users or ServiceAccounts that have been granted dangerous wildcard (`*`) permissions or unnecessary `cluster-admin` bindings.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to audit the cluster to detect users or ServiceAccounts that have been granted dangerous wildcard (`*`) permissions or unnecessary `cluster-admin` bindings.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Grant cluster-admin to all developers to eliminate permission request tickets." },
@@ -90,7 +90,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "RBAC Least Privilege and Role Auditing: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates RBAC Auditing to audit the cluster to detect users or ServiceAccounts that have been granted dangerous wildcard (`*`) permissions or unnecessary `cluster-admin` bindings.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to audit the cluster to detect users or ServiceAccounts that have been granted dangerous wildcard (`*`) permissions or unnecessary `cluster-admin` bindings.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Use `kubectl get clusterrolebindings` and tools like `audit2rbac` or `kubectl-who-can` to identify over-privileged subjects and restrict them to least privilege." },
@@ -111,7 +111,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Control Plane File Permissions and Ownership: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates File Permissions to ensure that unauthorized host users on a master node cannot view or tamper with control plane manifests or certificate private keys.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to ensure that unauthorized host users on a master node cannot view or tamper with control plane manifests or certificate private keys.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Change ownership of private keys to the nobody user." },
@@ -132,7 +132,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Control Plane File Permissions and Ownership: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates File Permissions to ensure that unauthorized host users on a master node cannot view or tamper with control plane manifests or certificate private keys.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to ensure that unauthorized host users on a master node cannot view or tamper with control plane manifests or certificate private keys.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Store private keys in a public world-readable web server directory." },
@@ -153,7 +153,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Control Plane File Permissions and Ownership: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates File Permissions to ensure that unauthorized host users on a master node cannot view or tamper with control plane manifests or certificate private keys.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to ensure that unauthorized host users on a master node cannot view or tamper with control plane manifests or certificate private keys.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Set ownership to `root:root` and file permissions to `600` on private keys and `644` on public certificates and manifests in `/etc/kubernetes/`." },
@@ -174,7 +174,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Control Plane File Permissions and Ownership: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates File Permissions to ensure that unauthorized host users on a master node cannot view or tamper with control plane manifests or certificate private keys.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to ensure that unauthorized host users on a master node cannot view or tamper with control plane manifests or certificate private keys.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Store private keys in a public world-readable web server directory." },
@@ -195,7 +195,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Control Plane File Permissions and Ownership: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates File Permissions to ensure that unauthorized host users on a master node cannot view or tamper with control plane manifests or certificate private keys.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to ensure that unauthorized host users on a master node cannot view or tamper with control plane manifests or certificate private keys.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Store private keys in a public world-readable web server directory." },
@@ -216,7 +216,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Validating and Securing etcd Access: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates etcd Security to prevent unauthorized nodes or rogue pods from reading or injecting key-value data directly into the etcd datastore.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent unauthorized nodes or rogue pods from reading or injecting key-value data directly into the etcd datastore.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Enforce mutual TLS (mTLS) on etcd using `--client-cert-auth=true`, dedicated CA certificates, and restrict firewall access strictly to apiserver nodes." },
@@ -237,7 +237,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Validating and Securing etcd Access: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates etcd Security to prevent unauthorized nodes or rogue pods from reading or injecting key-value data directly into the etcd datastore.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent unauthorized nodes or rogue pods from reading or injecting key-value data directly into the etcd datastore.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Share the API server client certificate with all application workloads." },
@@ -258,7 +258,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Validating and Securing etcd Access: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates etcd Security to prevent unauthorized nodes or rogue pods from reading or injecting key-value data directly into the etcd datastore.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent unauthorized nodes or rogue pods from reading or injecting key-value data directly into the etcd datastore.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Enforce mutual TLS (mTLS) on etcd using `--client-cert-auth=true`, dedicated CA certificates, and restrict firewall access strictly to apiserver nodes." },
@@ -279,7 +279,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Validating and Securing etcd Access: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates etcd Security to prevent unauthorized nodes or rogue pods from reading or injecting key-value data directly into the etcd datastore.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent unauthorized nodes or rogue pods from reading or injecting key-value data directly into the etcd datastore.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Share the API server client certificate with all application workloads." },
@@ -300,7 +300,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cluster Setup and Hardening",
     title: "Validating and Securing etcd Access: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates etcd Security to prevent unauthorized nodes or rogue pods from reading or injecting key-value data directly into the etcd datastore.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent unauthorized nodes or rogue pods from reading or injecting key-value data directly into the etcd datastore.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Expose etcd on a public NodePort service to allow remote administrative debugging." },
@@ -321,7 +321,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "AppArmor Profiles on Kubernetes Pods: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates AppArmor to prevent a compromised container process from writing to `/proc` or executing network socket creation on the host node.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent a compromised container process from writing to `/proc` or executing network socket creation on the host node.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Load an AppArmor profile on host nodes and configure `appArmorProfile: {type: Localhost, localhostProfile: &lt;profile-name&gt;}` in the container securityContext." },
@@ -342,7 +342,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "AppArmor Profiles on Kubernetes Pods: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates AppArmor to prevent a compromised container process from writing to `/proc` or executing network socket creation on the host node.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent a compromised container process from writing to `/proc` or executing network socket creation on the host node.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Rely exclusively on application-layer input validation." },
@@ -363,7 +363,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "AppArmor Profiles on Kubernetes Pods: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates AppArmor to prevent a compromised container process from writing to `/proc` or executing network socket creation on the host node.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent a compromised container process from writing to `/proc` or executing network socket creation on the host node.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Disable AppArmor across all host worker nodes." },
@@ -384,7 +384,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "AppArmor Profiles on Kubernetes Pods: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates AppArmor to prevent a compromised container process from writing to `/proc` or executing network socket creation on the host node.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent a compromised container process from writing to `/proc` or executing network socket creation on the host node.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Rely exclusively on application-layer input validation." },
@@ -405,7 +405,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "AppArmor Profiles on Kubernetes Pods: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates AppArmor to prevent a compromised container process from writing to `/proc` or executing network socket creation on the host node.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent a compromised container process from writing to `/proc` or executing network socket creation on the host node.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Disable AppArmor across all host worker nodes." },
@@ -426,7 +426,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Seccomp Profiles for System Call Filtering: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Seccomp to block containers from executing dangerous or unnecessary Linux system calls (such as `ptrace` or `sys_chroot`).",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to block containers from executing dangerous or unnecessary Linux system calls (such as `ptrace` or `sys_chroot`).",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Grant full root privileges to the container process." },
@@ -447,7 +447,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Seccomp Profiles for System Call Filtering: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Seccomp to block containers from executing dangerous or unnecessary Linux system calls (such as `ptrace` or `sys_chroot`).",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to block containers from executing dangerous or unnecessary Linux system calls (such as `ptrace` or `sys_chroot`).",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Disable the Linux kernel seccomp subsystem on worker nodes." },
@@ -468,7 +468,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Seccomp Profiles for System Call Filtering: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Seccomp to block containers from executing dangerous or unnecessary Linux system calls (such as `ptrace` or `sys_chroot`).",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to block containers from executing dangerous or unnecessary Linux system calls (such as `ptrace` or `sys_chroot`).",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Set seccompProfile type to Unconfined." },
@@ -489,7 +489,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Seccomp Profiles for System Call Filtering: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Seccomp to block containers from executing dangerous or unnecessary Linux system calls (such as `ptrace` or `sys_chroot`).",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to block containers from executing dangerous or unnecessary Linux system calls (such as `ptrace` or `sys_chroot`).",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Configure `seccompProfile: {type: RuntimeDefault}` or `{type: Localhost, localhostProfile: &lt;profile.json&gt;}` in the pod or container `securityContext`." },
@@ -510,7 +510,7 @@ export const K8S_CKS_QUESTIONS_12 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Seccomp Profiles for System Call Filtering: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Seccomp to block containers from executing dangerous or unnecessary Linux system calls (such as `ptrace` or `sys_chroot`).",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to block containers from executing dangerous or unnecessary Linux system calls (such as `ptrace` or `sys_chroot`).",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Disable the Linux kernel seccomp subsystem on worker nodes." },

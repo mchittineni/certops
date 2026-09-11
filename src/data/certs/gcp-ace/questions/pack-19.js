@@ -6,7 +6,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Trace and Cloud Profiler (Observability): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Google Cloud Observability to identify which specific backend microservice method is causing a 3-second latency delay in customer web checkout transactions.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to identify which specific backend microservice method is causing a 3-second latency delay in customer web checkout transactions.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Disable database query caching." },
@@ -27,7 +27,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Trace and Cloud Profiler (Observability): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Google Cloud Observability to identify which specific backend microservice method is causing a 3-second latency delay in customer web checkout transactions.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to identify which specific backend microservice method is causing a 3-second latency delay in customer web checkout transactions.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Examine the virtual machine local operating system syslog." },
@@ -48,7 +48,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Trace and Cloud Profiler (Observability): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Google Cloud Observability to identify which specific backend microservice method is causing a 3-second latency delay in customer web checkout transactions.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to identify which specific backend microservice method is causing a 3-second latency delay in customer web checkout transactions.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Examine the virtual machine local operating system syslog." },
@@ -69,7 +69,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Trace and Cloud Profiler (Observability): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Google Cloud Observability to identify which specific backend microservice method is causing a 3-second latency delay in customer web checkout transactions.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to identify which specific backend microservice method is causing a 3-second latency delay in customer web checkout transactions.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Disable database query caching." },
@@ -90,7 +90,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Trace and Cloud Profiler (Observability): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Google Cloud Observability to identify which specific backend microservice method is causing a 3-second latency delay in customer web checkout transactions.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to identify which specific backend microservice method is causing a 3-second latency delay in customer web checkout transactions.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Increase the CPU core count on all virtual machines." },
@@ -111,7 +111,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Google Cloud IAM Policy Bindings and Policy Inheritance: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Google Cloud IAM to grant a group of security analysts read-only access to all cloud resources across all projects in the entire organization with zero project-level configuration.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to grant a group of security analysts read-only access to all cloud resources across all projects in the entire organization with zero project-level configuration.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Add each analyst individually to every single project in the organization." },
@@ -132,7 +132,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Google Cloud IAM Policy Bindings and Policy Inheritance: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Google Cloud IAM to grant a group of security analysts read-only access to all cloud resources across all projects in the entire organization with zero project-level configuration.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to grant a group of security analysts read-only access to all cloud resources across all projects in the entire organization with zero project-level configuration.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Create a shared Google account and give the password to all analysts." },
@@ -153,7 +153,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Google Cloud IAM Policy Bindings and Policy Inheritance: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Google Cloud IAM to grant a group of security analysts read-only access to all cloud resources across all projects in the entire organization with zero project-level configuration.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to grant a group of security analysts read-only access to all cloud resources across all projects in the entire organization with zero project-level configuration.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Assign the Organization Administrator role to the analyst group." },
@@ -174,7 +174,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Google Cloud IAM Policy Bindings and Policy Inheritance: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Google Cloud IAM to grant a group of security analysts read-only access to all cloud resources across all projects in the entire organization with zero project-level configuration.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to grant a group of security analysts read-only access to all cloud resources across all projects in the entire organization with zero project-level configuration.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Create a shared Google account and give the password to all analysts." },
@@ -195,7 +195,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Google Cloud IAM Policy Bindings and Policy Inheritance: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Google Cloud IAM to grant a group of security analysts read-only access to all cloud resources across all projects in the entire organization with zero project-level configuration.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to grant a group of security analysts read-only access to all cloud resources across all projects in the entire organization with zero project-level configuration.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Create a shared Google account and give the password to all analysts." },
@@ -216,7 +216,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Workload Identity on Google Kubernetes Engine (GKE): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates GKE Security to allow a pod running inside a GKE cluster to securely read objects from a Cloud Storage bucket without storing service account keys in Kubernetes Secrets.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to allow a pod running inside a GKE cluster to securely read objects from a Cloud Storage bucket without storing service account keys in Kubernetes Secrets.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Grant full Cloud Storage admin rights to the underlying GKE worker node service account." },
@@ -237,7 +237,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Workload Identity on Google Kubernetes Engine (GKE): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates GKE Security to allow a pod running inside a GKE cluster to securely read objects from a Cloud Storage bucket without storing service account keys in Kubernetes Secrets.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to allow a pod running inside a GKE cluster to securely read objects from a Cloud Storage bucket without storing service account keys in Kubernetes Secrets.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Generate a JSON service account key and mount it into the pod filesystem." },
@@ -258,7 +258,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Workload Identity on Google Kubernetes Engine (GKE): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates GKE Security to allow a pod running inside a GKE cluster to securely read objects from a Cloud Storage bucket without storing service account keys in Kubernetes Secrets.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to allow a pod running inside a GKE cluster to securely read objects from a Cloud Storage bucket without storing service account keys in Kubernetes Secrets.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Configure GKE Workload Identity to bind the Kubernetes ServiceAccount to an IAM Google ServiceAccount." },
@@ -279,7 +279,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Workload Identity on Google Kubernetes Engine (GKE): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates GKE Security to allow a pod running inside a GKE cluster to securely read objects from a Cloud Storage bucket without storing service account keys in Kubernetes Secrets.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to allow a pod running inside a GKE cluster to securely read objects from a Cloud Storage bucket without storing service account keys in Kubernetes Secrets.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Configure GKE Workload Identity to bind the Kubernetes ServiceAccount to an IAM Google ServiceAccount." },
@@ -300,7 +300,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Workload Identity on Google Kubernetes Engine (GKE): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates GKE Security to allow a pod running inside a GKE cluster to securely read objects from a Cloud Storage bucket without storing service account keys in Kubernetes Secrets.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to allow a pod running inside a GKE cluster to securely read objects from a Cloud Storage bucket without storing service account keys in Kubernetes Secrets.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Configure GKE Workload Identity to bind the Kubernetes ServiceAccount to an IAM Google ServiceAccount." },
@@ -321,7 +321,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Identity-Aware Proxy (IAP) for SSH/RDP: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Google Cloud Security to allow system administrators to connect via SSH and RDP to private Compute Engine virtual machines that have no external public IP addresses.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to allow system administrators to connect via SSH and RDP to private Compute Engine virtual machines that have no external public IP addresses.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Assign public IP addresses to all virtual machines and open port 22 to the public internet." },
@@ -342,7 +342,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Identity-Aware Proxy (IAP) for SSH/RDP: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Google Cloud Security to allow system administrators to connect via SSH and RDP to private Compute Engine virtual machines that have no external public IP addresses.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to allow system administrators to connect via SSH and RDP to private Compute Engine virtual machines that have no external public IP addresses.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Use Identity-Aware Proxy (IAP) TCP forwarding using 'gcloud compute ssh --tunnel-through-iap'." },
@@ -363,7 +363,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Identity-Aware Proxy (IAP) for SSH/RDP: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Google Cloud Security to allow system administrators to connect via SSH and RDP to private Compute Engine virtual machines that have no external public IP addresses.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to allow system administrators to connect via SSH and RDP to private Compute Engine virtual machines that have no external public IP addresses.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Use Identity-Aware Proxy (IAP) TCP forwarding using 'gcloud compute ssh --tunnel-through-iap'." },
@@ -384,7 +384,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Identity-Aware Proxy (IAP) for SSH/RDP: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Google Cloud Security to allow system administrators to connect via SSH and RDP to private Compute Engine virtual machines that have no external public IP addresses.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to allow system administrators to connect via SSH and RDP to private Compute Engine virtual machines that have no external public IP addresses.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Assign public IP addresses to all virtual machines and open port 22 to the public internet." },
@@ -405,7 +405,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Identity-Aware Proxy (IAP) for SSH/RDP: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Google Cloud Security to allow system administrators to connect via SSH and RDP to private Compute Engine virtual machines that have no external public IP addresses.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to allow system administrators to connect via SSH and RDP to private Compute Engine virtual machines that have no external public IP addresses.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Use Identity-Aware Proxy (IAP) TCP forwarding using 'gcloud compute ssh --tunnel-through-iap'." },
@@ -426,7 +426,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Key Management Service (KMS) CMEK vs Google-Managed Keys: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Security to comply with regulatory banking guidelines requiring the enterprise to manage and rotate its own cryptographic encryption keys for data stored in Cloud Storage and BigQuery.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to comply with regulatory banking guidelines requiring the enterprise to manage and rotate its own cryptographic encryption keys for data stored in Cloud Storage and BigQuery.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Encrypt files manually using a desktop encryption utility before uploading." },
@@ -447,7 +447,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Key Management Service (KMS) CMEK vs Google-Managed Keys: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Security to comply with regulatory banking guidelines requiring the enterprise to manage and rotate its own cryptographic encryption keys for data stored in Cloud Storage and BigQuery.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to comply with regulatory banking guidelines requiring the enterprise to manage and rotate its own cryptographic encryption keys for data stored in Cloud Storage and BigQuery.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Configure Customer-Managed Encryption Keys (CMEK) using Cloud KMS for storage and database resources." },
@@ -468,7 +468,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Key Management Service (KMS) CMEK vs Google-Managed Keys: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Security to comply with regulatory banking guidelines requiring the enterprise to manage and rotate its own cryptographic encryption keys for data stored in Cloud Storage and BigQuery.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to comply with regulatory banking guidelines requiring the enterprise to manage and rotate its own cryptographic encryption keys for data stored in Cloud Storage and BigQuery.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Encrypt files manually using a desktop encryption utility before uploading." },
@@ -489,7 +489,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Key Management Service (KMS) CMEK vs Google-Managed Keys: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Security to comply with regulatory banking guidelines requiring the enterprise to manage and rotate its own cryptographic encryption keys for data stored in Cloud Storage and BigQuery.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to comply with regulatory banking guidelines requiring the enterprise to manage and rotate its own cryptographic encryption keys for data stored in Cloud Storage and BigQuery.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Configure Customer-Managed Encryption Keys (CMEK) using Cloud KMS for storage and database resources." },
@@ -510,7 +510,7 @@ export const GCP_ACE_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Key Management Service (KMS) CMEK vs Google-Managed Keys: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Security to comply with regulatory banking guidelines requiring the enterprise to manage and rotate its own cryptographic encryption keys for data stored in Cloud Storage and BigQuery.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to comply with regulatory banking guidelines requiring the enterprise to manage and rotate its own cryptographic encryption keys for data stored in Cloud Storage and BigQuery.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Store encryption keys in an unencrypted Cloud Storage bucket." },

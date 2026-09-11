@@ -6,7 +6,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Model Regularization Techniques (L1, L2, Dropout, Early Stopping): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Model Regularization to prevent a deep neural network from severely overfitting to training data when validation loss starts increasing after epoch 15.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to prevent a deep neural network from severely overfitting to training data when validation loss starts increasing after epoch 15.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Continue training for 200 additional epochs until training loss drops to zero." },
@@ -27,7 +27,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Model Regularization Techniques (L1, L2, Dropout, Early Stopping): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Model Regularization to prevent a deep neural network from severely overfitting to training data when validation loss starts increasing after epoch 15.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to prevent a deep neural network from severely overfitting to training data when validation loss starts increasing after epoch 15.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Add Dropout layers, apply L2 weight decay, and configure an EarlyStopping callback monitoring validation loss." },
@@ -48,7 +48,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Model Regularization Techniques (L1, L2, Dropout, Early Stopping): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Model Regularization to prevent a deep neural network from severely overfitting to training data when validation loss starts increasing after epoch 15.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to prevent a deep neural network from severely overfitting to training data when validation loss starts increasing after epoch 15.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Continue training for 200 additional epochs until training loss drops to zero." },
@@ -69,7 +69,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Model Regularization Techniques (L1, L2, Dropout, Early Stopping): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Model Regularization to prevent a deep neural network from severely overfitting to training data when validation loss starts increasing after epoch 15.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to prevent a deep neural network from severely overfitting to training data when validation loss starts increasing after epoch 15.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Increase model capacity by adding 10 additional dense layers with 1,024 units each." },
@@ -90,7 +90,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Model Regularization Techniques (L1, L2, Dropout, Early Stopping): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Model Regularization to prevent a deep neural network from severely overfitting to training data when validation loss starts increasing after epoch 15.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to prevent a deep neural network from severely overfitting to training data when validation loss starts increasing after epoch 15.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Remove all validation splits and train exclusively on 100% of available data." },
@@ -111,7 +111,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Model Evaluation Metrics (ROC-AUC vs PR-AUC vs F1 vs RMSE): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Model Evaluation to evaluate the performance of an email spam classification model where the cost of falsely classifying an important email as spam (false positive) is extremely high.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to evaluate the performance of an email spam classification model where the cost of falsely classifying an important email as spam (false positive) is extremely high.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely on overall classification accuracy without reviewing the confusion matrix." },
@@ -132,7 +132,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Model Evaluation Metrics (ROC-AUC vs PR-AUC vs F1 vs RMSE): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Model Evaluation to evaluate the performance of an email spam classification model where the cost of falsely classifying an important email as spam (false positive) is extremely high.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to evaluate the performance of an email spam classification model where the cost of falsely classifying an important email as spam (false positive) is extremely high.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Evaluate Root Mean Squared Error (RMSE) on categorical labels." },
@@ -153,7 +153,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Model Evaluation Metrics (ROC-AUC vs PR-AUC vs F1 vs RMSE): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Model Evaluation to evaluate the performance of an email spam classification model where the cost of falsely classifying an important email as spam (false positive) is extremely high.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to evaluate the performance of an email spam classification model where the cost of falsely classifying an important email as spam (false positive) is extremely high.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Rely on overall classification accuracy without reviewing the confusion matrix." },
@@ -174,7 +174,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Model Evaluation Metrics (ROC-AUC vs PR-AUC vs F1 vs RMSE): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Model Evaluation to evaluate the performance of an email spam classification model where the cost of falsely classifying an important email as spam (false positive) is extremely high.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to evaluate the performance of an email spam classification model where the cost of falsely classifying an important email as spam (false positive) is extremely high.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Evaluate Root Mean Squared Error (RMSE) on categorical labels." },
@@ -195,7 +195,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Model Evaluation Metrics (ROC-AUC vs PR-AUC vs F1 vs RMSE): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Model Evaluation to evaluate the performance of an email spam classification model where the cost of falsely classifying an important email as spam (false positive) is extremely high.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to evaluate the performance of an email spam classification model where the cost of falsely classifying an important email as spam (false positive) is extremely high.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Prioritize Precision and examine the Precision-Recall curve (PR-AUC) at high precision thresholds." },
@@ -216,7 +216,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Transfer Learning and Fine-Tuning Foundational Models: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Transfer Learning to train a high-accuracy medical dermatology image classifier using a dataset of only 1,000 labeled biopsy images.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to train a high-accuracy medical dermatology image classifier using a dataset of only 1,000 labeled biopsy images.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Use an unsupervised K-means clustering algorithm without feature representations." },
@@ -237,7 +237,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Transfer Learning and Fine-Tuning Foundational Models: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Transfer Learning to train a high-accuracy medical dermatology image classifier using a dataset of only 1,000 labeled biopsy images.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to train a high-accuracy medical dermatology image classifier using a dataset of only 1,000 labeled biopsy images.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Use an unsupervised K-means clustering algorithm without feature representations." },
@@ -258,7 +258,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Transfer Learning and Fine-Tuning Foundational Models: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Transfer Learning to train a high-accuracy medical dermatology image classifier using a dataset of only 1,000 labeled biopsy images.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to train a high-accuracy medical dermatology image classifier using a dataset of only 1,000 labeled biopsy images.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Generate 500,000 synthetic biopsy images using random noise generators." },
@@ -279,7 +279,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Transfer Learning and Fine-Tuning Foundational Models: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Transfer Learning to train a high-accuracy medical dermatology image classifier using a dataset of only 1,000 labeled biopsy images.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to train a high-accuracy medical dermatology image classifier using a dataset of only 1,000 labeled biopsy images.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Use an unsupervised K-means clustering algorithm without feature representations." },
@@ -300,7 +300,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Transfer Learning and Fine-Tuning Foundational Models: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Transfer Learning to train a high-accuracy medical dermatology image classifier using a dataset of only 1,000 labeled biopsy images.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to train a high-accuracy medical dermatology image classifier using a dataset of only 1,000 labeled biopsy images.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Train an 80-layer convolutional neural network completely from scratch with random weight initialization." },
@@ -321,7 +321,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Vertex AI TensorBoard Experiment Tracking: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Vertex AI MLOps to track, compare, and visualize training loss curves, validation metrics, and hardware profiling graphs across 50 deep learning model training runs in a centralized dashboard.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to track, compare, and visualize training loss curves, validation metrics, and hardware profiling graphs across 50 deep learning model training runs in a centralized dashboard.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Save training logs to local desktop text files without visualization." },
@@ -342,7 +342,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Vertex AI TensorBoard Experiment Tracking: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Vertex AI MLOps to track, compare, and visualize training loss curves, validation metrics, and hardware profiling graphs across 50 deep learning model training runs in a centralized dashboard.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to track, compare, and visualize training loss curves, validation metrics, and hardware profiling graphs across 50 deep learning model training runs in a centralized dashboard.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Print metrics to local terminal outputs and copy numbers manually into a shared text document." },
@@ -363,7 +363,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Vertex AI TensorBoard Experiment Tracking: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Vertex AI MLOps to track, compare, and visualize training loss curves, validation metrics, and hardware profiling graphs across 50 deep learning model training runs in a centralized dashboard.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to track, compare, and visualize training loss curves, validation metrics, and hardware profiling graphs across 50 deep learning model training runs in a centralized dashboard.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Save training logs to local desktop text files without visualization." },
@@ -384,7 +384,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Vertex AI TensorBoard Experiment Tracking: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Vertex AI MLOps to track, compare, and visualize training loss curves, validation metrics, and hardware profiling graphs across 50 deep learning model training runs in a centralized dashboard.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to track, compare, and visualize training loss curves, validation metrics, and hardware profiling graphs across 50 deep learning model training runs in a centralized dashboard.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Integrate Vertex AI TensorBoard with the training scripts and compare experiment runs in the console." },
@@ -405,7 +405,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Vertex AI TensorBoard Experiment Tracking: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Vertex AI MLOps to track, compare, and visualize training loss curves, validation metrics, and hardware profiling graphs across 50 deep learning model training runs in a centralized dashboard.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to track, compare, and visualize training loss curves, validation metrics, and hardware profiling graphs across 50 deep learning model training runs in a centralized dashboard.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Print metrics to local terminal outputs and copy numbers manually into a shared text document." },
@@ -426,7 +426,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Vertex AI Model Garden & Foundation Model Tuning: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Model Garden to customize a pre-trained open-source foundational LLM (such as Llama or Gemma) on proprietary internal legal contracts without modifying the base model weights.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to customize a pre-trained open-source foundational LLM (such as Llama or Gemma) on proprietary internal legal contracts without modifying the base model weights.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Hardcode legal contract answers in a local dictionary file." },
@@ -447,7 +447,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Vertex AI Model Garden & Foundation Model Tuning: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Model Garden to customize a pre-trained open-source foundational LLM (such as Llama or Gemma) on proprietary internal legal contracts without modifying the base model weights.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to customize a pre-trained open-source foundational LLM (such as Llama or Gemma) on proprietary internal legal contracts without modifying the base model weights.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Retrain the entire 70B foundational model from scratch on raw text files." },
@@ -468,7 +468,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Vertex AI Model Garden & Foundation Model Tuning: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Model Garden to customize a pre-trained open-source foundational LLM (such as Llama or Gemma) on proprietary internal legal contracts without modifying the base model weights.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to customize a pre-trained open-source foundational LLM (such as Llama or Gemma) on proprietary internal legal contracts without modifying the base model weights.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Manually rewrite the model source code in C++." },
@@ -489,7 +489,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Vertex AI Model Garden & Foundation Model Tuning: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Model Garden to customize a pre-trained open-source foundational LLM (such as Llama or Gemma) on proprietary internal legal contracts without modifying the base model weights.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to customize a pre-trained open-source foundational LLM (such as Llama or Gemma) on proprietary internal legal contracts without modifying the base model weights.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Retrain the entire 70B foundational model from scratch on raw text files." },
@@ -510,7 +510,7 @@ export const GCP_PMLE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Developing and training ML models",
     title: "Vertex AI Model Garden & Foundation Model Tuning: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Model Garden to customize a pre-trained open-source foundational LLM (such as Llama or Gemma) on proprietary internal legal contracts without modifying the base model weights.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to customize a pre-trained open-source foundational LLM (such as Llama or Gemma) on proprietary internal legal contracts without modifying the base model weights.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Retrain the entire 70B foundational model from scratch on raw text files." },

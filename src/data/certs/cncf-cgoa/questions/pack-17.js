@@ -6,7 +6,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Flux Automated Image Update and Git Commits: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Automated Image Updates to automatically detect when a new container image is published to a container registry and commit the updated image tag back into the GitOps repository.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to automatically detect when a new container image is published to a container registry and commit the updated image tag back into the GitOps repository.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Deploy the Flux `image-reflector-controller` and `image-automation-controller`, configuring `ImagePolicy` and `ImageUpdateAutomation` CRDs." },
@@ -27,7 +27,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Flux Automated Image Update and Git Commits: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Automated Image Updates to automatically detect when a new container image is published to a container registry and commit the updated image tag back into the GitOps repository.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to automatically detect when a new container image is published to a container registry and commit the updated image tag back into the GitOps repository.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Configure the container registry to execute `kubectl apply` directly on the cluster." },
@@ -48,7 +48,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Flux Automated Image Update and Git Commits: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Automated Image Updates to automatically detect when a new container image is published to a container registry and commit the updated image tag back into the GitOps repository.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to automatically detect when a new container image is published to a container registry and commit the updated image tag back into the GitOps repository.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Deploy the Flux `image-reflector-controller` and `image-automation-controller`, configuring `ImagePolicy` and `ImageUpdateAutomation` CRDs." },
@@ -69,7 +69,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Flux Automated Image Update and Git Commits: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Automated Image Updates to automatically detect when a new container image is published to a container registry and commit the updated image tag back into the GitOps repository.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to automatically detect when a new container image is published to a container registry and commit the updated image tag back into the GitOps repository.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Deploy the Flux `image-reflector-controller` and `image-automation-controller`, configuring `ImagePolicy` and `ImageUpdateAutomation` CRDs." },
@@ -90,7 +90,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Flux Automated Image Update and Git Commits: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Automated Image Updates to automatically detect when a new container image is published to a container registry and commit the updated image tag back into the GitOps repository.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to automatically detect when a new container image is published to a container registry and commit the updated image tag back into the GitOps repository.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Run a local cron job on an engineer's laptop that commits tag updates to Git." },
@@ -111,7 +111,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Flux Notification Controller and Webhook Receivers: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Event Notifications to eliminate Git polling delays so that Flux reconciles cluster state within seconds of a commit push, and notify a Slack channel of deployment status.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to eliminate Git polling delays so that Flux reconciles cluster state within seconds of a commit push, and notify a Slack channel of deployment status.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Rely on developers manually checking pod logs to know when deployments finish." },
@@ -132,7 +132,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Flux Notification Controller and Webhook Receivers: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Event Notifications to eliminate Git polling delays so that Flux reconciles cluster state within seconds of a commit push, and notify a Slack channel of deployment status.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to eliminate Git polling delays so that Flux reconciles cluster state within seconds of a commit push, and notify a Slack channel of deployment status.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Rely on developers manually checking pod logs to know when deployments finish." },
@@ -153,7 +153,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Flux Notification Controller and Webhook Receivers: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Event Notifications to eliminate Git polling delays so that Flux reconciles cluster state within seconds of a commit push, and notify a Slack channel of deployment status.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to eliminate Git polling delays so that Flux reconciles cluster state within seconds of a commit push, and notify a Slack channel of deployment status.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Disable notifications to reduce cluster CPU consumption." },
@@ -174,7 +174,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Flux Notification Controller and Webhook Receivers: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Event Notifications to eliminate Git polling delays so that Flux reconciles cluster state within seconds of a commit push, and notify a Slack channel of deployment status.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to eliminate Git polling delays so that Flux reconciles cluster state within seconds of a commit push, and notify a Slack channel of deployment status.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Rely on developers manually checking pod logs to know when deployments finish." },
@@ -195,7 +195,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Flux Notification Controller and Webhook Receivers: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Event Notifications to eliminate Git polling delays so that Flux reconciles cluster state within seconds of a commit push, and notify a Slack channel of deployment status.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to eliminate Git polling delays so that Flux reconciles cluster state within seconds of a commit push, and notify a Slack channel of deployment status.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Rely on developers manually checking pod logs to know when deployments finish." },
@@ -216,7 +216,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Tracking and Diffing Strategies: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Diffing Strategies to prevent Argo CD from reporting false-positive out-of-sync status caused by Kubernetes mutating admission webhooks modifying pod specifications.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to prevent Argo CD from reporting false-positive out-of-sync status caused by Kubernetes mutating admission webhooks modifying pod specifications.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Disable all mutating webhooks in the cluster." },
@@ -237,7 +237,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Tracking and Diffing Strategies: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Diffing Strategies to prevent Argo CD from reporting false-positive out-of-sync status caused by Kubernetes mutating admission webhooks modifying pod specifications.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to prevent Argo CD from reporting false-positive out-of-sync status caused by Kubernetes mutating admission webhooks modifying pod specifications.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Ignore all out-of-sync warnings across all applications." },
@@ -258,7 +258,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Tracking and Diffing Strategies: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Diffing Strategies to prevent Argo CD from reporting false-positive out-of-sync status caused by Kubernetes mutating admission webhooks modifying pod specifications.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to prevent Argo CD from reporting false-positive out-of-sync status caused by Kubernetes mutating admission webhooks modifying pod specifications.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Reinstall Argo CD with a fresh database." },
@@ -279,7 +279,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Tracking and Diffing Strategies: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Diffing Strategies to prevent Argo CD from reporting false-positive out-of-sync status caused by Kubernetes mutating admission webhooks modifying pod specifications.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to prevent Argo CD from reporting false-positive out-of-sync status caused by Kubernetes mutating admission webhooks modifying pod specifications.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Reinstall Argo CD with a fresh database." },
@@ -300,7 +300,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Tracking and Diffing Strategies: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Diffing Strategies to prevent Argo CD from reporting false-positive out-of-sync status caused by Kubernetes mutating admission webhooks modifying pod specifications.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to prevent Argo CD from reporting false-positive out-of-sync status caused by Kubernetes mutating admission webhooks modifying pod specifications.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Configure `ignoreDifferences` in the Application manifest targeting specific JSON pointers or fields (e.g., mutating annotations)." },
@@ -321,7 +321,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Server-Side Apply vs Client-Side Apply: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Server-Side Apply to deploy massive CustomResourceDefinitions (like Prometheus or Istio CRDs) exceeding the 262KB `kubectl.kubernetes.io/last-applied-configuration` annotation limit.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to deploy massive CustomResourceDefinitions (like Prometheus or Istio CRDs) exceeding the 262KB `kubectl.kubernetes.io/last-applied-configuration` annotation limit.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Compress the CRD using gzip before committing to Git." },
@@ -342,7 +342,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Server-Side Apply vs Client-Side Apply: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Server-Side Apply to deploy massive CustomResourceDefinitions (like Prometheus or Istio CRDs) exceeding the 262KB `kubectl.kubernetes.io/last-applied-configuration` annotation limit.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to deploy massive CustomResourceDefinitions (like Prometheus or Istio CRDs) exceeding the 262KB `kubectl.kubernetes.io/last-applied-configuration` annotation limit.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Enable `ServerSideApply=true` in the Argo CD application sync options." },
@@ -363,7 +363,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Server-Side Apply vs Client-Side Apply: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Server-Side Apply to deploy massive CustomResourceDefinitions (like Prometheus or Istio CRDs) exceeding the 262KB `kubectl.kubernetes.io/last-applied-configuration` annotation limit.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to deploy massive CustomResourceDefinitions (like Prometheus or Istio CRDs) exceeding the 262KB `kubectl.kubernetes.io/last-applied-configuration` annotation limit.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Server-side apply is not supported in modern Kubernetes." },
@@ -384,7 +384,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Server-Side Apply vs Client-Side Apply: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Server-Side Apply to deploy massive CustomResourceDefinitions (like Prometheus or Istio CRDs) exceeding the 262KB `kubectl.kubernetes.io/last-applied-configuration` annotation limit.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to deploy massive CustomResourceDefinitions (like Prometheus or Istio CRDs) exceeding the 262KB `kubectl.kubernetes.io/last-applied-configuration` annotation limit.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Enable `ServerSideApply=true` in the Argo CD application sync options." },
@@ -405,7 +405,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Server-Side Apply vs Client-Side Apply: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Server-Side Apply to deploy massive CustomResourceDefinitions (like Prometheus or Istio CRDs) exceeding the 262KB `kubectl.kubernetes.io/last-applied-configuration` annotation limit.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to deploy massive CustomResourceDefinitions (like Prometheus or Istio CRDs) exceeding the 262KB `kubectl.kubernetes.io/last-applied-configuration` annotation limit.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Split the single CRD into 10 smaller invalid partial YAML files." },
@@ -426,7 +426,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Automating Rollbacks in GitOps via git revert: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates GitOps Rollbacks to revert a defective production application release that was deployed via GitOps and restore the previous stable version.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to revert a defective production application release that was deployed via GitOps and restore the previous stable version.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Execute `git revert &lt;commit-sha&gt;` on the deployment branch and push the revert commit to Git; the GitOps controller reconciles the rollback." },
@@ -447,7 +447,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Automating Rollbacks in GitOps via git revert: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates GitOps Rollbacks to revert a defective production application release that was deployed via GitOps and restore the previous stable version.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to revert a defective production application release that was deployed via GitOps and restore the previous stable version.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Execute `git revert &lt;commit-sha&gt;` on the deployment branch and push the revert commit to Git; the GitOps controller reconciles the rollback." },
@@ -468,7 +468,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Automating Rollbacks in GitOps via git revert: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates GitOps Rollbacks to revert a defective production application release that was deployed via GitOps and restore the previous stable version.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to revert a defective production application release that was deployed via GitOps and restore the previous stable version.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Delete the Git repository branch." },
@@ -489,7 +489,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Automating Rollbacks in GitOps via git revert: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates GitOps Rollbacks to revert a defective production application release that was deployed via GitOps and restore the previous stable version.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to revert a defective production application release that was deployed via GitOps and restore the previous stable version.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Run `kubectl rollout undo` on the production cluster pods directly." },
@@ -510,7 +510,7 @@ export const CNCF_CGOA_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Automating Rollbacks in GitOps via git revert: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates GitOps Rollbacks to revert a defective production application release that was deployed via GitOps and restore the previous stable version.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to revert a defective production application release that was deployed via GitOps and restore the previous stable version.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Run `kubectl rollout undo` on the production cluster pods directly." },

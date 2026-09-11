@@ -6,7 +6,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Cloud Data Loss Prevention (Cloud DLP / Sensitive Data Protection): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Sensitive Data Protection to automatically scan petabytes of customer feedback text in BigQuery, redact social security numbers (SSNs), and replace credit card numbers with format-preserving tokens.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to automatically scan petabytes of customer feedback text in BigQuery, redact social security numbers (SSNs), and replace credit card numbers with format-preserving tokens.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Manually read through millions of customer feedback records using desktop text editors." },
@@ -27,7 +27,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Cloud Data Loss Prevention (Cloud DLP / Sensitive Data Protection): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Sensitive Data Protection to automatically scan petabytes of customer feedback text in BigQuery, redact social security numbers (SSNs), and replace credit card numbers with format-preserving tokens.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to automatically scan petabytes of customer feedback text in BigQuery, redact social security numbers (SSNs), and replace credit card numbers with format-preserving tokens.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy Cloud Data Loss Prevention (Cloud DLP / Sensitive Data Protection) inspection and de-identification jobs." },
@@ -48,7 +48,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Cloud Data Loss Prevention (Cloud DLP / Sensitive Data Protection): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Sensitive Data Protection to automatically scan petabytes of customer feedback text in BigQuery, redact social security numbers (SSNs), and replace credit card numbers with format-preserving tokens.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to automatically scan petabytes of customer feedback text in BigQuery, redact social security numbers (SSNs), and replace credit card numbers with format-preserving tokens.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Rely on client web browsers to strip sensitive data before submitting forms." },
@@ -69,7 +69,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Cloud Data Loss Prevention (Cloud DLP / Sensitive Data Protection): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Sensitive Data Protection to automatically scan petabytes of customer feedback text in BigQuery, redact social security numbers (SSNs), and replace credit card numbers with format-preserving tokens.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to automatically scan petabytes of customer feedback text in BigQuery, redact social security numbers (SSNs), and replace credit card numbers with format-preserving tokens.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy Cloud Data Loss Prevention (Cloud DLP / Sensitive Data Protection) inspection and de-identification jobs." },
@@ -90,7 +90,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Cloud Data Loss Prevention (Cloud DLP / Sensitive Data Protection): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Sensitive Data Protection to automatically scan petabytes of customer feedback text in BigQuery, redact social security numbers (SSNs), and replace credit card numbers with format-preserving tokens.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to automatically scan petabytes of customer feedback text in BigQuery, redact social security numbers (SSNs), and replace credit card numbers with format-preserving tokens.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Manually read through millions of customer feedback records using desktop text editors." },
@@ -111,7 +111,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Binary Authorization on Google Kubernetes Engine (GKE): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates GKE Security to ensure that only container images that have passed automated vulnerability scanning and have been cryptographically signed by a trusted CI/CD pipeline can be deployed to GKE.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to ensure that only container images that have passed automated vulnerability scanning and have been cryptographically signed by a trusted CI/CD pipeline can be deployed to GKE.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely on verbal confirmation from development leads before deploying pods." },
@@ -132,7 +132,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Binary Authorization on Google Kubernetes Engine (GKE): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates GKE Security to ensure that only container images that have passed automated vulnerability scanning and have been cryptographically signed by a trusted CI/CD pipeline can be deployed to GKE.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to ensure that only container images that have passed automated vulnerability scanning and have been cryptographically signed by a trusted CI/CD pipeline can be deployed to GKE.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Rely on verbal confirmation from development leads before deploying pods." },
@@ -153,7 +153,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Binary Authorization on Google Kubernetes Engine (GKE): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates GKE Security to ensure that only container images that have passed automated vulnerability scanning and have been cryptographically signed by a trusted CI/CD pipeline can be deployed to GKE.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to ensure that only container images that have passed automated vulnerability scanning and have been cryptographically signed by a trusted CI/CD pipeline can be deployed to GKE.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Allow developers to deploy arbitrary container images from personal Docker Hub repositories." },
@@ -174,7 +174,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Binary Authorization on Google Kubernetes Engine (GKE): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates GKE Security to ensure that only container images that have passed automated vulnerability scanning and have been cryptographically signed by a trusted CI/CD pipeline can be deployed to GKE.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to ensure that only container images that have passed automated vulnerability scanning and have been cryptographically signed by a trusted CI/CD pipeline can be deployed to GKE.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Disable container image scanning in Artifact Registry." },
@@ -195,7 +195,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Binary Authorization on Google Kubernetes Engine (GKE): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates GKE Security to ensure that only container images that have passed automated vulnerability scanning and have been cryptographically signed by a trusted CI/CD pipeline can be deployed to GKE.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to ensure that only container images that have passed automated vulnerability scanning and have been cryptographically signed by a trusted CI/CD pipeline can be deployed to GKE.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Allow developers to deploy arbitrary container images from personal Docker Hub repositories." },
@@ -216,7 +216,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Cloud Armor Adaptive Protection: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Cloud Security to automatically detect Layer 7 application-layer DDoS attacks and volumetric traffic anomalies on an e-commerce platform and generate suggested mitigation rules.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to automatically detect Layer 7 application-layer DDoS attacks and volumetric traffic anomalies on an e-commerce platform and generate suggested mitigation rules.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Write custom regex rules manually during an active distributed denial-of-service attack." },
@@ -237,7 +237,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Cloud Armor Adaptive Protection: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Cloud Security to automatically detect Layer 7 application-layer DDoS attacks and volumetric traffic anomalies on an e-commerce platform and generate suggested mitigation rules.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to automatically detect Layer 7 application-layer DDoS attacks and volumetric traffic anomalies on an e-commerce platform and generate suggested mitigation rules.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Enable Cloud Armor Adaptive Protection on the security policy." },
@@ -258,7 +258,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Cloud Armor Adaptive Protection: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Cloud Security to automatically detect Layer 7 application-layer DDoS attacks and volumetric traffic anomalies on an e-commerce platform and generate suggested mitigation rules.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to automatically detect Layer 7 application-layer DDoS attacks and volumetric traffic anomalies on an e-commerce platform and generate suggested mitigation rules.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Write custom regex rules manually during an active distributed denial-of-service attack." },
@@ -279,7 +279,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Cloud Armor Adaptive Protection: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Cloud Security to automatically detect Layer 7 application-layer DDoS attacks and volumetric traffic anomalies on an e-commerce platform and generate suggested mitigation rules.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to automatically detect Layer 7 application-layer DDoS attacks and volumetric traffic anomalies on an e-commerce platform and generate suggested mitigation rules.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Install desktop intrusion detection software on client laptops." },
@@ -300,7 +300,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Cloud Armor Adaptive Protection: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Cloud Security to automatically detect Layer 7 application-layer DDoS attacks and volumetric traffic anomalies on an e-commerce platform and generate suggested mitigation rules.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to automatically detect Layer 7 application-layer DDoS attacks and volumetric traffic anomalies on an e-commerce platform and generate suggested mitigation rules.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Install desktop intrusion detection software on client laptops." },
@@ -321,7 +321,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Shielded VMs and Secure Boot: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Compute Engine Security to protect Compute Engine virtual machines against kernel rootkits, boot-level malware, and unauthorized hypervisor modifications.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to protect Compute Engine virtual machines against kernel rootkits, boot-level malware, and unauthorized hypervisor modifications.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy Compute Engine instances as Shielded VMs with Secure Boot and vTPM enabled." },
@@ -342,7 +342,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Shielded VMs and Secure Boot: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Compute Engine Security to protect Compute Engine virtual machines against kernel rootkits, boot-level malware, and unauthorized hypervisor modifications.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to protect Compute Engine virtual machines against kernel rootkits, boot-level malware, and unauthorized hypervisor modifications.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy Compute Engine instances as Shielded VMs with Secure Boot and vTPM enabled." },
@@ -363,7 +363,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Shielded VMs and Secure Boot: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Compute Engine Security to protect Compute Engine virtual machines against kernel rootkits, boot-level malware, and unauthorized hypervisor modifications.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to protect Compute Engine virtual machines against kernel rootkits, boot-level malware, and unauthorized hypervisor modifications.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Run unverified custom operating system kernels downloaded from public forums." },
@@ -384,7 +384,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Shielded VMs and Secure Boot: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Compute Engine Security to protect Compute Engine virtual machines against kernel rootkits, boot-level malware, and unauthorized hypervisor modifications.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to protect Compute Engine virtual machines against kernel rootkits, boot-level malware, and unauthorized hypervisor modifications.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy standard legacy virtual machines without hardware integrity monitoring." },
@@ -405,7 +405,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Shielded VMs and Secure Boot: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Compute Engine Security to protect Compute Engine virtual machines against kernel rootkits, boot-level malware, and unauthorized hypervisor modifications.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to protect Compute Engine virtual machines against kernel rootkits, boot-level malware, and unauthorized hypervisor modifications.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Deploy standard legacy virtual machines without hardware integrity monitoring." },
@@ -426,7 +426,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Security Command Center (SCC) Event Threat Detection: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Security Operations to automatically detect credential leakage, cryptocurrency mining, and unauthorized IAM role grants by analyzing cloud audit and network logs in real time.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to automatically detect credential leakage, cryptocurrency mining, and unauthorized IAM role grants by analyzing cloud audit and network logs in real time.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Manually read millions of lines of syslog output every Friday afternoon." },
@@ -447,7 +447,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Security Command Center (SCC) Event Threat Detection: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Security Operations to automatically detect credential leakage, cryptocurrency mining, and unauthorized IAM role grants by analyzing cloud audit and network logs in real time.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to automatically detect credential leakage, cryptocurrency mining, and unauthorized IAM role grants by analyzing cloud audit and network logs in real time.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Rely on external security researchers to report compromises on public social media." },
@@ -468,7 +468,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Security Command Center (SCC) Event Threat Detection: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Security Operations to automatically detect credential leakage, cryptocurrency mining, and unauthorized IAM role grants by analyzing cloud audit and network logs in real time.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to automatically detect credential leakage, cryptocurrency mining, and unauthorized IAM role grants by analyzing cloud audit and network logs in real time.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Manually read millions of lines of syslog output every Friday afternoon." },
@@ -489,7 +489,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Security Command Center (SCC) Event Threat Detection: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Security Operations to automatically detect credential leakage, cryptocurrency mining, and unauthorized IAM role grants by analyzing cloud audit and network logs in real time.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to automatically detect credential leakage, cryptocurrency mining, and unauthorized IAM role grants by analyzing cloud audit and network logs in real time.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Disable security logging to hide security alerts from compliance auditors." },
@@ -510,7 +510,7 @@ export const GCP_PCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Security Command Center (SCC) Event Threat Detection: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Security Operations to automatically detect credential leakage, cryptocurrency mining, and unauthorized IAM role grants by analyzing cloud audit and network logs in real time.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to automatically detect credential leakage, cryptocurrency mining, and unauthorized IAM role grants by analyzing cloud audit and network logs in real time.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Rely on external security researchers to report compromises on public social media." },

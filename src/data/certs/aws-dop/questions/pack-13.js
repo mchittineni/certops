@@ -6,7 +6,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "Event-Driven CI/CD with Amazon EventBridge: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Event-Driven Pipelines to trigger an automated CodePipeline execution whenever a new container image is pushed to Amazon ECR or a release tag is created in GitHub.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to trigger an automated CodePipeline execution whenever a new container image is pushed to Amazon ECR or a release tag is created in GitHub.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Run a cron job polling the ECR repository API every 10 seconds from an EC2 instance." },
@@ -27,7 +27,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "Event-Driven CI/CD with Amazon EventBridge: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Event-Driven Pipelines to trigger an automated CodePipeline execution whenever a new container image is pushed to Amazon ECR or a release tag is created in GitHub.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to trigger an automated CodePipeline execution whenever a new container image is pushed to Amazon ECR or a release tag is created in GitHub.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Run a cron job polling the ECR repository API every 10 seconds from an EC2 instance." },
@@ -48,7 +48,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "Event-Driven CI/CD with Amazon EventBridge: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Event-Driven Pipelines to trigger an automated CodePipeline execution whenever a new container image is pushed to Amazon ECR or a release tag is created in GitHub.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to trigger an automated CodePipeline execution whenever a new container image is pushed to Amazon ECR or a release tag is created in GitHub.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Configure an Amazon EventBridge rule that matches the ECR `Image Action` or GitHub webhook event and targets the CodePipeline pipeline." },
@@ -69,7 +69,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "Event-Driven CI/CD with Amazon EventBridge: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Event-Driven Pipelines to trigger an automated CodePipeline execution whenever a new container image is pushed to Amazon ECR or a release tag is created in GitHub.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to trigger an automated CodePipeline execution whenever a new container image is pushed to Amazon ECR or a release tag is created in GitHub.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Require developers to manually log in to the AWS Console and click 'Release change'." },
@@ -90,7 +90,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "Event-Driven CI/CD with Amazon EventBridge: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Event-Driven Pipelines to trigger an automated CodePipeline execution whenever a new container image is pushed to Amazon ECR or a release tag is created in GitHub.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to trigger an automated CodePipeline execution whenever a new container image is pushed to Amazon ECR or a release tag is created in GitHub.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Run a cron job polling the ECR repository API every 10 seconds from an EC2 instance." },
@@ -111,7 +111,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "AWS CloudFormation StackSets across AWS Organizations: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates CloudFormation StackSets to deploy centralized security tooling and IAM roles consistently across hundreds of member accounts in an AWS Organization with automatic deployment to new accounts.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to deploy centralized security tooling and IAM roles consistently across hundreds of member accounts in an AWS Organization with automatic deployment to new accounts.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Write a custom Python script that runs raw AWS CLI commands sequentially over SSH." },
@@ -132,7 +132,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "AWS CloudFormation StackSets across AWS Organizations: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates CloudFormation StackSets to deploy centralized security tooling and IAM roles consistently across hundreds of member accounts in an AWS Organization with automatic deployment to new accounts.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to deploy centralized security tooling and IAM roles consistently across hundreds of member accounts in an AWS Organization with automatic deployment to new accounts.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Log in to each AWS account manually and deploy individual CloudFormation stacks via the console." },
@@ -153,7 +153,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "AWS CloudFormation StackSets across AWS Organizations: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates CloudFormation StackSets to deploy centralized security tooling and IAM roles consistently across hundreds of member accounts in an AWS Organization with automatic deployment to new accounts.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to deploy centralized security tooling and IAM roles consistently across hundreds of member accounts in an AWS Organization with automatic deployment to new accounts.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Write a custom Python script that runs raw AWS CLI commands sequentially over SSH." },
@@ -174,7 +174,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "AWS CloudFormation StackSets across AWS Organizations: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates CloudFormation StackSets to deploy centralized security tooling and IAM roles consistently across hundreds of member accounts in an AWS Organization with automatic deployment to new accounts.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to deploy centralized security tooling and IAM roles consistently across hundreds of member accounts in an AWS Organization with automatic deployment to new accounts.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Log in to each AWS account manually and deploy individual CloudFormation stacks via the console." },
@@ -195,7 +195,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "AWS CloudFormation StackSets across AWS Organizations: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates CloudFormation StackSets to deploy centralized security tooling and IAM roles consistently across hundreds of member accounts in an AWS Organization with automatic deployment to new accounts.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to deploy centralized security tooling and IAM roles consistently across hundreds of member accounts in an AWS Organization with automatic deployment to new accounts.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Share the root account credentials with all member accounts." },
@@ -216,7 +216,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "CloudFormation Drift Detection and Remediation: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Drift Detection to detect when an engineer has manually modified security group ingress rules or EC2 instance types outside of the approved CloudFormation template.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to detect when an engineer has manually modified security group ingress rules or EC2 instance types outside of the approved CloudFormation template.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Execute CloudFormation Drift Detection on the stack, review drifted resource properties, and update the template or import resources to restore alignment." },
@@ -237,7 +237,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "CloudFormation Drift Detection and Remediation: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Drift Detection to detect when an engineer has manually modified security group ingress rules or EC2 instance types outside of the approved CloudFormation template.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to detect when an engineer has manually modified security group ingress rules or EC2 instance types outside of the approved CloudFormation template.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Execute CloudFormation Drift Detection on the stack, review drifted resource properties, and update the template or import resources to restore alignment." },
@@ -258,7 +258,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "CloudFormation Drift Detection and Remediation: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Drift Detection to detect when an engineer has manually modified security group ingress rules or EC2 instance types outside of the approved CloudFormation template.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to detect when an engineer has manually modified security group ingress rules or EC2 instance types outside of the approved CloudFormation template.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Assume CloudFormation automatically prevents all manual console alterations." },
@@ -279,7 +279,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "CloudFormation Drift Detection and Remediation: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Drift Detection to detect when an engineer has manually modified security group ingress rules or EC2 instance types outside of the approved CloudFormation template.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to detect when an engineer has manually modified security group ingress rules or EC2 instance types outside of the approved CloudFormation template.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Delete the entire CloudFormation stack and rebuild infrastructure from scratch." },
@@ -300,7 +300,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "CloudFormation Drift Detection and Remediation: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Drift Detection to detect when an engineer has manually modified security group ingress rules or EC2 instance types outside of the approved CloudFormation template.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to detect when an engineer has manually modified security group ingress rules or EC2 instance types outside of the approved CloudFormation template.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Assume CloudFormation automatically prevents all manual console alterations." },
@@ -321,7 +321,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "AWS CDK for Programmatic Infrastructure: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates AWS CDK to define and provision complex, reusable cloud architectures with built-in security defaults using familiar object-oriented programming languages.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to define and provision complex, reusable cloud architectures with built-in security defaults using familiar object-oriented programming languages.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Write imperative shell scripts calling the AWS CLI." },
@@ -342,7 +342,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "AWS CDK for Programmatic Infrastructure: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates AWS CDK to define and provision complex, reusable cloud architectures with built-in security defaults using familiar object-oriented programming languages.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to define and provision complex, reusable cloud architectures with built-in security defaults using familiar object-oriented programming languages.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Avoid using infrastructure as code and configure resources via the AWS Console exclusively." },
@@ -363,7 +363,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "AWS CDK for Programmatic Infrastructure: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates AWS CDK to define and provision complex, reusable cloud architectures with built-in security defaults using familiar object-oriented programming languages.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to define and provision complex, reusable cloud architectures with built-in security defaults using familiar object-oriented programming languages.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Write imperative shell scripts calling the AWS CLI." },
@@ -384,7 +384,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "AWS CDK for Programmatic Infrastructure: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates AWS CDK to define and provision complex, reusable cloud architectures with built-in security defaults using familiar object-oriented programming languages.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to define and provision complex, reusable cloud architectures with built-in security defaults using familiar object-oriented programming languages.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Hand-craft raw 10,000-line JSON CloudFormation templates without validation." },
@@ -405,7 +405,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "AWS CDK for Programmatic Infrastructure: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates AWS CDK to define and provision complex, reusable cloud architectures with built-in security defaults using familiar object-oriented programming languages.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to define and provision complex, reusable cloud architectures with built-in security defaults using familiar object-oriented programming languages.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Avoid using infrastructure as code and configure resources via the AWS Console exclusively." },
@@ -426,7 +426,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "AWS Systems Manager State Manager and Associations: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates SSM State Manager to guarantee that all EC2 instances in an Auto Scaling group maintain required security configurations, antivirus agents, and software versions continuously.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to guarantee that all EC2 instances in an Auto Scaling group maintain required security configurations, antivirus agents, and software versions continuously.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Rebuild the entire Auto Scaling group every 30 minutes to apply updates." },
@@ -447,7 +447,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "AWS Systems Manager State Manager and Associations: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates SSM State Manager to guarantee that all EC2 instances in an Auto Scaling group maintain required security configurations, antivirus agents, and software versions continuously.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to guarantee that all EC2 instances in an Auto Scaling group maintain required security configurations, antivirus agents, and software versions continuously.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Rebuild the entire Auto Scaling group every 30 minutes to apply updates." },
@@ -468,7 +468,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "AWS Systems Manager State Manager and Associations: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates SSM State Manager to guarantee that all EC2 instances in an Auto Scaling group maintain required security configurations, antivirus agents, and software versions continuously.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to guarantee that all EC2 instances in an Auto Scaling group maintain required security configurations, antivirus agents, and software versions continuously.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Rely on EC2 user-data scripts that only execute once during initial instance launch." },
@@ -489,7 +489,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "AWS Systems Manager State Manager and Associations: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates SSM State Manager to guarantee that all EC2 instances in an Auto Scaling group maintain required security configurations, antivirus agents, and software versions continuously.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to guarantee that all EC2 instances in an Auto Scaling group maintain required security configurations, antivirus agents, and software versions continuously.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Create an AWS Systems Manager State Manager association targeting instances by tag, executing an SSM Document on a recurring schedule." },
@@ -510,7 +510,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Configuration Management and Infrastructure as Code",
     title: "AWS Systems Manager State Manager and Associations: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates SSM State Manager to guarantee that all EC2 instances in an Auto Scaling group maintain required security configurations, antivirus agents, and software versions continuously.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to guarantee that all EC2 instances in an Auto Scaling group maintain required security configurations, antivirus agents, and software versions continuously.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "SSH into each instance nightly and execute bash update commands manually." },

@@ -6,7 +6,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Self-Service Infrastructure Provisioning: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Self-Service to reduce mean time to environment provisioning from three weeks of manual ticket approvals to five minutes of automated self-service.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to reduce mean time to environment provisioning from three weeks of manual ticket approvals to five minutes of automated self-service.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Prohibit developers from creating any test environments to minimize infrastructure costs." },
@@ -27,7 +27,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Self-Service Infrastructure Provisioning: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Self-Service to reduce mean time to environment provisioning from three weeks of manual ticket approvals to five minutes of automated self-service.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to reduce mean time to environment provisioning from three weeks of manual ticket approvals to five minutes of automated self-service.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Require three tiers of executive manager signatures on physical paper forms before provisioning test databases." },
@@ -48,7 +48,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Self-Service Infrastructure Provisioning: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Self-Service to reduce mean time to environment provisioning from three weeks of manual ticket approvals to five minutes of automated self-service.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to reduce mean time to environment provisioning from three weeks of manual ticket approvals to five minutes of automated self-service.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Permit developers to manually click through cloud provider root accounts with no audit tracking." },
@@ -69,7 +69,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Self-Service Infrastructure Provisioning: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Self-Service to reduce mean time to environment provisioning from three weeks of manual ticket approvals to five minutes of automated self-service.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to reduce mean time to environment provisioning from three weeks of manual ticket approvals to five minutes of automated self-service.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Permit developers to manually click through cloud provider root accounts with no audit tracking." },
@@ -90,7 +90,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Self-Service Infrastructure Provisioning: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Self-Service to reduce mean time to environment provisioning from three weeks of manual ticket approvals to five minutes of automated self-service.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to reduce mean time to environment provisioning from three weeks of manual ticket approvals to five minutes of automated self-service.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Prohibit developers from creating any test environments to minimize infrastructure costs." },
@@ -111,7 +111,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Software Catalog and Service Metadata Centralization: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Service Catalog to enable an incident responder at 2 AM to immediately identify who owns a failing microservice, its API dependencies, and its runbook.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to enable an incident responder at 2 AM to immediately identify who owns a failing microservice, its API dependencies, and its runbook.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Maintain a centralized software catalog that records service ownership, repositories, deployed versions, and operational documentation." },
@@ -132,7 +132,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Software Catalog and Service Metadata Centralization: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Service Catalog to enable an incident responder at 2 AM to immediately identify who owns a failing microservice, its API dependencies, and its runbook.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to enable an incident responder at 2 AM to immediately identify who owns a failing microservice, its API dependencies, and its runbook.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Maintain a centralized software catalog that records service ownership, repositories, deployed versions, and operational documentation." },
@@ -153,7 +153,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Software Catalog and Service Metadata Centralization: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Service Catalog to enable an incident responder at 2 AM to immediately identify who owns a failing microservice, its API dependencies, and its runbook.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to enable an incident responder at 2 AM to immediately identify who owns a failing microservice, its API dependencies, and its runbook.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Maintain a centralized software catalog that records service ownership, repositories, deployed versions, and operational documentation." },
@@ -174,7 +174,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Software Catalog and Service Metadata Centralization: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Service Catalog to enable an incident responder at 2 AM to immediately identify who owns a failing microservice, its API dependencies, and its runbook.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to enable an incident responder at 2 AM to immediately identify who owns a failing microservice, its API dependencies, and its runbook.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Wait for customer complaints before identifying which team created a production service." },
@@ -195,7 +195,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Software Catalog and Service Metadata Centralization: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Service Catalog to enable an incident responder at 2 AM to immediately identify who owns a failing microservice, its API dependencies, and its runbook.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to enable an incident responder at 2 AM to immediately identify who owns a failing microservice, its API dependencies, and its runbook.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Rely on word-of-mouth institutional memory and obsolete spreadsheets saved on personal laptops." },
@@ -216,7 +216,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Ephemeral Environments and PR Preview Deployments: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Ephemeral Environments to allow feature branches to be tested against realistic microservice dependencies before merging into main, without incurring permanent cloud costs.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to allow feature branches to be tested against realistic microservice dependencies before merging into main, without incurring permanent cloud costs.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Automate the creation of isolated ephemeral environments for pull requests that automatically terminate upon PR merge or closure." },
@@ -237,7 +237,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Ephemeral Environments and PR Preview Deployments: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Ephemeral Environments to allow feature branches to be tested against realistic microservice dependencies before merging into main, without incurring permanent cloud costs.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to allow feature branches to be tested against realistic microservice dependencies before merging into main, without incurring permanent cloud costs.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Prohibit pre-merge testing in cloud environments." },
@@ -258,7 +258,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Ephemeral Environments and PR Preview Deployments: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Ephemeral Environments to allow feature branches to be tested against realistic microservice dependencies before merging into main, without incurring permanent cloud costs.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to allow feature branches to be tested against realistic microservice dependencies before merging into main, without incurring permanent cloud costs.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Keep all test environments running permanently in production clusters at maximum capacity." },
@@ -279,7 +279,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Ephemeral Environments and PR Preview Deployments: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Ephemeral Environments to allow feature branches to be tested against realistic microservice dependencies before merging into main, without incurring permanent cloud costs.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to allow feature branches to be tested against realistic microservice dependencies before merging into main, without incurring permanent cloud costs.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Keep all test environments running permanently in production clusters at maximum capacity." },
@@ -300,7 +300,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Ephemeral Environments and PR Preview Deployments: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Ephemeral Environments to allow feature branches to be tested against realistic microservice dependencies before merging into main, without incurring permanent cloud costs.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to allow feature branches to be tested against realistic microservice dependencies before merging into main, without incurring permanent cloud costs.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Prohibit pre-merge testing in cloud environments." },
@@ -321,7 +321,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Platform Orchestrator and Dynamic Environment Synthesis: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Platform Orchestrator to decouple application workload specifications from environment-specific infrastructure details across development, staging, and production.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to decouple application workload specifications from environment-specific infrastructure details across development, staging, and production.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Use a platform orchestrator and developer specification (like Score) to dynamically synthesize environment configurations at deploy time." },
@@ -342,7 +342,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Platform Orchestrator and Dynamic Environment Synthesis: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Platform Orchestrator to decouple application workload specifications from environment-specific infrastructure details across development, staging, and production.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to decouple application workload specifications from environment-specific infrastructure details across development, staging, and production.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Require developers to write bespoke Terraform scripts for each individual development laptop." },
@@ -363,7 +363,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Platform Orchestrator and Dynamic Environment Synthesis: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Platform Orchestrator to decouple application workload specifications from environment-specific infrastructure details across development, staging, and production.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to decouple application workload specifications from environment-specific infrastructure details across development, staging, and production.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Require developers to write bespoke Terraform scripts for each individual development laptop." },
@@ -384,7 +384,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Platform Orchestrator and Dynamic Environment Synthesis: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Platform Orchestrator to decouple application workload specifications from environment-specific infrastructure details across development, staging, and production.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to decouple application workload specifications from environment-specific infrastructure details across development, staging, and production.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Hardcode production database IP addresses directly into application source code." },
@@ -405,7 +405,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Platform Orchestrator and Dynamic Environment Synthesis: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Platform Orchestrator to decouple application workload specifications from environment-specific infrastructure details across development, staging, and production.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to decouple application workload specifications from environment-specific infrastructure details across development, staging, and production.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Duplicate thousands of lines of hardcoded YAML across dozens of environment-specific folders manually." },
@@ -426,7 +426,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer CLI: Unified Command-Line Interface: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Developer CLI to simplify daily developer tasks like tailing distributed logs, port-forwarding, or seeding databases without requiring deep kubectl expertise.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to simplify daily developer tasks like tailing distributed logs, port-forwarding, or seeding databases without requiring deep kubectl expertise.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Prohibit developers from using terminal command-line interfaces." },
@@ -447,7 +447,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer CLI: Unified Command-Line Interface: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Developer CLI to simplify daily developer tasks like tailing distributed logs, port-forwarding, or seeding databases without requiring deep kubectl expertise.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to simplify daily developer tasks like tailing distributed logs, port-forwarding, or seeding databases without requiring deep kubectl expertise.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Require every junior developer to memorize hundreds of intricate kubectl flags and shell pipes." },
@@ -468,7 +468,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer CLI: Unified Command-Line Interface: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Developer CLI to simplify daily developer tasks like tailing distributed logs, port-forwarding, or seeding databases without requiring deep kubectl expertise.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to simplify daily developer tasks like tailing distributed logs, port-forwarding, or seeding databases without requiring deep kubectl expertise.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Prohibit developers from using terminal command-line interfaces." },
@@ -489,7 +489,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer CLI: Unified Command-Line Interface: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Developer CLI to simplify daily developer tasks like tailing distributed logs, port-forwarding, or seeding databases without requiring deep kubectl expertise.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to simplify daily developer tasks like tailing distributed logs, port-forwarding, or seeding databases without requiring deep kubectl expertise.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Distribute a custom internal developer CLI that encapsulates complex multi-step kubectl, cloud, and auth commands into simple verbs." },
@@ -510,7 +510,7 @@ export const CNCF_CNPA_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer CLI: Unified Command-Line Interface: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Developer CLI to simplify daily developer tasks like tailing distributed logs, port-forwarding, or seeding databases without requiring deep kubectl expertise.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to simplify daily developer tasks like tailing distributed logs, port-forwarding, or seeding databases without requiring deep kubectl expertise.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Distribute a custom internal developer CLI that encapsulates complex multi-step kubectl, cloud, and auth commands into simple verbs." },

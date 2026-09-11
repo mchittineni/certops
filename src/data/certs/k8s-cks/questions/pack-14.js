@@ -6,7 +6,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Container Runtime Sandbox Isolation (gVisor / Kata): Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Runtime Sandboxing to run untrusted, multi-tenant container code on Kubernetes without risking host kernel exploits if a container escape occurs.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to run untrusted, multi-tenant container code on Kubernetes without risking host kernel exploits if a container escape occurs.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely on Linux namespace isolation as a sufficient sandbox for hostile code." },
@@ -27,7 +27,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Container Runtime Sandbox Isolation (gVisor / Kata): High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Runtime Sandboxing to run untrusted, multi-tenant container code on Kubernetes without risking host kernel exploits if a container escape occurs.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to run untrusted, multi-tenant container code on Kubernetes without risking host kernel exploits if a container escape occurs.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Execute untrusted code directly in the master node host shell." },
@@ -48,7 +48,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Container Runtime Sandbox Isolation (gVisor / Kata): Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Runtime Sandboxing to run untrusted, multi-tenant container code on Kubernetes without risking host kernel exploits if a container escape occurs.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to run untrusted, multi-tenant container code on Kubernetes without risking host kernel exploits if a container escape occurs.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Execute untrusted code directly in the master node host shell." },
@@ -69,7 +69,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Container Runtime Sandbox Isolation (gVisor / Kata): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Runtime Sandboxing to run untrusted, multi-tenant container code on Kubernetes without risking host kernel exploits if a container escape occurs.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to run untrusted, multi-tenant container code on Kubernetes without risking host kernel exploits if a container escape occurs.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Rely on Linux namespace isolation as a sufficient sandbox for hostile code." },
@@ -90,7 +90,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "System Hardening and Kernel Security",
     title: "Container Runtime Sandbox Isolation (gVisor / Kata): Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Runtime Sandboxing to run untrusted, multi-tenant container code on Kubernetes without risking host kernel exploits if a container escape occurs.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to run untrusted, multi-tenant container code on Kubernetes without risking host kernel exploits if a container escape occurs.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Rely on Linux namespace isolation as a sufficient sandbox for hostile code." },
@@ -111,7 +111,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Pod Security Admission (PSA) Enforcement: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Pod Security Admission to enforce cluster-wide pod security baselines without deploying complex third-party policy engines.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to enforce cluster-wide pod security baselines without deploying complex third-party policy engines.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Remove all securityContext blocks from pod manifests." },
@@ -132,7 +132,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Pod Security Admission (PSA) Enforcement: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Pod Security Admission to enforce cluster-wide pod security baselines without deploying complex third-party policy engines.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to enforce cluster-wide pod security baselines without deploying complex third-party policy engines.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Remove all securityContext blocks from pod manifests." },
@@ -153,7 +153,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Pod Security Admission (PSA) Enforcement: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Pod Security Admission to enforce cluster-wide pod security baselines without deploying complex third-party policy engines.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to enforce cluster-wide pod security baselines without deploying complex third-party policy engines.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Allow all pods to run as privileged users unconditionally." },
@@ -174,7 +174,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Pod Security Admission (PSA) Enforcement: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Pod Security Admission to enforce cluster-wide pod security baselines without deploying complex third-party policy engines.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to enforce cluster-wide pod security baselines without deploying complex third-party policy engines.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Allow all pods to run as privileged users unconditionally." },
@@ -195,7 +195,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Pod Security Admission (PSA) Enforcement: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Pod Security Admission to enforce cluster-wide pod security baselines without deploying complex third-party policy engines.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to enforce cluster-wide pod security baselines without deploying complex third-party policy engines.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Install deprecated PodSecurityPolicy manifests in Kubernetes 1.25+." },
@@ -216,7 +216,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Restricting Secret Access with RBAC: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Secret RBAC to prevent developers with debugging access in a namespace from inspecting production database passwords stored in Secrets.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent developers with debugging access in a namespace from inspecting production database passwords stored in Secrets.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Grant full read access to all resources in the namespace using wildcard `*`." },
@@ -237,7 +237,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Restricting Secret Access with RBAC: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Secret RBAC to prevent developers with debugging access in a namespace from inspecting production database passwords stored in Secrets.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent developers with debugging access in a namespace from inspecting production database passwords stored in Secrets.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Ensure developer Roles omit `get`, `list`, and `watch` permissions on `secrets` resources, granting access only to `configmaps` and `pods`." },
@@ -258,7 +258,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Restricting Secret Access with RBAC: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Secret RBAC to prevent developers with debugging access in a namespace from inspecting production database passwords stored in Secrets.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent developers with debugging access in a namespace from inspecting production database passwords stored in Secrets.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Ensure developer Roles omit `get`, `list`, and `watch` permissions on `secrets` resources, granting access only to `configmaps` and `pods`." },
@@ -279,7 +279,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Restricting Secret Access with RBAC: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Secret RBAC to prevent developers with debugging access in a namespace from inspecting production database passwords stored in Secrets.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent developers with debugging access in a namespace from inspecting production database passwords stored in Secrets.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Ensure developer Roles omit `get`, `list`, and `watch` permissions on `secrets` resources, granting access only to `configmaps` and `pods`." },
@@ -300,7 +300,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Restricting Secret Access with RBAC: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Secret RBAC to prevent developers with debugging access in a namespace from inspecting production database passwords stored in Secrets.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent developers with debugging access in a namespace from inspecting production database passwords stored in Secrets.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Hardcode passwords in application container environment variables." },
@@ -321,7 +321,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Container Image Footprint and Distroless Hardening: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Minimal Images to minimize Common Vulnerabilities and Exposures (CVEs) and eliminate potential post-exploitation tools in a Java microservice.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to minimize Common Vulnerabilities and Exposures (CVEs) and eliminate potential post-exploitation tools in a Java microservice.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Install netcat, curl, and nmap in the container image for debugging." },
@@ -342,7 +342,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Container Image Footprint and Distroless Hardening: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Minimal Images to minimize Common Vulnerabilities and Exposures (CVEs) and eliminate potential post-exploitation tools in a Java microservice.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to minimize Common Vulnerabilities and Exposures (CVEs) and eliminate potential post-exploitation tools in a Java microservice.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Install netcat, curl, and nmap in the container image for debugging." },
@@ -363,7 +363,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Container Image Footprint and Distroless Hardening: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Minimal Images to minimize Common Vulnerabilities and Exposures (CVEs) and eliminate potential post-exploitation tools in a Java microservice.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to minimize Common Vulnerabilities and Exposures (CVEs) and eliminate potential post-exploitation tools in a Java microservice.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Install netcat, curl, and nmap in the container image for debugging." },
@@ -384,7 +384,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Container Image Footprint and Distroless Hardening: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Minimal Images to minimize Common Vulnerabilities and Exposures (CVEs) and eliminate potential post-exploitation tools in a Java microservice.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to minimize Common Vulnerabilities and Exposures (CVEs) and eliminate potential post-exploitation tools in a Java microservice.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Use a full Debian or Ubuntu image and install developer tools in production." },
@@ -405,7 +405,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Container Image Footprint and Distroless Hardening: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Minimal Images to minimize Common Vulnerabilities and Exposures (CVEs) and eliminate potential post-exploitation tools in a Java microservice.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to minimize Common Vulnerabilities and Exposures (CVEs) and eliminate potential post-exploitation tools in a Java microservice.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Build the application using Google Distroless Java base images, removing package managers, shells, and utilities." },
@@ -426,7 +426,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Enforcing readOnlyRootFilesystem in Containers: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Filesystem Security to prevent malicious actors from writing scripts or modifying binaries inside a compromised microservice container.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent malicious actors from writing scripts or modifying binaries inside a compromised microservice container.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Grant write access to the host /bin and /usr directories." },
@@ -447,7 +447,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Enforcing readOnlyRootFilesystem in Containers: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Filesystem Security to prevent malicious actors from writing scripts or modifying binaries inside a compromised microservice container.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent malicious actors from writing scripts or modifying binaries inside a compromised microservice container.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Leave the container root filesystem writable with chmod 777 permissions." },
@@ -468,7 +468,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Enforcing readOnlyRootFilesystem in Containers: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Filesystem Security to prevent malicious actors from writing scripts or modifying binaries inside a compromised microservice container.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent malicious actors from writing scripts or modifying binaries inside a compromised microservice container.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Leave the container root filesystem writable with chmod 777 permissions." },
@@ -489,7 +489,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Enforcing readOnlyRootFilesystem in Containers: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Filesystem Security to prevent malicious actors from writing scripts or modifying binaries inside a compromised microservice container.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent malicious actors from writing scripts or modifying binaries inside a compromised microservice container.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Grant write access to the host /bin and /usr directories." },
@@ -510,7 +510,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Minimize Microservice Vulnerabilities",
     title: "Enforcing readOnlyRootFilesystem in Containers: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Filesystem Security to prevent malicious actors from writing scripts or modifying binaries inside a compromised microservice container.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent malicious actors from writing scripts or modifying binaries inside a compromised microservice container.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Mount the entire host root filesystem inside the container." },

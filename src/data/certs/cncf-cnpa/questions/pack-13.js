@@ -6,7 +6,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Workload Autoscaling Substrates: KEDA and Karpenter: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Autoscaling Substrate to scale streaming consumer pods from 0 to 1,000 based on Kafka queue lag and rapidly provision optimized compute nodes.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to scale streaming consumer pods from 0 to 1,000 based on Kafka queue lag and rapidly provision optimized compute nodes.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Require human operators to manually add cloud servers during traffic surges." },
@@ -27,7 +27,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Workload Autoscaling Substrates: KEDA and Karpenter: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Autoscaling Substrate to scale streaming consumer pods from 0 to 1,000 based on Kafka queue lag and rapidly provision optimized compute nodes.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to scale streaming consumer pods from 0 to 1,000 based on Kafka queue lag and rapidly provision optimized compute nodes.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Overprovision static high-end compute instances running at 100% capacity 24/7." },
@@ -48,7 +48,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Workload Autoscaling Substrates: KEDA and Karpenter: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Autoscaling Substrate to scale streaming consumer pods from 0 to 1,000 based on Kafka queue lag and rapidly provision optimized compute nodes.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to scale streaming consumer pods from 0 to 1,000 based on Kafka queue lag and rapidly provision optimized compute nodes.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Rely exclusively on CPU utilization metrics that lag significantly behind queue message spikes." },
@@ -69,7 +69,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Workload Autoscaling Substrates: KEDA and Karpenter: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Autoscaling Substrate to scale streaming consumer pods from 0 to 1,000 based on Kafka queue lag and rapidly provision optimized compute nodes.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to scale streaming consumer pods from 0 to 1,000 based on Kafka queue lag and rapidly provision optimized compute nodes.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Require human operators to manually add cloud servers during traffic surges." },
@@ -90,7 +90,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Workload Autoscaling Substrates: KEDA and Karpenter: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Autoscaling Substrate to scale streaming consumer pods from 0 to 1,000 based on Kafka queue lag and rapidly provision optimized compute nodes.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to scale streaming consumer pods from 0 to 1,000 based on Kafka queue lag and rapidly provision optimized compute nodes.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Rely exclusively on CPU utilization metrics that lag significantly behind queue message spikes." },
@@ -111,7 +111,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Edge and Hybrid Cloud Substrates: Lightweight K3s and WAN Tolerance: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Edge Substrates to operate microservices across thousands of edge retail kiosks that must continue transacting even during regional internet outages.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to operate microservices across thousands of edge retail kiosks that must continue transacting even during regional internet outages.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Require a continuous high-speed fiber-optic connection to centralized cloud control planes to process every local transaction." },
@@ -132,7 +132,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Edge and Hybrid Cloud Substrates: Lightweight K3s and WAN Tolerance: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Edge Substrates to operate microservices across thousands of edge retail kiosks that must continue transacting even during regional internet outages.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to operate microservices across thousands of edge retail kiosks that must continue transacting even during regional internet outages.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Disable local container storage and pull images over 2G cellular connections on every pod restart." },
@@ -153,7 +153,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Edge and Hybrid Cloud Substrates: Lightweight K3s and WAN Tolerance: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Edge Substrates to operate microservices across thousands of edge retail kiosks that must continue transacting even during regional internet outages.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to operate microservices across thousands of edge retail kiosks that must continue transacting even during regional internet outages.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Require a continuous high-speed fiber-optic connection to centralized cloud control planes to process every local transaction." },
@@ -174,7 +174,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Edge and Hybrid Cloud Substrates: Lightweight K3s and WAN Tolerance: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Edge Substrates to operate microservices across thousands of edge retail kiosks that must continue transacting even during regional internet outages.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to operate microservices across thousands of edge retail kiosks that must continue transacting even during regional internet outages.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Deploy lightweight K3s clusters engineered for resource efficiency and autonomous local operation during network partition." },
@@ -195,7 +195,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Edge and Hybrid Cloud Substrates: Lightweight K3s and WAN Tolerance: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Edge Substrates to operate microservices across thousands of edge retail kiosks that must continue transacting even during regional internet outages.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to operate microservices across thousands of edge retail kiosks that must continue transacting even during regional internet outages.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Require a continuous high-speed fiber-optic connection to centralized cloud control planes to process every local transaction." },
@@ -216,7 +216,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Platform as a Product (PaaP) Principles: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Platform as a Product to transition a traditional ticket-based infrastructure operations team into a modern high-performing platform engineering organization.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to transition a traditional ticket-based infrastructure operations team into a modern high-performing platform engineering organization.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Adopt Platform as a Product (PaaP): treat internal developers as customers, gather user feedback, and measure DevEx metrics." },
@@ -237,7 +237,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Platform as a Product (PaaP) Principles: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Platform as a Product to transition a traditional ticket-based infrastructure operations team into a modern high-performing platform engineering organization.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to transition a traditional ticket-based infrastructure operations team into a modern high-performing platform engineering organization.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Adopt Platform as a Product (PaaP): treat internal developers as customers, gather user feedback, and measure DevEx metrics." },
@@ -258,7 +258,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Platform as a Product (PaaP) Principles: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Platform as a Product to transition a traditional ticket-based infrastructure operations team into a modern high-performing platform engineering organization.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to transition a traditional ticket-based infrastructure operations team into a modern high-performing platform engineering organization.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Force developers to use rigid, mandate-driven tooling without gathering feedback or measuring developer friction." },
@@ -279,7 +279,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Platform as a Product (PaaP) Principles: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Platform as a Product to transition a traditional ticket-based infrastructure operations team into a modern high-performing platform engineering organization.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to transition a traditional ticket-based infrastructure operations team into a modern high-performing platform engineering organization.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Adopt Platform as a Product (PaaP): treat internal developers as customers, gather user feedback, and measure DevEx metrics." },
@@ -300,7 +300,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Platform as a Product (PaaP) Principles: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Platform as a Product to transition a traditional ticket-based infrastructure operations team into a modern high-performing platform engineering organization.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to transition a traditional ticket-based infrastructure operations team into a modern high-performing platform engineering organization.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Adopt Platform as a Product (PaaP): treat internal developers as customers, gather user feedback, and measure DevEx metrics." },
@@ -321,7 +321,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Thinnest Viable Platform (TVP) Concept: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Thinnest Viable Platform to deliver immediate developer velocity improvements without building an overly complex, unmaintainable in-house platform monolith.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to deliver immediate developer velocity improvements without building an overly complex, unmaintainable in-house platform monolith.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Over-engineer complex custom systems before identifying developer pain points." },
@@ -342,7 +342,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Thinnest Viable Platform (TVP) Concept: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Thinnest Viable Platform to deliver immediate developer velocity improvements without building an overly complex, unmaintainable in-house platform monolith.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to deliver immediate developer velocity improvements without building an overly complex, unmaintainable in-house platform monolith.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Expose raw cloud provider infrastructure consoles with no abstractions or documentation." },
@@ -363,7 +363,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Thinnest Viable Platform (TVP) Concept: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Thinnest Viable Platform to deliver immediate developer velocity improvements without building an overly complex, unmaintainable in-house platform monolith.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to deliver immediate developer velocity improvements without building an overly complex, unmaintainable in-house platform monolith.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Build a Thinnest Viable Platform (TVP) by leveraging established open-source tools and abstracting only the highest-friction bottlenecks." },
@@ -384,7 +384,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Thinnest Viable Platform (TVP) Concept: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Thinnest Viable Platform to deliver immediate developer velocity improvements without building an overly complex, unmaintainable in-house platform monolith.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to deliver immediate developer velocity improvements without building an overly complex, unmaintainable in-house platform monolith.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Expose raw cloud provider infrastructure consoles with no abstractions or documentation." },
@@ -405,7 +405,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Thinnest Viable Platform (TVP) Concept: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Thinnest Viable Platform to deliver immediate developer velocity improvements without building an overly complex, unmaintainable in-house platform monolith.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to deliver immediate developer velocity improvements without building an overly complex, unmaintainable in-house platform monolith.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Build a Thinnest Viable Platform (TVP) by leveraging established open-source tools and abstracting only the highest-friction bottlenecks." },
@@ -426,7 +426,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer Portals vs Developer Platforms: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Portal vs Platform to clarify organizational terminology and architectural boundaries when designing internal developer tooling.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to clarify organizational terminology and architectural boundaries when designing internal developer tooling.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Recognize the Developer Portal as the user interface layer (e.g., Backstage) and the Developer Platform as the complete engine (orchestrators, substrates, pipelines)." },
@@ -447,7 +447,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer Portals vs Developer Platforms: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Portal vs Platform to clarify organizational terminology and architectural boundaries when designing internal developer tooling.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to clarify organizational terminology and architectural boundaries when designing internal developer tooling.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Recognize the Developer Portal as the user interface layer (e.g., Backstage) and the Developer Platform as the complete engine (orchestrators, substrates, pipelines)." },
@@ -468,7 +468,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer Portals vs Developer Platforms: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Portal vs Platform to clarify organizational terminology and architectural boundaries when designing internal developer tooling.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to clarify organizational terminology and architectural boundaries when designing internal developer tooling.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Replace all underlying cloud infrastructure, databases, and CI/CD pipelines with a single standalone React website." },
@@ -489,7 +489,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer Portals vs Developer Platforms: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Portal vs Platform to clarify organizational terminology and architectural boundaries when designing internal developer tooling.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to clarify organizational terminology and architectural boundaries when designing internal developer tooling.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Build developer portals without any underlying automation or orchestration engine." },
@@ -510,7 +510,7 @@ export const CNCF_CNPA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer Portals vs Developer Platforms: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Portal vs Platform to clarify organizational terminology and architectural boundaries when designing internal developer tooling.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to clarify organizational terminology and architectural boundaries when designing internal developer tooling.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Assume the developer portal and the developer platform are completely identical terms with no architectural distinction." },

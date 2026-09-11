@@ -6,7 +6,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "CodeQL CLI in External CI Systems (Jenkins, GitLab): Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates CodeQL CLI to run CodeQL static analysis on build jobs running inside an external enterprise Jenkins or GitLab CI/CD pipeline.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to run CodeQL static analysis on build jobs running inside an external enterprise Jenkins or GitLab CI/CD pipeline.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Migrate all company infrastructure to GitHub Actions immediately regardless of enterprise constraints." },
@@ -27,7 +27,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "CodeQL CLI in External CI Systems (Jenkins, GitLab): Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates CodeQL CLI to run CodeQL static analysis on build jobs running inside an external enterprise Jenkins or GitLab CI/CD pipeline.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to run CodeQL static analysis on build jobs running inside an external enterprise Jenkins or GitLab CI/CD pipeline.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Migrate all company infrastructure to GitHub Actions immediately regardless of enterprise constraints." },
@@ -48,7 +48,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "CodeQL CLI in External CI Systems (Jenkins, GitLab): Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates CodeQL CLI to run CodeQL static analysis on build jobs running inside an external enterprise Jenkins or GitLab CI/CD pipeline.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to run CodeQL static analysis on build jobs running inside an external enterprise Jenkins or GitLab CI/CD pipeline.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Use the CodeQL CLI to run `codeql database create`, `codeql database analyze`, and upload the resulting SARIF file to the GitHub Code Scanning API." },
@@ -69,7 +69,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "CodeQL CLI in External CI Systems (Jenkins, GitLab): Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates CodeQL CLI to run CodeQL static analysis on build jobs running inside an external enterprise Jenkins or GitLab CI/CD pipeline.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to run CodeQL static analysis on build jobs running inside an external enterprise Jenkins or GitLab CI/CD pipeline.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Use the CodeQL CLI to run `codeql database create`, `codeql database analyze`, and upload the resulting SARIF file to the GitHub Code Scanning API." },
@@ -90,7 +90,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "CodeQL CLI in External CI Systems (Jenkins, GitLab): Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates CodeQL CLI to run CodeQL static analysis on build jobs running inside an external enterprise Jenkins or GitLab CI/CD pipeline.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to run CodeQL static analysis on build jobs running inside an external enterprise Jenkins or GitLab CI/CD pipeline.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Execute unverified third-party binaries that lack security attestation." },
@@ -111,7 +111,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "SARIF Format and Third-Party SAST Integration: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates SARIF Standard to display findings from third-party security tools (e.g., Snyk, Checkmarx, SonarQube, Trivy) alongside CodeQL in GitHub Security.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to display findings from third-party security tools (e.g., Snyk, Checkmarx, SonarQube, Trivy) alongside CodeQL in GitHub Security.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Display third-party findings only in external tool web dashboards." },
@@ -132,7 +132,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "SARIF Format and Third-Party SAST Integration: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates SARIF Standard to display findings from third-party security tools (e.g., Snyk, Checkmarx, SonarQube, Trivy) alongside CodeQL in GitHub Security.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to display findings from third-party security tools (e.g., Snyk, Checkmarx, SonarQube, Trivy) alongside CodeQL in GitHub Security.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Display third-party findings only in external tool web dashboards." },
@@ -153,7 +153,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "SARIF Format and Third-Party SAST Integration: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates SARIF Standard to display findings from third-party security tools (e.g., Snyk, Checkmarx, SonarQube, Trivy) alongside CodeQL in GitHub Security.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to display findings from third-party security tools (e.g., Snyk, Checkmarx, SonarQube, Trivy) alongside CodeQL in GitHub Security.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Configure third-party tools to output results in SARIF format and upload them using `github/codeql-action/upload-sarif`." },
@@ -174,7 +174,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "SARIF Format and Third-Party SAST Integration: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates SARIF Standard to display findings from third-party security tools (e.g., Snyk, Checkmarx, SonarQube, Trivy) alongside CodeQL in GitHub Security.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to display findings from third-party security tools (e.g., Snyk, Checkmarx, SonarQube, Trivy) alongside CodeQL in GitHub Security.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Display third-party findings only in external tool web dashboards." },
@@ -195,7 +195,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "SARIF Format and Third-Party SAST Integration: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates SARIF Standard to display findings from third-party security tools (e.g., Snyk, Checkmarx, SonarQube, Trivy) alongside CodeQL in GitHub Security.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to display findings from third-party security tools (e.g., Snyk, Checkmarx, SonarQube, Trivy) alongside CodeQL in GitHub Security.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Display third-party findings only in external tool web dashboards." },
@@ -216,7 +216,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Compiled Languages Autobuilder and Troubleshooting: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Autobuilder to resolve a CodeQL build failure in a complex multi-module Java/Gradle project that requires custom build flags and JDK versions.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to resolve a CodeQL build failure in a complex multi-module Java/Gradle project that requires custom build flags and JDK versions.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Ignore build errors and upload empty SARIF files to satisfy compliance gates." },
@@ -237,7 +237,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Compiled Languages Autobuilder and Troubleshooting: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Autobuilder to resolve a CodeQL build failure in a complex multi-module Java/Gradle project that requires custom build flags and JDK versions.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to resolve a CodeQL build failure in a complex multi-module Java/Gradle project that requires custom build flags and JDK versions.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Replace the `autobuild` step in the CodeQL Advanced Setup workflow with explicit manual build commands (`./gradlew build -x test`)." },
@@ -258,7 +258,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Compiled Languages Autobuilder and Troubleshooting: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Autobuilder to resolve a CodeQL build failure in a complex multi-module Java/Gradle project that requires custom build flags and JDK versions.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to resolve a CodeQL build failure in a complex multi-module Java/Gradle project that requires custom build flags and JDK versions.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Remove the Gradle wrapper and commit uncompiled .class files directly to git." },
@@ -279,7 +279,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Compiled Languages Autobuilder and Troubleshooting: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Autobuilder to resolve a CodeQL build failure in a complex multi-module Java/Gradle project that requires custom build flags and JDK versions.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to resolve a CodeQL build failure in a complex multi-module Java/Gradle project that requires custom build flags and JDK versions.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Replace the `autobuild` step in the CodeQL Advanced Setup workflow with explicit manual build commands (`./gradlew build -x test`)." },
@@ -300,7 +300,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Compiled Languages Autobuilder and Troubleshooting: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Autobuilder to resolve a CodeQL build failure in a complex multi-module Java/Gradle project that requires custom build flags and JDK versions.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to resolve a CodeQL build failure in a complex multi-module Java/Gradle project that requires custom build flags and JDK versions.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Disable CodeQL scanning for all compiled languages and scan only plaintext documentation." },
@@ -321,7 +321,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Pull Request Code Scanning and Branch Protection Gates: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates PR Code Scanning to ensure that any pull request introducing a new High or Critical CodeQL security finding is automatically blocked from merging.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to ensure that any pull request introducing a new High or Critical CodeQL security finding is automatically blocked from merging.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Run CodeQL scans only once a month against the main branch." },
@@ -342,7 +342,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Pull Request Code Scanning and Branch Protection Gates: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates PR Code Scanning to ensure that any pull request introducing a new High or Critical CodeQL security finding is automatically blocked from merging.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to ensure that any pull request introducing a new High or Critical CodeQL security finding is automatically blocked from merging.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Configure a branch protection rule or ruleset requiring the CodeQL code scanning status check to pass before merging." },
@@ -363,7 +363,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Pull Request Code Scanning and Branch Protection Gates: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates PR Code Scanning to ensure that any pull request introducing a new High or Critical CodeQL security finding is automatically blocked from merging.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to ensure that any pull request introducing a new High or Critical CodeQL security finding is automatically blocked from merging.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Configure a branch protection rule or ruleset requiring the CodeQL code scanning status check to pass before merging." },
@@ -384,7 +384,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Pull Request Code Scanning and Branch Protection Gates: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates PR Code Scanning to ensure that any pull request introducing a new High or Critical CodeQL security finding is automatically blocked from merging.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to ensure that any pull request introducing a new High or Critical CodeQL security finding is automatically blocked from merging.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Disable branch protection to maximize development velocity." },
@@ -405,7 +405,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Pull Request Code Scanning and Branch Protection Gates: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates PR Code Scanning to ensure that any pull request introducing a new High or Critical CodeQL security finding is automatically blocked from merging.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to ensure that any pull request introducing a new High or Critical CodeQL security finding is automatically blocked from merging.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Disable branch protection to maximize development velocity." },
@@ -426,7 +426,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Code Scanning Alert Triage, Dismissal, and Auditing: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Alert Triage to dismiss a CodeQL alert on an intentional test mock script while maintaining an auditable record of the decision.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to dismiss a CodeQL alert on an intentional test mock script while maintaining an auditable record of the decision.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Dismiss all enterprise alerts as `False positive` without reviewing the code." },
@@ -447,7 +447,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Code Scanning Alert Triage, Dismissal, and Auditing: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Alert Triage to dismiss a CodeQL alert on an intentional test mock script while maintaining an auditable record of the decision.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to dismiss a CodeQL alert on an intentional test mock script while maintaining an auditable record of the decision.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Modify CodeQL core libraries to suppress all warning messages globally." },
@@ -468,7 +468,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Code Scanning Alert Triage, Dismissal, and Auditing: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Alert Triage to dismiss a CodeQL alert on an intentional test mock script while maintaining an auditable record of the decision.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to dismiss a CodeQL alert on an intentional test mock script while maintaining an auditable record of the decision.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Delete the source code file from git to make the alert disappear." },
@@ -489,7 +489,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Code Scanning Alert Triage, Dismissal, and Auditing: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Alert Triage to dismiss a CodeQL alert on an intentional test mock script while maintaining an auditable record of the decision.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to dismiss a CodeQL alert on an intentional test mock script while maintaining an auditable record of the decision.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Dismiss the alert in the GitHub UI, selecting `Used in tests` as the reason and adding an explanatory comment." },
@@ -510,7 +510,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Code Scanning Alert Triage, Dismissal, and Auditing: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Alert Triage to dismiss a CodeQL alert on an intentional test mock script while maintaining an auditable record of the decision.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to dismiss a CodeQL alert on an intentional test mock script while maintaining an auditable record of the decision.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Modify CodeQL core libraries to suppress all warning messages globally." },

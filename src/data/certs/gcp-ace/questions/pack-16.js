@@ -6,7 +6,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud Storage Bucket Creation and gsutil / gcloud storage: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Storage to create a regionally redundant Cloud Storage bucket in us-central1 with uniform access controls and object versioning enabled via CLI.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to create a regionally redundant Cloud Storage bucket in us-central1 with uniform access controls and object versioning enabled via CLI.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Create the bucket using an unencrypted local FTP client." },
@@ -27,7 +27,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud Storage Bucket Creation and gsutil / gcloud storage: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Storage to create a regionally redundant Cloud Storage bucket in us-central1 with uniform access controls and object versioning enabled via CLI.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to create a regionally redundant Cloud Storage bucket in us-central1 with uniform access controls and object versioning enabled via CLI.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Execute 'gcloud storage buckets create gs://BUCKET_NAME --location=us-central1 --uniform-bucket-level-access' and enable versioning." },
@@ -48,7 +48,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud Storage Bucket Creation and gsutil / gcloud storage: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Storage to create a regionally redundant Cloud Storage bucket in us-central1 with uniform access controls and object versioning enabled via CLI.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to create a regionally redundant Cloud Storage bucket in us-central1 with uniform access controls and object versioning enabled via CLI.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Create a public Google Drive folder and share the link with the internet." },
@@ -69,7 +69,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud Storage Bucket Creation and gsutil / gcloud storage: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Storage to create a regionally redundant Cloud Storage bucket in us-central1 with uniform access controls and object versioning enabled via CLI.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to create a regionally redundant Cloud Storage bucket in us-central1 with uniform access controls and object versioning enabled via CLI.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Create a public Google Drive folder and share the link with the internet." },
@@ -90,7 +90,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud Storage Bucket Creation and gsutil / gcloud storage: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Storage to create a regionally redundant Cloud Storage bucket in us-central1 with uniform access controls and object versioning enabled via CLI.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to create a regionally redundant Cloud Storage bucket in us-central1 with uniform access controls and object versioning enabled via CLI.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Execute 'gcloud storage buckets create gs://BUCKET_NAME --location=us-central1 --uniform-bucket-level-access' and enable versioning." },
@@ -111,7 +111,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud SQL Instance Provisioning and Database Creation: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud SQL to deploy a fully managed PostgreSQL database on Cloud SQL configured with private IP connectivity to a designated VPC without public internet exposure.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to deploy a fully managed PostgreSQL database on Cloud SQL configured with private IP connectivity to a designated VPC without public internet exposure.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Use Cloud Bigtable for relational SQL queries." },
@@ -132,7 +132,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud SQL Instance Provisioning and Database Creation: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud SQL to deploy a fully managed PostgreSQL database on Cloud SQL configured with private IP connectivity to a designated VPC without public internet exposure.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to deploy a fully managed PostgreSQL database on Cloud SQL configured with private IP connectivity to a designated VPC without public internet exposure.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Execute 'gcloud sql instances create' specifying private network flags and enabling automated backups." },
@@ -153,7 +153,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud SQL Instance Provisioning and Database Creation: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud SQL to deploy a fully managed PostgreSQL database on Cloud SQL configured with private IP connectivity to a designated VPC without public internet exposure.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to deploy a fully managed PostgreSQL database on Cloud SQL configured with private IP connectivity to a designated VPC without public internet exposure.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy a local SQLite database file on an NFS share." },
@@ -174,7 +174,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud SQL Instance Provisioning and Database Creation: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud SQL to deploy a fully managed PostgreSQL database on Cloud SQL configured with private IP connectivity to a designated VPC without public internet exposure.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to deploy a fully managed PostgreSQL database on Cloud SQL configured with private IP connectivity to a designated VPC without public internet exposure.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy a local SQLite database file on an NFS share." },
@@ -195,7 +195,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud SQL Instance Provisioning and Database Creation: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud SQL to deploy a fully managed PostgreSQL database on Cloud SQL configured with private IP connectivity to a designated VPC without public internet exposure.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to deploy a fully managed PostgreSQL database on Cloud SQL configured with private IP connectivity to a designated VPC without public internet exposure.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Use Cloud Bigtable for relational SQL queries." },
@@ -216,7 +216,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "VPC Network and Subnet Creation (Custom Mode): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates VPC Networking to create a secure enterprise Virtual Private Cloud (VPC) network with custom subnets in us-east1 and europe-west1, ensuring no default auto-mode subnets are created.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to create a secure enterprise Virtual Private Cloud (VPC) network with custom subnets in us-east1 and europe-west1, ensuring no default auto-mode subnets are created.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy all servers into the legacy default VPC network." },
@@ -237,7 +237,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "VPC Network and Subnet Creation (Custom Mode): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates VPC Networking to create a secure enterprise Virtual Private Cloud (VPC) network with custom subnets in us-east1 and europe-west1, ensuring no default auto-mode subnets are created.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to create a secure enterprise Virtual Private Cloud (VPC) network with custom subnets in us-east1 and europe-west1, ensuring no default auto-mode subnets are created.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Connect virtual machines using public internet IP addresses without a VPC." },
@@ -258,7 +258,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "VPC Network and Subnet Creation (Custom Mode): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates VPC Networking to create a secure enterprise Virtual Private Cloud (VPC) network with custom subnets in us-east1 and europe-west1, ensuring no default auto-mode subnets are created.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to create a secure enterprise Virtual Private Cloud (VPC) network with custom subnets in us-east1 and europe-west1, ensuring no default auto-mode subnets are created.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy all servers into the legacy default VPC network." },
@@ -279,7 +279,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "VPC Network and Subnet Creation (Custom Mode): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates VPC Networking to create a secure enterprise Virtual Private Cloud (VPC) network with custom subnets in us-east1 and europe-west1, ensuring no default auto-mode subnets are created.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to create a secure enterprise Virtual Private Cloud (VPC) network with custom subnets in us-east1 and europe-west1, ensuring no default auto-mode subnets are created.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy all servers into the legacy default VPC network." },
@@ -300,7 +300,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "VPC Network and Subnet Creation (Custom Mode): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates VPC Networking to create a secure enterprise Virtual Private Cloud (VPC) network with custom subnets in us-east1 and europe-west1, ensuring no default auto-mode subnets are created.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to create a secure enterprise Virtual Private Cloud (VPC) network with custom subnets in us-east1 and europe-west1, ensuring no default auto-mode subnets are created.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Create an Auto Mode VPC network that automatically creates subnets in every global region." },
@@ -321,7 +321,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "VPC Firewall Rules (Ingress and Egress Filtering): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates VPC Networking to allow inbound HTTPS (port 443) traffic from the public internet only to frontend web server VMs that possess the network tag 'web-frontend'.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to allow inbound HTTPS (port 443) traffic from the public internet only to frontend web server VMs that possess the network tag 'web-frontend'.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely on client operating system software firewalls alone." },
@@ -342,7 +342,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "VPC Firewall Rules (Ingress and Egress Filtering): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates VPC Networking to allow inbound HTTPS (port 443) traffic from the public internet only to frontend web server VMs that possess the network tag 'web-frontend'.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to allow inbound HTTPS (port 443) traffic from the public internet only to frontend web server VMs that possess the network tag 'web-frontend'.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Allow all inbound TCP traffic on all ports across the entire virtual network." },
@@ -363,7 +363,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "VPC Firewall Rules (Ingress and Egress Filtering): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates VPC Networking to allow inbound HTTPS (port 443) traffic from the public internet only to frontend web server VMs that possess the network tag 'web-frontend'.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to allow inbound HTTPS (port 443) traffic from the public internet only to frontend web server VMs that possess the network tag 'web-frontend'.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Rely on client operating system software firewalls alone." },
@@ -384,7 +384,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "VPC Firewall Rules (Ingress and Egress Filtering): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates VPC Networking to allow inbound HTTPS (port 443) traffic from the public internet only to frontend web server VMs that possess the network tag 'web-frontend'.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to allow inbound HTTPS (port 443) traffic from the public internet only to frontend web server VMs that possess the network tag 'web-frontend'.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Delete the default-deny-all-ingress firewall rule." },
@@ -405,7 +405,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "VPC Firewall Rules (Ingress and Egress Filtering): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates VPC Networking to allow inbound HTTPS (port 443) traffic from the public internet only to frontend web server VMs that possess the network tag 'web-frontend'.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to allow inbound HTTPS (port 443) traffic from the public internet only to frontend web server VMs that possess the network tag 'web-frontend'.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Rely on client operating system software firewalls alone." },
@@ -426,7 +426,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud DNS Managed Public and Private Zones: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud DNS to resolve custom internal hostnames (e.g. db.corp.internal) privately across multiple VPC networks without exposing records to the public internet.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to resolve custom internal hostnames (e.g. db.corp.internal) privately across multiple VPC networks without exposing records to the public internet.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Edit the /etc/hosts file on every virtual machine manually using SSH." },
@@ -447,7 +447,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud DNS Managed Public and Private Zones: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud DNS to resolve custom internal hostnames (e.g. db.corp.internal) privately across multiple VPC networks without exposing records to the public internet.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to resolve custom internal hostnames (e.g. db.corp.internal) privately across multiple VPC networks without exposing records to the public internet.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Edit the /etc/hosts file on every virtual machine manually using SSH." },
@@ -468,7 +468,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud DNS Managed Public and Private Zones: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud DNS to resolve custom internal hostnames (e.g. db.corp.internal) privately across multiple VPC networks without exposing records to the public internet.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to resolve custom internal hostnames (e.g. db.corp.internal) privately across multiple VPC networks without exposing records to the public internet.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Edit the /etc/hosts file on every virtual machine manually using SSH." },
@@ -489,7 +489,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud DNS Managed Public and Private Zones: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud DNS to resolve custom internal hostnames (e.g. db.corp.internal) privately across multiple VPC networks without exposing records to the public internet.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to resolve custom internal hostnames (e.g. db.corp.internal) privately across multiple VPC networks without exposing records to the public internet.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy a standalone BIND9 DNS server on a single Compute Engine VM." },
@@ -510,7 +510,7 @@ export const GCP_ACE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Cloud DNS Managed Public and Private Zones: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud DNS to resolve custom internal hostnames (e.g. db.corp.internal) privately across multiple VPC networks without exposing records to the public internet.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to resolve custom internal hostnames (e.g. db.corp.internal) privately across multiple VPC networks without exposing records to the public internet.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Create a Cloud DNS managed private zone, specify the DNS name, and bind the allowed VPC networks." },

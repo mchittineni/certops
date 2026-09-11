@@ -6,7 +6,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "GitOps Release Promotion Strategies: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Release Promotion to promote a newly built container image tag from the development environment to staging and production safely.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to promote a newly built container image tag from the development environment to staging and production safely.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Manually edit running pods in production with `kubectl set image`." },
@@ -27,7 +27,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "GitOps Release Promotion Strategies: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Release Promotion to promote a newly built container image tag from the development environment to staging and production safely.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to promote a newly built container image tag from the development environment to staging and production safely.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Update the image tag in the environment-specific overlay file in Git via automated pull requests, promoting across environments via PR merges." },
@@ -48,7 +48,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "GitOps Release Promotion Strategies: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Release Promotion to promote a newly built container image tag from the development environment to staging and production safely.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to promote a newly built container image tag from the development environment to staging and production safely.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Use mutable `:latest` image tags across all environments." },
@@ -69,7 +69,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "GitOps Release Promotion Strategies: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Release Promotion to promote a newly built container image tag from the development environment to staging and production safely.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to promote a newly built container image tag from the development environment to staging and production safely.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Update the image tag in the environment-specific overlay file in Git via automated pull requests, promoting across environments via PR merges." },
@@ -90,7 +90,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "GitOps Release Promotion Strategies: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Release Promotion to promote a newly built container image tag from the development environment to staging and production safely.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to promote a newly built container image tag from the development environment to staging and production safely.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Use mutable `:latest` image tags across all environments." },
@@ -111,7 +111,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Automated Pull Request Previews (Ephemeral Environments): Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Preview Environments to spin up a complete ephemeral preview environment for every open pull request and tear it down automatically when the PR is closed.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to spin up a complete ephemeral preview environment for every open pull request and tear it down automatically when the PR is closed.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Manually provision a new physical server for each developer pull request." },
@@ -132,7 +132,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Automated Pull Request Previews (Ephemeral Environments): High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Preview Environments to spin up a complete ephemeral preview environment for every open pull request and tear it down automatically when the PR is closed.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to spin up a complete ephemeral preview environment for every open pull request and tear it down automatically when the PR is closed.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Test all pull requests directly in the shared staging environment simultaneously." },
@@ -153,7 +153,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Automated Pull Request Previews (Ephemeral Environments): Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Preview Environments to spin up a complete ephemeral preview environment for every open pull request and tear it down automatically when the PR is closed.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to spin up a complete ephemeral preview environment for every open pull request and tear it down automatically when the PR is closed.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Test all pull requests directly in the shared staging environment simultaneously." },
@@ -174,7 +174,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Automated Pull Request Previews (Ephemeral Environments): Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Preview Environments to spin up a complete ephemeral preview environment for every open pull request and tear it down automatically when the PR is closed.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to spin up a complete ephemeral preview environment for every open pull request and tear it down automatically when the PR is closed.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Test all pull requests directly in the shared staging environment simultaneously." },
@@ -195,7 +195,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Automated Pull Request Previews (Ephemeral Environments): Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Preview Environments to spin up a complete ephemeral preview environment for every open pull request and tear it down automatically when the PR is closed.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to spin up a complete ephemeral preview environment for every open pull request and tear it down automatically when the PR is closed.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Test all pull requests directly in the shared staging environment simultaneously." },
@@ -216,7 +216,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Git Submodules vs Helm Dependencies in GitOps Repositories: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Dependency Management to share common manifest templates across 20 configuration repositories without encountering Git submodule pointer desynchronization.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to share common manifest templates across 20 configuration repositories without encountering Git submodule pointer desynchronization.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Host shared files on an unauthenticated FTP server." },
@@ -237,7 +237,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Git Submodules vs Helm Dependencies in GitOps Repositories: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Dependency Management to share common manifest templates across 20 configuration repositories without encountering Git submodule pointer desynchronization.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to share common manifest templates across 20 configuration repositories without encountering Git submodule pointer desynchronization.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Copy-paste common manifests across all 20 repositories." },
@@ -258,7 +258,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Git Submodules vs Helm Dependencies in GitOps Repositories: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Dependency Management to share common manifest templates across 20 configuration repositories without encountering Git submodule pointer desynchronization.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to share common manifest templates across 20 configuration repositories without encountering Git submodule pointer desynchronization.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Package common templates as versioned OCI artifacts or Helm charts hosted in a container registry rather than using Git submodules." },
@@ -279,7 +279,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Git Submodules vs Helm Dependencies in GitOps Repositories: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Dependency Management to share common manifest templates across 20 configuration repositories without encountering Git submodule pointer desynchronization.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to share common manifest templates across 20 configuration repositories without encountering Git submodule pointer desynchronization.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Use Git submodules and require developers to manually run git submodule update." },
@@ -300,7 +300,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Git Submodules vs Helm Dependencies in GitOps Repositories: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Dependency Management to share common manifest templates across 20 configuration repositories without encountering Git submodule pointer desynchronization.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to share common manifest templates across 20 configuration repositories without encountering Git submodule pointer desynchronization.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Copy-paste common manifests across all 20 repositories." },
@@ -321,7 +321,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Managing CRDs in GitOps Pipelines: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates CRD Lifecycle to prevent race conditions where custom resources (e.g., `PrometheusRule`) fail to deploy because their CRD has not finished registering.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to prevent race conditions where custom resources (e.g., `PrometheusRule`) fail to deploy because their CRD has not finished registering.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Separate CRD installation into a prerequisite sync phase (e.g., Argo CD PreSync hooks or Flux dedicated CRD Kustomizations)." },
@@ -342,7 +342,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Managing CRDs in GitOps Pipelines: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates CRD Lifecycle to prevent race conditions where custom resources (e.g., `PrometheusRule`) fail to deploy because their CRD has not finished registering.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to prevent race conditions where custom resources (e.g., `PrometheusRule`) fail to deploy because their CRD has not finished registering.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Instruct developers to re-run the sync manually when it fails." },
@@ -363,7 +363,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Managing CRDs in GitOps Pipelines: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates CRD Lifecycle to prevent race conditions where custom resources (e.g., `PrometheusRule`) fail to deploy because their CRD has not finished registering.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to prevent race conditions where custom resources (e.g., `PrometheusRule`) fail to deploy because their CRD has not finished registering.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Separate CRD installation into a prerequisite sync phase (e.g., Argo CD PreSync hooks or Flux dedicated CRD Kustomizations)." },
@@ -384,7 +384,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Managing CRDs in GitOps Pipelines: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates CRD Lifecycle to prevent race conditions where custom resources (e.g., `PrometheusRule`) fail to deploy because their CRD has not finished registering.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to prevent race conditions where custom resources (e.g., `PrometheusRule`) fail to deploy because their CRD has not finished registering.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Avoid using Custom Resources in Kubernetes." },
@@ -405,7 +405,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Managing CRDs in GitOps Pipelines: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates CRD Lifecycle to prevent race conditions where custom resources (e.g., `PrometheusRule`) fail to deploy because their CRD has not finished registering.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to prevent race conditions where custom resources (e.g., `PrometheusRule`) fail to deploy because their CRD has not finished registering.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Put CRDs and Custom Resources in the same folder and hope Kubernetes registers them in time." },
@@ -426,7 +426,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Disaster Recovery with GitOps: Cluster Rebuilding: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Disaster Recovery to recover from a catastrophic loss of a production Kubernetes cluster in an entire cloud region in under one hour.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to recover from a catastrophic loss of a production Kubernetes cluster in an entire cloud region in under one hour.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Accept that all customer application workloads are permanently lost." },
@@ -447,7 +447,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Disaster Recovery with GitOps: Cluster Rebuilding: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Disaster Recovery to recover from a catastrophic loss of a production Kubernetes cluster in an entire cloud region in under one hour.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to recover from a catastrophic loss of a production Kubernetes cluster in an entire cloud region in under one hour.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Provision a new cluster with Terraform and point the GitOps controller at the existing Git repository to recreate all workloads automatically." },
@@ -468,7 +468,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Disaster Recovery with GitOps: Cluster Rebuilding: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Disaster Recovery to recover from a catastrophic loss of a production Kubernetes cluster in an entire cloud region in under one hour.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to recover from a catastrophic loss of a production Kubernetes cluster in an entire cloud region in under one hour.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Provision a new cluster with Terraform and point the GitOps controller at the existing Git repository to recreate all workloads automatically." },
@@ -489,7 +489,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Disaster Recovery with GitOps: Cluster Rebuilding: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Disaster Recovery to recover from a catastrophic loss of a production Kubernetes cluster in an entire cloud region in under one hour.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to recover from a catastrophic loss of a production Kubernetes cluster in an entire cloud region in under one hour.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Manually re-author manifests from scratch for 200 microservices." },
@@ -510,7 +510,7 @@ export const CNCF_CGOA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Disaster Recovery with GitOps: Cluster Rebuilding: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Disaster Recovery to recover from a catastrophic loss of a production Kubernetes cluster in an entire cloud region in under one hour.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to recover from a catastrophic loss of a production Kubernetes cluster in an entire cloud region in under one hour.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Provision a new cluster with Terraform and point the GitOps controller at the existing Git repository to recreate all workloads automatically." },

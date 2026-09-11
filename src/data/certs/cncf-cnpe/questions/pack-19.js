@@ -6,7 +6,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Multi-Window Multi-Burn-Rate Platform Alerting: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Multi-Burn-Rate Alerting to alert on-call platform engineers to severe service degradations immediately while suppressing false alarms caused by transient traffic spikes.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to alert on-call platform engineers to severe service degradations immediately while suppressing false alarms caused by transient traffic spikes.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Disable on-call paging entirely and check system status once a week on Monday morning." },
@@ -27,7 +27,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Multi-Window Multi-Burn-Rate Platform Alerting: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Multi-Burn-Rate Alerting to alert on-call platform engineers to severe service degradations immediately while suppressing false alarms caused by transient traffic spikes.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to alert on-call platform engineers to severe service degradations immediately while suppressing false alarms caused by transient traffic spikes.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Disable on-call paging entirely and check system status once a week on Monday morning." },
@@ -48,7 +48,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Multi-Window Multi-Burn-Rate Platform Alerting: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Multi-Burn-Rate Alerting to alert on-call platform engineers to severe service degradations immediately while suppressing false alarms caused by transient traffic spikes.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to alert on-call platform engineers to severe service degradations immediately while suppressing false alarms caused by transient traffic spikes.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Alert solely on CPU utilization percentages rather than customer-facing error rates." },
@@ -69,7 +69,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Multi-Window Multi-Burn-Rate Platform Alerting: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Multi-Burn-Rate Alerting to alert on-call platform engineers to severe service degradations immediately while suppressing false alarms caused by transient traffic spikes.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to alert on-call platform engineers to severe service degradations immediately while suppressing false alarms caused by transient traffic spikes.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Configure static alerts that trigger an on-call page whenever a single HTTP 500 error occurs anywhere in the cluster." },
@@ -90,7 +90,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Multi-Window Multi-Burn-Rate Platform Alerting: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Multi-Burn-Rate Alerting to alert on-call platform engineers to severe service degradations immediately while suppressing false alarms caused by transient traffic spikes.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to alert on-call platform engineers to severe service degradations immediately while suppressing false alarms caused by transient traffic spikes.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Implement multi-window multi-burn-rate alerting based on Google SRE principles, evaluating 1-hour (fast burn) and 6-hour (slow burn) rates." },
@@ -111,7 +111,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Zero-Trust Workload Identity: SPIFFE and SPIRE: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates SPIFFE/SPIRE to authenticate microservices mutually across heterogeneous multi-cloud and on-premises environments without static API tokens.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to authenticate microservices mutually across heterogeneous multi-cloud and on-premises environments without static API tokens.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives? Cryptographic workload attestation and issuance of short-lived X.",
     options: [
       { id: 'A', text: "Deploy SPIRE to attest workload identity and issue short-lived cryptographic SPIFFE Verifiable Identity Documents (X.509 SVIDs)." },
@@ -132,7 +132,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Zero-Trust Workload Identity: SPIFFE and SPIRE: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates SPIFFE/SPIRE to authenticate microservices mutually across heterogeneous multi-cloud and on-premises environments without static API tokens.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to authenticate microservices mutually across heterogeneous multi-cloud and on-premises environments without static API tokens.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift? Cryptographic workload attestation and issuance of short-lived X.",
     options: [
       { id: 'A', text: "Disable TLS and authenticate services using unencrypted HTTP user-agent header strings." },
@@ -153,7 +153,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Zero-Trust Workload Identity: SPIFFE and SPIRE: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates SPIFFE/SPIRE to authenticate microservices mutually across heterogeneous multi-cloud and on-premises environments without static API tokens.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to authenticate microservices mutually across heterogeneous multi-cloud and on-premises environments without static API tokens.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls? Cryptographic workload attestation and issuance of short-lived X.",
     options: [
       { id: 'A', text: "Deploy SPIRE to attest workload identity and issue short-lived cryptographic SPIFFE Verifiable Identity Documents (X.509 SVIDs)." },
@@ -174,7 +174,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Zero-Trust Workload Identity: SPIFFE and SPIRE: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates SPIFFE/SPIRE to authenticate microservices mutually across heterogeneous multi-cloud and on-premises environments without static API tokens.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to authenticate microservices mutually across heterogeneous multi-cloud and on-premises environments without static API tokens.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely? Cryptographic workload attestation and issuance of short-lived X.",
     options: [
       { id: 'A', text: "Deploy SPIRE to attest workload identity and issue short-lived cryptographic SPIFFE Verifiable Identity Documents (X.509 SVIDs)." },
@@ -195,7 +195,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Zero-Trust Workload Identity: SPIFFE and SPIRE: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates SPIFFE/SPIRE to authenticate microservices mutually across heterogeneous multi-cloud and on-premises environments without static API tokens.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to authenticate microservices mutually across heterogeneous multi-cloud and on-premises environments without static API tokens.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution? Cryptographic workload attestation and issuance of short-lived X.",
     options: [
       { id: 'A', text: "Rely on IP address whitelisting across multi-tenant, dynamically scheduled container environments." },
@@ -216,7 +216,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Cryptographic Supply Chain Attestation: in-toto and Cosign: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Supply Chain Attestation to guarantee that production container images were compiled from verified Git commits and successfully passed all mandatory security tests.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to guarantee that production container images were compiled from verified Git commits and successfully passed all mandatory security tests.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Store cryptographic signing keys on public web servers." },
@@ -237,7 +237,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Cryptographic Supply Chain Attestation: in-toto and Cosign: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Supply Chain Attestation to guarantee that production container images were compiled from verified Git commits and successfully passed all mandatory security tests.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to guarantee that production container images were compiled from verified Git commits and successfully passed all mandatory security tests.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Permit clusters to run unsigned container images pulled from unauthenticated public registries." },
@@ -258,7 +258,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Cryptographic Supply Chain Attestation: in-toto and Cosign: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Supply Chain Attestation to guarantee that production container images were compiled from verified Git commits and successfully passed all mandatory security tests.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to guarantee that production container images were compiled from verified Git commits and successfully passed all mandatory security tests.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Enforce in-toto cryptographic attestations and Cosign image verification via Kyverno or Gatekeeper admission controllers." },
@@ -279,7 +279,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Cryptographic Supply Chain Attestation: in-toto and Cosign: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Supply Chain Attestation to guarantee that production container images were compiled from verified Git commits and successfully passed all mandatory security tests.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to guarantee that production container images were compiled from verified Git commits and successfully passed all mandatory security tests.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Enforce in-toto cryptographic attestations and Cosign image verification via Kyverno or Gatekeeper admission controllers." },
@@ -300,7 +300,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Cryptographic Supply Chain Attestation: in-toto and Cosign: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Supply Chain Attestation to guarantee that production container images were compiled from verified Git commits and successfully passed all mandatory security tests.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to guarantee that production container images were compiled from verified Git commits and successfully passed all mandatory security tests.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Disable admission controllers to accelerate pod startup speeds." },
@@ -321,7 +321,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Runtime Security and Threat Detection with Falco: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Runtime Security to detect and alert when an attacker spawns an unauthorized interactive bash shell inside a production payment container.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to detect and alert when an attacker spawns an unauthorized interactive bash shell inside a production payment container.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Deploy Falco with eBPF probes to detect anomalous system calls, shell executions, and sensitive file modifications in real time." },
@@ -342,7 +342,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Runtime Security and Threat Detection with Falco: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Runtime Security to detect and alert when an attacker spawns an unauthorized interactive bash shell inside a production payment container.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to detect and alert when an attacker spawns an unauthorized interactive bash shell inside a production payment container.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Deploy Falco with eBPF probes to detect anomalous system calls, shell executions, and sensitive file modifications in real time." },
@@ -363,7 +363,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Runtime Security and Threat Detection with Falco: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Runtime Security to detect and alert when an attacker spawns an unauthorized interactive bash shell inside a production payment container.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to detect and alert when an attacker spawns an unauthorized interactive bash shell inside a production payment container.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Deploy Falco with eBPF probes to detect anomalous system calls, shell executions, and sensitive file modifications in real time." },
@@ -384,7 +384,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Runtime Security and Threat Detection with Falco: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Runtime Security to detect and alert when an attacker spawns an unauthorized interactive bash shell inside a production payment container.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to detect and alert when an attacker spawns an unauthorized interactive bash shell inside a production payment container.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Disable kernel auditing and ignore runtime container activity." },
@@ -405,7 +405,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Runtime Security and Threat Detection with Falco: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Runtime Security to detect and alert when an attacker spawns an unauthorized interactive bash shell inside a production payment container.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to detect and alert when an attacker spawns an unauthorized interactive bash shell inside a production payment container.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Disable kernel auditing and ignore runtime container activity." },
@@ -426,7 +426,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Policy Enforcement and Mutation: Kyverno vs OPA Gatekeeper: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Policy Engines to automatically inject default resource limits and security contexts into pods that developers deploy without them.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to automatically inject default resource limits and security contexts into pods that developers deploy without them.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Deploy Kyverno with mutating policies that automatically inject required security contexts, drop capabilities, and set default resource requests." },
@@ -447,7 +447,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Policy Enforcement and Mutation: Kyverno vs OPA Gatekeeper: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Policy Engines to automatically inject default resource limits and security contexts into pods that developers deploy without them.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to automatically inject default resource limits and security contexts into pods that developers deploy without them.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Require human platform engineers to manually edit every pod manifest before it is applied to the cluster." },
@@ -468,7 +468,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Policy Enforcement and Mutation: Kyverno vs OPA Gatekeeper: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Policy Engines to automatically inject default resource limits and security contexts into pods that developers deploy without them.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to automatically inject default resource limits and security contexts into pods that developers deploy without them.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Require human platform engineers to manually edit every pod manifest before it is applied to the cluster." },
@@ -489,7 +489,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Policy Enforcement and Mutation: Kyverno vs OPA Gatekeeper: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Policy Engines to automatically inject default resource limits and security contexts into pods that developers deploy without them.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to automatically inject default resource limits and security contexts into pods that developers deploy without them.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Disable security contexts and run all production workloads with root host privileges." },
@@ -510,7 +510,7 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Policy Enforcement and Mutation: Kyverno vs OPA Gatekeeper: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Policy Engines to automatically inject default resource limits and security contexts into pods that developers deploy without them.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to automatically inject default resource limits and security contexts into pods that developers deploy without them.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Reject all developer deployments that omit security settings without offering automated remediation or clear documentation." },

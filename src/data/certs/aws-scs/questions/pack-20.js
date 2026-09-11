@@ -6,7 +6,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS CloudFormation StackSets with Service-Managed Permissions: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates CloudFormation StackSets to automatically deploy standard security monitoring agents, IAM incident response roles, and KMS keys into any newly created AWS account.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to automatically deploy standard security monitoring agents, IAM incident response roles, and KMS keys into any newly created AWS account.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Instruct security engineers to log into each newly created account and run manual CloudFormation templates." },
@@ -27,7 +27,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS CloudFormation StackSets with Service-Managed Permissions: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates CloudFormation StackSets to automatically deploy standard security monitoring agents, IAM incident response roles, and KMS keys into any newly created AWS account.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to automatically deploy standard security monitoring agents, IAM incident response roles, and KMS keys into any newly created AWS account.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Avoid deploying security baselines to newly created accounts until after they launch production applications." },
@@ -48,7 +48,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS CloudFormation StackSets with Service-Managed Permissions: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates CloudFormation StackSets to automatically deploy standard security monitoring agents, IAM incident response roles, and KMS keys into any newly created AWS account.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to automatically deploy standard security monitoring agents, IAM incident response roles, and KMS keys into any newly created AWS account.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Deploy AWS CloudFormation StackSets with service-managed permissions and automatic deployment enabled across target Organizational Units." },
@@ -69,7 +69,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS CloudFormation StackSets with Service-Managed Permissions: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates CloudFormation StackSets to automatically deploy standard security monitoring agents, IAM incident response roles, and KMS keys into any newly created AWS account.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to automatically deploy standard security monitoring agents, IAM incident response roles, and KMS keys into any newly created AWS account.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Avoid deploying security baselines to newly created accounts until after they launch production applications." },
@@ -90,7 +90,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS CloudFormation StackSets with Service-Managed Permissions: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates CloudFormation StackSets to automatically deploy standard security monitoring agents, IAM incident response roles, and KMS keys into any newly created AWS account.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to automatically deploy standard security monitoring agents, IAM incident response roles, and KMS keys into any newly created AWS account.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Avoid deploying security baselines to newly created accounts until after they launch production applications." },
@@ -111,7 +111,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Audit Manager Continuous Compliance Evidence Collection: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates AWS Audit Manager to streamline annual SOC 2 and ISO 27001 audit preparation without requiring engineering teams to manually gather screenshots.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to streamline annual SOC 2 and ISO 27001 audit preparation without requiring engineering teams to manually gather screenshots.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Configure AWS Audit Manager with prebuilt compliance frameworks to continuously collect and map evidence from CloudTrail, Config, and Security Hub." },
@@ -132,7 +132,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Audit Manager Continuous Compliance Evidence Collection: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates AWS Audit Manager to streamline annual SOC 2 and ISO 27001 audit preparation without requiring engineering teams to manually gather screenshots.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to streamline annual SOC 2 and ISO 27001 audit preparation without requiring engineering teams to manually gather screenshots.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Falsify audit documentation to pass regulatory assessments." },
@@ -153,7 +153,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Audit Manager Continuous Compliance Evidence Collection: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates AWS Audit Manager to streamline annual SOC 2 and ISO 27001 audit preparation without requiring engineering teams to manually gather screenshots.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to streamline annual SOC 2 and ISO 27001 audit preparation without requiring engineering teams to manually gather screenshots.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Refuse to participate in regulatory audits." },
@@ -174,7 +174,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Audit Manager Continuous Compliance Evidence Collection: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates AWS Audit Manager to streamline annual SOC 2 and ISO 27001 audit preparation without requiring engineering teams to manually gather screenshots.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to streamline annual SOC 2 and ISO 27001 audit preparation without requiring engineering teams to manually gather screenshots.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Spend three months every year taking manual screenshots of AWS management console settings." },
@@ -195,7 +195,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Audit Manager Continuous Compliance Evidence Collection: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates AWS Audit Manager to streamline annual SOC 2 and ISO 27001 audit preparation without requiring engineering teams to manually gather screenshots.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to streamline annual SOC 2 and ISO 27001 audit preparation without requiring engineering teams to manually gather screenshots.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Refuse to participate in regulatory audits." },
@@ -216,7 +216,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Artifact for Accessing Regulatory Compliance Reports: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates AWS Artifact to provide an external enterprise financial auditor with official AWS SOC 2 Type II reports and execute a HIPAA Business Associate Addendum (BAA).",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to provide an external enterprise financial auditor with official AWS SOC 2 Type II reports and execute a HIPAA Business Associate Addendum (BAA).",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Write custom compliance reports claiming AWS infrastructure is certified without documentation." },
@@ -237,7 +237,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Artifact for Accessing Regulatory Compliance Reports: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates AWS Artifact to provide an external enterprise financial auditor with official AWS SOC 2 Type II reports and execute a HIPAA Business Associate Addendum (BAA).",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to provide an external enterprise financial auditor with official AWS SOC 2 Type II reports and execute a HIPAA Business Associate Addendum (BAA).",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Instruct auditors to inspect AWS physical data centers in person." },
@@ -258,7 +258,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Artifact for Accessing Regulatory Compliance Reports: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates AWS Artifact to provide an external enterprise financial auditor with official AWS SOC 2 Type II reports and execute a HIPAA Business Associate Addendum (BAA).",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to provide an external enterprise financial auditor with official AWS SOC 2 Type II reports and execute a HIPAA Business Associate Addendum (BAA).",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Instruct auditors to inspect AWS physical data centers in person." },
@@ -279,7 +279,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Artifact for Accessing Regulatory Compliance Reports: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates AWS Artifact to provide an external enterprise financial auditor with official AWS SOC 2 Type II reports and execute a HIPAA Business Associate Addendum (BAA).",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to provide an external enterprise financial auditor with official AWS SOC 2 Type II reports and execute a HIPAA Business Associate Addendum (BAA).",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Use AWS Artifact to download official AWS compliance reports and accept the online HIPAA Business Associate Addendum (BAA)." },
@@ -300,7 +300,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "AWS Artifact for Accessing Regulatory Compliance Reports: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates AWS Artifact to provide an external enterprise financial auditor with official AWS SOC 2 Type II reports and execute a HIPAA Business Associate Addendum (BAA).",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to provide an external enterprise financial auditor with official AWS SOC 2 Type II reports and execute a HIPAA Business Associate Addendum (BAA).",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Open a support ticket asking AWS customer support to mail printed paper copies of SOC reports." },
@@ -321,7 +321,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "Tag Policies in AWS Organizations for Security Governance: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Tag Policies to ensure that all EC2 instances, S3 buckets, and RDS databases across the enterprise include mandatory `CostCenter` and `Environment` tags.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to ensure that all EC2 instances, S3 buckets, and RDS databases across the enterprise include mandatory `CostCenter` and `Environment` tags.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Delete all untagged resources immediately without warning." },
@@ -342,7 +342,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "Tag Policies in AWS Organizations for Security Governance: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Tag Policies to ensure that all EC2 instances, S3 buckets, and RDS databases across the enterprise include mandatory `CostCenter` and `Environment` tags.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to ensure that all EC2 instances, S3 buckets, and RDS databases across the enterprise include mandatory `CostCenter` and `Environment` tags.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Rely on developers to voluntarily follow tagging guidelines documented on an internal wiki." },
@@ -363,7 +363,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "Tag Policies in AWS Organizations for Security Governance: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Tag Policies to ensure that all EC2 instances, S3 buckets, and RDS databases across the enterprise include mandatory `CostCenter` and `Environment` tags.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to ensure that all EC2 instances, S3 buckets, and RDS databases across the enterprise include mandatory `CostCenter` and `Environment` tags.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Implement AWS Organizations Tag Policies, specifying allowed tag keys and values, and enforcing compliance during resource creation." },
@@ -384,7 +384,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "Tag Policies in AWS Organizations for Security Governance: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Tag Policies to ensure that all EC2 instances, S3 buckets, and RDS databases across the enterprise include mandatory `CostCenter` and `Environment` tags.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to ensure that all EC2 instances, S3 buckets, and RDS databases across the enterprise include mandatory `CostCenter` and `Environment` tags.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Implement AWS Organizations Tag Policies, specifying allowed tag keys and values, and enforcing compliance during resource creation." },
@@ -405,7 +405,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "Tag Policies in AWS Organizations for Security Governance: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Tag Policies to ensure that all EC2 instances, S3 buckets, and RDS databases across the enterprise include mandatory `CostCenter` and `Environment` tags.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to ensure that all EC2 instances, S3 buckets, and RDS databases across the enterprise include mandatory `CostCenter` and `Environment` tags.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Rely on developers to voluntarily follow tagging guidelines documented on an internal wiki." },
@@ -426,7 +426,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "Delegated Administrator Accounts in AWS Organizations: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Delegated Administrator to allow the enterprise security team to manage GuardDuty, Security Hub, and Macie organization-wide without accessing the Organizations management account.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to allow the enterprise security team to manage GuardDuty, Security Hub, and Macie organization-wide without accessing the Organizations management account.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Grant full root management account credentials to the entire security operations team." },
@@ -447,7 +447,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "Delegated Administrator Accounts in AWS Organizations: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Delegated Administrator to allow the enterprise security team to manage GuardDuty, Security Hub, and Macie organization-wide without accessing the Organizations management account.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to allow the enterprise security team to manage GuardDuty, Security Hub, and Macie organization-wide without accessing the Organizations management account.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Manage security services individually in each of the 200 member accounts with no central delegation." },
@@ -468,7 +468,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "Delegated Administrator Accounts in AWS Organizations: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Delegated Administrator to allow the enterprise security team to manage GuardDuty, Security Hub, and Macie organization-wide without accessing the Organizations management account.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to allow the enterprise security team to manage GuardDuty, Security Hub, and Macie organization-wide without accessing the Organizations management account.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Disable security tooling to eliminate multi-account administration requirements." },
@@ -489,7 +489,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "Delegated Administrator Accounts in AWS Organizations: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Delegated Administrator to allow the enterprise security team to manage GuardDuty, Security Hub, and Macie organization-wide without accessing the Organizations management account.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to allow the enterprise security team to manage GuardDuty, Security Hub, and Macie organization-wide without accessing the Organizations management account.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Grant full root management account credentials to the entire security operations team." },
@@ -510,7 +510,7 @@ export const AWS_SCS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Management and Security Governance",
     title: "Delegated Administrator Accounts in AWS Organizations: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Delegated Administrator to allow the enterprise security team to manage GuardDuty, Security Hub, and Macie organization-wide without accessing the Organizations management account.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to allow the enterprise security team to manage GuardDuty, Security Hub, and Macie organization-wide without accessing the Organizations management account.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Grant full root management account credentials to the entire security operations team." },

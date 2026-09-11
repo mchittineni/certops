@@ -6,7 +6,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Service Mesh Multi-Tenancy and Namespace Scoping: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Mesh Multi-Tenancy to prevent high-scale multi-tenant service meshes from exhausting pod memory due to global service endpoint discovery overhead.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to prevent high-scale multi-tenant service meshes from exhausting pod memory due to global service endpoint discovery overhead.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Disable service mesh sidecars to avoid memory tuning." },
@@ -27,7 +27,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Service Mesh Multi-Tenancy and Namespace Scoping: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Mesh Multi-Tenancy to prevent high-scale multi-tenant service meshes from exhausting pod memory due to global service endpoint discovery overhead.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to prevent high-scale multi-tenant service meshes from exhausting pod memory due to global service endpoint discovery overhead.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Open all service-to-service communication to unauthenticated plaintext traffic." },
@@ -48,7 +48,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Service Mesh Multi-Tenancy and Namespace Scoping: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Mesh Multi-Tenancy to prevent high-scale multi-tenant service meshes from exhausting pod memory due to global service endpoint discovery overhead.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to prevent high-scale multi-tenant service meshes from exhausting pod memory due to global service endpoint discovery overhead.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Disable service mesh sidecars to avoid memory tuning." },
@@ -69,7 +69,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Service Mesh Multi-Tenancy and Namespace Scoping: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Mesh Multi-Tenancy to prevent high-scale multi-tenant service meshes from exhausting pod memory due to global service endpoint discovery overhead.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to prevent high-scale multi-tenant service meshes from exhausting pod memory due to global service endpoint discovery overhead.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Deploy Istio `Sidecar` resources scoping service discovery strictly to local and permitted namespaces, and apply `AuthorizationPolicy` rules." },
@@ -90,7 +90,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Service Mesh Multi-Tenancy and Namespace Scoping: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Mesh Multi-Tenancy to prevent high-scale multi-tenant service meshes from exhausting pod memory due to global service endpoint discovery overhead.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to prevent high-scale multi-tenant service meshes from exhausting pod memory due to global service endpoint discovery overhead.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Deploy Istio `Sidecar` resources scoping service discovery strictly to local and permitted namespaces, and apply `AuthorizationPolicy` rules." },
@@ -111,7 +111,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Multi-Cluster Services (MCS) and Cross-Cluster Gateways: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Multi-Cluster Services to enable a frontend service in Cluster A to discover and communicate with a private backend service in Cluster B securely.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to enable a frontend service in Cluster A to discover and communicate with a private backend service in Cluster B securely.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Hardcode static private node IP addresses inside application source code." },
@@ -132,7 +132,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Multi-Cluster Services (MCS) and Cross-Cluster Gateways: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Multi-Cluster Services to enable a frontend service in Cluster A to discover and communicate with a private backend service in Cluster B securely.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to enable a frontend service in Cluster A to discover and communicate with a private backend service in Cluster B securely.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Force all cross-cluster traffic to route through public internet ingress controllers with hairpin latency." },
@@ -153,7 +153,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Multi-Cluster Services (MCS) and Cross-Cluster Gateways: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Multi-Cluster Services to enable a frontend service in Cluster A to discover and communicate with a private backend service in Cluster B securely.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to enable a frontend service in Cluster A to discover and communicate with a private backend service in Cluster B securely.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Hardcode static private node IP addresses inside application source code." },
@@ -174,7 +174,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Multi-Cluster Services (MCS) and Cross-Cluster Gateways: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Multi-Cluster Services to enable a frontend service in Cluster A to discover and communicate with a private backend service in Cluster B securely.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to enable a frontend service in Cluster A to discover and communicate with a private backend service in Cluster B securely.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Implement the Kubernetes Multi-Cluster Services (MCS) API using `ServiceExport` and `ServiceImport` primitives backed by Submariner or Cilium ClusterMesh." },
@@ -195,7 +195,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Multi-Cluster Services (MCS) and Cross-Cluster Gateways: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Multi-Cluster Services to enable a frontend service in Cluster A to discover and communicate with a private backend service in Cluster B securely.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to enable a frontend service in Cluster A to discover and communicate with a private backend service in Cluster B securely.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Hardcode static private node IP addresses inside application source code." },
@@ -216,7 +216,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Elastic Compute Pooling and Consolidation: Karpenter: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Karpenter Consolidation to reduce enterprise cloud compute spend by 40% while ensuring batch workloads handle spot instance terminations gracefully.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to reduce enterprise cloud compute spend by 40% while ensuring batch workloads handle spot instance terminations gracefully.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Ignore spot instance termination notices, allowing batch workloads to crash abruptly with data corruption." },
@@ -237,7 +237,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Elastic Compute Pooling and Consolidation: Karpenter: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Karpenter Consolidation to reduce enterprise cloud compute spend by 40% while ensuring batch workloads handle spot instance terminations gracefully.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to reduce enterprise cloud compute spend by 40% while ensuring batch workloads handle spot instance terminations gracefully.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Ignore spot instance termination notices, allowing batch workloads to crash abruptly with data corruption." },
@@ -258,7 +258,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Elastic Compute Pooling and Consolidation: Karpenter: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Karpenter Consolidation to reduce enterprise cloud compute spend by 40% while ensuring batch workloads handle spot instance terminations gracefully.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to reduce enterprise cloud compute spend by 40% while ensuring batch workloads handle spot instance terminations gracefully.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Require human platform operators to manually spin up cloud VMs during customer traffic spikes." },
@@ -279,7 +279,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Elastic Compute Pooling and Consolidation: Karpenter: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Karpenter Consolidation to reduce enterprise cloud compute spend by 40% while ensuring batch workloads handle spot instance terminations gracefully.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to reduce enterprise cloud compute spend by 40% while ensuring batch workloads handle spot instance terminations gracefully.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Deploy static, fixed-size node groups with overprovisioned instance types that sit idle 80% of the day." },
@@ -300,7 +300,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Elastic Compute Pooling and Consolidation: Karpenter: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Karpenter Consolidation to reduce enterprise cloud compute spend by 40% while ensuring batch workloads handle spot instance terminations gracefully.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to reduce enterprise cloud compute spend by 40% while ensuring batch workloads handle spot instance terminations gracefully.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Deploy static, fixed-size node groups with overprovisioned instance types that sit idle 80% of the day." },
@@ -321,7 +321,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Multi-Cluster Disaster Recovery: Velero and Volume Snapshots: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Disaster Recovery to recover mission-critical stateful microservices rapidly in an alternate cloud region following a catastrophic regional data center outage.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to recover mission-critical stateful microservices rapidly in an alternate cloud region following a catastrophic regional data center outage.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Implement Velero with CSI volume snapshot plugins to automate scheduled cluster manifest and storage backups to remote object storage." },
@@ -342,7 +342,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Multi-Cluster Disaster Recovery: Velero and Volume Snapshots: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Disaster Recovery to recover mission-critical stateful microservices rapidly in an alternate cloud region following a catastrophic regional data center outage.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to recover mission-critical stateful microservices rapidly in an alternate cloud region following a catastrophic regional data center outage.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Rely on manual handwritten documentation to reconstruct Kubernetes clusters from memory during an outage." },
@@ -363,7 +363,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Multi-Cluster Disaster Recovery: Velero and Volume Snapshots: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Disaster Recovery to recover mission-critical stateful microservices rapidly in an alternate cloud region following a catastrophic regional data center outage.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to recover mission-critical stateful microservices rapidly in an alternate cloud region following a catastrophic regional data center outage.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Avoid backing up persistent volumes to save backup storage costs." },
@@ -384,7 +384,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Multi-Cluster Disaster Recovery: Velero and Volume Snapshots: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Disaster Recovery to recover mission-critical stateful microservices rapidly in an alternate cloud region following a catastrophic regional data center outage.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to recover mission-critical stateful microservices rapidly in an alternate cloud region following a catastrophic regional data center outage.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Implement Velero with CSI volume snapshot plugins to automate scheduled cluster manifest and storage backups to remote object storage." },
@@ -405,7 +405,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Multi-Cluster Disaster Recovery: Velero and Volume Snapshots: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Disaster Recovery to recover mission-critical stateful microservices rapidly in an alternate cloud region following a catastrophic regional data center outage.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to recover mission-critical stateful microservices rapidly in an alternate cloud region following a catastrophic regional data center outage.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Rely on manual handwritten documentation to reconstruct Kubernetes clusters from memory during an outage." },
@@ -426,7 +426,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Chaos Engineering in Platform Substrates: Chaos Mesh: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Chaos Engineering to verify that automated failover, circuit breakers, and pod rescheduling operate reliably before deploying critical systems to production.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to verify that automated failover, circuit breakers, and pod rescheduling operate reliably before deploying critical systems to production.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Execute automated chaos experiments using Chaos Mesh or LitmusChaos to simulate pod crashes, network latency, and DNS failures in staging." },
@@ -447,7 +447,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Chaos Engineering in Platform Substrates: Chaos Mesh: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Chaos Engineering to verify that automated failover, circuit breakers, and pod rescheduling operate reliably before deploying critical systems to production.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to verify that automated failover, circuit breakers, and pod rescheduling operate reliably before deploying critical systems to production.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Prohibit fault injection testing to avoid discovering defects in application resilience." },
@@ -468,7 +468,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Chaos Engineering in Platform Substrates: Chaos Mesh: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Chaos Engineering to verify that automated failover, circuit breakers, and pod rescheduling operate reliably before deploying critical systems to production.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to verify that automated failover, circuit breakers, and pod rescheduling operate reliably before deploying critical systems to production.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Assume software systems never experience network partitions or hardware failures." },
@@ -489,7 +489,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Chaos Engineering in Platform Substrates: Chaos Mesh: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Chaos Engineering to verify that automated failover, circuit breakers, and pod rescheduling operate reliably before deploying critical systems to production.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to verify that automated failover, circuit breakers, and pod rescheduling operate reliably before deploying critical systems to production.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Prohibit fault injection testing to avoid discovering defects in application resilience." },
@@ -510,7 +510,7 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Reliability, Platform Security and Evolution",
     title: "Chaos Engineering in Platform Substrates: Chaos Mesh: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Chaos Engineering to verify that automated failover, circuit breakers, and pod rescheduling operate reliably before deploying critical systems to production.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to verify that automated failover, circuit breakers, and pod rescheduling operate reliably before deploying critical systems to production.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Prohibit fault injection testing to avoid discovering defects in application resilience." },

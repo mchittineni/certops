@@ -6,7 +6,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Sandboxed Container Runtimes: Kata Containers and gVisor: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Container Runtimes to run untrusted, multi-tenant customer code or arbitrary user CI jobs securely on shared Kubernetes worker nodes.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to run untrusted, multi-tenant customer code or arbitrary user CI jobs securely on shared Kubernetes worker nodes.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Run untrusted customer containers with `--privileged=true` and host root permissions." },
@@ -27,7 +27,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Sandboxed Container Runtimes: Kata Containers and gVisor: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Container Runtimes to run untrusted, multi-tenant customer code or arbitrary user CI jobs securely on shared Kubernetes worker nodes.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to run untrusted, multi-tenant customer code or arbitrary user CI jobs securely on shared Kubernetes worker nodes.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Configure a `RuntimeClass` pointing to sandboxed container runtimes such as gVisor (`runsc`) or Kata Containers." },
@@ -48,7 +48,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Sandboxed Container Runtimes: Kata Containers and gVisor: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Container Runtimes to run untrusted, multi-tenant customer code or arbitrary user CI jobs securely on shared Kubernetes worker nodes.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to run untrusted, multi-tenant customer code or arbitrary user CI jobs securely on shared Kubernetes worker nodes.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Disable Linux kernel cgroups, namespaces, and seccomp filters." },
@@ -69,7 +69,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Sandboxed Container Runtimes: Kata Containers and gVisor: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Container Runtimes to run untrusted, multi-tenant customer code or arbitrary user CI jobs securely on shared Kubernetes worker nodes.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to run untrusted, multi-tenant customer code or arbitrary user CI jobs securely on shared Kubernetes worker nodes.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Disable Linux kernel cgroups, namespaces, and seccomp filters." },
@@ -90,7 +90,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Sandboxed Container Runtimes: Kata Containers and gVisor: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Container Runtimes to run untrusted, multi-tenant customer code or arbitrary user CI jobs securely on shared Kubernetes worker nodes.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to run untrusted, multi-tenant customer code or arbitrary user CI jobs securely on shared Kubernetes worker nodes.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Configure a `RuntimeClass` pointing to sandboxed container runtimes such as gVisor (`runsc`) or Kata Containers." },
@@ -111,7 +111,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Service Mesh and Gateway API Substrates: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Gateway API & Mesh to standardize L7 traffic routing, canary rollouts, and mutual TLS encryption across all microservice communication declaratively.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to standardize L7 traffic routing, canary rollouts, and mutual TLS encryption across all microservice communication declaratively.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Hardcode proprietary routing rules into individual application source code files." },
@@ -132,7 +132,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Service Mesh and Gateway API Substrates: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Gateway API & Mesh to standardize L7 traffic routing, canary rollouts, and mutual TLS encryption across all microservice communication declaratively.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to standardize L7 traffic routing, canary rollouts, and mutual TLS encryption across all microservice communication declaratively.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Disable TLS and route all production traffic over unencrypted plaintext HTTP." },
@@ -153,7 +153,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Service Mesh and Gateway API Substrates: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Gateway API & Mesh to standardize L7 traffic routing, canary rollouts, and mutual TLS encryption across all microservice communication declaratively.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to standardize L7 traffic routing, canary rollouts, and mutual TLS encryption across all microservice communication declaratively.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Implement the Kubernetes Gateway API (`Gateway`, `HTTPRoute`) backed by an Envoy-based service mesh like Istio or Linkerd." },
@@ -174,7 +174,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Service Mesh and Gateway API Substrates: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Gateway API & Mesh to standardize L7 traffic routing, canary rollouts, and mutual TLS encryption across all microservice communication declaratively.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to standardize L7 traffic routing, canary rollouts, and mutual TLS encryption across all microservice communication declaratively.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Hardcode proprietary routing rules into individual application source code files." },
@@ -195,7 +195,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Service Mesh and Gateway API Substrates: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Gateway API & Mesh to standardize L7 traffic routing, canary rollouts, and mutual TLS encryption across all microservice communication declaratively.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to standardize L7 traffic routing, canary rollouts, and mutual TLS encryption across all microservice communication declaratively.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Disable TLS and route all production traffic over unencrypted plaintext HTTP." },
@@ -216,7 +216,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Storage Substrates and Container Storage Interface (CSI): Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates CSI Storage to provide stateful database workloads with automated, elastic volume provisioning and snapshot capabilities across cloud environments.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to provide stateful database workloads with automated, elastic volume provisioning and snapshot capabilities across cloud environments.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Prohibit stateful workloads and store all database records in container memory." },
@@ -237,7 +237,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Storage Substrates and Container Storage Interface (CSI): High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates CSI Storage to provide stateful database workloads with automated, elastic volume provisioning and snapshot capabilities across cloud environments.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to provide stateful database workloads with automated, elastic volume provisioning and snapshot capabilities across cloud environments.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Mount host directories (`hostPath`) directly without permissions or lifecycle management." },
@@ -258,7 +258,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Storage Substrates and Container Storage Interface (CSI): Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates CSI Storage to provide stateful database workloads with automated, elastic volume provisioning and snapshot capabilities across cloud environments.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to provide stateful database workloads with automated, elastic volume provisioning and snapshot capabilities across cloud environments.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Prohibit stateful workloads and store all database records in container memory." },
@@ -279,7 +279,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Storage Substrates and Container Storage Interface (CSI): Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates CSI Storage to provide stateful database workloads with automated, elastic volume provisioning and snapshot capabilities across cloud environments.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to provide stateful database workloads with automated, elastic volume provisioning and snapshot capabilities across cloud environments.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Prohibit stateful workloads and store all database records in container memory." },
@@ -300,7 +300,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Storage Substrates and Container Storage Interface (CSI): Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates CSI Storage to provide stateful database workloads with automated, elastic volume provisioning and snapshot capabilities across cloud environments.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to provide stateful database workloads with automated, elastic volume provisioning and snapshot capabilities across cloud environments.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Mount host directories (`hostPath`) directly without permissions or lifecycle management." },
@@ -321,7 +321,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Infrastructure as Code Substrates and GitOps Operators: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates IaC Substrates to reconcile baseline VPCs, subnets, and IAM roles continuously from Git repositories using Kubernetes-native operators.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to reconcile baseline VPCs, subnets, and IAM roles continuously from Git repositories using Kubernetes-native operators.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Deploy Kubernetes IaC controllers (like Terraform Operator, Crossplane, or Flux IaC runners) to reconcile infrastructure state continuously." },
@@ -342,7 +342,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Infrastructure as Code Substrates and GitOps Operators: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates IaC Substrates to reconcile baseline VPCs, subnets, and IAM roles continuously from Git repositories using Kubernetes-native operators.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to reconcile baseline VPCs, subnets, and IAM roles continuously from Git repositories using Kubernetes-native operators.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Store infrastructure state in unencrypted email attachments." },
@@ -363,7 +363,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Infrastructure as Code Substrates and GitOps Operators: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates IaC Substrates to reconcile baseline VPCs, subnets, and IAM roles continuously from Git repositories using Kubernetes-native operators.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to reconcile baseline VPCs, subnets, and IAM roles continuously from Git repositories using Kubernetes-native operators.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Store infrastructure state in unencrypted email attachments." },
@@ -384,7 +384,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Infrastructure as Code Substrates and GitOps Operators: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates IaC Substrates to reconcile baseline VPCs, subnets, and IAM roles continuously from Git repositories using Kubernetes-native operators.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to reconcile baseline VPCs, subnets, and IAM roles continuously from Git repositories using Kubernetes-native operators.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Store infrastructure state in unencrypted email attachments." },
@@ -405,7 +405,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Infrastructure as Code Substrates and GitOps Operators: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates IaC Substrates to reconcile baseline VPCs, subnets, and IAM roles continuously from Git repositories using Kubernetes-native operators.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to reconcile baseline VPCs, subnets, and IAM roles continuously from Git repositories using Kubernetes-native operators.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Deploy Kubernetes IaC controllers (like Terraform Operator, Crossplane, or Flux IaC runners) to reconcile infrastructure state continuously." },
@@ -426,7 +426,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Secrets Management Substrates: External Secrets Operator (ESO): Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Secrets Substrate to inject database credentials and API keys into application pods securely without storing sensitive secrets in Git or plaintext manifests.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to inject database credentials and API keys into application pods securely without storing sensitive secrets in Git or plaintext manifests.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Deploy the External Secrets Operator (ESO) to synchronize credentials dynamically from HashiCorp Vault or AWS Secrets Manager into Kubernetes Secrets." },
@@ -447,7 +447,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Secrets Management Substrates: External Secrets Operator (ESO): High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Secrets Substrate to inject database credentials and API keys into application pods securely without storing sensitive secrets in Git or plaintext manifests.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to inject database credentials and API keys into application pods securely without storing sensitive secrets in Git or plaintext manifests.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Deploy the External Secrets Operator (ESO) to synchronize credentials dynamically from HashiCorp Vault or AWS Secrets Manager into Kubernetes Secrets." },
@@ -468,7 +468,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Secrets Management Substrates: External Secrets Operator (ESO): Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Secrets Substrate to inject database credentials and API keys into application pods securely without storing sensitive secrets in Git or plaintext manifests.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to inject database credentials and API keys into application pods securely without storing sensitive secrets in Git or plaintext manifests.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Deploy the External Secrets Operator (ESO) to synchronize credentials dynamically from HashiCorp Vault or AWS Secrets Manager into Kubernetes Secrets." },
@@ -489,7 +489,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Secrets Management Substrates: External Secrets Operator (ESO): Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Secrets Substrate to inject database credentials and API keys into application pods securely without storing sensitive secrets in Git or plaintext manifests.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to inject database credentials and API keys into application pods securely without storing sensitive secrets in Git or plaintext manifests.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Commit plaintext passwords directly to public Git repositories inside `Secret` manifests." },
@@ -510,7 +510,7 @@ export const CNCF_CNPA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Cloud Native Architecture and Substrates",
     title: "Secrets Management Substrates: External Secrets Operator (ESO): Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Secrets Substrate to inject database credentials and API keys into application pods securely without storing sensitive secrets in Git or plaintext manifests.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to inject database credentials and API keys into application pods securely without storing sensitive secrets in Git or plaintext manifests.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Deploy the External Secrets Operator (ESO) to synchronize credentials dynamically from HashiCorp Vault or AWS Secrets Manager into Kubernetes Secrets." },

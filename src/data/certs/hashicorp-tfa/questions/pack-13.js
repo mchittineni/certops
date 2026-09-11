@@ -6,7 +6,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Understand Terraform's purpose and basics",
     title: "Data Sources for Fetching External State: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates Data Sources to retrieve the ID of the default VPC or the latest official Ubuntu AMI ID in an AWS account without hardcoding static IDs in Terraform code.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to retrieve the ID of the default VPC or the latest official Ubuntu AMI ID in an AWS account without hardcoding static IDs in Terraform code.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Run external bash scripts to fetch IDs and paste them into `.tf` files by hand." },
@@ -27,7 +27,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Understand Terraform's purpose and basics",
     title: "Data Sources for Fetching External State: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates Data Sources to retrieve the ID of the default VPC or the latest official Ubuntu AMI ID in an AWS account without hardcoding static IDs in Terraform code.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to retrieve the ID of the default VPC or the latest official Ubuntu AMI ID in an AWS account without hardcoding static IDs in Terraform code.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Hardcode static AMI string IDs directly in the resource definition." },
@@ -48,7 +48,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Understand Terraform's purpose and basics",
     title: "Data Sources for Fetching External State: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates Data Sources to retrieve the ID of the default VPC or the latest official Ubuntu AMI ID in an AWS account without hardcoding static IDs in Terraform code.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to retrieve the ID of the default VPC or the latest official Ubuntu AMI ID in an AWS account without hardcoding static IDs in Terraform code.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Run external bash scripts to fetch IDs and paste them into `.tf` files by hand." },
@@ -69,7 +69,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Understand Terraform's purpose and basics",
     title: "Data Sources for Fetching External State: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates Data Sources to retrieve the ID of the default VPC or the latest official Ubuntu AMI ID in an AWS account without hardcoding static IDs in Terraform code.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to retrieve the ID of the default VPC or the latest official Ubuntu AMI ID in an AWS account without hardcoding static IDs in Terraform code.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Run external bash scripts to fetch IDs and paste them into `.tf` files by hand." },
@@ -90,7 +90,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Understand Terraform's purpose and basics",
     title: "Data Sources for Fetching External State: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates Data Sources to retrieve the ID of the default VPC or the latest official Ubuntu AMI ID in an AWS account without hardcoding static IDs in Terraform code.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to retrieve the ID of the default VPC or the latest official Ubuntu AMI ID in an AWS account without hardcoding static IDs in Terraform code.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Create a duplicate VPC resource using `resource \"aws_vpc\"`." },
@@ -111,7 +111,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Understand Terraform's purpose and basics",
     title: "Input Variables and Validation Rules: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates Input Variables to enforce that an input variable for an environment name accepts only 'dev', 'staging', or 'prod' and rejects any other value before running plan.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to enforce that an input variable for an environment name accepts only 'dev', 'staging', or 'prod' and rejects any other value before running plan.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Accept any string value and let the cloud provider API fail during apply." },
@@ -132,7 +132,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Understand Terraform's purpose and basics",
     title: "Input Variables and Validation Rules: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates Input Variables to enforce that an input variable for an environment name accepts only 'dev', 'staging', or 'prod' and rejects any other value before running plan.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to enforce that an input variable for an environment name accepts only 'dev', 'staging', or 'prod' and rejects any other value before running plan.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Hardcode environment names inside resource blocks to prevent variables." },
@@ -153,7 +153,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Understand Terraform's purpose and basics",
     title: "Input Variables and Validation Rules: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates Input Variables to enforce that an input variable for an environment name accepts only 'dev', 'staging', or 'prod' and rejects any other value before running plan.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to enforce that an input variable for an environment name accepts only 'dev', 'staging', or 'prod' and rejects any other value before running plan.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Accept any string value and let the cloud provider API fail during apply." },
@@ -174,7 +174,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Understand Terraform's purpose and basics",
     title: "Input Variables and Validation Rules: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates Input Variables to enforce that an input variable for an environment name accepts only 'dev', 'staging', or 'prod' and rejects any other value before running plan.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to enforce that an input variable for an environment name accepts only 'dev', 'staging', or 'prod' and rejects any other value before running plan.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Write a custom shell script that validates variable values outside of Terraform." },
@@ -195,7 +195,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Understand Terraform's purpose and basics",
     title: "Input Variables and Validation Rules: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates Input Variables to enforce that an input variable for an environment name accepts only 'dev', 'staging', or 'prod' and rejects any other value before running plan.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to enforce that an input variable for an environment name accepts only 'dev', 'staging', or 'prod' and rejects any other value before running plan.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Hardcode environment names inside resource blocks to prevent variables." },
@@ -216,7 +216,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Understand Terraform's purpose and basics",
     title: "Output Values and Sensitive Flags: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates Output Values to expose an RDS database endpoint to child modules while preventing the database master password from printing in plaintext CLI stdout logs.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to expose an RDS database endpoint to child modules while preventing the database master password from printing in plaintext CLI stdout logs.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Disable output values entirely in the Terraform root configuration." },
@@ -237,7 +237,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Understand Terraform's purpose and basics",
     title: "Output Values and Sensitive Flags: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates Output Values to expose an RDS database endpoint to child modules while preventing the database master password from printing in plaintext CLI stdout logs.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to expose an RDS database endpoint to child modules while preventing the database master password from printing in plaintext CLI stdout logs.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Disable output values entirely in the Terraform root configuration." },
@@ -258,7 +258,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Understand Terraform's purpose and basics",
     title: "Output Values and Sensitive Flags: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates Output Values to expose an RDS database endpoint to child modules while preventing the database master password from printing in plaintext CLI stdout logs.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to expose an RDS database endpoint to child modules while preventing the database master password from printing in plaintext CLI stdout logs.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Never use outputs for sensitive data." },
@@ -279,7 +279,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Understand Terraform's purpose and basics",
     title: "Output Values and Sensitive Flags: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates Output Values to expose an RDS database endpoint to child modules while preventing the database master password from printing in plaintext CLI stdout logs.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to expose an RDS database endpoint to child modules while preventing the database master password from printing in plaintext CLI stdout logs.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Never use outputs for sensitive data." },
@@ -300,7 +300,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Understand Terraform's purpose and basics",
     title: "Output Values and Sensitive Flags: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates Output Values to expose an RDS database endpoint to child modules while preventing the database master password from printing in plaintext CLI stdout logs.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to expose an RDS database endpoint to child modules while preventing the database master password from printing in plaintext CLI stdout logs.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Disable output values entirely in the Terraform root configuration." },
@@ -321,7 +321,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d3",
     domainName: "Understand Terraform CLI",
     title: "terraform init Workflow and Lockfile (.terraform.lock.hcl): Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates CLI Init to initialize a Terraform working directory and ensure all team members and CI runners use the exact same provider versions.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to initialize a Terraform working directory and ensure all team members and CI runners use the exact same provider versions.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives? Initializing working directories, downloading providers, and managing .terraform.lock.",
     options: [
       { id: 'A', text: "Add `.terraform.lock.hcl` to `.gitignore` so every machine downloads random provider versions." },
@@ -342,7 +342,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d3",
     domainName: "Understand Terraform CLI",
     title: "terraform init Workflow and Lockfile (.terraform.lock.hcl): High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates CLI Init to initialize a Terraform working directory and ensure all team members and CI runners use the exact same provider versions.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to initialize a Terraform working directory and ensure all team members and CI runners use the exact same provider versions.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks? Initializing working directories, downloading providers, and managing .terraform.lock.",
     options: [
       { id: 'A', text: "Add `.terraform.lock.hcl` to `.gitignore` so every machine downloads random provider versions." },
@@ -363,7 +363,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d3",
     domainName: "Understand Terraform CLI",
     title: "terraform init Workflow and Lockfile (.terraform.lock.hcl): Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates CLI Init to initialize a Terraform working directory and ensure all team members and CI runners use the exact same provider versions.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to initialize a Terraform working directory and ensure all team members and CI runners use the exact same provider versions.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Initializing working directories, downloading providers, and managing .terraform.lock.",
     options: [
       { id: 'A', text: "Run `terraform init` and commit the generated `.terraform.lock.hcl` dependency lockfile to Git source control." },
@@ -384,7 +384,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d3",
     domainName: "Understand Terraform CLI",
     title: "terraform init Workflow and Lockfile (.terraform.lock.hcl): Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates CLI Init to initialize a Terraform working directory and ensure all team members and CI runners use the exact same provider versions.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to initialize a Terraform working directory and ensure all team members and CI runners use the exact same provider versions.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Initializing working directories, downloading providers, and managing .terraform.lock.",
     options: [
       { id: 'A', text: "Add `.terraform.lock.hcl` to `.gitignore` so every machine downloads random provider versions." },
@@ -405,7 +405,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d3",
     domainName: "Understand Terraform CLI",
     title: "terraform init Workflow and Lockfile (.terraform.lock.hcl): Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates CLI Init to initialize a Terraform working directory and ensure all team members and CI runners use the exact same provider versions.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to initialize a Terraform working directory and ensure all team members and CI runners use the exact same provider versions.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Initializing working directories, downloading providers, and managing .terraform.lock.",
     options: [
       { id: 'A', text: "Run `terraform plan` before initializing the directory." },
@@ -426,7 +426,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d3",
     domainName: "Understand Terraform CLI",
     title: "terraform plan and Plan File Artifacts: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates CLI Plan to generate a speculative execution plan in a CI pipeline and ensure that the exact previewed plan is applied in production without race conditions.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to generate a speculative execution plan in a CI pipeline and ensure that the exact previewed plan is applied in production without race conditions.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Run `terraform apply -auto-approve` without generating or reviewing an execution plan." },
@@ -447,7 +447,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d3",
     domainName: "Understand Terraform CLI",
     title: "terraform plan and Plan File Artifacts: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates CLI Plan to generate a speculative execution plan in a CI pipeline and ensure that the exact previewed plan is applied in production without race conditions.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to generate a speculative execution plan in a CI pipeline and ensure that the exact previewed plan is applied in production without race conditions.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Save the plan output as a text file and pipe it into bash." },
@@ -468,7 +468,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d3",
     domainName: "Understand Terraform CLI",
     title: "terraform plan and Plan File Artifacts: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates CLI Plan to generate a speculative execution plan in a CI pipeline and ensure that the exact previewed plan is applied in production without race conditions.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to generate a speculative execution plan in a CI pipeline and ensure that the exact previewed plan is applied in production without race conditions.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Run `terraform apply -auto-approve` without generating or reviewing an execution plan." },
@@ -489,7 +489,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d3",
     domainName: "Understand Terraform CLI",
     title: "terraform plan and Plan File Artifacts: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates CLI Plan to generate a speculative execution plan in a CI pipeline and ensure that the exact previewed plan is applied in production without race conditions.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to generate a speculative execution plan in a CI pipeline and ensure that the exact previewed plan is applied in production without race conditions.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Run `terraform plan -out=tfplan` in the validation stage and pass the `tfplan` binary artifact to `terraform apply tfplan` in the deployment stage." },
@@ -510,7 +510,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     domainId: "d3",
     domainName: "Understand Terraform CLI",
     title: "terraform plan and Plan File Artifacts: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates CLI Plan to generate a speculative execution plan in a CI pipeline and ensure that the exact previewed plan is applied in production without race conditions.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to generate a speculative execution plan in a CI pipeline and ensure that the exact previewed plan is applied in production without race conditions.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Save the plan output as a text file and pipe it into bash." },

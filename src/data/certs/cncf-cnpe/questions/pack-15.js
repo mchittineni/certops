@@ -6,7 +6,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Message Broker Operators: Strimzi Apache Kafka: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Kafka Operator to enable application teams to self-provision Kafka topics and user access controls declaratively through GitOps manifests.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to enable application teams to self-provision Kafka topics and user access controls declaratively through GitOps manifests.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Deploy the Strimzi Kafka Operator and expose `KafkaTopic` and `KafkaUser` custom resources for self-service topic creation." },
@@ -27,7 +27,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Message Broker Operators: Strimzi Apache Kafka: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Kafka Operator to enable application teams to self-provision Kafka topics and user access controls declaratively through GitOps manifests.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to enable application teams to self-provision Kafka topics and user access controls declaratively through GitOps manifests.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Deploy the Strimzi Kafka Operator and expose `KafkaTopic` and `KafkaUser` custom resources for self-service topic creation." },
@@ -48,7 +48,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Message Broker Operators: Strimzi Apache Kafka: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Kafka Operator to enable application teams to self-provision Kafka topics and user access controls declaratively through GitOps manifests.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to enable application teams to self-provision Kafka topics and user access controls declaratively through GitOps manifests.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Prohibit the use of event streaming architectures across the enterprise." },
@@ -69,7 +69,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Message Broker Operators: Strimzi Apache Kafka: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Kafka Operator to enable application teams to self-provision Kafka topics and user access controls declaratively through GitOps manifests.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to enable application teams to self-provision Kafka topics and user access controls declaratively through GitOps manifests.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Prohibit the use of event streaming architectures across the enterprise." },
@@ -90,7 +90,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Message Broker Operators: Strimzi Apache Kafka: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Kafka Operator to enable application teams to self-provision Kafka topics and user access controls declaratively through GitOps manifests.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to enable application teams to self-provision Kafka topics and user access controls declaratively through GitOps manifests.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Prohibit the use of event streaming architectures across the enterprise." },
@@ -111,7 +111,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Automated Resource Reclamation and Namespace Reaping: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Resource Reclamation to prevent orphaned preview environments, forgotten test databases, and zombie namespaces from inflating enterprise cloud bills.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to prevent orphaned preview environments, forgotten test databases, and zombie namespaces from inflating enterprise cloud bills.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Turn off all production servers every night to save money." },
@@ -132,7 +132,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Automated Resource Reclamation and Namespace Reaping: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Resource Reclamation to prevent orphaned preview environments, forgotten test databases, and zombie namespaces from inflating enterprise cloud bills.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to prevent orphaned preview environments, forgotten test databases, and zombie namespaces from inflating enterprise cloud bills.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Turn off all production servers every night to save money." },
@@ -153,7 +153,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Automated Resource Reclamation and Namespace Reaping: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Resource Reclamation to prevent orphaned preview environments, forgotten test databases, and zombie namespaces from inflating enterprise cloud bills.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to prevent orphaned preview environments, forgotten test databases, and zombie namespaces from inflating enterprise cloud bills.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Permit idle test infrastructure to run indefinitely at maximum capacity." },
@@ -174,7 +174,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Automated Resource Reclamation and Namespace Reaping: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Resource Reclamation to prevent orphaned preview environments, forgotten test databases, and zombie namespaces from inflating enterprise cloud bills.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to prevent orphaned preview environments, forgotten test databases, and zombie namespaces from inflating enterprise cloud bills.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Permit idle test infrastructure to run indefinitely at maximum capacity." },
@@ -195,7 +195,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Automated Resource Reclamation and Namespace Reaping: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Resource Reclamation to prevent orphaned preview environments, forgotten test databases, and zombie namespaces from inflating enterprise cloud bills.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to prevent orphaned preview environments, forgotten test databases, and zombie namespaces from inflating enterprise cloud bills.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Turn off all production servers every night to save money." },
@@ -216,7 +216,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Just-in-Time Access Management: Teleport and Boundary: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates JIT Access to grant an on-call engineer temporary 30-minute elevated access to troubleshoot a production database during an incident safely.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to grant an on-call engineer temporary 30-minute elevated access to troubleshoot a production database during an incident safely.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Implement Just-in-Time (JIT) access requests using tools like Teleport or HashiCorp Boundary with dual authorization and session recording." },
@@ -237,7 +237,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Just-in-Time Access Management: Teleport and Boundary: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates JIT Access to grant an on-call engineer temporary 30-minute elevated access to troubleshoot a production database during an incident safely.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to grant an on-call engineer temporary 30-minute elevated access to troubleshoot a production database during an incident safely.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Implement Just-in-Time (JIT) access requests using tools like Teleport or HashiCorp Boundary with dual authorization and session recording." },
@@ -258,7 +258,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Just-in-Time Access Management: Teleport and Boundary: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates JIT Access to grant an on-call engineer temporary 30-minute elevated access to troubleshoot a production database during an incident safely.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to grant an on-call engineer temporary 30-minute elevated access to troubleshoot a production database during an incident safely.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Distribute permanent root SSH keys and cluster-admin kubeconfig files to all engineers permanently." },
@@ -279,7 +279,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Just-in-Time Access Management: Teleport and Boundary: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates JIT Access to grant an on-call engineer temporary 30-minute elevated access to troubleshoot a production database during an incident safely.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to grant an on-call engineer temporary 30-minute elevated access to troubleshoot a production database during an incident safely.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Refuse to grant any access to on-call engineers, preventing incident mitigation." },
@@ -300,7 +300,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Just-in-Time Access Management: Teleport and Boundary: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates JIT Access to grant an on-call engineer temporary 30-minute elevated access to troubleshoot a production database during an incident safely.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to grant an on-call engineer temporary 30-minute elevated access to troubleshoot a production database during an incident safely.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Distribute permanent root SSH keys and cluster-admin kubeconfig files to all engineers permanently." },
@@ -321,7 +321,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Platform Adoption Analytics and Developer Drop-Off Tracking: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Platform Analytics to determine why newly hired developers are abandoning the Golden Path template for Go microservices at step 3 of the wizard.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to determine why newly hired developers are abandoning the Golden Path template for Go microservices at step 3 of the wizard.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Assume developer portals have zero usability flaws and blame developers for lack of platform adoption." },
@@ -342,7 +342,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Platform Adoption Analytics and Developer Drop-Off Tracking: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Platform Analytics to determine why newly hired developers are abandoning the Golden Path template for Go microservices at step 3 of the wizard.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to determine why newly hired developers are abandoning the Golden Path template for Go microservices at step 3 of the wizard.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Prohibit collecting any telemetry on platform tool usage." },
@@ -363,7 +363,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Platform Adoption Analytics and Developer Drop-Off Tracking: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Platform Analytics to determine why newly hired developers are abandoning the Golden Path template for Go microservices at step 3 of the wizard.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to determine why newly hired developers are abandoning the Golden Path template for Go microservices at step 3 of the wizard.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Assume developer portals have zero usability flaws and blame developers for lack of platform adoption." },
@@ -384,7 +384,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Platform Adoption Analytics and Developer Drop-Off Tracking: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Platform Analytics to determine why newly hired developers are abandoning the Golden Path template for Go microservices at step 3 of the wizard.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to determine why newly hired developers are abandoning the Golden Path template for Go microservices at step 3 of the wizard.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Force developers to sign disciplinary agreements if they fail to complete templates." },
@@ -405,7 +405,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Platform Adoption Analytics and Developer Drop-Off Tracking: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Platform Analytics to determine why newly hired developers are abandoning the Golden Path template for Go microservices at step 3 of the wizard.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to determine why newly hired developers are abandoning the Golden Path template for Go microservices at step 3 of the wizard.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Instrument developer portal workflows with product analytics (e.g., PostHog) to track funnel conversion and step drop-off rates." },
@@ -426,7 +426,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Automated Quality Gates: SonarQube and OpenSSF Scorecard: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Quality Gates to block pull requests that introduce severe technical debt, critical code smells, or unmaintained third-party dependencies.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to block pull requests that introduce severe technical debt, critical code smells, or unmaintained third-party dependencies.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Disable unit testing and linting to increase pull request throughput." },
@@ -447,7 +447,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Automated Quality Gates: SonarQube and OpenSSF Scorecard: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Quality Gates to block pull requests that introduce severe technical debt, critical code smells, or unmaintained third-party dependencies.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to block pull requests that introduce severe technical debt, critical code smells, or unmaintained third-party dependencies.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Integrate automated quality gates using SonarQube and OpenSSF Scorecards to block merging code that violates maintainability baselines." },
@@ -468,7 +468,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Automated Quality Gates: SonarQube and OpenSSF Scorecard: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Quality Gates to block pull requests that introduce severe technical debt, critical code smells, or unmaintained third-party dependencies.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to block pull requests that introduce severe technical debt, critical code smells, or unmaintained third-party dependencies.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Rely exclusively on subjective manual code review comments with no automated tooling." },
@@ -489,7 +489,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Automated Quality Gates: SonarQube and OpenSSF Scorecard: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Quality Gates to block pull requests that introduce severe technical debt, critical code smells, or unmaintained third-party dependencies.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to block pull requests that introduce severe technical debt, critical code smells, or unmaintained third-party dependencies.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Rely exclusively on subjective manual code review comments with no automated tooling." },
@@ -510,7 +510,7 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Automated Quality Gates: SonarQube and OpenSSF Scorecard: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Quality Gates to block pull requests that introduce severe technical debt, critical code smells, or unmaintained third-party dependencies.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to block pull requests that introduce severe technical debt, critical code smells, or unmaintained third-party dependencies.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Rely exclusively on subjective manual code review comments with no automated tooling." },

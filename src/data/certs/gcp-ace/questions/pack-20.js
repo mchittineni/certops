@@ -6,7 +6,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Secret Manager for Application Credentials: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Security to store third-party payment gateway API keys securely and allow an application on Cloud Run to access them with versioning and access audit logs.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to store third-party payment gateway API keys securely and allow an application on Cloud Run to access them with versioning and access audit logs.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Store the API keys in Secret Manager and grant the Cloud Run service account the 'Secret Manager Secret Accessor' role." },
@@ -27,7 +27,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Secret Manager for Application Credentials: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Security to store third-party payment gateway API keys securely and allow an application on Cloud Run to access them with versioning and access audit logs.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to store third-party payment gateway API keys securely and allow an application on Cloud Run to access them with versioning and access audit logs.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Store the API keys in Secret Manager and grant the Cloud Run service account the 'Secret Manager Secret Accessor' role." },
@@ -48,7 +48,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Secret Manager for Application Credentials: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Security to store third-party payment gateway API keys securely and allow an application on Cloud Run to access them with versioning and access audit logs.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to store third-party payment gateway API keys securely and allow an application on Cloud Run to access them with versioning and access audit logs.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Store the keys in an unencrypted public GitHub repository." },
@@ -69,7 +69,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Secret Manager for Application Credentials: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Security to store third-party payment gateway API keys securely and allow an application on Cloud Run to access them with versioning and access audit logs.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to store third-party payment gateway API keys securely and allow an application on Cloud Run to access them with versioning and access audit logs.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Store the API keys in Secret Manager and grant the Cloud Run service account the 'Secret Manager Secret Accessor' role." },
@@ -90,7 +90,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Secret Manager for Application Credentials: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Security to store third-party payment gateway API keys securely and allow an application on Cloud Run to access them with versioning and access audit logs.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to store third-party payment gateway API keys securely and allow an application on Cloud Run to access them with versioning and access audit logs.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Write the API keys to an environment variable in an unversioned shell script." },
@@ -111,7 +111,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Storage Signed URLs: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Storage Security to grant an external customer temporary, secure access to download a 2 GB video file from a private Cloud Storage bucket for 30 minutes without a Google account.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to grant an external customer temporary, secure access to download a 2 GB video file from a private Cloud Storage bucket for 30 minutes without a Google account.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Download the file to an on-premises web server and send an unencrypted email attachment." },
@@ -132,7 +132,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Storage Signed URLs: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Storage Security to grant an external customer temporary, secure access to download a 2 GB video file from a private Cloud Storage bucket for 30 minutes without a Google account.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to grant an external customer temporary, secure access to download a 2 GB video file from a private Cloud Storage bucket for 30 minutes without a Google account.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Make the entire Cloud Storage bucket public to allUsers on the internet." },
@@ -153,7 +153,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Storage Signed URLs: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Storage Security to grant an external customer temporary, secure access to download a 2 GB video file from a private Cloud Storage bucket for 30 minutes without a Google account.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to grant an external customer temporary, secure access to download a 2 GB video file from a private Cloud Storage bucket for 30 minutes without a Google account.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Make the entire Cloud Storage bucket public to allUsers on the internet." },
@@ -174,7 +174,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Storage Signed URLs: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Storage Security to grant an external customer temporary, secure access to download a 2 GB video file from a private Cloud Storage bucket for 30 minutes without a Google account.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to grant an external customer temporary, secure access to download a 2 GB video file from a private Cloud Storage bucket for 30 minutes without a Google account.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Download the file to an on-premises web server and send an unencrypted email attachment." },
@@ -195,7 +195,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Storage Signed URLs: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Storage Security to grant an external customer temporary, secure access to download a 2 GB video file from a private Cloud Storage bucket for 30 minutes without a Google account.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to grant an external customer temporary, secure access to download a 2 GB video file from a private Cloud Storage bucket for 30 minutes without a Google account.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Make the entire Cloud Storage bucket public to allUsers on the internet." },
@@ -216,7 +216,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "VPC Service Controls and Service Perimeters: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Security to prevent malicious employees or compromised service accounts from exfiltrating sensitive BigQuery and Cloud Storage data to external public cloud accounts.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to prevent malicious employees or compromised service accounts from exfiltrating sensitive BigQuery and Cloud Storage data to external public cloud accounts.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Delete all external DNS server addresses from virtual machines." },
@@ -237,7 +237,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "VPC Service Controls and Service Perimeters: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Security to prevent malicious employees or compromised service accounts from exfiltrating sensitive BigQuery and Cloud Storage data to external public cloud accounts.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to prevent malicious employees or compromised service accounts from exfiltrating sensitive BigQuery and Cloud Storage data to external public cloud accounts.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Configure a VPC Service Controls Service Perimeter around the sensitive projects and API services." },
@@ -258,7 +258,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "VPC Service Controls and Service Perimeters: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Security to prevent malicious employees or compromised service accounts from exfiltrating sensitive BigQuery and Cloud Storage data to external public cloud accounts.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to prevent malicious employees or compromised service accounts from exfiltrating sensitive BigQuery and Cloud Storage data to external public cloud accounts.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Apply a standard VPC firewall rule blocking port 80 egress." },
@@ -279,7 +279,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "VPC Service Controls and Service Perimeters: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Security to prevent malicious employees or compromised service accounts from exfiltrating sensitive BigQuery and Cloud Storage data to external public cloud accounts.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to prevent malicious employees or compromised service accounts from exfiltrating sensitive BigQuery and Cloud Storage data to external public cloud accounts.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Delete all external DNS server addresses from virtual machines." },
@@ -300,7 +300,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "VPC Service Controls and Service Perimeters: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Security to prevent malicious employees or compromised service accounts from exfiltrating sensitive BigQuery and Cloud Storage data to external public cloud accounts.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to prevent malicious employees or compromised service accounts from exfiltrating sensitive BigQuery and Cloud Storage data to external public cloud accounts.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Rely on signed employment contracts and company conduct policies." },
@@ -321,7 +321,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Armor Security Policies and DDoS Protection: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Security to protect a public web application fronted by an External Application Load Balancer against SQL injection, Cross-Site Scripting (XSS), and Layer 7 HTTP flood DDoS attacks.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to protect a public web application fronted by an External Application Load Balancer against SQL injection, Cross-Site Scripting (XSS), and Layer 7 HTTP flood DDoS attacks.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Change the web application port number from 443 to 8443." },
@@ -342,7 +342,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Armor Security Policies and DDoS Protection: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Security to protect a public web application fronted by an External Application Load Balancer against SQL injection, Cross-Site Scripting (XSS), and Layer 7 HTTP flood DDoS attacks.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to protect a public web application fronted by an External Application Load Balancer against SQL injection, Cross-Site Scripting (XSS), and Layer 7 HTTP flood DDoS attacks.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Rely on standard layer 4 network firewall rules to inspect HTTP payload strings." },
@@ -363,7 +363,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Armor Security Policies and DDoS Protection: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Security to protect a public web application fronted by an External Application Load Balancer against SQL injection, Cross-Site Scripting (XSS), and Layer 7 HTTP flood DDoS attacks.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to protect a public web application fronted by an External Application Load Balancer against SQL injection, Cross-Site Scripting (XSS), and Layer 7 HTTP flood DDoS attacks.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy a Cloud Armor Security Policy with pre-configured WAF rules and attach it to the load balancer backend service." },
@@ -384,7 +384,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Armor Security Policies and DDoS Protection: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Security to protect a public web application fronted by an External Application Load Balancer against SQL injection, Cross-Site Scripting (XSS), and Layer 7 HTTP flood DDoS attacks.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to protect a public web application fronted by an External Application Load Balancer against SQL injection, Cross-Site Scripting (XSS), and Layer 7 HTTP flood DDoS attacks.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Rely on standard layer 4 network firewall rules to inspect HTTP payload strings." },
@@ -405,7 +405,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Cloud Armor Security Policies and DDoS Protection: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Security to protect a public web application fronted by an External Application Load Balancer against SQL injection, Cross-Site Scripting (XSS), and Layer 7 HTTP flood DDoS attacks.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to protect a public web application fronted by an External Application Load Balancer against SQL injection, Cross-Site Scripting (XSS), and Layer 7 HTTP flood DDoS attacks.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Rely on standard layer 4 network firewall rules to inspect HTTP payload strings." },
@@ -426,7 +426,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Security Command Center (SCC): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Security to gain centralized visibility into the security posture of an entire organization, automatically detecting misconfigured storage buckets and compromised virtual machines.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to gain centralized visibility into the security posture of an entire organization, automatically detecting misconfigured storage buckets and compromised virtual machines.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Review historical billing invoices for unusual computing charges." },
@@ -447,7 +447,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Security Command Center (SCC): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Security to gain centralized visibility into the security posture of an entire organization, automatically detecting misconfigured storage buckets and compromised virtual machines.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to gain centralized visibility into the security posture of an entire organization, automatically detecting misconfigured storage buckets and compromised virtual machines.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Install open-source antivirus tools on individual developer laptops." },
@@ -468,7 +468,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Security Command Center (SCC): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Security to gain centralized visibility into the security posture of an entire organization, automatically detecting misconfigured storage buckets and compromised virtual machines.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to gain centralized visibility into the security posture of an entire organization, automatically detecting misconfigured storage buckets and compromised virtual machines.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Review historical billing invoices for unusual computing charges." },
@@ -489,7 +489,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Security Command Center (SCC): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Security to gain centralized visibility into the security posture of an entire organization, automatically detecting misconfigured storage buckets and compromised virtual machines.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to gain centralized visibility into the security posture of an entire organization, automatically detecting misconfigured storage buckets and compromised virtual machines.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Install open-source antivirus tools on individual developer laptops." },
@@ -510,7 +510,7 @@ export const GCP_ACE_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Configuring access and security",
     title: "Security Command Center (SCC): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Security to gain centralized visibility into the security posture of an entire organization, automatically detecting misconfigured storage buckets and compromised virtual machines.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to gain centralized visibility into the security posture of an entire organization, automatically detecting misconfigured storage buckets and compromised virtual machines.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Review historical billing invoices for unusual computing charges." },

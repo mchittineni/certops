@@ -6,7 +6,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Forensic Artifact Preservation During Active Breaches: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Incident Forensics to preserve volatile memory and filesystem evidence from a compromised container for forensic analysis while containing ongoing network threats.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to preserve volatile memory and filesystem evidence from a compromised container for forensic analysis while containing ongoing network threats.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Delete the pod and its worker node immediately, destroying all in-memory malware artifacts." },
@@ -27,7 +27,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Forensic Artifact Preservation During Active Breaches: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Incident Forensics to preserve volatile memory and filesystem evidence from a compromised container for forensic analysis while containing ongoing network threats.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to preserve volatile memory and filesystem evidence from a compromised container for forensic analysis while containing ongoing network threats.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Restart the container process to see if the malware disappears." },
@@ -48,7 +48,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Forensic Artifact Preservation During Active Breaches: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Incident Forensics to preserve volatile memory and filesystem evidence from a compromised container for forensic analysis while containing ongoing network threats.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to preserve volatile memory and filesystem evidence from a compromised container for forensic analysis while containing ongoing network threats.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Isolate the pod using an aggressive zero-traffic NetworkPolicy, take a memory dump via `gcore` or live snapshot, and avoid terminating the container immediately." },
@@ -69,7 +69,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Forensic Artifact Preservation During Active Breaches: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Incident Forensics to preserve volatile memory and filesystem evidence from a compromised container for forensic analysis while containing ongoing network threats.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to preserve volatile memory and filesystem evidence from a compromised container for forensic analysis while containing ongoing network threats.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Restart the container process to see if the malware disappears." },
@@ -90,7 +90,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Forensic Artifact Preservation During Active Breaches: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Incident Forensics to preserve volatile memory and filesystem evidence from a compromised container for forensic analysis while containing ongoing network threats.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to preserve volatile memory and filesystem evidence from a compromised container for forensic analysis while containing ongoing network threats.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Isolate the pod using an aggressive zero-traffic NetworkPolicy, take a memory dump via `gcore` or live snapshot, and avoid terminating the container immediately." },
@@ -111,7 +111,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "OPA Gatekeeper Constraint Templates and Constraints: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates OPA Gatekeeper to enforce a policy that forbids any pod deployment from specifying hostPort or hostNetwork across all non-system namespaces.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to enforce a policy that forbids any pod deployment from specifying hostPort or hostNetwork across all non-system namespaces.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy OPA Gatekeeper, define a `ConstraintTemplate` with Rego logic, and apply a `Constraint` targeting pod specifications." },
@@ -132,7 +132,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "OPA Gatekeeper Constraint Templates and Constraints: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates OPA Gatekeeper to enforce a policy that forbids any pod deployment from specifying hostPort or hostNetwork across all non-system namespaces.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to enforce a policy that forbids any pod deployment from specifying hostPort or hostNetwork across all non-system namespaces.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Deploy OPA Gatekeeper, define a `ConstraintTemplate` with Rego logic, and apply a `Constraint` targeting pod specifications." },
@@ -153,7 +153,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "OPA Gatekeeper Constraint Templates and Constraints: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates OPA Gatekeeper to enforce a policy that forbids any pod deployment from specifying hostPort or hostNetwork across all non-system namespaces.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to enforce a policy that forbids any pod deployment from specifying hostPort or hostNetwork across all non-system namespaces.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Write a custom bash script that edits the kube-apiserver binary." },
@@ -174,7 +174,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "OPA Gatekeeper Constraint Templates and Constraints: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates OPA Gatekeeper to enforce a policy that forbids any pod deployment from specifying hostPort or hostNetwork across all non-system namespaces.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to enforce a policy that forbids any pod deployment from specifying hostPort or hostNetwork across all non-system namespaces.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Instruct developers to memorize security guidelines and follow them voluntarily." },
@@ -195,7 +195,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "OPA Gatekeeper Constraint Templates and Constraints: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates OPA Gatekeeper to enforce a policy that forbids any pod deployment from specifying hostPort or hostNetwork across all non-system namespaces.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to enforce a policy that forbids any pod deployment from specifying hostPort or hostNetwork across all non-system namespaces.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Deploy OPA Gatekeeper, define a `ConstraintTemplate` with Rego logic, and apply a `Constraint` targeting pod specifications." },
@@ -216,7 +216,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "Kyverno Policy Engine for Kubernetes: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Kyverno Policies to enforce security policies and automatically mutate incoming pod specs to add default security contexts without learning complex programming languages.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to enforce security policies and automatically mutate incoming pod specs to add default security contexts without learning complex programming languages.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Write complex custom C++ admission plugins and recompile the Kubernetes API server." },
@@ -237,7 +237,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "Kyverno Policy Engine for Kubernetes: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Kyverno Policies to enforce security policies and automatically mutate incoming pod specs to add default security contexts without learning complex programming languages.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to enforce security policies and automatically mutate incoming pod specs to add default security contexts without learning complex programming languages.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Deploy `Kyverno` and author declarative `ClusterPolicy` resources using standard Kubernetes YAML syntax for validation and mutation." },
@@ -258,7 +258,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "Kyverno Policy Engine for Kubernetes: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Kyverno Policies to enforce security policies and automatically mutate incoming pod specs to add default security contexts without learning complex programming languages.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to enforce security policies and automatically mutate incoming pod specs to add default security contexts without learning complex programming languages.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Require manual approval tickets for every single container deployment." },
@@ -279,7 +279,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "Kyverno Policy Engine for Kubernetes: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Kyverno Policies to enforce security policies and automatically mutate incoming pod specs to add default security contexts without learning complex programming languages.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to enforce security policies and automatically mutate incoming pod specs to add default security contexts without learning complex programming languages.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Deploy `Kyverno` and author declarative `ClusterPolicy` resources using standard Kubernetes YAML syntax for validation and mutation." },
@@ -300,7 +300,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "Kyverno Policy Engine for Kubernetes: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Kyverno Policies to enforce security policies and automatically mutate incoming pod specs to add default security contexts without learning complex programming languages.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to enforce security policies and automatically mutate incoming pod specs to add default security contexts without learning complex programming languages.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Deploy `Kyverno` and author declarative `ClusterPolicy` resources using standard Kubernetes YAML syntax for validation and mutation." },
@@ -321,7 +321,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "Validating and Mutating Webhook Fail-Open vs Fail-Closed: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Admission Webhooks to ensure that an enterprise security admission webhook cannot be bypassed if the webhook backend service experiences temporary downtime.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to ensure that an enterprise security admission webhook cannot be bypassed if the webhook backend service experiences temporary downtime.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Configure `failurePolicy: Fail` (fail-closed) on the `ValidatingWebhookConfiguration` resource." },
@@ -342,7 +342,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "Validating and Mutating Webhook Fail-Open vs Fail-Closed: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Admission Webhooks to ensure that an enterprise security admission webhook cannot be bypassed if the webhook backend service experiences temporary downtime.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to ensure that an enterprise security admission webhook cannot be bypassed if the webhook backend service experiences temporary downtime.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Configure `failurePolicy: Fail` (fail-closed) on the `ValidatingWebhookConfiguration` resource." },
@@ -363,7 +363,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "Validating and Mutating Webhook Fail-Open vs Fail-Closed: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Admission Webhooks to ensure that an enterprise security admission webhook cannot be bypassed if the webhook backend service experiences temporary downtime.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to ensure that an enterprise security admission webhook cannot be bypassed if the webhook backend service experiences temporary downtime.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Configure `failurePolicy: Fail` (fail-closed) on the `ValidatingWebhookConfiguration` resource." },
@@ -384,7 +384,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "Validating and Mutating Webhook Fail-Open vs Fail-Closed: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Admission Webhooks to ensure that an enterprise security admission webhook cannot be bypassed if the webhook backend service experiences temporary downtime.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to ensure that an enterprise security admission webhook cannot be bypassed if the webhook backend service experiences temporary downtime.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Configure `failurePolicy: Fail` (fail-closed) on the `ValidatingWebhookConfiguration` resource." },
@@ -405,7 +405,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "Validating and Mutating Webhook Fail-Open vs Fail-Closed: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Admission Webhooks to ensure that an enterprise security admission webhook cannot be bypassed if the webhook backend service experiences temporary downtime.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to ensure that an enterprise security admission webhook cannot be bypassed if the webhook backend service experiences temporary downtime.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Configure `failurePolicy: Ignore` (fail-open) so security checks are bypassed when the service is down." },
@@ -426,7 +426,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "ImagePolicyWebhook Admission Controller: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Image Admission to delegate container image admission decisions to an external security verification service using the native API server plugin.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to delegate container image admission decisions to an external security verification service using the native API server plugin.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Disable admission plugins in the control plane manifest." },
@@ -447,7 +447,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "ImagePolicyWebhook Admission Controller: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Image Admission to delegate container image admission decisions to an external security verification service using the native API server plugin.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to delegate container image admission decisions to an external security verification service using the native API server plugin.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Allow all images to be pulled without validation." },
@@ -468,7 +468,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "ImagePolicyWebhook Admission Controller: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Image Admission to delegate container image admission decisions to an external security verification service using the native API server plugin.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to delegate container image admission decisions to an external security verification service using the native API server plugin.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Enable the `ImagePolicyWebhook` admission plugin on kube-apiserver and configure an admission configuration file pointing to the external validator." },
@@ -489,7 +489,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "ImagePolicyWebhook Admission Controller: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Image Admission to delegate container image admission decisions to an external security verification service using the native API server plugin.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to delegate container image admission decisions to an external security verification service using the native API server plugin.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Enable the `ImagePolicyWebhook` admission plugin on kube-apiserver and configure an admission configuration file pointing to the external validator." },
@@ -510,7 +510,7 @@ export const K8S_CKS_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Cluster Threat Defense and Admission Control",
     title: "ImagePolicyWebhook Admission Controller: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Image Admission to delegate container image admission decisions to an external security verification service using the native API server plugin.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to delegate container image admission decisions to an external security verification service using the native API server plugin.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Allow all images to be pulled without validation." },

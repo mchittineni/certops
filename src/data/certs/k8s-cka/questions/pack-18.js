@@ -6,7 +6,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "etcd Backup and Snapshot Creation: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Disaster Recovery to create an encrypted point-in-time backup of the cluster's etcd state before executing a major control plane configuration change.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to create an encrypted point-in-time backup of the cluster's etcd state before executing a major control plane configuration change.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Rely on cloud provider hypervisor volume snapshots without flushing etcd write buffers." },
@@ -27,7 +27,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "etcd Backup and Snapshot Creation: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Disaster Recovery to create an encrypted point-in-time backup of the cluster's etcd state before executing a major control plane configuration change.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to create an encrypted point-in-time backup of the cluster's etcd state before executing a major control plane configuration change.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Run `kubectl get all -A -o yaml` and save the text file to disk." },
@@ -48,7 +48,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "etcd Backup and Snapshot Creation: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Disaster Recovery to create an encrypted point-in-time backup of the cluster's etcd state before executing a major control plane configuration change.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to create an encrypted point-in-time backup of the cluster's etcd state before executing a major control plane configuration change.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Execute `etcdctl snapshot save &lt;backup.db&gt;` passing the CA certificate, server certificate, and server key endpoints." },
@@ -69,7 +69,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "etcd Backup and Snapshot Creation: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Disaster Recovery to create an encrypted point-in-time backup of the cluster's etcd state before executing a major control plane configuration change.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to create an encrypted point-in-time backup of the cluster's etcd state before executing a major control plane configuration change.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Execute `etcdctl snapshot save &lt;backup.db&gt;` passing the CA certificate, server certificate, and server key endpoints." },
@@ -90,7 +90,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "etcd Backup and Snapshot Creation: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Disaster Recovery to create an encrypted point-in-time backup of the cluster's etcd state before executing a major control plane configuration change.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to create an encrypted point-in-time backup of the cluster's etcd state before executing a major control plane configuration change.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Copy the running `/var/lib/etcd` directory to another path while etcd writes are actively occurring." },
@@ -111,7 +111,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "etcd Restore Procedure: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Disaster Recovery to restore the cluster state from a previously saved etcd snapshot following accidental deletion of multiple production namespaces.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to restore the cluster state from a previously saved etcd snapshot following accidental deletion of multiple production namespaces.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Copy the snapshot file directly over the existing `/var/lib/etcd/member` folder while etcd is running." },
@@ -132,7 +132,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "etcd Restore Procedure: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Disaster Recovery to restore the cluster state from a previously saved etcd snapshot following accidental deletion of multiple production namespaces.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to restore the cluster state from a previously saved etcd snapshot following accidental deletion of multiple production namespaces.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Restore is impossible once namespaces are deleted in Kubernetes." },
@@ -153,7 +153,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "etcd Restore Procedure: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Disaster Recovery to restore the cluster state from a previously saved etcd snapshot following accidental deletion of multiple production namespaces.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to restore the cluster state from a previously saved etcd snapshot following accidental deletion of multiple production namespaces.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Stop the API server, restore the snapshot with `etcdctl snapshot restore --data-dir=&lt;new-dir&gt;`, and update the etcd static pod manifest hostPath volume to point to `&lt;new-dir&gt;`." },
@@ -174,7 +174,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "etcd Restore Procedure: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Disaster Recovery to restore the cluster state from a previously saved etcd snapshot following accidental deletion of multiple production namespaces.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to restore the cluster state from a previously saved etcd snapshot following accidental deletion of multiple production namespaces.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Stop the API server, restore the snapshot with `etcdctl snapshot restore --data-dir=&lt;new-dir&gt;`, and update the etcd static pod manifest hostPath volume to point to `&lt;new-dir&gt;`." },
@@ -195,7 +195,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "etcd Restore Procedure: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Disaster Recovery to restore the cluster state from a previously saved etcd snapshot following accidental deletion of multiple production namespaces.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to restore the cluster state from a previously saved etcd snapshot following accidental deletion of multiple production namespaces.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Restore is impossible once namespaces are deleted in Kubernetes." },
@@ -216,7 +216,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Role-Based Access Control (RBAC) Roles and RoleBindings: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates RBAC to grant a junior developer permissions to view, get, and list Pods and Services only within the `staging` namespace without allowing cluster-wide access.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to grant a junior developer permissions to view, get, and list Pods and Services only within the `staging` namespace without allowing cluster-wide access.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Create a `ClusterRole` and bind it to the developer using a cluster-wide ClusterRoleBinding." },
@@ -237,7 +237,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Role-Based Access Control (RBAC) Roles and RoleBindings: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates RBAC to grant a junior developer permissions to view, get, and list Pods and Services only within the `staging` namespace without allowing cluster-wide access.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to grant a junior developer permissions to view, get, and list Pods and Services only within the `staging` namespace without allowing cluster-wide access.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Add the developer's client certificate directly to the kube-apiserver static token file." },
@@ -258,7 +258,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Role-Based Access Control (RBAC) Roles and RoleBindings: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates RBAC to grant a junior developer permissions to view, get, and list Pods and Services only within the `staging` namespace without allowing cluster-wide access.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to grant a junior developer permissions to view, get, and list Pods and Services only within the `staging` namespace without allowing cluster-wide access.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Create a `ClusterRoleBinding` granting `cluster-admin` privileges across the entire cluster." },
@@ -279,7 +279,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Role-Based Access Control (RBAC) Roles and RoleBindings: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates RBAC to grant a junior developer permissions to view, get, and list Pods and Services only within the `staging` namespace without allowing cluster-wide access.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to grant a junior developer permissions to view, get, and list Pods and Services only within the `staging` namespace without allowing cluster-wide access.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Create a `ClusterRoleBinding` granting `cluster-admin` privileges across the entire cluster." },
@@ -300,7 +300,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "Role-Based Access Control (RBAC) Roles and RoleBindings: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates RBAC to grant a junior developer permissions to view, get, and list Pods and Services only within the `staging` namespace without allowing cluster-wide access.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to grant a junior developer permissions to view, get, and list Pods and Services only within the `staging` namespace without allowing cluster-wide access.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Create a `ClusterRole` and bind it to the developer using a cluster-wide ClusterRoleBinding." },
@@ -321,7 +321,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "ClusterRoles and ClusterRoleBindings: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Cluster RBAC to grant a cluster monitoring service account permissions to view nodes, persistent volumes, and pods across all namespaces.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to grant a cluster monitoring service account permissions to view nodes, persistent volumes, and pods across all namespaces.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Create a standard Role in the `default` namespace." },
@@ -342,7 +342,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "ClusterRoles and ClusterRoleBindings: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Cluster RBAC to grant a cluster monitoring service account permissions to view nodes, persistent volumes, and pods across all namespaces.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to grant a cluster monitoring service account permissions to view nodes, persistent volumes, and pods across all namespaces.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Create a `ClusterRole` with get and list verbs for nodes, PVs, and pods, and bind it to the ServiceAccount using a `ClusterRoleBinding`." },
@@ -363,7 +363,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "ClusterRoles and ClusterRoleBindings: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Cluster RBAC to grant a cluster monitoring service account permissions to view nodes, persistent volumes, and pods across all namespaces.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to grant a cluster monitoring service account permissions to view nodes, persistent volumes, and pods across all namespaces.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Mount the master node root filesystem into the monitoring pod with write access." },
@@ -384,7 +384,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "ClusterRoles and ClusterRoleBindings: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Cluster RBAC to grant a cluster monitoring service account permissions to view nodes, persistent volumes, and pods across all namespaces.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to grant a cluster monitoring service account permissions to view nodes, persistent volumes, and pods across all namespaces.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Mount the master node root filesystem into the monitoring pod with write access." },
@@ -405,7 +405,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "ClusterRoles and ClusterRoleBindings: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Cluster RBAC to grant a cluster monitoring service account permissions to view nodes, persistent volumes, and pods across all namespaces.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to grant a cluster monitoring service account permissions to view nodes, persistent volumes, and pods across all namespaces.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Create a `ClusterRole` with get and list verbs for nodes, PVs, and pods, and bind it to the ServiceAccount using a `ClusterRoleBinding`." },
@@ -426,7 +426,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "ServiceAccounts and Token Projections: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates ServiceAccounts to configure an in-cluster workload to authenticate to the Kubernetes API server using short-lived, audience-bound tokens instead of legacy permanent secrets.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to configure an in-cluster workload to authenticate to the Kubernetes API server using short-lived, audience-bound tokens instead of legacy permanent secrets.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Disable API server authentication flags (`--anonymous-auth=true`)." },
@@ -447,7 +447,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "ServiceAccounts and Token Projections: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates ServiceAccounts to configure an in-cluster workload to authenticate to the Kubernetes API server using short-lived, audience-bound tokens instead of legacy permanent secrets.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to configure an in-cluster workload to authenticate to the Kubernetes API server using short-lived, audience-bound tokens instead of legacy permanent secrets.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Disable API server authentication flags (`--anonymous-auth=true`)." },
@@ -468,7 +468,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "ServiceAccounts and Token Projections: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates ServiceAccounts to configure an in-cluster workload to authenticate to the Kubernetes API server using short-lived, audience-bound tokens instead of legacy permanent secrets.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to configure an in-cluster workload to authenticate to the Kubernetes API server using short-lived, audience-bound tokens instead of legacy permanent secrets.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Use the default ServiceAccount in the kube-system namespace with automountServiceAccountToken: true." },
@@ -489,7 +489,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "ServiceAccounts and Token Projections: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates ServiceAccounts to configure an in-cluster workload to authenticate to the Kubernetes API server using short-lived, audience-bound tokens instead of legacy permanent secrets.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to configure an in-cluster workload to authenticate to the Kubernetes API server using short-lived, audience-bound tokens instead of legacy permanent secrets.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Hardcode the cluster root CA private key directly in application environment variables." },
@@ -510,7 +510,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Cluster Architecture, Installation & Config",
     title: "ServiceAccounts and Token Projections: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates ServiceAccounts to configure an in-cluster workload to authenticate to the Kubernetes API server using short-lived, audience-bound tokens instead of legacy permanent secrets.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to configure an in-cluster workload to authenticate to the Kubernetes API server using short-lived, audience-bound tokens instead of legacy permanent secrets.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Hardcode the cluster root CA private key directly in application environment variables." },

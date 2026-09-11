@@ -6,7 +6,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The FinOps Lifecycle: Inform Phase: Cultural Transformation",
-    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner evaluates Inform Phase to establish visibility into which business units and applications are driving a 40% quarter-over-quarter cloud spend increase.",
+    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to establish visibility into which business units and applications are driving a 40% quarter-over-quarter cloud spend increase.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Purchase three-year upfront reserved instances before discovering which services are being deprecated." },
@@ -27,7 +27,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The FinOps Lifecycle: Inform Phase: Rate And Usage Optimization",
-    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner evaluates Inform Phase to establish visibility into which business units and applications are driving a 40% quarter-over-quarter cloud spend increase.",
+    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to establish visibility into which business units and applications are driving a 40% quarter-over-quarter cloud spend increase.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Purchase three-year upfront reserved instances before discovering which services are being deprecated." },
@@ -48,7 +48,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The FinOps Lifecycle: Inform Phase: Visibility And Allocation",
-    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner evaluates Inform Phase to establish visibility into which business units and applications are driving a 40% quarter-over-quarter cloud spend increase.",
+    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to establish visibility into which business units and applications are driving a 40% quarter-over-quarter cloud spend increase.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Purchase three-year upfront reserved instances before discovering which services are being deprecated." },
@@ -69,7 +69,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The FinOps Lifecycle: Inform Phase: Unit Economics And Forecasting",
-    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner evaluates Inform Phase to establish visibility into which business units and applications are driving a 40% quarter-over-quarter cloud spend increase.",
+    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to establish visibility into which business units and applications are driving a 40% quarter-over-quarter cloud spend increase.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Immediately shut down production database servers without understanding who owns them." },
@@ -90,7 +90,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The FinOps Lifecycle: Inform Phase: Governance And Maturity",
-    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner evaluates Inform Phase to establish visibility into which business units and applications are driving a 40% quarter-over-quarter cloud spend increase.",
+    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to establish visibility into which business units and applications are driving a 40% quarter-over-quarter cloud spend increase.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Immediately shut down production database servers without understanding who owns them." },
@@ -111,7 +111,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The FinOps Lifecycle: Optimize Phase: Cultural Transformation",
-    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner evaluates Optimize Phase to reduce monthly cloud expenditure for an established, steady-state enterprise application with 500 idle and overprovisioned virtual machines.",
+    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to reduce monthly cloud expenditure for an established, steady-state enterprise application with 500 idle and overprovisioned virtual machines.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Write custom code to rewrite the entire application architecture from scratch over a two-year period." },
@@ -132,7 +132,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The FinOps Lifecycle: Optimize Phase: Rate And Usage Optimization",
-    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner evaluates Optimize Phase to reduce monthly cloud expenditure for an established, steady-state enterprise application with 500 idle and overprovisioned virtual machines.",
+    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to reduce monthly cloud expenditure for an established, steady-state enterprise application with 500 idle and overprovisioned virtual machines.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Execute the FinOps 'Optimize' phase: rightsize overprovisioned instances, eliminate unattached storage, and purchase commitment discounts." },
@@ -153,7 +153,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The FinOps Lifecycle: Optimize Phase: Visibility And Allocation",
-    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner evaluates Optimize Phase to reduce monthly cloud expenditure for an established, steady-state enterprise application with 500 idle and overprovisioned virtual machines.",
+    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to reduce monthly cloud expenditure for an established, steady-state enterprise application with 500 idle and overprovisioned virtual machines.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Cancel the software product completely to eliminate all cloud bills." },
@@ -174,7 +174,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The FinOps Lifecycle: Optimize Phase: Unit Economics And Forecasting",
-    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner evaluates Optimize Phase to reduce monthly cloud expenditure for an established, steady-state enterprise application with 500 idle and overprovisioned virtual machines.",
+    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to reduce monthly cloud expenditure for an established, steady-state enterprise application with 500 idle and overprovisioned virtual machines.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Cancel the software product completely to eliminate all cloud bills." },
@@ -195,7 +195,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The FinOps Lifecycle: Optimize Phase: Governance And Maturity",
-    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner evaluates Optimize Phase to reduce monthly cloud expenditure for an established, steady-state enterprise application with 500 idle and overprovisioned virtual machines.",
+    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to reduce monthly cloud expenditure for an established, steady-state enterprise application with 500 idle and overprovisioned virtual machines.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Double the provisioned CPU size to see if performance improves." },
@@ -216,7 +216,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The FinOps Lifecycle: Operate Phase: Cultural Transformation",
-    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner evaluates Operate Phase to embed automated financial guardrails and continuous optimization checks into daily operational workflows and CI/CD pipelines.",
+    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to embed automated financial guardrails and continuous optimization checks into daily operational workflows and CI/CD pipelines.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Conclude that FinOps is complete after running a one-time cost reduction cleanup sprint." },
@@ -237,7 +237,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The FinOps Lifecycle: Operate Phase: Rate And Usage Optimization",
-    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner evaluates Operate Phase to embed automated financial guardrails and continuous optimization checks into daily operational workflows and CI/CD pipelines.",
+    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to embed automated financial guardrails and continuous optimization checks into daily operational workflows and CI/CD pipelines.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Transition to the FinOps 'Operate' phase: automate continuous compliance policies, track unit metrics against business KPIs, and iterate." },
@@ -258,7 +258,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The FinOps Lifecycle: Operate Phase: Visibility And Allocation",
-    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner evaluates Operate Phase to embed automated financial guardrails and continuous optimization checks into daily operational workflows and CI/CD pipelines.",
+    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to embed automated financial guardrails and continuous optimization checks into daily operational workflows and CI/CD pipelines.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Manually review every single cloud resource deletion request on physical paper forms." },
@@ -279,7 +279,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The FinOps Lifecycle: Operate Phase: Unit Economics And Forecasting",
-    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner evaluates Operate Phase to embed automated financial guardrails and continuous optimization checks into daily operational workflows and CI/CD pipelines.",
+    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to embed automated financial guardrails and continuous optimization checks into daily operational workflows and CI/CD pipelines.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Conclude that FinOps is complete after running a one-time cost reduction cleanup sprint." },
@@ -300,7 +300,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The FinOps Lifecycle: Operate Phase: Governance And Maturity",
-    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner evaluates Operate Phase to embed automated financial guardrails and continuous optimization checks into daily operational workflows and CI/CD pipelines.",
+    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to embed automated financial guardrails and continuous optimization checks into daily operational workflows and CI/CD pipelines.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Transition to the FinOps 'Operate' phase: automate continuous compliance policies, track unit metrics against business KPIs, and iterate." },
@@ -321,7 +321,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The Continuous Iterative FinOps Lifecycle Loop: Cultural Transformation",
-    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner evaluates FinOps Lifecycle Loop to manage FinOps across an enterprise where legacy applications are mature while modern cloud-native AI services are rapidly emerging.",
+    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to manage FinOps across an enterprise where legacy applications are mature while modern cloud-native AI services are rapidly emerging.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Prohibit optimizing any workload until all workloads in the enterprise are ready to optimize." },
@@ -342,7 +342,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The Continuous Iterative FinOps Lifecycle Loop: Rate And Usage Optimization",
-    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner evaluates FinOps Lifecycle Loop to manage FinOps across an enterprise where legacy applications are mature while modern cloud-native AI services are rapidly emerging.",
+    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to manage FinOps across an enterprise where legacy applications are mature while modern cloud-native AI services are rapidly emerging.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Prohibit optimizing any workload until all workloads in the enterprise are ready to optimize." },
@@ -363,7 +363,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The Continuous Iterative FinOps Lifecycle Loop: Visibility And Allocation",
-    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner evaluates FinOps Lifecycle Loop to manage FinOps across an enterprise where legacy applications are mature while modern cloud-native AI services are rapidly emerging.",
+    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to manage FinOps across an enterprise where legacy applications are mature while modern cloud-native AI services are rapidly emerging.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Recognize that the FinOps lifecycle is continuous and iterative: different teams and workloads operate in Inform, Optimize, or Operate simultaneously." },
@@ -384,7 +384,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The Continuous Iterative FinOps Lifecycle Loop: Unit Economics And Forecasting",
-    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner evaluates FinOps Lifecycle Loop to manage FinOps across an enterprise where legacy applications are mature while modern cloud-native AI services are rapidly emerging.",
+    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to manage FinOps across an enterprise where legacy applications are mature while modern cloud-native AI services are rapidly emerging.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Assume the FinOps lifecycle is a rigid, one-time sequential waterfall project that finishes upon reaching Operate." },
@@ -405,7 +405,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "The Continuous Iterative FinOps Lifecycle Loop: Governance And Maturity",
-    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner evaluates FinOps Lifecycle Loop to manage FinOps across an enterprise where legacy applications are mature while modern cloud-native AI services are rapidly emerging.",
+    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to manage FinOps across an enterprise where legacy applications are mature while modern cloud-native AI services are rapidly emerging.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Recognize that the FinOps lifecycle is continuous and iterative: different teams and workloads operate in Inform, Optimize, or Operate simultaneously." },
@@ -426,7 +426,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "FinOps Maturity Model: Crawl Stage: Cultural Transformation",
-    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner evaluates Crawl Stage to identify the characteristics of an organization operating at the 'Crawl' stage of FinOps maturity.",
+    scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to identify the characteristics of an organization operating at the 'Crawl' stage of FinOps maturity.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Characterized by real-time automated rightsizing, predictive machine learning forecasting, and 100% unit economics." },
@@ -447,7 +447,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "FinOps Maturity Model: Crawl Stage: Rate And Usage Optimization",
-    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner evaluates Crawl Stage to identify the characteristics of an organization operating at the 'Crawl' stage of FinOps maturity.",
+    scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to identify the characteristics of an organization operating at the 'Crawl' stage of FinOps maturity.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Characterized by fully automated policy-as-code guardrails embedded in CI/CD pipelines." },
@@ -468,7 +468,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "FinOps Maturity Model: Crawl Stage: Visibility And Allocation",
-    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner evaluates Crawl Stage to identify the characteristics of an organization operating at the 'Crawl' stage of FinOps maturity.",
+    scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to identify the characteristics of an organization operating at the 'Crawl' stage of FinOps maturity.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Characterized by complete absence of any cloud infrastructure or financial tracking." },
@@ -489,7 +489,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "FinOps Maturity Model: Crawl Stage: Unit Economics And Forecasting",
-    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner evaluates Crawl Stage to identify the characteristics of an organization operating at the 'Crawl' stage of FinOps maturity.",
+    scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to identify the characteristics of an organization operating at the 'Crawl' stage of FinOps maturity.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Characterized by basic cost allocation (low tag compliance), manual spreadsheets, reactive cost cutting, and little to no automation." },
@@ -510,7 +510,7 @@ export const FINOPS_FOCP_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "FinOps Phases & Maturity Model",
     title: "FinOps Maturity Model: Crawl Stage: Governance And Maturity",
-    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner evaluates Crawl Stage to identify the characteristics of an organization operating at the 'Crawl' stage of FinOps maturity.",
+    scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to identify the characteristics of an organization operating at the 'Crawl' stage of FinOps maturity.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Characterized by fully automated policy-as-code guardrails embedded in CI/CD pipelines." },

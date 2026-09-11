@@ -6,7 +6,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Service Connections and Workload Identity Federation: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Service Connections to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Create a Service Principal with a permanent client secret and never rotate the password." },
@@ -27,7 +27,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Service Connections and Workload Identity Federation: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Service Connections to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Disable authentication on the Azure Resource Manager API." },
@@ -48,7 +48,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Service Connections and Workload Identity Federation: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Service Connections to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
@@ -69,7 +69,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Service Connections and Workload Identity Federation: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Service Connections to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
@@ -90,7 +90,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Service Connections and Workload Identity Federation: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Service Connections to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Hardcode Azure global administrator credentials inside the pipeline YAML file." },
@@ -111,7 +111,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Azure Artifacts Feeds and Upstream Sources: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Azure Artifacts to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Host packages on an unauthenticated FTP server on the public internet." },
@@ -132,7 +132,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Azure Artifacts Feeds and Upstream Sources: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Azure Artifacts to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Instruct developers to commit compiled NuGet DLLs directly to Git repositories." },
@@ -153,7 +153,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Azure Artifacts Feeds and Upstream Sources: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Azure Artifacts to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Instruct developers to commit compiled NuGet DLLs directly to Git repositories." },
@@ -174,7 +174,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Azure Artifacts Feeds and Upstream Sources: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Azure Artifacts to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Disable package management and compile all dependencies from raw source every time." },
@@ -195,7 +195,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Azure Artifacts Feeds and Upstream Sources: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Azure Artifacts to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Disable package management and compile all dependencies from raw source every time." },
@@ -216,7 +216,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Matrix Strategies and Slicing in Azure Pipelines: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Matrix Builds to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Write three completely separate 1,000-line pipeline YAML files." },
@@ -237,7 +237,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Matrix Strategies and Slicing in Azure Pipelines: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Matrix Builds to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Skip cross-platform testing and only test on a developer laptop." },
@@ -258,7 +258,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Matrix Strategies and Slicing in Azure Pipelines: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Matrix Builds to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Run tests sequentially on a single slow virtual machine over 12 hours." },
@@ -279,7 +279,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Matrix Strategies and Slicing in Azure Pipelines: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Matrix Builds to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Run tests sequentially on a single slow virtual machine over 12 hours." },
@@ -300,7 +300,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Matrix Strategies and Slicing in Azure Pipelines: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Matrix Builds to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Run tests sequentially on a single slow virtual machine over 12 hours." },
@@ -321,7 +321,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Pipeline Caching with the Cache Task: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Build Optimization to shorten continuous integration build times by caching `node_modules` or `~/.m2` dependencies between pipeline runs.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to shorten continuous integration build times by caching `node_modules` or `~/.m2` dependencies between pipeline runs.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Store dependencies on an external public file-sharing website." },
@@ -342,7 +342,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Pipeline Caching with the Cache Task: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Build Optimization to shorten continuous integration build times by caching `node_modules` or `~/.m2` dependencies between pipeline runs.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to shorten continuous integration build times by caching `node_modules` or `~/.m2` dependencies between pipeline runs.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Run builds on a single physical server without wiping workspaces between unrelated builds." },
@@ -363,7 +363,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Pipeline Caching with the Cache Task: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Build Optimization to shorten continuous integration build times by caching `node_modules` or `~/.m2` dependencies between pipeline runs.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to shorten continuous integration build times by caching `node_modules` or `~/.m2` dependencies between pipeline runs.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Run builds on a single physical server without wiping workspaces between unrelated builds." },
@@ -384,7 +384,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Pipeline Caching with the Cache Task: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Build Optimization to shorten continuous integration build times by caching `node_modules` or `~/.m2` dependencies between pipeline runs.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to shorten continuous integration build times by caching `node_modules` or `~/.m2` dependencies between pipeline runs.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Implement the `Cache@2` task in the pipeline specifying a cache `key` based on lockfiles (`package-lock.json`) and cache `path`." },
@@ -405,7 +405,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Pipeline Caching with the Cache Task: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Build Optimization to shorten continuous integration build times by caching `node_modules` or `~/.m2` dependencies between pipeline runs.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to shorten continuous integration build times by caching `node_modules` or `~/.m2` dependencies between pipeline runs.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Implement the `Cache@2` task in the pipeline specifying a cache `key` based on lockfiles (`package-lock.json`) and cache `path`." },
@@ -426,7 +426,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Deployment Slots for Zero-Downtime App Service Releases: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates App Service Slots to deploy a new release of a critical web application to Azure App Service without dropping user connections or incurring cold start latency.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to deploy a new release of a critical web application to Azure App Service without dropping user connections or incurring cold start latency.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Stop the production App Service for 30 minutes while deploying new code." },
@@ -447,7 +447,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Deployment Slots for Zero-Downtime App Service Releases: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates App Service Slots to deploy a new release of a critical web application to Azure App Service without dropping user connections or incurring cold start latency.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to deploy a new release of a critical web application to Azure App Service without dropping user connections or incurring cold start latency.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Deploy the new version to a staging deployment slot, warm up the application, and execute a slot swap to swap staging and production." },
@@ -468,7 +468,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Deployment Slots for Zero-Downtime App Service Releases: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates App Service Slots to deploy a new release of a critical web application to Azure App Service without dropping user connections or incurring cold start latency.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to deploy a new release of a critical web application to Azure App Service without dropping user connections or incurring cold start latency.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Delete the App Service instance and recreate it using ARM templates." },
@@ -489,7 +489,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Deployment Slots for Zero-Downtime App Service Releases: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates App Service Slots to deploy a new release of a critical web application to Azure App Service without dropping user connections or incurring cold start latency.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to deploy a new release of a critical web application to Azure App Service without dropping user connections or incurring cold start latency.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Delete the App Service instance and recreate it using ARM templates." },
@@ -510,7 +510,7 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Design and implement build and release pipelines",
     title: "Deployment Slots for Zero-Downtime App Service Releases: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates App Service Slots to deploy a new release of a critical web application to Azure App Service without dropping user connections or incurring cold start latency.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to deploy a new release of a critical web application to Azure App Service without dropping user connections or incurring cold start latency.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Deploy the new version to a staging deployment slot, warm up the application, and execute a slot swap to swap staging and production." },

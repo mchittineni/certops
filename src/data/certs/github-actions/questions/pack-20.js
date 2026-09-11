@@ -6,7 +6,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Enterprise Policy Governance for GitHub Actions: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Enterprise Policies to prevent developers across an enterprise organization from using unvetted third-party actions from random GitHub users.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to prevent developers across an enterprise organization from using unvetted third-party actions from random GitHub users.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Configure Enterprise Actions Policies to allow 'Local actions only' or 'Allow select actions' from verified creators." },
@@ -27,7 +27,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Enterprise Policy Governance for GitHub Actions: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Enterprise Policies to prevent developers across an enterprise organization from using unvetted third-party actions from random GitHub users.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to prevent developers across an enterprise organization from using unvetted third-party actions from random GitHub users.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Disable GitHub Actions completely across the enterprise." },
@@ -48,7 +48,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Enterprise Policy Governance for GitHub Actions: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Enterprise Policies to prevent developers across an enterprise organization from using unvetted third-party actions from random GitHub users.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to prevent developers across an enterprise organization from using unvetted third-party actions from random GitHub users.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Instruct developers to read third-party source code voluntarily." },
@@ -69,7 +69,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Enterprise Policy Governance for GitHub Actions: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Enterprise Policies to prevent developers across an enterprise organization from using unvetted third-party actions from random GitHub users.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to prevent developers across an enterprise organization from using unvetted third-party actions from random GitHub users.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Allow all public marketplace actions without restrictions." },
@@ -90,7 +90,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Enterprise Policy Governance for GitHub Actions: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Enterprise Policies to prevent developers across an enterprise organization from using unvetted third-party actions from random GitHub users.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to prevent developers across an enterprise organization from using unvetted third-party actions from random GitHub users.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Disable GitHub Actions completely across the enterprise." },
@@ -111,7 +111,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Security Hardening: Preventing Script Injection: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Script Injection to prevent an attacker from executing arbitrary bash commands via malicious pull request titles or issue comments in a workflow step.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to prevent an attacker from executing arbitrary bash commands via malicious pull request titles or issue comments in a workflow step.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Trust all pull request titles to contain safe characters." },
@@ -132,7 +132,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Security Hardening: Preventing Script Injection: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Script Injection to prevent an attacker from executing arbitrary bash commands via malicious pull request titles or issue comments in a workflow step.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to prevent an attacker from executing arbitrary bash commands via malicious pull request titles or issue comments in a workflow step.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Disable all automated pull request workflows." },
@@ -153,7 +153,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Security Hardening: Preventing Script Injection: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Script Injection to prevent an attacker from executing arbitrary bash commands via malicious pull request titles or issue comments in a workflow step.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to prevent an attacker from executing arbitrary bash commands via malicious pull request titles or issue comments in a workflow step.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Pass untrusted context values (`${{ github.event.issue.title }}`) through step environment variables (`env:`) rather than inline script interpolation." },
@@ -174,7 +174,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Security Hardening: Preventing Script Injection: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Script Injection to prevent an attacker from executing arbitrary bash commands via malicious pull request titles or issue comments in a workflow step.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to prevent an attacker from executing arbitrary bash commands via malicious pull request titles or issue comments in a workflow step.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Trust all pull request titles to contain safe characters." },
@@ -195,7 +195,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Security Hardening: Preventing Script Injection: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Script Injection to prevent an attacker from executing arbitrary bash commands via malicious pull request titles or issue comments in a workflow step.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to prevent an attacker from executing arbitrary bash commands via malicious pull request titles or issue comments in a workflow step.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Trust all pull request titles to contain safe characters." },
@@ -216,7 +216,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Required Workflows for Organization Compliance: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Required Workflows to guarantee that every repository across an enterprise organization runs a mandatory security scan on all pull requests before merging.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to guarantee that every repository across an enterprise organization runs a mandatory security scan on all pull requests before merging.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Perform compliance audits manually once every six months." },
@@ -237,7 +237,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Required Workflows for Organization Compliance: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Required Workflows to guarantee that every repository across an enterprise organization runs a mandatory security scan on all pull requests before merging.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to guarantee that every repository across an enterprise organization runs a mandatory security scan on all pull requests before merging.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Trust all developers to include the security scan in their local workflows." },
@@ -258,7 +258,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Required Workflows for Organization Compliance: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Required Workflows to guarantee that every repository across an enterprise organization runs a mandatory security scan on all pull requests before merging.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to guarantee that every repository across an enterprise organization runs a mandatory security scan on all pull requests before merging.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Perform compliance audits manually once every six months." },
@@ -279,7 +279,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Required Workflows for Organization Compliance: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Required Workflows to guarantee that every repository across an enterprise organization runs a mandatory security scan on all pull requests before merging.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to guarantee that every repository across an enterprise organization runs a mandatory security scan on all pull requests before merging.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Configure an Organization Rule (or Repository Ruleset) requiring specific status checks from a centralized workflow." },
@@ -300,7 +300,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Required Workflows for Organization Compliance: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Required Workflows to guarantee that every repository across an enterprise organization runs a mandatory security scan on all pull requests before merging.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to guarantee that every repository across an enterprise organization runs a mandatory security scan on all pull requests before merging.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Trust all developers to include the security scan in their local workflows." },
@@ -321,7 +321,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Organization-Level Secrets and Variables: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Organization Secrets to manage a shared SonarQube API token and container registry credentials across 100 repositories in an organization with centralized access control.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to manage a shared SonarQube API token and container registry credentials across 100 repositories in an organization with centralized access control.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Commit the secret to a public repository README file." },
@@ -342,7 +342,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Organization-Level Secrets and Variables: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Organization Secrets to manage a shared SonarQube API token and container registry credentials across 100 repositories in an organization with centralized access control.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to manage a shared SonarQube API token and container registry credentials across 100 repositories in an organization with centralized access control.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Share the secret with developers via chat." },
@@ -363,7 +363,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Organization-Level Secrets and Variables: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Organization Secrets to manage a shared SonarQube API token and container registry credentials across 100 repositories in an organization with centralized access control.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to manage a shared SonarQube API token and container registry credentials across 100 repositories in an organization with centralized access control.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Share the secret with developers via chat." },
@@ -384,7 +384,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Organization-Level Secrets and Variables: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Organization Secrets to manage a shared SonarQube API token and container registry credentials across 100 repositories in an organization with centralized access control.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to manage a shared SonarQube API token and container registry credentials across 100 repositories in an organization with centralized access control.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Share the secret with developers via chat." },
@@ -405,7 +405,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Organization-Level Secrets and Variables: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Organization Secrets to manage a shared SonarQube API token and container registry credentials across 100 repositories in an organization with centralized access control.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to manage a shared SonarQube API token and container registry credentials across 100 repositories in an organization with centralized access control.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Share the secret with developers via chat." },
@@ -426,7 +426,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Auditing Actions Activity in Enterprise Audit Logs: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Enterprise Audit Logs to investigate an unauthorized modification to a self-hosted runner group or determine who downloaded an encrypted repository secret.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to investigate an unauthorized modification to a self-hosted runner group or determine who downloaded an encrypted repository secret.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Review developer browser search history." },
@@ -447,7 +447,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Auditing Actions Activity in Enterprise Audit Logs: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Enterprise Audit Logs to investigate an unauthorized modification to a self-hosted runner group or determine who downloaded an encrypted repository secret.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to investigate an unauthorized modification to a self-hosted runner group or determine who downloaded an encrypted repository secret.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Review developer browser search history." },
@@ -468,7 +468,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Auditing Actions Activity in Enterprise Audit Logs: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Enterprise Audit Logs to investigate an unauthorized modification to a self-hosted runner group or determine who downloaded an encrypted repository secret.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to investigate an unauthorized modification to a self-hosted runner group or determine who downloaded an encrypted repository secret.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Assume GitHub does not record administrative actions." },
@@ -489,7 +489,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Auditing Actions Activity in Enterprise Audit Logs: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Enterprise Audit Logs to investigate an unauthorized modification to a self-hosted runner group or determine who downloaded an encrypted repository secret.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to investigate an unauthorized modification to a self-hosted runner group or determine who downloaded an encrypted repository secret.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Review developer browser search history." },
@@ -510,7 +510,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     domainId: "d4",
     domainName: "Manage enterprise runners, secrets, and governance",
     title: "Auditing Actions Activity in Enterprise Audit Logs: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Enterprise Audit Logs to investigate an unauthorized modification to a self-hosted runner group or determine who downloaded an encrypted repository secret.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to investigate an unauthorized modification to a self-hosted runner group or determine who downloaded an encrypted repository secret.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Inspect the git commit history of the repository." },

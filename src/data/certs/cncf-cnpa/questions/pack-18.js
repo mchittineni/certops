@@ -6,7 +6,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Policy as Code and Admission Control: Kyverno and OPA: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Policy as Code to prevent developers from deploying pods that run as root, lack resource requests, or pull images from untrusted registries.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to prevent developers from deploying pods that run as root, lack resource requests, or pull images from untrusted registries.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Grant developers unrestricted access to bypass security policies." },
@@ -27,7 +27,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Policy as Code and Admission Control: Kyverno and OPA: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Policy as Code to prevent developers from deploying pods that run as root, lack resource requests, or pull images from untrusted registries.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to prevent developers from deploying pods that run as root, lack resource requests, or pull images from untrusted registries.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Implement Policy as Code using Kyverno or Open Policy Agent (OPA) Gatekeeper to enforce admission control rules declaratively." },
@@ -48,7 +48,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Policy as Code and Admission Control: Kyverno and OPA: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Policy as Code to prevent developers from deploying pods that run as root, lack resource requests, or pull images from untrusted registries.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to prevent developers from deploying pods that run as root, lack resource requests, or pull images from untrusted registries.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Grant developers unrestricted access to bypass security policies." },
@@ -69,7 +69,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Policy as Code and Admission Control: Kyverno and OPA: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Policy as Code to prevent developers from deploying pods that run as root, lack resource requests, or pull images from untrusted registries.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to prevent developers from deploying pods that run as root, lack resource requests, or pull images from untrusted registries.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Rely on manual human code reviews to catch missing resource requests and root container execution." },
@@ -90,7 +90,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Policy as Code and Admission Control: Kyverno and OPA: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Policy as Code to prevent developers from deploying pods that run as root, lack resource requests, or pull images from untrusted registries.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to prevent developers from deploying pods that run as root, lack resource requests, or pull images from untrusted registries.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Grant developers unrestricted access to bypass security policies." },
@@ -111,7 +111,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Database Schema Migrations in Continuous Delivery: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Schema Migrations to execute relational database schema migrations reliably during application deployments without causing downtime.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to execute relational database schema migrations reliably during application deployments without causing downtime.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Log into the production database server directly via SSH during peak hours to alter tables manually." },
@@ -132,7 +132,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Database Schema Migrations in Continuous Delivery: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Schema Migrations to execute relational database schema migrations reliably during application deployments without causing downtime.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to execute relational database schema migrations reliably during application deployments without causing downtime.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Log into the production database server directly via SSH during peak hours to alter tables manually." },
@@ -153,7 +153,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Database Schema Migrations in Continuous Delivery: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Schema Migrations to execute relational database schema migrations reliably during application deployments without causing downtime.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to execute relational database schema migrations reliably during application deployments without causing downtime.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Log into the production database server directly via SSH during peak hours to alter tables manually." },
@@ -174,7 +174,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Database Schema Migrations in Continuous Delivery: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Schema Migrations to execute relational database schema migrations reliably during application deployments without causing downtime.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to execute relational database schema migrations reliably during application deployments without causing downtime.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Run schema migrations via automated Kubernetes pre-upgrade Jobs using backward-compatible expand-and-contract migration patterns." },
@@ -195,7 +195,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Database Schema Migrations in Continuous Delivery: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Schema Migrations to execute relational database schema migrations reliably during application deployments without causing downtime.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to execute relational database schema migrations reliably during application deployments without causing downtime.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Prohibit altering database schemas to avoid deployment complications." },
@@ -216,7 +216,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Feature Flagging and Decoupled Releases (OpenFeature): Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Feature Flags to deploy code changes to production continuously without exposing incomplete or high-risk features to end users immediately.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to deploy code changes to production continuously without exposing incomplete or high-risk features to end users immediately.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Implement feature flags adhering to the CNCF OpenFeature standard to decouple code deployments from business feature releases." },
@@ -237,7 +237,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Feature Flagging and Decoupled Releases (OpenFeature): High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Feature Flags to deploy code changes to production continuously without exposing incomplete or high-risk features to end users immediately.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to deploy code changes to production continuously without exposing incomplete or high-risk features to end users immediately.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Implement feature flags adhering to the CNCF OpenFeature standard to decouple code deployments from business feature releases." },
@@ -258,7 +258,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Feature Flagging and Decoupled Releases (OpenFeature): Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Feature Flags to deploy code changes to production continuously without exposing incomplete or high-risk features to end users immediately.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to deploy code changes to production continuously without exposing incomplete or high-risk features to end users immediately.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Deploy completely separate clusters for every single minor UI toggle." },
@@ -279,7 +279,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Feature Flagging and Decoupled Releases (OpenFeature): Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Feature Flags to deploy code changes to production continuously without exposing incomplete or high-risk features to end users immediately.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to deploy code changes to production continuously without exposing incomplete or high-risk features to end users immediately.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Merge unreviewed, broken code directly into production branches with no toggle controls." },
@@ -300,7 +300,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Feature Flagging and Decoupled Releases (OpenFeature): Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Feature Flags to deploy code changes to production continuously without exposing incomplete or high-risk features to end users immediately.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to deploy code changes to production continuously without exposing incomplete or high-risk features to end users immediately.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Deploy completely separate clusters for every single minor UI toggle." },
@@ -321,7 +321,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Disaster Recovery, Automated Rollbacks, and Self-Healing: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Resilience Workflows to minimize downtime when a newly deployed microservice causes cascading database connection pool exhaustion.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to minimize downtime when a newly deployed microservice causes cascading database connection pool exhaustion.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Disable automated health checks to prevent Kubernetes from restarting unresponsive pods." },
@@ -342,7 +342,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Disaster Recovery, Automated Rollbacks, and Self-Healing: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Resilience Workflows to minimize downtime when a newly deployed microservice causes cascading database connection pool exhaustion.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to minimize downtime when a newly deployed microservice causes cascading database connection pool exhaustion.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Delete the production cluster whenever a single pod experiences memory limits." },
@@ -363,7 +363,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Disaster Recovery, Automated Rollbacks, and Self-Healing: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Resilience Workflows to minimize downtime when a newly deployed microservice causes cascading database connection pool exhaustion.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to minimize downtime when a newly deployed microservice causes cascading database connection pool exhaustion.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Delete the production cluster whenever a single pod experiences memory limits." },
@@ -384,7 +384,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Disaster Recovery, Automated Rollbacks, and Self-Healing: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Resilience Workflows to minimize downtime when a newly deployed microservice causes cascading database connection pool exhaustion.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to minimize downtime when a newly deployed microservice causes cascading database connection pool exhaustion.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Disable automated health checks to prevent Kubernetes from restarting unresponsive pods." },
@@ -405,7 +405,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "Golden Paths and Workflows",
     title: "Disaster Recovery, Automated Rollbacks, and Self-Healing: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Resilience Workflows to minimize downtime when a newly deployed microservice causes cascading database connection pool exhaustion.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to minimize downtime when a newly deployed microservice causes cascading database connection pool exhaustion.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Disable automated health checks to prevent Kubernetes from restarting unresponsive pods." },
@@ -426,7 +426,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "DORA Metrics: Tracking Engineering Velocity and Stability: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates DORA Metrics to measure whether platform engineering investments are successfully improving software delivery speed and reliability.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to measure whether platform engineering investments are successfully improving software delivery speed and reliability.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Track the number of hours developers spend sitting at their office desks." },
@@ -447,7 +447,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "DORA Metrics: Tracking Engineering Velocity and Stability: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates DORA Metrics to measure whether platform engineering investments are successfully improving software delivery speed and reliability.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to measure whether platform engineering investments are successfully improving software delivery speed and reliability.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Count the number of emails sent by engineering managers." },
@@ -468,7 +468,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "DORA Metrics: Tracking Engineering Velocity and Stability: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates DORA Metrics to measure whether platform engineering investments are successfully improving software delivery speed and reliability.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to measure whether platform engineering investments are successfully improving software delivery speed and reliability.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Track the four DORA metrics: Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service." },
@@ -489,7 +489,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "DORA Metrics: Tracking Engineering Velocity and Stability: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates DORA Metrics to measure whether platform engineering investments are successfully improving software delivery speed and reliability.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to measure whether platform engineering investments are successfully improving software delivery speed and reliability.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Track the number of hours developers spend sitting at their office desks." },
@@ -510,7 +510,7 @@ export const CNCF_CNPA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Platform Observability and Governance",
     title: "DORA Metrics: Tracking Engineering Velocity and Stability: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates DORA Metrics to measure whether platform engineering investments are successfully improving software delivery speed and reliability.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to measure whether platform engineering investments are successfully improving software delivery speed and reliability.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Track the four DORA metrics: Deployment Frequency, Lead Time for Changes, Change Failure Rate, and Time to Restore Service." },

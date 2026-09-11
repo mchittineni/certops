@@ -6,7 +6,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Monorepo vs Polyrepo Repository Patterns: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Repository Strategies to choose a repository strategy for an enterprise managing 100 microservices across dev, staging, and prod with unified visibility.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to choose a repository strategy for an enterprise managing 100 microservices across dev, staging, and prod with unified visibility.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Polyrepos cannot support automated reconciliation." },
@@ -27,7 +27,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Monorepo vs Polyrepo Repository Patterns: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Repository Strategies to choose a repository strategy for an enterprise managing 100 microservices across dev, staging, and prod with unified visibility.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to choose a repository strategy for an enterprise managing 100 microservices across dev, staging, and prod with unified visibility.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Polyrepos cannot support automated reconciliation." },
@@ -48,7 +48,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Monorepo vs Polyrepo Repository Patterns: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Repository Strategies to choose a repository strategy for an enterprise managing 100 microservices across dev, staging, and prod with unified visibility.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to choose a repository strategy for an enterprise managing 100 microservices across dev, staging, and prod with unified visibility.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Monorepos are forbidden in GitOps architectures." },
@@ -69,7 +69,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Monorepo vs Polyrepo Repository Patterns: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Repository Strategies to choose a repository strategy for an enterprise managing 100 microservices across dev, staging, and prod with unified visibility.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to choose a repository strategy for an enterprise managing 100 microservices across dev, staging, and prod with unified visibility.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Store all configurations in unversioned cloud storage buckets." },
@@ -90,7 +90,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Monorepo vs Polyrepo Repository Patterns: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Repository Strategies to choose a repository strategy for an enterprise managing 100 microservices across dev, staging, and prod with unified visibility.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to choose a repository strategy for an enterprise managing 100 microservices across dev, staging, and prod with unified visibility.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Store all configurations in unversioned cloud storage buckets." },
@@ -111,7 +111,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Directory-Based vs Branch-Based Environment Separation: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Environment Modeling to model development, staging, and production environments in Git without suffering merge conflicts across long-lived branches.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to model development, staging, and production environments in Git without suffering merge conflicts across long-lived branches.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Create permanent long-lived Git branches (`dev`, `stage`, `prod`) and merge between them indefinitely." },
@@ -132,7 +132,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Directory-Based vs Branch-Based Environment Separation: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Environment Modeling to model development, staging, and production environments in Git without suffering merge conflicts across long-lived branches.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to model development, staging, and production environments in Git without suffering merge conflicts across long-lived branches.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Create permanent long-lived Git branches (`dev`, `stage`, `prod`) and merge between them indefinitely." },
@@ -153,7 +153,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Directory-Based vs Branch-Based Environment Separation: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Environment Modeling to model development, staging, and production environments in Git without suffering merge conflicts across long-lived branches.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to model development, staging, and production environments in Git without suffering merge conflicts across long-lived branches.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Adopt a directory-based structure using Kustomize overlays (e.g., `envs/dev`, `envs/prod`) on a single trunk branch rather than permanent environment branches." },
@@ -174,7 +174,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Directory-Based vs Branch-Based Environment Separation: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Environment Modeling to model development, staging, and production environments in Git without suffering merge conflicts across long-lived branches.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to model development, staging, and production environments in Git without suffering merge conflicts across long-lived branches.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Use separate Git repositories with no shared base templates." },
@@ -195,7 +195,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Directory-Based vs Branch-Based Environment Separation: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Environment Modeling to model development, staging, and production environments in Git without suffering merge conflicts across long-lived branches.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to model development, staging, and production environments in Git without suffering merge conflicts across long-lived branches.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Store all environments in the same flat directory with identical values." },
@@ -216,7 +216,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Kustomize Overlays for Environment Parameterization: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Kustomize in GitOps to maintain a common microservice deployment manifest while customizing replica counts and resource limits for development and production.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to maintain a common microservice deployment manifest while customizing replica counts and resource limits for development and production.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Hardcode production resource limits in the development environment." },
@@ -237,7 +237,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Kustomize Overlays for Environment Parameterization: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Kustomize in GitOps to maintain a common microservice deployment manifest while customizing replica counts and resource limits for development and production.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to maintain a common microservice deployment manifest while customizing replica counts and resource limits for development and production.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Copy-paste the entire YAML manifest into separate folders and edit them by hand." },
@@ -258,7 +258,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Kustomize Overlays for Environment Parameterization: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Kustomize in GitOps to maintain a common microservice deployment manifest while customizing replica counts and resource limits for development and production.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to maintain a common microservice deployment manifest while customizing replica counts and resource limits for development and production.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Hardcode production resource limits in the development environment." },
@@ -279,7 +279,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Kustomize Overlays for Environment Parameterization: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Kustomize in GitOps to maintain a common microservice deployment manifest while customizing replica counts and resource limits for development and production.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to maintain a common microservice deployment manifest while customizing replica counts and resource limits for development and production.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Structure configuration with a shared `base/` directory and environment-specific `overlays/dev` and `overlays/prod` directories containing Kustomize patches." },
@@ -300,7 +300,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Kustomize Overlays for Environment Parameterization: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Kustomize in GitOps to maintain a common microservice deployment manifest while customizing replica counts and resource limits for development and production.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to maintain a common microservice deployment manifest while customizing replica counts and resource limits for development and production.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Copy-paste the entire YAML manifest into separate folders and edit them by hand." },
@@ -321,7 +321,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Helm Charts and HelmReleases in GitOps: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Helm in GitOps to deploy and manage complex third-party software (like cert-manager or Prometheus) declaratively using GitOps controllers.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to deploy and manage complex third-party software (like cert-manager or Prometheus) declaratively using GitOps controllers.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives? Managing third-party and internal applications using Helm charts with Git-managed values.",
     options: [
       { id: 'A', text: "Avoid using Helm and write custom Go operators for all third-party software." },
@@ -342,7 +342,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Helm Charts and HelmReleases in GitOps: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Helm in GitOps to deploy and manage complex third-party software (like cert-manager or Prometheus) declaratively using GitOps controllers.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to deploy and manage complex third-party software (like cert-manager or Prometheus) declaratively using GitOps controllers.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays? Managing third-party and internal applications using Helm charts with Git-managed values.",
     options: [
       { id: 'A', text: "Avoid using Helm and write custom Go operators for all third-party software." },
@@ -363,7 +363,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Helm Charts and HelmReleases in GitOps: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Helm in GitOps to deploy and manage complex third-party software (like cert-manager or Prometheus) declaratively using GitOps controllers.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to deploy and manage complex third-party software (like cert-manager or Prometheus) declaratively using GitOps controllers.",
     question: "Which solution implements these mandatory GitOps security and governance controls? Managing third-party and internal applications using Helm charts with Git-managed values.",
     options: [
       { id: 'A', text: "Decompile Helm charts into raw static YAML and commit unmaintained manifests." },
@@ -384,7 +384,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Helm Charts and HelmReleases in GitOps: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Helm in GitOps to deploy and manage complex third-party software (like cert-manager or Prometheus) declaratively using GitOps controllers.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to deploy and manage complex third-party software (like cert-manager or Prometheus) declaratively using GitOps controllers.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction? Managing third-party and internal applications using Helm charts with Git-managed values.",
     options: [
       { id: 'A', text: "Run `helm install` manually from an administrator's laptop over a local terminal." },
@@ -405,7 +405,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "Helm Charts and HelmReleases in GitOps: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Helm in GitOps to deploy and manage complex third-party software (like cert-manager or Prometheus) declaratively using GitOps controllers.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to deploy and manage complex third-party software (like cert-manager or Prometheus) declaratively using GitOps controllers.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability? Managing third-party and internal applications using Helm charts with Git-managed values.",
     options: [
       { id: 'A', text: "Avoid using Helm and write custom Go operators for all third-party software." },
@@ -426,7 +426,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "App of Apps Pattern in Argo CD: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Argo CD Patterns to bootstrap and manage dozens of microservice applications across multiple cluster namespaces using a single declarative GitOps entrypoint.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to bootstrap and manage dozens of microservice applications across multiple cluster namespaces using a single declarative GitOps entrypoint.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Implement the Argo CD 'App of Apps' pattern where a root `Application` resource points to a Git directory containing child `Application` manifests." },
@@ -447,7 +447,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "App of Apps Pattern in Argo CD: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Argo CD Patterns to bootstrap and manage dozens of microservice applications across multiple cluster namespaces using a single declarative GitOps entrypoint.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to bootstrap and manage dozens of microservice applications across multiple cluster namespaces using a single declarative GitOps entrypoint.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Manually create 50 separate Application resources by hand in the Argo CD web UI." },
@@ -468,7 +468,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "App of Apps Pattern in Argo CD: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Argo CD Patterns to bootstrap and manage dozens of microservice applications across multiple cluster namespaces using a single declarative GitOps entrypoint.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to bootstrap and manage dozens of microservice applications across multiple cluster namespaces using a single declarative GitOps entrypoint.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Implement the Argo CD 'App of Apps' pattern where a root `Application` resource points to a Git directory containing child `Application` manifests." },
@@ -489,7 +489,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "App of Apps Pattern in Argo CD: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Argo CD Patterns to bootstrap and manage dozens of microservice applications across multiple cluster namespaces using a single declarative GitOps entrypoint.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to bootstrap and manage dozens of microservice applications across multiple cluster namespaces using a single declarative GitOps entrypoint.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Implement the Argo CD 'App of Apps' pattern where a root `Application` resource points to a Git directory containing child `Application` manifests." },
@@ -510,7 +510,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "GitOps Architecture and Repositories",
     title: "App of Apps Pattern in Argo CD: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Argo CD Patterns to bootstrap and manage dozens of microservice applications across multiple cluster namespaces using a single declarative GitOps entrypoint.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to bootstrap and manage dozens of microservice applications across multiple cluster namespaces using a single declarative GitOps entrypoint.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Deploy all 50 applications into a single monolithic namespace." },

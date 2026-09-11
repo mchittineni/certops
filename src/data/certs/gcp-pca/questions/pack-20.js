@@ -6,7 +6,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Site Reliability Engineering (SRE): SLI, SLO, and SLA: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Site Reliability Engineering to establish operational reliability standards for a core payment microservice, defining acceptable service failure rates to balance feature velocity with platform stability.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to establish operational reliability standards for a core payment microservice, defining acceptable service failure rates to balance feature velocity with platform stability.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Define Service Level Indicators (SLIs), establish Service Level Objectives (SLOs), and track the remaining Error Budget." },
@@ -27,7 +27,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Site Reliability Engineering (SRE): SLI, SLO, and SLA: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Site Reliability Engineering to establish operational reliability standards for a core payment microservice, defining acceptable service failure rates to balance feature velocity with platform stability.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to establish operational reliability standards for a core payment microservice, defining acceptable service failure rates to balance feature velocity with platform stability.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Allow development teams to deploy untested code whenever an error occurs." },
@@ -48,7 +48,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Site Reliability Engineering (SRE): SLI, SLO, and SLA: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Site Reliability Engineering to establish operational reliability standards for a core payment microservice, defining acceptable service failure rates to balance feature velocity with platform stability.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to establish operational reliability standards for a core payment microservice, defining acceptable service failure rates to balance feature velocity with platform stability.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Define Service Level Indicators (SLIs), establish Service Level Objectives (SLOs), and track the remaining Error Budget." },
@@ -69,7 +69,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Site Reliability Engineering (SRE): SLI, SLO, and SLA: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Site Reliability Engineering to establish operational reliability standards for a core payment microservice, defining acceptable service failure rates to balance feature velocity with platform stability.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to establish operational reliability standards for a core payment microservice, defining acceptable service failure rates to balance feature velocity with platform stability.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Demand 100% zero-defect uptime across all services with no allowable failure rate." },
@@ -90,7 +90,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Site Reliability Engineering (SRE): SLI, SLO, and SLA: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Site Reliability Engineering to establish operational reliability standards for a core payment microservice, defining acceptable service failure rates to balance feature velocity with platform stability.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to establish operational reliability standards for a core payment microservice, defining acceptable service failure rates to balance feature velocity with platform stability.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Demand 100% zero-defect uptime across all services with no allowable failure rate." },
@@ -111,7 +111,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Cloud Monitoring Uptime Checks and Synthetic Monitoring: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Cloud Observability to verify that an external customer-facing e-commerce web application responds with HTTP 200 within 2 seconds when probed from locations across North America, Europe, and Asia.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to verify that an external customer-facing e-commerce web application responds with HTTP 200 within 2 seconds when probed from locations across North America, Europe, and Asia.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Check server internal ping responses from the local network subnet." },
@@ -132,7 +132,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Cloud Monitoring Uptime Checks and Synthetic Monitoring: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Cloud Observability to verify that an external customer-facing e-commerce web application responds with HTTP 200 within 2 seconds when probed from locations across North America, Europe, and Asia.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to verify that an external customer-facing e-commerce web application responds with HTTP 200 within 2 seconds when probed from locations across North America, Europe, and Asia.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Configure Cloud Monitoring Uptime Checks across multiple global geographic locations with latency thresholds." },
@@ -153,7 +153,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Cloud Monitoring Uptime Checks and Synthetic Monitoring: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Cloud Observability to verify that an external customer-facing e-commerce web application responds with HTTP 200 within 2 seconds when probed from locations across North America, Europe, and Asia.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to verify that an external customer-facing e-commerce web application responds with HTTP 200 within 2 seconds when probed from locations across North America, Europe, and Asia.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Wait for public social media complaints to detect website downtime." },
@@ -174,7 +174,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Cloud Monitoring Uptime Checks and Synthetic Monitoring: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Cloud Observability to verify that an external customer-facing e-commerce web application responds with HTTP 200 within 2 seconds when probed from locations across North America, Europe, and Asia.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to verify that an external customer-facing e-commerce web application responds with HTTP 200 within 2 seconds when probed from locations across North America, Europe, and Asia.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Configure Cloud Monitoring Uptime Checks across multiple global geographic locations with latency thresholds." },
@@ -195,7 +195,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Cloud Monitoring Uptime Checks and Synthetic Monitoring: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Cloud Observability to verify that an external customer-facing e-commerce web application responds with HTTP 200 within 2 seconds when probed from locations across North America, Europe, and Asia.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to verify that an external customer-facing e-commerce web application responds with HTTP 200 within 2 seconds when probed from locations across North America, Europe, and Asia.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Configure Cloud Monitoring Uptime Checks across multiple global geographic locations with latency thresholds." },
@@ -216,7 +216,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Cloud Monitoring Incident Management and Postmortems: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Incident Management to conduct a constructive engineering analysis after a major platform outage to identify root causes and implement preventive guardrails without assigning personal culpability.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to conduct a constructive engineering analysis after a major platform outage to identify root causes and implement preventive guardrails without assigning personal culpability.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Conceal the incident details from engineering teams to prevent negative publicity." },
@@ -237,7 +237,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Cloud Monitoring Incident Management and Postmortems: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Incident Management to conduct a constructive engineering analysis after a major platform outage to identify root causes and implement preventive guardrails without assigning personal culpability.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to conduct a constructive engineering analysis after a major platform outage to identify root causes and implement preventive guardrails without assigning personal culpability.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Conduct a blameless postmortem documenting timeline, root causes, detection gaps, and actionable preventative work." },
@@ -258,7 +258,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Cloud Monitoring Incident Management and Postmortems: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Incident Management to conduct a constructive engineering analysis after a major platform outage to identify root causes and implement preventive guardrails without assigning personal culpability.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to conduct a constructive engineering analysis after a major platform outage to identify root causes and implement preventive guardrails without assigning personal culpability.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Resume development immediately without documenting lessons learned." },
@@ -279,7 +279,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Cloud Monitoring Incident Management and Postmortems: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Incident Management to conduct a constructive engineering analysis after a major platform outage to identify root causes and implement preventive guardrails without assigning personal culpability.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to conduct a constructive engineering analysis after a major platform outage to identify root causes and implement preventive guardrails without assigning personal culpability.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Identify the developer who introduced the bug and issue formal disciplinary reprimands." },
@@ -300,7 +300,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Cloud Monitoring Incident Management and Postmortems: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Incident Management to conduct a constructive engineering analysis after a major platform outage to identify root causes and implement preventive guardrails without assigning personal culpability.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to conduct a constructive engineering analysis after a major platform outage to identify root causes and implement preventive guardrails without assigning personal culpability.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Conceal the incident details from engineering teams to prevent negative publicity." },
@@ -321,7 +321,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Chaos Engineering and Fault Injection Testing: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates System Resilience to validate that a multi-zone GKE application automatically recovers from sudden zone failures and network partitions before launching to public customers.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to validate that a multi-zone GKE application automatically recovers from sudden zone failures and network partitions before launching to public customers.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Simulate failures directly in production during peak shopping sales without backups." },
@@ -342,7 +342,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Chaos Engineering and Fault Injection Testing: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates System Resilience to validate that a multi-zone GKE application automatically recovers from sudden zone failures and network partitions before launching to public customers.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to validate that a multi-zone GKE application automatically recovers from sudden zone failures and network partitions before launching to public customers.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Simulate failures directly in production during peak shopping sales without backups." },
@@ -363,7 +363,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Chaos Engineering and Fault Injection Testing: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates System Resilience to validate that a multi-zone GKE application automatically recovers from sudden zone failures and network partitions before launching to public customers.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to validate that a multi-zone GKE application automatically recovers from sudden zone failures and network partitions before launching to public customers.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Rely on architectural whiteboard diagrams as proof of fault tolerance." },
@@ -384,7 +384,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Chaos Engineering and Fault Injection Testing: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates System Resilience to validate that a multi-zone GKE application automatically recovers from sudden zone failures and network partitions before launching to public customers.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to validate that a multi-zone GKE application automatically recovers from sudden zone failures and network partitions before launching to public customers.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Rely on architectural whiteboard diagrams as proof of fault tolerance." },
@@ -405,7 +405,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Chaos Engineering and Fault Injection Testing: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates System Resilience to validate that a multi-zone GKE application automatically recovers from sudden zone failures and network partitions before launching to public customers.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to validate that a multi-zone GKE application automatically recovers from sudden zone failures and network partitions before launching to public customers.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Rely on architectural whiteboard diagrams as proof of fault tolerance." },
@@ -426,7 +426,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Google Cloud Customer Care and Support Escalations: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Enterprise Support to obtain 24/7 mission-critical technical support with a 15-minute response SLA for P1 business-critical outages and guidance from a dedicated Technical Account Manager (TAM).",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to obtain 24/7 mission-critical technical support with a 15-minute response SLA for P1 business-critical outages and guidance from a dedicated Technical Account Manager (TAM).",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Enroll in Google Cloud Premium Support (Customer Care)." },
@@ -447,7 +447,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Google Cloud Customer Care and Support Escalations: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Enterprise Support to obtain 24/7 mission-critical technical support with a 15-minute response SLA for P1 business-critical outages and guidance from a dedicated Technical Account Manager (TAM).",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to obtain 24/7 mission-critical technical support with a 15-minute response SLA for P1 business-critical outages and guidance from a dedicated Technical Account Manager (TAM).",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Subscribe to Standard Support with 8-hour business hours response times." },
@@ -468,7 +468,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Google Cloud Customer Care and Support Escalations: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Enterprise Support to obtain 24/7 mission-critical technical support with a 15-minute response SLA for P1 business-critical outages and guidance from a dedicated Technical Account Manager (TAM).",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to obtain 24/7 mission-critical technical support with a 15-minute response SLA for P1 business-critical outages and guidance from a dedicated Technical Account Manager (TAM).",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Contact consumer Gmail technical support." },
@@ -489,7 +489,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Google Cloud Customer Care and Support Escalations: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Enterprise Support to obtain 24/7 mission-critical technical support with a 15-minute response SLA for P1 business-critical outages and guidance from a dedicated Technical Account Manager (TAM).",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to obtain 24/7 mission-critical technical support with a 15-minute response SLA for P1 business-critical outages and guidance from a dedicated Technical Account Manager (TAM).",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Rely on community forums and public Stack Overflow posts during production outages." },
@@ -510,7 +510,7 @@ export const GCP_PCA_QUESTIONS_20 = [
     domainId: "d6",
     domainName: "Ensuring solution and operations reliability",
     title: "Google Cloud Customer Care and Support Escalations: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Enterprise Support to obtain 24/7 mission-critical technical support with a 15-minute response SLA for P1 business-critical outages and guidance from a dedicated Technical Account Manager (TAM).",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to obtain 24/7 mission-critical technical support with a 15-minute response SLA for P1 business-critical outages and guidance from a dedicated Technical Account Manager (TAM).",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Contact consumer Gmail technical support." },

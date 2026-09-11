@@ -6,7 +6,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Multi-Region Traffic and Deployment Coordination: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Multi-Region Deployment to orchestrate a safe application release across three geographic cloud regions without causing global routing disruption.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to orchestrate a safe application release across three geographic cloud regions without causing global routing disruption.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Route 100% of global user traffic to a single unmonitored container in one region." },
@@ -27,7 +27,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Multi-Region Traffic and Deployment Coordination: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Multi-Region Deployment to orchestrate a safe application release across three geographic cloud regions without causing global routing disruption.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to orchestrate a safe application release across three geographic cloud regions without causing global routing disruption.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Route 100% of global user traffic to a single unmonitored container in one region." },
@@ -48,7 +48,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Multi-Region Traffic and Deployment Coordination: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Multi-Region Deployment to orchestrate a safe application release across three geographic cloud regions without causing global routing disruption.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to orchestrate a safe application release across three geographic cloud regions without causing global routing disruption.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Update all global regions simultaneously in a single command without monitoring regional telemetry." },
@@ -69,7 +69,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Multi-Region Traffic and Deployment Coordination: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Multi-Region Deployment to orchestrate a safe application release across three geographic cloud regions without causing global routing disruption.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to orchestrate a safe application release across three geographic cloud regions without causing global routing disruption.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Execute progressive region-by-region rollouts, validating regional health probes and updating global traffic routing dynamically." },
@@ -90,7 +90,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Multi-Region Traffic and Deployment Coordination: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Multi-Region Deployment to orchestrate a safe application release across three geographic cloud regions without causing global routing disruption.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to orchestrate a safe application release across three geographic cloud regions without causing global routing disruption.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Execute progressive region-by-region rollouts, validating regional health probes and updating global traffic routing dynamically." },
@@ -111,7 +111,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Cloud-Native Workflow Orchestration: Argo Workflows: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Argo Workflows to orchestrate complex multi-stage machine learning pipelines and long-running platform data migration workflows in Kubernetes.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to orchestrate complex multi-stage machine learning pipelines and long-running platform data migration workflows in Kubernetes.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Run long-running multi-day batch scripts synchronously inside fragile web server request handlers." },
@@ -132,7 +132,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Cloud-Native Workflow Orchestration: Argo Workflows: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Argo Workflows to orchestrate complex multi-stage machine learning pipelines and long-running platform data migration workflows in Kubernetes.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to orchestrate complex multi-stage machine learning pipelines and long-running platform data migration workflows in Kubernetes.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Disable container orchestration and run batch jobs directly on developer laptops." },
@@ -153,7 +153,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Cloud-Native Workflow Orchestration: Argo Workflows: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Argo Workflows to orchestrate complex multi-stage machine learning pipelines and long-running platform data migration workflows in Kubernetes.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to orchestrate complex multi-stage machine learning pipelines and long-running platform data migration workflows in Kubernetes.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Require human operators to execute individual pipeline steps manually one by one in terminal sessions." },
@@ -174,7 +174,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Cloud-Native Workflow Orchestration: Argo Workflows: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Argo Workflows to orchestrate complex multi-stage machine learning pipelines and long-running platform data migration workflows in Kubernetes.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to orchestrate complex multi-stage machine learning pipelines and long-running platform data migration workflows in Kubernetes.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Deploy Argo Workflows to execute containerized Directed Acyclic Graphs (DAGs) with automated step retries and artifact management." },
@@ -195,7 +195,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "Self-Service Portals and Workload Automation",
     title: "Cloud-Native Workflow Orchestration: Argo Workflows: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Argo Workflows to orchestrate complex multi-stage machine learning pipelines and long-running platform data migration workflows in Kubernetes.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to orchestrate complex multi-stage machine learning pipelines and long-running platform data migration workflows in Kubernetes.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Run long-running multi-day batch scripts synchronously inside fragile web server request handlers." },
@@ -216,7 +216,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Advanced Crossplane Compositions and Readiness Checks: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Crossplane Readiness to ensure composite platform resources only report `Ready: True` when all underlying cloud databases and security groups are completely operational.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to ensure composite platform resources only report `Ready: True` when all underlying cloud databases and security groups are completely operational.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Assume cloud resources become ready instantly upon manifest submission without verifying operational state." },
@@ -237,7 +237,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Advanced Crossplane Compositions and Readiness Checks: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Crossplane Readiness to ensure composite platform resources only report `Ready: True` when all underlying cloud databases and security groups are completely operational.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to ensure composite platform resources only report `Ready: True` when all underlying cloud databases and security groups are completely operational.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Mark all infrastructure resources as perpetually Ready regardless of whether they exist." },
@@ -258,7 +258,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Advanced Crossplane Compositions and Readiness Checks: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Crossplane Readiness to ensure composite platform resources only report `Ready: True` when all underlying cloud databases and security groups are completely operational.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to ensure composite platform resources only report `Ready: True` when all underlying cloud databases and security groups are completely operational.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Assume cloud resources become ready instantly upon manifest submission without verifying operational state." },
@@ -279,7 +279,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Advanced Crossplane Compositions and Readiness Checks: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Crossplane Readiness to ensure composite platform resources only report `Ready: True` when all underlying cloud databases and security groups are completely operational.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to ensure composite platform resources only report `Ready: True` when all underlying cloud databases and security groups are completely operational.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Poll cloud APIs manually via developer workstation scripts to check database status." },
@@ -300,7 +300,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Advanced Crossplane Compositions and Readiness Checks: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Crossplane Readiness to ensure composite platform resources only report `Ready: True` when all underlying cloud databases and security groups are completely operational.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to ensure composite platform resources only report `Ready: True` when all underlying cloud databases and security groups are completely operational.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Assume cloud resources become ready instantly upon manifest submission without verifying operational state." },
@@ -321,7 +321,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Crossplane Packages, Providers, and Configurations: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates Crossplane Packages to distribute versioned, immutable infrastructure building blocks across enterprise platform clusters using standard container registries.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to distribute versioned, immutable infrastructure building blocks across enterprise platform clusters using standard container registries.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Email raw unversioned YAML snippets across engineering teams to manually paste into cluster terminals." },
@@ -342,7 +342,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Crossplane Packages, Providers, and Configurations: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates Crossplane Packages to distribute versioned, immutable infrastructure building blocks across enterprise platform clusters using standard container registries.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to distribute versioned, immutable infrastructure building blocks across enterprise platform clusters using standard container registries.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Email raw unversioned YAML snippets across engineering teams to manually paste into cluster terminals." },
@@ -363,7 +363,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Crossplane Packages, Providers, and Configurations: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates Crossplane Packages to distribute versioned, immutable infrastructure building blocks across enterprise platform clusters using standard container registries.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to distribute versioned, immutable infrastructure building blocks across enterprise platform clusters using standard container registries.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Email raw unversioned YAML snippets across engineering teams to manually paste into cluster terminals." },
@@ -384,7 +384,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Crossplane Packages, Providers, and Configurations: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates Crossplane Packages to distribute versioned, immutable infrastructure building blocks across enterprise platform clusters using standard container registries.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to distribute versioned, immutable infrastructure building blocks across enterprise platform clusters using standard container registries.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Package XRDs and Compositions as Crossplane Configuration packages published to an OCI container registry with semantic versioning." },
@@ -405,7 +405,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Crossplane Packages, Providers, and Configurations: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates Crossplane Packages to distribute versioned, immutable infrastructure building blocks across enterprise platform clusters using standard container registries.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to distribute versioned, immutable infrastructure building blocks across enterprise platform clusters using standard container registries.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Email raw unversioned YAML snippets across engineering teams to manually paste into cluster terminals." },
@@ -426,7 +426,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Cluster API Control Plane Providers and Automated Rolling Upgrades: Enterprise Platform",
-    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer evaluates CAPI Upgrades to upgrade 50 production Kubernetes clusters from version 1.29 to 1.30 without dropping in-flight application traffic.",
+    scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to upgrade 50 production Kubernetes clusters from version 1.29 to 1.30 without dropping in-flight application traffic.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Refuse to ever upgrade Kubernetes versions, leaving clusters exposed to known security vulnerabilities." },
@@ -447,7 +447,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Cluster API Control Plane Providers and Automated Rolling Upgrades: High Scale Orchestration",
-    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer evaluates CAPI Upgrades to upgrade 50 production Kubernetes clusters from version 1.29 to 1.30 without dropping in-flight application traffic.",
+    scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to upgrade 50 production Kubernetes clusters from version 1.29 to 1.30 without dropping in-flight application traffic.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Delete all running worker nodes simultaneously, incurring total cluster-wide application downtime." },
@@ -468,7 +468,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Cluster API Control Plane Providers and Automated Rolling Upgrades: Zero Trust Governance",
-    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer evaluates CAPI Upgrades to upgrade 50 production Kubernetes clusters from version 1.29 to 1.30 without dropping in-flight application traffic.",
+    scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to upgrade 50 production Kubernetes clusters from version 1.29 to 1.30 without dropping in-flight application traffic.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Delete all running worker nodes simultaneously, incurring total cluster-wide application downtime." },
@@ -489,7 +489,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Cluster API Control Plane Providers and Automated Rolling Upgrades: Workload Automation",
-    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer evaluates CAPI Upgrades to upgrade 50 production Kubernetes clusters from version 1.29 to 1.30 without dropping in-flight application traffic.",
+    scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to upgrade 50 production Kubernetes clusters from version 1.29 to 1.30 without dropping in-flight application traffic.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Manually compile kubelet binaries from source on every live node over interactive SSH." },
@@ -510,7 +510,7 @@ export const CNCF_CNPE_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Infrastructure Composition and Multi-Tenancy",
     title: "Cluster API Control Plane Providers and Automated Rolling Upgrades: Resilience And Sre",
-    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer evaluates CAPI Upgrades to upgrade 50 production Kubernetes clusters from version 1.29 to 1.30 without dropping in-flight application traffic.",
+    scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to upgrade 50 production Kubernetes clusters from version 1.29 to 1.30 without dropping in-flight application traffic.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Update the Kubernetes version in the Cluster API `KubeadmControlPlane` and `MachineDeployment` manifests to trigger an automated rolling upgrade." },

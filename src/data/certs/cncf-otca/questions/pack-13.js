@@ -6,7 +6,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Resource Detectors and Semantic Attributes: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Resource Detection to automatically enrich all telemetry emitted by a container with Kubernetes pod name, namespace, and AWS EC2 instance ID.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to automatically enrich all telemetry emitted by a container with Kubernetes pod name, namespace, and AWS EC2 instance ID.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Configure OpenTelemetry Resource Detectors (e.g., `k8s`, `container`, `aws`) in the SDK or Collector to attach standard resource attributes." },
@@ -27,7 +27,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Resource Detectors and Semantic Attributes: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Resource Detection to automatically enrich all telemetry emitted by a container with Kubernetes pod name, namespace, and AWS EC2 instance ID.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to automatically enrich all telemetry emitted by a container with Kubernetes pod name, namespace, and AWS EC2 instance ID.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Require developers to pass instance IDs manually in HTTP headers." },
@@ -48,7 +48,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Resource Detectors and Semantic Attributes: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Resource Detection to automatically enrich all telemetry emitted by a container with Kubernetes pod name, namespace, and AWS EC2 instance ID.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to automatically enrich all telemetry emitted by a container with Kubernetes pod name, namespace, and AWS EC2 instance ID.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Require developers to pass instance IDs manually in HTTP headers." },
@@ -69,7 +69,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Resource Detectors and Semantic Attributes: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Resource Detection to automatically enrich all telemetry emitted by a container with Kubernetes pod name, namespace, and AWS EC2 instance ID.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to automatically enrich all telemetry emitted by a container with Kubernetes pod name, namespace, and AWS EC2 instance ID.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Hardcode pod and instance metadata directly in application source code files." },
@@ -90,7 +90,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Resource Detectors and Semantic Attributes: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Resource Detection to automatically enrich all telemetry emitted by a container with Kubernetes pod name, namespace, and AWS EC2 instance ID.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to automatically enrich all telemetry emitted by a container with Kubernetes pod name, namespace, and AWS EC2 instance ID.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Hardcode pod and instance metadata directly in application source code files." },
@@ -111,7 +111,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Vendor-Neutrality and Migration from OpenTracing/OpenCensus: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Vendor Neutrality to understand the origins of OpenTelemetry and migrate legacy systems using OpenTracing or OpenCensus APIs.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to understand the origins of OpenTelemetry and migrate legacy systems using OpenTracing or OpenCensus APIs.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "OpenTelemetry is the official merger of OpenTracing and OpenCensus; use OpenTelemetry bridges to consume legacy instrumentation seamlessly." },
@@ -132,7 +132,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Vendor-Neutrality and Migration from OpenTracing/OpenCensus: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Vendor Neutrality to understand the origins of OpenTelemetry and migrate legacy systems using OpenTracing or OpenCensus APIs.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to understand the origins of OpenTelemetry and migrate legacy systems using OpenTracing or OpenCensus APIs.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "OpenTracing and OpenCensus are actively developed competing standards with OpenTelemetry." },
@@ -153,7 +153,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Vendor-Neutrality and Migration from OpenTracing/OpenCensus: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Vendor Neutrality to understand the origins of OpenTelemetry and migrate legacy systems using OpenTracing or OpenCensus APIs.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to understand the origins of OpenTelemetry and migrate legacy systems using OpenTracing or OpenCensus APIs.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "OpenTracing and OpenCensus are actively developed competing standards with OpenTelemetry." },
@@ -174,7 +174,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Vendor-Neutrality and Migration from OpenTracing/OpenCensus: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Vendor Neutrality to understand the origins of OpenTelemetry and migrate legacy systems using OpenTracing or OpenCensus APIs.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to understand the origins of OpenTelemetry and migrate legacy systems using OpenTracing or OpenCensus APIs.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Legacy OpenTracing instrumentation must be deleted entirely before adopting OpenTelemetry." },
@@ -195,7 +195,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Vendor-Neutrality and Migration from OpenTracing/OpenCensus: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Vendor Neutrality to understand the origins of OpenTelemetry and migrate legacy systems using OpenTracing or OpenCensus APIs.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to understand the origins of OpenTelemetry and migrate legacy systems using OpenTracing or OpenCensus APIs.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "OpenTracing and OpenCensus are actively developed competing standards with OpenTelemetry." },
@@ -216,7 +216,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Collector Architecture: Receivers, Processors, and Exporters: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Collector Architecture to design an OpenTelemetry Collector pipeline that receives OTLP telemetry, enriches it with environment tags, and sends it to Prometheus and Jaeger.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to design an OpenTelemetry Collector pipeline that receives OTLP telemetry, enriches it with environment tags, and sends it to Prometheus and Jaeger.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Pipelines can only have one receiver and one exporter." },
@@ -237,7 +237,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Collector Architecture: Receivers, Processors, and Exporters: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Collector Architecture to design an OpenTelemetry Collector pipeline that receives OTLP telemetry, enriches it with environment tags, and sends it to Prometheus and Jaeger.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to design an OpenTelemetry Collector pipeline that receives OTLP telemetry, enriches it with environment tags, and sends it to Prometheus and Jaeger.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Configure a pipeline in the Collector combining `receivers` (otlp), `processors` (batch, attributes), and `exporters` (prometheus, otlp)." },
@@ -258,7 +258,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Collector Architecture: Receivers, Processors, and Exporters: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Collector Architecture to design an OpenTelemetry Collector pipeline that receives OTLP telemetry, enriches it with environment tags, and sends it to Prometheus and Jaeger.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to design an OpenTelemetry Collector pipeline that receives OTLP telemetry, enriches it with environment tags, and sends it to Prometheus and Jaeger.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Configure a pipeline in the Collector combining `receivers` (otlp), `processors` (batch, attributes), and `exporters` (prometheus, otlp)." },
@@ -279,7 +279,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Collector Architecture: Receivers, Processors, and Exporters: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Collector Architecture to design an OpenTelemetry Collector pipeline that receives OTLP telemetry, enriches it with environment tags, and sends it to Prometheus and Jaeger.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to design an OpenTelemetry Collector pipeline that receives OTLP telemetry, enriches it with environment tags, and sends it to Prometheus and Jaeger.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Write a custom C++ proxy that parses binary packets manually." },
@@ -300,7 +300,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Collector Architecture: Receivers, Processors, and Exporters: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Collector Architecture to design an OpenTelemetry Collector pipeline that receives OTLP telemetry, enriches it with environment tags, and sends it to Prometheus and Jaeger.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to design an OpenTelemetry Collector pipeline that receives OTLP telemetry, enriches it with environment tags, and sends it to Prometheus and Jaeger.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Configure a pipeline in the Collector combining `receivers` (otlp), `processors` (batch, attributes), and `exporters` (prometheus, otlp)." },
@@ -321,7 +321,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Core vs Contrib Collector Distributions: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Collector Distributions to choose an OpenTelemetry Collector binary that includes specialized third-party processors, vendor receivers, and custom exporters.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to choose an OpenTelemetry Collector binary that includes specialized third-party processors, vendor receivers, and custom exporters.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Deploy the `OpenTelemetry Collector Core` distribution, which contains only basic OTLP components." },
@@ -342,7 +342,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Core vs Contrib Collector Distributions: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Collector Distributions to choose an OpenTelemetry Collector binary that includes specialized third-party processors, vendor receivers, and custom exporters.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to choose an OpenTelemetry Collector binary that includes specialized third-party processors, vendor receivers, and custom exporters.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Deploy the `OpenTelemetry Collector Contrib` distribution, which includes extended and community-contributed components." },
@@ -363,7 +363,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Core vs Contrib Collector Distributions: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Collector Distributions to choose an OpenTelemetry Collector binary that includes specialized third-party processors, vendor receivers, and custom exporters.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to choose an OpenTelemetry Collector binary that includes specialized third-party processors, vendor receivers, and custom exporters.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Deploy the `OpenTelemetry Collector Contrib` distribution, which includes extended and community-contributed components." },
@@ -384,7 +384,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Core vs Contrib Collector Distributions: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Collector Distributions to choose an OpenTelemetry Collector binary that includes specialized third-party processors, vendor receivers, and custom exporters.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to choose an OpenTelemetry Collector binary that includes specialized third-party processors, vendor receivers, and custom exporters.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Write all collector logic in JavaScript." },
@@ -405,7 +405,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Core vs Contrib Collector Distributions: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Collector Distributions to choose an OpenTelemetry Collector binary that includes specialized third-party processors, vendor receivers, and custom exporters.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to choose an OpenTelemetry Collector binary that includes specialized third-party processors, vendor receivers, and custom exporters.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Write all collector logic in JavaScript." },
@@ -426,7 +426,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Batch Processor Configuration and Performance Tuning: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Batch Processor to optimize an OpenTelemetry Collector processing 50,000 spans per second to reduce network request counts and compress telemetry payloads.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to optimize an OpenTelemetry Collector processing 50,000 spans per second to reduce network request counts and compress telemetry payloads.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Add the `batch` processor to every pipeline, configuring `send_batch_size`, `timeout`, and `send_batch_max_size`." },
@@ -447,7 +447,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Batch Processor Configuration and Performance Tuning: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Batch Processor to optimize an OpenTelemetry Collector processing 50,000 spans per second to reduce network request counts and compress telemetry payloads.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to optimize an OpenTelemetry Collector processing 50,000 spans per second to reduce network request counts and compress telemetry payloads.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Buffer all spans in memory indefinitely without timeouts." },
@@ -468,7 +468,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Batch Processor Configuration and Performance Tuning: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Batch Processor to optimize an OpenTelemetry Collector processing 50,000 spans per second to reduce network request counts and compress telemetry payloads.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to optimize an OpenTelemetry Collector processing 50,000 spans per second to reduce network request counts and compress telemetry payloads.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Drop 90% of telemetry to reduce load." },
@@ -489,7 +489,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Batch Processor Configuration and Performance Tuning: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Batch Processor to optimize an OpenTelemetry Collector processing 50,000 spans per second to reduce network request counts and compress telemetry payloads.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to optimize an OpenTelemetry Collector processing 50,000 spans per second to reduce network request counts and compress telemetry payloads.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Add the `batch` processor to every pipeline, configuring `send_batch_size`, `timeout`, and `send_batch_max_size`." },
@@ -510,7 +510,7 @@ export const CNCF_OTCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Batch Processor Configuration and Performance Tuning: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Batch Processor to optimize an OpenTelemetry Collector processing 50,000 spans per second to reduce network request counts and compress telemetry payloads.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to optimize an OpenTelemetry Collector processing 50,000 spans per second to reduce network request counts and compress telemetry payloads.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Add the `batch` processor to every pipeline, configuring `send_batch_size`, `timeout`, and `send_batch_max_size`." },

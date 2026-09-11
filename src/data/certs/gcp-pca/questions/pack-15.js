@@ -6,7 +6,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Compute Engine Sole-Tenant Nodes: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Compute Engine to run sensitive workloads requiring physical hardware isolation and support existing per-core server software licenses (BYOL) on dedicated physical infrastructure.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to run sensitive workloads requiring physical hardware isolation and support existing per-core server software licenses (BYOL) on dedicated physical infrastructure.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy shared-core E2 virtual machines on public multi-tenant hardware." },
@@ -27,7 +27,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Compute Engine Sole-Tenant Nodes: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Compute Engine to run sensitive workloads requiring physical hardware isolation and support existing per-core server software licenses (BYOL) on dedicated physical infrastructure.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to run sensitive workloads requiring physical hardware isolation and support existing per-core server software licenses (BYOL) on dedicated physical infrastructure.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy shared-core E2 virtual machines on public multi-tenant hardware." },
@@ -48,7 +48,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Compute Engine Sole-Tenant Nodes: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Compute Engine to run sensitive workloads requiring physical hardware isolation and support existing per-core server software licenses (BYOL) on dedicated physical infrastructure.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to run sensitive workloads requiring physical hardware isolation and support existing per-core server software licenses (BYOL) on dedicated physical infrastructure.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy the workload into a shared Google App Engine environment." },
@@ -69,7 +69,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Compute Engine Sole-Tenant Nodes: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Compute Engine to run sensitive workloads requiring physical hardware isolation and support existing per-core server software licenses (BYOL) on dedicated physical infrastructure.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to run sensitive workloads requiring physical hardware isolation and support existing per-core server software licenses (BYOL) on dedicated physical infrastructure.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy the workload into a shared Google App Engine environment." },
@@ -90,7 +90,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Compute Engine Sole-Tenant Nodes: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Compute Engine to run sensitive workloads requiring physical hardware isolation and support existing per-core server software licenses (BYOL) on dedicated physical infrastructure.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to run sensitive workloads requiring physical hardware isolation and support existing per-core server software licenses (BYOL) on dedicated physical infrastructure.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Provision Compute Engine Sole-Tenant Nodes and schedule instances onto dedicated node groups." },
@@ -111,7 +111,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Load Balancing SSL Policies and Custom Domains: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Cloud Security to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
     question: "Which concept or service configuration satisfies these operational resilience objectives? SSL Policies enforcing TLS 1.",
     options: [
       { id: 'A', text: "Rely on default client browser TLS negotiation." },
@@ -132,7 +132,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Load Balancing SSL Policies and Custom Domains: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Cloud Security to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
     question: "Which architectural approach should the team select to manage this demand efficiently? SSL Policies enforcing TLS 1.",
     options: [
       { id: 'A', text: "Rely on default client browser TLS negotiation." },
@@ -153,7 +153,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Load Balancing SSL Policies and Custom Domains: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Cloud Security to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
     question: "Which solution properly implements these mandatory security and governance controls? SSL Policies enforcing TLS 1.",
     options: [
       { id: 'A', text: "Rely on default client browser TLS negotiation." },
@@ -174,7 +174,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Load Balancing SSL Policies and Custom Domains: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Cloud Security to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? SSL Policies enforcing TLS 1.",
     options: [
       { id: 'A', text: "Rely on default client browser TLS negotiation." },
@@ -195,7 +195,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Load Balancing SSL Policies and Custom Domains: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Cloud Security to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? SSL Policies enforcing TLS 1.",
     options: [
       { id: 'A', text: "Configure SSL termination inside individual backend virtual machines." },
@@ -216,7 +216,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Google Cloud IAM Conditions: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Google Cloud IAM to grant a vendor temporary administrative access to restart Compute Engine instances in a specific project, valid only during working hours on weekdays and expiring in 30 days.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to grant a vendor temporary administrative access to restart Compute Engine instances in a specific project, valid only during working hours on weekdays and expiring in 30 days.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Grant the vendor permanent Owner permissions on the project." },
@@ -237,7 +237,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Google Cloud IAM Conditions: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Google Cloud IAM to grant a vendor temporary administrative access to restart Compute Engine instances in a specific project, valid only during working hours on weekdays and expiring in 30 days.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to grant a vendor temporary administrative access to restart Compute Engine instances in a specific project, valid only during working hours on weekdays and expiring in 30 days.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Share the corporate IT administrator's username and password with the vendor." },
@@ -258,7 +258,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Google Cloud IAM Conditions: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Google Cloud IAM to grant a vendor temporary administrative access to restart Compute Engine instances in a specific project, valid only during working hours on weekdays and expiring in 30 days.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to grant a vendor temporary administrative access to restart Compute Engine instances in a specific project, valid only during working hours on weekdays and expiring in 30 days.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Write a cron job to delete the vendor's user account from the system every evening." },
@@ -279,7 +279,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Google Cloud IAM Conditions: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Google Cloud IAM to grant a vendor temporary administrative access to restart Compute Engine instances in a specific project, valid only during working hours on weekdays and expiring in 30 days.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to grant a vendor temporary administrative access to restart Compute Engine instances in a specific project, valid only during working hours on weekdays and expiring in 30 days.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Share the corporate IT administrator's username and password with the vendor." },
@@ -300,7 +300,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Google Cloud IAM Conditions: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Google Cloud IAM to grant a vendor temporary administrative access to restart Compute Engine instances in a specific project, valid only during working hours on weekdays and expiring in 30 days.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to grant a vendor temporary administrative access to restart Compute Engine instances in a specific project, valid only during working hours on weekdays and expiring in 30 days.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Share the corporate IT administrator's username and password with the vendor." },
@@ -321,7 +321,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Cloud KMS Envelope Encryption and Key Rotation: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Cloud KMS to encrypt 100 GB database backup files efficiently using client-side encryption while keeping root encryption keys secured inside Cloud KMS with automated 90-day rotation.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to encrypt 100 GB database backup files efficiently using client-side encryption while keeping root encryption keys secured inside Cloud KMS with automated 90-day rotation.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Disable encryption for files larger than 1 GB." },
@@ -342,7 +342,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Cloud KMS Envelope Encryption and Key Rotation: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Cloud KMS to encrypt 100 GB database backup files efficiently using client-side encryption while keeping root encryption keys secured inside Cloud KMS with automated 90-day rotation.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to encrypt 100 GB database backup files efficiently using client-side encryption while keeping root encryption keys secured inside Cloud KMS with automated 90-day rotation.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Transmit the entire 100 GB file directly to the Cloud KMS Encrypt API endpoint." },
@@ -363,7 +363,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Cloud KMS Envelope Encryption and Key Rotation: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Cloud KMS to encrypt 100 GB database backup files efficiently using client-side encryption while keeping root encryption keys secured inside Cloud KMS with automated 90-day rotation.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to encrypt 100 GB database backup files efficiently using client-side encryption while keeping root encryption keys secured inside Cloud KMS with automated 90-day rotation.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Implement envelope encryption: generate a local Data Encryption Key (DEK), encrypt the data, encrypt the DEK with a Cloud KMS Key Encryption Key (KEK), and configure automated key rotation." },
@@ -384,7 +384,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Cloud KMS Envelope Encryption and Key Rotation: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Cloud KMS to encrypt 100 GB database backup files efficiently using client-side encryption while keeping root encryption keys secured inside Cloud KMS with automated 90-day rotation.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to encrypt 100 GB database backup files efficiently using client-side encryption while keeping root encryption keys secured inside Cloud KMS with automated 90-day rotation.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Implement envelope encryption: generate a local Data Encryption Key (DEK), encrypt the data, encrypt the DEK with a Cloud KMS Key Encryption Key (KEK), and configure automated key rotation." },
@@ -405,7 +405,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "Cloud KMS Envelope Encryption and Key Rotation: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Cloud KMS to encrypt 100 GB database backup files efficiently using client-side encryption while keeping root encryption keys secured inside Cloud KMS with automated 90-day rotation.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to encrypt 100 GB database backup files efficiently using client-side encryption while keeping root encryption keys secured inside Cloud KMS with automated 90-day rotation.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Store encryption keys in plaintext in an unencrypted GitHub repository." },
@@ -426,7 +426,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "VPC Service Controls Ingress and Egress Rules: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Security Perimeters to allow an authorized BigQuery client in Project A inside a service perimeter to securely query a dataset in Project B located in a different perimeter without opening the perimeter to the internet.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to allow an authorized BigQuery client in Project A inside a service perimeter to securely query a dataset in Project B located in a different perimeter without opening the perimeter to the internet.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Assign the Owner role to allUsers on both BigQuery datasets." },
@@ -447,7 +447,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "VPC Service Controls Ingress and Egress Rules: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Security Perimeters to allow an authorized BigQuery client in Project A inside a service perimeter to securely query a dataset in Project B located in a different perimeter without opening the perimeter to the internet.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to allow an authorized BigQuery client in Project A inside a service perimeter to securely query a dataset in Project B located in a different perimeter without opening the perimeter to the internet.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Delete the VPC Service Controls service perimeter entirely." },
@@ -468,7 +468,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "VPC Service Controls Ingress and Egress Rules: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Security Perimeters to allow an authorized BigQuery client in Project A inside a service perimeter to securely query a dataset in Project B located in a different perimeter without opening the perimeter to the internet.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to allow an authorized BigQuery client in Project A inside a service perimeter to securely query a dataset in Project B located in a different perimeter without opening the perimeter to the internet.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Configure an Ingress and Egress rule in the VPC Service Controls perimeters (or establish a Perimeter Bridge)." },
@@ -489,7 +489,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "VPC Service Controls Ingress and Egress Rules: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Security Perimeters to allow an authorized BigQuery client in Project A inside a service perimeter to securely query a dataset in Project B located in a different perimeter without opening the perimeter to the internet.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to allow an authorized BigQuery client in Project A inside a service perimeter to securely query a dataset in Project B located in a different perimeter without opening the perimeter to the internet.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Configure an Ingress and Egress rule in the VPC Service Controls perimeters (or establish a Perimeter Bridge)." },
@@ -510,7 +510,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainId: "d3",
     domainName: "Designing for security and compliance",
     title: "VPC Service Controls Ingress and Egress Rules: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Security Perimeters to allow an authorized BigQuery client in Project A inside a service perimeter to securely query a dataset in Project B located in a different perimeter without opening the perimeter to the internet.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to allow an authorized BigQuery client in Project A inside a service perimeter to securely query a dataset in Project B located in a different perimeter without opening the perimeter to the internet.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Assign the Owner role to allUsers on both BigQuery datasets." },

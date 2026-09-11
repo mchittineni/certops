@@ -6,7 +6,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Declarative vs Imperative IaC Approaches: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates IaC Paradigms to choose an infrastructure management paradigm that automatically calculates resource dependencies and only executes necessary state mutations.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to choose an infrastructure management paradigm that automatically calculates resource dependencies and only executes necessary state mutations.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Adopt a declarative IaC tool (such as Terraform) that defines the desired end-state and relies on the engine to calculate deltas and reconciliation steps." },
@@ -27,7 +27,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Declarative vs Imperative IaC Approaches: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates IaC Paradigms to choose an infrastructure management paradigm that automatically calculates resource dependencies and only executes necessary state mutations.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to choose an infrastructure management paradigm that automatically calculates resource dependencies and only executes necessary state mutations.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Write procedural Python scripts that explicitly handle rollback loops upon API timeouts." },
@@ -48,7 +48,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Declarative vs Imperative IaC Approaches: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates IaC Paradigms to choose an infrastructure management paradigm that automatically calculates resource dependencies and only executes necessary state mutations.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to choose an infrastructure management paradigm that automatically calculates resource dependencies and only executes necessary state mutations.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Write imperative bash scripts executing sequential AWS CLI create calls." },
@@ -69,7 +69,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Declarative vs Imperative IaC Approaches: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates IaC Paradigms to choose an infrastructure management paradigm that automatically calculates resource dependencies and only executes necessary state mutations.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to choose an infrastructure management paradigm that automatically calculates resource dependencies and only executes necessary state mutations.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Manually configure cloud resources through the cloud provider web management console." },
@@ -90,7 +90,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Declarative vs Imperative IaC Approaches: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates IaC Paradigms to choose an infrastructure management paradigm that automatically calculates resource dependencies and only executes necessary state mutations.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to choose an infrastructure management paradigm that automatically calculates resource dependencies and only executes necessary state mutations.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Write procedural Python scripts that explicitly handle rollback loops upon API timeouts." },
@@ -111,7 +111,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Idempotency in Infrastructure Management: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates Idempotency to ensure that executing an automated infrastructure deployment pipeline multiple times consecutively without configuration changes does not create duplicate resources.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to ensure that executing an automated infrastructure deployment pipeline multiple times consecutively without configuration changes does not create duplicate resources.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Use an idempotent IaC tool like Terraform where running `apply` repeatedly on an unchanged configuration produces zero modifications." },
@@ -132,7 +132,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Idempotency in Infrastructure Management: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates Idempotency to ensure that executing an automated infrastructure deployment pipeline multiple times consecutively without configuration changes does not create duplicate resources.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to ensure that executing an automated infrastructure deployment pipeline multiple times consecutively without configuration changes does not create duplicate resources.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Use an idempotent IaC tool like Terraform where running `apply` repeatedly on an unchanged configuration produces zero modifications." },
@@ -153,7 +153,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Idempotency in Infrastructure Management: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates Idempotency to ensure that executing an automated infrastructure deployment pipeline multiple times consecutively without configuration changes does not create duplicate resources.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to ensure that executing an automated infrastructure deployment pipeline multiple times consecutively without configuration changes does not create duplicate resources.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Write shell scripts using raw `mkdir` and `curl` without existence verification." },
@@ -174,7 +174,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Idempotency in Infrastructure Management: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates Idempotency to ensure that executing an automated infrastructure deployment pipeline multiple times consecutively without configuration changes does not create duplicate resources.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to ensure that executing an automated infrastructure deployment pipeline multiple times consecutively without configuration changes does not create duplicate resources.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Write shell scripts using raw `mkdir` and `curl` without existence verification." },
@@ -195,7 +195,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Idempotency in Infrastructure Management: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates Idempotency to ensure that executing an automated infrastructure deployment pipeline multiple times consecutively without configuration changes does not create duplicate resources.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to ensure that executing an automated infrastructure deployment pipeline multiple times consecutively without configuration changes does not create duplicate resources.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Write shell scripts using raw `mkdir` and `curl` without existence verification." },
@@ -216,7 +216,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Infrastructure Versioning and Collaboration in Git: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates IaC Versioning to enable multiple infrastructure engineers to propose, review, test, and audit cloud architecture modifications before applying them to production.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to enable multiple infrastructure engineers to propose, review, test, and audit cloud architecture modifications before applying them to production.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Store all Terraform configuration files in a Git version control repository governed by pull request reviews and CI plan checks." },
@@ -237,7 +237,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Infrastructure Versioning and Collaboration in Git: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates IaC Versioning to enable multiple infrastructure engineers to propose, review, test, and audit cloud architecture modifications before applying them to production.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to enable multiple infrastructure engineers to propose, review, test, and audit cloud architecture modifications before applying them to production.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Edit infrastructure directly in the production cloud console." },
@@ -258,7 +258,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Infrastructure Versioning and Collaboration in Git: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates IaC Versioning to enable multiple infrastructure engineers to propose, review, test, and audit cloud architecture modifications before applying them to production.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to enable multiple infrastructure engineers to propose, review, test, and audit cloud architecture modifications before applying them to production.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Email modified configuration files between team members as zip attachments." },
@@ -279,7 +279,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Infrastructure Versioning and Collaboration in Git: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates IaC Versioning to enable multiple infrastructure engineers to propose, review, test, and audit cloud architecture modifications before applying them to production.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to enable multiple infrastructure engineers to propose, review, test, and audit cloud architecture modifications before applying them to production.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Store `.tf` files on a shared network drive without version history." },
@@ -300,7 +300,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Infrastructure Versioning and Collaboration in Git: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates IaC Versioning to enable multiple infrastructure engineers to propose, review, test, and audit cloud architecture modifications before applying them to production.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to enable multiple infrastructure engineers to propose, review, test, and audit cloud architecture modifications before applying them to production.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Edit infrastructure directly in the production cloud console." },
@@ -321,7 +321,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Configuration Drift and Remediation: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates Configuration Drift to detect when an engineer has manually modified a cloud firewall rule or instance size via the web console outside of approved Terraform configurations.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to detect when an engineer has manually modified a cloud firewall rule or instance size via the web console outside of approved Terraform configurations.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely on annual manual audits of cloud resources by external consultants." },
@@ -342,7 +342,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Configuration Drift and Remediation: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates Configuration Drift to detect when an engineer has manually modified a cloud firewall rule or instance size via the web console outside of approved Terraform configurations.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to detect when an engineer has manually modified a cloud firewall rule or instance size via the web console outside of approved Terraform configurations.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Delete the Terraform state file so Terraform forgets existing resources." },
@@ -363,7 +363,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Configuration Drift and Remediation: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates Configuration Drift to detect when an engineer has manually modified a cloud firewall rule or instance size via the web console outside of approved Terraform configurations.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to detect when an engineer has manually modified a cloud firewall rule or instance size via the web console outside of approved Terraform configurations.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Run `terraform plan` or `terraform refresh` to compare real-world infrastructure against the state and configuration, highlighting drift for remediation." },
@@ -384,7 +384,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Configuration Drift and Remediation: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates Configuration Drift to detect when an engineer has manually modified a cloud firewall rule or instance size via the web console outside of approved Terraform configurations.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to detect when an engineer has manually modified a cloud firewall rule or instance size via the web console outside of approved Terraform configurations.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Rely on annual manual audits of cloud resources by external consultants." },
@@ -405,7 +405,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Configuration Drift and Remediation: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates Configuration Drift to detect when an engineer has manually modified a cloud firewall rule or instance size via the web console outside of approved Terraform configurations.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to detect when an engineer has manually modified a cloud firewall rule or instance size via the web console outside of approved Terraform configurations.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Delete the Terraform state file so Terraform forgets existing resources." },
@@ -426,7 +426,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Disposable and Immutable Infrastructure: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates Immutable Infrastructure to upgrade operating systems and applications on cloud virtual machines without accumulating configuration drift or patch discrepancies over time.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to upgrade operating systems and applications on cloud virtual machines without accumulating configuration drift or patch discrepancies over time.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Adopt immutable infrastructure practices where updated server images (AMIs) are deployed as new replacement instances, terminating old instances." },
@@ -447,7 +447,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Disposable and Immutable Infrastructure: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates Immutable Infrastructure to upgrade operating systems and applications on cloud virtual machines without accumulating configuration drift or patch discrepancies over time.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to upgrade operating systems and applications on cloud virtual machines without accumulating configuration drift or patch discrepancies over time.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Adopt immutable infrastructure practices where updated server images (AMIs) are deployed as new replacement instances, terminating old instances." },
@@ -468,7 +468,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Disposable and Immutable Infrastructure: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates Immutable Infrastructure to upgrade operating systems and applications on cloud virtual machines without accumulating configuration drift or patch discrepancies over time.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to upgrade operating systems and applications on cloud virtual machines without accumulating configuration drift or patch discrepancies over time.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Adopt immutable infrastructure practices where updated server images (AMIs) are deployed as new replacement instances, terminating old instances." },
@@ -489,7 +489,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Disposable and Immutable Infrastructure: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates Immutable Infrastructure to upgrade operating systems and applications on cloud virtual machines without accumulating configuration drift or patch discrepancies over time.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to upgrade operating systems and applications on cloud virtual machines without accumulating configuration drift or patch discrepancies over time.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Accumulate custom configuration files on production servers indefinitely." },
@@ -510,7 +510,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Understand infrastructure as code (IaC) concepts",
     title: "Disposable and Immutable Infrastructure: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates Immutable Infrastructure to upgrade operating systems and applications on cloud virtual machines without accumulating configuration drift or patch discrepancies over time.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to upgrade operating systems and applications on cloud virtual machines without accumulating configuration drift or patch discrepancies over time.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Adopt immutable infrastructure practices where updated server images (AMIs) are deployed as new replacement instances, terminating old instances." },

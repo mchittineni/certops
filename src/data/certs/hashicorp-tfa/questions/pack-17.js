@@ -6,7 +6,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Root Module vs Child Modules: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates Module Hierarchy to understand the execution hierarchy when running `terraform apply` in a directory containing multiple submodules.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to understand the execution hierarchy when running `terraform apply` in a directory containing multiple submodules.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "The working directory where `terraform` CLI commands are executed is the root module, which calls and coordinates child modules." },
@@ -27,7 +27,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Root Module vs Child Modules: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates Module Hierarchy to understand the execution hierarchy when running `terraform apply` in a directory containing multiple submodules.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to understand the execution hierarchy when running `terraform apply` in a directory containing multiple submodules.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Every subfolder is automatically a root module executing simultaneously." },
@@ -48,7 +48,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Root Module vs Child Modules: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates Module Hierarchy to understand the execution hierarchy when running `terraform apply` in a directory containing multiple submodules.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to understand the execution hierarchy when running `terraform apply` in a directory containing multiple submodules.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Child modules execute completely independently without passing values back to the root module." },
@@ -69,7 +69,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Root Module vs Child Modules: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates Module Hierarchy to understand the execution hierarchy when running `terraform apply` in a directory containing multiple submodules.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to understand the execution hierarchy when running `terraform apply` in a directory containing multiple submodules.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Terraform only executes child modules and ignores the root directory." },
@@ -90,7 +90,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Root Module vs Child Modules: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates Module Hierarchy to understand the execution hierarchy when running `terraform apply` in a directory containing multiple submodules.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to understand the execution hierarchy when running `terraform apply` in a directory containing multiple submodules.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Every subfolder is automatically a root module executing simultaneously." },
@@ -111,7 +111,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "The Purpose of Terraform State: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates State Fundamentals to understand why Terraform requires a state file rather than querying cloud provider APIs directly on every single operation.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to understand why Terraform requires a state file rather than querying cloud provider APIs directly on every single operation.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "State files are only used to store developer login passwords." },
@@ -132,7 +132,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "The Purpose of Terraform State: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates State Fundamentals to understand why Terraform requires a state file rather than querying cloud provider APIs directly on every single operation.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to understand why Terraform requires a state file rather than querying cloud provider APIs directly on every single operation.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "State maps declared configuration resources to real-world cloud IDs, tracks metadata/dependencies, and caches performance data." },
@@ -153,7 +153,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "The Purpose of Terraform State: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates State Fundamentals to understand why Terraform requires a state file rather than querying cloud provider APIs directly on every single operation.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to understand why Terraform requires a state file rather than querying cloud provider APIs directly on every single operation.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "State is only an optional cache that can be deleted before every apply without consequence." },
@@ -174,7 +174,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "The Purpose of Terraform State: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates State Fundamentals to understand why Terraform requires a state file rather than querying cloud provider APIs directly on every single operation.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to understand why Terraform requires a state file rather than querying cloud provider APIs directly on every single operation.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Cloud providers require state files to process API requests." },
@@ -195,7 +195,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "The Purpose of Terraform State: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates State Fundamentals to understand why Terraform requires a state file rather than querying cloud provider APIs directly on every single operation.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to understand why Terraform requires a state file rather than querying cloud provider APIs directly on every single operation.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "State maps declared configuration resources to real-world cloud IDs, tracks metadata/dependencies, and caches performance data." },
@@ -216,7 +216,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "Local vs Remote State Storage: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates State Backends to transition a team of six DevOps engineers from local state files on developer laptops to a shared, centralized state solution.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to transition a team of six DevOps engineers from local state files on developer laptops to a shared, centralized state solution.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Require all six engineers to take turns using a single shared physical laptop." },
@@ -237,7 +237,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "Local vs Remote State Storage: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates State Backends to transition a team of six DevOps engineers from local state files on developer laptops to a shared, centralized state solution.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to transition a team of six DevOps engineers from local state files on developer laptops to a shared, centralized state solution.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Commit the local `terraform.tfstate` file to a public GitHub repository." },
@@ -258,7 +258,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "Local vs Remote State Storage: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates State Backends to transition a team of six DevOps engineers from local state files on developer laptops to a shared, centralized state solution.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to transition a team of six DevOps engineers from local state files on developer laptops to a shared, centralized state solution.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Commit the local `terraform.tfstate` file to a public GitHub repository." },
@@ -279,7 +279,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "Local vs Remote State Storage: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates State Backends to transition a team of six DevOps engineers from local state files on developer laptops to a shared, centralized state solution.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to transition a team of six DevOps engineers from local state files on developer laptops to a shared, centralized state solution.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Configure a remote backend (such as Amazon S3, Azure Blob, or HCP Terraform) to store state in a centralized, accessible location." },
@@ -300,7 +300,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "Local vs Remote State Storage: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates State Backends to transition a team of six DevOps engineers from local state files on developer laptops to a shared, centralized state solution.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to transition a team of six DevOps engineers from local state files on developer laptops to a shared, centralized state solution.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Configure a remote backend (such as Amazon S3, Azure Blob, or HCP Terraform) to store state in a centralized, accessible location." },
@@ -321,7 +321,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "State Locking and Concurrency Protection: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates State Locking to prevent two engineers or CI pipelines from running `terraform apply` simultaneously and corrupting the shared remote state file.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to prevent two engineers or CI pipelines from running `terraform apply` simultaneously and corrupting the shared remote state file.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Trust team members to verbally check with each other before running commands." },
@@ -342,7 +342,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "State Locking and Concurrency Protection: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates State Locking to prevent two engineers or CI pipelines from running `terraform apply` simultaneously and corrupting the shared remote state file.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to prevent two engineers or CI pipelines from running `terraform apply` simultaneously and corrupting the shared remote state file.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Trust team members to verbally check with each other before running commands." },
@@ -363,7 +363,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "State Locking and Concurrency Protection: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates State Locking to prevent two engineers or CI pipelines from running `terraform apply` simultaneously and corrupting the shared remote state file.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to prevent two engineers or CI pipelines from running `terraform apply` simultaneously and corrupting the shared remote state file.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Delete the state file whenever a collision occurs." },
@@ -384,7 +384,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "State Locking and Concurrency Protection: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates State Locking to prevent two engineers or CI pipelines from running `terraform apply` simultaneously and corrupting the shared remote state file.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to prevent two engineers or CI pipelines from running `terraform apply` simultaneously and corrupting the shared remote state file.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Use a backend supporting state locking (e.g., Amazon S3 with DynamoDB table, Azure Blob with native leases, or HCP Terraform)." },
@@ -405,7 +405,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "State Locking and Concurrency Protection: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates State Locking to prevent two engineers or CI pipelines from running `terraform apply` simultaneously and corrupting the shared remote state file.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to prevent two engineers or CI pipelines from running `terraform apply` simultaneously and corrupting the shared remote state file.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Run `terraform apply` with the `-force` flag to overwrite locks." },
@@ -426,7 +426,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "Remote Backend Configuration: S3 with DynamoDB: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates S3 Backend to configure an enterprise-standard remote backend for AWS with state persistence, KMS encryption, and distributed locking.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to configure an enterprise-standard remote backend for AWS with state persistence, KMS encryption, and distributed locking.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Store state in an unencrypted public S3 bucket with anonymous write access." },
@@ -447,7 +447,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "Remote Backend Configuration: S3 with DynamoDB: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates S3 Backend to configure an enterprise-standard remote backend for AWS with state persistence, KMS encryption, and distributed locking.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to configure an enterprise-standard remote backend for AWS with state persistence, KMS encryption, and distributed locking.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Configure `backend \"local\"` pointing to `/tmp/state.tfstate`." },
@@ -468,7 +468,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "Remote Backend Configuration: S3 with DynamoDB: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates S3 Backend to configure an enterprise-standard remote backend for AWS with state persistence, KMS encryption, and distributed locking.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to configure an enterprise-standard remote backend for AWS with state persistence, KMS encryption, and distributed locking.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Store state in an unencrypted public S3 bucket with anonymous write access." },
@@ -489,7 +489,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "Remote Backend Configuration: S3 with DynamoDB: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates S3 Backend to configure an enterprise-standard remote backend for AWS with state persistence, KMS encryption, and distributed locking.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to configure an enterprise-standard remote backend for AWS with state persistence, KMS encryption, and distributed locking.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Configure `backend \"s3\"` specifying `bucket`, `key`, `region`, `encrypt = true`, and `dynamodb_table` for state locking." },
@@ -510,7 +510,7 @@ export const HASHICORP_TFA_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Manage Terraform state",
     title: "Remote Backend Configuration: S3 with DynamoDB: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates S3 Backend to configure an enterprise-standard remote backend for AWS with state persistence, KMS encryption, and distributed locking.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to configure an enterprise-standard remote backend for AWS with state persistence, KMS encryption, and distributed locking.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Omit backend configuration entirely." },

@@ -6,7 +6,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Diagnosing CrashLoopBackOff Pod Failures: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Pod Diagnostics to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Execute `kubectl logs &lt;pod-name&gt; --previous` to inspect stdout/stderr before termination and review container exit codes via `kubectl describe pod`." },
@@ -27,7 +27,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Diagnosing CrashLoopBackOff Pod Failures: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Pod Diagnostics to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Assume the network switch failed and reboot all physical worker nodes." },
@@ -48,7 +48,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Diagnosing CrashLoopBackOff Pod Failures: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Pod Diagnostics to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Execute `kubectl logs &lt;pod-name&gt; --previous` to inspect stdout/stderr before termination and review container exit codes via `kubectl describe pod`." },
@@ -69,7 +69,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Diagnosing CrashLoopBackOff Pod Failures: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Pod Diagnostics to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Increase CPU and memory limits indefinitely without checking container logs." },
@@ -90,7 +90,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Diagnosing CrashLoopBackOff Pod Failures: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Pod Diagnostics to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Execute `kubectl logs &lt;pod-name&gt; --previous` to inspect stdout/stderr before termination and review container exit codes via `kubectl describe pod`." },
@@ -111,7 +111,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Investigating OOMKilled Containers: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Memory Limits to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Assume the host node ran out of disk space and truncate the root filesystem." },
@@ -132,7 +132,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Investigating OOMKilled Containers: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Memory Limits to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings." },
@@ -153,7 +153,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Investigating OOMKilled Containers: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Memory Limits to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Assume the host node ran out of disk space and truncate the root filesystem." },
@@ -174,7 +174,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Investigating OOMKilled Containers: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Memory Limits to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Add more CPU cores to resolve out-of-memory errors." },
@@ -195,7 +195,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Investigating OOMKilled Containers: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Memory Limits to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Add more CPU cores to resolve out-of-memory errors." },
@@ -216,7 +216,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Resolving ImagePullBackOff and ErrImagePull: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Image Pull Errors to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Restart the kube-apiserver service on all master nodes." },
@@ -237,7 +237,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Resolving ImagePullBackOff and ErrImagePull: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Image Pull Errors to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials." },
@@ -258,7 +258,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Resolving ImagePullBackOff and ErrImagePull: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Image Pull Errors to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Restart the kube-apiserver service on all master nodes." },
@@ -279,7 +279,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Resolving ImagePullBackOff and ErrImagePull: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Image Pull Errors to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Restart the kube-apiserver service on all master nodes." },
@@ -300,7 +300,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Resolving ImagePullBackOff and ErrImagePull: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Image Pull Errors to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Change the container port from 8080 to 80." },
@@ -321,7 +321,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Kubelet Service Failures on Worker Nodes: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Node Maintenance to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Assume the pod network crashed and reinstall the container runtime blindly." },
@@ -342,7 +342,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Kubelet Service Failures on Worker Nodes: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Node Maintenance to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Drain and cordon all other healthy nodes in the cluster." },
@@ -363,7 +363,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Kubelet Service Failures on Worker Nodes: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Node Maintenance to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Assume the pod network crashed and reinstall the container runtime blindly." },
@@ -384,7 +384,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Kubelet Service Failures on Worker Nodes: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Node Maintenance to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Assume the pod network crashed and reinstall the container runtime blindly." },
@@ -405,7 +405,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Kubelet Service Failures on Worker Nodes: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Node Maintenance to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Delete the cluster etcd data directory from the master node." },
@@ -426,7 +426,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Worker Node Disk Pressure and Eviction: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Node Eviction to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity." },
@@ -447,7 +447,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Worker Node Disk Pressure and Eviction: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Node Eviction to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Delete the kube-proxy daemonset across all worker nodes." },
@@ -468,7 +468,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Worker Node Disk Pressure and Eviction: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Node Eviction to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Delete the kube-proxy daemonset across all worker nodes." },
@@ -489,7 +489,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Worker Node Disk Pressure and Eviction: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Node Eviction to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Increase pod memory requests to prevent eviction." },
@@ -510,7 +510,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Troubleshooting",
     title: "Worker Node Disk Pressure and Eviction: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Node Eviction to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Disable kubelet eviction thresholds entirely by setting them to 100%." },

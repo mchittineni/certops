@@ -6,7 +6,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Cloud Deploy Multi-Target Delivery: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Continuous Delivery to manage multi-target progressive delivery to GKE and Cloud Run with automated promotion approvals, canaries, and one-click rollbacks.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to manage multi-target progressive delivery to GKE and Cloud Run with automated promotion approvals, canaries, and one-click rollbacks.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy software by manually copying files over SSH sessions." },
@@ -27,7 +27,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Cloud Deploy Multi-Target Delivery: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Continuous Delivery to manage multi-target progressive delivery to GKE and Cloud Run with automated promotion approvals, canaries, and one-click rollbacks.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to manage multi-target progressive delivery to GKE and Cloud Run with automated promotion approvals, canaries, and one-click rollbacks.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Write custom shell scripts executing kubectl apply in a sequential loop." },
@@ -48,7 +48,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Cloud Deploy Multi-Target Delivery: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Continuous Delivery to manage multi-target progressive delivery to GKE and Cloud Run with automated promotion approvals, canaries, and one-click rollbacks.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to manage multi-target progressive delivery to GKE and Cloud Run with automated promotion approvals, canaries, and one-click rollbacks.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Write custom shell scripts executing kubectl apply in a sequential loop." },
@@ -69,7 +69,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Cloud Deploy Multi-Target Delivery: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Continuous Delivery to manage multi-target progressive delivery to GKE and Cloud Run with automated promotion approvals, canaries, and one-click rollbacks.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to manage multi-target progressive delivery to GKE and Cloud Run with automated promotion approvals, canaries, and one-click rollbacks.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Write custom shell scripts executing kubectl apply in a sequential loop." },
@@ -90,7 +90,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Cloud Deploy Multi-Target Delivery: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Continuous Delivery to manage multi-target progressive delivery to GKE and Cloud Run with automated promotion approvals, canaries, and one-click rollbacks.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to manage multi-target progressive delivery to GKE and Cloud Run with automated promotion approvals, canaries, and one-click rollbacks.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Implement Google Cloud Deploy with delivery pipelines defining staging and production release targets." },
@@ -111,7 +111,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Database Migration Service (DMS): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Database Migration to migrate an on-premises PostgreSQL database to Cloud SQL with minimal downtime using continuous change data capture (CDC) replication.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to migrate an on-premises PostgreSQL database to Cloud SQL with minimal downtime using continuous change data capture (CDC) replication.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Recreate database tables from memory in the new environment." },
@@ -132,7 +132,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Database Migration Service (DMS): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Database Migration to migrate an on-premises PostgreSQL database to Cloud SQL with minimal downtime using continuous change data capture (CDC) replication.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to migrate an on-premises PostgreSQL database to Cloud SQL with minimal downtime using continuous change data capture (CDC) replication.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Take a full database dump, transfer it over slow broadband, and shut down on-premises systems for 72 hours." },
@@ -153,7 +153,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Database Migration Service (DMS): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Database Migration to migrate an on-premises PostgreSQL database to Cloud SQL with minimal downtime using continuous change data capture (CDC) replication.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to migrate an on-premises PostgreSQL database to Cloud SQL with minimal downtime using continuous change data capture (CDC) replication.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Write custom ETL scripts in Python to copy records table by table." },
@@ -174,7 +174,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Database Migration Service (DMS): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Database Migration to migrate an on-premises PostgreSQL database to Cloud SQL with minimal downtime using continuous change data capture (CDC) replication.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to migrate an on-premises PostgreSQL database to Cloud SQL with minimal downtime using continuous change data capture (CDC) replication.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Use Database Migration Service (DMS) with continuous replication until cutover." },
@@ -195,7 +195,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Database Migration Service (DMS): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Database Migration to migrate an on-premises PostgreSQL database to Cloud SQL with minimal downtime using continuous change data capture (CDC) replication.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to migrate an on-premises PostgreSQL database to Cloud SQL with minimal downtime using continuous change data capture (CDC) replication.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Use Database Migration Service (DMS) with continuous replication until cutover." },
@@ -216,7 +216,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Storage Transfer Service for Large-Scale Data Ingest: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Data Migration to transfer 500 terabytes of compliance archive files from Amazon S3 and on-premises POSIX file servers to Cloud Storage with automated checksum verification and bandwidth scheduling.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to transfer 500 terabytes of compliance archive files from Amazon S3 and on-premises POSIX file servers to Cloud Storage with automated checksum verification and bandwidth scheduling.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Download files one by one using a local desktop web browser." },
@@ -237,7 +237,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Storage Transfer Service for Large-Scale Data Ingest: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Data Migration to transfer 500 terabytes of compliance archive files from Amazon S3 and on-premises POSIX file servers to Cloud Storage with automated checksum verification and bandwidth scheduling.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to transfer 500 terabytes of compliance archive files from Amazon S3 and on-premises POSIX file servers to Cloud Storage with automated checksum verification and bandwidth scheduling.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Write a custom bash loop running gsutil cp sequentially over a single laptop connection." },
@@ -258,7 +258,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Storage Transfer Service for Large-Scale Data Ingest: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Data Migration to transfer 500 terabytes of compliance archive files from Amazon S3 and on-premises POSIX file servers to Cloud Storage with automated checksum verification and bandwidth scheduling.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to transfer 500 terabytes of compliance archive files from Amazon S3 and on-premises POSIX file servers to Cloud Storage with automated checksum verification and bandwidth scheduling.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Download files one by one using a local desktop web browser." },
@@ -279,7 +279,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Storage Transfer Service for Large-Scale Data Ingest: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Data Migration to transfer 500 terabytes of compliance archive files from Amazon S3 and on-premises POSIX file servers to Cloud Storage with automated checksum verification and bandwidth scheduling.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to transfer 500 terabytes of compliance archive files from Amazon S3 and on-premises POSIX file servers to Cloud Storage with automated checksum verification and bandwidth scheduling.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Send physical portable hard drives via consumer courier mail services." },
@@ -300,7 +300,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Storage Transfer Service for Large-Scale Data Ingest: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Data Migration to transfer 500 terabytes of compliance archive files from Amazon S3 and on-premises POSIX file servers to Cloud Storage with automated checksum verification and bandwidth scheduling.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to transfer 500 terabytes of compliance archive files from Amazon S3 and on-premises POSIX file servers to Cloud Storage with automated checksum verification and bandwidth scheduling.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Send physical portable hard drives via consumer courier mail services." },
@@ -321,7 +321,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Migrate to Virtual Machines (formerly Migrate for Compute Engine): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates System Migration to migrate 100 enterprise Windows and Linux virtual machines running in on-premises VMware vSphere to Compute Engine with continuous background disk streaming and minimal cutover downtime.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to migrate 100 enterprise Windows and Linux virtual machines running in on-premises VMware vSphere to Compute Engine with continuous background disk streaming and minimal cutover downtime.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Export VM disk images to USB thumb drives and upload via web browser." },
@@ -342,7 +342,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Migrate to Virtual Machines (formerly Migrate for Compute Engine): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates System Migration to migrate 100 enterprise Windows and Linux virtual machines running in on-premises VMware vSphere to Compute Engine with continuous background disk streaming and minimal cutover downtime.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to migrate 100 enterprise Windows and Linux virtual machines running in on-premises VMware vSphere to Compute Engine with continuous background disk streaming and minimal cutover downtime.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy Migrate to Virtual Machines with continuous replication agents." },
@@ -363,7 +363,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Migrate to Virtual Machines (formerly Migrate for Compute Engine): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates System Migration to migrate 100 enterprise Windows and Linux virtual machines running in on-premises VMware vSphere to Compute Engine with continuous background disk streaming and minimal cutover downtime.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to migrate 100 enterprise Windows and Linux virtual machines running in on-premises VMware vSphere to Compute Engine with continuous background disk streaming and minimal cutover downtime.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Decommission on-premises servers before starting the cloud migration." },
@@ -384,7 +384,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Migrate to Virtual Machines (formerly Migrate for Compute Engine): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates System Migration to migrate 100 enterprise Windows and Linux virtual machines running in on-premises VMware vSphere to Compute Engine with continuous background disk streaming and minimal cutover downtime.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to migrate 100 enterprise Windows and Linux virtual machines running in on-premises VMware vSphere to Compute Engine with continuous background disk streaming and minimal cutover downtime.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Re-install all 100 operating systems and configure all software packages manually." },
@@ -405,7 +405,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Migrate to Virtual Machines (formerly Migrate for Compute Engine): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates System Migration to migrate 100 enterprise Windows and Linux virtual machines running in on-premises VMware vSphere to Compute Engine with continuous background disk streaming and minimal cutover downtime.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to migrate 100 enterprise Windows and Linux virtual machines running in on-premises VMware vSphere to Compute Engine with continuous background disk streaming and minimal cutover downtime.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Export VM disk images to USB thumb drives and upload via web browser." },
@@ -426,7 +426,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Apigee API Platform Management: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates API Management to publish enterprise REST APIs to third-party partners, enforce OAuth authentication, track API monetization billing, and provide a self-service developer documentation portal.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to publish enterprise REST APIs to third-party partners, enforce OAuth authentication, track API monetization billing, and provide a self-service developer documentation portal.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy the Apigee API Management platform." },
@@ -447,7 +447,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Apigee API Platform Management: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates API Management to publish enterprise REST APIs to third-party partners, enforce OAuth authentication, track API monetization billing, and provide a self-service developer documentation portal.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to publish enterprise REST APIs to third-party partners, enforce OAuth authentication, track API monetization billing, and provide a self-service developer documentation portal.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy the Apigee API Management platform." },
@@ -468,7 +468,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Apigee API Platform Management: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates API Management to publish enterprise REST APIs to third-party partners, enforce OAuth authentication, track API monetization billing, and provide a self-service developer documentation portal.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to publish enterprise REST APIs to third-party partners, enforce OAuth authentication, track API monetization billing, and provide a self-service developer documentation portal.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Expose raw database ports directly to partner company networks over the internet." },
@@ -489,7 +489,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Apigee API Platform Management: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates API Management to publish enterprise REST APIs to third-party partners, enforce OAuth authentication, track API monetization billing, and provide a self-service developer documentation portal.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to publish enterprise REST APIs to third-party partners, enforce OAuth authentication, track API monetization billing, and provide a self-service developer documentation portal.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Write custom API throttling scripts inside application controller endpoints." },
@@ -510,7 +510,7 @@ export const GCP_PCA_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Apigee API Platform Management: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates API Management to publish enterprise REST APIs to third-party partners, enforce OAuth authentication, track API monetization billing, and provide a self-service developer documentation portal.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to publish enterprise REST APIs to third-party partners, enforce OAuth authentication, track API monetization billing, and provide a self-service developer documentation portal.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Send API documentation via static PDF attachments in email." },

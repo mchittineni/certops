@@ -6,7 +6,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "PersistentVolume and StorageClass Dynamic Provisioning: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates StorageClass to provision stateful storage dynamically while ensuring storage disks are provisioned in the same availability zone where the scheduled pod lands.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to provision stateful storage dynamically while ensuring storage disks are provisioned in the same availability zone where the scheduled pod lands.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Set `volumeBindingMode: Immediate` so storage is provisioned before the pod scheduler selects a node." },
@@ -27,7 +27,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "PersistentVolume and StorageClass Dynamic Provisioning: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates StorageClass to provision stateful storage dynamically while ensuring storage disks are provisioned in the same availability zone where the scheduled pod lands.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to provision stateful storage dynamically while ensuring storage disks are provisioned in the same availability zone where the scheduled pod lands.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Configure a StorageClass with `volumeBindingMode: WaitForFirstConsumer` and appropriate CSI provisioner parameters." },
@@ -48,7 +48,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "PersistentVolume and StorageClass Dynamic Provisioning: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates StorageClass to provision stateful storage dynamically while ensuring storage disks are provisioned in the same availability zone where the scheduled pod lands.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to provision stateful storage dynamically while ensuring storage disks are provisioned in the same availability zone where the scheduled pod lands.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Set `volumeBindingMode: Immediate` so storage is provisioned before the pod scheduler selects a node." },
@@ -69,7 +69,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "PersistentVolume and StorageClass Dynamic Provisioning: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates StorageClass to provision stateful storage dynamically while ensuring storage disks are provisioned in the same availability zone where the scheduled pod lands.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to provision stateful storage dynamically while ensuring storage disks are provisioned in the same availability zone where the scheduled pod lands.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Set `volumeBindingMode: Immediate` so storage is provisioned before the pod scheduler selects a node." },
@@ -90,7 +90,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "PersistentVolume and StorageClass Dynamic Provisioning: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates StorageClass to provision stateful storage dynamically while ensuring storage disks are provisioned in the same availability zone where the scheduled pod lands.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to provision stateful storage dynamically while ensuring storage disks are provisioned in the same availability zone where the scheduled pod lands.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Disable PersistentVolumeClaims and write state directly to pod ephemeral container storage." },
@@ -111,7 +111,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "PersistentVolume Reclaim Policies: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates PV Reclaim Policy to protect mission-critical database data so that if a PersistentVolumeClaim is accidentally deleted, the underlying storage asset and data remain intact.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to protect mission-critical database data so that if a PersistentVolumeClaim is accidentally deleted, the underlying storage asset and data remain intact.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Set the PersistentVolume reclaim policy to `Delete` so the volume is automatically wiped." },
@@ -132,7 +132,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "PersistentVolume Reclaim Policies: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates PV Reclaim Policy to protect mission-critical database data so that if a PersistentVolumeClaim is accidentally deleted, the underlying storage asset and data remain intact.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to protect mission-critical database data so that if a PersistentVolumeClaim is accidentally deleted, the underlying storage asset and data remain intact.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Set the reclaim policy to `Recycle` to perform an automated rm -rf scrub." },
@@ -153,7 +153,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "PersistentVolume Reclaim Policies: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates PV Reclaim Policy to protect mission-critical database data so that if a PersistentVolumeClaim is accidentally deleted, the underlying storage asset and data remain intact.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to protect mission-critical database data so that if a PersistentVolumeClaim is accidentally deleted, the underlying storage asset and data remain intact.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Set the PersistentVolume reclaim policy (`persistentVolumeReclaimPolicy`) to `Retain`." },
@@ -174,7 +174,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "PersistentVolume Reclaim Policies: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates PV Reclaim Policy to protect mission-critical database data so that if a PersistentVolumeClaim is accidentally deleted, the underlying storage asset and data remain intact.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to protect mission-critical database data so that if a PersistentVolumeClaim is accidentally deleted, the underlying storage asset and data remain intact.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Set the reclaim policy to `Recycle` to perform an automated rm -rf scrub." },
@@ -195,7 +195,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "PersistentVolume Reclaim Policies: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates PV Reclaim Policy to protect mission-critical database data so that if a PersistentVolumeClaim is accidentally deleted, the underlying storage asset and data remain intact.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to protect mission-critical database data so that if a PersistentVolumeClaim is accidentally deleted, the underlying storage asset and data remain intact.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Set the PersistentVolume reclaim policy (`persistentVolumeReclaimPolicy`) to `Retain`." },
@@ -216,7 +216,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "Volume Expansion via PersistentVolumeClaim: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Volume Expansion to increase the storage capacity of an existing database PersistentVolumeClaim without unmounting the volume or causing pod downtime.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to increase the storage capacity of an existing database PersistentVolumeClaim without unmounting the volume or causing pod downtime.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Ensure the StorageClass has `allowVolumeExpansion: true`, then edit the PVC spec to request a larger `storage` size." },
@@ -237,7 +237,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "Volume Expansion via PersistentVolumeClaim: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Volume Expansion to increase the storage capacity of an existing database PersistentVolumeClaim without unmounting the volume or causing pod downtime.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to increase the storage capacity of an existing database PersistentVolumeClaim without unmounting the volume or causing pod downtime.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Ensure the StorageClass has `allowVolumeExpansion: true`, then edit the PVC spec to request a larger `storage` size." },
@@ -258,7 +258,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "Volume Expansion via PersistentVolumeClaim: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Volume Expansion to increase the storage capacity of an existing database PersistentVolumeClaim without unmounting the volume or causing pod downtime.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to increase the storage capacity of an existing database PersistentVolumeClaim without unmounting the volume or causing pod downtime.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Manually format the underlying physical block device from the host operating system." },
@@ -279,7 +279,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "Volume Expansion via PersistentVolumeClaim: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Volume Expansion to increase the storage capacity of an existing database PersistentVolumeClaim without unmounting the volume or causing pod downtime.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to increase the storage capacity of an existing database PersistentVolumeClaim without unmounting the volume or causing pod downtime.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Edit the read-only PersistentVolume object directly in etcd using an external hex editor." },
@@ -300,7 +300,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "Volume Expansion via PersistentVolumeClaim: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Volume Expansion to increase the storage capacity of an existing database PersistentVolumeClaim without unmounting the volume or causing pod downtime.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to increase the storage capacity of an existing database PersistentVolumeClaim without unmounting the volume or causing pod downtime.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Edit the read-only PersistentVolume object directly in etcd using an external hex editor." },
@@ -321,7 +321,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "PersistentVolume Access Modes: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Volume Access Modes to allow multiple pods distributed across different worker nodes to read and write simultaneously to a shared asset directory.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to allow multiple pods distributed across different worker nodes to read and write simultaneously to a shared asset directory.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Use `ReadWriteOnce` (RWO) which permits mounting by pods across multiple nodes simultaneously." },
@@ -342,7 +342,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "PersistentVolume Access Modes: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Volume Access Modes to allow multiple pods distributed across different worker nodes to read and write simultaneously to a shared asset directory.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to allow multiple pods distributed across different worker nodes to read and write simultaneously to a shared asset directory.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Use `ReadWriteOnce` (RWO) which permits mounting by pods across multiple nodes simultaneously." },
@@ -363,7 +363,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "PersistentVolume Access Modes: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Volume Access Modes to allow multiple pods distributed across different worker nodes to read and write simultaneously to a shared asset directory.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to allow multiple pods distributed across different worker nodes to read and write simultaneously to a shared asset directory.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Use `ReadOnlyMany` (ROX) and configure the application to ignore write errors." },
@@ -384,7 +384,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "PersistentVolume Access Modes: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Volume Access Modes to allow multiple pods distributed across different worker nodes to read and write simultaneously to a shared asset directory.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to allow multiple pods distributed across different worker nodes to read and write simultaneously to a shared asset directory.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Use `ReadWriteOnce` (RWO) which permits mounting by pods across multiple nodes simultaneously." },
@@ -405,7 +405,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "PersistentVolume Access Modes: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Volume Access Modes to allow multiple pods distributed across different worker nodes to read and write simultaneously to a shared asset directory.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to allow multiple pods distributed across different worker nodes to read and write simultaneously to a shared asset directory.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Use `ReadOnlyMany` (ROX) and configure the application to ignore write errors." },
@@ -426,7 +426,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "ConfigMap and Secret Volume Mounts: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Configuration Storage to inject a configuration file from a ConfigMap into an existing container directory without overwriting the directory's other pre-existing files.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to inject a configuration file from a ConfigMap into an existing container directory without overwriting the directory's other pre-existing files.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Mount the ConfigMap directly to the target directory path without specifying a subPath." },
@@ -447,7 +447,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "ConfigMap and Secret Volume Mounts: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Configuration Storage to inject a configuration file from a ConfigMap into an existing container directory without overwriting the directory's other pre-existing files.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to inject a configuration file from a ConfigMap into an existing container directory without overwriting the directory's other pre-existing files.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Hardcode the configuration file directly inside the container image layer." },
@@ -468,7 +468,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "ConfigMap and Secret Volume Mounts: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Configuration Storage to inject a configuration file from a ConfigMap into an existing container directory without overwriting the directory's other pre-existing files.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to inject a configuration file from a ConfigMap into an existing container directory without overwriting the directory's other pre-existing files.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Use an init container to download the file over insecure HTTP from the public internet." },
@@ -489,7 +489,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "ConfigMap and Secret Volume Mounts: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Configuration Storage to inject a configuration file from a ConfigMap into an existing container directory without overwriting the directory's other pre-existing files.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to inject a configuration file from a ConfigMap into an existing container directory without overwriting the directory's other pre-existing files.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Hardcode the configuration file directly inside the container image layer." },
@@ -510,7 +510,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Storage",
     title: "ConfigMap and Secret Volume Mounts: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Configuration Storage to inject a configuration file from a ConfigMap into an existing container directory without overwriting the directory's other pre-existing files.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to inject a configuration file from a ConfigMap into an existing container directory without overwriting the directory's other pre-existing files.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Mount the ConfigMap directly to the target directory path without specifying a subPath." },

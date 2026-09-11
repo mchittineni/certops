@@ -6,7 +6,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Cross-Account IAM Roles and External ID Protection: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates IAM External ID to allow a third-party SaaS security monitoring platform to assume an IAM role in your AWS account without risking confused deputy attacks.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to allow a third-party SaaS security monitoring platform to assume an IAM role in your AWS account without risking confused deputy attacks.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Require the SaaS provider to supply a unique, secret `ExternalId` in their STS AssumeRole request and enforce it in the role trust policy." },
@@ -27,7 +27,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Cross-Account IAM Roles and External ID Protection: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates IAM External ID to allow a third-party SaaS security monitoring platform to assume an IAM role in your AWS account without risking confused deputy attacks.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to allow a third-party SaaS security monitoring platform to assume an IAM role in your AWS account without risking confused deputy attacks.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Allow the SaaS provider to assume the role based solely on their AWS Account ID without an ExternalId." },
@@ -48,7 +48,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Cross-Account IAM Roles and External ID Protection: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates IAM External ID to allow a third-party SaaS security monitoring platform to assume an IAM role in your AWS account without risking confused deputy attacks.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to allow a third-party SaaS security monitoring platform to assume an IAM role in your AWS account without risking confused deputy attacks.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Grant the third-party vendor unrestricted root credentials to your AWS account." },
@@ -69,7 +69,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Cross-Account IAM Roles and External ID Protection: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates IAM External ID to allow a third-party SaaS security monitoring platform to assume an IAM role in your AWS account without risking confused deputy attacks.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to allow a third-party SaaS security monitoring platform to assume an IAM role in your AWS account without risking confused deputy attacks.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Require the SaaS provider to supply a unique, secret `ExternalId` in their STS AssumeRole request and enforce it in the role trust policy." },
@@ -90,7 +90,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Cross-Account IAM Roles and External ID Protection: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates IAM External ID to allow a third-party SaaS security monitoring platform to assume an IAM role in your AWS account without risking confused deputy attacks.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to allow a third-party SaaS security monitoring platform to assume an IAM role in your AWS account without risking confused deputy attacks.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Allow the SaaS provider to assume the role based solely on their AWS Account ID without an ExternalId." },
@@ -111,7 +111,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Cross-Account S3 Bucket Access and KMS Key Delegation: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates Cross-Account Access to enable Account B to read and write KMS-encrypted objects in an S3 bucket owned by Account A without assuming IAM roles.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to enable Account B to read and write KMS-encrypted objects in an S3 bucket owned by Account A without assuming IAM roles.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Disable encryption on the S3 bucket so KMS permissions are unnecessary." },
@@ -132,7 +132,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Cross-Account S3 Bucket Access and KMS Key Delegation: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates Cross-Account Access to enable Account B to read and write KMS-encrypted objects in an S3 bucket owned by Account A without assuming IAM roles.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to enable Account B to read and write KMS-encrypted objects in an S3 bucket owned by Account A without assuming IAM roles.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Attach an S3 bucket policy allowing Account B and grant Account B usage permissions on the Customer Managed KMS Key policy." },
@@ -153,7 +153,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Cross-Account S3 Bucket Access and KMS Key Delegation: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates Cross-Account Access to enable Account B to read and write KMS-encrypted objects in an S3 bucket owned by Account A without assuming IAM roles.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to enable Account B to read and write KMS-encrypted objects in an S3 bucket owned by Account A without assuming IAM roles.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Attach an S3 bucket policy allowing Account B and grant Account B usage permissions on the Customer Managed KMS Key policy." },
@@ -174,7 +174,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Cross-Account S3 Bucket Access and KMS Key Delegation: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates Cross-Account Access to enable Account B to read and write KMS-encrypted objects in an S3 bucket owned by Account A without assuming IAM roles.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to enable Account B to read and write KMS-encrypted objects in an S3 bucket owned by Account A without assuming IAM roles.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Use AWS Managed Key `aws/s3`, which can never be shared across different AWS accounts." },
@@ -195,7 +195,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Cross-Account S3 Bucket Access and KMS Key Delegation: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates Cross-Account Access to enable Account B to read and write KMS-encrypted objects in an S3 bucket owned by Account A without assuming IAM roles.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to enable Account B to read and write KMS-encrypted objects in an S3 bucket owned by Account A without assuming IAM roles.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Attach an S3 bucket policy allowing Account B and grant Account B usage permissions on the Customer Managed KMS Key policy." },
@@ -216,7 +216,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "IAM Access Analyzer and Least-Privilege Policy Generation: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates IAM Access Analyzer to identify all S3 buckets, KMS keys, and IAM roles shared outside the corporate AWS Organization and generate right-sized policies.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to identify all S3 buckets, KMS keys, and IAM roles shared outside the corporate AWS Organization and generate right-sized policies.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Assume no resources are exposed to the internet without automated validation." },
@@ -237,7 +237,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "IAM Access Analyzer and Least-Privilege Policy Generation: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates IAM Access Analyzer to identify all S3 buckets, KMS keys, and IAM roles shared outside the corporate AWS Organization and generate right-sized policies.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to identify all S3 buckets, KMS keys, and IAM roles shared outside the corporate AWS Organization and generate right-sized policies.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Enable IAM Access Analyzer to detect external sharing findings and use its CloudTrail policy generator to author least-privilege IAM policies." },
@@ -258,7 +258,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "IAM Access Analyzer and Least-Privilege Policy Generation: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates IAM Access Analyzer to identify all S3 buckets, KMS keys, and IAM roles shared outside the corporate AWS Organization and generate right-sized policies.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to identify all S3 buckets, KMS keys, and IAM roles shared outside the corporate AWS Organization and generate right-sized policies.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Enable IAM Access Analyzer to detect external sharing findings and use its CloudTrail policy generator to author least-privilege IAM policies." },
@@ -279,7 +279,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "IAM Access Analyzer and Least-Privilege Policy Generation: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates IAM Access Analyzer to identify all S3 buckets, KMS keys, and IAM roles shared outside the corporate AWS Organization and generate right-sized policies.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to identify all S3 buckets, KMS keys, and IAM roles shared outside the corporate AWS Organization and generate right-sized policies.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Assume no resources are exposed to the internet without automated validation." },
@@ -300,7 +300,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "IAM Access Analyzer and Least-Privilege Policy Generation: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates IAM Access Analyzer to identify all S3 buckets, KMS keys, and IAM roles shared outside the corporate AWS Organization and generate right-sized policies.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to identify all S3 buckets, KMS keys, and IAM roles shared outside the corporate AWS Organization and generate right-sized policies.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Enable IAM Access Analyzer to detect external sharing findings and use its CloudTrail policy generator to author least-privilege IAM policies." },
@@ -321,7 +321,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Multi-Factor Authentication (MFA) Enforcement in IAM Policies: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates MFA Enforcement to ensure that critical actions like terminating EC2 instances or deleting S3 objects can only be executed by users authenticated with hardware MFA.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to ensure that critical actions like terminating EC2 instances or deleting S3 objects can only be executed by users authenticated with hardware MFA.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Disable MFA requirements to prevent developers from being locked out when traveling." },
@@ -342,7 +342,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Multi-Factor Authentication (MFA) Enforcement in IAM Policies: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates MFA Enforcement to ensure that critical actions like terminating EC2 instances or deleting S3 objects can only be executed by users authenticated with hardware MFA.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to ensure that critical actions like terminating EC2 instances or deleting S3 objects can only be executed by users authenticated with hardware MFA.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Disable MFA requirements to prevent developers from being locked out when traveling." },
@@ -363,7 +363,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Multi-Factor Authentication (MFA) Enforcement in IAM Policies: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates MFA Enforcement to ensure that critical actions like terminating EC2 instances or deleting S3 objects can only be executed by users authenticated with hardware MFA.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to ensure that critical actions like terminating EC2 instances or deleting S3 objects can only be executed by users authenticated with hardware MFA.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Include an explicit `Deny` block in IAM policies for target actions with condition `BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`." },
@@ -384,7 +384,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Multi-Factor Authentication (MFA) Enforcement in IAM Policies: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates MFA Enforcement to ensure that critical actions like terminating EC2 instances or deleting S3 objects can only be executed by users authenticated with hardware MFA.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to ensure that critical actions like terminating EC2 instances or deleting S3 objects can only be executed by users authenticated with hardware MFA.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Include an explicit `Deny` block in IAM policies for target actions with condition `BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`." },
@@ -405,7 +405,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Identity and Access Management",
     title: "Multi-Factor Authentication (MFA) Enforcement in IAM Policies: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates MFA Enforcement to ensure that critical actions like terminating EC2 instances or deleting S3 objects can only be executed by users authenticated with hardware MFA.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to ensure that critical actions like terminating EC2 instances or deleting S3 objects can only be executed by users authenticated with hardware MFA.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Disable MFA requirements to prevent developers from being locked out when traveling." },
@@ -426,7 +426,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS KMS Customer Managed Keys (CMKs) vs AWS Managed Keys: Enterprise Governance",
-    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer evaluates AWS KMS Keys to control cryptographic key deletion schedules, enforce key policies, and enable automated annual key rotation.",
+    scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to control cryptographic key deletion schedules, enforce key policies, and enable automated annual key rotation.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Delete the KMS key immediately after encrypting data to prevent attackers from finding it." },
@@ -447,7 +447,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS KMS Customer Managed Keys (CMKs) vs AWS Managed Keys: Incident Containment",
-    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer evaluates AWS KMS Keys to control cryptographic key deletion schedules, enforce key policies, and enable automated annual key rotation.",
+    scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to control cryptographic key deletion schedules, enforce key policies, and enable automated annual key rotation.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Store unencrypted private keys in plaintext text files inside application code repositories." },
@@ -468,7 +468,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS KMS Customer Managed Keys (CMKs) vs AWS Managed Keys: Zero Trust Iam",
-    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer evaluates AWS KMS Keys to control cryptographic key deletion schedules, enforce key policies, and enable automated annual key rotation.",
+    scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to control cryptographic key deletion schedules, enforce key policies, and enable automated annual key rotation.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Store unencrypted private keys in plaintext text files inside application code repositories." },
@@ -489,7 +489,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS KMS Customer Managed Keys (CMKs) vs AWS Managed Keys: Data Protection",
-    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer evaluates AWS KMS Keys to control cryptographic key deletion schedules, enforce key policies, and enable automated annual key rotation.",
+    scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to control cryptographic key deletion schedules, enforce key policies, and enable automated annual key rotation.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Use the default AWS Managed Key (`aws/s3` or `aws/ebs`), which does not support custom key policies or cross-account access." },
@@ -510,7 +510,7 @@ export const AWS_SCS_QUESTIONS_17 = [
     domainId: "d5",
     domainName: "Data Protection",
     title: "AWS KMS Customer Managed Keys (CMKs) vs AWS Managed Keys: Infrastructure Defense",
-    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer evaluates AWS KMS Keys to control cryptographic key deletion schedules, enforce key policies, and enable automated annual key rotation.",
+    scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to control cryptographic key deletion schedules, enforce key policies, and enable automated annual key rotation.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Use the default AWS Managed Key (`aws/s3` or `aws/ebs`), which does not support custom key policies or cross-account access." },

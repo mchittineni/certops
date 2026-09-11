@@ -6,7 +6,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "Kubernetes Gateway API: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Gateway API to implement modern, extensible service networking that cleanly separates infrastructure provider duties from application developer routing rules.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to implement modern, extensible service networking that cleanly separates infrastructure provider duties from application developer routing rules.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Stick with deprecated Ingress v1beta1 annotations." },
@@ -27,7 +27,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "Kubernetes Gateway API: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Gateway API to implement modern, extensible service networking that cleanly separates infrastructure provider duties from application developer routing rules.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to implement modern, extensible service networking that cleanly separates infrastructure provider duties from application developer routing rules.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Create static host route entries on every worker node." },
@@ -48,7 +48,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "Kubernetes Gateway API: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Gateway API to implement modern, extensible service networking that cleanly separates infrastructure provider duties from application developer routing rules.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to implement modern, extensible service networking that cleanly separates infrastructure provider duties from application developer routing rules.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Hardcode routing logic inside application container code." },
@@ -69,7 +69,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "Kubernetes Gateway API: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Gateway API to implement modern, extensible service networking that cleanly separates infrastructure provider duties from application developer routing rules.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to implement modern, extensible service networking that cleanly separates infrastructure provider duties from application developer routing rules.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Create static host route entries on every worker node." },
@@ -90,7 +90,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "Kubernetes Gateway API: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Gateway API to implement modern, extensible service networking that cleanly separates infrastructure provider duties from application developer routing rules.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to implement modern, extensible service networking that cleanly separates infrastructure provider duties from application developer routing rules.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Create static host route entries on every worker node." },
@@ -111,7 +111,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "CoreDNS Custom Configuration and Forwarding: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates CoreDNS Configuration to configure Kubernetes cluster pods to resolve internal corporate domain names (e.g., `corp.internal`) via an on-premises enterprise DNS server.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to configure Kubernetes cluster pods to resolve internal corporate domain names (e.g., `corp.internal`) via an on-premises enterprise DNS server.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Modify every pod manifest to include custom hostAliases for thousands of corporate records." },
@@ -132,7 +132,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "CoreDNS Custom Configuration and Forwarding: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates CoreDNS Configuration to configure Kubernetes cluster pods to resolve internal corporate domain names (e.g., `corp.internal`) via an on-premises enterprise DNS server.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to configure Kubernetes cluster pods to resolve internal corporate domain names (e.g., `corp.internal`) via an on-premises enterprise DNS server.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Disable CoreDNS and route all cluster DNS queries through public 8.8.8.8 servers." },
@@ -153,7 +153,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "CoreDNS Custom Configuration and Forwarding: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates CoreDNS Configuration to configure Kubernetes cluster pods to resolve internal corporate domain names (e.g., `corp.internal`) via an on-premises enterprise DNS server.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to configure Kubernetes cluster pods to resolve internal corporate domain names (e.g., `corp.internal`) via an on-premises enterprise DNS server.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Modify every pod manifest to include custom hostAliases for thousands of corporate records." },
@@ -174,7 +174,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "CoreDNS Custom Configuration and Forwarding: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates CoreDNS Configuration to configure Kubernetes cluster pods to resolve internal corporate domain names (e.g., `corp.internal`) via an on-premises enterprise DNS server.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to configure Kubernetes cluster pods to resolve internal corporate domain names (e.g., `corp.internal`) via an on-premises enterprise DNS server.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Edit the CoreDNS ConfigMap in `kube-system` to add a server block forwarding queries for `corp.internal` to the enterprise DNS server IP." },
@@ -195,7 +195,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "CoreDNS Custom Configuration and Forwarding: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates CoreDNS Configuration to configure Kubernetes cluster pods to resolve internal corporate domain names (e.g., `corp.internal`) via an on-premises enterprise DNS server.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to configure Kubernetes cluster pods to resolve internal corporate domain names (e.g., `corp.internal`) via an on-premises enterprise DNS server.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Modify every pod manifest to include custom hostAliases for thousands of corporate records." },
@@ -216,7 +216,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "Service Internal Traffic Policy: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Traffic Optimization to optimize inter-service network latency and eliminate unnecessary cross-node hops by routing service calls only to pods running on the same node.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to optimize inter-service network latency and eliminate unnecessary cross-node hops by routing service calls only to pods running on the same node.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Deploy a separate service for every worker node." },
@@ -237,7 +237,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "Service Internal Traffic Policy: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Traffic Optimization to optimize inter-service network latency and eliminate unnecessary cross-node hops by routing service calls only to pods running on the same node.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to optimize inter-service network latency and eliminate unnecessary cross-node hops by routing service calls only to pods running on the same node.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Deploy a separate service for every worker node." },
@@ -258,7 +258,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "Service Internal Traffic Policy: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Traffic Optimization to optimize inter-service network latency and eliminate unnecessary cross-node hops by routing service calls only to pods running on the same node.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to optimize inter-service network latency and eliminate unnecessary cross-node hops by routing service calls only to pods running on the same node.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Configure pods with hardcoded node IP addresses." },
@@ -279,7 +279,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "Service Internal Traffic Policy: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Traffic Optimization to optimize inter-service network latency and eliminate unnecessary cross-node hops by routing service calls only to pods running on the same node.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to optimize inter-service network latency and eliminate unnecessary cross-node hops by routing service calls only to pods running on the same node.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Deploy a separate service for every worker node." },
@@ -300,7 +300,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "Service Internal Traffic Policy: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Traffic Optimization to optimize inter-service network latency and eliminate unnecessary cross-node hops by routing service calls only to pods running on the same node.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to optimize inter-service network latency and eliminate unnecessary cross-node hops by routing service calls only to pods running on the same node.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Configure pods with hardcoded node IP addresses." },
@@ -321,7 +321,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "ExternalTrafficPolicy Local and Source IP Preservation: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates Source IP Preservation to preserve real client IP addresses in web server access logs for incoming external traffic arriving through a LoadBalancer or NodePort service.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to preserve real client IP addresses in web server access logs for incoming external traffic arriving through a LoadBalancer or NodePort service.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Configure an iptables SNAT rule on worker nodes to overwrite the source IP." },
@@ -342,7 +342,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "ExternalTrafficPolicy Local and Source IP Preservation: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates Source IP Preservation to preserve real client IP addresses in web server access logs for incoming external traffic arriving through a LoadBalancer or NodePort service.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to preserve real client IP addresses in web server access logs for incoming external traffic arriving through a LoadBalancer or NodePort service.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Set `spec.externalTrafficPolicy: Cluster`." },
@@ -363,7 +363,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "ExternalTrafficPolicy Local and Source IP Preservation: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates Source IP Preservation to preserve real client IP addresses in web server access logs for incoming external traffic arriving through a LoadBalancer or NodePort service.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to preserve real client IP addresses in web server access logs for incoming external traffic arriving through a LoadBalancer or NodePort service.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Configure an iptables SNAT rule on worker nodes to overwrite the source IP." },
@@ -384,7 +384,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "ExternalTrafficPolicy Local and Source IP Preservation: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates Source IP Preservation to preserve real client IP addresses in web server access logs for incoming external traffic arriving through a LoadBalancer or NodePort service.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to preserve real client IP addresses in web server access logs for incoming external traffic arriving through a LoadBalancer or NodePort service.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Set `spec.externalTrafficPolicy: Cluster`." },
@@ -405,7 +405,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "ExternalTrafficPolicy Local and Source IP Preservation: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates Source IP Preservation to preserve real client IP addresses in web server access logs for incoming external traffic arriving through a LoadBalancer or NodePort service.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to preserve real client IP addresses in web server access logs for incoming external traffic arriving through a LoadBalancer or NodePort service.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Set `spec.externalTrafficPolicy: Cluster`." },
@@ -426,7 +426,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "EndpointSlices for High-Scale Service Discovery: Dr Failover",
-    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator evaluates High Scale Networking to maintain efficient network routing and minimize control plane memory overhead for a microservice scaled to over 5,000 pod replicas.",
+    scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to maintain efficient network routing and minimize control plane memory overhead for a microservice scaled to over 5,000 pod replicas.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Force kube-proxy to use legacy monolithic Endpoints objects." },
@@ -447,7 +447,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "EndpointSlices for High-Scale Service Discovery: High Load Scale",
-    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator evaluates High Scale Networking to maintain efficient network routing and minimize control plane memory overhead for a microservice scaled to over 5,000 pod replicas.",
+    scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to maintain efficient network routing and minimize control plane memory overhead for a microservice scaled to over 5,000 pod replicas.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Split the 5,000 pods into 5,000 separate individual Service definitions." },
@@ -468,7 +468,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "EndpointSlices for High-Scale Service Discovery: Security Compliance",
-    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator evaluates High Scale Networking to maintain efficient network routing and minimize control plane memory overhead for a microservice scaled to over 5,000 pod replicas.",
+    scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to maintain efficient network routing and minimize control plane memory overhead for a microservice scaled to over 5,000 pod replicas.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Rely on Kubernetes `EndpointSlices`, which partition large endpoint sets into discrete resources containing at most 100 endpoints each." },
@@ -489,7 +489,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "EndpointSlices for High-Scale Service Discovery: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator evaluates High Scale Networking to maintain efficient network routing and minimize control plane memory overhead for a microservice scaled to over 5,000 pod replicas.",
+    scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to maintain efficient network routing and minimize control plane memory overhead for a microservice scaled to over 5,000 pod replicas.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Disable Service routing and require clients to use manual socket connections." },
@@ -510,7 +510,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     domainId: "d5",
     domainName: "Services & Networking",
     title: "EndpointSlices for High-Scale Service Discovery: Resilience Failure",
-    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator evaluates High Scale Networking to maintain efficient network routing and minimize control plane memory overhead for a microservice scaled to over 5,000 pod replicas.",
+    scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to maintain efficient network routing and minimize control plane memory overhead for a microservice scaled to over 5,000 pod replicas.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Disable Service routing and require clients to use manual socket connections." },

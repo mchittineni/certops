@@ -6,7 +6,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "ML Problem Formulation (Classification vs Regression vs Unsupervised): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Machine Learning Formulation to formulate an e-commerce problem to predict the exact continuous monetary amount a customer will spend over the next 12 months.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to formulate an e-commerce problem to predict the exact continuous monetary amount a customer will spend over the next 12 months.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Formulate the problem as a supervised regression task targeting customer lifetime value (LTV)." },
@@ -27,7 +27,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "ML Problem Formulation (Classification vs Regression vs Unsupervised): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Machine Learning Formulation to formulate an e-commerce problem to predict the exact continuous monetary amount a customer will spend over the next 12 months.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to formulate an e-commerce problem to predict the exact continuous monetary amount a customer will spend over the next 12 months.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Formulate the problem as an unsupervised K-means clustering task without labeled targets." },
@@ -48,7 +48,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "ML Problem Formulation (Classification vs Regression vs Unsupervised): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Machine Learning Formulation to formulate an e-commerce problem to predict the exact continuous monetary amount a customer will spend over the next 12 months.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to formulate an e-commerce problem to predict the exact continuous monetary amount a customer will spend over the next 12 months.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Formulate the problem as a supervised regression task targeting customer lifetime value (LTV)." },
@@ -69,7 +69,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "ML Problem Formulation (Classification vs Regression vs Unsupervised): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Machine Learning Formulation to formulate an e-commerce problem to predict the exact continuous monetary amount a customer will spend over the next 12 months.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to formulate an e-commerce problem to predict the exact continuous monetary amount a customer will spend over the next 12 months.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Formulate the problem as a binary classification task with labels 0 and 1." },
@@ -90,7 +90,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "ML Problem Formulation (Classification vs Regression vs Unsupervised): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Machine Learning Formulation to formulate an e-commerce problem to predict the exact continuous monetary amount a customer will spend over the next 12 months.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to formulate an e-commerce problem to predict the exact continuous monetary amount a customer will spend over the next 12 months.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Formulate the problem as a binary classification task with labels 0 and 1." },
@@ -111,7 +111,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Pre-Trained APIs vs AutoML vs Custom Training: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Vertex AI Architecture to extract text and detect sentiment from 100,000 scanned customer feedback receipts with minimal ML expertise and zero training data preparation.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to extract text and detect sentiment from 100,000 scanned customer feedback receipts with minimal ML expertise and zero training data preparation.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Train a custom Transformer language model from scratch on 64 TPU v4 pods." },
@@ -132,7 +132,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Pre-Trained APIs vs AutoML vs Custom Training: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Vertex AI Architecture to extract text and detect sentiment from 100,000 scanned customer feedback receipts with minimal ML expertise and zero training data preparation.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to extract text and detect sentiment from 100,000 scanned customer feedback receipts with minimal ML expertise and zero training data preparation.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Train a custom Transformer language model from scratch on 64 TPU v4 pods." },
@@ -153,7 +153,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Pre-Trained APIs vs AutoML vs Custom Training: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Vertex AI Architecture to extract text and detect sentiment from 100,000 scanned customer feedback receipts with minimal ML expertise and zero training data preparation.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to extract text and detect sentiment from 100,000 scanned customer feedback receipts with minimal ML expertise and zero training data preparation.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Use pre-trained Google Cloud APIs: Cloud Document AI and Cloud Natural Language API." },
@@ -174,7 +174,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Pre-Trained APIs vs AutoML vs Custom Training: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Vertex AI Architecture to extract text and detect sentiment from 100,000 scanned customer feedback receipts with minimal ML expertise and zero training data preparation.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to extract text and detect sentiment from 100,000 scanned customer feedback receipts with minimal ML expertise and zero training data preparation.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Label 100,000 documents manually and train an AutoML Text Classification model." },
@@ -195,7 +195,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Pre-Trained APIs vs AutoML vs Custom Training: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Vertex AI Architecture to extract text and detect sentiment from 100,000 scanned customer feedback receipts with minimal ML expertise and zero training data preparation.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to extract text and detect sentiment from 100,000 scanned customer feedback receipts with minimal ML expertise and zero training data preparation.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Train a custom Transformer language model from scratch on 64 TPU v4 pods." },
@@ -216,7 +216,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Vertex AI Model Selection Criteria: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Vertex AI to build a credit risk assessment model on structured tabular transaction tables containing numerical and categorical features within a strict 2-week deadline.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to build a credit risk assessment model on structured tabular transaction tables containing numerical and categorical features within a strict 2-week deadline.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy a rule-based expert system using SQL IF-THEN statements." },
@@ -237,7 +237,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Vertex AI Model Selection Criteria: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Vertex AI to build a credit risk assessment model on structured tabular transaction tables containing numerical and categorical features within a strict 2-week deadline.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to build a credit risk assessment model on structured tabular transaction tables containing numerical and categorical features within a strict 2-week deadline.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Train a convolutional neural network (CNN) on raw tabular CSV data." },
@@ -258,7 +258,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Vertex AI Model Selection Criteria: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Vertex AI to build a credit risk assessment model on structured tabular transaction tables containing numerical and categorical features within a strict 2-week deadline.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to build a credit risk assessment model on structured tabular transaction tables containing numerical and categorical features within a strict 2-week deadline.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Train a convolutional neural network (CNN) on raw tabular CSV data." },
@@ -279,7 +279,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Vertex AI Model Selection Criteria: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Vertex AI to build a credit risk assessment model on structured tabular transaction tables containing numerical and categorical features within a strict 2-week deadline.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to build a credit risk assessment model on structured tabular transaction tables containing numerical and categorical features within a strict 2-week deadline.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Develop a custom deep reinforcement learning agent in PyTorch from scratch." },
@@ -300,7 +300,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Vertex AI Model Selection Criteria: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Vertex AI to build a credit risk assessment model on structured tabular transaction tables containing numerical and categorical features within a strict 2-week deadline.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to build a credit risk assessment model on structured tabular transaction tables containing numerical and categorical features within a strict 2-week deadline.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Develop a custom deep reinforcement learning agent in PyTorch from scratch." },
@@ -321,7 +321,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Hardware Accelerator Selection (TPU vs GPU vs CPU): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Hardware Accelerators to train a 70-billion parameter Large Language Model (LLM) utilizing massive matrix multiplications and high-bandwidth interconnects across distributed pods.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to train a 70-billion parameter Large Language Model (LLM) utilizing massive matrix multiplications and high-bandwidth interconnects across distributed pods.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Use single-core Compute Engine instances connected via 1 Gbps networking." },
@@ -342,7 +342,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Hardware Accelerator Selection (TPU vs GPU vs CPU): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Hardware Accelerators to train a 70-billion parameter Large Language Model (LLM) utilizing massive matrix multiplications and high-bandwidth interconnects across distributed pods.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to train a 70-billion parameter Large Language Model (LLM) utilizing massive matrix multiplications and high-bandwidth interconnects across distributed pods.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Use single-core Compute Engine instances connected via 1 Gbps networking." },
@@ -363,7 +363,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Hardware Accelerator Selection (TPU vs GPU vs CPU): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Hardware Accelerators to train a 70-billion parameter Large Language Model (LLM) utilizing massive matrix multiplications and high-bandwidth interconnects across distributed pods.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to train a 70-billion parameter Large Language Model (LLM) utilizing massive matrix multiplications and high-bandwidth interconnects across distributed pods.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Train the 70B model on standard general-purpose E2 shared-core CPU virtual machines." },
@@ -384,7 +384,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Hardware Accelerator Selection (TPU vs GPU vs CPU): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Hardware Accelerators to train a 70-billion parameter Large Language Model (LLM) utilizing massive matrix multiplications and high-bandwidth interconnects across distributed pods.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to train a 70-billion parameter Large Language Model (LLM) utilizing massive matrix multiplications and high-bandwidth interconnects across distributed pods.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Execute model training inside a serverless Cloud Function with a 9-minute timeout." },
@@ -405,7 +405,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Hardware Accelerator Selection (TPU vs GPU vs CPU): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Hardware Accelerators to train a 70-billion parameter Large Language Model (LLM) utilizing massive matrix multiplications and high-bandwidth interconnects across distributed pods.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to train a 70-billion parameter Large Language Model (LLM) utilizing massive matrix multiplications and high-bandwidth interconnects across distributed pods.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Execute model training inside a serverless Cloud Function with a 9-minute timeout." },
@@ -426,7 +426,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Online Real-Time Inference vs Batch Prediction: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer evaluates Vertex AI Serving to generate fraud risk scores for live credit card transactions in under 50 milliseconds during point-of-sale checkout authorization.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to generate fraud risk scores for live credit card transactions in under 50 milliseconds during point-of-sale checkout authorization.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy the model to a Vertex AI Online Prediction Endpoint with autoscaling." },
@@ -447,7 +447,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Online Real-Time Inference vs Batch Prediction: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer evaluates Vertex AI Serving to generate fraud risk scores for live credit card transactions in under 50 milliseconds during point-of-sale checkout authorization.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to generate fraud risk scores for live credit card transactions in under 50 milliseconds during point-of-sale checkout authorization.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Export transaction data to BigQuery and execute manual weekly SQL queries." },
@@ -468,7 +468,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Online Real-Time Inference vs Batch Prediction: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer evaluates Vertex AI Serving to generate fraud risk scores for live credit card transactions in under 50 milliseconds during point-of-sale checkout authorization.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to generate fraud risk scores for live credit card transactions in under 50 milliseconds during point-of-sale checkout authorization.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Run a nightly Vertex AI Batch Prediction job over accumulated transactions." },
@@ -489,7 +489,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Online Real-Time Inference vs Batch Prediction: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer evaluates Vertex AI Serving to generate fraud risk scores for live credit card transactions in under 50 milliseconds during point-of-sale checkout authorization.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to generate fraud risk scores for live credit card transactions in under 50 milliseconds during point-of-sale checkout authorization.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Export transaction data to BigQuery and execute manual weekly SQL queries." },
@@ -510,7 +510,7 @@ export const GCP_PMLE_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "Framing ML problems and architecting solutions",
     title: "Online Real-Time Inference vs Batch Prediction: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer evaluates Vertex AI Serving to generate fraud risk scores for live credit card transactions in under 50 milliseconds during point-of-sale checkout authorization.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to generate fraud risk scores for live credit card transactions in under 50 milliseconds during point-of-sale checkout authorization.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Run a nightly Vertex AI Batch Prediction job over accumulated transactions." },

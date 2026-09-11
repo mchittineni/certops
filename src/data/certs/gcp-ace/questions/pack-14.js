@@ -6,7 +6,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud Spanner Horizontal Relational Scaling: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Spanner to architect a globally distributed e-commerce inventory database requiring relational ACID transactions, multi-region synchronous writes, and 99.999% availability.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to architect a globally distributed e-commerce inventory database requiring relational ACID transactions, multi-region synchronous writes, and 99.999% availability.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy Cloud Spanner with a multi-region instance configuration." },
@@ -27,7 +27,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud Spanner Horizontal Relational Scaling: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Spanner to architect a globally distributed e-commerce inventory database requiring relational ACID transactions, multi-region synchronous writes, and 99.999% availability.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to architect a globally distributed e-commerce inventory database requiring relational ACID transactions, multi-region synchronous writes, and 99.999% availability.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy Cloud SQL with cross-region read replicas." },
@@ -48,7 +48,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud Spanner Horizontal Relational Scaling: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Spanner to architect a globally distributed e-commerce inventory database requiring relational ACID transactions, multi-region synchronous writes, and 99.999% availability.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to architect a globally distributed e-commerce inventory database requiring relational ACID transactions, multi-region synchronous writes, and 99.999% availability.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Store inventory transactions in a Cloud Storage multi-region bucket." },
@@ -69,7 +69,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud Spanner Horizontal Relational Scaling: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Spanner to architect a globally distributed e-commerce inventory database requiring relational ACID transactions, multi-region synchronous writes, and 99.999% availability.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to architect a globally distributed e-commerce inventory database requiring relational ACID transactions, multi-region synchronous writes, and 99.999% availability.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy Cloud SQL with cross-region read replicas." },
@@ -90,7 +90,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud Spanner Horizontal Relational Scaling: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Spanner to architect a globally distributed e-commerce inventory database requiring relational ACID transactions, multi-region synchronous writes, and 99.999% availability.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to architect a globally distributed e-commerce inventory database requiring relational ACID transactions, multi-region synchronous writes, and 99.999% availability.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Deploy Cloud SQL with cross-region read replicas." },
@@ -111,7 +111,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud Bigtable Wide-Column Schema Design: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Bigtable to store hundreds of terabytes of time-series IoT sensor data with sub-10ms read and write latency while avoiding tablet server hotspotting.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to store hundreds of terabytes of time-series IoT sensor data with sub-10ms read and write latency while avoiding tablet server hotspotting.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy Cloud SQL for PostgreSQL and store all readings in a single table with an auto-incrementing ID." },
@@ -132,7 +132,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud Bigtable Wide-Column Schema Design: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Bigtable to store hundreds of terabytes of time-series IoT sensor data with sub-10ms read and write latency while avoiding tablet server hotspotting.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to store hundreds of terabytes of time-series IoT sensor data with sub-10ms read and write latency while avoiding tablet server hotspotting.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Use Firestore in Native mode with a sequential timestamp document ID." },
@@ -153,7 +153,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud Bigtable Wide-Column Schema Design: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Bigtable to store hundreds of terabytes of time-series IoT sensor data with sub-10ms read and write latency while avoiding tablet server hotspotting.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to store hundreds of terabytes of time-series IoT sensor data with sub-10ms read and write latency while avoiding tablet server hotspotting.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy Cloud SQL for PostgreSQL and store all readings in a single table with an auto-incrementing ID." },
@@ -174,7 +174,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud Bigtable Wide-Column Schema Design: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Bigtable to store hundreds of terabytes of time-series IoT sensor data with sub-10ms read and write latency while avoiding tablet server hotspotting.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to store hundreds of terabytes of time-series IoT sensor data with sub-10ms read and write latency while avoiding tablet server hotspotting.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Use Firestore in Native mode with a sequential timestamp document ID." },
@@ -195,7 +195,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Cloud Bigtable Wide-Column Schema Design: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Bigtable to store hundreds of terabytes of time-series IoT sensor data with sub-10ms read and write latency while avoiding tablet server hotspotting.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to store hundreds of terabytes of time-series IoT sensor data with sub-10ms read and write latency while avoiding tablet server hotspotting.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Store sensor readings in flat text files on a Compute Engine standard persistent disk." },
@@ -216,7 +216,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Firestore (Native Mode vs Datastore Mode): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Firestore to select a managed serverless document database for a real-time mobile application requiring client offline synchronization and live event listeners.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to select a managed serverless document database for a real-time mobile application requiring client offline synchronization and live event listeners.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy Firestore in Datastore mode." },
@@ -237,7 +237,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Firestore (Native Mode vs Datastore Mode): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Firestore to select a managed serverless document database for a real-time mobile application requiring client offline synchronization and live event listeners.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to select a managed serverless document database for a real-time mobile application requiring client offline synchronization and live event listeners.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Use Cloud Memorystore for Redis as the primary permanent storage layer." },
@@ -258,7 +258,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Firestore (Native Mode vs Datastore Mode): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Firestore to select a managed serverless document database for a real-time mobile application requiring client offline synchronization and live event listeners.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to select a managed serverless document database for a real-time mobile application requiring client offline synchronization and live event listeners.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy Firestore in Datastore mode." },
@@ -279,7 +279,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Firestore (Native Mode vs Datastore Mode): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Firestore to select a managed serverless document database for a real-time mobile application requiring client offline synchronization and live event listeners.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to select a managed serverless document database for a real-time mobile application requiring client offline synchronization and live event listeners.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy Firestore in Native mode." },
@@ -300,7 +300,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "Firestore (Native Mode vs Datastore Mode): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Firestore to select a managed serverless document database for a real-time mobile application requiring client offline synchronization and live event listeners.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to select a managed serverless document database for a real-time mobile application requiring client offline synchronization and live event listeners.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Deploy Firestore in Datastore mode." },
@@ -321,7 +321,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "BigQuery Serverless Architecture and Storage Separation: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates BigQuery to analyze petabytes of enterprise sales data using standard SQL without provisioning, configuring, or managing database clusters or indexing.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to analyze petabytes of enterprise sales data using standard SQL without provisioning, configuring, or managing database clusters or indexing.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy an Apache Hadoop cluster on Compute Engine virtual machines." },
@@ -342,7 +342,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "BigQuery Serverless Architecture and Storage Separation: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates BigQuery to analyze petabytes of enterprise sales data using standard SQL without provisioning, configuring, or managing database clusters or indexing.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to analyze petabytes of enterprise sales data using standard SQL without provisioning, configuring, or managing database clusters or indexing.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Export data to CSV files and analyze them using desktop spreadsheet software." },
@@ -363,7 +363,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "BigQuery Serverless Architecture and Storage Separation: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates BigQuery to analyze petabytes of enterprise sales data using standard SQL without provisioning, configuring, or managing database clusters or indexing.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to analyze petabytes of enterprise sales data using standard SQL without provisioning, configuring, or managing database clusters or indexing.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Create a relational database in Cloud SQL with a 10 GB storage disk." },
@@ -384,7 +384,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "BigQuery Serverless Architecture and Storage Separation: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates BigQuery to analyze petabytes of enterprise sales data using standard SQL without provisioning, configuring, or managing database clusters or indexing.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to analyze petabytes of enterprise sales data using standard SQL without provisioning, configuring, or managing database clusters or indexing.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy an Apache Hadoop cluster on Compute Engine virtual machines." },
@@ -405,7 +405,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d2",
     domainName: "Planning and configuring a cloud solution",
     title: "BigQuery Serverless Architecture and Storage Separation: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates BigQuery to analyze petabytes of enterprise sales data using standard SQL without provisioning, configuring, or managing database clusters or indexing.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to analyze petabytes of enterprise sales data using standard SQL without provisioning, configuring, or managing database clusters or indexing.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Deploy an Apache Hadoop cluster on Compute Engine virtual machines." },
@@ -426,7 +426,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Compute Engine Instance Deployment via gcloud: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Compute Engine to deploy an Ubuntu 22.04 Compute Engine virtual machine in us-central1-a with a specific service account and network tag via the command line.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to deploy an Ubuntu 22.04 Compute Engine virtual machine in us-central1-a with a specific service account and network tag via the command line.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Execute 'gcloud compute instances create' specifying the zone, image-family, service-account, and tags flags." },
@@ -447,7 +447,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Compute Engine Instance Deployment via gcloud: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Compute Engine to deploy an Ubuntu 22.04 Compute Engine virtual machine in us-central1-a with a specific service account and network tag via the command line.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to deploy an Ubuntu 22.04 Compute Engine virtual machine in us-central1-a with a specific service account and network tag via the command line.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Click through the Cloud Console UI wizard manually." },
@@ -468,7 +468,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Compute Engine Instance Deployment via gcloud: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Compute Engine to deploy an Ubuntu 22.04 Compute Engine virtual machine in us-central1-a with a specific service account and network tag via the command line.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to deploy an Ubuntu 22.04 Compute Engine virtual machine in us-central1-a with a specific service account and network tag via the command line.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Click through the Cloud Console UI wizard manually." },
@@ -489,7 +489,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Compute Engine Instance Deployment via gcloud: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Compute Engine to deploy an Ubuntu 22.04 Compute Engine virtual machine in us-central1-a with a specific service account and network tag via the command line.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to deploy an Ubuntu 22.04 Compute Engine virtual machine in us-central1-a with a specific service account and network tag via the command line.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy an unmanaged container image directly to Cloud Storage." },
@@ -510,7 +510,7 @@ export const GCP_ACE_QUESTIONS_14 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Compute Engine Instance Deployment via gcloud: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Compute Engine to deploy an Ubuntu 22.04 Compute Engine virtual machine in us-central1-a with a specific service account and network tag via the command line.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to deploy an Ubuntu 22.04 Compute Engine virtual machine in us-central1-a with a specific service account and network tag via the command line.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Write a custom bash script that issues raw TCP socket packets to Google Cloud data centers." },

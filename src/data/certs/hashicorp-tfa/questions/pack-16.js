@@ -6,7 +6,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Passing Inputs and Accessing Module Outputs: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates Module Inputs & Outputs to pass a CIDR block variable to a VPC module and retrieve the generated VPC ID for use in an EC2 security group.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to pass a CIDR block variable to a VPC module and retrieve the generated VPC ID for use in an EC2 security group.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives? Encapsulating module logic and accessing outputs via module.&lt;name&gt;.",
     options: [
       { id: 'A', text: "Write the VPC ID to a text file on the local machine and read it with a script." },
@@ -27,7 +27,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Passing Inputs and Accessing Module Outputs: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates Module Inputs & Outputs to pass a CIDR block variable to a VPC module and retrieve the generated VPC ID for use in an EC2 security group.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to pass a CIDR block variable to a VPC module and retrieve the generated VPC ID for use in an EC2 security group.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks? Encapsulating module logic and accessing outputs via module.&lt;name&gt;.",
     options: [
       { id: 'A', text: "Reference child module resources directly using `aws_vpc.this.id`." },
@@ -48,7 +48,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Passing Inputs and Accessing Module Outputs: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates Module Inputs & Outputs to pass a CIDR block variable to a VPC module and retrieve the generated VPC ID for use in an EC2 security group.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to pass a CIDR block variable to a VPC module and retrieve the generated VPC ID for use in an EC2 security group.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls? Encapsulating module logic and accessing outputs via module.&lt;name&gt;.",
     options: [
       { id: 'A', text: "Child module resources are globally accessible from any file without outputs." },
@@ -69,7 +69,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Passing Inputs and Accessing Module Outputs: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates Module Inputs & Outputs to pass a CIDR block variable to a VPC module and retrieve the generated VPC ID for use in an EC2 security group.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to pass a CIDR block variable to a VPC module and retrieve the generated VPC ID for use in an EC2 security group.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Encapsulating module logic and accessing outputs via module.&lt;name&gt;.",
     options: [
       { id: 'A', text: "Write the VPC ID to a text file on the local machine and read it with a script." },
@@ -90,7 +90,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Passing Inputs and Accessing Module Outputs: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates Module Inputs & Outputs to pass a CIDR block variable to a VPC module and retrieve the generated VPC ID for use in an EC2 security group.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to pass a CIDR block variable to a VPC module and retrieve the generated VPC ID for use in an EC2 security group.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Encapsulating module logic and accessing outputs via module.&lt;name&gt;.",
     options: [
       { id: 'A', text: "Child module resources are globally accessible from any file without outputs." },
@@ -111,7 +111,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform Public and Private Registries: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates Module Registries to share proprietary enterprise infrastructure modules securely across internal development teams with automated versioning.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to share proprietary enterprise infrastructure modules securely across internal development teams with automated versioning.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Publish proprietary company modules to the public Terraform Registry." },
@@ -132,7 +132,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform Public and Private Registries: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates Module Registries to share proprietary enterprise infrastructure modules securely across internal development teams with automated versioning.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to share proprietary enterprise infrastructure modules securely across internal development teams with automated versioning.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Instruct teams to copy-paste raw HCL files between projects." },
@@ -153,7 +153,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform Public and Private Registries: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates Module Registries to share proprietary enterprise infrastructure modules securely across internal development teams with automated versioning.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to share proprietary enterprise infrastructure modules securely across internal development teams with automated versioning.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Instruct teams to copy-paste raw HCL files between projects." },
@@ -174,7 +174,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform Public and Private Registries: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates Module Registries to share proprietary enterprise infrastructure modules securely across internal development teams with automated versioning.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to share proprietary enterprise infrastructure modules securely across internal development teams with automated versioning.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Publish the modules to a private module registry in HCP Terraform or Terraform Enterprise linked to internal Git repos." },
@@ -195,7 +195,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform Public and Private Registries: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates Module Registries to share proprietary enterprise infrastructure modules securely across internal development teams with automated versioning.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to share proprietary enterprise infrastructure modules securely across internal development teams with automated versioning.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Instruct teams to copy-paste raw HCL files between projects." },
@@ -216,7 +216,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform CLI Workspaces (State Isolation): Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates Workspaces to deploy the same Terraform configuration to dev and staging environments using lightweight CLI workspaces on a single backend.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to deploy the same Terraform configuration to dev and staging environments using lightweight CLI workspaces on a single backend.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Over-write the production state file when deploying to dev." },
@@ -237,7 +237,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform CLI Workspaces (State Isolation): High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates Workspaces to deploy the same Terraform configuration to dev and staging environments using lightweight CLI workspaces on a single backend.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to deploy the same Terraform configuration to dev and staging environments using lightweight CLI workspaces on a single backend.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Maintain separate directories with duplicate copied HCL files." },
@@ -258,7 +258,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform CLI Workspaces (State Isolation): Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates Workspaces to deploy the same Terraform configuration to dev and staging environments using lightweight CLI workspaces on a single backend.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to deploy the same Terraform configuration to dev and staging environments using lightweight CLI workspaces on a single backend.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Use `terraform workspace new dev` and `terraform workspace select dev` to maintain isolated state files for each environment." },
@@ -279,7 +279,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform CLI Workspaces (State Isolation): Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates Workspaces to deploy the same Terraform configuration to dev and staging environments using lightweight CLI workspaces on a single backend.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to deploy the same Terraform configuration to dev and staging environments using lightweight CLI workspaces on a single backend.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Change the backend S3 bucket path manually in code before every deployment." },
@@ -300,7 +300,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform CLI Workspaces (State Isolation): Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates Workspaces to deploy the same Terraform configuration to dev and staging environments using lightweight CLI workspaces on a single backend.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to deploy the same Terraform configuration to dev and staging environments using lightweight CLI workspaces on a single backend.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Change the backend S3 bucket path manually in code before every deployment." },
@@ -321,7 +321,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Workspaces vs Separate Directories: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates Environment Separation to design an enterprise infrastructure repository structure separating production from development with distinct credentials and access control.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to design an enterprise infrastructure repository structure separating production from development with distinct credentials and access control.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Use CLI workspaces for production and development sharing the same AWS administrative credentials." },
@@ -342,7 +342,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Workspaces vs Separate Directories: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates Environment Separation to design an enterprise infrastructure repository structure separating production from development with distinct credentials and access control.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to design an enterprise infrastructure repository structure separating production from development with distinct credentials and access control.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Share the production state file with all junior developers." },
@@ -363,7 +363,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Workspaces vs Separate Directories: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates Environment Separation to design an enterprise infrastructure repository structure separating production from development with distinct credentials and access control.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to design an enterprise infrastructure repository structure separating production from development with distinct credentials and access control.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Use CLI workspaces for production and development sharing the same AWS administrative credentials." },
@@ -384,7 +384,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Workspaces vs Separate Directories: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates Environment Separation to design an enterprise infrastructure repository structure separating production from development with distinct credentials and access control.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to design an enterprise infrastructure repository structure separating production from development with distinct credentials and access control.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Use separate directories (or repositories) with distinct backend configurations and IAM credentials rather than CLI workspaces." },
@@ -405,7 +405,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Workspaces vs Separate Directories: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates Environment Separation to design an enterprise infrastructure repository structure separating production from development with distinct credentials and access control.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to design an enterprise infrastructure repository structure separating production from development with distinct credentials and access control.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Put all environments in a single workspace separated only by resource tags." },
@@ -426,7 +426,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform Module count and for_each: Dr Failover",
-    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer evaluates Module Iteration to instantiate a reusable microservice infrastructure module for three different microservices ('auth', 'orders', 'payments') using a single module block.",
+    scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to instantiate a reusable microservice infrastructure module for three different microservices ('auth', 'orders', 'payments') using a single module block.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Use a while loop inside the module HCL code." },
@@ -447,7 +447,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform Module count and for_each: High Load Scale",
-    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer evaluates Module Iteration to instantiate a reusable microservice infrastructure module for three different microservices ('auth', 'orders', 'payments') using a single module block.",
+    scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to instantiate a reusable microservice infrastructure module for three different microservices ('auth', 'orders', 'payments') using a single module block.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Modules cannot be iterated in Terraform." },
@@ -468,7 +468,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform Module count and for_each: Security Compliance",
-    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer evaluates Module Iteration to instantiate a reusable microservice infrastructure module for three different microservices ('auth', 'orders', 'payments') using a single module block.",
+    scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to instantiate a reusable microservice infrastructure module for three different microservices ('auth', 'orders', 'payments') using a single module block.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Use a while loop inside the module HCL code." },
@@ -489,7 +489,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform Module count and for_each: Hybrid Migration",
-    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer evaluates Module Iteration to instantiate a reusable microservice infrastructure module for three different microservices ('auth', 'orders', 'payments') using a single module block.",
+    scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to instantiate a reusable microservice infrastructure module for three different microservices ('auth', 'orders', 'payments') using a single module block.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Copy-paste the module block three times with different names." },
@@ -510,7 +510,7 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     domainId: "d4",
     domainName: "Work with Terraform modules and workspaces",
     title: "Terraform Module count and for_each: Resilience Failure",
-    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer evaluates Module Iteration to instantiate a reusable microservice infrastructure module for three different microservices ('auth', 'orders', 'payments') using a single module block.",
+    scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to instantiate a reusable microservice infrastructure module for three different microservices ('auth', 'orders', 'payments') using a single module block.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Copy-paste the module block three times with different names." },

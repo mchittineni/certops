@@ -6,7 +6,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Network Service Tiers (Premium vs Standard): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates VPC Networking to minimize cloud network egress costs for an international static content download site where latency is not critical, while routing high-priority API calls over Google's global private fiber.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to minimize cloud network egress costs for an international static content download site where latency is not critical, while routing high-priority API calls over Google's global private fiber.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Select Standard Tier networking for the static download traffic and Premium Tier networking for low-latency API services." },
@@ -27,7 +27,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Network Service Tiers (Premium vs Standard): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates VPC Networking to minimize cloud network egress costs for an international static content download site where latency is not critical, while routing high-priority API calls over Google's global private fiber.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to minimize cloud network egress costs for an international static content download site where latency is not critical, while routing high-priority API calls over Google's global private fiber.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Route all traffic exclusively over consumer broadband networks." },
@@ -48,7 +48,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Network Service Tiers (Premium vs Standard): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates VPC Networking to minimize cloud network egress costs for an international static content download site where latency is not critical, while routing high-priority API calls over Google's global private fiber.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to minimize cloud network egress costs for an international static content download site where latency is not critical, while routing high-priority API calls over Google's global private fiber.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Select Standard Tier networking for the static download traffic and Premium Tier networking for low-latency API services." },
@@ -69,7 +69,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Network Service Tiers (Premium vs Standard): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates VPC Networking to minimize cloud network egress costs for an international static content download site where latency is not critical, while routing high-priority API calls over Google's global private fiber.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to minimize cloud network egress costs for an international static content download site where latency is not critical, while routing high-priority API calls over Google's global private fiber.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Select Standard Tier networking for the static download traffic and Premium Tier networking for low-latency API services." },
@@ -90,7 +90,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Network Service Tiers (Premium vs Standard): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates VPC Networking to minimize cloud network egress costs for an international static content download site where latency is not critical, while routing high-priority API calls over Google's global private fiber.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to minimize cloud network egress costs for an international static content download site where latency is not critical, while routing high-priority API calls over Google's global private fiber.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Select Standard Tier networking for the static download traffic and Premium Tier networking for low-latency API services." },
@@ -111,7 +111,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "BigQuery BI Engine In-Memory Acceleration: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates BigQuery Acceleration to accelerate executive Looker and Data Studio business intelligence dashboards so that complex aggregate SQL queries return in sub-second response times without extracting data.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to accelerate executive Looker and Data Studio business intelligence dashboards so that complex aggregate SQL queries return in sub-second response times without extracting data.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Export data to local Excel spreadsheets for executive review." },
@@ -132,7 +132,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "BigQuery BI Engine In-Memory Acceleration: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates BigQuery Acceleration to accelerate executive Looker and Data Studio business intelligence dashboards so that complex aggregate SQL queries return in sub-second response times without extracting data.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to accelerate executive Looker and Data Studio business intelligence dashboards so that complex aggregate SQL queries return in sub-second response times without extracting data.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Pre-calculate all dashboard queries manually every morning." },
@@ -153,7 +153,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "BigQuery BI Engine In-Memory Acceleration: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates BigQuery Acceleration to accelerate executive Looker and Data Studio business intelligence dashboards so that complex aggregate SQL queries return in sub-second response times without extracting data.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to accelerate executive Looker and Data Studio business intelligence dashboards so that complex aggregate SQL queries return in sub-second response times without extracting data.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Allocate BigQuery BI Engine reservation capacity to accelerate dashboard queries in-memory." },
@@ -174,7 +174,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "BigQuery BI Engine In-Memory Acceleration: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates BigQuery Acceleration to accelerate executive Looker and Data Studio business intelligence dashboards so that complex aggregate SQL queries return in sub-second response times without extracting data.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to accelerate executive Looker and Data Studio business intelligence dashboards so that complex aggregate SQL queries return in sub-second response times without extracting data.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Pre-calculate all dashboard queries manually every morning." },
@@ -195,7 +195,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "BigQuery BI Engine In-Memory Acceleration: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates BigQuery Acceleration to accelerate executive Looker and Data Studio business intelligence dashboards so that complex aggregate SQL queries return in sub-second response times without extracting data.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to accelerate executive Looker and Data Studio business intelligence dashboards so that complex aggregate SQL queries return in sub-second response times without extracting data.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Export data to local Excel spreadsheets for executive review." },
@@ -216,7 +216,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "BigQuery Slot Reservations (Editions / Autoscaling Slots): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates BigQuery Capacity to establish predictable monthly analytics spending and protect business queries from on-demand per-terabyte query scanning cost spikes during high-volume reporting periods.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to establish predictable monthly analytics spending and protect business queries from on-demand per-terabyte query scanning cost spikes during high-volume reporting periods.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Allow unmetered on-demand query execution across all developer accounts." },
@@ -237,7 +237,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "BigQuery Slot Reservations (Editions / Autoscaling Slots): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates BigQuery Capacity to establish predictable monthly analytics spending and protect business queries from on-demand per-terabyte query scanning cost spikes during high-volume reporting periods.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to establish predictable monthly analytics spending and protect business queries from on-demand per-terabyte query scanning cost spikes during high-volume reporting periods.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Purchase BigQuery Editions (Standard, Enterprise, Enterprise Plus) with autoscaling slot reservations." },
@@ -258,7 +258,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "BigQuery Slot Reservations (Editions / Autoscaling Slots): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates BigQuery Capacity to establish predictable monthly analytics spending and protect business queries from on-demand per-terabyte query scanning cost spikes during high-volume reporting periods.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to establish predictable monthly analytics spending and protect business queries from on-demand per-terabyte query scanning cost spikes during high-volume reporting periods.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Allow unmetered on-demand query execution across all developer accounts." },
@@ -279,7 +279,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "BigQuery Slot Reservations (Editions / Autoscaling Slots): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates BigQuery Capacity to establish predictable monthly analytics spending and protect business queries from on-demand per-terabyte query scanning cost spikes during high-volume reporting periods.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to establish predictable monthly analytics spending and protect business queries from on-demand per-terabyte query scanning cost spikes during high-volume reporting periods.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Purchase BigQuery Editions (Standard, Enterprise, Enterprise Plus) with autoscaling slot reservations." },
@@ -300,7 +300,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "BigQuery Slot Reservations (Editions / Autoscaling Slots): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates BigQuery Capacity to establish predictable monthly analytics spending and protect business queries from on-demand per-terabyte query scanning cost spikes during high-volume reporting periods.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to establish predictable monthly analytics spending and protect business queries from on-demand per-terabyte query scanning cost spikes during high-volume reporting periods.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Restrict all analysts to querying 10 MB of data per day." },
@@ -321,7 +321,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Anthos / Google Cloud Distributed Cloud Overview: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Hybrid & Multi-Cloud to modernize and manage containerized microservices uniformly across on-premises VMware environments, AWS, and Google Cloud using consistent Kubernetes control planes and security policies.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to modernize and manage containerized microservices uniformly across on-premises VMware environments, AWS, and Google Cloud using consistent Kubernetes control planes and security policies.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Implement Google Cloud Distributed Cloud (formerly Anthos) with Anthos Config Management." },
@@ -342,7 +342,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Anthos / Google Cloud Distributed Cloud Overview: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Hybrid & Multi-Cloud to modernize and manage containerized microservices uniformly across on-premises VMware environments, AWS, and Google Cloud using consistent Kubernetes control planes and security policies.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to modernize and manage containerized microservices uniformly across on-premises VMware environments, AWS, and Google Cloud using consistent Kubernetes control planes and security policies.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Manage each cloud platform independently using disparate proprietary management tools." },
@@ -363,7 +363,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Anthos / Google Cloud Distributed Cloud Overview: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Hybrid & Multi-Cloud to modernize and manage containerized microservices uniformly across on-premises VMware environments, AWS, and Google Cloud using consistent Kubernetes control planes and security policies.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to modernize and manage containerized microservices uniformly across on-premises VMware environments, AWS, and Google Cloud using consistent Kubernetes control planes and security policies.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Manage each cloud platform independently using disparate proprietary management tools." },
@@ -384,7 +384,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Anthos / Google Cloud Distributed Cloud Overview: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Hybrid & Multi-Cloud to modernize and manage containerized microservices uniformly across on-premises VMware environments, AWS, and Google Cloud using consistent Kubernetes control planes and security policies.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to modernize and manage containerized microservices uniformly across on-premises VMware environments, AWS, and Google Cloud using consistent Kubernetes control planes and security policies.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Manage each cloud platform independently using disparate proprietary management tools." },
@@ -405,7 +405,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d4",
     domainName: "Analyzing and optimizing technical and business processes",
     title: "Anthos / Google Cloud Distributed Cloud Overview: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Hybrid & Multi-Cloud to modernize and manage containerized microservices uniformly across on-premises VMware environments, AWS, and Google Cloud using consistent Kubernetes control planes and security policies.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to modernize and manage containerized microservices uniformly across on-premises VMware environments, AWS, and Google Cloud using consistent Kubernetes control planes and security policies.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Implement Google Cloud Distributed Cloud (formerly Anthos) with Anthos Config Management." },
@@ -426,7 +426,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Cloud Build CI/CD Pipelines: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates CI/CD Automation to build, test, vulnerability-scan, and deploy containerized microservices automatically to GKE whenever a pull request is merged into the main Git branch.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to build, test, vulnerability-scan, and deploy containerized microservices automatically to GKE whenever a pull request is merged into the main Git branch.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Configure a Cloud Build trigger linked to the Git repository executing a cloudbuild.yaml pipeline." },
@@ -447,7 +447,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Cloud Build CI/CD Pipelines: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates CI/CD Automation to build, test, vulnerability-scan, and deploy containerized microservices automatically to GKE whenever a pull request is merged into the main Git branch.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to build, test, vulnerability-scan, and deploy containerized microservices automatically to GKE whenever a pull request is merged into the main Git branch.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Require operations staff to manually apply Kubernetes YAML files after business hours." },
@@ -468,7 +468,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Cloud Build CI/CD Pipelines: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates CI/CD Automation to build, test, vulnerability-scan, and deploy containerized microservices automatically to GKE whenever a pull request is merged into the main Git branch.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to build, test, vulnerability-scan, and deploy containerized microservices automatically to GKE whenever a pull request is merged into the main Git branch.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Configure a Cloud Build trigger linked to the Git repository executing a cloudbuild.yaml pipeline." },
@@ -489,7 +489,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Cloud Build CI/CD Pipelines: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates CI/CD Automation to build, test, vulnerability-scan, and deploy containerized microservices automatically to GKE whenever a pull request is merged into the main Git branch.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to build, test, vulnerability-scan, and deploy containerized microservices automatically to GKE whenever a pull request is merged into the main Git branch.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Configure a Cloud Build trigger linked to the Git repository executing a cloudbuild.yaml pipeline." },
@@ -510,7 +510,7 @@ export const GCP_PCA_QUESTIONS_18 = [
     domainId: "d5",
     domainName: "Managing implementations of cloud architecture",
     title: "Cloud Build CI/CD Pipelines: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates CI/CD Automation to build, test, vulnerability-scan, and deploy containerized microservices automatically to GKE whenever a pull request is merged into the main Git branch.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to build, test, vulnerability-scan, and deploy containerized microservices automatically to GKE whenever a pull request is merged into the main Git branch.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Compile software binaries manually on developer laptops and copy via SCP to production servers." },

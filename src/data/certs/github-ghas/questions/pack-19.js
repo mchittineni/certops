@@ -6,7 +6,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Code Scanning Webhook Notifications and Automation: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Scanning Webhooks to automatically create an urgent Jira issue whenever a new Critical severity CodeQL alert is introduced into the default branch.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to automatically create an urgent Jira issue whenever a new Critical severity CodeQL alert is introduced into the default branch.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Instruct security engineers to manually check the GitHub website every hour for new alerts." },
@@ -27,7 +27,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Code Scanning Webhook Notifications and Automation: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Scanning Webhooks to automatically create an urgent Jira issue whenever a new Critical severity CodeQL alert is introduced into the default branch.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to automatically create an urgent Jira issue whenever a new Critical severity CodeQL alert is introduced into the default branch.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Instruct security engineers to manually check the GitHub website every hour for new alerts." },
@@ -48,7 +48,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Code Scanning Webhook Notifications and Automation: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Scanning Webhooks to automatically create an urgent Jira issue whenever a new Critical severity CodeQL alert is introduced into the default branch.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to automatically create an urgent Jira issue whenever a new Critical severity CodeQL alert is introduced into the default branch.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Rely on developers to voluntarily create Jira tickets when their pull requests fail." },
@@ -69,7 +69,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Code Scanning Webhook Notifications and Automation: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Scanning Webhooks to automatically create an urgent Jira issue whenever a new Critical severity CodeQL alert is introduced into the default branch.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to automatically create an urgent Jira issue whenever a new Critical severity CodeQL alert is introduced into the default branch.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Rely on developers to voluntarily create Jira tickets when their pull requests fail." },
@@ -90,7 +90,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "Code Scanning Webhook Notifications and Automation: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Scanning Webhooks to automatically create an urgent Jira issue whenever a new Critical severity CodeQL alert is introduced into the default branch.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to automatically create an urgent Jira issue whenever a new Critical severity CodeQL alert is introduced into the default branch.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Subscribe to the `code_scanning_alert` webhook with action `created` and filter on `alert.rule.severity == 'critical'`." },
@@ -111,7 +111,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "CodeQL Code Scanning Database Export and Offline Analysis: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Database Export to allow an enterprise internal red team security researcher to run experimental interactive queries locally against a production repository's AST.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to allow an enterprise internal red team security researcher to run experimental interactive queries locally against a production repository's AST.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Decompile production container images to extract source code." },
@@ -132,7 +132,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "CodeQL Code Scanning Database Export and Offline Analysis: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Database Export to allow an enterprise internal red team security researcher to run experimental interactive queries locally against a production repository's AST.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to allow an enterprise internal red team security researcher to run experimental interactive queries locally against a production repository's AST.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Decompile production container images to extract source code." },
@@ -153,7 +153,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "CodeQL Code Scanning Database Export and Offline Analysis: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Database Export to allow an enterprise internal red team security researcher to run experimental interactive queries locally against a production repository's AST.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to allow an enterprise internal red team security researcher to run experimental interactive queries locally against a production repository's AST.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Configure `upload-database: true` in the CodeQL workflow or use the REST API to download the compiled CodeQL database zip file for VS Code." },
@@ -174,7 +174,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "CodeQL Code Scanning Database Export and Offline Analysis: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Database Export to allow an enterprise internal red team security researcher to run experimental interactive queries locally against a production repository's AST.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to allow an enterprise internal red team security researcher to run experimental interactive queries locally against a production repository's AST.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Decompile production container images to extract source code." },
@@ -195,7 +195,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d3",
     domainName: "Code Scanning & CodeQL Analysis",
     title: "CodeQL Code Scanning Database Export and Offline Analysis: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Database Export to allow an enterprise internal red team security researcher to run experimental interactive queries locally against a production repository's AST.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to allow an enterprise internal red team security researcher to run experimental interactive queries locally against a production repository's AST.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Force researchers to guess AST node structures without access to the CodeQL database." },
@@ -216,7 +216,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Enterprise Security Configurations and Global Enablement: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Security Configurations to enforce Secret Scanning Push Protection and Dependabot Security Updates automatically on all 1,000 repositories in an enterprise.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to enforce Secret Scanning Push Protection and Dependabot Security Updates automatically on all 1,000 repositories in an enterprise.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Send an email to repository owners asking them to enable security features voluntarily." },
@@ -237,7 +237,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Enterprise Security Configurations and Global Enablement: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Security Configurations to enforce Secret Scanning Push Protection and Dependabot Security Updates automatically on all 1,000 repositories in an enterprise.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to enforce Secret Scanning Push Protection and Dependabot Security Updates automatically on all 1,000 repositories in an enterprise.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Disable central governance and allow every team to choose their own security posture." },
@@ -258,7 +258,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Enterprise Security Configurations and Global Enablement: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Security Configurations to enforce Secret Scanning Push Protection and Dependabot Security Updates automatically on all 1,000 repositories in an enterprise.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to enforce Secret Scanning Push Protection and Dependabot Security Updates automatically on all 1,000 repositories in an enterprise.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Navigate to the settings tab of each of the 1,000 repositories manually to toggle individual checkboxes." },
@@ -279,7 +279,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Enterprise Security Configurations and Global Enablement: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Security Configurations to enforce Secret Scanning Push Protection and Dependabot Security Updates automatically on all 1,000 repositories in an enterprise.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to enforce Secret Scanning Push Protection and Dependabot Security Updates automatically on all 1,000 repositories in an enterprise.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Send an email to repository owners asking them to enable security features voluntarily." },
@@ -300,7 +300,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Enterprise Security Configurations and Global Enablement: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Security Configurations to enforce Secret Scanning Push Protection and Dependabot Security Updates automatically on all 1,000 repositories in an enterprise.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to enforce Secret Scanning Push Protection and Dependabot Security Updates automatically on all 1,000 repositories in an enterprise.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Create and apply a custom GitHub Enterprise Security Configuration, setting it as the default for all current and future repositories." },
@@ -321,7 +321,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Repository Rulesets and Security Status Checks: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Repository Rulesets to prevent anyone, including repository administrators, from bypassing security scans and pushing code directly to protected branches.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to prevent anyone, including repository administrators, from bypassing security scans and pushing code directly to protected branches.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Disable branch protection to speed up release delivery deadlines." },
@@ -342,7 +342,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Repository Rulesets and Security Status Checks: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Repository Rulesets to prevent anyone, including repository administrators, from bypassing security scans and pushing code directly to protected branches.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to prevent anyone, including repository administrators, from bypassing security scans and pushing code directly to protected branches.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Disable branch protection to speed up release delivery deadlines." },
@@ -363,7 +363,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Repository Rulesets and Security Status Checks: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Repository Rulesets to prevent anyone, including repository administrators, from bypassing security scans and pushing code directly to protected branches.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to prevent anyone, including repository administrators, from bypassing security scans and pushing code directly to protected branches.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Rely on informal developer agreements not to push unreviewed code to the main branch." },
@@ -384,7 +384,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Repository Rulesets and Security Status Checks: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Repository Rulesets to prevent anyone, including repository administrators, from bypassing security scans and pushing code directly to protected branches.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to prevent anyone, including repository administrators, from bypassing security scans and pushing code directly to protected branches.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Grant full administrative bypass permissions to all engineers in the company." },
@@ -405,7 +405,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Repository Rulesets and Security Status Checks: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Repository Rulesets to prevent anyone, including repository administrators, from bypassing security scans and pushing code directly to protected branches.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to prevent anyone, including repository administrators, from bypassing security scans and pushing code directly to protected branches.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Rely on informal developer agreements not to push unreviewed code to the main branch." },
@@ -426,7 +426,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Organization Security Overview Dashboard: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Security Overview to give an enterprise Chief Information Security Officer (CISO) a single-pane-of-glass view into vulnerability posture and MTTR.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to give an enterprise Chief Information Security Officer (CISO) a single-pane-of-glass view into vulnerability posture and MTTR.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Use the GitHub Security Overview dashboard, filtering by risk level, alert type, MTTR, and repository enablement status." },
@@ -447,7 +447,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Organization Security Overview Dashboard: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Security Overview to give an enterprise Chief Information Security Officer (CISO) a single-pane-of-glass view into vulnerability posture and MTTR.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to give an enterprise Chief Information Security Officer (CISO) a single-pane-of-glass view into vulnerability posture and MTTR.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Use the GitHub Security Overview dashboard, filtering by risk level, alert type, MTTR, and repository enablement status." },
@@ -468,7 +468,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Organization Security Overview Dashboard: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Security Overview to give an enterprise Chief Information Security Officer (CISO) a single-pane-of-glass view into vulnerability posture and MTTR.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to give an enterprise Chief Information Security Officer (CISO) a single-pane-of-glass view into vulnerability posture and MTTR.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Use the GitHub Security Overview dashboard, filtering by risk level, alert type, MTTR, and repository enablement status." },
@@ -489,7 +489,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Organization Security Overview Dashboard: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Security Overview to give an enterprise Chief Information Security Officer (CISO) a single-pane-of-glass view into vulnerability posture and MTTR.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to give an enterprise Chief Information Security Officer (CISO) a single-pane-of-glass view into vulnerability posture and MTTR.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Use the GitHub Security Overview dashboard, filtering by risk level, alert type, MTTR, and repository enablement status." },
@@ -510,7 +510,7 @@ export const GITHUB_GHAS_QUESTIONS_19 = [
     domainId: "d4",
     domainName: "Security Policies, Compliance & Governance",
     title: "Organization Security Overview Dashboard: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Security Overview to give an enterprise Chief Information Security Officer (CISO) a single-pane-of-glass view into vulnerability posture and MTTR.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to give an enterprise Chief Information Security Officer (CISO) a single-pane-of-glass view into vulnerability posture and MTTR.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Use the GitHub Security Overview dashboard, filtering by risk level, alert type, MTTR, and repository enablement status." },

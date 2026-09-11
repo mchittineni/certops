@@ -6,7 +6,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "Cross-Account CodePipeline Deployment: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates AWS CodePipeline to deploy built application artifacts from a centralized DevOps tooling account into multiple workload accounts (staging, prod) securely.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to deploy built application artifacts from a centralized DevOps tooling account into multiple workload accounts (staging, prod) securely.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Deploy independent standalone pipelines in each target account pulling from unauthenticated Git repositories." },
@@ -27,7 +27,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "Cross-Account CodePipeline Deployment: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates AWS CodePipeline to deploy built application artifacts from a centralized DevOps tooling account into multiple workload accounts (staging, prod) securely.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to deploy built application artifacts from a centralized DevOps tooling account into multiple workload accounts (staging, prod) securely.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Deploy independent standalone pipelines in each target account pulling from unauthenticated Git repositories." },
@@ -48,7 +48,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "Cross-Account CodePipeline Deployment: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates AWS CodePipeline to deploy built application artifacts from a centralized DevOps tooling account into multiple workload accounts (staging, prod) securely.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to deploy built application artifacts from a centralized DevOps tooling account into multiple workload accounts (staging, prod) securely.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Use default aws/s3 KMS encryption and grant public read access to the artifact bucket." },
@@ -69,7 +69,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "Cross-Account CodePipeline Deployment: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates AWS CodePipeline to deploy built application artifacts from a centralized DevOps tooling account into multiple workload accounts (staging, prod) securely.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to deploy built application artifacts from a centralized DevOps tooling account into multiple workload accounts (staging, prod) securely.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Deploy independent standalone pipelines in each target account pulling from unauthenticated Git repositories." },
@@ -90,7 +90,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "Cross-Account CodePipeline Deployment: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates AWS CodePipeline to deploy built application artifacts from a centralized DevOps tooling account into multiple workload accounts (staging, prod) securely.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to deploy built application artifacts from a centralized DevOps tooling account into multiple workload accounts (staging, prod) securely.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Deploy independent standalone pipelines in each target account pulling from unauthenticated Git repositories." },
@@ -111,7 +111,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodeDeploy Blue/Green Deployments for ECS: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates AWS CodeDeploy to deploy containerized microservices to Amazon ECS with automated canary traffic routing and automated rollback on elevated CloudWatch alarm thresholds.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to deploy containerized microservices to Amazon ECS with automated canary traffic routing and automated rollback on elevated CloudWatch alarm thresholds.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Update the ECS task definition and reboot the EC2 container instances manually." },
@@ -132,7 +132,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodeDeploy Blue/Green Deployments for ECS: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates AWS CodeDeploy to deploy containerized microservices to Amazon ECS with automated canary traffic routing and automated rollback on elevated CloudWatch alarm thresholds.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to deploy containerized microservices to Amazon ECS with automated canary traffic routing and automated rollback on elevated CloudWatch alarm thresholds.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Deploy a secondary duplicate ECS cluster and update public Route 53 DNS records manually." },
@@ -153,7 +153,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodeDeploy Blue/Green Deployments for ECS: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates AWS CodeDeploy to deploy containerized microservices to Amazon ECS with automated canary traffic routing and automated rollback on elevated CloudWatch alarm thresholds.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to deploy containerized microservices to Amazon ECS with automated canary traffic routing and automated rollback on elevated CloudWatch alarm thresholds.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Perform an in-place rolling update replacing all container tasks simultaneously." },
@@ -174,7 +174,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodeDeploy Blue/Green Deployments for ECS: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates AWS CodeDeploy to deploy containerized microservices to Amazon ECS with automated canary traffic routing and automated rollback on elevated CloudWatch alarm thresholds.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to deploy containerized microservices to Amazon ECS with automated canary traffic routing and automated rollback on elevated CloudWatch alarm thresholds.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Deploy a secondary duplicate ECS cluster and update public Route 53 DNS records manually." },
@@ -195,7 +195,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodeDeploy Blue/Green Deployments for ECS: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates AWS CodeDeploy to deploy containerized microservices to Amazon ECS with automated canary traffic routing and automated rollback on elevated CloudWatch alarm thresholds.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to deploy containerized microservices to Amazon ECS with automated canary traffic routing and automated rollback on elevated CloudWatch alarm thresholds.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Update the ECS task definition and reboot the EC2 container instances manually." },
@@ -216,7 +216,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodeDeploy Deployment Configurations for EC2/On-Premises: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates AWS CodeDeploy to deploy an update across a fleet of 100 EC2 instances while ensuring that at least 85 instances remain active and serving traffic at all times during deployment.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to deploy an update across a fleet of 100 EC2 instances while ensuring that at least 85 instances remain active and serving traffic at all times during deployment.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Use `CodeDeployDefault.OneAtATime` which guarantees only 50% capacity." },
@@ -237,7 +237,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodeDeploy Deployment Configurations for EC2/On-Premises: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates AWS CodeDeploy to deploy an update across a fleet of 100 EC2 instances while ensuring that at least 85 instances remain active and serving traffic at all times during deployment.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to deploy an update across a fleet of 100 EC2 instances while ensuring that at least 85 instances remain active and serving traffic at all times during deployment.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Terminate 15 instances manually and launch 15 new instances." },
@@ -258,7 +258,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodeDeploy Deployment Configurations for EC2/On-Premises: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates AWS CodeDeploy to deploy an update across a fleet of 100 EC2 instances while ensuring that at least 85 instances remain active and serving traffic at all times during deployment.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to deploy an update across a fleet of 100 EC2 instances while ensuring that at least 85 instances remain active and serving traffic at all times during deployment.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Use `CodeDeployDefault.AllAtOnce` deployment configuration." },
@@ -279,7 +279,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodeDeploy Deployment Configurations for EC2/On-Premises: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates AWS CodeDeploy to deploy an update across a fleet of 100 EC2 instances while ensuring that at least 85 instances remain active and serving traffic at all times during deployment.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to deploy an update across a fleet of 100 EC2 instances while ensuring that at least 85 instances remain active and serving traffic at all times during deployment.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Use `CodeDeployDefault.AllAtOnce` deployment configuration." },
@@ -300,7 +300,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodeDeploy Deployment Configurations for EC2/On-Premises: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates AWS CodeDeploy to deploy an update across a fleet of 100 EC2 instances while ensuring that at least 85 instances remain active and serving traffic at all times during deployment.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to deploy an update across a fleet of 100 EC2 instances while ensuring that at least 85 instances remain active and serving traffic at all times during deployment.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Terminate 15 instances manually and launch 15 new instances." },
@@ -321,7 +321,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodeBuild Multi-Architecture and Caching Strategies: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates AWS CodeBuild to reduce build duration for high-frequency container builds in AWS CodeBuild where downloading dependencies takes up 80% of build time.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to reduce build duration for high-frequency container builds in AWS CodeBuild where downloading dependencies takes up 80% of build time.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Enable CodeBuild local caching for Docker layers and source dependencies, or configure an Amazon S3 build cache in `buildspec.yml`." },
@@ -342,7 +342,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodeBuild Multi-Architecture and Caching Strategies: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates AWS CodeBuild to reduce build duration for high-frequency container builds in AWS CodeBuild where downloading dependencies takes up 80% of build time.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to reduce build duration for high-frequency container builds in AWS CodeBuild where downloading dependencies takes up 80% of build time.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Run CodeBuild with `--no-cache` on every single build to guarantee clean state." },
@@ -363,7 +363,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodeBuild Multi-Architecture and Caching Strategies: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates AWS CodeBuild to reduce build duration for high-frequency container builds in AWS CodeBuild where downloading dependencies takes up 80% of build time.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to reduce build duration for high-frequency container builds in AWS CodeBuild where downloading dependencies takes up 80% of build time.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Enable CodeBuild local caching for Docker layers and source dependencies, or configure an Amazon S3 build cache in `buildspec.yml`." },
@@ -384,7 +384,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodeBuild Multi-Architecture and Caching Strategies: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates AWS CodeBuild to reduce build duration for high-frequency container builds in AWS CodeBuild where downloading dependencies takes up 80% of build time.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to reduce build duration for high-frequency container builds in AWS CodeBuild where downloading dependencies takes up 80% of build time.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Enable CodeBuild local caching for Docker layers and source dependencies, or configure an Amazon S3 build cache in `buildspec.yml`." },
@@ -405,7 +405,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodeBuild Multi-Architecture and Caching Strategies: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates AWS CodeBuild to reduce build duration for high-frequency container builds in AWS CodeBuild where downloading dependencies takes up 80% of build time.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to reduce build duration for high-frequency container builds in AWS CodeBuild where downloading dependencies takes up 80% of build time.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Store dependencies on ephemeral EC2 instance store disks without cache configuration." },
@@ -426,7 +426,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodePipeline Manual Approval Gates with SNS: Dr Failover",
-    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer evaluates Pipeline Governance to enforce a requirement where production deployments in AWS CodePipeline must be explicitly reviewed and approved by an authorized release manager.",
+    scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to enforce a requirement where production deployments in AWS CodePipeline must be explicitly reviewed and approved by an authorized release manager.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Pause the pipeline by deleting the production deployment stage before every release." },
@@ -447,7 +447,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodePipeline Manual Approval Gates with SNS: High Load Scale",
-    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer evaluates Pipeline Governance to enforce a requirement where production deployments in AWS CodePipeline must be explicitly reviewed and approved by an authorized release manager.",
+    scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to enforce a requirement where production deployments in AWS CodePipeline must be explicitly reviewed and approved by an authorized release manager.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Insert a Manual Approval stage in CodePipeline configured with an Amazon SNS notification topic, restricting approval permissions via IAM policies." },
@@ -468,7 +468,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodePipeline Manual Approval Gates with SNS: Security Compliance",
-    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer evaluates Pipeline Governance to enforce a requirement where production deployments in AWS CodePipeline must be explicitly reviewed and approved by an authorized release manager.",
+    scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to enforce a requirement where production deployments in AWS CodePipeline must be explicitly reviewed and approved by an authorized release manager.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Use a sleep step of 24 hours in buildspec.yml to simulate an approval gate." },
@@ -489,7 +489,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodePipeline Manual Approval Gates with SNS: Hybrid Migration",
-    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer evaluates Pipeline Governance to enforce a requirement where production deployments in AWS CodePipeline must be explicitly reviewed and approved by an authorized release manager.",
+    scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to enforce a requirement where production deployments in AWS CodePipeline must be explicitly reviewed and approved by an authorized release manager.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Pause the pipeline by deleting the production deployment stage before every release." },
@@ -510,7 +510,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "SDLC Automation",
     title: "CodePipeline Manual Approval Gates with SNS: Resilience Failure",
-    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer evaluates Pipeline Governance to enforce a requirement where production deployments in AWS CodePipeline must be explicitly reviewed and approved by an authorized release manager.",
+    scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to enforce a requirement where production deployments in AWS CodePipeline must be explicitly reviewed and approved by an authorized release manager.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Insert a Manual Approval stage in CodePipeline configured with an Amazon SNS notification topic, restricting approval permissions via IAM policies." },

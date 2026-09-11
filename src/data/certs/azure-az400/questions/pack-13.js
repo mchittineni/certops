@@ -6,7 +6,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Git Pull Request Merge Strategies: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Merge Types to maintain a clean, linear, and readable Git commit history on the `main` branch while consolidating dozens of small development commits into a single commit.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to maintain a clean, linear, and readable Git commit history on the `main` branch while consolidating dozens of small development commits into a single commit.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Enforce basic merge (no fast-forward) creating cluttering merge commits for every change." },
@@ -27,7 +27,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Git Pull Request Merge Strategies: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Merge Types to maintain a clean, linear, and readable Git commit history on the `main` branch while consolidating dozens of small development commits into a single commit.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to maintain a clean, linear, and readable Git commit history on the `main` branch while consolidating dozens of small development commits into a single commit.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Disable pull requests and use git rebase --force on the main branch." },
@@ -48,7 +48,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Git Pull Request Merge Strategies: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Merge Types to maintain a clean, linear, and readable Git commit history on the `main` branch while consolidating dozens of small development commits into a single commit.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to maintain a clean, linear, and readable Git commit history on the `main` branch while consolidating dozens of small development commits into a single commit.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Enforce basic merge (no fast-forward) creating cluttering merge commits for every change." },
@@ -69,7 +69,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Git Pull Request Merge Strategies: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Merge Types to maintain a clean, linear, and readable Git commit history on the `main` branch while consolidating dozens of small development commits into a single commit.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to maintain a clean, linear, and readable Git commit history on the `main` branch while consolidating dozens of small development commits into a single commit.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Configure the branch policy to enforce `Squash merge` on pull request completion." },
@@ -90,7 +90,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Git Pull Request Merge Strategies: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Merge Types to maintain a clean, linear, and readable Git commit history on the `main` branch while consolidating dozens of small development commits into a single commit.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to maintain a clean, linear, and readable Git commit history on the `main` branch while consolidating dozens of small development commits into a single commit.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Disable pull requests and use git rebase --force on the main branch." },
@@ -111,7 +111,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Managing Large Files with Git LFS: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Large File Storage to prevent repository bloat and slow clone times caused by developers committing large 500MB binary media files directly to a Git repository.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to prevent repository bloat and slow clone times caused by developers committing large 500MB binary media files directly to a Git repository.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Delete the Git repository history every time the repository exceeds 2GB." },
@@ -132,7 +132,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Managing Large Files with Git LFS: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Large File Storage to prevent repository bloat and slow clone times caused by developers committing large 500MB binary media files directly to a Git repository.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to prevent repository bloat and slow clone times caused by developers committing large 500MB binary media files directly to a Git repository.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Configure Git Large File Storage (Git LFS) in the repository with a `.gitattributes` file tracking target binary file extensions." },
@@ -153,7 +153,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Managing Large Files with Git LFS: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Large File Storage to prevent repository bloat and slow clone times caused by developers committing large 500MB binary media files directly to a Git repository.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to prevent repository bloat and slow clone times caused by developers committing large 500MB binary media files directly to a Git repository.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Configure Git Large File Storage (Git LFS) in the repository with a `.gitattributes` file tracking target binary file extensions." },
@@ -174,7 +174,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Managing Large Files with Git LFS: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Large File Storage to prevent repository bloat and slow clone times caused by developers committing large 500MB binary media files directly to a Git repository.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to prevent repository bloat and slow clone times caused by developers committing large 500MB binary media files directly to a Git repository.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Configure Git Large File Storage (Git LFS) in the repository with a `.gitattributes` file tracking target binary file extensions." },
@@ -195,7 +195,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Managing Large Files with Git LFS: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Large File Storage to prevent repository bloat and slow clone times caused by developers committing large 500MB binary media files directly to a Git repository.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to prevent repository bloat and slow clone times caused by developers committing large 500MB binary media files directly to a Git repository.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Zip binary files into multi-part archives and check them into source control." },
@@ -216,7 +216,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Repository Permissions and Security Gates: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Repo Permissions to prevent contractor developers from force-pushing, rewriting branch history, or creating new top-level branches in a corporate Azure Repos repository.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to prevent contractor developers from force-pushing, rewriting branch history, or creating new top-level branches in a corporate Azure Repos repository.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Explicitly deny `Force push (rewrite history)`, `Bypass policies when completing pull requests`, and `Create branch` permissions for the Contractors group." },
@@ -237,7 +237,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Repository Permissions and Security Gates: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Repo Permissions to prevent contractor developers from force-pushing, rewriting branch history, or creating new top-level branches in a corporate Azure Repos repository.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to prevent contractor developers from force-pushing, rewriting branch history, or creating new top-level branches in a corporate Azure Repos repository.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Grant full Project Administrator privileges to all contractor accounts." },
@@ -258,7 +258,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Repository Permissions and Security Gates: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Repo Permissions to prevent contractor developers from force-pushing, rewriting branch history, or creating new top-level branches in a corporate Azure Repos repository.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to prevent contractor developers from force-pushing, rewriting branch history, or creating new top-level branches in a corporate Azure Repos repository.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Rely on verbal instructions to not run git push --force." },
@@ -279,7 +279,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Repository Permissions and Security Gates: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Repo Permissions to prevent contractor developers from force-pushing, rewriting branch history, or creating new top-level branches in a corporate Azure Repos repository.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to prevent contractor developers from force-pushing, rewriting branch history, or creating new top-level branches in a corporate Azure Repos repository.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Rely on verbal instructions to not run git push --force." },
@@ -300,7 +300,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Repository Permissions and Security Gates: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Repo Permissions to prevent contractor developers from force-pushing, rewriting branch history, or creating new top-level branches in a corporate Azure Repos repository.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to prevent contractor developers from force-pushing, rewriting branch history, or creating new top-level branches in a corporate Azure Repos repository.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Rely on verbal instructions to not run git push --force." },
@@ -321,7 +321,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Monorepo vs Multi-Repo Strategies and Path Filters: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Repository Architecture to trigger CI/CD builds only for the specific microservice whose code was modified within a large multi-service monorepo.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to trigger CI/CD builds only for the specific microservice whose code was modified within a large multi-service monorepo.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Split the repository into 50 standalone Git repos without dependency tooling." },
@@ -342,7 +342,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Monorepo vs Multi-Repo Strategies and Path Filters: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Repository Architecture to trigger CI/CD builds only for the specific microservice whose code was modified within a large multi-service monorepo.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to trigger CI/CD builds only for the specific microservice whose code was modified within a large multi-service monorepo.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Configure CI trigger `paths` filters in the Azure Pipelines YAML file (e.g., `paths: include: [src/billing/**]`)." },
@@ -363,7 +363,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Monorepo vs Multi-Repo Strategies and Path Filters: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Repository Architecture to trigger CI/CD builds only for the specific microservice whose code was modified within a large multi-service monorepo.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to trigger CI/CD builds only for the specific microservice whose code was modified within a large multi-service monorepo.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Trigger all 50 microservice builds simultaneously on every single commit across the monorepo." },
@@ -384,7 +384,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Monorepo vs Multi-Repo Strategies and Path Filters: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Repository Architecture to trigger CI/CD builds only for the specific microservice whose code was modified within a large multi-service monorepo.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to trigger CI/CD builds only for the specific microservice whose code was modified within a large multi-service monorepo.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Trigger all 50 microservice builds simultaneously on every single commit across the monorepo." },
@@ -405,7 +405,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Monorepo vs Multi-Repo Strategies and Path Filters: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Repository Architecture to trigger CI/CD builds only for the specific microservice whose code was modified within a large multi-service monorepo.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to trigger CI/CD builds only for the specific microservice whose code was modified within a large multi-service monorepo.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Require developers to manually trigger build pipelines after every push." },
@@ -426,7 +426,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Purging Sensitive Data from Git History: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Secret Remediation to completely expunge an accidentally committed production connection string and certificate private key from all branches and commit history in a Git repository.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to completely expunge an accidentally committed production connection string and certificate private key from all branches and commit history in a Git repository.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Delete the entire Azure DevOps project and rebuild all infrastructure." },
@@ -447,7 +447,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Purging Sensitive Data from Git History: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Secret Remediation to completely expunge an accidentally committed production connection string and certificate private key from all branches and commit history in a Git repository.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to completely expunge an accidentally committed production connection string and certificate private key from all branches and commit history in a Git repository.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Delete the entire Azure DevOps project and rebuild all infrastructure." },
@@ -468,7 +468,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Purging Sensitive Data from Git History: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Secret Remediation to completely expunge an accidentally committed production connection string and certificate private key from all branches and commit history in a Git repository.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to completely expunge an accidentally committed production connection string and certificate private key from all branches and commit history in a Git repository.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Delete the entire Azure DevOps project and rebuild all infrastructure." },
@@ -489,7 +489,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Purging Sensitive Data from Git History: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Secret Remediation to completely expunge an accidentally committed production connection string and certificate private key from all branches and commit history in a Git repository.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to completely expunge an accidentally committed production connection string and certificate private key from all branches and commit history in a Git repository.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Make a new commit deleting the credentials file and assume previous history is inaccessible." },
@@ -510,7 +510,7 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Design and implement source control",
     title: "Purging Sensitive Data from Git History: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Secret Remediation to completely expunge an accidentally committed production connection string and certificate private key from all branches and commit history in a Git repository.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to completely expunge an accidentally committed production connection string and certificate private key from all branches and commit history in a Git repository.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Delete the entire Azure DevOps project and rebuild all infrastructure." },

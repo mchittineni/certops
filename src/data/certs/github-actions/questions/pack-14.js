@@ -6,7 +6,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Service Containers in GitHub Actions Workflows: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Service Containers to run end-to-end integration tests requiring an active Redis cache and PostgreSQL database without installing them on the host runner.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to run end-to-end integration tests requiring an active Redis cache and PostgreSQL database without installing them on the host runner.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Connect to live production database instances over the public internet." },
@@ -27,7 +27,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Service Containers in GitHub Actions Workflows: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Service Containers to run end-to-end integration tests requiring an active Redis cache and PostgreSQL database without installing them on the host runner.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to run end-to-end integration tests requiring an active Redis cache and PostgreSQL database without installing them on the host runner.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Connect to live production database instances over the public internet." },
@@ -48,7 +48,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Service Containers in GitHub Actions Workflows: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Service Containers to run end-to-end integration tests requiring an active Redis cache and PostgreSQL database without installing them on the host runner.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to run end-to-end integration tests requiring an active Redis cache and PostgreSQL database without installing them on the host runner.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Connect to live production database instances over the public internet." },
@@ -69,7 +69,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Service Containers in GitHub Actions Workflows: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Service Containers to run end-to-end integration tests requiring an active Redis cache and PostgreSQL database without installing them on the host runner.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to run end-to-end integration tests requiring an active Redis cache and PostgreSQL database without installing them on the host runner.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Mock all database operations in memory." },
@@ -90,7 +90,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Service Containers in GitHub Actions Workflows: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Service Containers to run end-to-end integration tests requiring an active Redis cache and PostgreSQL database without installing them on the host runner.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to run end-to-end integration tests requiring an active Redis cache and PostgreSQL database without installing them on the host runner.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Connect to live production database instances over the public internet." },
@@ -111,7 +111,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Handling Workflow Failure and Continue-on-Error: Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Error Tolerance to allow an experimental code linting step or optional test suite to fail without causing the overall workflow build to fail.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to allow an experimental code linting step or optional test suite to fail without causing the overall workflow build to fail.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Set exit code 0 manually in bash without reporting test results." },
@@ -132,7 +132,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Handling Workflow Failure and Continue-on-Error: High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Error Tolerance to allow an experimental code linting step or optional test suite to fail without causing the overall workflow build to fail.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to allow an experimental code linting step or optional test suite to fail without causing the overall workflow build to fail.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Comment out the linting step completely." },
@@ -153,7 +153,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Handling Workflow Failure and Continue-on-Error: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Error Tolerance to allow an experimental code linting step or optional test suite to fail without causing the overall workflow build to fail.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to allow an experimental code linting step or optional test suite to fail without causing the overall workflow build to fail.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Comment out the linting step completely." },
@@ -174,7 +174,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Handling Workflow Failure and Continue-on-Error: Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Error Tolerance to allow an experimental code linting step or optional test suite to fail without causing the overall workflow build to fail.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to allow an experimental code linting step or optional test suite to fail without causing the overall workflow build to fail.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Set `continue-on-error: true` on the specific step or matrix configuration." },
@@ -195,7 +195,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Handling Workflow Failure and Continue-on-Error: Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Error Tolerance to allow an experimental code linting step or optional test suite to fail without causing the overall workflow build to fail.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to allow an experimental code linting step or optional test suite to fail without causing the overall workflow build to fail.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Set exit code 0 manually in bash without reporting test results." },
@@ -216,7 +216,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Pull Request Target Event Security (pull_request_target): Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Trigger Security to run automated labeling and comment workflows on pull requests from public repository forks with access to repository secrets.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to run automated labeling and comment workflows on pull requests from public repository forks with access to repository secrets.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Hardcode secret tokens in pull request templates." },
@@ -237,7 +237,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Pull Request Target Event Security (pull_request_target): High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Trigger Security to run automated labeling and comment workflows on pull requests from public repository forks with access to repository secrets.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to run automated labeling and comment workflows on pull requests from public repository forks with access to repository secrets.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Hardcode secret tokens in pull request templates." },
@@ -258,7 +258,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Pull Request Target Event Security (pull_request_target): Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Trigger Security to run automated labeling and comment workflows on pull requests from public repository forks with access to repository secrets.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to run automated labeling and comment workflows on pull requests from public repository forks with access to repository secrets.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Use `on: pull_request` and grant read-write tokens to untrusted fork PRs." },
@@ -279,7 +279,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Pull Request Target Event Security (pull_request_target): Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Trigger Security to run automated labeling and comment workflows on pull requests from public repository forks with access to repository secrets.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to run automated labeling and comment workflows on pull requests from public repository forks with access to repository secrets.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Use `on: pull_request` and grant read-write tokens to untrusted fork PRs." },
@@ -300,7 +300,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Pull Request Target Event Security (pull_request_target): Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Trigger Security to run automated labeling and comment workflows on pull requests from public repository forks with access to repository secrets.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to run automated labeling and comment workflows on pull requests from public repository forks with access to repository secrets.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Hardcode secret tokens in pull request templates." },
@@ -321,7 +321,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Path Filters and Ignore Rules (paths-ignore): Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Path Filtering to prevent CI workflows from triggering when developers only update Markdown documentation files in the `docs/` folder.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to prevent CI workflows from triggering when developers only update Markdown documentation files in the `docs/` folder.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Run the workflow anyway and cancel it after 10 minutes." },
@@ -342,7 +342,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Path Filters and Ignore Rules (paths-ignore): High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Path Filtering to prevent CI workflows from triggering when developers only update Markdown documentation files in the `docs/` folder.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to prevent CI workflows from triggering when developers only update Markdown documentation files in the `docs/` folder.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Specify `paths-ignore: ['docs/**', '**.md']` under the push or pull_request trigger." },
@@ -363,7 +363,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Path Filters and Ignore Rules (paths-ignore): Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Path Filtering to prevent CI workflows from triggering when developers only update Markdown documentation files in the `docs/` folder.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to prevent CI workflows from triggering when developers only update Markdown documentation files in the `docs/` folder.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Run the workflow anyway and cancel it after 10 minutes." },
@@ -384,7 +384,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Path Filters and Ignore Rules (paths-ignore): Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Path Filtering to prevent CI workflows from triggering when developers only update Markdown documentation files in the `docs/` folder.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to prevent CI workflows from triggering when developers only update Markdown documentation files in the `docs/` folder.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Run the workflow anyway and cancel it after 10 minutes." },
@@ -405,7 +405,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Workflow Path Filters and Ignore Rules (paths-ignore): Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Path Filtering to prevent CI workflows from triggering when developers only update Markdown documentation files in the `docs/` folder.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to prevent CI workflows from triggering when developers only update Markdown documentation files in the `docs/` folder.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Use Git commit message tags exclusively." },
@@ -426,7 +426,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Managing Secrets in Workflows (${{ secrets.* }}): Dr Failover",
-    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer evaluates Secret Masking to pass an API token stored in repository secrets to an action step while ensuring the raw secret value is redacted from build logs.",
+    scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to pass an API token stored in repository secrets to an action step while ensuring the raw secret value is redacted from build logs.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Echo the secret to stdout to verify its content." },
@@ -447,7 +447,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Managing Secrets in Workflows (${{ secrets.* }}): High Load Scale",
-    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer evaluates Secret Masking to pass an API token stored in repository secrets to an action step while ensuring the raw secret value is redacted from build logs.",
+    scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to pass an API token stored in repository secrets to an action step while ensuring the raw secret value is redacted from build logs.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Commit the secret token directly to the workflow YAML file." },
@@ -468,7 +468,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Managing Secrets in Workflows (${{ secrets.* }}): Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer evaluates Secret Masking to pass an API token stored in repository secrets to an action step while ensuring the raw secret value is redacted from build logs.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to pass an API token stored in repository secrets to an action step while ensuring the raw secret value is redacted from build logs.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Store the secret in an unencrypted GitHub Issue." },
@@ -489,7 +489,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Managing Secrets in Workflows (${{ secrets.* }}): Hybrid Migration",
-    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer evaluates Secret Masking to pass an API token stored in repository secrets to an action step while ensuring the raw secret value is redacted from build logs.",
+    scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to pass an API token stored in repository secrets to an action step while ensuring the raw secret value is redacted from build logs.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Echo the secret to stdout to verify its content." },
@@ -510,7 +510,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     domainId: "d1",
     domainName: "Author and maintain workflows",
     title: "Managing Secrets in Workflows (${{ secrets.* }}): Resilience Failure",
-    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer evaluates Secret Masking to pass an API token stored in repository secrets to an action step while ensuring the raw secret value is redacted from build logs.",
+    scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to pass an API token stored in repository secrets to an action step while ensuring the raw secret value is redacted from build logs.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Commit the secret token directly to the workflow YAML file." },

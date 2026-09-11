@@ -6,7 +6,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Detecting Container Drift and Filesystem Anomalies: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Container Drift to determine whether an attacker who gained execution inside a running container has modified application binaries or installed unauthorized backdoor packages.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to determine whether an attacker who gained execution inside a running container has modified application binaries or installed unauthorized backdoor packages.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Execute `crictl diff &lt;container-id&gt;` (or equivalent container runtime diff) to compare the running container filesystem against its base image." },
@@ -27,7 +27,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Detecting Container Drift and Filesystem Anomalies: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Container Drift to determine whether an attacker who gained execution inside a running container has modified application binaries or installed unauthorized backdoor packages.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to determine whether an attacker who gained execution inside a running container has modified application binaries or installed unauthorized backdoor packages.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Assume running containers never deviate from their original base images." },
@@ -48,7 +48,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Detecting Container Drift and Filesystem Anomalies: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Container Drift to determine whether an attacker who gained execution inside a running container has modified application binaries or installed unauthorized backdoor packages.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to determine whether an attacker who gained execution inside a running container has modified application binaries or installed unauthorized backdoor packages.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Assume running containers never deviate from their original base images." },
@@ -69,7 +69,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Detecting Container Drift and Filesystem Anomalies: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Container Drift to determine whether an attacker who gained execution inside a running container has modified application binaries or installed unauthorized backdoor packages.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to determine whether an attacker who gained execution inside a running container has modified application binaries or installed unauthorized backdoor packages.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Execute `crictl diff &lt;container-id&gt;` (or equivalent container runtime diff) to compare the running container filesystem against its base image." },
@@ -90,7 +90,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Detecting Container Drift and Filesystem Anomalies: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Container Drift to determine whether an attacker who gained execution inside a running container has modified application binaries or installed unauthorized backdoor packages.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to determine whether an attacker who gained execution inside a running container has modified application binaries or installed unauthorized backdoor packages.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Execute `crictl diff &lt;container-id&gt;` (or equivalent container runtime diff) to compare the running container filesystem against its base image." },
@@ -111,7 +111,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Securing Container Runtimes: containerd and CRI-O: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates CRI Security to prevent unauthorized processes on a worker node from interacting with the container runtime Unix domain socket (`containerd.sock`).",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent unauthorized processes on a worker node from interacting with the container runtime Unix domain socket (`containerd.sock`).",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Restrict permissions on the containerd socket (`/run/containerd/containerd.sock`) strictly to `root:root` with `0660` permissions." },
@@ -132,7 +132,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Securing Container Runtimes: containerd and CRI-O: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates CRI Security to prevent unauthorized processes on a worker node from interacting with the container runtime Unix domain socket (`containerd.sock`).",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent unauthorized processes on a worker node from interacting with the container runtime Unix domain socket (`containerd.sock`).",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Expose the containerd socket over an unauthenticated TCP port on 0.0.0.0." },
@@ -153,7 +153,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Securing Container Runtimes: containerd and CRI-O: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates CRI Security to prevent unauthorized processes on a worker node from interacting with the container runtime Unix domain socket (`containerd.sock`).",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent unauthorized processes on a worker node from interacting with the container runtime Unix domain socket (`containerd.sock`).",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Set permissions on containerd.sock to 777 to allow any user to launch containers." },
@@ -174,7 +174,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Securing Container Runtimes: containerd and CRI-O: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates CRI Security to prevent unauthorized processes on a worker node from interacting with the container runtime Unix domain socket (`containerd.sock`).",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent unauthorized processes on a worker node from interacting with the container runtime Unix domain socket (`containerd.sock`).",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Disable containerd authentication mechanisms." },
@@ -195,7 +195,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Securing Container Runtimes: containerd and CRI-O: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates CRI Security to prevent unauthorized processes on a worker node from interacting with the container runtime Unix domain socket (`containerd.sock`).",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent unauthorized processes on a worker node from interacting with the container runtime Unix domain socket (`containerd.sock`).",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Expose the containerd socket over an unauthenticated TCP port on 0.0.0.0." },
@@ -216,7 +216,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "eBPF-Based Observability and Security (Tetragon / Cilium): Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates eBPF Security to block malicious system calls and process executions in real time directly inside the Linux kernel before syscall execution completes.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to block malicious system calls and process executions in real time directly inside the Linux kernel before syscall execution completes.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely solely on asynchronous log analysis engines that process events minutes after execution." },
@@ -237,7 +237,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "eBPF-Based Observability and Security (Tetragon / Cilium): High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates eBPF Security to block malicious system calls and process executions in real time directly inside the Linux kernel before syscall execution completes.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to block malicious system calls and process executions in real time directly inside the Linux kernel before syscall execution completes.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Disable eBPF support in the Linux kernel." },
@@ -258,7 +258,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "eBPF-Based Observability and Security (Tetragon / Cilium): Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates eBPF Security to block malicious system calls and process executions in real time directly inside the Linux kernel before syscall execution completes.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to block malicious system calls and process executions in real time directly inside the Linux kernel before syscall execution completes.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Rely solely on asynchronous log analysis engines that process events minutes after execution." },
@@ -279,7 +279,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "eBPF-Based Observability and Security (Tetragon / Cilium): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates eBPF Security to block malicious system calls and process executions in real time directly inside the Linux kernel before syscall execution completes.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to block malicious system calls and process executions in real time directly inside the Linux kernel before syscall execution completes.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Disable eBPF support in the Linux kernel." },
@@ -300,7 +300,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "eBPF-Based Observability and Security (Tetragon / Cilium): Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates eBPF Security to block malicious system calls and process executions in real time directly inside the Linux kernel before syscall execution completes.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to block malicious system calls and process executions in real time directly inside the Linux kernel before syscall execution completes.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Disable eBPF support in the Linux kernel." },
@@ -321,7 +321,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Centralized Audit Log Ingestion and SIEM Integration: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates SIEM Integration to stream Kubernetes API server audit logs in real time to an external Security Information and Event Management (SIEM) system for threat correlation.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to stream Kubernetes API server audit logs in real time to an external Security Information and Event Management (SIEM) system for threat correlation.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Manually download audit log text files once a week and upload them via email." },
@@ -342,7 +342,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Centralized Audit Log Ingestion and SIEM Integration: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates SIEM Integration to stream Kubernetes API server audit logs in real time to an external Security Information and Event Management (SIEM) system for threat correlation.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to stream Kubernetes API server audit logs in real time to an external Security Information and Event Management (SIEM) system for threat correlation.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Store audit logs on a temporary worker node RAM disk." },
@@ -363,7 +363,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Centralized Audit Log Ingestion and SIEM Integration: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates SIEM Integration to stream Kubernetes API server audit logs in real time to an external Security Information and Event Management (SIEM) system for threat correlation.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to stream Kubernetes API server audit logs in real time to an external Security Information and Event Management (SIEM) system for threat correlation.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Disable audit logging to reduce SIEM ingestion licensing costs." },
@@ -384,7 +384,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Centralized Audit Log Ingestion and SIEM Integration: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates SIEM Integration to stream Kubernetes API server audit logs in real time to an external Security Information and Event Management (SIEM) system for threat correlation.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to stream Kubernetes API server audit logs in real time to an external Security Information and Event Management (SIEM) system for threat correlation.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Manually download audit log text files once a week and upload them via email." },
@@ -405,7 +405,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Centralized Audit Log Ingestion and SIEM Integration: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates SIEM Integration to stream Kubernetes API server audit logs in real time to an external Security Information and Event Management (SIEM) system for threat correlation.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to stream Kubernetes API server audit logs in real time to an external Security Information and Event Management (SIEM) system for threat correlation.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Manually download audit log text files once a week and upload them via email." },
@@ -426,7 +426,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Node Problem Detector and Custom Health Monitors: Dr Failover",
-    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer evaluates Node Health to automatically detect host kernel issues (such as kernel deadlocks or filesystem corruption) and report them as Kubernetes node conditions.",
+    scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to automatically detect host kernel issues (such as kernel deadlocks or filesystem corruption) and report them as Kubernetes node conditions.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Wait for physical server hardware to completely crash before taking action." },
@@ -447,7 +447,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Node Problem Detector and Custom Health Monitors: High Load Scale",
-    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer evaluates Node Health to automatically detect host kernel issues (such as kernel deadlocks or filesystem corruption) and report them as Kubernetes node conditions.",
+    scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to automatically detect host kernel issues (such as kernel deadlocks or filesystem corruption) and report them as Kubernetes node conditions.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Rely exclusively on standard kubelet heartbeats." },
@@ -468,7 +468,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Node Problem Detector and Custom Health Monitors: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer evaluates Node Health to automatically detect host kernel issues (such as kernel deadlocks or filesystem corruption) and report them as Kubernetes node conditions.",
+    scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to automatically detect host kernel issues (such as kernel deadlocks or filesystem corruption) and report them as Kubernetes node conditions.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Rely exclusively on standard kubelet heartbeats." },
@@ -489,7 +489,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Node Problem Detector and Custom Health Monitors: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer evaluates Node Health to automatically detect host kernel issues (such as kernel deadlocks or filesystem corruption) and report them as Kubernetes node conditions.",
+    scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to automatically detect host kernel issues (such as kernel deadlocks or filesystem corruption) and report them as Kubernetes node conditions.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Deploy the `Node Problem Detector` (NPD) DaemonSet to monitor host system logs and translate kernel errors into Node conditions and events." },
@@ -510,7 +510,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     domainId: "d5",
     domainName: "Monitoring, Logging and Runtime Security",
     title: "Node Problem Detector and Custom Health Monitors: Resilience Failure",
-    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer evaluates Node Health to automatically detect host kernel issues (such as kernel deadlocks or filesystem corruption) and report them as Kubernetes node conditions.",
+    scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to automatically detect host kernel issues (such as kernel deadlocks or filesystem corruption) and report them as Kubernetes node conditions.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Deploy the `Node Problem Detector` (NPD) DaemonSet to monitor host system logs and translate kernel errors into Node conditions and events." },

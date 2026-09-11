@@ -6,7 +6,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Disaster Recovery Patterns (Cold vs Warm vs Hot Standby): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Disaster Recovery to design a disaster recovery architecture with an RTO of under 10 minutes and an RPO of under 1 minute without doubling baseline infrastructure costs.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to design a disaster recovery architecture with an RTO of under 10 minutes and an RPO of under 1 minute without doubling baseline infrastructure costs.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Disable cross-region disaster recovery to minimize cloud operational spending." },
@@ -27,7 +27,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Disaster Recovery Patterns (Cold vs Warm vs Hot Standby): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Disaster Recovery to design a disaster recovery architecture with an RTO of under 10 minutes and an RPO of under 1 minute without doubling baseline infrastructure costs.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to design a disaster recovery architecture with an RTO of under 10 minutes and an RPO of under 1 minute without doubling baseline infrastructure costs.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Implement a Cold Standby architecture relying on weekly tape backups shipped by truck." },
@@ -48,7 +48,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Disaster Recovery Patterns (Cold vs Warm vs Hot Standby): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Disaster Recovery to design a disaster recovery architecture with an RTO of under 10 minutes and an RPO of under 1 minute without doubling baseline infrastructure costs.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to design a disaster recovery architecture with an RTO of under 10 minutes and an RPO of under 1 minute without doubling baseline infrastructure costs.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Implement a Warm Standby architecture with asynchronous cross-region data replication and minimal scaled-down compute capacity." },
@@ -69,7 +69,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Disaster Recovery Patterns (Cold vs Warm vs Hot Standby): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Disaster Recovery to design a disaster recovery architecture with an RTO of under 10 minutes and an RPO of under 1 minute without doubling baseline infrastructure costs.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to design a disaster recovery architecture with an RTO of under 10 minutes and an RPO of under 1 minute without doubling baseline infrastructure costs.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Disable cross-region disaster recovery to minimize cloud operational spending." },
@@ -90,7 +90,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Disaster Recovery Patterns (Cold vs Warm vs Hot Standby): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Disaster Recovery to design a disaster recovery architecture with an RTO of under 10 minutes and an RPO of under 1 minute without doubling baseline infrastructure costs.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to design a disaster recovery architecture with an RTO of under 10 minutes and an RPO of under 1 minute without doubling baseline infrastructure costs.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Run duplicate 100% full-capacity infrastructure 24/7 in two regions without traffic distribution." },
@@ -111,7 +111,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Data Sovereignty and Residency with Cloud Storage: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Cloud Governance to comply with European GDPR data protection regulations mandating that customer biometric data remain physically within EU boundaries at all times.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to comply with European GDPR data protection regulations mandating that customer biometric data remain physically within EU boundaries at all times.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Allow storage data to replicate automatically to random worldwide edge data centers." },
@@ -132,7 +132,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Data Sovereignty and Residency with Cloud Storage: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Cloud Governance to comply with European GDPR data protection regulations mandating that customer biometric data remain physically within EU boundaries at all times.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to comply with European GDPR data protection regulations mandating that customer biometric data remain physically within EU boundaries at all times.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Disable storage encryption and allow public internet access." },
@@ -153,7 +153,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Data Sovereignty and Residency with Cloud Storage: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Cloud Governance to comply with European GDPR data protection regulations mandating that customer biometric data remain physically within EU boundaries at all times.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to comply with European GDPR data protection regulations mandating that customer biometric data remain physically within EU boundaries at all times.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Store data in a global multi-region US storage bucket." },
@@ -174,7 +174,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Data Sovereignty and Residency with Cloud Storage: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Cloud Governance to comply with European GDPR data protection regulations mandating that customer biometric data remain physically within EU boundaries at all times.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to comply with European GDPR data protection regulations mandating that customer biometric data remain physically within EU boundaries at all times.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Allow storage data to replicate automatically to random worldwide edge data centers." },
@@ -195,7 +195,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Data Sovereignty and Residency with Cloud Storage: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Cloud Governance to comply with European GDPR data protection regulations mandating that customer biometric data remain physically within EU boundaries at all times.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to comply with European GDPR data protection regulations mandating that customer biometric data remain physically within EU boundaries at all times.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Allow storage data to replicate automatically to random worldwide edge data centers." },
@@ -216,7 +216,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Terraform / Google Cloud Provider (IaC): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Infrastructure as Code to deploy, version, and manage identical production, staging, and development cloud environments reproducibly using declarative code.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to deploy, version, and manage identical production, staging, and development cloud environments reproducibly using declarative code.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Click through the Cloud Console web interface manually for each environment." },
@@ -237,7 +237,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Terraform / Google Cloud Provider (IaC): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Infrastructure as Code to deploy, version, and manage identical production, staging, and development cloud environments reproducibly using declarative code.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to deploy, version, and manage identical production, staging, and development cloud environments reproducibly using declarative code.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Maintain manual Word documents detailing installation steps for server operators." },
@@ -258,7 +258,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Terraform / Google Cloud Provider (IaC): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Infrastructure as Code to deploy, version, and manage identical production, staging, and development cloud environments reproducibly using declarative code.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to deploy, version, and manage identical production, staging, and development cloud environments reproducibly using declarative code.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Click through the Cloud Console web interface manually for each environment." },
@@ -279,7 +279,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Terraform / Google Cloud Provider (IaC): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Infrastructure as Code to deploy, version, and manage identical production, staging, and development cloud environments reproducibly using declarative code.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to deploy, version, and manage identical production, staging, and development cloud environments reproducibly using declarative code.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Use Terraform with the official Google Cloud provider and a remote Cloud Storage state backend." },
@@ -300,7 +300,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Terraform / Google Cloud Provider (IaC): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Infrastructure as Code to deploy, version, and manage identical production, staging, and development cloud environments reproducibly using declarative code.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to deploy, version, and manage identical production, staging, and development cloud environments reproducibly using declarative code.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Click through the Cloud Console web interface manually for each environment." },
@@ -321,7 +321,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Google Cloud Deployment Manager / Config Controller: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Infrastructure as Code to manage Google Cloud infrastructure declaratively using Kubernetes-style resource definitions (KRM) alongside containerized applications.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to manage Google Cloud infrastructure declaratively using Kubernetes-style resource definitions (KRM) alongside containerized applications.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Write custom imperative Python scripts calling Google REST APIs directly." },
@@ -342,7 +342,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Google Cloud Deployment Manager / Config Controller: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Infrastructure as Code to manage Google Cloud infrastructure declaratively using Kubernetes-style resource definitions (KRM) alongside containerized applications.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to manage Google Cloud infrastructure declaratively using Kubernetes-style resource definitions (KRM) alongside containerized applications.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Write custom imperative Python scripts calling Google REST APIs directly." },
@@ -363,7 +363,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Google Cloud Deployment Manager / Config Controller: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Infrastructure as Code to manage Google Cloud infrastructure declaratively using Kubernetes-style resource definitions (KRM) alongside containerized applications.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to manage Google Cloud infrastructure declaratively using Kubernetes-style resource definitions (KRM) alongside containerized applications.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy an on-premises Puppet server to manage cloud services." },
@@ -384,7 +384,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Google Cloud Deployment Manager / Config Controller: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Infrastructure as Code to manage Google Cloud infrastructure declaratively using Kubernetes-style resource definitions (KRM) alongside containerized applications.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to manage Google Cloud infrastructure declaratively using Kubernetes-style resource definitions (KRM) alongside containerized applications.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Configure all resources using unmanaged CLI commands." },
@@ -405,7 +405,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Google Cloud Deployment Manager / Config Controller: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Infrastructure as Code to manage Google Cloud infrastructure declaratively using Kubernetes-style resource definitions (KRM) alongside containerized applications.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to manage Google Cloud infrastructure declaratively using Kubernetes-style resource definitions (KRM) alongside containerized applications.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Configure all resources using unmanaged CLI commands." },
@@ -426,7 +426,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "VPC Network Peering: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates VPC Networking to connect two separate VPC networks in different projects within the same organization to allow low-latency, private RFC 1918 communication without public internet gateways.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to connect two separate VPC networks in different projects within the same organization to allow low-latency, private RFC 1918 communication without public internet gateways.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Route all traffic through an external third-party proxy server." },
@@ -447,7 +447,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "VPC Network Peering: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates VPC Networking to connect two separate VPC networks in different projects within the same organization to allow low-latency, private RFC 1918 communication without public internet gateways.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to connect two separate VPC networks in different projects within the same organization to allow low-latency, private RFC 1918 communication without public internet gateways.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Assign external public IP addresses to all backend virtual machines." },
@@ -468,7 +468,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "VPC Network Peering: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates VPC Networking to connect two separate VPC networks in different projects within the same organization to allow low-latency, private RFC 1918 communication without public internet gateways.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to connect two separate VPC networks in different projects within the same organization to allow low-latency, private RFC 1918 communication without public internet gateways.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Establish VPC Network Peering between the two VPC networks." },
@@ -489,7 +489,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "VPC Network Peering: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates VPC Networking to connect two separate VPC networks in different projects within the same organization to allow low-latency, private RFC 1918 communication without public internet gateways.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to connect two separate VPC networks in different projects within the same organization to allow low-latency, private RFC 1918 communication without public internet gateways.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Establish VPC Network Peering between the two VPC networks." },
@@ -510,7 +510,7 @@ export const GCP_PCA_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "VPC Network Peering: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates VPC Networking to connect two separate VPC networks in different projects within the same organization to allow low-latency, private RFC 1918 communication without public internet gateways.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to connect two separate VPC networks in different projects within the same organization to allow low-latency, private RFC 1918 communication without public internet gateways.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Deploy an external VPN gateway in each VPC and connect over public internet." },

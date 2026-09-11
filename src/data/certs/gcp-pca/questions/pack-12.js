@@ -6,7 +6,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Shared VPC Architecture (Host and Service Projects): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates VPC Networking to allow multiple independent application teams to deploy workloads into isolated projects while sharing a centralized enterprise VPC network managed by network engineers.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to allow multiple independent application teams to deploy workloads into isolated projects while sharing a centralized enterprise VPC network managed by network engineers.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Force all teams to share a single Google Cloud project with Owner permissions." },
@@ -27,7 +27,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Shared VPC Architecture (Host and Service Projects): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates VPC Networking to allow multiple independent application teams to deploy workloads into isolated projects while sharing a centralized enterprise VPC network managed by network engineers.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to allow multiple independent application teams to deploy workloads into isolated projects while sharing a centralized enterprise VPC network managed by network engineers.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy custom software routers inside each project with manual BGP peering." },
@@ -48,7 +48,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Shared VPC Architecture (Host and Service Projects): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates VPC Networking to allow multiple independent application teams to deploy workloads into isolated projects while sharing a centralized enterprise VPC network managed by network engineers.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to allow multiple independent application teams to deploy workloads into isolated projects while sharing a centralized enterprise VPC network managed by network engineers.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy separate isolated VPC networks in every project and connect them using public IPs." },
@@ -69,7 +69,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Shared VPC Architecture (Host and Service Projects): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates VPC Networking to allow multiple independent application teams to deploy workloads into isolated projects while sharing a centralized enterprise VPC network managed by network engineers.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to allow multiple independent application teams to deploy workloads into isolated projects while sharing a centralized enterprise VPC network managed by network engineers.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy custom software routers inside each project with manual BGP peering." },
@@ -90,7 +90,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Shared VPC Architecture (Host and Service Projects): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates VPC Networking to allow multiple independent application teams to deploy workloads into isolated projects while sharing a centralized enterprise VPC network managed by network engineers.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to allow multiple independent application teams to deploy workloads into isolated projects while sharing a centralized enterprise VPC network managed by network engineers.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Force all teams to share a single Google Cloud project with Owner permissions." },
@@ -111,7 +111,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Cloud Run Microservices Architecture: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Cloud Run to deploy a fleet of stateless microservices in containers that scale rapidly to thousands of instances during marketing promotions and scale to zero when idle.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to deploy a fleet of stateless microservices in containers that scale rapidly to thousands of instances during marketing promotions and scale to zero when idle.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy microservices on physical on-premises servers." },
@@ -132,7 +132,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Cloud Run Microservices Architecture: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Cloud Run to deploy a fleet of stateless microservices in containers that scale rapidly to thousands of instances during marketing promotions and scale to zero when idle.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to deploy a fleet of stateless microservices in containers that scale rapidly to thousands of instances during marketing promotions and scale to zero when idle.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy microservices onto static Compute Engine instances running 24/7." },
@@ -153,7 +153,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Cloud Run Microservices Architecture: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Cloud Run to deploy a fleet of stateless microservices in containers that scale rapidly to thousands of instances during marketing promotions and scale to zero when idle.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to deploy a fleet of stateless microservices in containers that scale rapidly to thousands of instances during marketing promotions and scale to zero when idle.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy containerized microservices to Cloud Run with configured concurrency and scaling limits." },
@@ -174,7 +174,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Cloud Run Microservices Architecture: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Cloud Run to deploy a fleet of stateless microservices in containers that scale rapidly to thousands of instances during marketing promotions and scale to zero when idle.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to deploy a fleet of stateless microservices in containers that scale rapidly to thousands of instances during marketing promotions and scale to zero when idle.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy containerized microservices to Cloud Run with configured concurrency and scaling limits." },
@@ -195,7 +195,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Cloud Run Microservices Architecture: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Cloud Run to deploy a fleet of stateless microservices in containers that scale rapidly to thousands of instances during marketing promotions and scale to zero when idle.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to deploy a fleet of stateless microservices in containers that scale rapidly to thousands of instances during marketing promotions and scale to zero when idle.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Host microservices inside App Engine Standard Java 8 runtimes." },
@@ -216,7 +216,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Dataflow Streaming ETL with Apache Beam: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Cloud Dataflow to ingest, transform, and aggregate real-time clickstream events from Cloud Pub/Sub and write analytics results to BigQuery with exactly-once processing guarantees.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to ingest, transform, and aggregate real-time clickstream events from Cloud Pub/Sub and write analytics results to BigQuery with exactly-once processing guarantees.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Write a custom Python script that polls Pub/Sub and executes SQL inserts one by one." },
@@ -237,7 +237,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Dataflow Streaming ETL with Apache Beam: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Cloud Dataflow to ingest, transform, and aggregate real-time clickstream events from Cloud Pub/Sub and write analytics results to BigQuery with exactly-once processing guarantees.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to ingest, transform, and aggregate real-time clickstream events from Cloud Pub/Sub and write analytics results to BigQuery with exactly-once processing guarantees.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Write a custom Python script that polls Pub/Sub and executes SQL inserts one by one." },
@@ -258,7 +258,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Dataflow Streaming ETL with Apache Beam: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Cloud Dataflow to ingest, transform, and aggregate real-time clickstream events from Cloud Pub/Sub and write analytics results to BigQuery with exactly-once processing guarantees.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to ingest, transform, and aggregate real-time clickstream events from Cloud Pub/Sub and write analytics results to BigQuery with exactly-once processing guarantees.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy an Apache Spark cluster on unmanaged Compute Engine virtual machines." },
@@ -279,7 +279,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Dataflow Streaming ETL with Apache Beam: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Cloud Dataflow to ingest, transform, and aggregate real-time clickstream events from Cloud Pub/Sub and write analytics results to BigQuery with exactly-once processing guarantees.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to ingest, transform, and aggregate real-time clickstream events from Cloud Pub/Sub and write analytics results to BigQuery with exactly-once processing guarantees.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy an Apache Spark cluster on unmanaged Compute Engine virtual machines." },
@@ -300,7 +300,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Dataflow Streaming ETL with Apache Beam: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Cloud Dataflow to ingest, transform, and aggregate real-time clickstream events from Cloud Pub/Sub and write analytics results to BigQuery with exactly-once processing guarantees.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to ingest, transform, and aggregate real-time clickstream events from Cloud Pub/Sub and write analytics results to BigQuery with exactly-once processing guarantees.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Write a custom Python script that polls Pub/Sub and executes SQL inserts one by one." },
@@ -321,7 +321,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Pub/Sub Message Ingestion and Buffering: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates Cloud Pub/Sub to decouple high-throughput mobile event producers from backend processing systems, absorbing traffic surges without dropping messages.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to decouple high-throughput mobile event producers from backend processing systems, absorbing traffic surges without dropping messages.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy a Cloud Pub/Sub topic and create subscription endpoints for downstream consumers." },
@@ -342,7 +342,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Pub/Sub Message Ingestion and Buffering: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates Cloud Pub/Sub to decouple high-throughput mobile event producers from backend processing systems, absorbing traffic surges without dropping messages.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to decouple high-throughput mobile event producers from backend processing systems, absorbing traffic surges without dropping messages.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Use a local Redis cache on a single Compute Engine instance as the messaging buffer." },
@@ -363,7 +363,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Pub/Sub Message Ingestion and Buffering: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates Cloud Pub/Sub to decouple high-throughput mobile event producers from backend processing systems, absorbing traffic surges without dropping messages.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to decouple high-throughput mobile event producers from backend processing systems, absorbing traffic surges without dropping messages.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy a Cloud Pub/Sub topic and create subscription endpoints for downstream consumers." },
@@ -384,7 +384,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Pub/Sub Message Ingestion and Buffering: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates Cloud Pub/Sub to decouple high-throughput mobile event producers from backend processing systems, absorbing traffic surges without dropping messages.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to decouple high-throughput mobile event producers from backend processing systems, absorbing traffic surges without dropping messages.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Write mobile events directly to local text files on client devices." },
@@ -405,7 +405,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "Pub/Sub Message Ingestion and Buffering: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates Cloud Pub/Sub to decouple high-throughput mobile event producers from backend processing systems, absorbing traffic surges without dropping messages.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to decouple high-throughput mobile event producers from backend processing systems, absorbing traffic surges without dropping messages.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Have mobile clients connect directly to backend database tables over public internet." },
@@ -426,7 +426,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "BigQuery Partitioning and Clustering: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect evaluates BigQuery to optimize query performance and minimize query billing costs when analyzing multi-terabyte transactional audit tables queried by transaction date and customer ID.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to optimize query performance and minimize query billing costs when analyzing multi-terabyte transactional audit tables queried by transaction date and customer ID.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Export the entire dataset to Cloud Storage and grep text files using Compute Engine." },
@@ -447,7 +447,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "BigQuery Partitioning and Clustering: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect evaluates BigQuery to optimize query performance and minimize query billing costs when analyzing multi-terabyte transactional audit tables queried by transaction date and customer ID.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to optimize query performance and minimize query billing costs when analyzing multi-terabyte transactional audit tables queried by transaction date and customer ID.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Partition the BigQuery table by transaction_date and cluster by customer_id." },
@@ -468,7 +468,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "BigQuery Partitioning and Clustering: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect evaluates BigQuery to optimize query performance and minimize query billing costs when analyzing multi-terabyte transactional audit tables queried by transaction date and customer ID.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to optimize query performance and minimize query billing costs when analyzing multi-terabyte transactional audit tables queried by transaction date and customer ID.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Partition the BigQuery table by transaction_date and cluster by customer_id." },
@@ -489,7 +489,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "BigQuery Partitioning and Clustering: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect evaluates BigQuery to optimize query performance and minimize query billing costs when analyzing multi-terabyte transactional audit tables queried by transaction date and customer ID.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to optimize query performance and minimize query billing costs when analyzing multi-terabyte transactional audit tables queried by transaction date and customer ID.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Export the entire dataset to Cloud Storage and grep text files using Compute Engine." },
@@ -510,7 +510,7 @@ export const GCP_PCA_QUESTIONS_12 = [
     domainId: "d1",
     domainName: "Designing and planning a cloud solution architecture",
     title: "BigQuery Partitioning and Clustering: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect evaluates BigQuery to optimize query performance and minimize query billing costs when analyzing multi-terabyte transactional audit tables queried by transaction date and customer ID.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to optimize query performance and minimize query billing costs when analyzing multi-terabyte transactional audit tables queried by transaction date and customer ID.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Create separate physical BigQuery tables for every single minute of the year." },

@@ -6,7 +6,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 1: Declarative Description: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates GitOps Principles to understand the fundamental OpenGitOps principle requiring system desired state to be expressed declaratively.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to understand the fundamental OpenGitOps principle requiring system desired state to be expressed declaratively.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Configure infrastructure manually through cloud web consoles." },
@@ -27,7 +27,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 1: Declarative Description: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates GitOps Principles to understand the fundamental OpenGitOps principle requiring system desired state to be expressed declaratively.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to understand the fundamental OpenGitOps principle requiring system desired state to be expressed declaratively.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Rely on compiled binary executables to express desired system architecture." },
@@ -48,7 +48,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 1: Declarative Description: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates GitOps Principles to understand the fundamental OpenGitOps principle requiring system desired state to be expressed declaratively.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to understand the fundamental OpenGitOps principle requiring system desired state to be expressed declaratively.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Declare system state in declarative formats (e.g., Kubernetes YAML, Kustomize, Helm) that describe the desired end-state rather than procedural steps." },
@@ -69,7 +69,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 1: Declarative Description: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates GitOps Principles to understand the fundamental OpenGitOps principle requiring system desired state to be expressed declaratively.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to understand the fundamental OpenGitOps principle requiring system desired state to be expressed declaratively.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Configure infrastructure manually through cloud web consoles." },
@@ -90,7 +90,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 1: Declarative Description: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates GitOps Principles to understand the fundamental OpenGitOps principle requiring system desired state to be expressed declaratively.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to understand the fundamental OpenGitOps principle requiring system desired state to be expressed declaratively.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Rely on compiled binary executables to express desired system architecture." },
@@ -111,7 +111,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 2: Versioned and Immutable: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates GitOps Principles to guarantee an immutable, audited history of every change made to production infrastructure and applications.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to guarantee an immutable, audited history of every change made to production infrastructure and applications.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Use a shared Google Doc to record infrastructure parameters." },
@@ -132,7 +132,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 2: Versioned and Immutable: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates GitOps Principles to guarantee an immutable, audited history of every change made to production infrastructure and applications.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to guarantee an immutable, audited history of every change made to production infrastructure and applications.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Use a shared Google Doc to record infrastructure parameters." },
@@ -153,7 +153,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 2: Versioned and Immutable: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates GitOps Principles to guarantee an immutable, audited history of every change made to production infrastructure and applications.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to guarantee an immutable, audited history of every change made to production infrastructure and applications.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Use a shared Google Doc to record infrastructure parameters." },
@@ -174,7 +174,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 2: Versioned and Immutable: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates GitOps Principles to guarantee an immutable, audited history of every change made to production infrastructure and applications.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to guarantee an immutable, audited history of every change made to production infrastructure and applications.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Rely on human memory of what configurations were previously deployed." },
@@ -195,7 +195,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 2: Versioned and Immutable: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates GitOps Principles to guarantee an immutable, audited history of every change made to production infrastructure and applications.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to guarantee an immutable, audited history of every change made to production infrastructure and applications.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Rely on human memory of what configurations were previously deployed." },
@@ -216,7 +216,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 3: Pulled Automatically: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates GitOps Principles to ensure software deployments are continuously pulled into target clusters by in-cluster controllers without granting external CI systems cluster-admin access.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to ensure software deployments are continuously pulled into target clusters by in-cluster controllers without granting external CI systems cluster-admin access.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Instruct engineers to manually run `git pull` inside node terminals." },
@@ -237,7 +237,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 3: Pulled Automatically: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates GitOps Principles to ensure software deployments are continuously pulled into target clusters by in-cluster controllers without granting external CI systems cluster-admin access.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to ensure software deployments are continuously pulled into target clusters by in-cluster controllers without granting external CI systems cluster-admin access.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Instruct engineers to manually run `git pull` inside node terminals." },
@@ -258,7 +258,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 3: Pulled Automatically: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates GitOps Principles to ensure software deployments are continuously pulled into target clusters by in-cluster controllers without granting external CI systems cluster-admin access.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to ensure software deployments are continuously pulled into target clusters by in-cluster controllers without granting external CI systems cluster-admin access.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Configure external Jenkins runners to execute `kubectl apply` over the public internet with administrative kubeconfigs." },
@@ -279,7 +279,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 3: Pulled Automatically: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates GitOps Principles to ensure software deployments are continuously pulled into target clusters by in-cluster controllers without granting external CI systems cluster-admin access.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to ensure software deployments are continuously pulled into target clusters by in-cluster controllers without granting external CI systems cluster-admin access.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Configure external Jenkins runners to execute `kubectl apply` over the public internet with administrative kubeconfigs." },
@@ -300,7 +300,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 3: Pulled Automatically: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates GitOps Principles to ensure software deployments are continuously pulled into target clusters by in-cluster controllers without granting external CI systems cluster-admin access.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to ensure software deployments are continuously pulled into target clusters by in-cluster controllers without granting external CI systems cluster-admin access.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Disable automated syncing and apply configurations once a quarter." },
@@ -321,7 +321,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 4: Continuously Reconciled: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates GitOps Principles to automatically correct unauthorized out-of-band changes (drift) made to production Kubernetes pods via `kubectl edit`.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to automatically correct unauthorized out-of-band changes (drift) made to production Kubernetes pods via `kubectl edit`.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Send an email to the cluster administrator whenever an alert triggers." },
@@ -342,7 +342,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 4: Continuously Reconciled: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates GitOps Principles to automatically correct unauthorized out-of-band changes (drift) made to production Kubernetes pods via `kubectl edit`.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to automatically correct unauthorized out-of-band changes (drift) made to production Kubernetes pods via `kubectl edit`.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Send an email to the cluster administrator whenever an alert triggers." },
@@ -363,7 +363,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 4: Continuously Reconciled: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates GitOps Principles to automatically correct unauthorized out-of-band changes (drift) made to production Kubernetes pods via `kubectl edit`.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to automatically correct unauthorized out-of-band changes (drift) made to production Kubernetes pods via `kubectl edit`.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Send an email to the cluster administrator whenever an alert triggers." },
@@ -384,7 +384,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 4: Continuously Reconciled: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates GitOps Principles to automatically correct unauthorized out-of-band changes (drift) made to production Kubernetes pods via `kubectl edit`.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to automatically correct unauthorized out-of-band changes (drift) made to production Kubernetes pods via `kubectl edit`.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Disable all automated healing to preserve manual modifications." },
@@ -405,7 +405,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "OpenGitOps Principle 4: Continuously Reconciled: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates GitOps Principles to automatically correct unauthorized out-of-band changes (drift) made to production Kubernetes pods via `kubectl edit`.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to automatically correct unauthorized out-of-band changes (drift) made to production Kubernetes pods via `kubectl edit`.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Disable all automated healing to preserve manual modifications." },
@@ -426,7 +426,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Push-Based vs Pull-Based Continuous Delivery: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Deployment Paradigms to evaluate the security advantages of migrating from a push-based CI/CD pipeline (e.g., Jenkins `kubectl apply`) to a pull-based GitOps engine.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to evaluate the security advantages of migrating from a push-based CI/CD pipeline (e.g., Jenkins `kubectl apply`) to a pull-based GitOps engine.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Pull-based deployment requires opening inbound firewall ports on the Kubernetes control plane." },
@@ -447,7 +447,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Push-Based vs Pull-Based Continuous Delivery: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Deployment Paradigms to evaluate the security advantages of migrating from a push-based CI/CD pipeline (e.g., Jenkins `kubectl apply`) to a pull-based GitOps engine.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to evaluate the security advantages of migrating from a push-based CI/CD pipeline (e.g., Jenkins `kubectl apply`) to a pull-based GitOps engine.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Pull-based deployment requires opening inbound firewall ports on the Kubernetes control plane." },
@@ -468,7 +468,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Push-Based vs Pull-Based Continuous Delivery: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Deployment Paradigms to evaluate the security advantages of migrating from a push-based CI/CD pipeline (e.g., Jenkins `kubectl apply`) to a pull-based GitOps engine.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to evaluate the security advantages of migrating from a push-based CI/CD pipeline (e.g., Jenkins `kubectl apply`) to a pull-based GitOps engine.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Both models provide identical network and credential security postures." },
@@ -489,7 +489,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Push-Based vs Pull-Based Continuous Delivery: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Deployment Paradigms to evaluate the security advantages of migrating from a push-based CI/CD pipeline (e.g., Jenkins `kubectl apply`) to a pull-based GitOps engine.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to evaluate the security advantages of migrating from a push-based CI/CD pipeline (e.g., Jenkins `kubectl apply`) to a pull-based GitOps engine.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Pull-based deployment requires opening inbound firewall ports on the Kubernetes control plane." },
@@ -510,7 +510,7 @@ export const CNCF_CGOA_QUESTIONS_11 = [
     domainId: "d1",
     domainName: "GitOps Terminology and Principles",
     title: "Push-Based vs Pull-Based Continuous Delivery: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Deployment Paradigms to evaluate the security advantages of migrating from a push-based CI/CD pipeline (e.g., Jenkins `kubectl apply`) to a pull-based GitOps engine.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to evaluate the security advantages of migrating from a push-based CI/CD pipeline (e.g., Jenkins `kubectl apply`) to a pull-based GitOps engine.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Pull-based GitOps keeps cluster credentials inside the firewall, eliminating the need to expose cluster API endpoints and admin kubeconfigs to external CI servers." },

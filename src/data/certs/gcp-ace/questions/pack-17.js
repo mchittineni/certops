@@ -6,7 +6,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Artifact Registry (Docker / OCI Repositories): Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Artifact Registry to store, version, and manage private Docker container images with integrated vulnerability scanning and fine-grained IAM access control.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to store, version, and manage private Docker container images with integrated vulnerability scanning and fine-grained IAM access control.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Upload Docker image tarballs to an unencrypted public Cloud Storage bucket." },
@@ -27,7 +27,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Artifact Registry (Docker / OCI Repositories): High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Artifact Registry to store, version, and manage private Docker container images with integrated vulnerability scanning and fine-grained IAM access control.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to store, version, and manage private Docker container images with integrated vulnerability scanning and fine-grained IAM access control.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Create a Docker repository in Artifact Registry and configure Docker authentication using 'gcloud auth configure-docker'." },
@@ -48,7 +48,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Artifact Registry (Docker / OCI Repositories): Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Artifact Registry to store, version, and manage private Docker container images with integrated vulnerability scanning and fine-grained IAM access control.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to store, version, and manage private Docker container images with integrated vulnerability scanning and fine-grained IAM access control.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Upload Docker image tarballs to an unencrypted public Cloud Storage bucket." },
@@ -69,7 +69,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Artifact Registry (Docker / OCI Repositories): Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Artifact Registry to store, version, and manage private Docker container images with integrated vulnerability scanning and fine-grained IAM access control.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to store, version, and manage private Docker container images with integrated vulnerability scanning and fine-grained IAM access control.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Upload Docker image tarballs to an unencrypted public Cloud Storage bucket." },
@@ -90,7 +90,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d3",
     domainName: "Deploying and implementing a cloud solution",
     title: "Artifact Registry (Docker / OCI Repositories): Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Artifact Registry to store, version, and manage private Docker container images with integrated vulnerability scanning and fine-grained IAM access control.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to store, version, and manage private Docker container images with integrated vulnerability scanning and fine-grained IAM access control.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Push container images to an unauthenticated public registry on the internet." },
@@ -111,7 +111,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Monitoring Dashboards and Metrics Explorer: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Monitoring to create a centralized operations dashboard displaying real-time CPU utilization, network egress, and disk IOPS across 50 Compute Engine instances.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to create a centralized operations dashboard displaying real-time CPU utilization, network egress, and disk IOPS across 50 Compute Engine instances.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Export data to a local spreadsheet and generate graphs manually." },
@@ -132,7 +132,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Monitoring Dashboards and Metrics Explorer: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Monitoring to create a centralized operations dashboard displaying real-time CPU utilization, network egress, and disk IOPS across 50 Compute Engine instances.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to create a centralized operations dashboard displaying real-time CPU utilization, network egress, and disk IOPS across 50 Compute Engine instances.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Export data to a local spreadsheet and generate graphs manually." },
@@ -153,7 +153,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Monitoring Dashboards and Metrics Explorer: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Monitoring to create a centralized operations dashboard displaying real-time CPU utilization, network egress, and disk IOPS across 50 Compute Engine instances.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to create a centralized operations dashboard displaying real-time CPU utilization, network egress, and disk IOPS across 50 Compute Engine instances.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Create a custom Cloud Monitoring Dashboard and add charts configured via Metrics Explorer." },
@@ -174,7 +174,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Monitoring Dashboards and Metrics Explorer: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Monitoring to create a centralized operations dashboard displaying real-time CPU utilization, network egress, and disk IOPS across 50 Compute Engine instances.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to create a centralized operations dashboard displaying real-time CPU utilization, network egress, and disk IOPS across 50 Compute Engine instances.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Export data to a local spreadsheet and generate graphs manually." },
@@ -195,7 +195,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Monitoring Dashboards and Metrics Explorer: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Monitoring to create a centralized operations dashboard displaying real-time CPU utilization, network egress, and disk IOPS across 50 Compute Engine instances.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to create a centralized operations dashboard displaying real-time CPU utilization, network egress, and disk IOPS across 50 Compute Engine instances.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Create a custom Cloud Monitoring Dashboard and add charts configured via Metrics Explorer." },
@@ -216,7 +216,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Monitoring Alerting Policies and Notification Channels: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Monitoring to automatically alert on-call DevOps engineers via PagerDuty, Slack, and email whenever an application's HTTP 5xx error rate exceeds 5% for 5 consecutive minutes.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to automatically alert on-call DevOps engineers via PagerDuty, Slack, and email whenever an application's HTTP 5xx error rate exceeds 5% for 5 consecutive minutes.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Instruct customer support to telephone engineers whenever users complain about outages." },
@@ -237,7 +237,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Monitoring Alerting Policies and Notification Channels: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Monitoring to automatically alert on-call DevOps engineers via PagerDuty, Slack, and email whenever an application's HTTP 5xx error rate exceeds 5% for 5 consecutive minutes.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to automatically alert on-call DevOps engineers via PagerDuty, Slack, and email whenever an application's HTTP 5xx error rate exceeds 5% for 5 consecutive minutes.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Schedule an hourly cron job to check if the website returns HTTP 200." },
@@ -258,7 +258,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Monitoring Alerting Policies and Notification Channels: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Monitoring to automatically alert on-call DevOps engineers via PagerDuty, Slack, and email whenever an application's HTTP 5xx error rate exceeds 5% for 5 consecutive minutes.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to automatically alert on-call DevOps engineers via PagerDuty, Slack, and email whenever an application's HTTP 5xx error rate exceeds 5% for 5 consecutive minutes.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Configure a Cloud Monitoring Alerting Policy with an error rate condition linked to Notification Channels." },
@@ -279,7 +279,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Monitoring Alerting Policies and Notification Channels: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Monitoring to automatically alert on-call DevOps engineers via PagerDuty, Slack, and email whenever an application's HTTP 5xx error rate exceeds 5% for 5 consecutive minutes.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to automatically alert on-call DevOps engineers via PagerDuty, Slack, and email whenever an application's HTTP 5xx error rate exceeds 5% for 5 consecutive minutes.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Configure a Cloud Monitoring Alerting Policy with an error rate condition linked to Notification Channels." },
@@ -300,7 +300,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Monitoring Alerting Policies and Notification Channels: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Monitoring to automatically alert on-call DevOps engineers via PagerDuty, Slack, and email whenever an application's HTTP 5xx error rate exceeds 5% for 5 consecutive minutes.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to automatically alert on-call DevOps engineers via PagerDuty, Slack, and email whenever an application's HTTP 5xx error rate exceeds 5% for 5 consecutive minutes.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Configure a Cloud Monitoring Alerting Policy with an error rate condition linked to Notification Channels." },
@@ -321,7 +321,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Logging Logs Explorer and Log Queries: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Logging to investigate a production application crash by searching all application logs in the last 30 minutes containing the error string 'DatabaseConnectionException'.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to investigate a production application crash by searching all application logs in the last 30 minutes containing the error string 'DatabaseConnectionException'.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Connect to each server individually using SSH and grep text files in /var/log." },
@@ -342,7 +342,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Logging Logs Explorer and Log Queries: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Logging to investigate a production application crash by searching all application logs in the last 30 minutes containing the error string 'DatabaseConnectionException'.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to investigate a production application crash by searching all application logs in the last 30 minutes containing the error string 'DatabaseConnectionException'.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Connect to each server individually using SSH and grep text files in /var/log." },
@@ -363,7 +363,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Logging Logs Explorer and Log Queries: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Logging to investigate a production application crash by searching all application logs in the last 30 minutes containing the error string 'DatabaseConnectionException'.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to investigate a production application crash by searching all application logs in the last 30 minutes containing the error string 'DatabaseConnectionException'.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Ask users to replicate the crash while an engineer watches their screen." },
@@ -384,7 +384,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Logging Logs Explorer and Log Queries: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Logging to investigate a production application crash by searching all application logs in the last 30 minutes containing the error string 'DatabaseConnectionException'.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to investigate a production application crash by searching all application logs in the last 30 minutes containing the error string 'DatabaseConnectionException'.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Connect to each server individually using SSH and grep text files in /var/log." },
@@ -405,7 +405,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Logging Logs Explorer and Log Queries: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Logging to investigate a production application crash by searching all application logs in the last 30 minutes containing the error string 'DatabaseConnectionException'.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to investigate a production application crash by searching all application logs in the last 30 minutes containing the error string 'DatabaseConnectionException'.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Deploy a separate third-party database to store log backups." },
@@ -426,7 +426,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Logging Log Sinks and Log Routing: Dr Failover",
-    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer evaluates Cloud Logging to route all organization security audit logs to an immutable Cloud Storage bucket for 7-year regulatory retention and stream error logs to BigQuery for SQL analysis.",
+    scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to route all organization security audit logs to an immutable Cloud Storage bucket for 7-year regulatory retention and stream error logs to BigQuery for SQL analysis.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Configure Log Router Sinks targeting Cloud Storage for long-term retention and BigQuery for analytical querying." },
@@ -447,7 +447,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Logging Log Sinks and Log Routing: High Load Scale",
-    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer evaluates Cloud Logging to route all organization security audit logs to an immutable Cloud Storage bucket for 7-year regulatory retention and stream error logs to BigQuery for SQL analysis.",
+    scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to route all organization security audit logs to an immutable Cloud Storage bucket for 7-year regulatory retention and stream error logs to BigQuery for SQL analysis.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Write a custom daemon that downloads logs via the API and uploads them to a local disk." },
@@ -468,7 +468,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Logging Log Sinks and Log Routing: Security Compliance",
-    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer evaluates Cloud Logging to route all organization security audit logs to an immutable Cloud Storage bucket for 7-year regulatory retention and stream error logs to BigQuery for SQL analysis.",
+    scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to route all organization security audit logs to an immutable Cloud Storage bucket for 7-year regulatory retention and stream error logs to BigQuery for SQL analysis.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Configure Log Router Sinks targeting Cloud Storage for long-term retention and BigQuery for analytical querying." },
@@ -489,7 +489,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Logging Log Sinks and Log Routing: Hybrid Migration",
-    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer evaluates Cloud Logging to route all organization security audit logs to an immutable Cloud Storage bucket for 7-year regulatory retention and stream error logs to BigQuery for SQL analysis.",
+    scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to route all organization security audit logs to an immutable Cloud Storage bucket for 7-year regulatory retention and stream error logs to BigQuery for SQL analysis.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Write a custom daemon that downloads logs via the API and uploads them to a local disk." },
@@ -510,7 +510,7 @@ export const GCP_ACE_QUESTIONS_17 = [
     domainId: "d4",
     domainName: "Ensuring successful operation of a cloud solution",
     title: "Cloud Logging Log Sinks and Log Routing: Resilience Failure",
-    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer evaluates Cloud Logging to route all organization security audit logs to an immutable Cloud Storage bucket for 7-year regulatory retention and stream error logs to BigQuery for SQL analysis.",
+    scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to route all organization security audit logs to an immutable Cloud Storage bucket for 7-year regulatory retention and stream error logs to BigQuery for SQL analysis.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Configure Log Router Sinks targeting Cloud Storage for long-term retention and BigQuery for analytical querying." },

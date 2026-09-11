@@ -6,7 +6,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Secret Scanning & Push Protection",
     title: "Non-Provider Secret Pattern Scanning: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Internal Secrets to detect hardcoded internal JDBC database connection strings containing embedded passwords across enterprise repositories.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to detect hardcoded internal JDBC database connection strings containing embedded passwords across enterprise repositories.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Configure custom secret patterns targeting database connection URI formats (`jdbc:postgresql://user:pass@host/db`)." },
@@ -27,7 +27,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Secret Scanning & Push Protection",
     title: "Non-Provider Secret Pattern Scanning: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Internal Secrets to detect hardcoded internal JDBC database connection strings containing embedded passwords across enterprise repositories.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to detect hardcoded internal JDBC database connection strings containing embedded passwords across enterprise repositories.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Store database connection strings in public repository README files." },
@@ -48,7 +48,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Secret Scanning & Push Protection",
     title: "Non-Provider Secret Pattern Scanning: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Internal Secrets to detect hardcoded internal JDBC database connection strings containing embedded passwords across enterprise repositories.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to detect hardcoded internal JDBC database connection strings containing embedded passwords across enterprise repositories.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Rely on partner patterns which only detect public cloud vendor tokens." },
@@ -69,7 +69,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Secret Scanning & Push Protection",
     title: "Non-Provider Secret Pattern Scanning: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Internal Secrets to detect hardcoded internal JDBC database connection strings containing embedded passwords across enterprise repositories.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to detect hardcoded internal JDBC database connection strings containing embedded passwords across enterprise repositories.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Rely on partner patterns which only detect public cloud vendor tokens." },
@@ -90,7 +90,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Secret Scanning & Push Protection",
     title: "Non-Provider Secret Pattern Scanning: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Internal Secrets to detect hardcoded internal JDBC database connection strings containing embedded passwords across enterprise repositories.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to detect hardcoded internal JDBC database connection strings containing embedded passwords across enterprise repositories.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Store database connection strings in public repository README files." },
@@ -111,7 +111,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Secret Scanning & Push Protection",
     title: "Audit Log Streaming for Enterprise Secret Governance: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Audit Streaming to stream all enterprise GitHub secret scanning events and push protection bypasses directly into an external Splunk SIEM.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to stream all enterprise GitHub secret scanning events and push protection bypasses directly into an external Splunk SIEM.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Manually download CSV audit logs once a month and upload them to Splunk via web forms." },
@@ -132,7 +132,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Secret Scanning & Push Protection",
     title: "Audit Log Streaming for Enterprise Secret Governance: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Audit Streaming to stream all enterprise GitHub secret scanning events and push protection bypasses directly into an external Splunk SIEM.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to stream all enterprise GitHub secret scanning events and push protection bypasses directly into an external Splunk SIEM.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Manually download CSV audit logs once a month and upload them to Splunk via web forms." },
@@ -153,7 +153,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Secret Scanning & Push Protection",
     title: "Audit Log Streaming for Enterprise Secret Governance: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Audit Streaming to stream all enterprise GitHub secret scanning events and push protection bypasses directly into an external Splunk SIEM.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to stream all enterprise GitHub secret scanning events and push protection bypasses directly into an external Splunk SIEM.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Manually download CSV audit logs once a month and upload them to Splunk via web forms." },
@@ -174,7 +174,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Secret Scanning & Push Protection",
     title: "Audit Log Streaming for Enterprise Secret Governance: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Audit Streaming to stream all enterprise GitHub secret scanning events and push protection bypasses directly into an external Splunk SIEM.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to stream all enterprise GitHub secret scanning events and push protection bypasses directly into an external Splunk SIEM.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Configure GitHub Enterprise Audit Log Streaming to an Amazon S3, Azure Event Hubs, or Datadog destination." },
@@ -195,7 +195,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d1",
     domainName: "Secret Scanning & Push Protection",
     title: "Audit Log Streaming for Enterprise Secret Governance: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Audit Streaming to stream all enterprise GitHub secret scanning events and push protection bypasses directly into an external Splunk SIEM.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to stream all enterprise GitHub secret scanning events and push protection bypasses directly into an external Splunk SIEM.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Manually download CSV audit logs once a month and upload them to Splunk via web forms." },
@@ -216,7 +216,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependency Graph and Package Ecosystem Visibility: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Dependency Graph to maintain complete, real-time visibility into all direct and transitive open-source dependencies used across 500 applications.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to maintain complete, real-time visibility into all direct and transitive open-source dependencies used across 500 applications.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Disable dependency tracking to prevent discovering vulnerable packages." },
@@ -237,7 +237,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependency Graph and Package Ecosystem Visibility: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Dependency Graph to maintain complete, real-time visibility into all direct and transitive open-source dependencies used across 500 applications.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to maintain complete, real-time visibility into all direct and transitive open-source dependencies used across 500 applications.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Disable dependency tracking to prevent discovering vulnerable packages." },
@@ -258,7 +258,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependency Graph and Package Ecosystem Visibility: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Dependency Graph to maintain complete, real-time visibility into all direct and transitive open-source dependencies used across 500 applications.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to maintain complete, real-time visibility into all direct and transitive open-source dependencies used across 500 applications.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Disable dependency tracking to prevent discovering vulnerable packages." },
@@ -279,7 +279,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependency Graph and Package Ecosystem Visibility: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Dependency Graph to maintain complete, real-time visibility into all direct and transitive open-source dependencies used across 500 applications.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to maintain complete, real-time visibility into all direct and transitive open-source dependencies used across 500 applications.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Instruct developers to manually update an Excel spreadsheet listing every dependency their software imports." },
@@ -300,7 +300,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependency Graph and Package Ecosystem Visibility: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Dependency Graph to maintain complete, real-time visibility into all direct and transitive open-source dependencies used across 500 applications.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to maintain complete, real-time visibility into all direct and transitive open-source dependencies used across 500 applications.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Enable GitHub Dependency Graph across all repositories, automatically parsing manifest and lock files (package-lock.json, pom.xml)." },
@@ -321,7 +321,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Alerts and Vulnerability Scoring: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Dependabot Alerts to prioritize patching critical open-source package vulnerabilities that have active, known in-the-wild exploits.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to prioritize patching critical open-source package vulnerabilities that have active, known in-the-wild exploits.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Review Dependabot alerts prioritized by CVSS severity score and Exploit Prediction Scoring System (EPSS) percentage." },
@@ -342,7 +342,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Alerts and Vulnerability Scoring: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Dependabot Alerts to prioritize patching critical open-source package vulnerabilities that have active, known in-the-wild exploits.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to prioritize patching critical open-source package vulnerabilities that have active, known in-the-wild exploits.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Ignore all dependency alerts until a security breach is publicly reported." },
@@ -363,7 +363,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Alerts and Vulnerability Scoring: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Dependabot Alerts to prioritize patching critical open-source package vulnerabilities that have active, known in-the-wild exploits.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to prioritize patching critical open-source package vulnerabilities that have active, known in-the-wild exploits.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Ignore all dependency alerts until a security breach is publicly reported." },
@@ -384,7 +384,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Alerts and Vulnerability Scoring: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Dependabot Alerts to prioritize patching critical open-source package vulnerabilities that have active, known in-the-wild exploits.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to prioritize patching critical open-source package vulnerabilities that have active, known in-the-wild exploits.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Review Dependabot alerts prioritized by CVSS severity score and Exploit Prediction Scoring System (EPSS) percentage." },
@@ -405,7 +405,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Alerts and Vulnerability Scoring: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Dependabot Alerts to prioritize patching critical open-source package vulnerabilities that have active, known in-the-wild exploits.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to prioritize patching critical open-source package vulnerabilities that have active, known in-the-wild exploits.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Review Dependabot alerts prioritized by CVSS severity score and Exploit Prediction Scoring System (EPSS) percentage." },
@@ -426,7 +426,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Security Updates: Automated Patch PRs: Enterprise Rollout",
-    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer evaluates Security Updates to ensure vulnerable dependencies are patched with minimal risk of introducing breaking application changes.",
+    scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to ensure vulnerable dependencies are patched with minimal risk of introducing breaking application changes.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Force update all dependencies to the latest major alpha release without testing compatibility." },
@@ -447,7 +447,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Security Updates: Automated Patch PRs: Supply Chain Defense",
-    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer evaluates Security Updates to ensure vulnerable dependencies are patched with minimal risk of introducing breaking application changes.",
+    scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to ensure vulnerable dependencies are patched with minimal risk of introducing breaking application changes.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Enable Dependabot Security Updates to automatically generate pull requests updating vulnerable packages to the minimum secure version." },
@@ -468,7 +468,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Security Updates: Automated Patch PRs: Secret Leak Prevention",
-    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer evaluates Security Updates to ensure vulnerable dependencies are patched with minimal risk of introducing breaking application changes.",
+    scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to ensure vulnerable dependencies are patched with minimal risk of introducing breaking application changes.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Force update all dependencies to the latest major alpha release without testing compatibility." },
@@ -489,7 +489,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Security Updates: Automated Patch PRs: Static Analysis Codeql",
-    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer evaluates Security Updates to ensure vulnerable dependencies are patched with minimal risk of introducing breaking application changes.",
+    scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to ensure vulnerable dependencies are patched with minimal risk of introducing breaking application changes.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Instruct developers to ignore security updates to maintain package version stability." },
@@ -510,7 +510,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     domainId: "d2",
     domainName: "Dependabot & Supply Chain Security",
     title: "Dependabot Security Updates: Automated Patch PRs: Governance And Compliance",
-    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer evaluates Security Updates to ensure vulnerable dependencies are patched with minimal risk of introducing breaking application changes.",
+    scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to ensure vulnerable dependencies are patched with minimal risk of introducing breaking application changes.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Enable Dependabot Security Updates to automatically generate pull requests updating vulnerable packages to the minimum secure version." },

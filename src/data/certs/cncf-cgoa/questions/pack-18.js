@@ -6,7 +6,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Projects (AppProject) for Multi-Tenant Isolation: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Argo CD AppProject to restrict a tenant development team so their Argo CD applications can only deploy to the `tenant-a` namespace and only pull manifests from their own Git repository.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to restrict a tenant development team so their Argo CD applications can only deploy to the `tenant-a` namespace and only pull manifests from their own Git repository.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Grant cluster-admin access to all developers in the default project." },
@@ -27,7 +27,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Projects (AppProject) for Multi-Tenant Isolation: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Argo CD AppProject to restrict a tenant development team so their Argo CD applications can only deploy to the `tenant-a` namespace and only pull manifests from their own Git repository.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to restrict a tenant development team so their Argo CD applications can only deploy to the `tenant-a` namespace and only pull manifests from their own Git repository.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Deploy a separate Argo CD instance for every individual developer." },
@@ -48,7 +48,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Projects (AppProject) for Multi-Tenant Isolation: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Argo CD AppProject to restrict a tenant development team so their Argo CD applications can only deploy to the `tenant-a` namespace and only pull manifests from their own Git repository.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to restrict a tenant development team so their Argo CD applications can only deploy to the `tenant-a` namespace and only pull manifests from their own Git repository.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Create an Argo CD `AppProject` resource binding allowed source repositories, destination clusters/namespaces, and RBAC roles." },
@@ -69,7 +69,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Projects (AppProject) for Multi-Tenant Isolation: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Argo CD AppProject to restrict a tenant development team so their Argo CD applications can only deploy to the `tenant-a` namespace and only pull manifests from their own Git repository.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to restrict a tenant development team so their Argo CD applications can only deploy to the `tenant-a` namespace and only pull manifests from their own Git repository.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Rely on developers voluntarily deploying to the correct namespace." },
@@ -90,7 +90,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Projects (AppProject) for Multi-Tenant Isolation: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Argo CD AppProject to restrict a tenant development team so their Argo CD applications can only deploy to the `tenant-a` namespace and only pull manifests from their own Git repository.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to restrict a tenant development team so their Argo CD applications can only deploy to the `tenant-a` namespace and only pull manifests from their own Git repository.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Create an Argo CD `AppProject` resource binding allowed source repositories, destination clusters/namespaces, and RBAC roles." },
@@ -111,7 +111,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "GitOps CI/CD Integration: Writing Back to Git: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates CI/CD Integration to integrate an automated GitHub Actions CI build pipeline with an Argo CD deployment repository.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to integrate an automated GitHub Actions CI build pipeline with an Argo CD deployment repository.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "The CI pipeline builds and pushes the container image to a registry, then commits the new image tag to the GitOps repository using a bot account." },
@@ -132,7 +132,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "GitOps CI/CD Integration: Writing Back to Git: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates CI/CD Integration to integrate an automated GitHub Actions CI build pipeline with an Argo CD deployment repository.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to integrate an automated GitHub Actions CI build pipeline with an Argo CD deployment repository.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "The CI pipeline triggers a webhook on the developer's laptop." },
@@ -153,7 +153,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "GitOps CI/CD Integration: Writing Back to Git: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates CI/CD Integration to integrate an automated GitHub Actions CI build pipeline with an Argo CD deployment repository.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to integrate an automated GitHub Actions CI build pipeline with an Argo CD deployment repository.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "The developer manually edits the image tag in Git after the CI build finishes." },
@@ -174,7 +174,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "GitOps CI/CD Integration: Writing Back to Git: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates CI/CD Integration to integrate an automated GitHub Actions CI build pipeline with an Argo CD deployment repository.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to integrate an automated GitHub Actions CI build pipeline with an Argo CD deployment repository.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "The CI pipeline connects directly to the Kubernetes API and runs `kubectl set image`." },
@@ -195,7 +195,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "GitOps CI/CD Integration: Writing Back to Git: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates CI/CD Integration to integrate an automated GitHub Actions CI build pipeline with an Argo CD deployment repository.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to integrate an automated GitHub Actions CI build pipeline with an Argo CD deployment repository.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "The CI pipeline connects directly to the Kubernetes API and runs `kubectl set image`." },
@@ -216,7 +216,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "PreSync, Sync, and PostSync Hooks in Argo CD: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Resource Hooks to execute a Slack notification Job and trigger a cache warm-up script only after all application pods have successfully deployed and become healthy.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to execute a Slack notification Job and trigger a cache warm-up script only after all application pods have successfully deployed and become healthy.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Annotate the Job with `argocd.argoproj.io/hook: PreSync`." },
@@ -237,7 +237,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "PreSync, Sync, and PostSync Hooks in Argo CD: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Resource Hooks to execute a Slack notification Job and trigger a cache warm-up script only after all application pods have successfully deployed and become healthy.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to execute a Slack notification Job and trigger a cache warm-up script only after all application pods have successfully deployed and become healthy.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Run the warm-up script before deploying pods." },
@@ -258,7 +258,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "PreSync, Sync, and PostSync Hooks in Argo CD: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Resource Hooks to execute a Slack notification Job and trigger a cache warm-up script only after all application pods have successfully deployed and become healthy.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to execute a Slack notification Job and trigger a cache warm-up script only after all application pods have successfully deployed and become healthy.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Run the warm-up script before deploying pods." },
@@ -279,7 +279,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "PreSync, Sync, and PostSync Hooks in Argo CD: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Resource Hooks to execute a Slack notification Job and trigger a cache warm-up script only after all application pods have successfully deployed and become healthy.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to execute a Slack notification Job and trigger a cache warm-up script only after all application pods have successfully deployed and become healthy.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Annotate the notification and warm-up Jobs with `helm.sh/hook: post-install,post-upgrade` or `argocd.argoproj.io/hook: PostSync`." },
@@ -300,7 +300,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "PreSync, Sync, and PostSync Hooks in Argo CD: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Resource Hooks to execute a Slack notification Job and trigger a cache warm-up script only after all application pods have successfully deployed and become healthy.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to execute a Slack notification Job and trigger a cache warm-up script only after all application pods have successfully deployed and become healthy.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Annotate the notification and warm-up Jobs with `helm.sh/hook: post-install,post-upgrade` or `argocd.argoproj.io/hook: PostSync`." },
@@ -321,7 +321,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Flux Helm Controller and Automatic Drift Correction: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates Flux Helm Controller to ensure that an application installed via a Helm chart automatically recovers its original configuration if someone manually edits its ConfigMap in the cluster.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to ensure that an application installed via a Helm chart automatically recovers its original configuration if someone manually edits its ConfigMap in the cluster.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Flux only installs Helm charts once and never reconciles them again." },
@@ -342,7 +342,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Flux Helm Controller and Automatic Drift Correction: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates Flux Helm Controller to ensure that an application installed via a Helm chart automatically recovers its original configuration if someone manually edits its ConfigMap in the cluster.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to ensure that an application installed via a Helm chart automatically recovers its original configuration if someone manually edits its ConfigMap in the cluster.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Helm charts cannot be protected against manual cluster edits." },
@@ -363,7 +363,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Flux Helm Controller and Automatic Drift Correction: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates Flux Helm Controller to ensure that an application installed via a Helm chart automatically recovers its original configuration if someone manually edits its ConfigMap in the cluster.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to ensure that an application installed via a Helm chart automatically recovers its original configuration if someone manually edits its ConfigMap in the cluster.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Flux only installs Helm charts once and never reconciles them again." },
@@ -384,7 +384,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Flux Helm Controller and Automatic Drift Correction: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates Flux Helm Controller to ensure that an application installed via a Helm chart automatically recovers its original configuration if someone manually edits its ConfigMap in the cluster.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to ensure that an application installed via a Helm chart automatically recovers its original configuration if someone manually edits its ConfigMap in the cluster.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Flux only installs Helm charts once and never reconciles them again." },
@@ -405,7 +405,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "Flux Helm Controller and Automatic Drift Correction: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates Flux Helm Controller to ensure that an application installed via a Helm chart automatically recovers its original configuration if someone manually edits its ConfigMap in the cluster.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to ensure that an application installed via a Helm chart automatically recovers its original configuration if someone manually edits its ConfigMap in the cluster.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Flux `helm-controller` continuously compares live Helm releases against Git-declared values and automatically re-applies the release upon drift." },
@@ -426,7 +426,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "GitOps Observability and Prometheus Metrics: Dr Failover",
-    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer evaluates GitOps Metrics to monitor the health and performance of the GitOps deployment engine and alert on applications stuck in OutOfSync or Degraded status.",
+    scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to monitor the health and performance of the GitOps deployment engine and alert on applications stuck in OutOfSync or Degraded status.",
     question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Rely on customer complaints when deployments fail." },
@@ -447,7 +447,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "GitOps Observability and Prometheus Metrics: High Load Scale",
-    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer evaluates GitOps Metrics to monitor the health and performance of the GitOps deployment engine and alert on applications stuck in OutOfSync or Degraded status.",
+    scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to monitor the health and performance of the GitOps deployment engine and alert on applications stuck in OutOfSync or Degraded status.",
     question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Disable metric scraping to save memory on monitoring servers." },
@@ -468,7 +468,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "GitOps Observability and Prometheus Metrics: Security Compliance",
-    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer evaluates GitOps Metrics to monitor the health and performance of the GitOps deployment engine and alert on applications stuck in OutOfSync or Degraded status.",
+    scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to monitor the health and performance of the GitOps deployment engine and alert on applications stuck in OutOfSync or Degraded status.",
     question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Rely on customer complaints when deployments fail." },
@@ -489,7 +489,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "GitOps Observability and Prometheus Metrics: Hybrid Migration",
-    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer evaluates GitOps Metrics to monitor the health and performance of the GitOps deployment engine and alert on applications stuck in OutOfSync or Degraded status.",
+    scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to monitor the health and performance of the GitOps deployment engine and alert on applications stuck in OutOfSync or Degraded status.",
     question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Inspect the Argo CD web dashboard manually 24/7." },
@@ -510,7 +510,7 @@ export const CNCF_CGOA_QUESTIONS_18 = [
     domainId: "d3",
     domainName: "GitOps Tools and Workflows",
     title: "GitOps Observability and Prometheus Metrics: Resilience Failure",
-    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer evaluates GitOps Metrics to monitor the health and performance of the GitOps deployment engine and alert on applications stuck in OutOfSync or Degraded status.",
+    scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to monitor the health and performance of the GitOps deployment engine and alert on applications stuck in OutOfSync or Degraded status.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Rely on customer complaints when deployments fail." },

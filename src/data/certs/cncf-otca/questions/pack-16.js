@@ -6,7 +6,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Filereceiver and Fileexporter for Offline Telemetry: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates File Ingress & Egress to record production telemetry to disk files for offline compliance auditing or replay synthetic telemetry during load testing.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to record production telemetry to disk files for offline compliance auditing or replay synthetic telemetry during load testing.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Write custom shell redirection scripts inside container entrypoints." },
@@ -27,7 +27,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Filereceiver and Fileexporter for Offline Telemetry: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates File Ingress & Egress to record production telemetry to disk files for offline compliance auditing or replay synthetic telemetry during load testing.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to record production telemetry to disk files for offline compliance auditing or replay synthetic telemetry during load testing.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Write custom shell redirection scripts inside container entrypoints." },
@@ -48,7 +48,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Filereceiver and Fileexporter for Offline Telemetry: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates File Ingress & Egress to record production telemetry to disk files for offline compliance auditing or replay synthetic telemetry during load testing.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to record production telemetry to disk files for offline compliance auditing or replay synthetic telemetry during load testing.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Configure the `file` exporter to write serialized OTLP JSON/Protobuf records to disk, and the `file` receiver to ingest recorded data." },
@@ -69,7 +69,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Filereceiver and Fileexporter for Offline Telemetry: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates File Ingress & Egress to record production telemetry to disk files for offline compliance auditing or replay synthetic telemetry during load testing.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to record production telemetry to disk files for offline compliance auditing or replay synthetic telemetry during load testing.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Configure the `file` exporter to write serialized OTLP JSON/Protobuf records to disk, and the `file` receiver to ingest recorded data." },
@@ -90,7 +90,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Filereceiver and Fileexporter for Offline Telemetry: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates File Ingress & Egress to record production telemetry to disk files for offline compliance auditing or replay synthetic telemetry during load testing.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to record production telemetry to disk files for offline compliance auditing or replay synthetic telemetry during load testing.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "The file exporter cannot preserve OTLP formatting." },
@@ -111,7 +111,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Managing OpenTelemetry Collector High Availability and Scaling: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Collector Scaling to scale an OpenTelemetry Collector gateway deployment dynamically to handle traffic spikes up to 200,000 telemetry events per second.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to scale an OpenTelemetry Collector gateway deployment dynamically to handle traffic spikes up to 200,000 telemetry events per second.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Run a single massive virtual machine with 128 cores." },
@@ -132,7 +132,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Managing OpenTelemetry Collector High Availability and Scaling: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Collector Scaling to scale an OpenTelemetry Collector gateway deployment dynamically to handle traffic spikes up to 200,000 telemetry events per second.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to scale an OpenTelemetry Collector gateway deployment dynamically to handle traffic spikes up to 200,000 telemetry events per second.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Run a single massive virtual machine with 128 cores." },
@@ -153,7 +153,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Managing OpenTelemetry Collector High Availability and Scaling: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Collector Scaling to scale an OpenTelemetry Collector gateway deployment dynamically to handle traffic spikes up to 200,000 telemetry events per second.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to scale an OpenTelemetry Collector gateway deployment dynamically to handle traffic spikes up to 200,000 telemetry events per second.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Run a single massive virtual machine with 128 cores." },
@@ -174,7 +174,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Managing OpenTelemetry Collector High Availability and Scaling: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Collector Scaling to scale an OpenTelemetry Collector gateway deployment dynamically to handle traffic spikes up to 200,000 telemetry events per second.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to scale an OpenTelemetry Collector gateway deployment dynamically to handle traffic spikes up to 200,000 telemetry events per second.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Scale based on time of day regardless of actual traffic." },
@@ -195,7 +195,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d2",
     domainName: "OpenTelemetry Collector and Pipelines",
     title: "Managing OpenTelemetry Collector High Availability and Scaling: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Collector Scaling to scale an OpenTelemetry Collector gateway deployment dynamically to handle traffic spikes up to 200,000 telemetry events per second.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to scale an OpenTelemetry Collector gateway deployment dynamically to handle traffic spikes up to 200,000 telemetry events per second.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Disable all scaling and drop excess packets." },
@@ -216,7 +216,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Automatic vs Manual Instrumentation Trade-offs: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Instrumentation Types to determine the optimal instrumentation approach for quickly capturing standard HTTP and database metrics without modifying legacy application source code.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to determine the optimal instrumentation approach for quickly capturing standard HTTP and database metrics without modifying legacy application source code.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Automatic instrumentation is not supported in OpenTelemetry." },
@@ -237,7 +237,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Automatic vs Manual Instrumentation Trade-offs: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Instrumentation Types to determine the optimal instrumentation approach for quickly capturing standard HTTP and database metrics without modifying legacy application source code.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to determine the optimal instrumentation approach for quickly capturing standard HTTP and database metrics without modifying legacy application source code.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Deploy external network packet sniffers to deduce HTTP status codes." },
@@ -258,7 +258,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Automatic vs Manual Instrumentation Trade-offs: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Instrumentation Types to determine the optimal instrumentation approach for quickly capturing standard HTTP and database metrics without modifying legacy application source code.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to determine the optimal instrumentation approach for quickly capturing standard HTTP and database metrics without modifying legacy application source code.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Use zero-code Automatic Instrumentation (e.g., Java agent, Node.js auto-instrumentation) to instrument frameworks and libraries without code changes." },
@@ -279,7 +279,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Automatic vs Manual Instrumentation Trade-offs: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Instrumentation Types to determine the optimal instrumentation approach for quickly capturing standard HTTP and database metrics without modifying legacy application source code.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to determine the optimal instrumentation approach for quickly capturing standard HTTP and database metrics without modifying legacy application source code.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Automatic instrumentation is not supported in OpenTelemetry." },
@@ -300,7 +300,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Automatic vs Manual Instrumentation Trade-offs: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Instrumentation Types to determine the optimal instrumentation approach for quickly capturing standard HTTP and database metrics without modifying legacy application source code.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to determine the optimal instrumentation approach for quickly capturing standard HTTP and database metrics without modifying legacy application source code.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Use zero-code Automatic Instrumentation (e.g., Java agent, Node.js auto-instrumentation) to instrument frameworks and libraries without code changes." },
@@ -321,7 +321,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Configuring OpenTelemetry Environment Variables: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates SDK Configuration to configure a containerized microservice to report telemetry under the service name `billing-service` and send OTLP to a local collector on port 4317.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to configure a containerized microservice to report telemetry under the service name `billing-service` and send OTLP to a local collector on port 4317.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Pass the configuration via command-line arguments to the container entrypoint." },
@@ -342,7 +342,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Configuring OpenTelemetry Environment Variables: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates SDK Configuration to configure a containerized microservice to report telemetry under the service name `billing-service` and send OTLP to a local collector on port 4317.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to configure a containerized microservice to report telemetry under the service name `billing-service` and send OTLP to a local collector on port 4317.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Pass the configuration via command-line arguments to the container entrypoint." },
@@ -363,7 +363,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Configuring OpenTelemetry Environment Variables: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates SDK Configuration to configure a containerized microservice to report telemetry under the service name `billing-service` and send OTLP to a local collector on port 4317.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to configure a containerized microservice to report telemetry under the service name `billing-service` and send OTLP to a local collector on port 4317.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "OpenTelemetry environment variables are ignored by default." },
@@ -384,7 +384,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Configuring OpenTelemetry Environment Variables: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates SDK Configuration to configure a containerized microservice to report telemetry under the service name `billing-service` and send OTLP to a local collector on port 4317.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to configure a containerized microservice to report telemetry under the service name `billing-service` and send OTLP to a local collector on port 4317.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "OpenTelemetry environment variables are ignored by default." },
@@ -405,7 +405,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Configuring OpenTelemetry Environment Variables: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates SDK Configuration to configure a containerized microservice to report telemetry under the service name `billing-service` and send OTLP to a local collector on port 4317.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to configure a containerized microservice to report telemetry under the service name `billing-service` and send OTLP to a local collector on port 4317.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Set standard environment variables: `OTEL_SERVICE_NAME=billing-service` and `OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317`." },
@@ -426,7 +426,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Manual Tracing: TracerProvider and Tracer Initialization: Enterprise Observability",
-    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer evaluates Programmatic Tracing to initialize OpenTelemetry tracing programmatically in a Go or Python application with batch exporting to an OTLP endpoint.",
+    scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to initialize OpenTelemetry tracing programmatically in a Go or Python application with batch exporting to an OTLP endpoint.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Create a `TracerProvider` registered with a `BatchSpanProcessor` using `OTLPSpanExporter`, and set it as the global TracerProvider." },
@@ -447,7 +447,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Manual Tracing: TracerProvider and Tracer Initialization: High Throughput Scale",
-    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer evaluates Programmatic Tracing to initialize OpenTelemetry tracing programmatically in a Go or Python application with batch exporting to an OTLP endpoint.",
+    scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to initialize OpenTelemetry tracing programmatically in a Go or Python application with batch exporting to an OTLP endpoint.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Create a `TracerProvider` registered with a `BatchSpanProcessor` using `OTLPSpanExporter`, and set it as the global TracerProvider." },
@@ -468,7 +468,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Manual Tracing: TracerProvider and Tracer Initialization: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer evaluates Programmatic Tracing to initialize OpenTelemetry tracing programmatically in a Go or Python application with batch exporting to an OTLP endpoint.",
+    scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to initialize OpenTelemetry tracing programmatically in a Go or Python application with batch exporting to an OTLP endpoint.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Instantiate raw spans without initializing a TracerProvider." },
@@ -489,7 +489,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Manual Tracing: TracerProvider and Tracer Initialization: Microservice Migration",
-    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer evaluates Programmatic Tracing to initialize OpenTelemetry tracing programmatically in a Go or Python application with batch exporting to an OTLP endpoint.",
+    scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to initialize OpenTelemetry tracing programmatically in a Go or Python application with batch exporting to an OTLP endpoint.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Instantiate raw spans without initializing a TracerProvider." },
@@ -510,7 +510,7 @@ export const CNCF_OTCA_QUESTIONS_16 = [
     domainId: "d3",
     domainName: "Instrumentation and Signals",
     title: "Manual Tracing: TracerProvider and Tracer Initialization: Resilience And Reliability",
-    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer evaluates Programmatic Tracing to initialize OpenTelemetry tracing programmatically in a Go or Python application with batch exporting to an OTLP endpoint.",
+    scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to initialize OpenTelemetry tracing programmatically in a Go or Python application with batch exporting to an OTLP endpoint.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Instantiate raw spans without initializing a TracerProvider." },

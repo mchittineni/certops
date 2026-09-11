@@ -6,7 +6,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Azure Monitor Log Analytics and Kusto Query Language (KQL): Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Log Analytics to query and analyze millions of log records across virtual machines, containers, and databases to identify performance trends and error rates.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to query and analyze millions of log records across virtual machines, containers, and databases to identify performance trends and error rates.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Centralize logs in an Azure Monitor Log Analytics workspace and execute analytical queries using Kusto Query Language (KQL)." },
@@ -27,7 +27,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Azure Monitor Log Analytics and Kusto Query Language (KQL): High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Log Analytics to query and analyze millions of log records across virtual machines, containers, and databases to identify performance trends and error rates.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to query and analyze millions of log records across virtual machines, containers, and databases to identify performance trends and error rates.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Centralize logs in an Azure Monitor Log Analytics workspace and execute analytical queries using Kusto Query Language (KQL)." },
@@ -48,7 +48,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Azure Monitor Log Analytics and Kusto Query Language (KQL): Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Log Analytics to query and analyze millions of log records across virtual machines, containers, and databases to identify performance trends and error rates.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to query and analyze millions of log records across virtual machines, containers, and databases to identify performance trends and error rates.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Download raw log text files to local laptops and run grep commands." },
@@ -69,7 +69,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Azure Monitor Log Analytics and Kusto Query Language (KQL): Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Log Analytics to query and analyze millions of log records across virtual machines, containers, and databases to identify performance trends and error rates.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to query and analyze millions of log records across virtual machines, containers, and databases to identify performance trends and error rates.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Store logs in ephemeral container storage without centralized collection." },
@@ -90,7 +90,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Azure Monitor Log Analytics and Kusto Query Language (KQL): Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Log Analytics to query and analyze millions of log records across virtual machines, containers, and databases to identify performance trends and error rates.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to query and analyze millions of log records across virtual machines, containers, and databases to identify performance trends and error rates.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Query production SQL databases directly for operational logs." },
@@ -111,7 +111,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Azure Monitor Alert Rules and Action Groups: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Metric Alerting to automatically notify the on-call engineer and invoke an automated scaling runbook when application response times exceed 2 seconds for 5 consecutive minutes.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to automatically notify the on-call engineer and invoke an automated scaling runbook when application response times exceed 2 seconds for 5 consecutive minutes.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Configure on-call engineers to manually watch dashboard charts continuously." },
@@ -132,7 +132,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Azure Monitor Alert Rules and Action Groups: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Metric Alerting to automatically notify the on-call engineer and invoke an automated scaling runbook when application response times exceed 2 seconds for 5 consecutive minutes.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to automatically notify the on-call engineer and invoke an automated scaling runbook when application response times exceed 2 seconds for 5 consecutive minutes.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Create an Azure Monitor Metric Alert rule and link it to an Action Group configured with SMS/email notifications and an Azure Automation webhook." },
@@ -153,7 +153,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Azure Monitor Alert Rules and Action Groups: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Metric Alerting to automatically notify the on-call engineer and invoke an automated scaling runbook when application response times exceed 2 seconds for 5 consecutive minutes.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to automatically notify the on-call engineer and invoke an automated scaling runbook when application response times exceed 2 seconds for 5 consecutive minutes.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Create an Azure Monitor Metric Alert rule and link it to an Action Group configured with SMS/email notifications and an Azure Automation webhook." },
@@ -174,7 +174,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Azure Monitor Alert Rules and Action Groups: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Metric Alerting to automatically notify the on-call engineer and invoke an automated scaling runbook when application response times exceed 2 seconds for 5 consecutive minutes.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to automatically notify the on-call engineer and invoke an automated scaling runbook when application response times exceed 2 seconds for 5 consecutive minutes.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Send alert emails to an unmonitored generic mailbox." },
@@ -195,7 +195,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Azure Monitor Alert Rules and Action Groups: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Metric Alerting to automatically notify the on-call engineer and invoke an automated scaling runbook when application response times exceed 2 seconds for 5 consecutive minutes.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to automatically notify the on-call engineer and invoke an automated scaling runbook when application response times exceed 2 seconds for 5 consecutive minutes.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Send alert emails to an unmonitored generic mailbox." },
@@ -216,7 +216,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Availability Monitoring with Synthetic Web Tests: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Availability Tests to verify that a public web portal is reachable and responding within acceptable latency limits from five geographic locations worldwide 24/7.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to verify that a public web portal is reachable and responding within acceptable latency limits from five geographic locations worldwide 24/7.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Configure Application Insights Standard Availability Tests originating from multiple geographic regions with URL ping and certificate validation." },
@@ -237,7 +237,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Availability Monitoring with Synthetic Web Tests: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Availability Tests to verify that a public web portal is reachable and responding within acceptable latency limits from five geographic locations worldwide 24/7.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to verify that a public web portal is reachable and responding within acceptable latency limits from five geographic locations worldwide 24/7.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Rely on internal network pings executed from within the same virtual network." },
@@ -258,7 +258,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Availability Monitoring with Synthetic Web Tests: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Availability Tests to verify that a public web portal is reachable and responding within acceptable latency limits from five geographic locations worldwide 24/7.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to verify that a public web portal is reachable and responding within acceptable latency limits from five geographic locations worldwide 24/7.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Rely on internal network pings executed from within the same virtual network." },
@@ -279,7 +279,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Availability Monitoring with Synthetic Web Tests: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Availability Tests to verify that a public web portal is reachable and responding within acceptable latency limits from five geographic locations worldwide 24/7.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to verify that a public web portal is reachable and responding within acceptable latency limits from five geographic locations worldwide 24/7.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Test the portal manually once a month from the company headquarters." },
@@ -300,7 +300,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Availability Monitoring with Synthetic Web Tests: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Availability Tests to verify that a public web portal is reachable and responding within acceptable latency limits from five geographic locations worldwide 24/7.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to verify that a public web portal is reachable and responding within acceptable latency limits from five geographic locations worldwide 24/7.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Test the portal manually once a month from the company headquarters." },
@@ -321,7 +321,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Site Reliability Engineering (SRE) SLI and SLO Tracking: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates SRE Metrics to track whether a customer-facing payment microservice satisfies its agreed 99.9% monthly availability Service Level Objective (SLO).",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to track whether a customer-facing payment microservice satisfies its agreed 99.9% monthly availability Service Level Objective (SLO).",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Calculate availability by counting customer support tickets filed per month." },
@@ -342,7 +342,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Site Reliability Engineering (SRE) SLI and SLO Tracking: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates SRE Metrics to track whether a customer-facing payment microservice satisfies its agreed 99.9% monthly availability Service Level Objective (SLO).",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to track whether a customer-facing payment microservice satisfies its agreed 99.9% monthly availability Service Level Objective (SLO).",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Define the Service Level Indicator (SLI) as successful requests divided by total requests using KQL, and track error budget consumption in Azure Monitor workbooks." },
@@ -363,7 +363,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Site Reliability Engineering (SRE) SLI and SLO Tracking: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates SRE Metrics to track whether a customer-facing payment microservice satisfies its agreed 99.9% monthly availability Service Level Objective (SLO).",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to track whether a customer-facing payment microservice satisfies its agreed 99.9% monthly availability Service Level Objective (SLO).",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Define the Service Level Indicator (SLI) as successful requests divided by total requests using KQL, and track error budget consumption in Azure Monitor workbooks." },
@@ -384,7 +384,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Site Reliability Engineering (SRE) SLI and SLO Tracking: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates SRE Metrics to track whether a customer-facing payment microservice satisfies its agreed 99.9% monthly availability Service Level Objective (SLO).",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to track whether a customer-facing payment microservice satisfies its agreed 99.9% monthly availability Service Level Objective (SLO).",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Measure server CPU utilization as the sole metric for user availability." },
@@ -405,7 +405,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Site Reliability Engineering (SRE) SLI and SLO Tracking: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates SRE Metrics to track whether a customer-facing payment microservice satisfies its agreed 99.9% monthly availability Service Level Objective (SLO).",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to track whether a customer-facing payment microservice satisfies its agreed 99.9% monthly availability Service Level Objective (SLO).",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Assume the service is 100% available unless an engineer reports a bug." },
@@ -426,7 +426,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Azure Monitor Workbooks for Unified Observability: Dr Failover",
-    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer evaluates Workbooks to consolidate metrics, logs, and alert states from multiple Azure subscriptions into an interactive, visual troubleshooting dashboard for operations teams.",
+    scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to consolidate metrics, logs, and alert states from multiple Azure subscriptions into an interactive, visual troubleshooting dashboard for operations teams.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
       { id: 'A', text: "Author an Azure Monitor Workbook combining KQL queries, metric visualizations, and interactive dropdown parameters." },
@@ -447,7 +447,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Azure Monitor Workbooks for Unified Observability: High Load Scale",
-    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer evaluates Workbooks to consolidate metrics, logs, and alert states from multiple Azure subscriptions into an interactive, visual troubleshooting dashboard for operations teams.",
+    scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to consolidate metrics, logs, and alert states from multiple Azure subscriptions into an interactive, visual troubleshooting dashboard for operations teams.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Author an Azure Monitor Workbook combining KQL queries, metric visualizations, and interactive dropdown parameters." },
@@ -468,7 +468,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Azure Monitor Workbooks for Unified Observability: Security Compliance",
-    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer evaluates Workbooks to consolidate metrics, logs, and alert states from multiple Azure subscriptions into an interactive, visual troubleshooting dashboard for operations teams.",
+    scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to consolidate metrics, logs, and alert states from multiple Azure subscriptions into an interactive, visual troubleshooting dashboard for operations teams.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Take screenshots of individual resource graphs and paste them into Word documents." },
@@ -489,7 +489,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Azure Monitor Workbooks for Unified Observability: Hybrid Migration",
-    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer evaluates Workbooks to consolidate metrics, logs, and alert states from multiple Azure subscriptions into an interactive, visual troubleshooting dashboard for operations teams.",
+    scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to consolidate metrics, logs, and alert states from multiple Azure subscriptions into an interactive, visual troubleshooting dashboard for operations teams.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Author an Azure Monitor Workbook combining KQL queries, metric visualizations, and interactive dropdown parameters." },
@@ -510,7 +510,7 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     domainId: "d5",
     domainName: "Implement an instrumentation strategy",
     title: "Azure Monitor Workbooks for Unified Observability: Resilience Failure",
-    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer evaluates Workbooks to consolidate metrics, logs, and alert states from multiple Azure subscriptions into an interactive, visual troubleshooting dashboard for operations teams.",
+    scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to consolidate metrics, logs, and alert states from multiple Azure subscriptions into an interactive, visual troubleshooting dashboard for operations teams.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Take screenshots of individual resource graphs and paste them into Word documents." },

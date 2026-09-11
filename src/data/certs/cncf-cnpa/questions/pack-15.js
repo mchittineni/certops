@@ -6,7 +6,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer Experience (DevEx) and Cognitive Load Reduction: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Developer Experience to enable application software engineers to focus on delivering business features rather than troubleshooting infrastructure plumbing.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to enable application software engineers to focus on delivering business features rather than troubleshooting infrastructure plumbing.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Introduce multiple redundant manual approval gates before developers can view test log files." },
@@ -27,7 +27,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer Experience (DevEx) and Cognitive Load Reduction: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Developer Experience to enable application software engineers to focus on delivering business features rather than troubleshooting infrastructure plumbing.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to enable application software engineers to focus on delivering business features rather than troubleshooting infrastructure plumbing.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Treat developer cognitive load as a non-issue that engineers should overcome individually." },
@@ -48,7 +48,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer Experience (DevEx) and Cognitive Load Reduction: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Developer Experience to enable application software engineers to focus on delivering business features rather than troubleshooting infrastructure plumbing.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to enable application software engineers to focus on delivering business features rather than troubleshooting infrastructure plumbing.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Introduce multiple redundant manual approval gates before developers can view test log files." },
@@ -69,7 +69,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer Experience (DevEx) and Cognitive Load Reduction: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Developer Experience to enable application software engineers to focus on delivering business features rather than troubleshooting infrastructure plumbing.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to enable application software engineers to focus on delivering business features rather than troubleshooting infrastructure plumbing.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Treat developer cognitive load as a non-issue that engineers should overcome individually." },
@@ -90,7 +90,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer Experience (DevEx) and Cognitive Load Reduction: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Developer Experience to enable application software engineers to focus on delivering business features rather than troubleshooting infrastructure plumbing.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to enable application software engineers to focus on delivering business features rather than troubleshooting infrastructure plumbing.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Force application engineers to manage physical data center racking and BGP routing protocols." },
@@ -111,7 +111,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Access Management and Single Sign-On (SSO) in Portals: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Portal IAM to ensure developers automatically receive appropriate portal access and cluster namespaces based on their corporate team membership.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to ensure developers automatically receive appropriate portal access and cluster namespaces based on their corporate team membership.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Disable multi-factor authentication to simplify login forms." },
@@ -132,7 +132,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Access Management and Single Sign-On (SSO) in Portals: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Portal IAM to ensure developers automatically receive appropriate portal access and cluster namespaces based on their corporate team membership.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to ensure developers automatically receive appropriate portal access and cluster namespaces based on their corporate team membership.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Allow all internal employees unrestricted administrative access to all production databases." },
@@ -153,7 +153,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Access Management and Single Sign-On (SSO) in Portals: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Portal IAM to ensure developers automatically receive appropriate portal access and cluster namespaces based on their corporate team membership.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to ensure developers automatically receive appropriate portal access and cluster namespaces based on their corporate team membership.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Disable multi-factor authentication to simplify login forms." },
@@ -174,7 +174,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Access Management and Single Sign-On (SSO) in Portals: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Portal IAM to ensure developers automatically receive appropriate portal access and cluster namespaces based on their corporate team membership.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to ensure developers automatically receive appropriate portal access and cluster namespaces based on their corporate team membership.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Create static local passwords on every individual server with no centralized identity federation." },
@@ -195,7 +195,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Access Management and Single Sign-On (SSO) in Portals: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Portal IAM to ensure developers automatically receive appropriate portal access and cluster namespaces based on their corporate team membership.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to ensure developers automatically receive appropriate portal access and cluster namespaces based on their corporate team membership.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Create static local passwords on every individual server with no centralized identity federation." },
@@ -216,7 +216,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Dynamic Configuration Management: Kustomize vs Helm: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Configuration Management to manage base application manifests across multiple deployment environments (dev, staging, prod) without duplication.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to manage base application manifests across multiple deployment environments (dev, staging, prod) without duplication.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Manually edit production YAML files using terminal text editors during active deployments." },
@@ -237,7 +237,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Dynamic Configuration Management: Kustomize vs Helm: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Configuration Management to manage base application manifests across multiple deployment environments (dev, staging, prod) without duplication.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to manage base application manifests across multiple deployment environments (dev, staging, prod) without duplication.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Maintain completely separate, unlinked copies of raw Kubernetes YAML files for every single environment." },
@@ -258,7 +258,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Dynamic Configuration Management: Kustomize vs Helm: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Configuration Management to manage base application manifests across multiple deployment environments (dev, staging, prod) without duplication.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to manage base application manifests across multiple deployment environments (dev, staging, prod) without duplication.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Combine Helm for packaging third-party platform components with Kustomize overlays for patching environment-specific application manifests." },
@@ -279,7 +279,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Dynamic Configuration Management: Kustomize vs Helm: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Configuration Management to manage base application manifests across multiple deployment environments (dev, staging, prod) without duplication.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to manage base application manifests across multiple deployment environments (dev, staging, prod) without duplication.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Prohibit configuration parameterization across deployment environments." },
@@ -300,7 +300,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Dynamic Configuration Management: Kustomize vs Helm: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Configuration Management to manage base application manifests across multiple deployment environments (dev, staging, prod) without duplication.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to manage base application manifests across multiple deployment environments (dev, staging, prod) without duplication.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Maintain completely separate, unlinked copies of raw Kubernetes YAML files for every single environment." },
@@ -321,7 +321,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer Onboarding Experience: Zero to First Commit: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Developer Onboarding to enable a newly hired software engineer to run and test their team's microservices locally on day one without manual setup.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to enable a newly hired software engineer to run and test their team's microservices locally on day one without manual setup.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Prohibit new engineers from accessing code repositories during their probationary period." },
@@ -342,7 +342,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer Onboarding Experience: Zero to First Commit: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Developer Onboarding to enable a newly hired software engineer to run and test their team's microservices locally on day one without manual setup.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to enable a newly hired software engineer to run and test their team's microservices locally on day one without manual setup.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Hand the new engineer a 40-page outdated wiki guide instructing them to install 20 incompatible CLI binaries manually." },
@@ -363,7 +363,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer Onboarding Experience: Zero to First Commit: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Developer Onboarding to enable a newly hired software engineer to run and test their team's microservices locally on day one without manual setup.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to enable a newly hired software engineer to run and test their team's microservices locally on day one without manual setup.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Hand the new engineer a 40-page outdated wiki guide instructing them to install 20 incompatible CLI binaries manually." },
@@ -384,7 +384,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer Onboarding Experience: Zero to First Commit: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Developer Onboarding to enable a newly hired software engineer to run and test their team's microservices locally on day one without manual setup.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to enable a newly hired software engineer to run and test their team's microservices locally on day one without manual setup.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Require new hires to spend their first month configuring operating system environment variables." },
@@ -405,7 +405,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Developer Onboarding Experience: Zero to First Commit: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Developer Onboarding to enable a newly hired software engineer to run and test their team's microservices locally on day one without manual setup.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to enable a newly hired software engineer to run and test their team's microservices locally on day one without manual setup.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Prohibit new engineers from accessing code repositories during their probationary period." },
@@ -426,7 +426,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Service Level Objectives (SLOs) for Internal Platforms: Enterprise Platform",
-    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer evaluates Platform SLOs to guarantee that internal platform services (CI/CD runners, cluster APIs, registries) meet agreed reliability standards for engineering teams.",
+    scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to guarantee that internal platform services (CI/CD runners, cluster APIs, registries) meet agreed reliability standards for engineering teams.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Refuse to monitor internal deployment pipeline failures." },
@@ -447,7 +447,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Service Level Objectives (SLOs) for Internal Platforms: High Scale Delivery",
-    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer evaluates Platform SLOs to guarantee that internal platform services (CI/CD runners, cluster APIs, registries) meet agreed reliability standards for engineering teams.",
+    scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to guarantee that internal platform services (CI/CD runners, cluster APIs, registries) meet agreed reliability standards for engineering teams.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Establish formal Service Level Objectives (SLOs) and error budgets for platform capabilities, measuring availability and pipeline runtimes." },
@@ -468,7 +468,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Service Level Objectives (SLOs) for Internal Platforms: Security And Governance",
-    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer evaluates Platform SLOs to guarantee that internal platform services (CI/CD runners, cluster APIs, registries) meet agreed reliability standards for engineering teams.",
+    scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to guarantee that internal platform services (CI/CD runners, cluster APIs, registries) meet agreed reliability standards for engineering teams.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
       { id: 'A', text: "Blame application developers whenever internal platform infrastructure crashes." },
@@ -489,7 +489,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Service Level Objectives (SLOs) for Internal Platforms: Developer Experience",
-    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer evaluates Platform SLOs to guarantee that internal platform services (CI/CD runners, cluster APIs, registries) meet agreed reliability standards for engineering teams.",
+    scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to guarantee that internal platform services (CI/CD runners, cluster APIs, registries) meet agreed reliability standards for engineering teams.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Blame application developers whenever internal platform infrastructure crashes." },
@@ -510,7 +510,7 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     domainId: "d2",
     domainName: "Internal Developer Platforms and Portals",
     title: "Service Level Objectives (SLOs) for Internal Platforms: Resilience And Observability",
-    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer evaluates Platform SLOs to guarantee that internal platform services (CI/CD runners, cluster APIs, registries) meet agreed reliability standards for engineering teams.",
+    scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to guarantee that internal platform services (CI/CD runners, cluster APIs, registries) meet agreed reliability standards for engineering teams.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
       { id: 'A', text: "Ignore internal platform outages as long as customer-facing websites remain online." },
