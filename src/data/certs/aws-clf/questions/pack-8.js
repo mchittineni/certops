@@ -18,7 +18,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "Elastic Beanstalk Managed Platform Updates automatically applies platform updates (operating system, web server, and application runtime patches) to your environment during a configurable weekly maintenance window with zero downtime.",
     referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-platform-update-managed.html",
-    tags: ["Elastic Beanstalk", "PaaS", "Automation", "Compute"]
+    tags: ["Elastic Beanstalk","PaaS","Automation","Compute"]
   },
   {
     id: "aws-clf-177",
@@ -31,7 +31,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     question: "What is the recommended AWS best practice for rotating IAM access keys safely without disrupting running services?",
     options: [
       { id: 'A', text: "Change the IAM user password, which automatically rotates the access keys." },
-      { id: 'B', text: "Create a second access key, update the application with the new key, verify functionality, deactivate the old key, and finally delete the old key." },
+      { id: 'B', text: "Create a second key, switch the application over, then delete the old key." },
       { id: 'C', text: "Delete the existing access key immediately and wait for error alerts." },
       { id: 'D', text: "Share the root user access keys temporarily while updating the key." }
     ],
@@ -39,7 +39,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "Rotating access keys safely involves creating a second active key, deploying the new key to client configurations, testing functionality, deactivating the old key to confirm nothing broke, and then deleting the old key.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_RotateAccessKey",
-    tags: ["IAM", "Access Keys", "Security", "Best Practices"]
+    tags: ["IAM","Access Keys","Security","Best Practices"]
   },
   {
     id: "aws-clf-178",
@@ -60,7 +60,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "AWS CodeArtifact is a fully managed artifact repository service that makes it easy for organizations of any size to securely store, publish, and share software packages used in their software development process.",
     referenceUrl: "https://docs.aws.amazon.com/codeartifact/latest/ug/welcome.html",
-    tags: ["CodeArtifact", "DevOps", "Package Management"]
+    tags: ["CodeArtifact","DevOps","Package Management"]
   },
   {
     id: "aws-clf-179",
@@ -81,7 +81,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "Amazon ECR is an AWS managed container image registry service that is secure, scalable, and reliable, supporting private container repositories with resource-based permissions using AWS IAM.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html",
-    tags: ["ECR", "Docker", "Containers", "DevOps"]
+    tags: ["ECR","Docker","Containers","DevOps"]
   },
   {
     id: "aws-clf-180",
@@ -102,7 +102,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "Platform as a Service (PaaS) removes the need for organizations to manage the underlying infrastructure (usually hardware and operating systems) and allows you to focus on the deployment and management of your applications.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/types-of-cloud-computing.html",
-    tags: ["Cloud Concepts", "PaaS", "IaaS", "SaaS"]
+    tags: ["Cloud Concepts","PaaS","IaaS","SaaS"]
   },
   {
     id: "aws-clf-181",
@@ -114,7 +114,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A customer discovers that an Amazon EC2 instance running in their account has been compromised due to an unpatched vulnerability in an open-source web application the customer installed.",
     question: "Under the AWS Shared Responsibility Model, who is responsible for remediating the vulnerable application code and restoring the EC2 instance?",
     options: [
-      { id: 'A', text: "The customer is solely responsible for remediating the application and operating system inside the EC2 instance." },
+      { id: 'A', text: "The customer remediates the OS and application inside the instance." },
       { id: 'B', text: "AWS Support will automatically re-write the vulnerable application code." },
       { id: 'C', text: "AWS is responsible because the instance runs in an AWS data centre." },
       { id: 'D', text: "Remediation is shared equally with the physical facility staff." }
@@ -123,7 +123,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "Under the Shared Responsibility Model, the customer is fully responsible for security IN the cloud, which includes installing application software patches, securing custom source code, configuring operating system firewalls, and managing application vulnerabilities.",
     referenceUrl: "https://aws.amazon.com/compliance/shared-responsibility-model/",
-    tags: ["Shared Responsibility", "Security", "Incident Response"]
+    tags: ["Shared Responsibility","Security","Incident Response"]
   },
   {
     id: "aws-clf-182",
@@ -144,7 +144,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "Amazon S3 Standard, S3 Intelligent-Tiering, S3 Standard-IA, and S3 Glacier storage classes are designed to provide 99.999999999% (11 nines) of durability of objects over a given year by automatically storing data redundantly across multiple Availability Zones.",
     referenceUrl: "https://aws.amazon.com/s3/features/",
-    tags: ["S3", "Durability", "Storage", "High Availability"]
+    tags: ["S3","Durability","Storage","High Availability"]
   },
   {
     id: "aws-clf-183",
@@ -165,7 +165,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "S3 One Zone-IA is designed for data that is accessed less frequently but requires rapid access when needed. Unlike other S3 storage classes that store data in a minimum of three AZs, S3 One Zone-IA stores data in a single AZ at a lower cost.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html#sc-onezone-ia",
-    tags: ["S3", "One Zone-IA", "Storage", "Cost Optimization"]
+    tags: ["S3","One Zone-IA","Storage","Cost Optimization"]
   },
   {
     id: "aws-clf-184",
@@ -186,7 +186,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "AWS Billing Preferences include an option to enable AWS Free Tier usage alerts, which automatically sends email alerts when your usage exceeds 85% of monthly Free Tier limits.",
     referenceUrl: "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/tracking-free-tier-usage.html",
-    tags: ["Free Tier", "Billing", "Alerts", "Cost"]
+    tags: ["Free Tier","Billing","Alerts","Cost"]
   },
   {
     id: "aws-clf-185",
@@ -201,13 +201,13 @@ export const AWS_CLF_QUESTIONS_8 = [
       { id: 'A', text: "Member accounts must pay AWS directly before charges appear in the management account." },
       { id: 'B', text: "Charges are split equally among member accounts regardless of usage." },
       { id: 'C', text: "Each member account must have its own corporate credit card on file." },
-      { id: 'D', text: "The Management (Payer) Account receives a single monthly consolidated invoice and is responsible for paying all charges incurred by all member accounts." }
+      { id: 'D', text: "The management (payer) account receives one invoice and pays all member charges." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "With consolidated billing in AWS Organizations, the management account (also known as the payer account) is billed for all charges incurred by the member accounts, receiving one consolidated monthly bill.",
     referenceUrl: "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html",
-    tags: ["Organizations", "Consolidated Billing", "FinOps", "Billing"]
+    tags: ["Organizations","Consolidated Billing","FinOps","Billing"]
   },
   {
     id: "aws-clf-186",
@@ -228,7 +228,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "CloudTrail Insights continuously analyzes management events from your CloudTrail trails and automatically alerts you when it detects unusual operational patterns or spikes in API call volume.",
     referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html",
-    tags: ["CloudTrail", "CloudTrail Insights", "Security", "Anomaly Detection"]
+    tags: ["CloudTrail","CloudTrail Insights","Security","Anomaly Detection"]
   },
   {
     id: "aws-clf-187",
@@ -249,7 +249,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "Amazon EC2 Dedicated Hosts provide physical servers dedicated for your use with full visibility into sockets and physical cores, allowing you to bring your own server-bound software licenses (BYOL). Dedicated Instances provide dedicated hardware at the instance level without socket visibility.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html",
-    tags: ["EC2", "Dedicated Hosts", "Licensing", "Compute"]
+    tags: ["EC2","Dedicated Hosts","Licensing","Compute"]
   },
   {
     id: "aws-clf-188",
@@ -261,7 +261,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     scenario: "A storage administrator takes daily snapshots of a 100 GB Amazon EBS volume. On day 2, only 5 GB of data has changed since the previous snapshot.",
     question: "How does Amazon EBS store subsequent snapshots of an EBS volume?",
     options: [
-      { id: 'A', text: "EBS snapshots are incremental, saving only the blocks that have changed since the most recent snapshot." },
+      { id: 'A', text: "Snapshots are incremental, saving only changed blocks." },
       { id: 'B', text: "EBS snapshots save a full 100 GB copy every time." },
       { id: 'C', text: "EBS snapshots overwrite previous snapshots automatically." },
       { id: 'D', text: "EBS snapshots are stored directly on EC2 instance store disks." }
@@ -270,7 +270,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "Amazon EBS snapshots are incremental backups, meaning that only the blocks on the device that have changed after your most recent snapshot are saved, optimizing storage cost and performance.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html",
-    tags: ["EBS", "Snapshots", "Backups", "Storage"]
+    tags: ["EBS","Snapshots","Backups","Storage"]
   },
   {
     id: "aws-clf-189",
@@ -285,13 +285,13 @@ export const AWS_CLF_QUESTIONS_8 = [
       { id: 'A', text: "All development environments are permanently free of charge." },
       { id: 'B', text: "Hardware depreciates faster in the cloud." },
       { id: 'C', text: "AWS refunds the cost of all failed business ideas." },
-      { id: 'D', text: "Resources can be provisioned and decommissioned on demand with zero long-term hardware commitments." }
+      { id: 'D', text: "Resources come and go on demand with no long-term commitment." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "In the cloud, teams can rapidly spin up resources to test hypotheses and immediately tear them down if unsuccessful, paying only for the minutes or hours consumed. This minimizes the financial penalty of failed experiments.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html",
-    tags: ["Cloud Concepts", "Agility", "Innovation"]
+    tags: ["Cloud Concepts","Agility","Innovation"]
   },
   {
     id: "aws-clf-190",
@@ -312,7 +312,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "Network ACLs act as a virtual firewall for controlling traffic in and out of one or more subnets. They are stateless (inbound and outbound rules evaluated separately) and support explicit DENY rules as well as allow rules in numbered order.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html",
-    tags: ["NACLs", "VPC", "Networking", "Security"]
+    tags: ["NACLs","VPC","Networking","Security"]
   },
   {
     id: "aws-clf-191",
@@ -333,7 +333,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "An instance store provides temporary (ephemeral) block-level storage for your instance located on disks that are physically attached to the host computer, delivering ultra-high IOPS and low latency for temporary scratchpad data.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html",
-    tags: ["Instance Store", "EC2", "Ephemeral Storage", "Storage"]
+    tags: ["Instance Store","EC2","Ephemeral Storage","Storage"]
   },
   {
     id: "aws-clf-192",
@@ -354,7 +354,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "Amazon S3 Cross-Region Replication (CRR) is an S3 feature that automatically replicates objects across buckets in different AWS Regions for geographic compliance, lower latency access, and disaster recovery.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html",
-    tags: ["S3", "Replication", "CRR", "Storage", "Disaster Recovery"]
+    tags: ["S3","Replication","CRR","Storage","Disaster Recovery"]
   },
   {
     id: "aws-clf-193",
@@ -375,7 +375,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "The AWS Partner Network (APN) is a global community of partners that leverage AWS to build solutions and services for customers, including Consulting Partners and Independent Software Vendors (ISVs).",
     referenceUrl: "https://aws.amazon.com/partners/",
-    tags: ["APN", "Partners", "Consulting", "Governance"]
+    tags: ["APN","Partners","Consulting","Governance"]
   },
   {
     id: "aws-clf-194",
@@ -396,7 +396,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "The AWS Knowledge Center (and AWS re:Post community) is a curated repository of articles and videos written by AWS Support engineers that answer the most frequent technical questions asked by AWS customers.",
     referenceUrl: "https://repost.aws/",
-    tags: ["AWS re:Post", "Knowledge Center", "Support"]
+    tags: ["AWS re:Post","Knowledge Center","Support"]
   },
   {
     id: "aws-clf-195",
@@ -417,7 +417,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "Amazon SQS FIFO (First-In-First-Out) queues guarantee that the order in which messages are sent and received is strictly preserved and that each message is delivered exactly once without duplicates.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html",
-    tags: ["SQS", "FIFO", "Messaging", "Application Integration"]
+    tags: ["SQS","FIFO","Messaging","Application Integration"]
   },
   {
     id: "aws-clf-196",
@@ -438,7 +438,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "A Dead-Letter Queue (DLQ) is an Amazon SQS queue that other queues can target for messages that cannot be processed successfully after a maximum receive count, isolating unprocessable messages for inspection.",
     referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html",
-    tags: ["SQS", "DLQ", "Error Handling", "Application Integration"]
+    tags: ["SQS","DLQ","Error Handling","Application Integration"]
   },
   {
     id: "aws-clf-197",
@@ -459,7 +459,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "AWS Lambda functions have a maximum execution timeout limit of 15 minutes (900 seconds) per invocation. For longer-running batch jobs, AWS recommends AWS Fargate, Amazon ECS, or AWS Batch.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html",
-    tags: ["Lambda", "Serverless", "Limits", "Compute"]
+    tags: ["Lambda","Serverless","Limits","Compute"]
   },
   {
     id: "aws-clf-198",
@@ -480,7 +480,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "AWS Managed Rules for AWS WAF are pre-configured rule groups curated and maintained by AWS Threat Research and AWS Marketplace sellers that protect against common threats (like OWASP Top 10) without writing custom rules.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html",
-    tags: ["WAF", "AWS Managed Rules", "OWASP", "Security"]
+    tags: ["WAF","AWS Managed Rules","OWASP","Security"]
   },
   {
     id: "aws-clf-199",
@@ -501,7 +501,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "Software as a Service (SaaS) provides complete, finished applications that are run and managed by the service provider (such as Microsoft 365 or Salesforce), requiring the customer only to manage their data and user access.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/types-of-cloud-computing.html",
-    tags: ["Cloud Concepts", "SaaS", "Service Models"]
+    tags: ["Cloud Concepts","SaaS","Service Models"]
   },
   {
     id: "aws-clf-200",
@@ -522,7 +522,7 @@ export const AWS_CLF_QUESTIONS_8 = [
     type: "single",
     explanation: "Because Amazon RDS is a managed service, AWS manages the underlying operating system, virtualization hypervisor, hardware maintenance, and automated OS security patching. Customers manage database schema, table indexing, user access, and query tuning.",
     referenceUrl: "https://aws.amazon.com/compliance/shared-responsibility-model/",
-    tags: ["Shared Responsibility", "RDS", "Security", "Databases"]
+    tags: ["Shared Responsibility","RDS","Security","Databases"]
   }
 ];
 

@@ -18,7 +18,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "AWS X-Ray helps developers analyze and debug production, distributed applications, such as those built using a microservices architecture, providing request tracing and service maps.",
     referenceUrl: "https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html",
-    tags: ["AWS X-Ray", "Distributed Tracing", "Microservices", "Observability"]
+    tags: ["AWS X-Ray","Distributed Tracing","Microservices","Observability"]
   },
   {
     id: "aws-clf-152",
@@ -39,7 +39,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "AWS AppSync is an enterprise-level, fully managed GraphQL and Pub/Sub API service that simplifies application development by securely connecting applications to data and events.",
     referenceUrl: "https://docs.aws.amazon.com/appsync/latest/devguide/what-is-appsync.html",
-    tags: ["AppSync", "GraphQL", "Serverless", "APIs"]
+    tags: ["AppSync","GraphQL","Serverless","APIs"]
   },
   {
     id: "aws-clf-153",
@@ -60,7 +60,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "Amazon SES is a cost-effective, flexible, and scalable email service that enables developers to send transactional, marketing, or mass email communications from any application.",
     referenceUrl: "https://docs.aws.amazon.com/ses/latest/dg/Welcome.html",
-    tags: ["SES", "Email", "Application Integration"]
+    tags: ["SES","Email","Application Integration"]
   },
   {
     id: "aws-clf-154",
@@ -81,7 +81,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "Amazon Pinpoint is a multi-channel marketing and engagement service that enables you to deliver targeted, personalized communications over channels like email, SMS, push notifications, and voice.",
     referenceUrl: "https://docs.aws.amazon.com/pinpoint/latest/userguide/welcome.html",
-    tags: ["Pinpoint", "Customer Engagement", "Marketing", "Analytics"]
+    tags: ["Pinpoint","Customer Engagement","Marketing","Analytics"]
   },
   {
     id: "aws-clf-155",
@@ -95,14 +95,14 @@ export const AWS_CLF_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Amazon MQ" },
       { id: 'B', text: "Amazon Kinesis Data Streams" },
-      { id: 'C', text: "Amazon Managed Streaming for Apache Kafka (Amazon MSK)" },
+      { id: 'C', text: "Amazon MSK" },
       { id: 'D', text: "Amazon SQS" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon MSK is a fully managed service that makes it easy to build and run applications that use Apache Kafka to process streaming data with native open-source compatibility.",
     referenceUrl: "https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html",
-    tags: ["Amazon MSK", "Kafka", "Streaming", "Big Data"]
+    tags: ["Amazon MSK","Kafka","Streaming","Big Data"]
   },
   {
     id: "aws-clf-156",
@@ -123,7 +123,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "Amazon MQ is a managed message broker service for Apache ActiveMQ and RabbitMQ that makes it easy to migrate to a message broker in the cloud without rewriting existing messaging applications.",
     referenceUrl: "https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html",
-    tags: ["Amazon MQ", "RabbitMQ", "ActiveMQ", "Messaging"]
+    tags: ["Amazon MQ","RabbitMQ","ActiveMQ","Messaging"]
   },
   {
     id: "aws-clf-157",
@@ -137,14 +137,14 @@ export const AWS_CLF_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Hardcoded credentials decrease network throughput on EC2." },
       { id: 'B', text: "Hardcoded credentials increase Amazon S3 storage costs." },
-      { id: 'C', text: "Credentials can be exposed through source code leaks, version control history, and unauthorized repository access." },
+      { id: 'C', text: "Credentials leak through source code and version control history." },
       { id: 'D', text: "AWS automatically terminates instances that contain plain-text strings." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Hardcoding credentials exposes sensitive passwords and API keys to anyone with access to code repositories, logs, or backups. AWS best practice mandates using IAM roles and AWS Secrets Manager instead.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials",
-    tags: ["Security", "Best Practices", "Credentials", "Secrets Manager"]
+    tags: ["Security","Best Practices","Credentials","Secrets Manager"]
   },
   {
     id: "aws-clf-158",
@@ -165,7 +165,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "AWS Control Tower provides the easiest way to set up and govern a secure, multi-account AWS environment (landing zone), establishing a blueprint that integrates AWS Organizations, IAM Identity Center, and preventative/detective guardrails.",
     referenceUrl: "https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html",
-    tags: ["Control Tower", "Landing Zone", "Multi-Account", "Governance"]
+    tags: ["Control Tower","Landing Zone","Multi-Account","Governance"]
   },
   {
     id: "aws-clf-159",
@@ -186,7 +186,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "AWS Service Catalog allows organizations to create and manage catalogs of IT services that are approved for use on AWS, enabling users to quickly deploy approved products with consistent governance.",
     referenceUrl: "https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html",
-    tags: ["Service Catalog", "Governance", "Compliance"]
+    tags: ["Service Catalog","Governance","Compliance"]
   },
   {
     id: "aws-clf-160",
@@ -207,7 +207,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "Loose coupling breaks interdependencies between components so that failures in one component are isolated and do not cascade to other parts of the application, increasing overall resilience and scalability.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/architecting-for-the-cloud-aws-best-practices/loose-coupling-sets-you-free.html",
-    tags: ["Cloud Concepts", "Loose Coupling", "Architecture", "Resilience"]
+    tags: ["Cloud Concepts","Loose Coupling","Architecture","Resilience"]
   },
   {
     id: "aws-clf-161",
@@ -228,7 +228,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "Recovery Point Objective (RPO) is the maximum acceptable amount of data loss measured in time (e.g. 15 minutes of transactions). Recovery Time Objective (RTO) is the maximum acceptable duration of outage before recovery.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html",
-    tags: ["RPO", "RTO", "Disaster Recovery", "Cloud Concepts"]
+    tags: ["RPO","RTO","Disaster Recovery","Cloud Concepts"]
   },
   {
     id: "aws-clf-162",
@@ -249,7 +249,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "AWS Fault Injection Simulator (AWS FIS) is a fully managed service for running fault injection experiments on AWS to improve workload resilience, uncover hidden bugs, and validate recovery mechanisms.",
     referenceUrl: "https://docs.aws.amazon.com/fis/latest/userguide/what-is.html",
-    tags: ["AWS FIS", "Chaos Engineering", "Resilience", "Testing"]
+    tags: ["AWS FIS","Chaos Engineering","Resilience","Testing"]
   },
   {
     id: "aws-clf-163",
@@ -270,7 +270,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "CloudWatch Logs Insights enables you to interactively search and analyze your log data in Amazon CloudWatch Logs with a powerful query language that supports aggregations and visualizations.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html",
-    tags: ["CloudWatch", "Logs Insights", "Monitoring", "Observability"]
+    tags: ["CloudWatch","Logs Insights","Monitoring","Observability"]
   },
   {
     id: "aws-clf-164",
@@ -291,7 +291,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "Amazon CloudWatch Synthetics enables you to create canaries - configurable scripts that run on a schedule to monitor your endpoints and APIs by simulating customer interactions.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.html",
-    tags: ["CloudWatch Synthetics", "Monitoring", "Canaries", "Availability"]
+    tags: ["CloudWatch Synthetics","Monitoring","Canaries","Availability"]
   },
   {
     id: "aws-clf-165",
@@ -312,7 +312,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "Free Trials are short-term trial offers that activate from the time you first start using a specific service (such as 2 months of Amazon Redshift or Amazon SageMaker free trial).",
     referenceUrl: "https://aws.amazon.com/free/",
-    tags: ["Free Tier", "Trials", "Billing", "Cost"]
+    tags: ["Free Tier","Trials","Billing","Cost"]
   },
   {
     id: "aws-clf-166",
@@ -333,7 +333,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "The AWS Health Dashboard (specifically the Account Health view) provides personalized information about events that can affect your specific AWS infrastructure and resources, with proactive notifications.",
     referenceUrl: "https://docs.aws.amazon.com/health/latest/ug/what-is-aws-health.html",
-    tags: ["AWS Health Dashboard", "Operations", "Monitoring"]
+    tags: ["AWS Health Dashboard","Operations","Monitoring"]
   },
   {
     id: "aws-clf-167",
@@ -354,7 +354,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "Amazon S3 Block Public Access provides settings for access points, buckets, and accounts to help you manage public access to S3 resources, overriding permissive policies and ACLs.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html",
-    tags: ["S3", "Block Public Access", "Security", "Compliance"]
+    tags: ["S3","Block Public Access","Security","Compliance"]
   },
   {
     id: "aws-clf-168",
@@ -366,7 +366,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     scenario: "An IAM user has two attached policies: Policy A explicitly denies access to `s3:DeleteObject`, while Policy B explicitly allows all S3 actions (`s3:*`).",
     question: "What is the resulting permission when the user attempts to delete an object from an S3 bucket?",
     options: [
-      { id: 'A', text: "Access is DENIED because an explicit deny always overrides an explicit allow in IAM policy evaluation." },
+      { id: 'A', text: "Denied: an explicit deny always overrides an allow." },
       { id: 'B', text: "Access is allowed only during business hours." },
       { id: 'C', text: "Access is ALLOWED because Policy B grants wildcard permissions." },
       { id: 'D', text: "The request requires root user confirmation." }
@@ -375,7 +375,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "In AWS IAM policy evaluation logic: by default, all requests are implicitly denied. An explicit allow overrides the default deny. However, an explicit deny in ANY applicable policy ALWAYS overrides all allows.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html",
-    tags: ["IAM", "Policy Evaluation", "Explicit Deny", "Security"]
+    tags: ["IAM","Policy Evaluation","Explicit Deny","Security"]
   },
   {
     id: "aws-clf-169",
@@ -396,7 +396,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "A Cluster Placement Group packs instances close together inside an Availability Zone to achieve the lowest latency network performance and highest packet-per-second throughput for HPC workloads.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html#placement-groups-cluster",
-    tags: ["EC2", "Placement Groups", "HPC", "Compute"]
+    tags: ["EC2","Placement Groups","HPC","Compute"]
   },
   {
     id: "aws-clf-170",
@@ -417,7 +417,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "A Spread Placement Group strictly places a small group of instances across distinct underlying hardware racks (each with its own network and power source) to reduce correlated hardware failures.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html#placement-groups-spread",
-    tags: ["EC2", "Spread Placement Group", "High Availability", "Compute"]
+    tags: ["EC2","Spread Placement Group","High Availability","Compute"]
   },
   {
     id: "aws-clf-171",
@@ -438,7 +438,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "Horizontal Scaling (scaling out/in) involves adding or removing resources (such as adding multiple EC2 instances to an Auto Scaling group), which improves fault tolerance and avoids single-instance resource ceilings.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/architecting-for-the-cloud-aws-best-practices/scaling.html",
-    tags: ["Cloud Concepts", "Horizontal Scaling", "Scalability", "Architecture"]
+    tags: ["Cloud Concepts","Horizontal Scaling","Scalability","Architecture"]
   },
   {
     id: "aws-clf-172",
@@ -459,7 +459,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "Amazon Aurora Global Database spans multiple AWS Regions, enabling low-latency global reads and fast cross-region disaster recovery with typical storage-level replication latency under 1 second.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html",
-    tags: ["Aurora", "Global Database", "Disaster Recovery", "Databases"]
+    tags: ["Aurora","Global Database","Disaster Recovery","Databases"]
   },
   {
     id: "aws-clf-173",
@@ -480,7 +480,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "Amazon DynamoDB Global Tables provide a fully managed, multi-region, multi-active database solution that automatically replicates data across your chosen AWS Regions for fast local read/write performance.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html",
-    tags: ["DynamoDB", "Global Tables", "Multi-Region", "NoSQL"]
+    tags: ["DynamoDB","Global Tables","Multi-Region","NoSQL"]
   },
   {
     id: "aws-clf-174",
@@ -493,7 +493,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     question: "Why do newly created resource tags not immediately appear in Cost Explorer, and what step is required?",
     options: [
       { id: 'A', text: "Tags only apply to accounts subscribed to Enterprise Support." },
-      { id: 'B', text: "User-defined cost allocation tags must be explicitly activated in the AWS Billing and Cost Management console before they appear in billing reports." },
+      { id: 'B', text: "They must be activated as cost allocation tags in Billing." },
       { id: 'C', text: "Tags must be written in JSON format." },
       { id: 'D', text: "Resource tags take 90 days to index in Cost Explorer." }
     ],
@@ -501,7 +501,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "In AWS, tags on resources are not used for cost tracking until you explicitly activate them as Cost Allocation Tags in the Billing and Cost Management console. Once activated, AWS tracks usage against those tags.",
     referenceUrl: "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#activating-tags",
-    tags: ["Cost Allocation Tags", "Billing", "FinOps", "Cost Management"]
+    tags: ["Cost Allocation Tags","Billing","FinOps","Cost Management"]
   },
   {
     id: "aws-clf-175",
@@ -522,7 +522,7 @@ export const AWS_CLF_QUESTIONS_7 = [
     type: "single",
     explanation: "Amazon Macie continually evaluates your Amazon S3 bucket inventory and applies machine learning and pattern matching to provide automated sensitive data discovery across your AWS Organization.",
     referenceUrl: "https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html",
-    tags: ["Macie", "Sensitive Data", "Compliance", "Security", "S3"]
+    tags: ["Macie","Sensitive Data","Compliance","Security","S3"]
   }
 ];
 

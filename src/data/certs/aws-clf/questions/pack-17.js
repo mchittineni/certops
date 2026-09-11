@@ -117,7 +117,7 @@ export const AWS_CLF_QUESTIONS_17 = [
       { id: 'A', text: "Use EC2 Instance Store volumes for persistent database files." },
       { id: 'B', text: "Mount an AWS Storage Gateway Tape Gateway." },
       { id: 'C', text: "Store the operating system files in an Amazon S3 bucket." },
-      { id: 'D', text: "Attach Amazon Elastic Block Store (EBS) General Purpose SSD (gp3) volumes to the EC2 instances." }
+      { id: 'D', text: "Attach EBS General Purpose SSD (gp3) volumes to the instances." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -136,7 +136,7 @@ export const AWS_CLF_QUESTIONS_17 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Use EC2 Instance Store volumes for persistent database files." },
-      { id: 'B', text: "Attach Amazon Elastic Block Store (EBS) General Purpose SSD (gp3) volumes to the EC2 instances." },
+      { id: 'B', text: "Attach EBS General Purpose SSD (gp3) volumes to the instances." },
       { id: 'C', text: "Store the operating system files in an Amazon S3 bucket." },
       { id: 'D', text: "Mount an AWS Storage Gateway Tape Gateway." }
     ],
@@ -158,7 +158,7 @@ export const AWS_CLF_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Store the operating system files in an Amazon S3 bucket." },
       { id: 'B', text: "Use EC2 Instance Store volumes for persistent database files." },
-      { id: 'C', text: "Attach Amazon Elastic Block Store (EBS) General Purpose SSD (gp3) volumes to the EC2 instances." },
+      { id: 'C', text: "Attach EBS General Purpose SSD (gp3) volumes to the instances." },
       { id: 'D', text: "Mount an AWS Storage Gateway Tape Gateway." }
     ],
     correctAnswers: ['C'],
@@ -177,7 +177,7 @@ export const AWS_CLF_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Amazon EBS to provide high-performance, persistent block storage volumes that can be attached to Amazon EC2 instances to host an operating system and relational database files.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Attach Amazon Elastic Block Store (EBS) General Purpose SSD (gp3) volumes to the EC2 instances." },
+      { id: 'A', text: "Attach EBS General Purpose SSD (gp3) volumes to the instances." },
       { id: 'B', text: "Store the operating system files in an Amazon S3 bucket." },
       { id: 'C', text: "Use EC2 Instance Store volumes for persistent database files." },
       { id: 'D', text: "Mount an AWS Storage Gateway Tape Gateway." }
@@ -201,7 +201,7 @@ export const AWS_CLF_QUESTIONS_17 = [
       { id: 'A', text: "Mount an AWS Storage Gateway Tape Gateway." },
       { id: 'B', text: "Use EC2 Instance Store volumes for persistent database files." },
       { id: 'C', text: "Store the operating system files in an Amazon S3 bucket." },
-      { id: 'D', text: "Attach Amazon Elastic Block Store (EBS) General Purpose SSD (gp3) volumes to the EC2 instances." }
+      { id: 'D', text: "Attach EBS General Purpose SSD (gp3) volumes to the instances." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -326,7 +326,7 @@ export const AWS_CLF_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Multi-AZ is designed for read scalability, while Read Replicas are designed for high availability." },
       { id: 'B', text: "Read Replicas synchronously replicate data and act as the primary write target." },
-      { id: 'C', text: "Amazon RDS Multi-AZ provides high availability and automated synchronous failover for disaster recovery; Read Replicas provide asynchronous read scalability for read-heavy database workloads." },
+      { id: 'C', text: "Multi-AZ gives synchronous failover; Read Replicas give asynchronous read scaling." },
       { id: 'D', text: "Multi-AZ deployments do not provide automated failover." }
     ],
     correctAnswers: ['C'],
@@ -345,7 +345,7 @@ export const AWS_CLF_QUESTIONS_17 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Amazon RDS to differentiate the primary use case of an Amazon RDS Multi-AZ deployment from an Amazon RDS Read Replica.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Amazon RDS Multi-AZ provides high availability and automated synchronous failover for disaster recovery; Read Replicas provide asynchronous read scalability for read-heavy database workloads." },
+      { id: 'A', text: "Multi-AZ gives synchronous failover; Read Replicas give asynchronous read scaling." },
       { id: 'B', text: "Multi-AZ deployments do not provide automated failover." },
       { id: 'C', text: "Multi-AZ is designed for read scalability, while Read Replicas are designed for high availability." },
       { id: 'D', text: "Read Replicas synchronously replicate data and act as the primary write target." }
@@ -367,7 +367,7 @@ export const AWS_CLF_QUESTIONS_17 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Read Replicas synchronously replicate data and act as the primary write target." },
-      { id: 'B', text: "Amazon RDS Multi-AZ provides high availability and automated synchronous failover for disaster recovery; Read Replicas provide asynchronous read scalability for read-heavy database workloads." },
+      { id: 'B', text: "Multi-AZ gives synchronous failover; Read Replicas give asynchronous read scaling." },
       { id: 'C', text: "Multi-AZ deployments do not provide automated failover." },
       { id: 'D', text: "Multi-AZ is designed for read scalability, while Read Replicas are designed for high availability." }
     ],
@@ -387,7 +387,7 @@ export const AWS_CLF_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Amazon RDS to differentiate the primary use case of an Amazon RDS Multi-AZ deployment from an Amazon RDS Read Replica.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Amazon RDS Multi-AZ provides high availability and automated synchronous failover for disaster recovery; Read Replicas provide asynchronous read scalability for read-heavy database workloads." },
+      { id: 'A', text: "Multi-AZ gives synchronous failover; Read Replicas give asynchronous read scaling." },
       { id: 'B', text: "Multi-AZ deployments do not provide automated failover." },
       { id: 'C', text: "Multi-AZ is designed for read scalability, while Read Replicas are designed for high availability." },
       { id: 'D', text: "Read Replicas synchronously replicate data and act as the primary write target." }
@@ -410,7 +410,7 @@ export const AWS_CLF_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Multi-AZ deployments do not provide automated failover." },
       { id: 'B', text: "Read Replicas synchronously replicate data and act as the primary write target." },
-      { id: 'C', text: "Amazon RDS Multi-AZ provides high availability and automated synchronous failover for disaster recovery; Read Replicas provide asynchronous read scalability for read-heavy database workloads." },
+      { id: 'C', text: "Multi-AZ gives synchronous failover; Read Replicas give asynchronous read scaling." },
       { id: 'D', text: "Multi-AZ is designed for read scalability, while Read Replicas are designed for high availability." }
     ],
     correctAnswers: ['C'],
@@ -431,7 +431,7 @@ export const AWS_CLF_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Amazon Aurora stores data on a single local hard drive in one data center." },
       { id: 'B', text: "Amazon Aurora relies on nightly tape backups to provide durability." },
-      { id: 'C', text: "Amazon Aurora automatically replicates database storage across three Availability Zones with six storage copies, handling the loss of up to two copies without affecting write availability." },
+      { id: 'C', text: "Aurora keeps six storage copies across three AZs and tolerates losing two." },
       { id: 'D', text: "Amazon Aurora requires users to configure manual storage replication across regions." }
     ],
     correctAnswers: ['C'],
@@ -450,7 +450,7 @@ export const AWS_CLF_QUESTIONS_17 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Amazon Aurora to understand how Amazon Aurora replicates database volume storage to provide enterprise durability and fault tolerance.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Amazon Aurora automatically replicates database storage across three Availability Zones with six storage copies, handling the loss of up to two copies without affecting write availability." },
+      { id: 'A', text: "Aurora keeps six storage copies across three AZs and tolerates losing two." },
       { id: 'B', text: "Amazon Aurora relies on nightly tape backups to provide durability." },
       { id: 'C', text: "Amazon Aurora requires users to configure manual storage replication across regions." },
       { id: 'D', text: "Amazon Aurora stores data on a single local hard drive in one data center." }
@@ -473,7 +473,7 @@ export const AWS_CLF_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Amazon Aurora relies on nightly tape backups to provide durability." },
       { id: 'B', text: "Amazon Aurora stores data on a single local hard drive in one data center." },
-      { id: 'C', text: "Amazon Aurora automatically replicates database storage across three Availability Zones with six storage copies, handling the loss of up to two copies without affecting write availability." },
+      { id: 'C', text: "Aurora keeps six storage copies across three AZs and tolerates losing two." },
       { id: 'D', text: "Amazon Aurora requires users to configure manual storage replication across regions." }
     ],
     correctAnswers: ['C'],
@@ -495,7 +495,7 @@ export const AWS_CLF_QUESTIONS_17 = [
       { id: 'A', text: "Amazon Aurora requires users to configure manual storage replication across regions." },
       { id: 'B', text: "Amazon Aurora stores data on a single local hard drive in one data center." },
       { id: 'C', text: "Amazon Aurora relies on nightly tape backups to provide durability." },
-      { id: 'D', text: "Amazon Aurora automatically replicates database storage across three Availability Zones with six storage copies, handling the loss of up to two copies without affecting write availability." }
+      { id: 'D', text: "Aurora keeps six storage copies across three AZs and tolerates losing two." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -515,7 +515,7 @@ export const AWS_CLF_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Amazon Aurora requires users to configure manual storage replication across regions." },
       { id: 'B', text: "Amazon Aurora relies on nightly tape backups to provide durability." },
-      { id: 'C', text: "Amazon Aurora automatically replicates database storage across three Availability Zones with six storage copies, handling the loss of up to two copies without affecting write availability." },
+      { id: 'C', text: "Aurora keeps six storage copies across three AZs and tolerates losing two." },
       { id: 'D', text: "Amazon Aurora stores data on a single local hard drive in one data center." }
     ],
     correctAnswers: ['C'],

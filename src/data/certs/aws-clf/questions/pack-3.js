@@ -18,7 +18,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "AWS Edge Locations are points of presence located in major metropolitan areas globally that cache static data using Amazon CloudFront to reduce network latency for end users.",
     referenceUrl: "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/",
-    tags: ["Global Infrastructure", "Edge Locations", "CloudFront"]
+    tags: ["Global Infrastructure","Edge Locations","CloudFront"]
   },
   {
     id: "aws-clf-52",
@@ -39,7 +39,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "AWS Outposts delivers fully managed physical AWS hardware racks directly to on-premises data centres, running native AWS services for a consistent hybrid cloud experience.",
     referenceUrl: "https://aws.amazon.com/outposts/",
-    tags: ["Outposts", "Hybrid Cloud", "Infrastructure"]
+    tags: ["Outposts","Hybrid Cloud","Infrastructure"]
   },
   {
     id: "aws-clf-53",
@@ -60,7 +60,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "AWS Local Zones place compute, storage, database, and select AWS services close to large population and industry centers where no AWS Region currently exists.",
     referenceUrl: "https://aws.amazon.com/about-aws/global-infrastructure/localzones/",
-    tags: ["Local Zones", "Infrastructure", "Latency"]
+    tags: ["Local Zones","Infrastructure","Latency"]
   },
   {
     id: "aws-clf-54",
@@ -81,7 +81,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "AWS Wavelength embeds AWS compute and storage services within 5G networks of telecommunications carriers, providing ultra-low latencies to 5G mobile devices.",
     referenceUrl: "https://aws.amazon.com/wavelength/",
-    tags: ["Wavelength", "5G", "Edge Computing"]
+    tags: ["Wavelength","5G","Edge Computing"]
   },
   {
     id: "aws-clf-55",
@@ -102,7 +102,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "The Operational Excellence pillar focuses on executing operations as code, making frequent small reversible changes, refining procedures, and learning from operational failures.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/welcome.html",
-    tags: ["Well-Architected", "Operational Excellence", "Cloud Concepts"]
+    tags: ["Well-Architected","Operational Excellence","Cloud Concepts"]
   },
   {
     id: "aws-clf-56",
@@ -123,7 +123,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "An IAM User Group is a collection of IAM users. Groups allow you to specify permissions for multiple users at once, simplifying permission management across teams.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups.html",
-    tags: ["IAM", "IAM Groups", "Security"]
+    tags: ["IAM","IAM Groups","Security"]
   },
   {
     id: "aws-clf-57",
@@ -144,7 +144,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "An IAM Credential Report lists all IAM users in your account and the status of their credentials (passwords, access keys, MFA devices, and signing certificates) in a downloadable CSV report.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html",
-    tags: ["IAM", "Credential Report", "Security", "Auditing"]
+    tags: ["IAM","Credential Report","Security","Auditing"]
   },
   {
     id: "aws-clf-58",
@@ -165,7 +165,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "IAM Access Analyzer uses automated reasoning to evaluate resource-based policies (for S3, KMS, SQS, IAM roles) and alerts administrators if resources are accessible from outside your AWS Organization or account.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html",
-    tags: ["IAM", "Access Analyzer", "Security"]
+    tags: ["IAM","Access Analyzer","Security"]
   },
   {
     id: "aws-clf-59",
@@ -186,7 +186,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "AWS Security Hub is a cloud security posture management service that aggregates, organizes, and prioritizes security findings from multiple AWS services and third-party tools, evaluating compliance against CIS benchmarks.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
-    tags: ["Security Hub", "Compliance", "Security"]
+    tags: ["Security Hub","Compliance","Security"]
   },
   {
     id: "aws-clf-60",
@@ -207,7 +207,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "AWS Certificate Manager (ACM) provisions, manages, and deploys public and private SSL/TLS certificates for use with AWS services (ELB, CloudFront, API Gateway), providing free public certificates with automated renewal.",
     referenceUrl: "https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html",
-    tags: ["ACM", "SSL/TLS", "Security", "Certificates"]
+    tags: ["ACM","SSL/TLS","Security","Certificates"]
   },
   {
     id: "aws-clf-61",
@@ -228,7 +228,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "Memory Optimized instances (such as R6g, R5, X2gd) deliver fast performance for workloads that process large data sets in memory, such as in-memory caches and high-performance databases.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html",
-    tags: ["EC2", "Instance Types", "Compute"]
+    tags: ["EC2","Instance Types","Compute"]
   },
   {
     id: "aws-clf-62",
@@ -249,7 +249,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "With Target Tracking Scaling, you specify a target metric value (e.g. 60% average CPU utilization), and Amazon EC2 Auto Scaling automatically adjusts instance capacity to maintain that target.",
     referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html",
-    tags: ["Auto Scaling", "EC2", "Compute", "Elasticity"]
+    tags: ["Auto Scaling","EC2","Compute","Elasticity"]
   },
   {
     id: "aws-clf-63",
@@ -270,7 +270,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "Amazon EKS is a managed Kubernetes service that makes it easy to run Kubernetes on AWS without needing to install, operate, and maintain Kubernetes control plane nodes.",
     referenceUrl: "https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html",
-    tags: ["EKS", "Kubernetes", "Containers"]
+    tags: ["EKS","Kubernetes","Containers"]
   },
   {
     id: "aws-clf-64",
@@ -291,7 +291,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "AWS Fargate is a serverless, pay-as-you-go compute engine for containers that works with both Amazon ECS and Amazon EKS, eliminating the need to manage EC2 servers.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html",
-    tags: ["Fargate", "Serverless", "Containers"]
+    tags: ["Fargate","Serverless","Containers"]
   },
   {
     id: "aws-clf-65",
@@ -312,7 +312,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "S3 Intelligent-Tiering delivers automatic cost savings by moving objects between access tiers when access patterns change, with zero operational overhead and no retrieval fees.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html",
-    tags: ["S3", "Intelligent-Tiering", "Cost Optimization", "Storage"]
+    tags: ["S3","Intelligent-Tiering","Cost Optimization","Storage"]
   },
   {
     id: "aws-clf-66",
@@ -333,7 +333,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "S3 Glacier Deep Archive is Amazon S3's lowest-cost storage class, designed for long-term retention and digital preservation of data that is accessed rarely (retrieval within 12 hours).",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html#sc-glacier-deep-arc",
-    tags: ["S3", "Glacier Deep Archive", "Storage", "Archival"]
+    tags: ["S3","Glacier Deep Archive","Storage","Archival"]
   },
   {
     id: "aws-clf-67",
@@ -354,7 +354,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "Amazon Aurora is a MySQL- and PostgreSQL-compatible relational database built for the cloud that combines high-end commercial database performance with open-source simplicity and cost-effectiveness.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html",
-    tags: ["Aurora", "RDS", "Databases", "High Availability"]
+    tags: ["Aurora","RDS","Databases","High Availability"]
   },
   {
     id: "aws-clf-68",
@@ -375,7 +375,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "Amazon Athena is an interactive, serverless query service that makes it easy to analyze data in Amazon S3 using standard SQL, with no infrastructure to manage and billing per query scanned.",
     referenceUrl: "https://docs.aws.amazon.com/athena/latest/ug/what-is.html",
-    tags: ["Athena", "SQL", "Serverless", "Analytics", "S3"]
+    tags: ["Athena","SQL","Serverless","Analytics","S3"]
   },
   {
     id: "aws-clf-69",
@@ -396,7 +396,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "Amazon EventBridge is a serverless event bus service that makes it easy to connect applications together using data from your own applications, integrated SaaS applications, and AWS services.",
     referenceUrl: "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is-how-it-works.html",
-    tags: ["EventBridge", "Event-Driven", "Serverless", "Application Integration"]
+    tags: ["EventBridge","Event-Driven","Serverless","Application Integration"]
   },
   {
     id: "aws-clf-70",
@@ -417,7 +417,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar web servers.",
     referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html",
-    tags: ["Elastic Beanstalk", "PaaS", "Compute", "Deployment"]
+    tags: ["Elastic Beanstalk","PaaS","Compute","Deployment"]
   },
   {
     id: "aws-clf-71",
@@ -438,7 +438,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "The AWS Cost and Usage Report (AWS CUR) delivers comprehensive billing data, publishing hourly or daily line-item records into an Amazon S3 bucket for analysis.",
     referenceUrl: "https://docs.aws.amazon.com/cur/latest/userguide/what-is-cur.html",
-    tags: ["CUR", "Billing", "FinOps", "Cost Management"]
+    tags: ["CUR","Billing","FinOps","Cost Management"]
   },
   {
     id: "aws-clf-72",
@@ -459,7 +459,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "AWS Budgets gives you the ability to set custom budgets that alert you when your costs or usage exceed (or are forecasted to exceed) your budgeted amount.",
     referenceUrl: "https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html",
-    tags: ["AWS Budgets", "Billing", "Alerts", "FinOps"]
+    tags: ["AWS Budgets","Billing","Alerts","FinOps"]
   },
   {
     id: "aws-clf-73",
@@ -480,7 +480,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "AWS Business Support provides 24x7 phone, email, and chat access to Cloud Support Engineers with a <1 hour response time for production system down cases and access to all Trusted Advisor checks.",
     referenceUrl: "https://aws.amazon.com/premiumsupport/plans/business/",
-    tags: ["Support Plans", "Business Support", "Billing"]
+    tags: ["Support Plans","Business Support","Billing"]
   },
   {
     id: "aws-clf-74",
@@ -495,13 +495,13 @@ export const AWS_CLF_QUESTIONS_3 = [
       { id: 'A', text: "Data transfer is billed at a fixed flat rate regardless of volume." },
       { id: 'B', text: "All outbound data transfer fees are waived for members of an organization." },
       { id: 'C', text: "AWS provides a 50% discount on all compute services automatically." },
-      { id: 'D', text: "Usage across all member accounts is aggregated, allowing the organization to reach higher volume discount pricing tiers faster." }
+      { id: 'D', text: "Aggregated usage across member accounts reaches volume tiers sooner." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Organizations aggregates usage from all member accounts in the organization, enabling the combined volume to qualify for tiered pricing discounts for services like S3 storage and data transfer.",
     referenceUrl: "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html",
-    tags: ["Organizations", "Consolidated Billing", "Volume Discounts", "Billing"]
+    tags: ["Organizations","Consolidated Billing","Volume Discounts","Billing"]
   },
   {
     id: "aws-clf-75",
@@ -522,7 +522,7 @@ export const AWS_CLF_QUESTIONS_3 = [
     type: "single",
     explanation: "Multi-Region Active-Active serves traffic from multiple full-scale active Regions simultaneously, achieving near-zero RTO and RPO at the highest implementation cost.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html",
-    tags: ["Disaster Recovery", "RTO", "RPO", "Cloud Concepts", "Reliability"]
+    tags: ["Disaster Recovery","RTO","RPO","Cloud Concepts","Reliability"]
   }
 ];
 

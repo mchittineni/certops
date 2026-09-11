@@ -9,7 +9,7 @@ export const AWS_CLF_QUESTIONS_13 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Well-Architected Framework to apply the Reliability Pillar design principles of the AWS Well-Architected Framework to an enterprise banking application.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Automatically recover from failure, test recovery procedures, scale horizontally to increase aggregate system availability, and stop guessing capacity." },
+      { id: 'A', text: "Automatically recover from failure, test recovery, scale horizontally, stop guessing capacity." },
       { id: 'B', text: "Maximize physical server CPU utilization by consolidating all databases onto a single instance." },
       { id: 'C', text: "Perform all system recovery operations through manual console procedures." },
       { id: 'D', text: "Disable automated scaling to keep operational costs perfectly predictable." }
@@ -31,7 +31,7 @@ export const AWS_CLF_QUESTIONS_13 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Maximize physical server CPU utilization by consolidating all databases onto a single instance." },
-      { id: 'B', text: "Automatically recover from failure, test recovery procedures, scale horizontally to increase aggregate system availability, and stop guessing capacity." },
+      { id: 'B', text: "Automatically recover from failure, test recovery, scale horizontally, stop guessing capacity." },
       { id: 'C', text: "Perform all system recovery operations through manual console procedures." },
       { id: 'D', text: "Disable automated scaling to keep operational costs perfectly predictable." }
     ],
@@ -54,7 +54,7 @@ export const AWS_CLF_QUESTIONS_13 = [
       { id: 'A', text: "Maximize physical server CPU utilization by consolidating all databases onto a single instance." },
       { id: 'B', text: "Perform all system recovery operations through manual console procedures." },
       { id: 'C', text: "Disable automated scaling to keep operational costs perfectly predictable." },
-      { id: 'D', text: "Automatically recover from failure, test recovery procedures, scale horizontally to increase aggregate system availability, and stop guessing capacity." }
+      { id: 'D', text: "Automatically recover from failure, test recovery, scale horizontally, stop guessing capacity." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -75,7 +75,7 @@ export const AWS_CLF_QUESTIONS_13 = [
       { id: 'A', text: "Disable automated scaling to keep operational costs perfectly predictable." },
       { id: 'B', text: "Maximize physical server CPU utilization by consolidating all databases onto a single instance." },
       { id: 'C', text: "Perform all system recovery operations through manual console procedures." },
-      { id: 'D', text: "Automatically recover from failure, test recovery procedures, scale horizontally to increase aggregate system availability, and stop guessing capacity." }
+      { id: 'D', text: "Automatically recover from failure, test recovery, scale horizontally, stop guessing capacity." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,7 +93,7 @@ export const AWS_CLF_QUESTIONS_13 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Well-Architected Framework to apply the Reliability Pillar design principles of the AWS Well-Architected Framework to an enterprise banking application.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Automatically recover from failure, test recovery procedures, scale horizontally to increase aggregate system availability, and stop guessing capacity." },
+      { id: 'A', text: "Automatically recover from failure, test recovery, scale horizontally, stop guessing capacity." },
       { id: 'B', text: "Disable automated scaling to keep operational costs perfectly predictable." },
       { id: 'C', text: "Perform all system recovery operations through manual console procedures." },
       { id: 'D', text: "Maximize physical server CPU utilization by consolidating all databases onto a single instance." }
@@ -115,7 +115,7 @@ export const AWS_CLF_QUESTIONS_13 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Disable application log generation to reduce storage overhead." },
-      { id: 'B', text: "Perform operations as code, make frequent, small, reversible changes, refine operations procedures frequently, and anticipate failure." },
+      { id: 'B', text: "Perform operations as code, make small reversible changes, and anticipate failure." },
       { id: 'C', text: "Make infrequent, massive changes during annual maintenance windows." },
       { id: 'D', text: "Configure infrastructure manually through the console to avoid writing templates." }
     ],
@@ -137,7 +137,7 @@ export const AWS_CLF_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Disable application log generation to reduce storage overhead." },
       { id: 'B', text: "Make infrequent, massive changes during annual maintenance windows." },
-      { id: 'C', text: "Perform operations as code, make frequent, small, reversible changes, refine operations procedures frequently, and anticipate failure." },
+      { id: 'C', text: "Perform operations as code, make small reversible changes, and anticipate failure." },
       { id: 'D', text: "Configure infrastructure manually through the console to avoid writing templates." }
     ],
     correctAnswers: ['C'],
@@ -156,7 +156,7 @@ export const AWS_CLF_QUESTIONS_13 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Well-Architected Framework to implement the Operational Excellence Pillar of the AWS Well-Architected Framework to manage production infrastructure changes safely.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Perform operations as code, make frequent, small, reversible changes, refine operations procedures frequently, and anticipate failure." },
+      { id: 'A', text: "Perform operations as code, make small reversible changes, and anticipate failure." },
       { id: 'B', text: "Configure infrastructure manually through the console to avoid writing templates." },
       { id: 'C', text: "Disable application log generation to reduce storage overhead." },
       { id: 'D', text: "Make infrequent, massive changes during annual maintenance windows." }
@@ -179,7 +179,7 @@ export const AWS_CLF_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Configure infrastructure manually through the console to avoid writing templates." },
       { id: 'B', text: "Disable application log generation to reduce storage overhead." },
-      { id: 'C', text: "Perform operations as code, make frequent, small, reversible changes, refine operations procedures frequently, and anticipate failure." },
+      { id: 'C', text: "Perform operations as code, make small reversible changes, and anticipate failure." },
       { id: 'D', text: "Make infrequent, massive changes during annual maintenance windows." }
     ],
     correctAnswers: ['C'],
@@ -199,7 +199,7 @@ export const AWS_CLF_QUESTIONS_13 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Make infrequent, massive changes during annual maintenance windows." },
-      { id: 'B', text: "Perform operations as code, make frequent, small, reversible changes, refine operations procedures frequently, and anticipate failure." },
+      { id: 'B', text: "Perform operations as code, make small reversible changes, and anticipate failure." },
       { id: 'C', text: "Disable application log generation to reduce storage overhead." },
       { id: 'D', text: "Configure infrastructure manually through the console to avoid writing templates." }
     ],
@@ -221,7 +221,7 @@ export const AWS_CLF_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "The hardware manufacturer is responsible for EC2 operating system patches." },
       { id: 'B', text: "Neither party is responsible because cloud infrastructure is self-patching." },
-      { id: 'C', text: "The customer is responsible for guest operating system patching, updates, security configurations, and firewall rules on Amazon EC2 instances." },
+      { id: 'C', text: "The customer patches the guest OS and sets security groups on EC2 instances." },
       { id: 'D', text: "AWS is responsible for patching the guest operating system on all EC2 instances automatically." }
     ],
     correctAnswers: ['C'],
@@ -242,7 +242,7 @@ export const AWS_CLF_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "AWS is responsible for patching the guest operating system on all EC2 instances automatically." },
       { id: 'B', text: "The hardware manufacturer is responsible for EC2 operating system patches." },
-      { id: 'C', text: "The customer is responsible for guest operating system patching, updates, security configurations, and firewall rules on Amazon EC2 instances." },
+      { id: 'C', text: "The customer patches the guest OS and sets security groups on EC2 instances." },
       { id: 'D', text: "Neither party is responsible because cloud infrastructure is self-patching." }
     ],
     correctAnswers: ['C'],
@@ -264,7 +264,7 @@ export const AWS_CLF_QUESTIONS_13 = [
       { id: 'A', text: "Neither party is responsible because cloud infrastructure is self-patching." },
       { id: 'B', text: "AWS is responsible for patching the guest operating system on all EC2 instances automatically." },
       { id: 'C', text: "The hardware manufacturer is responsible for EC2 operating system patches." },
-      { id: 'D', text: "The customer is responsible for guest operating system patching, updates, security configurations, and firewall rules on Amazon EC2 instances." }
+      { id: 'D', text: "The customer patches the guest OS and sets security groups on EC2 instances." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,7 +282,7 @@ export const AWS_CLF_QUESTIONS_13 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Shared Responsibility to determine whether patching the guest operating system on an Amazon EC2 instance is the responsibility of AWS or the customer.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "The customer is responsible for guest operating system patching, updates, security configurations, and firewall rules on Amazon EC2 instances." },
+      { id: 'A', text: "The customer patches the guest OS and sets security groups on EC2 instances." },
       { id: 'B', text: "AWS is responsible for patching the guest operating system on all EC2 instances automatically." },
       { id: 'C', text: "Neither party is responsible because cloud infrastructure is self-patching." },
       { id: 'D', text: "The hardware manufacturer is responsible for EC2 operating system patches." }
@@ -304,7 +304,7 @@ export const AWS_CLF_QUESTIONS_13 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Neither party is responsible because cloud infrastructure is self-patching." },
-      { id: 'B', text: "The customer is responsible for guest operating system patching, updates, security configurations, and firewall rules on Amazon EC2 instances." },
+      { id: 'B', text: "The customer patches the guest OS and sets security groups on EC2 instances." },
       { id: 'C', text: "The hardware manufacturer is responsible for EC2 operating system patches." },
       { id: 'D', text: "AWS is responsible for patching the guest operating system on all EC2 instances automatically." }
     ],
@@ -327,7 +327,7 @@ export const AWS_CLF_QUESTIONS_13 = [
       { id: 'A', text: "The customer is responsible for SSH access and operating system kernel compilation on RDS." },
       { id: 'B', text: "AWS manages database table schema design and SQL query optimization." },
       { id: 'C', text: "The customer must physically replace failed storage drives in the RDS data center." },
-      { id: 'D', text: "AWS manages the underlying operating system and database engine patching, while the customer configures database access, user permissions, and network firewall settings." }
+      { id: 'D', text: "AWS patches the OS and database engine; the customer configures access." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -348,7 +348,7 @@ export const AWS_CLF_QUESTIONS_13 = [
       { id: 'A', text: "The customer must physically replace failed storage drives in the RDS data center." },
       { id: 'B', text: "AWS manages database table schema design and SQL query optimization." },
       { id: 'C', text: "The customer is responsible for SSH access and operating system kernel compilation on RDS." },
-      { id: 'D', text: "AWS manages the underlying operating system and database engine patching, while the customer configures database access, user permissions, and network firewall settings." }
+      { id: 'D', text: "AWS patches the OS and database engine; the customer configures access." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -369,7 +369,7 @@ export const AWS_CLF_QUESTIONS_13 = [
       { id: 'A', text: "The customer must physically replace failed storage drives in the RDS data center." },
       { id: 'B', text: "AWS manages database table schema design and SQL query optimization." },
       { id: 'C', text: "The customer is responsible for SSH access and operating system kernel compilation on RDS." },
-      { id: 'D', text: "AWS manages the underlying operating system and database engine patching, while the customer configures database access, user permissions, and network firewall settings." }
+      { id: 'D', text: "AWS patches the OS and database engine; the customer configures access." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -390,7 +390,7 @@ export const AWS_CLF_QUESTIONS_13 = [
       { id: 'A', text: "AWS manages database table schema design and SQL query optimization." },
       { id: 'B', text: "The customer is responsible for SSH access and operating system kernel compilation on RDS." },
       { id: 'C', text: "The customer must physically replace failed storage drives in the RDS data center." },
-      { id: 'D', text: "AWS manages the underlying operating system and database engine patching, while the customer configures database access, user permissions, and network firewall settings." }
+      { id: 'D', text: "AWS patches the OS and database engine; the customer configures access." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -411,7 +411,7 @@ export const AWS_CLF_QUESTIONS_13 = [
       { id: 'A', text: "The customer is responsible for SSH access and operating system kernel compilation on RDS." },
       { id: 'B', text: "AWS manages database table schema design and SQL query optimization." },
       { id: 'C', text: "The customer must physically replace failed storage drives in the RDS data center." },
-      { id: 'D', text: "AWS manages the underlying operating system and database engine patching, while the customer configures database access, user permissions, and network firewall settings." }
+      { id: 'D', text: "AWS patches the OS and database engine; the customer configures access." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,7 +429,7 @@ export const AWS_CLF_QUESTIONS_13 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Shared Responsibility to determine who is responsible for configuring access permissions and preventing public data leakage from an Amazon S3 bucket.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "The customer is responsible for configuring S3 bucket policies, Access Control Lists, Block Public Access settings, and managing object access permissions." },
+      { id: 'A', text: "The customer configures bucket policies, ACLs and Block Public Access." },
       { id: 'B', text: "Third-party ISP providers are responsible for S3 bucket access permissions." },
       { id: 'C', text: "S3 buckets are public by default and cannot be secured." },
       { id: 'D', text: "AWS is responsible for deciding which objects should be made public on behalf of the customer." }
@@ -451,7 +451,7 @@ export const AWS_CLF_QUESTIONS_13 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Third-party ISP providers are responsible for S3 bucket access permissions." },
-      { id: 'B', text: "The customer is responsible for configuring S3 bucket policies, Access Control Lists, Block Public Access settings, and managing object access permissions." },
+      { id: 'B', text: "The customer configures bucket policies, ACLs and Block Public Access." },
       { id: 'C', text: "S3 buckets are public by default and cannot be secured." },
       { id: 'D', text: "AWS is responsible for deciding which objects should be made public on behalf of the customer." }
     ],
@@ -471,7 +471,7 @@ export const AWS_CLF_QUESTIONS_13 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Shared Responsibility to determine who is responsible for configuring access permissions and preventing public data leakage from an Amazon S3 bucket.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "The customer is responsible for configuring S3 bucket policies, Access Control Lists, Block Public Access settings, and managing object access permissions." },
+      { id: 'A', text: "The customer configures bucket policies, ACLs and Block Public Access." },
       { id: 'B', text: "AWS is responsible for deciding which objects should be made public on behalf of the customer." },
       { id: 'C', text: "Third-party ISP providers are responsible for S3 bucket access permissions." },
       { id: 'D', text: "S3 buckets are public by default and cannot be secured." }
@@ -492,7 +492,7 @@ export const AWS_CLF_QUESTIONS_13 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Shared Responsibility to determine who is responsible for configuring access permissions and preventing public data leakage from an Amazon S3 bucket.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "The customer is responsible for configuring S3 bucket policies, Access Control Lists, Block Public Access settings, and managing object access permissions." },
+      { id: 'A', text: "The customer configures bucket policies, ACLs and Block Public Access." },
       { id: 'B', text: "AWS is responsible for deciding which objects should be made public on behalf of the customer." },
       { id: 'C', text: "S3 buckets are public by default and cannot be secured." },
       { id: 'D', text: "Third-party ISP providers are responsible for S3 bucket access permissions." }
@@ -516,7 +516,7 @@ export const AWS_CLF_QUESTIONS_13 = [
       { id: 'A', text: "Third-party ISP providers are responsible for S3 bucket access permissions." },
       { id: 'B', text: "S3 buckets are public by default and cannot be secured." },
       { id: 'C', text: "AWS is responsible for deciding which objects should be made public on behalf of the customer." },
-      { id: 'D', text: "The customer is responsible for configuring S3 bucket policies, Access Control Lists, Block Public Access settings, and managing object access permissions." }
+      { id: 'D', text: "The customer configures bucket policies, ACLs and Block Public Access." }
     ],
     correctAnswers: ['D'],
     type: "single",

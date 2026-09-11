@@ -116,7 +116,7 @@ export const AWS_CLF_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Disable the VPC route table on private subnets." },
       { id: 'B', text: "Attach an Internet Gateway directly to the private subnet." },
-      { id: 'C', text: "Deploy a NAT Gateway in a public subnet and update the private subnet route table to direct outbound internet traffic to the NAT Gateway." },
+      { id: 'C', text: "Put a NAT gateway in a public subnet and route to it." },
       { id: 'D', text: "Assign public IPv4 addresses to all private EC2 instances." }
     ],
     correctAnswers: ['C'],
@@ -137,7 +137,7 @@ export const AWS_CLF_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Assign public IPv4 addresses to all private EC2 instances." },
       { id: 'B', text: "Disable the VPC route table on private subnets." },
-      { id: 'C', text: "Deploy a NAT Gateway in a public subnet and update the private subnet route table to direct outbound internet traffic to the NAT Gateway." },
+      { id: 'C', text: "Put a NAT gateway in a public subnet and route to it." },
       { id: 'D', text: "Attach an Internet Gateway directly to the private subnet." }
     ],
     correctAnswers: ['C'],
@@ -157,7 +157,7 @@ export const AWS_CLF_QUESTIONS_18 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Attach an Internet Gateway directly to the private subnet." },
-      { id: 'B', text: "Deploy a NAT Gateway in a public subnet and update the private subnet route table to direct outbound internet traffic to the NAT Gateway." },
+      { id: 'B', text: "Put a NAT gateway in a public subnet and route to it." },
       { id: 'C', text: "Assign public IPv4 addresses to all private EC2 instances." },
       { id: 'D', text: "Disable the VPC route table on private subnets." }
     ],
@@ -179,7 +179,7 @@ export const AWS_CLF_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Disable the VPC route table on private subnets." },
       { id: 'B', text: "Assign public IPv4 addresses to all private EC2 instances." },
-      { id: 'C', text: "Deploy a NAT Gateway in a public subnet and update the private subnet route table to direct outbound internet traffic to the NAT Gateway." },
+      { id: 'C', text: "Put a NAT gateway in a public subnet and route to it." },
       { id: 'D', text: "Attach an Internet Gateway directly to the private subnet." }
     ],
     correctAnswers: ['C'],
@@ -201,7 +201,7 @@ export const AWS_CLF_QUESTIONS_18 = [
       { id: 'A', text: "Disable the VPC route table on private subnets." },
       { id: 'B', text: "Assign public IPv4 addresses to all private EC2 instances." },
       { id: 'C', text: "Attach an Internet Gateway directly to the private subnet." },
-      { id: 'D', text: "Deploy a NAT Gateway in a public subnet and update the private subnet route table to direct outbound internet traffic to the NAT Gateway." }
+      { id: 'D', text: "Put a NAT gateway in a public subnet and route to it." }
     ],
     correctAnswers: ['D'],
     type: "single",

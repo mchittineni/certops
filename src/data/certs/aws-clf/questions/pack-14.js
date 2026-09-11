@@ -114,7 +114,7 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates AWS IAM to secure the AWS account root user following official AWS security best practices immediately after creating a new AWS account.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Enable hardware or virtual Multi-Factor Authentication (MFA) on the root user, lock away root credentials, delete root access keys, and create an administrative IAM user for daily tasks." },
+      { id: 'A', text: "Enable MFA on the root user, delete its access keys, and use an admin IAM user." },
       { id: 'B', text: "Disable password complexity requirements on the root user." },
       { id: 'C', text: "Generate access keys for the root user and share them with all development team leads." },
       { id: 'D', text: "Use the root user credentials for daily application deployment and database administration." }
@@ -136,7 +136,7 @@ export const AWS_CLF_QUESTIONS_14 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Generate access keys for the root user and share them with all development team leads." },
-      { id: 'B', text: "Enable hardware or virtual Multi-Factor Authentication (MFA) on the root user, lock away root credentials, delete root access keys, and create an administrative IAM user for daily tasks." },
+      { id: 'B', text: "Enable MFA on the root user, delete its access keys, and use an admin IAM user." },
       { id: 'C', text: "Disable password complexity requirements on the root user." },
       { id: 'D', text: "Use the root user credentials for daily application deployment and database administration." }
     ],
@@ -156,7 +156,7 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates AWS IAM to secure the AWS account root user following official AWS security best practices immediately after creating a new AWS account.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Enable hardware or virtual Multi-Factor Authentication (MFA) on the root user, lock away root credentials, delete root access keys, and create an administrative IAM user for daily tasks." },
+      { id: 'A', text: "Enable MFA on the root user, delete its access keys, and use an admin IAM user." },
       { id: 'B', text: "Use the root user credentials for daily application deployment and database administration." },
       { id: 'C', text: "Generate access keys for the root user and share them with all development team leads." },
       { id: 'D', text: "Disable password complexity requirements on the root user." }
@@ -178,7 +178,7 @@ export const AWS_CLF_QUESTIONS_14 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Use the root user credentials for daily application deployment and database administration." },
-      { id: 'B', text: "Enable hardware or virtual Multi-Factor Authentication (MFA) on the root user, lock away root credentials, delete root access keys, and create an administrative IAM user for daily tasks." },
+      { id: 'B', text: "Enable MFA on the root user, delete its access keys, and use an admin IAM user." },
       { id: 'C', text: "Disable password complexity requirements on the root user." },
       { id: 'D', text: "Generate access keys for the root user and share them with all development team leads." }
     ],
@@ -198,7 +198,7 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates AWS IAM to secure the AWS account root user following official AWS security best practices immediately after creating a new AWS account.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Enable hardware or virtual Multi-Factor Authentication (MFA) on the root user, lock away root credentials, delete root access keys, and create an administrative IAM user for daily tasks." },
+      { id: 'A', text: "Enable MFA on the root user, delete its access keys, and use an admin IAM user." },
       { id: 'B', text: "Disable password complexity requirements on the root user." },
       { id: 'C', text: "Generate access keys for the root user and share them with all development team leads." },
       { id: 'D', text: "Use the root user credentials for daily application deployment and database administration." }
@@ -324,7 +324,7 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Amazon VPC to compare the operational behavior of Amazon VPC Security Groups and Network Access Control Lists (NACLs).",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Security Groups are stateful firewalls evaluated at the instance network interface level that only support Allow rules; Network ACLs are stateless firewalls evaluated at the subnet level that support both Allow and Deny rules." },
+      { id: 'A', text: "Security groups are stateful and allow-only at the interface; network ACLs are stateless at the subnet." },
       { id: 'B', text: "Security Groups evaluate rules in strict numerical order, while Network ACLs evaluate all rules simultaneously." },
       { id: 'C', text: "Security Groups are stateless and support Deny rules; Network ACLs are stateful and support Allow rules only." },
       { id: 'D', text: "Security Groups operate at the subnet level, while Network ACLs operate at the instance level." }
@@ -348,7 +348,7 @@ export const AWS_CLF_QUESTIONS_14 = [
       { id: 'A', text: "Security Groups evaluate rules in strict numerical order, while Network ACLs evaluate all rules simultaneously." },
       { id: 'B', text: "Security Groups are stateless and support Deny rules; Network ACLs are stateful and support Allow rules only." },
       { id: 'C', text: "Security Groups operate at the subnet level, while Network ACLs operate at the instance level." },
-      { id: 'D', text: "Security Groups are stateful firewalls evaluated at the instance network interface level that only support Allow rules; Network ACLs are stateless firewalls evaluated at the subnet level that support both Allow and Deny rules." }
+      { id: 'D', text: "Security groups are stateful and allow-only at the interface; network ACLs are stateless at the subnet." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -369,7 +369,7 @@ export const AWS_CLF_QUESTIONS_14 = [
       { id: 'A', text: "Security Groups evaluate rules in strict numerical order, while Network ACLs evaluate all rules simultaneously." },
       { id: 'B', text: "Security Groups operate at the subnet level, while Network ACLs operate at the instance level." },
       { id: 'C', text: "Security Groups are stateless and support Deny rules; Network ACLs are stateful and support Allow rules only." },
-      { id: 'D', text: "Security Groups are stateful firewalls evaluated at the instance network interface level that only support Allow rules; Network ACLs are stateless firewalls evaluated at the subnet level that support both Allow and Deny rules." }
+      { id: 'D', text: "Security groups are stateful and allow-only at the interface; network ACLs are stateless at the subnet." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,7 +387,7 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Amazon VPC to compare the operational behavior of Amazon VPC Security Groups and Network Access Control Lists (NACLs).",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Security Groups are stateful firewalls evaluated at the instance network interface level that only support Allow rules; Network ACLs are stateless firewalls evaluated at the subnet level that support both Allow and Deny rules." },
+      { id: 'A', text: "Security groups are stateful and allow-only at the interface; network ACLs are stateless at the subnet." },
       { id: 'B', text: "Security Groups are stateless and support Deny rules; Network ACLs are stateful and support Allow rules only." },
       { id: 'C', text: "Security Groups operate at the subnet level, while Network ACLs operate at the instance level." },
       { id: 'D', text: "Security Groups evaluate rules in strict numerical order, while Network ACLs evaluate all rules simultaneously." }
@@ -410,7 +410,7 @@ export const AWS_CLF_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Security Groups are stateless and support Deny rules; Network ACLs are stateful and support Allow rules only." },
       { id: 'B', text: "Security Groups evaluate rules in strict numerical order, while Network ACLs evaluate all rules simultaneously." },
-      { id: 'C', text: "Security Groups are stateful firewalls evaluated at the instance network interface level that only support Allow rules; Network ACLs are stateless firewalls evaluated at the subnet level that support both Allow and Deny rules." },
+      { id: 'C', text: "Security groups are stateful and allow-only at the interface; network ACLs are stateless at the subnet." },
       { id: 'D', text: "Security Groups operate at the subnet level, while Network ACLs operate at the instance level." }
     ],
     correctAnswers: ['C'],
@@ -431,7 +431,7 @@ export const AWS_CLF_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Rely on operating system passwords to encrypt hard disk drives." },
       { id: 'B', text: "Write custom symmetric encryption algorithms inside application code." },
-      { id: 'C', text: "Use AWS Key Management Service (KMS) to create, rotate, and manage cryptographic keys for transparent encryption at rest." },
+      { id: 'C', text: "Use AWS KMS to create and rotate keys for encryption at rest." },
       { id: 'D', text: "Store encryption keys in plaintext files inside an Amazon S3 bucket." }
     ],
     correctAnswers: ['C'],
@@ -450,7 +450,7 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates AWS KMS to manage encryption keys and protect sensitive data stored in Amazon S3, Amazon EBS, and Amazon RDS with automated cryptographic key management.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Use AWS Key Management Service (KMS) to create, rotate, and manage cryptographic keys for transparent encryption at rest." },
+      { id: 'A', text: "Use AWS KMS to create and rotate keys for encryption at rest." },
       { id: 'B', text: "Write custom symmetric encryption algorithms inside application code." },
       { id: 'C', text: "Rely on operating system passwords to encrypt hard disk drives." },
       { id: 'D', text: "Store encryption keys in plaintext files inside an Amazon S3 bucket." }
@@ -472,7 +472,7 @@ export const AWS_CLF_QUESTIONS_14 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Store encryption keys in plaintext files inside an Amazon S3 bucket." },
-      { id: 'B', text: "Use AWS Key Management Service (KMS) to create, rotate, and manage cryptographic keys for transparent encryption at rest." },
+      { id: 'B', text: "Use AWS KMS to create and rotate keys for encryption at rest." },
       { id: 'C', text: "Write custom symmetric encryption algorithms inside application code." },
       { id: 'D', text: "Rely on operating system passwords to encrypt hard disk drives." }
     ],
@@ -494,7 +494,7 @@ export const AWS_CLF_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Store encryption keys in plaintext files inside an Amazon S3 bucket." },
       { id: 'B', text: "Write custom symmetric encryption algorithms inside application code." },
-      { id: 'C', text: "Use AWS Key Management Service (KMS) to create, rotate, and manage cryptographic keys for transparent encryption at rest." },
+      { id: 'C', text: "Use AWS KMS to create and rotate keys for encryption at rest." },
       { id: 'D', text: "Rely on operating system passwords to encrypt hard disk drives." }
     ],
     correctAnswers: ['C'],
@@ -516,7 +516,7 @@ export const AWS_CLF_QUESTIONS_14 = [
       { id: 'A', text: "Store encryption keys in plaintext files inside an Amazon S3 bucket." },
       { id: 'B', text: "Write custom symmetric encryption algorithms inside application code." },
       { id: 'C', text: "Rely on operating system passwords to encrypt hard disk drives." },
-      { id: 'D', text: "Use AWS Key Management Service (KMS) to create, rotate, and manage cryptographic keys for transparent encryption at rest." }
+      { id: 'D', text: "Use AWS KMS to create and rotate keys for encryption at rest." }
     ],
     correctAnswers: ['D'],
     type: "single",
