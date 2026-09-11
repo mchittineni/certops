@@ -18,7 +18,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "In a cloud computing environment, new IT resources are only a click away, which means that you reduce the time to make those resources available to your developers from weeks to just minutes, dramatically increasing agility.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html",
-    tags: ["Cloud Concepts", "Agility", "Speed"]
+    tags: ["Cloud Concepts","Agility","Speed"]
   },
   {
     id: "aws-clf-77",
@@ -39,7 +39,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "CloudTrail log file integrity validation uses industry-standard algorithms (SHA-256 and RSA) to generate digest files, allowing you to mathematically verify that log files were not tampered with after delivery to S3.",
     referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-intro.html",
-    tags: ["CloudTrail", "Compliance", "Security", "Integrity"]
+    tags: ["CloudTrail","Compliance","Security","Integrity"]
   },
   {
     id: "aws-clf-78",
@@ -60,7 +60,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "S3 Versioning keeps multiple variants of an object in the same bucket, allowing you to preserve, retrieve, and restore every version of every object, protecting against accidental overwrites and deletes.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html",
-    tags: ["S3", "Versioning", "Storage", "Data Protection"]
+    tags: ["S3","Versioning","Storage","Data Protection"]
   },
   {
     id: "aws-clf-79",
@@ -81,7 +81,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "Amazon EBS Multi-Attach enables you to attach a single Provisioned IOPS SSD (io1 or io2) volume to up to 16 Linux EC2 instances in the same Availability Zone to support clustered applications.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html",
-    tags: ["EBS", "Multi-Attach", "Storage", "Compute"]
+    tags: ["EBS","Multi-Attach","Storage","Compute"]
   },
   {
     id: "aws-clf-80",
@@ -102,7 +102,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "Customer Managed Keys (CMKs) are KMS keys that you create, own, and manage in your AWS account. You have full control over their key policies, IAM permissions, rotation schedules, and lifecycle.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk",
-    tags: ["KMS", "Encryption", "Security", "Compliance"]
+    tags: ["KMS","Encryption","Security","Compliance"]
   },
   {
     id: "aws-clf-81",
@@ -116,14 +116,14 @@ export const AWS_CLF_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Both inbound and outbound data transfers are billed at identical per-gigabyte rates." },
       { id: 'B', text: "Inbound data transfer is billed; outbound data transfer is free." },
-      { id: 'C', text: "Inbound data transfer from the internet is free; outbound data transfer to the internet is billed per gigabyte." },
+      { id: 'C', text: "Inbound data transfer is free; outbound is billed per gigabyte." },
       { id: 'D', text: "Both inbound and outbound data transfers are completely free." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "As a general rule across AWS services, inbound data transfer from the public internet into AWS is free ($0.00/GB). Outbound data transfer from AWS to the public internet is billed per gigabyte above free tier allowances.",
     referenceUrl: "https://aws.amazon.com/pricing/",
-    tags: ["Pricing", "Data Transfer", "Billing", "Cost"]
+    tags: ["Pricing","Data Transfer","Billing","Cost"]
   },
   {
     id: "aws-clf-82",
@@ -137,14 +137,14 @@ export const AWS_CLF_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Automated snapshots are retained for 10 years automatically." },
       { id: 'B', text: "Manual snapshots are deleted automatically after 35 days." },
-      { id: 'C', text: "Automated snapshots are deleted with the instance; creating a manual DB snapshot preserves the backup indefinitely." },
+      { id: 'C', text: "Automated snapshots go with the instance; a manual snapshot persists." },
       { id: 'D', text: "Amazon RDS automatically converts all automated snapshots into S3 Glacier archives." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Automated snapshots are tied to the lifetime of the RDS instance and are deleted when the instance is deleted unless you retain them or create a manual snapshot. Manual DB snapshots are retained until you explicitly delete them.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html",
-    tags: ["RDS", "Snapshots", "Backups", "Databases"]
+    tags: ["RDS","Snapshots","Backups","Databases"]
   },
   {
     id: "aws-clf-83",
@@ -165,7 +165,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "Amazon S3 Transfer Acceleration enables fast, easy, and secure transfers of files over long distances between your client and an S3 bucket by routing traffic through AWS Edge Locations over the optimized AWS private network backbone.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html",
-    tags: ["S3", "Transfer Acceleration", "Networking", "Storage"]
+    tags: ["S3","Transfer Acceleration","Networking","Storage"]
   },
   {
     id: "aws-clf-84",
@@ -186,7 +186,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "AWS Network Firewall is a stateful, fully managed network firewall and intrusion detection and prevention service for your virtual private clouds (VPCs), supporting 5-tuple filtering, IPS rules, and domain filtering.",
     referenceUrl: "https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html",
-    tags: ["Network Firewall", "VPC", "Security", "IPS"]
+    tags: ["Network Firewall","VPC","Security","IPS"]
   },
   {
     id: "aws-clf-85",
@@ -207,7 +207,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "An Amazon Route 53 Private Hosted Zone is a container that holds information about how you want Route 53 to respond to DNS queries for a domain and its subdomains within one or more VPCs that you associate with the zone.",
     referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-private.html",
-    tags: ["Route 53", "DNS", "VPC", "Networking"]
+    tags: ["Route 53","DNS","VPC","Networking"]
   },
   {
     id: "aws-clf-86",
@@ -228,7 +228,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "AWS Transit Gateway connects Amazon VPCs and on-premises networks to a single central hub, simplifying network topology and eliminating the need for complex full-mesh peering relationships.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html",
-    tags: ["Transit Gateway", "VPC", "Networking", "Hub-and-Spoke"]
+    tags: ["Transit Gateway","VPC","Networking","Hub-and-Spoke"]
   },
   {
     id: "aws-clf-87",
@@ -249,7 +249,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "AWS Pricing Calculator is a web-based planning tool that allows you to explore AWS services and create detailed cost estimates for your architecture use cases before deploying resources.",
     referenceUrl: "https://calculator.aws/",
-    tags: ["Pricing Calculator", "Cost Estimation", "Billing", "FinOps"]
+    tags: ["Pricing Calculator","Cost Estimation","Billing","FinOps"]
   },
   {
     id: "aws-clf-88",
@@ -270,7 +270,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "In a Pilot Light disaster recovery strategy, core elements (such as databases and data replication) are kept active in the DR Region, while other compute resources (EC2 instances) are provisioned and scaled out only when needed during an outage.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html",
-    tags: ["Disaster Recovery", "Pilot Light", "Cloud Concepts", "Resilience"]
+    tags: ["Disaster Recovery","Pilot Light","Cloud Concepts","Resilience"]
   },
   {
     id: "aws-clf-89",
@@ -291,7 +291,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "AWS CloudHSM is a cloud-based hardware security module (HSM) that enables you to easily generate and use your own encryption keys on dedicated, single-tenant, FIPS 140-2 Level 3 validated hardware under your exclusive control.",
     referenceUrl: "https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html",
-    tags: ["CloudHSM", "HSM", "FIPS", "Security", "Encryption"]
+    tags: ["CloudHSM","HSM","FIPS","Security","Encryption"]
   },
   {
     id: "aws-clf-90",
@@ -312,7 +312,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "Amazon S3 Object Lock enables you to store objects using a WORM model to prevent an object from being deleted or overwritten for a fixed amount of time or indefinitely, complying with regulatory mandates such as SEC Rule 17a-4.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html",
-    tags: ["S3", "Object Lock", "WORM", "Compliance", "Storage"]
+    tags: ["S3","Object Lock","WORM","Compliance","Storage"]
   },
   {
     id: "aws-clf-91",
@@ -333,7 +333,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "S3 Lifecycle Management enables you to define lifecycle configuration rules to automatically transition objects to more cost-effective storage classes or expire them after specific retention periods.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html",
-    tags: ["S3", "Lifecycle Policies", "Cost Optimization", "Storage"]
+    tags: ["S3","Lifecycle Policies","Cost Optimization","Storage"]
   },
   {
     id: "aws-clf-92",
@@ -354,7 +354,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "AWS IAM Identity Center (successor to AWS Single Sign-On) helps you securely create or connect your workforce identities and manage their access centrally across AWS accounts and cloud applications.",
     referenceUrl: "https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html",
-    tags: ["IAM Identity Center", "SSO", "Identity", "Security"]
+    tags: ["IAM Identity Center","SSO","Identity","Security"]
   },
   {
     id: "aws-clf-93",
@@ -375,7 +375,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "Amazon Cognito User Pools are user directories that provide sign-up and sign-in options for web and mobile application users, including built-in support for Multi-Factor Authentication (MFA) and social identity federation.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html",
-    tags: ["Cognito", "Authentication", "Mobile", "Security"]
+    tags: ["Cognito","Authentication","Mobile","Security"]
   },
   {
     id: "aws-clf-94",
@@ -396,7 +396,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "Amazon S3 Storage Lens provides organization-wide visibility into object storage usage and activity trends, generating contextual insights and actionable recommendations to optimize storage costs and apply security best practices.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html",
-    tags: ["S3", "Storage Lens", "Analytics", "FinOps", "Storage"]
+    tags: ["S3","Storage Lens","Analytics","FinOps","Storage"]
   },
   {
     id: "aws-clf-95",
@@ -417,7 +417,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "AWS Cost Anomaly Detection uses advanced machine learning models to identify unexpected spending spikes and their root causes, sending automated alerts to help prevent unexpected bills.",
     referenceUrl: "https://docs.aws.amazon.com/cost-management/latest/userguide/CostAnomalyDetection.html",
-    tags: ["Cost Anomaly Detection", "FinOps", "Billing", "Machine Learning"]
+    tags: ["Cost Anomaly Detection","FinOps","Billing","Machine Learning"]
   },
   {
     id: "aws-clf-96",
@@ -438,7 +438,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "AWS Step Functions is a low-code visual workflow service used to orchestrate AWS services, automate business processes, and build serverless applications with state machines.",
     referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html",
-    tags: ["Step Functions", "Workflow", "Serverless", "Orchestration"]
+    tags: ["Step Functions","Workflow","Serverless","Orchestration"]
   },
   {
     id: "aws-clf-97",
@@ -459,7 +459,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale, handling traffic management, CORS, authorization, and throttling.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html",
-    tags: ["API Gateway", "Serverless", "REST", "Networking"]
+    tags: ["API Gateway","Serverless","REST","Networking"]
   },
   {
     id: "aws-clf-98",
@@ -480,7 +480,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "AWS Systems Manager Session Manager provides secure and auditable instance management without needing to open inbound ports, maintain bastion hosts, or manage SSH keys.",
     referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html",
-    tags: ["Session Manager", "Systems Manager", "Security", "EC2"]
+    tags: ["Session Manager","Systems Manager","Security","EC2"]
   },
   {
     id: "aws-clf-99",
@@ -501,7 +501,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "Amazon Kendra is an intelligent search service powered by machine learning that enables organizations to provide natural language search capabilities across structured and unstructured content repositories.",
     referenceUrl: "https://docs.aws.amazon.com/kendra/latest/dg/what-is-kendra.html",
-    tags: ["Amazon Kendra", "Search", "Machine Learning", "AI"]
+    tags: ["Amazon Kendra","Search","Machine Learning","AI"]
   },
   {
     id: "aws-clf-100",
@@ -522,7 +522,7 @@ export const AWS_CLF_QUESTIONS_4 = [
     type: "single",
     explanation: "The Governance Perspective of the AWS CAF provides capabilities to help orchestrate cloud initiatives while maximizing organizational benefits and minimizing transformation-related risks through cost management, license management, and portfolio management.",
     referenceUrl: "https://aws.amazon.com/professional-services/CAF/",
-    tags: ["CAF", "Governance", "Cloud Concepts"]
+    tags: ["CAF","Governance","Cloud Concepts"]
   }
 ];
 

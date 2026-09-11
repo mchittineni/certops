@@ -221,7 +221,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Deploy a Private Cloud exclusively within a local server room." },
       { id: 'B', text: "Deploy a Public Cloud only architecture and decommission all on-premises servers immediately." },
-      { id: 'C', text: "Deploy a Hybrid Cloud architecture connecting on-premises data centers to AWS using AWS Direct Connect or AWS Site-to-Site VPN." },
+      { id: 'C', text: "Deploy a hybrid architecture joining on-premises to AWS over Direct Connect or VPN." },
       { id: 'D', text: "Isolate on-premises systems completely from AWS without network routing." }
     ],
     correctAnswers: ['C'],
@@ -240,7 +240,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Cloud Models to connect existing on-premises legacy enterprise data centers to AWS resources using dedicated network links to enable seamless hybrid operations.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Deploy a Hybrid Cloud architecture connecting on-premises data centers to AWS using AWS Direct Connect or AWS Site-to-Site VPN." },
+      { id: 'A', text: "Deploy a hybrid architecture joining on-premises to AWS over Direct Connect or VPN." },
       { id: 'B', text: "Isolate on-premises systems completely from AWS without network routing." },
       { id: 'C', text: "Deploy a Public Cloud only architecture and decommission all on-premises servers immediately." },
       { id: 'D', text: "Deploy a Private Cloud exclusively within a local server room." }
@@ -263,7 +263,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Deploy a Private Cloud exclusively within a local server room." },
       { id: 'B', text: "Isolate on-premises systems completely from AWS without network routing." },
-      { id: 'C', text: "Deploy a Hybrid Cloud architecture connecting on-premises data centers to AWS using AWS Direct Connect or AWS Site-to-Site VPN." },
+      { id: 'C', text: "Deploy a hybrid architecture joining on-premises to AWS over Direct Connect or VPN." },
       { id: 'D', text: "Deploy a Public Cloud only architecture and decommission all on-premises servers immediately." }
     ],
     correctAnswers: ['C'],
@@ -282,7 +282,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Cloud Models to connect existing on-premises legacy enterprise data centers to AWS resources using dedicated network links to enable seamless hybrid operations.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Deploy a Hybrid Cloud architecture connecting on-premises data centers to AWS using AWS Direct Connect or AWS Site-to-Site VPN." },
+      { id: 'A', text: "Deploy a hybrid architecture joining on-premises to AWS over Direct Connect or VPN." },
       { id: 'B', text: "Isolate on-premises systems completely from AWS without network routing." },
       { id: 'C', text: "Deploy a Public Cloud only architecture and decommission all on-premises servers immediately." },
       { id: 'D', text: "Deploy a Private Cloud exclusively within a local server room." }
@@ -306,7 +306,7 @@ export const AWS_CLF_QUESTIONS_12 = [
       { id: 'A', text: "Deploy a Public Cloud only architecture and decommission all on-premises servers immediately." },
       { id: 'B', text: "Isolate on-premises systems completely from AWS without network routing." },
       { id: 'C', text: "Deploy a Private Cloud exclusively within a local server room." },
-      { id: 'D', text: "Deploy a Hybrid Cloud architecture connecting on-premises data centers to AWS using AWS Direct Connect or AWS Site-to-Site VPN." }
+      { id: 'D', text: "Deploy a hybrid architecture joining on-premises to AWS over Direct Connect or VPN." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -325,7 +325,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "All Availability Zones share the exact same physical power grid and flood plain." },
-      { id: 'B', text: "An AWS Region is a physical geographical location in the world with multiple, physically separated and isolated Availability Zones connected through low-latency private fiber." },
+      { id: 'B', text: "An AWS Region is a geographic location of several isolated Availability Zones." },
       { id: 'C', text: "An Availability Zone consists of multiple AWS Regions clustered together." },
       { id: 'D', text: "An AWS Region consists of exactly one single physical data center building." }
     ],
@@ -345,7 +345,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates AWS Global Infrastructure to understand the geographical relationship between an AWS Region and its constituent Availability Zones for high-availability architecture design.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "An AWS Region is a physical geographical location in the world with multiple, physically separated and isolated Availability Zones connected through low-latency private fiber." },
+      { id: 'A', text: "An AWS Region is a geographic location of several isolated Availability Zones." },
       { id: 'B', text: "An Availability Zone consists of multiple AWS Regions clustered together." },
       { id: 'C', text: "All Availability Zones share the exact same physical power grid and flood plain." },
       { id: 'D', text: "An AWS Region consists of exactly one single physical data center building." }
@@ -369,7 +369,7 @@ export const AWS_CLF_QUESTIONS_12 = [
       { id: 'A', text: "An AWS Region consists of exactly one single physical data center building." },
       { id: 'B', text: "An Availability Zone consists of multiple AWS Regions clustered together." },
       { id: 'C', text: "All Availability Zones share the exact same physical power grid and flood plain." },
-      { id: 'D', text: "An AWS Region is a physical geographical location in the world with multiple, physically separated and isolated Availability Zones connected through low-latency private fiber." }
+      { id: 'D', text: "An AWS Region is a geographic location of several isolated Availability Zones." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -388,7 +388,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "An AWS Region consists of exactly one single physical data center building." },
-      { id: 'B', text: "An AWS Region is a physical geographical location in the world with multiple, physically separated and isolated Availability Zones connected through low-latency private fiber." },
+      { id: 'B', text: "An AWS Region is a geographic location of several isolated Availability Zones." },
       { id: 'C', text: "All Availability Zones share the exact same physical power grid and flood plain." },
       { id: 'D', text: "An Availability Zone consists of multiple AWS Regions clustered together." }
     ],
@@ -409,7 +409,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "An Availability Zone consists of multiple AWS Regions clustered together." },
-      { id: 'B', text: "An AWS Region is a physical geographical location in the world with multiple, physically separated and isolated Availability Zones connected through low-latency private fiber." },
+      { id: 'B', text: "An AWS Region is a geographic location of several isolated Availability Zones." },
       { id: 'C', text: "An AWS Region consists of exactly one single physical data center building." },
       { id: 'D', text: "All Availability Zones share the exact same physical power grid and flood plain." }
     ],
@@ -432,7 +432,7 @@ export const AWS_CLF_QUESTIONS_12 = [
       { id: 'A', text: "Implement High Availability by scheduling a daily backup tape export." },
       { id: 'B', text: "Rely on manual reboot scripts when an instance fails." },
       { id: 'C', text: "Deploy a single high-performance EC2 instance in one Availability Zone." },
-      { id: 'D', text: "Implement Fault Tolerance by deploying redundant active resources across multiple Availability Zones with automated load balancing and failover." }
+      { id: 'D', text: "Implement fault tolerance with redundant resources across several AZs." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -451,7 +451,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy a single high-performance EC2 instance in one Availability Zone." },
-      { id: 'B', text: "Implement Fault Tolerance by deploying redundant active resources across multiple Availability Zones with automated load balancing and failover." },
+      { id: 'B', text: "Implement fault tolerance with redundant resources across several AZs." },
       { id: 'C', text: "Rely on manual reboot scripts when an instance fails." },
       { id: 'D', text: "Implement High Availability by scheduling a daily backup tape export." }
     ],
@@ -472,7 +472,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Rely on manual reboot scripts when an instance fails." },
-      { id: 'B', text: "Implement Fault Tolerance by deploying redundant active resources across multiple Availability Zones with automated load balancing and failover." },
+      { id: 'B', text: "Implement fault tolerance with redundant resources across several AZs." },
       { id: 'C', text: "Deploy a single high-performance EC2 instance in one Availability Zone." },
       { id: 'D', text: "Implement High Availability by scheduling a daily backup tape export." }
     ],
@@ -495,7 +495,7 @@ export const AWS_CLF_QUESTIONS_12 = [
       { id: 'A', text: "Rely on manual reboot scripts when an instance fails." },
       { id: 'B', text: "Deploy a single high-performance EC2 instance in one Availability Zone." },
       { id: 'C', text: "Implement High Availability by scheduling a daily backup tape export." },
-      { id: 'D', text: "Implement Fault Tolerance by deploying redundant active resources across multiple Availability Zones with automated load balancing and failover." }
+      { id: 'D', text: "Implement fault tolerance with redundant resources across several AZs." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -514,7 +514,7 @@ export const AWS_CLF_QUESTIONS_12 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Deploy a single high-performance EC2 instance in one Availability Zone." },
-      { id: 'B', text: "Implement Fault Tolerance by deploying redundant active resources across multiple Availability Zones with automated load balancing and failover." },
+      { id: 'B', text: "Implement fault tolerance with redundant resources across several AZs." },
       { id: 'C', text: "Rely on manual reboot scripts when an instance fails." },
       { id: 'D', text: "Implement High Availability by scheduling a daily backup tape export." }
     ],

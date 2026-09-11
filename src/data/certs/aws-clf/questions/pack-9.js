@@ -18,7 +18,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "AWS Elastic Disaster Recovery (AWS DRS) provides continuous, block-level replication of servers into a low-cost staging area in your target AWS Region and allows non-disruptive DR drill testing.",
     referenceUrl: "https://docs.aws.amazon.com/drs/latest/userguide/what-is-drs.html",
-    tags: ["DRS", "Disaster Recovery", "Business Continuity"]
+    tags: ["DRS","Disaster Recovery","Business Continuity"]
   },
   {
     id: "aws-clf-202",
@@ -39,7 +39,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "AWS Shield Advanced provides specialized DDoS mitigation support, 24x7 direct access to the AWS Shield Response Team (SRT), real-time metrics, and financial DDoS cost protection against scaling charges.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/shield-advanced-features.html",
-    tags: ["AWS Shield", "Shield Advanced", "DDoS", "Security"]
+    tags: ["AWS Shield","Shield Advanced","DDoS","Security"]
   },
   {
     id: "aws-clf-203",
@@ -60,7 +60,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "S3 Multipart Upload allows you to upload a single object as a set of parts in parallel, improving throughput and enabling quick recovery from network issues by retrying only failed parts (mandatory for objects >5 GB).",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html",
-    tags: ["S3", "Multipart Upload", "Storage", "Performance"]
+    tags: ["S3","Multipart Upload","Storage","Performance"]
   },
   {
     id: "aws-clf-204",
@@ -73,7 +73,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     question: "How can an administrator increase the size of an attached Amazon EBS volume without stopping the EC2 instance or detaching the volume?",
     options: [
       { id: 'A', text: "Create a new EBS volume and migrate data manually." },
-      { id: 'B', text: "Use Amazon EBS Elastic Volumes to modify the volume size and IOPS dynamically while the volume is in use." },
+      { id: 'B', text: "Use EBS Elastic Volumes to change size and IOPS while in use." },
       { id: 'C', text: "Stop the EC2 instance, detach the volume, resize it, and reattach it." },
       { id: 'D', text: "EBS volume sizes cannot be increased once created." }
     ],
@@ -81,7 +81,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "Amazon EBS Elastic Volumes allows you to increase volume size, adjust provisioned IOPS, or change the volume type dynamically without detaching the volume or restarting the instance.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html",
-    tags: ["EBS", "Elastic Volumes", "Storage", "High Availability"]
+    tags: ["EBS","Elastic Volumes","Storage","High Availability"]
   },
   {
     id: "aws-clf-205",
@@ -96,13 +96,13 @@ export const AWS_CLF_QUESTIONS_9 = [
       { id: 'A', text: "The number of S3 buckets created in an account." },
       { id: 'B', text: "Inbound data transfer from the public internet." },
       { id: 'C', text: "The number of IAM users accessing the bucket." },
-      { id: 'D', text: "Storage volume (GB-months), request counts (PUT, GET), and outbound data transfer." }
+      { id: 'D', text: "Storage volume, requests, and outbound transfer." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon S3 pricing is determined primarily by: storage volume consumed per month (GB/month), number and type of requests (PUT, COPY, POST, LIST, GET), data retrieval fees (for cold tiers), and outbound data transfer.",
     referenceUrl: "https://aws.amazon.com/s3/pricing/",
-    tags: ["S3", "Pricing", "Billing", "Cost Management"]
+    tags: ["S3","Pricing","Billing","Cost Management"]
   },
   {
     id: "aws-clf-206",
@@ -115,7 +115,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     question: "How does AWS Secrets Manager perform automated rotation of database credentials?",
     options: [
       { id: 'A', text: "It emails the database administrator a new random password every 30 days." },
-      { id: 'B', text: "It invokes a built-in AWS Lambda rotation function that updates both the database secret and the database server credentials synchronously." },
+      { id: 'B', text: "A Lambda rotation function updates both the secret and the database." },
       { id: 'C', text: "It requires AWS CloudHSM to manually rotate passwords." },
       { id: 'D', text: "It restarts the database instance on a monthly schedule." }
     ],
@@ -123,7 +123,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "AWS Secrets Manager uses an AWS Lambda function to update credentials on both the target database server and in the Secrets Manager secret automatically according to your rotation schedule.",
     referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html",
-    tags: ["Secrets Manager", "Rotation", "Lambda", "Security"]
+    tags: ["Secrets Manager","Rotation","Lambda","Security"]
   },
   {
     id: "aws-clf-207",
@@ -144,7 +144,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "An Amazon Machine Image (AMI) provides the information required to launch an instance, including a pre-configured template (operating system, application server, and software packages) and block device mappings.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html",
-    tags: ["AMI", "EC2", "Compute", "Deployment"]
+    tags: ["AMI","EC2","Compute","Deployment"]
   },
   {
     id: "aws-clf-208",
@@ -165,7 +165,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "When choosing an AWS Region, primary factors include: legal compliance and data residency requirements (keeping data inside specific national boundaries), proximity to end users (latency), service availability, and cost.",
     referenceUrl: "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/",
-    tags: ["Global Infrastructure", "Regions", "Compliance", "Data Sovereignty"]
+    tags: ["Global Infrastructure","Regions","Compliance","Data Sovereignty"]
   },
   {
     id: "aws-clf-209",
@@ -186,7 +186,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "When you hibernate an EC2 instance, AWS signals the operating system to perform hibernation (suspend-to-disk), saving the contents from your instance memory (RAM) to your Amazon EBS root volume for fast resumption.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html",
-    tags: ["EC2", "Hibernate", "Compute", "Performance"]
+    tags: ["EC2","Hibernate","Compute","Performance"]
   },
   {
     id: "aws-clf-210",
@@ -207,7 +207,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "An Event Source Mapping is a Lambda resource that reads from an event source (such as Amazon Kinesis, DynamoDB Streams, or Amazon SQS) and invokes a Lambda function with batches of records.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html",
-    tags: ["Lambda", "Event Source Mapping", "Serverless", "Streaming"]
+    tags: ["Lambda","Event Source Mapping","Serverless","Streaming"]
   },
   {
     id: "aws-clf-211",
@@ -220,7 +220,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     question: "What is the difference between AWS-generated cost allocation tags and user-defined cost allocation tags?",
     options: [
       { id: 'A', text: "AWS-generated tags incur extra monthly billing fees." },
-      { id: 'B', text: "AWS-generated tags are defined and created automatically by AWS (prefixed with `aws:`), while user-defined tags are created and assigned by customers." },
+      { id: 'B', text: "AWS creates `aws:`-prefixed tags; customers create their own." },
       { id: 'C', text: "AWS-generated tags can be deleted by customers at any time." },
       { id: 'D', text: "User-defined tags are only visible to AWS Support." }
     ],
@@ -228,7 +228,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "AWS defines, creates, and applies AWS-generated tags (such as `aws:createdBy`), while customers create, manage, and assign user-defined tags. Both must be activated in the Billing console to appear in reports.",
     referenceUrl: "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html",
-    tags: ["Cost Allocation Tags", "FinOps", "Billing"]
+    tags: ["Cost Allocation Tags","FinOps","Billing"]
   },
   {
     id: "aws-clf-212",
@@ -249,7 +249,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "S3 Bucket Policies are JSON-based resource policies attached directly to an S3 bucket that allow you to grant granular permissions and enforce security conditions (such as requiring HTTPS or specific IP ranges).",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-policies.html",
-    tags: ["S3", "Bucket Policies", "Security", "Storage"]
+    tags: ["S3","Bucket Policies","Security","Storage"]
   },
   {
     id: "aws-clf-213",
@@ -270,7 +270,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "Identity and Access Management (IAM) is entirely the customer's responsibility (Security IN the cloud). Customers manage user accounts, group memberships, policy assignments, and MFA enforcement.",
     referenceUrl: "https://aws.amazon.com/compliance/shared-responsibility-model/",
-    tags: ["Shared Responsibility", "IAM", "Security"]
+    tags: ["Shared Responsibility","IAM","Security"]
   },
   {
     id: "aws-clf-214",
@@ -291,7 +291,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "CloudFront Signed URLs and Signed Cookies allow you to control who can access your content by requiring clients to provide a valid signature generated with a trusted key pair, ideal for private subscription content.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html",
-    tags: ["CloudFront", "Signed URLs", "Security", "CDN"]
+    tags: ["CloudFront","Signed URLs","Security","CDN"]
   },
   {
     id: "aws-clf-215",
@@ -305,14 +305,14 @@ export const AWS_CLF_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Twelve perspectives: one for each AWS management service" },
       { id: 'B', text: "Three perspectives: Compute, Storage, and Networking" },
-      { id: 'C', text: "Six perspectives: Business, People, Governance (Business capabilities) and Platform, Security, Operations (Technical capabilities)" },
+      { id: 'C', text: "Six: Business, People, Governance, Platform, Security, Operations" },
       { id: 'D', text: "Four perspectives: Development, Testing, Staging, and Production" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "The AWS Cloud Adoption Framework (AWS CAF) defines six foundational perspectives: Business, People, Governance (focusing on business capabilities) and Platform, Security, Operations (focusing on technical capabilities).",
     referenceUrl: "https://aws.amazon.com/professional-services/CAF/",
-    tags: ["CAF", "Cloud Concepts", "Frameworks"]
+    tags: ["CAF","Cloud Concepts","Frameworks"]
   },
   {
     id: "aws-clf-216",
@@ -333,7 +333,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "S3 Glacier Instant Retrieval is an archive storage class that delivers the lowest-cost storage for long-lived data that is rarely accessed and requires millisecond retrieval when needed.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html#sc-glacier-instant",
-    tags: ["S3", "Glacier Instant Retrieval", "Storage", "Performance"]
+    tags: ["S3","Glacier Instant Retrieval","Storage","Performance"]
   },
   {
     id: "aws-clf-217",
@@ -354,7 +354,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "A tag in AWS is a label consisting of a customer-defined tag key (e.g. `Environment`) and an optional tag value (e.g. `Production`) used to organize and track costs for AWS resources.",
     referenceUrl: "https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html",
-    tags: ["Tagging", "Cost Allocation", "FinOps"]
+    tags: ["Tagging","Cost Allocation","FinOps"]
   },
   {
     id: "aws-clf-218",
@@ -366,7 +366,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     scenario: "An online store database experiences slow response times during sales because read reporting queries saturate the database CPU, while high availability failover is already configured.",
     question: "What is the primary architectural purpose of an Amazon RDS Read Replica compared to a Multi-AZ deployment?",
     options: [
-      { id: 'A', text: "Read Replicas scale read throughput horizontally by offloading read traffic, whereas Multi-AZ provides synchronous high availability and automatic failover." },
+      { id: 'A', text: "Read Replicas scale reads; Multi-AZ provides synchronous failover." },
       { id: 'B', text: "Read Replicas encrypt data at rest, whereas Multi-AZ encrypts data in transit." },
       { id: 'C', text: "Read Replicas convert relational data into NoSQL format." },
       { id: 'D', text: "Read Replicas provide automated disaster failover, whereas Multi-AZ scales write throughput." }
@@ -375,7 +375,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "RDS Read Replicas use asynchronous replication to provide horizontal read scaling for read-heavy workloads. RDS Multi-AZ uses synchronous replication to provide high availability and automatic failover, but the standby cannot serve read traffic.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html",
-    tags: ["RDS", "Read Replicas", "Multi-AZ", "Databases"]
+    tags: ["RDS","Read Replicas","Multi-AZ","Databases"]
   },
   {
     id: "aws-clf-219",
@@ -389,14 +389,14 @@ export const AWS_CLF_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "It revokes all IAM user credentials in the AWS account." },
       { id: 'B', text: "It blocks all internet access across the entire VPC." },
-      { id: 'C', text: "It generates a security finding in the GuardDuty console and sends an event to Amazon EventBridge for automated notification or remediation." },
+      { id: 'C', text: "It raises a finding and sends an event to Amazon EventBridge." },
       { id: 'D', text: "It permanently deletes the compromised EC2 instance immediately." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "GuardDuty generates detailed security findings with severity ratings and sends events to Amazon EventBridge, allowing administrators to automate notifications (via SNS) or trigger automated remediation (via Lambda).",
     referenceUrl: "https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html",
-    tags: ["GuardDuty", "Findings", "Security", "EventBridge"]
+    tags: ["GuardDuty","Findings","Security","EventBridge"]
   },
   {
     id: "aws-clf-220",
@@ -417,7 +417,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "AWS Global Accelerator provides two static anycast IP addresses that route traffic over the AWS global private network backbone directly to optimal regional endpoints for TCP and UDP protocols.",
     referenceUrl: "https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html",
-    tags: ["Global Accelerator", "Networking", "Anycast", "Performance"]
+    tags: ["Global Accelerator","Networking","Anycast","Performance"]
   },
   {
     id: "aws-clf-221",
@@ -438,7 +438,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "AWS Elastic Beanstalk supports single-container and multi-container Docker environments alongside runtime platforms like Node.js, Python, Java, and .NET, automating infrastructure management.",
     referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/docker.html",
-    tags: ["Elastic Beanstalk", "Docker", "PaaS", "Deployment"]
+    tags: ["Elastic Beanstalk","Docker","PaaS","Deployment"]
   },
   {
     id: "aws-clf-222",
@@ -451,7 +451,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     question: "What is the primary difference between High Availability (HA) and Disaster Recovery (DR)?",
     options: [
       { id: 'A', text: "HA is free, whereas DR requires Enterprise Support." },
-      { id: 'B', text: "HA focuses on continuous operational uptime and automatic fault handling within a Region (e.g. across AZs), whereas DR focuses on restoring operations after a major catastrophic Regional failure." },
+      { id: 'B', text: "HA keeps a Region running; DR restores after a Regional failure." },
       { id: 'C', text: "HA is manual, whereas DR is always fully automated." },
       { id: 'D', text: "HA applies only to databases, whereas DR applies only to compute." }
     ],
@@ -459,7 +459,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "High Availability ensures systems operate continuously without failing during routine localized component failures (typically across multiple AZs). Disaster Recovery focuses on business continuity and data restoration following a major catastrophic disaster (typically multi-Region).",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/real-time-communication-on-aws/high-availability-and-fault-tolerance.html",
-    tags: ["High Availability", "Disaster Recovery", "Cloud Concepts", "Resilience"]
+    tags: ["High Availability","Disaster Recovery","Cloud Concepts","Resilience"]
   },
   {
     id: "aws-clf-223",
@@ -471,7 +471,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     scenario: "An enterprise has 10 subsidiary companies operating in different countries under a single AWS Organization.",
     question: "What financial consolidation occurs when all subsidiary accounts are added as member accounts in an AWS Organization?",
     options: [
-      { id: 'A', text: "All member accounts receive one consolidated monthly invoice paid by the management account, and benefit from combined volume pricing tiers." },
+      { id: 'A', text: "One invoice paid by the management account, at combined tiers." },
       { id: 'B', text: "Member accounts cannot run production workloads." },
       { id: 'C', text: "Each member account pays its bill separately to AWS local entities." },
       { id: 'D', text: "All AWS services are discounted by 50% automatically." }
@@ -480,7 +480,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "AWS Organizations Consolidated Billing aggregates the billing of all member accounts onto a single monthly invoice paid by the management account, while combining usage to reach volume pricing tiers.",
     referenceUrl: "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html",
-    tags: ["Organizations", "Consolidated Billing", "FinOps", "Billing"]
+    tags: ["Organizations","Consolidated Billing","FinOps","Billing"]
   },
   {
     id: "aws-clf-224",
@@ -493,7 +493,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     question: "What is the primary security advantage of using temporary security credentials (IAM roles) over long-term IAM user access keys?",
     options: [
       { id: 'A', text: "Temporary credentials require no IAM policies." },
-      { id: 'B', text: "Temporary credentials expire automatically after a short duration, eliminating the risk of long-term credential leakage." },
+      { id: 'B', text: "They expire automatically after a short, fixed period." },
       { id: 'C', text: "Temporary credentials cannot be audited in AWS CloudTrail." },
       { id: 'D', text: "Temporary credentials grant full administrator permissions." }
     ],
@@ -501,7 +501,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "Temporary credentials (provided by AWS STS via IAM roles) have a limited lifetime (from minutes to hours) and expire automatically, greatly reducing the risk of compromised or leaked credentials.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html",
-    tags: ["IAM", "Temporary Credentials", "STS", "Security"]
+    tags: ["IAM","Temporary Credentials","STS","Security"]
   },
   {
     id: "aws-clf-225",
@@ -522,7 +522,7 @@ export const AWS_CLF_QUESTIONS_9 = [
     type: "single",
     explanation: "Stored Volumes store your entire dataset locally on-premises while providing asynchronous backups to Amazon S3 as EBS snapshots. Cached Volumes store your primary data in Amazon S3 and retain only frequently accessed data locally in the cache.",
     referenceUrl: "https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html#volume-gateway",
-    tags: ["Storage Gateway", "Volume Gateway", "Stored Volumes", "Storage"]
+    tags: ["Storage Gateway","Volume Gateway","Stored Volumes","Storage"]
   }
 ];
 

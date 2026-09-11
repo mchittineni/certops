@@ -10,7 +10,7 @@ export const AWS_CLF_QUESTIONS_16 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Use AWS Key Management Service (KMS) to scan file content." },
-      { id: 'B', text: "Use Amazon Macie to evaluate S3 buckets and detect sensitive personal data using machine learning and pattern matching." },
+      { id: 'B', text: "Use Amazon Macie to find sensitive personal data in S3 buckets." },
       { id: 'C', text: "Use Amazon CloudWatch Logs Insights to parse S3 objects." },
       { id: 'D', text: "Download all S3 objects and run regex search scripts manually." }
     ],
@@ -30,7 +30,7 @@ export const AWS_CLF_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Amazon Macie to automatically discover, classify, and protect sensitive data such as Personally Identifiable Information (PII) and credit card numbers stored in Amazon S3 buckets.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Use Amazon Macie to evaluate S3 buckets and detect sensitive personal data using machine learning and pattern matching." },
+      { id: 'A', text: "Use Amazon Macie to find sensitive personal data in S3 buckets." },
       { id: 'B', text: "Use Amazon CloudWatch Logs Insights to parse S3 objects." },
       { id: 'C', text: "Use AWS Key Management Service (KMS) to scan file content." },
       { id: 'D', text: "Download all S3 objects and run regex search scripts manually." }
@@ -52,7 +52,7 @@ export const AWS_CLF_QUESTIONS_16 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Download all S3 objects and run regex search scripts manually." },
-      { id: 'B', text: "Use Amazon Macie to evaluate S3 buckets and detect sensitive personal data using machine learning and pattern matching." },
+      { id: 'B', text: "Use Amazon Macie to find sensitive personal data in S3 buckets." },
       { id: 'C', text: "Use Amazon CloudWatch Logs Insights to parse S3 objects." },
       { id: 'D', text: "Use AWS Key Management Service (KMS) to scan file content." }
     ],
@@ -73,7 +73,7 @@ export const AWS_CLF_QUESTIONS_16 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Download all S3 objects and run regex search scripts manually." },
-      { id: 'B', text: "Use Amazon Macie to evaluate S3 buckets and detect sensitive personal data using machine learning and pattern matching." },
+      { id: 'B', text: "Use Amazon Macie to find sensitive personal data in S3 buckets." },
       { id: 'C', text: "Use Amazon CloudWatch Logs Insights to parse S3 objects." },
       { id: 'D', text: "Use AWS Key Management Service (KMS) to scan file content." }
     ],
@@ -95,7 +95,7 @@ export const AWS_CLF_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Use AWS Key Management Service (KMS) to scan file content." },
       { id: 'B', text: "Use Amazon CloudWatch Logs Insights to parse S3 objects." },
-      { id: 'C', text: "Use Amazon Macie to evaluate S3 buckets and detect sensitive personal data using machine learning and pattern matching." },
+      { id: 'C', text: "Use Amazon Macie to find sensitive personal data in S3 buckets." },
       { id: 'D', text: "Download all S3 objects and run regex search scripts manually." }
     ],
     correctAnswers: ['C'],
@@ -116,7 +116,7 @@ export const AWS_CLF_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Email AWS Customer Support requesting physical copies of audit certificates." },
       { id: 'B', text: "Open a technical support case with AWS Premium Support." },
-      { id: 'C', text: "Access AWS Artifact in the AWS Management Console to download on-demand AWS compliance reports and sign agreements." },
+      { id: 'C', text: "Use AWS Artifact to download compliance reports and sign agreements." },
       { id: 'D', text: "Search public internet forums for third-party audit summaries." }
     ],
     correctAnswers: ['C'],
@@ -136,7 +136,7 @@ export const AWS_CLF_QUESTIONS_16 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Search public internet forums for third-party audit summaries." },
-      { id: 'B', text: "Access AWS Artifact in the AWS Management Console to download on-demand AWS compliance reports and sign agreements." },
+      { id: 'B', text: "Use AWS Artifact to download compliance reports and sign agreements." },
       { id: 'C', text: "Open a technical support case with AWS Premium Support." },
       { id: 'D', text: "Email AWS Customer Support requesting physical copies of audit certificates." }
     ],
@@ -159,7 +159,7 @@ export const AWS_CLF_QUESTIONS_16 = [
       { id: 'A', text: "Email AWS Customer Support requesting physical copies of audit certificates." },
       { id: 'B', text: "Search public internet forums for third-party audit summaries." },
       { id: 'C', text: "Open a technical support case with AWS Premium Support." },
-      { id: 'D', text: "Access AWS Artifact in the AWS Management Console to download on-demand AWS compliance reports and sign agreements." }
+      { id: 'D', text: "Use AWS Artifact to download compliance reports and sign agreements." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -180,7 +180,7 @@ export const AWS_CLF_QUESTIONS_16 = [
       { id: 'A', text: "Email AWS Customer Support requesting physical copies of audit certificates." },
       { id: 'B', text: "Open a technical support case with AWS Premium Support." },
       { id: 'C', text: "Search public internet forums for third-party audit summaries." },
-      { id: 'D', text: "Access AWS Artifact in the AWS Management Console to download on-demand AWS compliance reports and sign agreements." }
+      { id: 'D', text: "Use AWS Artifact to download compliance reports and sign agreements." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -198,7 +198,7 @@ export const AWS_CLF_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates AWS Artifact to download official AWS security and compliance audit reports (such as SOC 1/2/3, PCI-DSS, and ISO certifications) to prove cloud compliance to external auditors.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Access AWS Artifact in the AWS Management Console to download on-demand AWS compliance reports and sign agreements." },
+      { id: 'A', text: "Use AWS Artifact to download compliance reports and sign agreements." },
       { id: 'B', text: "Email AWS Customer Support requesting physical copies of audit certificates." },
       { id: 'C', text: "Open a technical support case with AWS Premium Support." },
       { id: 'D', text: "Search public internet forums for third-party audit summaries." }
@@ -222,7 +222,7 @@ export const AWS_CLF_QUESTIONS_16 = [
       { id: 'A', text: "Use On-Demand instances exclusively." },
       { id: 'B', text: "Use Standard 3-year Reserved Instances." },
       { id: 'C', text: "Use Dedicated Hosts with annual commitments." },
-      { id: 'D', text: "Use EC2 Spot Instances to achieve up to 90% cost savings compared to On-Demand pricing." }
+      { id: 'D', text: "Use EC2 Spot Instances for up to 90% savings." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,7 +240,7 @@ export const AWS_CLF_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Amazon EC2 to select the most cost-effective EC2 purchasing option for stateless, fault-tolerant batch video transcoding workloads that can withstand random interruptions.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Use EC2 Spot Instances to achieve up to 90% cost savings compared to On-Demand pricing." },
+      { id: 'A', text: "Use EC2 Spot Instances for up to 90% savings." },
       { id: 'B', text: "Use On-Demand instances exclusively." },
       { id: 'C', text: "Use Dedicated Hosts with annual commitments." },
       { id: 'D', text: "Use Standard 3-year Reserved Instances." }
@@ -261,7 +261,7 @@ export const AWS_CLF_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Amazon EC2 to select the most cost-effective EC2 purchasing option for stateless, fault-tolerant batch video transcoding workloads that can withstand random interruptions.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Use EC2 Spot Instances to achieve up to 90% cost savings compared to On-Demand pricing." },
+      { id: 'A', text: "Use EC2 Spot Instances for up to 90% savings." },
       { id: 'B', text: "Use Standard 3-year Reserved Instances." },
       { id: 'C', text: "Use On-Demand instances exclusively." },
       { id: 'D', text: "Use Dedicated Hosts with annual commitments." }
@@ -283,7 +283,7 @@ export const AWS_CLF_QUESTIONS_16 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Use On-Demand instances exclusively." },
-      { id: 'B', text: "Use EC2 Spot Instances to achieve up to 90% cost savings compared to On-Demand pricing." },
+      { id: 'B', text: "Use EC2 Spot Instances for up to 90% savings." },
       { id: 'C', text: "Use Standard 3-year Reserved Instances." },
       { id: 'D', text: "Use Dedicated Hosts with annual commitments." }
     ],
@@ -306,7 +306,7 @@ export const AWS_CLF_QUESTIONS_16 = [
       { id: 'A', text: "Use Dedicated Hosts with annual commitments." },
       { id: 'B', text: "Use Standard 3-year Reserved Instances." },
       { id: 'C', text: "Use On-Demand instances exclusively." },
-      { id: 'D', text: "Use EC2 Spot Instances to achieve up to 90% cost savings compared to On-Demand pricing." }
+      { id: 'D', text: "Use EC2 Spot Instances for up to 90% savings." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,7 +324,7 @@ export const AWS_CLF_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Amazon EC2 to automatically increase the number of Amazon EC2 instances during business hours when CPU utilization exceeds 70% and reduce capacity when traffic drops.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Configure an EC2 Auto Scaling group with a Target Tracking scaling policy based on Average CPU Utilization." },
+      { id: 'A', text: "Use an EC2 Auto Scaling group with target tracking on average CPU." },
       { id: 'B', text: "Increase the instance size vertically every morning." },
       { id: 'C', text: "Deploy an Amazon CloudFront distribution to cache EC2 instance compute power." },
       { id: 'D', text: "Manually launch additional EC2 instances from the console during busy periods." }
@@ -348,7 +348,7 @@ export const AWS_CLF_QUESTIONS_16 = [
       { id: 'A', text: "Deploy an Amazon CloudFront distribution to cache EC2 instance compute power." },
       { id: 'B', text: "Manually launch additional EC2 instances from the console during busy periods." },
       { id: 'C', text: "Increase the instance size vertically every morning." },
-      { id: 'D', text: "Configure an EC2 Auto Scaling group with a Target Tracking scaling policy based on Average CPU Utilization." }
+      { id: 'D', text: "Use an EC2 Auto Scaling group with target tracking on average CPU." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -369,7 +369,7 @@ export const AWS_CLF_QUESTIONS_16 = [
       { id: 'A', text: "Increase the instance size vertically every morning." },
       { id: 'B', text: "Manually launch additional EC2 instances from the console during busy periods." },
       { id: 'C', text: "Deploy an Amazon CloudFront distribution to cache EC2 instance compute power." },
-      { id: 'D', text: "Configure an EC2 Auto Scaling group with a Target Tracking scaling policy based on Average CPU Utilization." }
+      { id: 'D', text: "Use an EC2 Auto Scaling group with target tracking on average CPU." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -388,7 +388,7 @@ export const AWS_CLF_QUESTIONS_16 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Manually launch additional EC2 instances from the console during busy periods." },
-      { id: 'B', text: "Configure an EC2 Auto Scaling group with a Target Tracking scaling policy based on Average CPU Utilization." },
+      { id: 'B', text: "Use an EC2 Auto Scaling group with target tracking on average CPU." },
       { id: 'C', text: "Increase the instance size vertically every morning." },
       { id: 'D', text: "Deploy an Amazon CloudFront distribution to cache EC2 instance compute power." }
     ],
@@ -411,7 +411,7 @@ export const AWS_CLF_QUESTIONS_16 = [
       { id: 'A', text: "Increase the instance size vertically every morning." },
       { id: 'B', text: "Manually launch additional EC2 instances from the console during busy periods." },
       { id: 'C', text: "Deploy an Amazon CloudFront distribution to cache EC2 instance compute power." },
-      { id: 'D', text: "Configure an EC2 Auto Scaling group with a Target Tracking scaling policy based on Average CPU Utilization." }
+      { id: 'D', text: "Use an EC2 Auto Scaling group with target tracking on average CPU." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -430,7 +430,7 @@ export const AWS_CLF_QUESTIONS_16 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy a Network Load Balancer (NLB)." },
-      { id: 'B', text: "Deploy an Application Load Balancer (ALB) and configure path-based routing rules." },
+      { id: 'B', text: "An ALB with path-based routing rules." },
       { id: 'C', text: "Deploy a Gateway Load Balancer." },
       { id: 'D', text: "Configure Amazon Route 53 Weighted DNS routing." }
     ],
@@ -451,7 +451,7 @@ export const AWS_CLF_QUESTIONS_16 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy a Network Load Balancer (NLB)." },
-      { id: 'B', text: "Deploy an Application Load Balancer (ALB) and configure path-based routing rules." },
+      { id: 'B', text: "An ALB with path-based routing rules." },
       { id: 'C', text: "Deploy a Gateway Load Balancer." },
       { id: 'D', text: "Configure Amazon Route 53 Weighted DNS routing." }
     ],
@@ -473,7 +473,7 @@ export const AWS_CLF_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Deploy a Network Load Balancer (NLB)." },
       { id: 'B', text: "Configure Amazon Route 53 Weighted DNS routing." },
-      { id: 'C', text: "Deploy an Application Load Balancer (ALB) and configure path-based routing rules." },
+      { id: 'C', text: "An ALB with path-based routing rules." },
       { id: 'D', text: "Deploy a Gateway Load Balancer." }
     ],
     correctAnswers: ['C'],
@@ -494,7 +494,7 @@ export const AWS_CLF_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Configure Amazon Route 53 Weighted DNS routing." },
       { id: 'B', text: "Deploy a Network Load Balancer (NLB)." },
-      { id: 'C', text: "Deploy an Application Load Balancer (ALB) and configure path-based routing rules." },
+      { id: 'C', text: "An ALB with path-based routing rules." },
       { id: 'D', text: "Deploy a Gateway Load Balancer." }
     ],
     correctAnswers: ['C'],
@@ -513,7 +513,7 @@ export const AWS_CLF_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Elastic Load Balancing to distribute incoming HTTP and HTTPS web traffic based on URL request paths (e.g. /api vs /images) across multiple target EC2 instances.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Deploy an Application Load Balancer (ALB) and configure path-based routing rules." },
+      { id: 'A', text: "An ALB with path-based routing rules." },
       { id: 'B', text: "Deploy a Network Load Balancer (NLB)." },
       { id: 'C', text: "Deploy a Gateway Load Balancer." },
       { id: 'D', text: "Configure Amazon Route 53 Weighted DNS routing." }

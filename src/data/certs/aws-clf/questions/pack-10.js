@@ -18,7 +18,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "AWS Marketplace is a curated digital catalog that makes it easy for customers to find, buy, deploy, and manage third-party software, data, and services with pay-as-you-go billing on their AWS invoice.",
     referenceUrl: "https://aws.amazon.com/marketplace",
-    tags: ["AWS Marketplace", "Third-Party", "Billing", "Procurement"]
+    tags: ["AWS Marketplace","Third-Party","Billing","Procurement"]
   },
   {
     id: "aws-clf-227",
@@ -31,7 +31,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     question: "Why do some EC2 instances show up as untagged in Cost Explorer reports?",
     options: [
       { id: 'A', text: "Cost Explorer only tags compute instances in `us-east-1`." },
-      { id: 'B', text: "The resources were launched without the `CostCenter` tag key or the tag was assigned after usage occurred." },
+      { id: 'B', text: "They ran before the `CostCenter` tag was applied." },
       { id: 'C', text: "Cost allocation tags do not apply to EC2 instances." },
       { id: 'D', text: "Tags require manual approval by AWS Support." }
     ],
@@ -39,7 +39,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "Cost Allocation Tags apply from the time of tag activation and assignment onward; resources that lack the specified tag or generated usage prior to tag activation appear as untagged.",
     referenceUrl: "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html",
-    tags: ["Cost Allocation Tags", "Cost Explorer", "FinOps", "Billing"]
+    tags: ["Cost Allocation Tags","Cost Explorer","FinOps","Billing"]
   },
   {
     id: "aws-clf-228",
@@ -54,13 +54,13 @@ export const AWS_CLF_QUESTIONS_10 = [
       { id: 'A', text: "KMS changes the key ARN and breaks existing application code." },
       { id: 'B', text: "Key rotation is only available in AWS CloudHSM." },
       { id: 'C', text: "KMS deletes the old key and requires re-encrypting all data manually." },
-      { id: 'D', text: "AWS KMS automatically rotates the backing key material once every year (or customized period) without changing the key ID or ARN." }
+      { id: 'D', text: "KMS rotates the backing key material yearly, keeping the key ID." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "When you enable automatic key rotation for a customer managed KMS key, AWS KMS rotates the backing cryptographic material every year (or specified period) while keeping the same key ID, ARN, and policies transparently.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html",
-    tags: ["KMS", "Key Rotation", "Security", "Encryption"]
+    tags: ["KMS","Key Rotation","Security","Encryption"]
   },
   {
     id: "aws-clf-229",
@@ -81,7 +81,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "Amazon SES is a cloud-based email sending service designed to help digital marketers and application developers send marketing, notification, and transactional emails with reputation management.",
     referenceUrl: "https://docs.aws.amazon.com/ses/latest/dg/Welcome.html",
-    tags: ["SES", "Email", "Application Integration"]
+    tags: ["SES","Email","Application Integration"]
   },
   {
     id: "aws-clf-230",
@@ -102,7 +102,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "CloudFormation Change Sets allow you to preview how proposed changes to a stack might affect your running resources before you execute the update, highlighting potential resource replacements.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html",
-    tags: ["CloudFormation", "Change Sets", "IaC", "Automation"]
+    tags: ["CloudFormation","Change Sets","IaC","Automation"]
   },
   {
     id: "aws-clf-231",
@@ -123,7 +123,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "CloudFormation Drift Detection enables you to detect whether stack resources have drifted (changed) from their expected template configurations due to out-of-band manual changes.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html",
-    tags: ["CloudFormation", "Drift Detection", "IaC", "Governance"]
+    tags: ["CloudFormation","Drift Detection","IaC","Governance"]
   },
   {
     id: "aws-clf-232",
@@ -144,7 +144,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "AWS CloudFormation StackSets lets you create, update, or delete stacks across multiple AWS accounts and multiple AWS Regions with a single CloudFormation template operation.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html",
-    tags: ["CloudFormation", "StackSets", "Multi-Account", "Automation"]
+    tags: ["CloudFormation","StackSets","Multi-Account","Automation"]
   },
   {
     id: "aws-clf-233",
@@ -165,7 +165,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "AWS Artifact Agreements enables customers to review, accept, and track the status of AWS agreements (such as the Business Associate Addendum for HIPAA compliance) for their account or organization.",
     referenceUrl: "https://docs.aws.amazon.com/artifact/latest/ug/managing-agreements.html",
-    tags: ["AWS Artifact", "Compliance", "HIPAA", "Security"]
+    tags: ["AWS Artifact","Compliance","HIPAA","Security"]
   },
   {
     id: "aws-clf-234",
@@ -186,7 +186,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "An EC2 Auto Scaling Mixed Instances Policy allows you to launch and automatically scale a fleet of On-Demand and Spot instances across multiple instance types and purchasing models in a single Auto Scaling group.",
     referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html",
-    tags: ["Auto Scaling", "Spot Instances", "EC2", "Cost Optimization"]
+    tags: ["Auto Scaling","Spot Instances","EC2","Cost Optimization"]
   },
   {
     id: "aws-clf-235",
@@ -200,14 +200,14 @@ export const AWS_CLF_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "5 GB of storage for 12 months only." },
       { id: 'B', text: "1 TB of storage indefinitely." },
-      { id: 'C', text: "25 GB of storage along with 25 provisioned Write and Read Capacity Units." },
+      { id: 'C', text: "25 GB plus 25 read and write units." },
       { id: 'D', text: "DynamoDB does not offer a free tier." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon DynamoDB includes 25 GB of data storage, 25 WCU, 25 RCU, and up to 200 million requests per month in the AWS Always Free tier perpetually for all AWS accounts.",
     referenceUrl: "https://aws.amazon.com/dynamodb/pricing/",
-    tags: ["DynamoDB", "Free Tier", "Billing", "NoSQL"]
+    tags: ["DynamoDB","Free Tier","Billing","NoSQL"]
   },
   {
     id: "aws-clf-236",
@@ -228,7 +228,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "S3 Glacier Select allows you to run queries directly on data stored in S3 Glacier archives using simple SQL statements, retrieving only the filtered subset of data you need without unarchiving the whole object.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/glacier-select.html",
-    tags: ["S3", "Glacier Select", "Analytics", "Storage"]
+    tags: ["S3","Glacier Select","Analytics","Storage"]
   },
   {
     id: "aws-clf-237",
@@ -240,7 +240,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "An administrator with AWS Basic Support runs AWS Trusted Advisor. They notice only core security checks are available, while full checks require upgraded support.",
     question: "Which AWS Support tiers unlock all AWS Trusted Advisor checks across all five categories?",
     options: [
-      { id: 'A', text: "Business Support and Enterprise Support (including Enterprise On-Ramp)" },
+      { id: 'A', text: "Business and Enterprise (with On-Ramp)" },
       { id: 'B', text: "Developer Support" },
       { id: 'C', text: "Basic Support" },
       { id: 'D', text: "All checks are free for all customers." }
@@ -249,7 +249,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "Basic and Developer Support include only core Trusted Advisor checks (such as basic S3 bucket permissions and IAM MFA). Business and Enterprise Support tiers unlock the full suite of Trusted Advisor checks.",
     referenceUrl: "https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html",
-    tags: ["Trusted Advisor", "Support Plans", "Security", "Best Practices"]
+    tags: ["Trusted Advisor","Support Plans","Security","Best Practices"]
   },
   {
     id: "aws-clf-238",
@@ -270,7 +270,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "On-Demand Capacity Reservations enable you to reserve compute capacity for your Amazon EC2 instances in a specific Availability Zone for any duration, giving capacity assurance with On-Demand billing rates.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html",
-    tags: ["EC2", "Capacity Reservations", "Compute"]
+    tags: ["EC2","Capacity Reservations","Compute"]
   },
   {
     id: "aws-clf-239",
@@ -283,7 +283,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     question: "What is the minimum number of Availability Zones contained in every AWS Region?",
     options: [
       { id: 'A', text: "Exactly 1 Availability Zone" },
-      { id: 'B', text: "At least 3 Availability Zones (minimum 2 in select legacy Regions)" },
+      { id: 'B', text: "At least three Availability Zones" },
       { id: 'C', text: "At least 10 Availability Zones" },
       { id: 'D', text: "Each Region contains only 1 server rack" }
     ],
@@ -291,7 +291,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "Every modern AWS Region consists of multiple, isolated, and physically separate Availability Zones within a geographic area, typically three or more (minimum two in select legacy regions).",
     referenceUrl: "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/",
-    tags: ["Global Infrastructure", "Availability Zones", "Regions"]
+    tags: ["Global Infrastructure","Availability Zones","Regions"]
   },
   {
     id: "aws-clf-240",
@@ -312,7 +312,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "Amazon S3 Inventory provides scheduled CSV, ORC, or Parquet output files that list your objects and their respective metadata on a daily or weekly basis for an S3 bucket or a shared prefix.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html",
-    tags: ["S3", "Inventory", "Auditing", "Storage"]
+    tags: ["S3","Inventory","Auditing","Storage"]
   },
   {
     id: "aws-clf-241",
@@ -333,7 +333,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "AWS strongly recommends that you do not create access keys for the AWS account root user. If root access keys exist, delete them immediately and use IAM users or roles with least-privilege permissions.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials",
-    tags: ["IAM", "Root User", "Access Keys", "Security"]
+    tags: ["IAM","Root User","Access Keys","Security"]
   },
   {
     id: "aws-clf-242",
@@ -354,7 +354,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "AWS Cost Explorer includes a forecasting feature that uses machine learning algorithms based on your historical usage patterns to project future cloud costs up to 12 months in advance.",
     referenceUrl: "https://docs.aws.amazon.com/cost-management/latest/userguide/ce-forecast.html",
-    tags: ["Cost Explorer", "Forecasting", "FinOps", "Billing"]
+    tags: ["Cost Explorer","Forecasting","FinOps","Billing"]
   },
   {
     id: "aws-clf-243",
@@ -375,7 +375,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "AWS Marketplace provides a digital catalog of verified commercial AMIs sold by independent software vendors (ISVs) with licensing billed directly to your AWS account.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html#market-place-amis",
-    tags: ["AMI", "Marketplace", "EC2", "Compute"]
+    tags: ["AMI","Marketplace","EC2","Compute"]
   },
   {
     id: "aws-clf-244",
@@ -396,7 +396,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "AWS Security Hub automatically runs continuous, account-level configuration and security checks against security standards like CIS AWS Foundations Benchmark, AWS Foundational Security Best Practices, and PCI-DSS.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html",
-    tags: ["Security Hub", "CIS Benchmark", "Compliance", "Security"]
+    tags: ["Security Hub","CIS Benchmark","Compliance","Security"]
   },
   {
     id: "aws-clf-245",
@@ -411,13 +411,13 @@ export const AWS_CLF_QUESTIONS_10 = [
       { id: 'A', text: "Client-side PGP encryption." },
       { id: 'B', text: "No encryption is applied unless explicitly enabled." },
       { id: 'C', text: "AWS CloudHSM hardware encryption." },
-      { id: 'D', text: "Server-Side Encryption with Amazon S3 managed keys (SSE-S3) using 256-bit AES." }
+      { id: 'D', text: "Server-side encryption with S3-managed keys" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon S3 automatically applies server-side encryption with Amazon S3 managed keys (SSE-S3) using 256-bit Advanced Encryption Standard (AES-256) as the base default for all new objects uploaded to S3 at no additional cost.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-bucket-encryption.html",
-    tags: ["S3", "Encryption", "SSE-S3", "Security", "Storage"]
+    tags: ["S3","Encryption","SSE-S3","Security","Storage"]
   },
   {
     id: "aws-clf-246",
@@ -438,7 +438,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "Stop spending money running and maintaining data centres: focus on projects that differentiate your business rather than managing infrastructure (racking, stacking, and powering servers).",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html",
-    tags: ["Cloud Concepts", "Value Proposition", "Undifferentiated Heavy Lifting"]
+    tags: ["Cloud Concepts","Value Proposition","Undifferentiated Heavy Lifting"]
   },
   {
     id: "aws-clf-247",
@@ -459,7 +459,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "The AWS Concierge Support team is a senior customer service partner assigned to Enterprise Support customers who specializes in resolving billing, invoicing, and account management queries.",
     referenceUrl: "https://aws.amazon.com/premiumsupport/plans/enterprise/",
-    tags: ["AWS Concierge", "Support Plans", "Billing", "Enterprise"]
+    tags: ["AWS Concierge","Support Plans","Billing","Enterprise"]
   },
   {
     id: "aws-clf-248",
@@ -471,7 +471,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     scenario: "An engineer creates an Amazon RDS Multi-AZ PostgreSQL database. They want to know if the standby replica instance can be used by developers for read-only reporting queries.",
     question: "Can an application directly connect to and query the standby replica instance in a standard Amazon RDS Multi-AZ deployment?",
     options: [
-      { id: 'A', text: "No, in a standard RDS Multi-AZ deployment, the standby replica is strictly for high availability and failover and cannot accept read connections (unlike Read Replicas)." },
+      { id: 'A', text: "No; the standby is for failover only and serves no reads." },
       { id: 'B', text: "Yes, if provisioned with SSD gp3 storage." },
       { id: 'C', text: "Yes, by connecting to the standby's public IP address." },
       { id: 'D', text: "Yes, the standby replica automatically load-balances read traffic." }
@@ -480,7 +480,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "In a standard Amazon RDS Multi-AZ deployment, the standby replica synchronously mirrors the primary DB for automatic failover but cannot serve active read connections. To scale reads, you deploy RDS Read Replicas.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html",
-    tags: ["RDS", "Multi-AZ", "Databases", "High Availability"]
+    tags: ["RDS","Multi-AZ","Databases","High Availability"]
   },
   {
     id: "aws-clf-249",
@@ -501,7 +501,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "Amazon GuardDuty automatically consumes and processes AWS CloudTrail management event logs, CloudTrail S3 data events, Amazon VPC Flow Logs, EKS audit logs, and DNS query logs directly from the AWS infrastructure.",
     referenceUrl: "https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_data-sources.html",
-    tags: ["GuardDuty", "Threat Intelligence", "Security", "Logs"]
+    tags: ["GuardDuty","Threat Intelligence","Security","Logs"]
   },
   {
     id: "aws-clf-250",
@@ -522,7 +522,7 @@ export const AWS_CLF_QUESTIONS_10 = [
     type: "single",
     explanation: "AWS Cost Explorer has an easy-to-use interface that lets you visualize, understand, and manage your AWS costs and usage over time, grouping by dimensions like Service, Linked Account, Region, and Cost Allocation Tag.",
     referenceUrl: "https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html",
-    tags: ["Cost Explorer", "FinOps", "Billing", "Cost Management"]
+    tags: ["Cost Explorer","FinOps","Billing","Cost Management"]
   }
 ];
 

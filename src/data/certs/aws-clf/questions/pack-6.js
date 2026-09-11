@@ -18,7 +18,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "Amazon DocumentDB (with MongoDB compatibility) is a fully managed native JSON document database service that supports MongoDB workloads, decoupling compute and storage with 6-way multi-AZ replication.",
     referenceUrl: "https://docs.aws.amazon.com/documentdb/latest/developerguide/what-is.html",
-    tags: ["DocumentDB", "MongoDB", "NoSQL", "Databases"]
+    tags: ["DocumentDB","MongoDB","NoSQL","Databases"]
   },
   {
     id: "aws-clf-127",
@@ -39,7 +39,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "Amazon Neptune is a fast, reliable, fully managed graph database service built for applications that work with highly connected datasets (such as social networks, fraud graphs, and knowledge graphs).",
     referenceUrl: "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html",
-    tags: ["Neptune", "Graph Database", "Databases"]
+    tags: ["Neptune","Graph Database","Databases"]
   },
   {
     id: "aws-clf-128",
@@ -60,7 +60,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "Amazon QLDB is a fully managed ledger database that provides a transparent, immutable, and cryptographically verifiable transaction log owned by a central trusted authority.",
     referenceUrl: "https://docs.aws.amazon.com/qldb/latest/developerguide/what-is.html",
-    tags: ["QLDB", "Ledger", "Immutable", "Databases"]
+    tags: ["QLDB","Ledger","Immutable","Databases"]
   },
   {
     id: "aws-clf-129",
@@ -81,7 +81,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "An IAM Account Password Policy defines password complexity requirements, minimum length, expiration frequency, and reuse prevention for all IAM users within an AWS account.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html",
-    tags: ["IAM", "Password Policy", "Security"]
+    tags: ["IAM","Password Policy","Security"]
   },
   {
     id: "aws-clf-130",
@@ -102,7 +102,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "A Permission Boundary is an advanced IAM feature that uses a managed policy to set the maximum permissions that an identity-based policy can grant to an IAM entity, preventing privilege escalation.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html",
-    tags: ["IAM", "Permission Boundaries", "Security", "Governance"]
+    tags: ["IAM","Permission Boundaries","Security","Governance"]
   },
   {
     id: "aws-clf-131",
@@ -123,7 +123,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "Fault Tolerance is the ability of a system to continue operating properly without interruption in the event of failure of one or more of its components, usually achieved through complete active redundancy.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/real-time-communication-on-aws/high-availability-and-fault-tolerance.html",
-    tags: ["Fault Tolerance", "Resilience", "Cloud Concepts"]
+    tags: ["Fault Tolerance","Resilience","Cloud Concepts"]
   },
   {
     id: "aws-clf-132",
@@ -144,7 +144,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "The Platform Perspective of the AWS CAF provides guidance on principles and patterns for delivering scalable cloud architecture, cloud engineering, data engineering, and modern application development.",
     referenceUrl: "https://aws.amazon.com/professional-services/CAF/",
-    tags: ["CAF", "Platform Perspective", "Architecture"]
+    tags: ["CAF","Platform Perspective","Architecture"]
   },
   {
     id: "aws-clf-133",
@@ -165,7 +165,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS Directory Service (also known as AWS Managed Microsoft AD) enables your directory-aware workloads and AWS resources to use managed Active Directory in the AWS Cloud.",
     referenceUrl: "https://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html",
-    tags: ["Directory Service", "Active Directory", "Identity", "Security"]
+    tags: ["Directory Service","Active Directory","Identity","Security"]
   },
   {
     id: "aws-clf-134",
@@ -186,7 +186,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS Elastic Disaster Recovery (AWS DRS) minimizes downtime and data loss by providing fast, reliable recovery of physical, virtual, and cloud-based servers into AWS at low cost.",
     referenceUrl: "https://docs.aws.amazon.com/drs/latest/userguide/what-is-drs.html",
-    tags: ["DRS", "Disaster Recovery", "Business Continuity"]
+    tags: ["DRS","Disaster Recovery","Business Continuity"]
   },
   {
     id: "aws-clf-135",
@@ -207,7 +207,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS Backup is a cost-effective, fully managed, policy-based service that simplifies data protection at scale across AWS services and hybrid workloads, supporting compliance auditing.",
     referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html",
-    tags: ["AWS Backup", "Backups", "Data Protection", "Storage"]
+    tags: ["AWS Backup","Backups","Data Protection","Storage"]
   },
   {
     id: "aws-clf-136",
@@ -228,7 +228,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "A Tape Gateway is a cloud-based virtual tape storage solution that lets you seamlessly replace physical tapes on-premises with virtual tapes in AWS without altering existing backup workflows.",
     referenceUrl: "https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html#tape-gateway",
-    tags: ["Storage Gateway", "Tape Gateway", "Hybrid Storage", "Archival"]
+    tags: ["Storage Gateway","Tape Gateway","Hybrid Storage","Archival"]
   },
   {
     id: "aws-clf-137",
@@ -249,7 +249,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "Amazon S3 File Gateway presents a file interface that enables you to store files as objects in Amazon S3 using the industry-standard NFS and SMB protocols, with a local cache for fast access.",
     referenceUrl: "https://docs.aws.amazon.com/filegateway/latest/filecontent/what-is-file-s3.html",
-    tags: ["Storage Gateway", "File Gateway", "S3", "Hybrid Storage"]
+    tags: ["Storage Gateway","File Gateway","S3","Hybrid Storage"]
   },
   {
     id: "aws-clf-138",
@@ -270,7 +270,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS DataSync is an online data transfer and discovery service that simplifies, automates, and accelerates moving data between on-premises storage systems and AWS storage services up to 10x faster.",
     referenceUrl: "https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html",
-    tags: ["DataSync", "Data Transfer", "Migration", "Storage"]
+    tags: ["DataSync","Data Transfer","Migration","Storage"]
   },
   {
     id: "aws-clf-139",
@@ -291,7 +291,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS Transfer Family is a fully managed service that enables the transfer of files directly into and out of Amazon S3 or Amazon EFS using SFTP, FTPS, and FTP protocols.",
     referenceUrl: "https://docs.aws.amazon.com/transfer/latest/userguide/what-is-aws-transfer-family.html",
-    tags: ["Transfer Family", "SFTP", "S3", "Integration"]
+    tags: ["Transfer Family","SFTP","S3","Integration"]
   },
   {
     id: "aws-clf-140",
@@ -312,7 +312,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS Migration Hub provides a single location to track the progress of application migrations across multiple AWS tools and partner solutions, giving centralized visibility.",
     referenceUrl: "https://docs.aws.amazon.com/migrationhub/latest/ug/whatis.html",
-    tags: ["Migration Hub", "Migration", "Tracking"]
+    tags: ["Migration Hub","Migration","Tracking"]
   },
   {
     id: "aws-clf-141",
@@ -333,7 +333,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS Application Discovery Service helps enterprise customers plan migration projects by gathering information about their on-premises data centres (server utilization and network dependencies).",
     referenceUrl: "https://docs.aws.amazon.com/application-discovery/latest/userguide/what-is-appdiscovery.html",
-    tags: ["Application Discovery Service", "Migration", "Planning"]
+    tags: ["Application Discovery Service","Migration","Planning"]
   },
   {
     id: "aws-clf-142",
@@ -354,7 +354,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS Application Migration Service (AWS MGN) is the primary migration service recommended for lift-and-shift migrations to AWS, automatically replicating physical, virtual, and cloud servers into AWS.",
     referenceUrl: "https://docs.aws.amazon.com/mgn/latest/ug/what-is-application-migration-service.html",
-    tags: ["AWS MGN", "Migration", "Lift-and-Shift", "EC2"]
+    tags: ["AWS MGN","Migration","Lift-and-Shift","EC2"]
   },
   {
     id: "aws-clf-143",
@@ -368,14 +368,14 @@ export const AWS_CLF_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "AWS Application Migration Service (MGN) alone" },
       { id: 'B', text: "AWS DataSync with Amazon S3" },
-      { id: 'C', text: "AWS Schema Conversion Tool (SCT) with AWS Database Migration Service (AWS DMS)" },
+      { id: 'C', text: "Schema Conversion Tool with AWS DMS" },
       { id: 'D', text: "AWS Snowball Edge with Amazon RDS" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "AWS SCT converts heterogeneous database schemas (e.g. Oracle to PostgreSQL), while AWS DMS migrates data and performs Change Data Capture (CDC) to keep the target database in sync with minimal downtime.",
     referenceUrl: "https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html",
-    tags: ["DMS", "SCT", "Database Migration", "Databases"]
+    tags: ["DMS","SCT","Database Migration","Databases"]
   },
   {
     id: "aws-clf-144",
@@ -396,7 +396,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS Cost Categories is a feature in AWS Cost Management that enables you to group cost and usage information into meaningful categories based on account, tag, service, and charge type rules.",
     referenceUrl: "https://docs.aws.amazon.com/cost-management/latest/userguide/control-costs-categories.html",
-    tags: ["Cost Categories", "FinOps", "Billing", "Cost Management"]
+    tags: ["Cost Categories","FinOps","Billing","Cost Management"]
   },
   {
     id: "aws-clf-145",
@@ -417,7 +417,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "Enterprise On-Ramp is an AWS Support plan tailored for customers migrating production workloads, providing a pool of Technical Account Managers (TAMs) and a 30-minute response time SLA for critical issues.",
     referenceUrl: "https://aws.amazon.com/premiumsupport/plans/enterprise-on-ramp/",
-    tags: ["Support Plans", "Enterprise On-Ramp", "TAM", "Billing"]
+    tags: ["Support Plans","Enterprise On-Ramp","TAM","Billing"]
   },
   {
     id: "aws-clf-146",
@@ -438,7 +438,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "GuardDuty Malware Protection initiates an agentless scan of Amazon EBS volumes attached to EC2 instances or container workloads when suspicious behavior or malware-related findings are detected.",
     referenceUrl: "https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html",
-    tags: ["GuardDuty", "Malware Protection", "EBS", "Security"]
+    tags: ["GuardDuty","Malware Protection","EBS","Security"]
   },
   {
     id: "aws-clf-147",
@@ -459,7 +459,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "The AWS Well-Architected Tool provides a consistent process for evaluating your architectures against AWS best practices, producing an action plan with recommendations to remediate high-risk issues.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html",
-    tags: ["Well-Architected Tool", "Architecture", "Best Practices"]
+    tags: ["Well-Architected Tool","Architecture","Best Practices"]
   },
   {
     id: "aws-clf-148",
@@ -480,7 +480,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS CodePipeline is a fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates.",
     referenceUrl: "https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html",
-    tags: ["CodePipeline", "CI/CD", "DevOps", "Automation"]
+    tags: ["CodePipeline","CI/CD","DevOps","Automation"]
   },
   {
     id: "aws-clf-149",
@@ -501,7 +501,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces software packages ready for deployment, scaling elastically without build server management.",
     referenceUrl: "https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html",
-    tags: ["CodeBuild", "CI/CD", "Build", "DevOps"]
+    tags: ["CodeBuild","CI/CD","Build","DevOps"]
   },
   {
     id: "aws-clf-150",
@@ -522,7 +522,7 @@ export const AWS_CLF_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS CodeDeploy is a fully managed deployment service that automates software deployments to a variety of compute services such as Amazon EC2, AWS Fargate, AWS Lambda, and on-premises servers.",
     referenceUrl: "https://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html",
-    tags: ["CodeDeploy", "Deployments", "CI/CD", "DevOps"]
+    tags: ["CodeDeploy","Deployments","CI/CD","DevOps"]
   }
 ];
 

@@ -116,7 +116,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Deploy Amazon Inspector on the backend EC2 instances." },
       { id: 'B', text: "Configure a Network Access Control List (NACL) to block HTTP ports." },
-      { id: 'C', text: "Deploy AWS WAF and configure Web Access Control Lists (Web ACLs) with managed rules for SQL injection and XSS protection." },
+      { id: 'C', text: "Deploy AWS WAF with managed rules for SQL injection and XSS." },
       { id: 'D', text: "Configure Amazon Route 53 to block malicious IP addresses." }
     ],
     correctAnswers: ['C'],
@@ -135,7 +135,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates AWS WAF to protect web applications running on Application Load Balancers or CloudFront from common web exploits like SQL injection and cross-site scripting (XSS).",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Deploy AWS WAF and configure Web Access Control Lists (Web ACLs) with managed rules for SQL injection and XSS protection." },
+      { id: 'A', text: "Deploy AWS WAF with managed rules for SQL injection and XSS." },
       { id: 'B', text: "Deploy Amazon Inspector on the backend EC2 instances." },
       { id: 'C', text: "Configure Amazon Route 53 to block malicious IP addresses." },
       { id: 'D', text: "Configure a Network Access Control List (NACL) to block HTTP ports." }
@@ -158,7 +158,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Deploy Amazon Inspector on the backend EC2 instances." },
       { id: 'B', text: "Configure Amazon Route 53 to block malicious IP addresses." },
-      { id: 'C', text: "Deploy AWS WAF and configure Web Access Control Lists (Web ACLs) with managed rules for SQL injection and XSS protection." },
+      { id: 'C', text: "Deploy AWS WAF with managed rules for SQL injection and XSS." },
       { id: 'D', text: "Configure a Network Access Control List (NACL) to block HTTP ports." }
     ],
     correctAnswers: ['C'],
@@ -180,7 +180,7 @@ export const AWS_CLF_QUESTIONS_15 = [
       { id: 'A', text: "Configure a Network Access Control List (NACL) to block HTTP ports." },
       { id: 'B', text: "Deploy Amazon Inspector on the backend EC2 instances." },
       { id: 'C', text: "Configure Amazon Route 53 to block malicious IP addresses." },
-      { id: 'D', text: "Deploy AWS WAF and configure Web Access Control Lists (Web ACLs) with managed rules for SQL injection and XSS protection." }
+      { id: 'D', text: "Deploy AWS WAF with managed rules for SQL injection and XSS." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -201,7 +201,7 @@ export const AWS_CLF_QUESTIONS_15 = [
       { id: 'A', text: "Configure Amazon Route 53 to block malicious IP addresses." },
       { id: 'B', text: "Configure a Network Access Control List (NACL) to block HTTP ports." },
       { id: 'C', text: "Deploy Amazon Inspector on the backend EC2 instances." },
-      { id: 'D', text: "Deploy AWS WAF and configure Web Access Control Lists (Web ACLs) with managed rules for SQL injection and XSS protection." }
+      { id: 'D', text: "Deploy AWS WAF with managed rules for SQL injection and XSS." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -221,7 +221,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "AWS provides no DDoS protection unless AWS WAF is deployed with custom rules." },
       { id: 'B', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
-      { id: 'C', text: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost." },
+      { id: 'C', text: "AWS Shield Standard gives every customer baseline Layer 3 and 4 DDoS protection at no cost." },
       { id: 'D', text: "AWS Shield Advanced is free for all accounts and protects against all layer 7 attacks automatically." }
     ],
     correctAnswers: ['C'],
@@ -241,7 +241,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
-      { id: 'B', text: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost." },
+      { id: 'B', text: "AWS Shield Standard gives every customer baseline Layer 3 and 4 DDoS protection at no cost." },
       { id: 'C', text: "AWS provides no DDoS protection unless AWS WAF is deployed with custom rules." },
       { id: 'D', text: "AWS Shield Advanced is free for all accounts and protects against all layer 7 attacks automatically." }
     ],
@@ -263,7 +263,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
       { id: 'B', text: "AWS provides no DDoS protection unless AWS WAF is deployed with custom rules." },
-      { id: 'C', text: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost." },
+      { id: 'C', text: "AWS Shield Standard gives every customer baseline Layer 3 and 4 DDoS protection at no cost." },
       { id: 'D', text: "AWS Shield Advanced is free for all accounts and protects against all layer 7 attacks automatically." }
     ],
     correctAnswers: ['C'],
@@ -284,7 +284,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
       { id: 'B', text: "AWS Shield Advanced is free for all accounts and protects against all layer 7 attacks automatically." },
-      { id: 'C', text: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost." },
+      { id: 'C', text: "AWS Shield Standard gives every customer baseline Layer 3 and 4 DDoS protection at no cost." },
       { id: 'D', text: "AWS provides no DDoS protection unless AWS WAF is deployed with custom rules." }
     ],
     correctAnswers: ['C'],
@@ -304,7 +304,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "AWS customers must purchase third-party hardware appliances to obtain basic DDoS protection." },
-      { id: 'B', text: "AWS Shield Standard provides automatic, baseline protection against common network and transport layer (Layer 3 and 4) DDoS attacks for all AWS customers at no extra cost." },
+      { id: 'B', text: "AWS Shield Standard gives every customer baseline Layer 3 and 4 DDoS protection at no cost." },
       { id: 'C', text: "AWS Shield Advanced is free for all accounts and protects against all layer 7 attacks automatically." },
       { id: 'D', text: "AWS provides no DDoS protection unless AWS WAF is deployed with custom rules." }
     ],
@@ -325,7 +325,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy AWS Systems Manager Patch Manager to scan logs." },
-      { id: 'B', text: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs, and CloudTrail management events using machine learning." },
+      { id: 'B', text: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs and CloudTrail." },
       { id: 'C', text: "Configure Amazon CloudWatch Logs metric filters to search for keyword 'hack'." },
       { id: 'D', text: "Install antivirus software manually on all Amazon EC2 instances." }
     ],
@@ -347,7 +347,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Configure Amazon CloudWatch Logs metric filters to search for keyword 'hack'." },
       { id: 'B', text: "Install antivirus software manually on all Amazon EC2 instances." },
-      { id: 'C', text: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs, and CloudTrail management events using machine learning." },
+      { id: 'C', text: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs and CloudTrail." },
       { id: 'D', text: "Deploy AWS Systems Manager Patch Manager to scan logs." }
     ],
     correctAnswers: ['C'],
@@ -366,7 +366,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Amazon GuardDuty to continually monitor AWS accounts and workloads for malicious activity and unauthorized behavior using machine learning without deploying security agents.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs, and CloudTrail management events using machine learning." },
+      { id: 'A', text: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs and CloudTrail." },
       { id: 'B', text: "Deploy AWS Systems Manager Patch Manager to scan logs." },
       { id: 'C', text: "Install antivirus software manually on all Amazon EC2 instances." },
       { id: 'D', text: "Configure Amazon CloudWatch Logs metric filters to search for keyword 'hack'." }
@@ -388,7 +388,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Configure Amazon CloudWatch Logs metric filters to search for keyword 'hack'." },
-      { id: 'B', text: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs, and CloudTrail management events using machine learning." },
+      { id: 'B', text: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs and CloudTrail." },
       { id: 'C', text: "Install antivirus software manually on all Amazon EC2 instances." },
       { id: 'D', text: "Deploy AWS Systems Manager Patch Manager to scan logs." }
     ],
@@ -408,7 +408,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Amazon GuardDuty to continually monitor AWS accounts and workloads for malicious activity and unauthorized behavior using machine learning without deploying security agents.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs, and CloudTrail management events using machine learning." },
+      { id: 'A', text: "Enable Amazon GuardDuty to analyze VPC Flow Logs, DNS logs and CloudTrail." },
       { id: 'B', text: "Install antivirus software manually on all Amazon EC2 instances." },
       { id: 'C', text: "Configure Amazon CloudWatch Logs metric filters to search for keyword 'hack'." },
       { id: 'D', text: "Deploy AWS Systems Manager Patch Manager to scan logs." }
@@ -432,7 +432,7 @@ export const AWS_CLF_QUESTIONS_15 = [
       { id: 'A', text: "Use AWS Trusted Advisor to inspect application binaries." },
       { id: 'B', text: "Use AWS Artifact to perform weekly server penetration testing." },
       { id: 'C', text: "Use Amazon GuardDuty to scan source code for software bugs." },
-      { id: 'D', text: "Use Amazon Inspector to perform automated security and vulnerability assessments on EC2 instances and container images." }
+      { id: 'D', text: "Use Amazon Inspector to scan EC2 instances and container images." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -453,7 +453,7 @@ export const AWS_CLF_QUESTIONS_15 = [
       { id: 'A', text: "Use AWS Artifact to perform weekly server penetration testing." },
       { id: 'B', text: "Use Amazon GuardDuty to scan source code for software bugs." },
       { id: 'C', text: "Use AWS Trusted Advisor to inspect application binaries." },
-      { id: 'D', text: "Use Amazon Inspector to perform automated security and vulnerability assessments on EC2 instances and container images." }
+      { id: 'D', text: "Use Amazon Inspector to scan EC2 instances and container images." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,7 +471,7 @@ export const AWS_CLF_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Amazon Inspector to automatically discover software vulnerabilities and unintended network exposure on Amazon EC2 instances and Amazon ECR container images.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Use Amazon Inspector to perform automated security and vulnerability assessments on EC2 instances and container images." },
+      { id: 'A', text: "Use Amazon Inspector to scan EC2 instances and container images." },
       { id: 'B', text: "Use AWS Artifact to perform weekly server penetration testing." },
       { id: 'C', text: "Use Amazon GuardDuty to scan source code for software bugs." },
       { id: 'D', text: "Use AWS Trusted Advisor to inspect application binaries." }
@@ -495,7 +495,7 @@ export const AWS_CLF_QUESTIONS_15 = [
       { id: 'A', text: "Use AWS Artifact to perform weekly server penetration testing." },
       { id: 'B', text: "Use Amazon GuardDuty to scan source code for software bugs." },
       { id: 'C', text: "Use AWS Trusted Advisor to inspect application binaries." },
-      { id: 'D', text: "Use Amazon Inspector to perform automated security and vulnerability assessments on EC2 instances and container images." }
+      { id: 'D', text: "Use Amazon Inspector to scan EC2 instances and container images." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -516,7 +516,7 @@ export const AWS_CLF_QUESTIONS_15 = [
       { id: 'A', text: "Use AWS Artifact to perform weekly server penetration testing." },
       { id: 'B', text: "Use Amazon GuardDuty to scan source code for software bugs." },
       { id: 'C', text: "Use AWS Trusted Advisor to inspect application binaries." },
-      { id: 'D', text: "Use Amazon Inspector to perform automated security and vulnerability assessments on EC2 instances and container images." }
+      { id: 'D', text: "Use Amazon Inspector to scan EC2 instances and container images." }
     ],
     correctAnswers: ['D'],
     type: "single",

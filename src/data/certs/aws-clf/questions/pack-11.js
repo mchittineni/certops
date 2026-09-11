@@ -10,7 +10,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Pay upfront licensing fees for 10 years of proprietary database software." },
-      { id: 'B', text: "Trade capital expense (CapEx) for variable operational expense (OpEx) by consuming AWS cloud resources on demand." },
+      { id: 'B', text: "Trade capital expense for variable operating expense, consumed on demand." },
       { id: 'C', text: "Purchase on-premises blade servers with 5-year financing leases." },
       { id: 'D', text: "Build a private co-located data center facility." }
     ],
@@ -30,7 +30,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates AWS Cloud Economics to replace heavy upfront physical data center hardware investments with pay-as-you-go variable cloud consumption.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Trade capital expense (CapEx) for variable operational expense (OpEx) by consuming AWS cloud resources on demand." },
+      { id: 'A', text: "Trade capital expense for variable operating expense, consumed on demand." },
       { id: 'B', text: "Pay upfront licensing fees for 10 years of proprietary database software." },
       { id: 'C', text: "Purchase on-premises blade servers with 5-year financing leases." },
       { id: 'D', text: "Build a private co-located data center facility." }
@@ -52,7 +52,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Build a private co-located data center facility." },
-      { id: 'B', text: "Trade capital expense (CapEx) for variable operational expense (OpEx) by consuming AWS cloud resources on demand." },
+      { id: 'B', text: "Trade capital expense for variable operating expense, consumed on demand." },
       { id: 'C', text: "Pay upfront licensing fees for 10 years of proprietary database software." },
       { id: 'D', text: "Purchase on-premises blade servers with 5-year financing leases." }
     ],
@@ -74,7 +74,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Build a private co-located data center facility." },
       { id: 'B', text: "Pay upfront licensing fees for 10 years of proprietary database software." },
-      { id: 'C', text: "Trade capital expense (CapEx) for variable operational expense (OpEx) by consuming AWS cloud resources on demand." },
+      { id: 'C', text: "Trade capital expense for variable operating expense, consumed on demand." },
       { id: 'D', text: "Purchase on-premises blade servers with 5-year financing leases." }
     ],
     correctAnswers: ['C'],
@@ -95,7 +95,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Purchase on-premises blade servers with 5-year financing leases." },
       { id: 'B', text: "Pay upfront licensing fees for 10 years of proprietary database software." },
-      { id: 'C', text: "Trade capital expense (CapEx) for variable operational expense (OpEx) by consuming AWS cloud resources on demand." },
+      { id: 'C', text: "Trade capital expense for variable operating expense, consumed on demand." },
       { id: 'D', text: "Build a private co-located data center facility." }
     ],
     correctAnswers: ['C'],
@@ -115,7 +115,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Negotiate individual hardware purchase contracts with server manufacturers." },
-      { id: 'B', text: "Leverage AWS massive economies of scale where aggregated customer usage translates into continually lower pay-as-you-go prices." },
+      { id: 'B', text: "Leverage AWS economies of scale, which continually lower pay-as-you-go prices." },
       { id: 'C', text: "Sign fixed multi-year software maintenance contracts with third-party vendors." },
       { id: 'D', text: "Deploy dedicated physical private servers in an on-premises wiring closet." }
     ],
@@ -138,7 +138,7 @@ export const AWS_CLF_QUESTIONS_11 = [
       { id: 'A', text: "Negotiate individual hardware purchase contracts with server manufacturers." },
       { id: 'B', text: "Sign fixed multi-year software maintenance contracts with third-party vendors." },
       { id: 'C', text: "Deploy dedicated physical private servers in an on-premises wiring closet." },
-      { id: 'D', text: "Leverage AWS massive economies of scale where aggregated customer usage translates into continually lower pay-as-you-go prices." }
+      { id: 'D', text: "Leverage AWS economies of scale, which continually lower pay-as-you-go prices." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -158,7 +158,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Sign fixed multi-year software maintenance contracts with third-party vendors." },
       { id: 'B', text: "Deploy dedicated physical private servers in an on-premises wiring closet." },
-      { id: 'C', text: "Leverage AWS massive economies of scale where aggregated customer usage translates into continually lower pay-as-you-go prices." },
+      { id: 'C', text: "Leverage AWS economies of scale, which continually lower pay-as-you-go prices." },
       { id: 'D', text: "Negotiate individual hardware purchase contracts with server manufacturers." }
     ],
     correctAnswers: ['C'],
@@ -178,7 +178,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Sign fixed multi-year software maintenance contracts with third-party vendors." },
-      { id: 'B', text: "Leverage AWS massive economies of scale where aggregated customer usage translates into continually lower pay-as-you-go prices." },
+      { id: 'B', text: "Leverage AWS economies of scale, which continually lower pay-as-you-go prices." },
       { id: 'C', text: "Negotiate individual hardware purchase contracts with server manufacturers." },
       { id: 'D', text: "Deploy dedicated physical private servers in an on-premises wiring closet." }
     ],
@@ -200,7 +200,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Sign fixed multi-year software maintenance contracts with third-party vendors." },
       { id: 'B', text: "Negotiate individual hardware purchase contracts with server manufacturers." },
-      { id: 'C', text: "Leverage AWS massive economies of scale where aggregated customer usage translates into continually lower pay-as-you-go prices." },
+      { id: 'C', text: "Leverage AWS economies of scale, which continually lower pay-as-you-go prices." },
       { id: 'D', text: "Deploy dedicated physical private servers in an on-premises wiring closet." }
     ],
     correctAnswers: ['C'],
@@ -222,7 +222,7 @@ export const AWS_CLF_QUESTIONS_11 = [
       { id: 'A', text: "Overprovision server hardware by 300% to ensure peak capacity is never exceeded." },
       { id: 'B', text: "Throttle incoming customer requests to match physical hardware constraints." },
       { id: 'C', text: "Purchase static dedicated server capacity based on annual maximum forecasts." },
-      { id: 'D', text: "Stop guessing capacity by utilizing AWS elasticity to scale compute resources up or down automatically based on real-time demand." }
+      { id: 'D', text: "Stop guessing capacity by scaling compute automatically with real-time demand." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -243,7 +243,7 @@ export const AWS_CLF_QUESTIONS_11 = [
       { id: 'A', text: "Throttle incoming customer requests to match physical hardware constraints." },
       { id: 'B', text: "Overprovision server hardware by 300% to ensure peak capacity is never exceeded." },
       { id: 'C', text: "Purchase static dedicated server capacity based on annual maximum forecasts." },
-      { id: 'D', text: "Stop guessing capacity by utilizing AWS elasticity to scale compute resources up or down automatically based on real-time demand." }
+      { id: 'D', text: "Stop guessing capacity by scaling compute automatically with real-time demand." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,7 +261,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates AWS Cloud Economics to eliminate the risk of under-provisioning servers during unexpected demand spikes or paying for idle hardware during low-traffic periods.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Stop guessing capacity by utilizing AWS elasticity to scale compute resources up or down automatically based on real-time demand." },
+      { id: 'A', text: "Stop guessing capacity by scaling compute automatically with real-time demand." },
       { id: 'B', text: "Purchase static dedicated server capacity based on annual maximum forecasts." },
       { id: 'C', text: "Throttle incoming customer requests to match physical hardware constraints." },
       { id: 'D', text: "Overprovision server hardware by 300% to ensure peak capacity is never exceeded." }
@@ -282,7 +282,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates AWS Cloud Economics to eliminate the risk of under-provisioning servers during unexpected demand spikes or paying for idle hardware during low-traffic periods.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Stop guessing capacity by utilizing AWS elasticity to scale compute resources up or down automatically based on real-time demand." },
+      { id: 'A', text: "Stop guessing capacity by scaling compute automatically with real-time demand." },
       { id: 'B', text: "Purchase static dedicated server capacity based on annual maximum forecasts." },
       { id: 'C', text: "Overprovision server hardware by 300% to ensure peak capacity is never exceeded." },
       { id: 'D', text: "Throttle incoming customer requests to match physical hardware constraints." }
@@ -304,7 +304,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Throttle incoming customer requests to match physical hardware constraints." },
-      { id: 'B', text: "Stop guessing capacity by utilizing AWS elasticity to scale compute resources up or down automatically based on real-time demand." },
+      { id: 'B', text: "Stop guessing capacity by scaling compute automatically with real-time demand." },
       { id: 'C', text: "Overprovision server hardware by 300% to ensure peak capacity is never exceeded." },
       { id: 'D', text: "Purchase static dedicated server capacity based on annual maximum forecasts." }
     ],
@@ -324,7 +324,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates AWS Cloud Economics to reduce the time required to provision test and development environments from months to minutes to accelerate developer innovation.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Increase speed and agility by provisioning new AWS resources in minutes using the AWS Management Console, CLI, or CloudFormation." },
+      { id: 'A', text: "Increase agility by provisioning new resources in minutes from console or CLI." },
       { id: 'B', text: "Order physical servers and wait for data center rack installation." },
       { id: 'C', text: "Share a single static development server across all engineering teams." },
       { id: 'D', text: "Submit formal physical hardware procurement requisitions through quarterly vendor cycles." }
@@ -347,7 +347,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Submit formal physical hardware procurement requisitions through quarterly vendor cycles." },
       { id: 'B', text: "Share a single static development server across all engineering teams." },
-      { id: 'C', text: "Increase speed and agility by provisioning new AWS resources in minutes using the AWS Management Console, CLI, or CloudFormation." },
+      { id: 'C', text: "Increase agility by provisioning new resources in minutes from console or CLI." },
       { id: 'D', text: "Order physical servers and wait for data center rack installation." }
     ],
     correctAnswers: ['C'],
@@ -369,7 +369,7 @@ export const AWS_CLF_QUESTIONS_11 = [
       { id: 'A', text: "Share a single static development server across all engineering teams." },
       { id: 'B', text: "Order physical servers and wait for data center rack installation." },
       { id: 'C', text: "Submit formal physical hardware procurement requisitions through quarterly vendor cycles." },
-      { id: 'D', text: "Increase speed and agility by provisioning new AWS resources in minutes using the AWS Management Console, CLI, or CloudFormation." }
+      { id: 'D', text: "Increase agility by provisioning new resources in minutes from console or CLI." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -390,7 +390,7 @@ export const AWS_CLF_QUESTIONS_11 = [
       { id: 'A', text: "Share a single static development server across all engineering teams." },
       { id: 'B', text: "Submit formal physical hardware procurement requisitions through quarterly vendor cycles." },
       { id: 'C', text: "Order physical servers and wait for data center rack installation." },
-      { id: 'D', text: "Increase speed and agility by provisioning new AWS resources in minutes using the AWS Management Console, CLI, or CloudFormation." }
+      { id: 'D', text: "Increase agility by provisioning new resources in minutes from console or CLI." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -408,7 +408,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates AWS Cloud Economics to reduce the time required to provision test and development environments from months to minutes to accelerate developer innovation.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Increase speed and agility by provisioning new AWS resources in minutes using the AWS Management Console, CLI, or CloudFormation." },
+      { id: 'A', text: "Increase agility by provisioning new resources in minutes from console or CLI." },
       { id: 'B', text: "Order physical servers and wait for data center rack installation." },
       { id: 'C', text: "Submit formal physical hardware procurement requisitions through quarterly vendor cycles." },
       { id: 'D', text: "Share a single static development server across all engineering teams." }
@@ -432,7 +432,7 @@ export const AWS_CLF_QUESTIONS_11 = [
       { id: 'A', text: "Perform manual hardware diagnostics and replace failed hard drives in physical server racks." },
       { id: 'B', text: "Hire a dedicated team of facility engineers to manage physical HVAC cooling and power generators." },
       { id: 'C', text: "Purchase backup diesel generators and redundant uninterruptible power supplies (UPS)." },
-      { id: 'D', text: "Stop spending money running and maintaining data centers, allowing teams to focus on core business projects rather than undifferentiated infrastructure tasks." }
+      { id: 'D', text: "Stop spending money running data centers so teams can focus on the business." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -451,7 +451,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Purchase backup diesel generators and redundant uninterruptible power supplies (UPS)." },
-      { id: 'B', text: "Stop spending money running and maintaining data centers, allowing teams to focus on core business projects rather than undifferentiated infrastructure tasks." },
+      { id: 'B', text: "Stop spending money running data centers so teams can focus on the business." },
       { id: 'C', text: "Hire a dedicated team of facility engineers to manage physical HVAC cooling and power generators." },
       { id: 'D', text: "Perform manual hardware diagnostics and replace failed hard drives in physical server racks." }
     ],
@@ -472,7 +472,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Perform manual hardware diagnostics and replace failed hard drives in physical server racks." },
-      { id: 'B', text: "Stop spending money running and maintaining data centers, allowing teams to focus on core business projects rather than undifferentiated infrastructure tasks." },
+      { id: 'B', text: "Stop spending money running data centers so teams can focus on the business." },
       { id: 'C', text: "Purchase backup diesel generators and redundant uninterruptible power supplies (UPS)." },
       { id: 'D', text: "Hire a dedicated team of facility engineers to manage physical HVAC cooling and power generators." }
     ],
@@ -492,7 +492,7 @@ export const AWS_CLF_QUESTIONS_11 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates AWS Cloud Economics to allow engineers to focus on business logic and customer applications rather than managing physical facilities, power, cooling, and hardware maintenance.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Stop spending money running and maintaining data centers, allowing teams to focus on core business projects rather than undifferentiated infrastructure tasks." },
+      { id: 'A', text: "Stop spending money running data centers so teams can focus on the business." },
       { id: 'B', text: "Hire a dedicated team of facility engineers to manage physical HVAC cooling and power generators." },
       { id: 'C', text: "Purchase backup diesel generators and redundant uninterruptible power supplies (UPS)." },
       { id: 'D', text: "Perform manual hardware diagnostics and replace failed hard drives in physical server racks." }
@@ -516,7 +516,7 @@ export const AWS_CLF_QUESTIONS_11 = [
       { id: 'A', text: "Hire a dedicated team of facility engineers to manage physical HVAC cooling and power generators." },
       { id: 'B', text: "Perform manual hardware diagnostics and replace failed hard drives in physical server racks." },
       { id: 'C', text: "Purchase backup diesel generators and redundant uninterruptible power supplies (UPS)." },
-      { id: 'D', text: "Stop spending money running and maintaining data centers, allowing teams to focus on core business projects rather than undifferentiated infrastructure tasks." }
+      { id: 'D', text: "Stop spending money running data centers so teams can focus on the business." }
     ],
     correctAnswers: ['D'],
     type: "single",

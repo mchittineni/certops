@@ -220,7 +220,7 @@ export const AWS_CLF_QUESTIONS_20 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy an Amazon CloudWatch Logs metric filter searching for billing numbers." },
-      { id: 'B', text: "Create a Cost Budget in AWS Budgets and configure an alert threshold at 80% linked to email notifications or an SNS topic." },
+      { id: 'B', text: "Create a Cost Budget in AWS Budgets with an alert at 80% to SNS." },
       { id: 'C', text: "Review the monthly PDF billing invoice manually." },
       { id: 'D', text: "Configure AWS Cost Anomaly Detection with manual invoice review." }
     ],
@@ -243,7 +243,7 @@ export const AWS_CLF_QUESTIONS_20 = [
       { id: 'A', text: "Review the monthly PDF billing invoice manually." },
       { id: 'B', text: "Configure AWS Cost Anomaly Detection with manual invoice review." },
       { id: 'C', text: "Deploy an Amazon CloudWatch Logs metric filter searching for billing numbers." },
-      { id: 'D', text: "Create a Cost Budget in AWS Budgets and configure an alert threshold at 80% linked to email notifications or an SNS topic." }
+      { id: 'D', text: "Create a Cost Budget in AWS Budgets with an alert at 80% to SNS." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -263,7 +263,7 @@ export const AWS_CLF_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Deploy an Amazon CloudWatch Logs metric filter searching for billing numbers." },
       { id: 'B', text: "Review the monthly PDF billing invoice manually." },
-      { id: 'C', text: "Create a Cost Budget in AWS Budgets and configure an alert threshold at 80% linked to email notifications or an SNS topic." },
+      { id: 'C', text: "Create a Cost Budget in AWS Budgets with an alert at 80% to SNS." },
       { id: 'D', text: "Configure AWS Cost Anomaly Detection with manual invoice review." }
     ],
     correctAnswers: ['C'],
@@ -283,7 +283,7 @@ export const AWS_CLF_QUESTIONS_20 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Deploy an Amazon CloudWatch Logs metric filter searching for billing numbers." },
-      { id: 'B', text: "Create a Cost Budget in AWS Budgets and configure an alert threshold at 80% linked to email notifications or an SNS topic." },
+      { id: 'B', text: "Create a Cost Budget in AWS Budgets with an alert at 80% to SNS." },
       { id: 'C', text: "Review the monthly PDF billing invoice manually." },
       { id: 'D', text: "Configure AWS Cost Anomaly Detection with manual invoice review." }
     ],
@@ -303,7 +303,7 @@ export const AWS_CLF_QUESTIONS_20 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates AWS Cost Management to set a custom monthly spending limit of $1,000 and receive an automated email alert when forecasted or actual costs exceed 80% of that budget.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Create a Cost Budget in AWS Budgets and configure an alert threshold at 80% linked to email notifications or an SNS topic." },
+      { id: 'A', text: "Create a Cost Budget in AWS Budgets with an alert at 80% to SNS." },
       { id: 'B', text: "Configure AWS Cost Anomaly Detection with manual invoice review." },
       { id: 'C', text: "Review the monthly PDF billing invoice manually." },
       { id: 'D', text: "Deploy an Amazon CloudWatch Logs metric filter searching for billing numbers." }

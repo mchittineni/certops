@@ -18,7 +18,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "Under the Shared Responsibility Model, AWS is responsible for security OF the cloud - hardware, the physical facilities, and the virtualisation layer - while the customer is responsible for security IN the cloud. For EC2, that includes guest OS patching, application patching, security group configuration, and data encryption. Replacing failed physical disks, maintaining physical access controls at Availability Zones, and patching the hypervisor all describe AWS-managed infrastructure the customer cannot access.",
     referenceUrl: "https://aws.amazon.com/compliance/shared-responsibility-model/",
-    tags: ["Shared Responsibility", "Security", "EC2"]
+    tags: ["Shared Responsibility","Security","EC2"]
   },
   {
     id: "aws-clf-2",
@@ -30,7 +30,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     scenario: "An enterprise runs 12 AWS accounts for separate business units. Finance wants a single monthly invoice, and the platform team wants unused Reserved Instance and Savings Plan capacity purchased in one account to benefit workloads in the others.",
     question: "Which AWS feature provides both outcomes?",
     options: [
-      { id: 'A', text: "Consolidated billing in AWS Organizations, which aggregates usage across member accounts and shares Reserved Instance and Savings Plans discounts." },
+      { id: 'A', text: "Consolidated billing in AWS Organizations, aggregating usage and sharing discounts." },
       { id: 'B', text: "AWS Cost Explorer with a monthly scheduled report emailed to finance." },
       { id: 'C', text: "A separate AWS Budget in each account with an alert at 100% of the monthly forecast." },
       { id: 'D', text: "Cost allocation tags applied consistently across all 12 accounts." }
@@ -39,7 +39,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "Consolidated billing in AWS Organizations produces one invoice for the whole organisation, aggregates usage so accounts reach volume-pricing tiers sooner, and shares Reserved Instance and Savings Plans benefits across member accounts by default. Cost Explorer reports on spend but does not change billing or discount sharing, Budgets only alert, and cost allocation tags attribute spend without consolidating it.",
     referenceUrl: "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html",
-    tags: ["Organizations", "Consolidated Billing", "Savings Plans", "Cost"]
+    tags: ["Organizations","Consolidated Billing","Savings Plans","Cost"]
   },
   {
     id: "aws-clf-3",
@@ -60,7 +60,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "AWS Lambda is the serverless compute service: it runs code in response to events such as an S3 upload, scales automatically, requires no server management, and bills per millisecond of execution. EC2 and Lightsail both mean managing instances you pay for while idle, and Elastic Beanstalk provisions and bills for the underlying EC2 capacity even though it automates deployment.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html",
-    tags: ["Lambda", "Serverless", "Compute"]
+    tags: ["Lambda","Serverless","Compute"]
   },
   {
     id: "aws-clf-4",
@@ -74,14 +74,14 @@ export const AWS_CLF_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "Use the root user for daily administration but rotate its password monthly." },
       { id: 'B', text: "Share the root user password with all administrators so they can respond to incidents." },
-      { id: 'C', text: "Enable multi-factor authentication on the root user, then create individual IAM identities for daily work and stop using root." },
+      { id: 'C', text: "Enable MFA on the root user and use individual IAM identities for daily work." },
       { id: 'D', text: "Create root user access keys and store them in the application configuration." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "AWS recommends locking away the root user: enable MFA on it, do not create root access keys, and perform everyday work with individual IAM users or roles that have least-privilege permissions. Sharing root credentials destroys auditability, root access keys are an explicit anti-pattern, and using root for daily work means every action runs with unrestricted permissions.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
-    tags: ["IAM", "MFA", "Root User", "Security"]
+    tags: ["IAM","MFA","Root User","Security"]
   },
   {
     id: "aws-clf-5",
@@ -102,7 +102,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "At an effective 30 Mbps of spare bandwidth, 400 TB would take well over a year to transfer online, so a physical offline transfer device is the only option that meets the deadline. AWS Snowball Edge ships ruggedised appliances you fill locally and return to AWS. DataSync and multipart upload are still bound by the uplink, and DMS is for databases, not file archives.",
     referenceUrl: "https://docs.aws.amazon.com/snowball/latest/developer-guide/whatisedge.html",
-    tags: ["Snowball", "Migration", "Data Transfer"]
+    tags: ["Snowball","Migration","Data Transfer"]
   },
   {
     id: "aws-clf-6",
@@ -123,7 +123,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "AWS CloudTrail records management-plane API activity - the identity, timestamp, source IP, request parameters, and response for every call - which is exactly the audit trail required. CloudWatch reports performance metrics, Trusted Advisor gives best-practice recommendations, and Amazon Inspector scans workloads for software vulnerabilities.",
     referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html",
-    tags: ["CloudTrail", "Auditing", "Compliance"]
+    tags: ["CloudTrail","Auditing","Compliance"]
   },
   {
     id: "aws-clf-7",
@@ -144,7 +144,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "The AWS Pricing Calculator models the cost of a planned architecture before it exists. Cost Explorer visualises and filters historical spend, including by cost allocation tag. AWS Budgets sets thresholds, sends alerts, and - through budget actions - can automatically apply an IAM or SCP restriction or stop instances when a threshold is crossed. The other orderings invert the purpose of each tool.",
     referenceUrl: "https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html",
-    tags: ["Pricing Calculator", "Cost Explorer", "Budgets", "Billing"]
+    tags: ["Pricing Calculator","Cost Explorer","Budgets","Billing"]
   },
   {
     id: "aws-clf-8",
@@ -165,7 +165,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "A Service Control Policy sets the maximum available permissions for every principal in the accounts beneath it, so even a local account administrator cannot exceed it - the defining property this scenario requires. Per-user IAM policies can be edited or bypassed by a local admin, while AWS Config and IAM Access Analyzer detect and report after the fact rather than preventing the action.",
     referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html",
-    tags: ["Organizations", "SCP", "Governance", "Security"]
+    tags: ["Organizations","SCP","Governance","Security"]
   },
   {
     id: "aws-clf-9",
@@ -186,7 +186,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "Elasticity is the ability to acquire resources as you need them and release them when you no longer need them. In AWS, elasticity allows workloads to automatically expand and contract in response to traffic fluctuations, eliminating the need to pre-provision expensive hardware for peak loads.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html",
-    tags: ["Cloud Concepts", "Elasticity", "Scalability"]
+    tags: ["Cloud Concepts","Elasticity","Scalability"]
   },
   {
     id: "aws-clf-10",
@@ -207,7 +207,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "High Availability (HA) ensures that systems operate continuously without failing for long periods by deploying redundant components across independent fault domains, such as multiple AWS Availability Zones. If one AZ fails, traffic is routed to operational AZs with minimal or no downtime.",
     referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/real-time-communication-on-aws/high-availability-and-fault-tolerance.html",
-    tags: ["Cloud Concepts", "High Availability", "Availability Zones"]
+    tags: ["Cloud Concepts","High Availability","Availability Zones"]
   },
   {
     id: "aws-clf-11",
@@ -228,7 +228,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "The Sustainability Pillar focuses on environmental impacts, especially energy consumption and efficiency. Best practices include maximizing resource utilization, adopting efficient hardware (like AWS Graviton processors), and scaling down unneeded resources.",
     referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/welcome.html",
-    tags: ["Well-Architected", "Sustainability", "Cloud Concepts"]
+    tags: ["Well-Architected","Sustainability","Cloud Concepts"]
   },
   {
     id: "aws-clf-12",
@@ -249,7 +249,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "The principle of least privilege states that users should be granted only the minimum permissions required to perform their specific job functions. Granting `s3:GetObject` on the specific bucket path enforces least privilege without exposing sensitive delete operations or other buckets.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege",
-    tags: ["IAM", "Least Privilege", "Security"]
+    tags: ["IAM","Least Privilege","Security"]
   },
   {
     id: "aws-clf-13",
@@ -270,7 +270,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "AWS Shield Standard is automatically enabled for all AWS customers at no additional cost. It protects against the most common infrastructure (Layer 3 and 4) DDoS attacks, such as SYN/UDP floods and reflection attacks, safeguarding CloudFront distributions, Route 53, and Elastic Load Balancers.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/shield-chapter.html",
-    tags: ["AWS Shield", "DDoS", "Security"]
+    tags: ["AWS Shield","DDoS","Security"]
   },
   {
     id: "aws-clf-14",
@@ -291,7 +291,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "AWS Key Management Service (AWS KMS) makes it easy to create and control cryptographic keys used to encrypt data across AWS services and applications. KMS integrates with AWS CloudTrail to provide logs of all key usage for regulatory compliance.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/overview.html",
-    tags: ["AWS KMS", "Encryption", "Security"]
+    tags: ["AWS KMS","Encryption","Security"]
   },
   {
     id: "aws-clf-15",
@@ -312,7 +312,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "AWS Artifact is a self-service audit portal that provides on-demand downloads of AWS security and compliance reports (such as SOC, PCI-DSS, and ISO certifications) as well as select agreements (such as Business Associate Addendum / BAA).",
     referenceUrl: "https://docs.aws.amazon.com/artifact/latest/ug/what-is-aws-artifact.html",
-    tags: ["AWS Artifact", "Compliance", "Security"]
+    tags: ["AWS Artifact","Compliance","Security"]
   },
   {
     id: "aws-clf-16",
@@ -333,7 +333,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "S3 Glacier Flexible Retrieval (formerly S3 Glacier) is a secure, durable, and low-cost storage class for archival data that is accessed 1-2 times per year, offering retrieval options from minutes to hours. S3 Standard is for active data, and Standard-IA is for monthly access.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html",
-    tags: ["S3", "Storage Classes", "Glacier", "Storage"]
+    tags: ["S3","Storage Classes","Glacier","Storage"]
   },
   {
     id: "aws-clf-17",
@@ -354,7 +354,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "Amazon RDS Multi-AZ deployments synchronously replicate database writes to a standby replica in a different Availability Zone. In the event of planned maintenance or host failure, RDS automatically fails over to the standby instance without manual administrative intervention.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html",
-    tags: ["RDS", "Multi-AZ", "Databases", "High Availability"]
+    tags: ["RDS","Multi-AZ","Databases","High Availability"]
   },
   {
     id: "aws-clf-18",
@@ -375,7 +375,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "Amazon DynamoDB is a fully managed NoSQL key-value and document database that provides single-digit millisecond performance at any scale, automatic multi-AZ data replication, and serverless on-demand capacity scaling.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html",
-    tags: ["DynamoDB", "NoSQL", "Databases", "Serverless"]
+    tags: ["DynamoDB","NoSQL","Databases","Serverless"]
   },
   {
     id: "aws-clf-19",
@@ -396,7 +396,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "Amazon CloudFront is a fast Content Delivery Network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency and high transfer speeds using AWS Edge Locations.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html",
-    tags: ["CloudFront", "CDN", "Edge Locations", "Networking"]
+    tags: ["CloudFront","CDN","Edge Locations","Networking"]
   },
   {
     id: "aws-clf-20",
@@ -417,7 +417,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "Security Groups act as virtual firewalls at the instance/network interface (ENI) level and are **stateful** (return traffic is automatically allowed regardless of inbound/outbound rules). Network ACLs operate at the subnet level and are stateless.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html",
-    tags: ["VPC", "Security Groups", "Networking", "Security"]
+    tags: ["VPC","Security Groups","Networking","Security"]
   },
   {
     id: "aws-clf-21",
@@ -438,7 +438,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "AWS Free Tier offers three categories: **Always Free** (available indefinitely to all customers, such as 1 million free Lambda requests/month and 25 GB of DynamoDB storage), **12 Months Free** (available for the first year after sign-up), and **Trials**.",
     referenceUrl: "https://aws.amazon.com/free/",
-    tags: ["Free Tier", "Billing", "Cost"]
+    tags: ["Free Tier","Billing","Cost"]
   },
   {
     id: "aws-clf-22",
@@ -459,7 +459,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "AWS Trusted Advisor continuously inspects AWS environments and provides real-time recommendations across five pillars: Cost Optimization, Security, Fault Tolerance, Performance, and Service Quotas (Limits).",
     referenceUrl: "https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html",
-    tags: ["Trusted Advisor", "Best Practices", "Cost", "Security"]
+    tags: ["Trusted Advisor","Best Practices","Cost","Security"]
   },
   {
     id: "aws-clf-23",
@@ -480,7 +480,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "Enterprise Support (and Enterprise On-Ramp) is the support tier that assigns a dedicated **Technical Account Manager (TAM)** who acts as a trusted technical advisor, coordinates access to Subject Matter Experts, and conducts Well-Architected reviews.",
     referenceUrl: "https://aws.amazon.com/premiumsupport/plans/",
-    tags: ["Support Plans", "Enterprise Support", "TAM", "Billing"]
+    tags: ["Support Plans","Enterprise Support","TAM","Billing"]
   },
   {
     id: "aws-clf-24",
@@ -501,7 +501,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "Latency Routing directs client traffic to the AWS Region that gives the user the lowest network round-trip time based on AWS worldwide network measurements. Geolocation routes based on physical geographic location (e.g. continent/country), not measured speed.",
     referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-latency.html",
-    tags: ["Route 53", "DNS", "Latency Routing", "Networking"]
+    tags: ["Route 53","DNS","Latency Routing","Networking"]
   },
   {
     id: "aws-clf-25",
@@ -522,7 +522,7 @@ export const AWS_CLF_QUESTIONS_1 = [
     type: "single",
     explanation: "Application Load Balancer (ALB) operates at Layer 7 (Application Layer) and supports advanced HTTP/HTTPS routing features such as path-based routing, host-based routing, HTTP/2, and native container integration. NLB operates at Layer 4 (TCP/UDP) for extreme performance.",
     referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html",
-    tags: ["ELB", "ALB", "Load Balancing", "Networking"]
+    tags: ["ELB","ALB","Load Balancing","Networking"]
   }
 ];
 
