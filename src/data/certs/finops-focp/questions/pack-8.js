@@ -18,7 +18,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     type: "single",
     explanation: "Cost allocation is the capability of dividing cloud costs among different business units, applications, and teams. Tagging hygiene and metadata standards are foundational, providing the attribution data required for showback, chargeback, and accountability.",
     referenceUrl: "https://www.finops.org/framework/capabilities/",
-    tags: ["FinOps", "Capabilities", "Cost Allocation"]
+    tags: ["FinOps","Capabilities","Cost Allocation"]
   },
   {
     id: "focp-177",
@@ -33,13 +33,13 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
       { id: 'A', text: "By completely hiding shared costs from all engineering dashboards" },
       { id: 'B', text: "By canceling the shared Kubernetes cluster and forcing teams onto isolated hardware" },
       { id: 'C', text: "By billing the entire shared cost randomly to the smallest development squad" },
-      { id: 'D', text: "By establishing a defined allocation model (such as proportional split based on direct usage or fixed percentage) to distribute shared costs transparently" }
+      { id: 'D', text: "A defined allocation model that distributes shared costs transparently" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Shared costs (e.g., common platform clusters, enterprise support fees, shared network pipes) must be allocated back to business units using explicit policies, such as proportional distribution based on each team's direct spend, usage-based consumption metrics, or deliberate central absorption.",
     referenceUrl: "https://www.finops.org/framework/capabilities/",
-    tags: ["FinOps", "Capabilities", "Shared Costs"]
+    tags: ["FinOps","Capabilities","Shared Costs"]
   },
   {
     id: "focp-178",
@@ -53,14 +53,14 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "The OpenAPI specification" },
       { id: 'B', text: "The ISO 9001 quality framework" },
-      { id: 'C', text: "FOCUS (FinOps Open Cost and Usage Specification)" },
+      { id: 'C', text: "FOCUS" },
       { id: 'D', text: "The W3C Web Services Schema" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "FOCUS (FinOps Open Cost and Usage Specification) is an open-source technical specification created by the FinOps Foundation that defines a standard billing schema and column vocabulary across cloud providers, simplifying multi-cloud cost analysis, reporting, and normalization.",
     referenceUrl: "https://focus.finops.org/",
-    tags: ["FinOps", "FOCUS", "Multi-Cloud"]
+    tags: ["FinOps","FOCUS","Multi-Cloud"]
   },
   {
     id: "focp-179",
@@ -81,7 +81,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     type: "single",
     explanation: "Unit economics measures cloud expenditure relative to a specific unit of business value (e.g., cost per subscriber, cost per transaction, cost per ride). This allows organizations to evaluate whether infrastructure efficiency is improving as the business scales.",
     referenceUrl: "https://www.finops.org/framework/capabilities/",
-    tags: ["FinOps", "Capabilities", "Unit Economics"]
+    tags: ["FinOps","Capabilities","Unit Economics"]
   },
   {
     id: "focp-180",
@@ -95,14 +95,14 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "Terminating 50% of the virtual machines every night" },
       { id: 'B', text: "Migrating all production workloads to spot instances exclusively" },
-      { id: 'C', text: "Purchasing a portfolio of Reserved Instances or flexible Savings Plans / Committed Use Discounts" },
+      { id: 'C', text: "A portfolio of reserved instances or flexible savings plans" },
       { id: 'D', text: "Paying standard on-demand hourly rates permanently" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Rate optimization involves reducing the price paid per resource unit. By committing to consistent compute usage over a 1-year or 3-year term through Reserved Instances or Savings Plans, organizations achieve discounts up to 72% over standard on-demand rates.",
     referenceUrl: "https://www.finops.org/framework/capabilities/",
-    tags: ["FinOps", "Rate Optimization", "Commitments"]
+    tags: ["FinOps","Rate Optimization","Commitments"]
   },
   {
     id: "focp-181",
@@ -117,13 +117,13 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
       { id: 'A', text: "Adding more storage disks to the virtual machines" },
       { id: 'B', text: "Purchasing additional reserved instances for the idle machines" },
       { id: 'C', text: "Upgrading the virtual machines to memory-optimized instances" },
-      { id: 'D', text: "Rightsizing the virtual machines to smaller, appropriately sized instance families" }
+      { id: 'D', text: "Rightsizing the machines to smaller instance families" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Rightsizing is the practice of analyzing actual workload performance (CPU, memory, disk I/O, network) and adjusting provisioned resource sizes to match demand, eliminating wasted over-provisioned capacity.",
     referenceUrl: "https://www.finops.org/framework/capabilities/",
-    tags: ["FinOps", "Workload Optimization", "Rightsizing"]
+    tags: ["FinOps","Workload Optimization","Rightsizing"]
   },
   {
     id: "focp-182",
@@ -137,14 +137,14 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "Upgrading the unattached disks to Ultra SSD performance tiers" },
       { id: 'B', text: "Ignoring the resources because unattached disks are free of charge" },
-      { id: 'C', text: "Deleting or archiving orphaned and zombie resources to stop unnecessary ongoing storage and leasing fees" },
+      { id: 'C', text: "Deleting orphaned and zombie resources to stop their ongoing fees" },
       { id: 'D', text: "Attaching all unattached disks to a single random virtual machine" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Unattached storage volumes, idle public IPs, and obsolete snapshots are known as 'zombie' or orphaned resources. They continue to accrue storage and reservation costs despite providing zero business value and should be purged or archived.",
     referenceUrl: "https://www.finops.org/framework/capabilities/",
-    tags: ["FinOps", "Workload Optimization", "Idle Resources"]
+    tags: ["FinOps","Workload Optimization","Idle Resources"]
   },
   {
     id: "focp-183",
@@ -165,7 +165,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     type: "single",
     explanation: "Anomaly management uses statistical modeling and machine learning to detect unexpected spikes in cloud spend in near-real-time, automatically notifying engineering teams so that root causes can be remediated before costs accumulate.",
     referenceUrl: "https://www.finops.org/framework/capabilities/",
-    tags: ["FinOps", "Capabilities", "Anomaly Detection"]
+    tags: ["FinOps","Capabilities","Anomaly Detection"]
   },
   {
     id: "focp-184",
@@ -186,7 +186,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     type: "single",
     explanation: "Spot instances allow customers to utilize spare, unused cloud capacity at massive discounts (up to 90% off on-demand rates). In exchange, the cloud provider can reclaim the capacity with short notice, making Spot ideal for fault-tolerant batch processing.",
     referenceUrl: "https://www.finops.org/framework/capabilities/",
-    tags: ["FinOps", "Rate Optimization", "Spot"]
+    tags: ["FinOps","Rate Optimization","Spot"]
   },
   {
     id: "focp-185",
@@ -207,7 +207,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     type: "single",
     explanation: "Amortized cost evenly distributes the upfront cost of commitments across the entire term of the reservation, reflecting the true ongoing economic cost of running workloads each month rather than reflecting the timing of cash payments.",
     referenceUrl: "https://www.finops.org/framework/capabilities/",
-    tags: ["FinOps", "Accounting", "Amortization"]
+    tags: ["FinOps","Accounting","Amortization"]
   },
   {
     id: "focp-186",
@@ -219,7 +219,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     scenario: "An enterprise cloud financial operations team is implementing optimization practices and metrics for kubernetes cost allocation.",
     question: "Which mechanism or practice accurately reflects kubernetes cost allocation?",
     options: [
-      { id: 'A', text: "Measuring resource requests and consumption by namespace and pod labels within shared clusters" },
+      { id: 'A', text: "Measuring requests and usage by namespace and pod label" },
       { id: 'B', text: "Splitting the total cluster bill evenly among all company employees" },
       { id: 'C', text: "Assuming all container pods consume identical resources" },
       { id: 'D', text: "Disabling Kubernetes metrics server to save cluster memory" }
@@ -228,7 +228,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     type: "single",
     explanation: "Allocating container costs requires specialized tooling to monitor CPU and memory requests by namespace, pod, and label within shared Kubernetes clusters. Establishing mature FinOps capabilities drives measurable optimization and financial accountability.",
     referenceUrl: "https://www.finops.org/framework/capabilities/",
-    tags: ["FinOps", "Capabilities", "Kubernetes"]
+    tags: ["FinOps","Capabilities","Kubernetes"]
   },
   {
     id: "focp-187",
@@ -243,13 +243,13 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
       { id: 'A', text: "Manually downloading and deleting files from storage every week" },
       { id: 'B', text: "Keeping all data permanently on the highest-performance tier" },
       { id: 'C', text: "Disabling all backups and snapshots to save disk space" },
-      { id: 'D', text: "Automated lifecycle management rules that transition aging objects to cooler, cheaper tiers" }
+      { id: 'D', text: "Lifecycle rules moving aging objects to cooler tiers" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Configuring automated storage lifecycle rules automatically moves unstructured data from hot tiers to cool or archive tiers based on file age, significantly reducing storage spend. Establishing mature FinOps capabilities drives measurable optimization and financial accountability.",
     referenceUrl: "https://www.finops.org/framework/capabilities/",
-    tags: ["FinOps", "Capabilities", "Storage"]
+    tags: ["FinOps","Capabilities","Storage"]
   },
   {
     id: "focp-188",
@@ -270,7 +270,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     type: "single",
     explanation: "FinOps forecasting combines historical baseline trends with future business drivers (such as marketing campaigns or customer onboarding targets) to predict spend. Establishing mature FinOps capabilities drives measurable optimization and financial accountability.",
     referenceUrl: "https://www.finops.org/framework/capabilities/",
-    tags: ["FinOps", "Capabilities", "Forecasting"]
+    tags: ["FinOps","Capabilities","Forecasting"]
   },
   {
     id: "focp-189",
@@ -291,7 +291,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     type: "single",
     explanation: "Cloud waste includes over-provisioned VMs, unattached disks, idle load balancers, and non-production environments running 24/7 without active workloads. Establishing mature FinOps capabilities drives measurable optimization and financial accountability.",
     referenceUrl: "https://www.finops.org/framework/capabilities/",
-    tags: ["FinOps", "Capabilities", "Cloud"]
+    tags: ["FinOps","Capabilities","Cloud"]
   },
   {
     id: "focp-190",
@@ -306,13 +306,13 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
       { id: 'A', text: "Unblended rates apply only to network data egress" },
       { id: 'B', text: "Both terms describe physical server rack electricity usage" },
       { id: 'C', text: "Blended rates are illegal under international tax treaties" },
-      { id: 'D', text: "Unblended rates reflect actual account-specific costs, while blended rates average costs across an organization" }
+      { id: 'D', text: "Unblended is account-specific; blended is averaged" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Unblended rates show the actual rate charged to a specific account, whereas blended rates average the rate across all accounts in an enterprise organization. Establishing mature FinOps capabilities drives measurable optimization and financial accountability.",
     referenceUrl: "https://www.finops.org/framework/capabilities/",
-    tags: ["FinOps", "Capabilities", "Blended"]
+    tags: ["FinOps","Capabilities","Blended"]
   },
   {
     id: "focp-191",
@@ -325,15 +325,15 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     question: "Which mechanism or practice accurately reflects tagging enforcement via policy?",
     options: [
       { id: 'A', text: "Allowing any arbitrary spelling and format for cost center tags" },
-      { id: 'B', text: "Asking engineers to memorize all tag names without validation" },
-      { id: 'C', text: "Enforcing automated policies that reject or audit resources deployed without required tags" },
+      { id: 'B', text: "Publishing the tag taxonomy on the wiki for engineers to follow" },
+      { id: 'C', text: "Policies that reject or audit untagged resources" },
       { id: 'D', text: "Removing tagging requirements to speed up deployment times" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Using automated governance policies (such as Azure Policy) ensures that newly deployed resources without mandatory cost allocation tags are immediately blocked or audited. Establishing mature FinOps capabilities drives measurable optimization and financial accountability.",
     referenceUrl: "https://www.finops.org/framework/capabilities/",
-    tags: ["FinOps", "Capabilities", "Tagging"]
+    tags: ["FinOps","Capabilities","Tagging"]
   },
   {
     id: "focp-192",
@@ -345,7 +345,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     scenario: "An enterprise cloud financial operations team is implementing optimization practices and metrics for cloud invoice reconciliation.",
     question: "Which mechanism or practice accurately reflects cloud invoice reconciliation?",
     options: [
-      { id: 'A', text: "Verifying that billed usage and applied discounts match enterprise contract terms and internal records" },
+      { id: 'A', text: "Checking billed usage and discounts against contract terms" },
       { id: 'B', text: "Refusing to itemize cloud expenses in corporate accounting" },
       { id: 'C', text: "Paying invoices immediately without verifying usage details" },
       { id: 'D', text: "Disputing all cloud invoices automatically every month" }
@@ -354,7 +354,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     type: "single",
     explanation: "Reconciling monthly cloud billing data against enterprise financial ledgers ensures that billed items match contracted enterprise discounts and usage. Establishing mature FinOps capabilities drives measurable optimization and financial accountability.",
     referenceUrl: "https://www.finops.org/framework/capabilities/",
-    tags: ["FinOps", "Capabilities", "Cloud"]
+    tags: ["FinOps","Capabilities","Cloud"]
   },
   {
     id: "focp-193",
@@ -366,7 +366,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     scenario: "An enterprise cloud financial operations team is implementing optimization practices and metrics for chargeback implementation challenges.",
     question: "Which mechanism or practice accurately reflects chargeback implementation challenges?",
     options: [
-      { id: 'A', text: "Establishing transparent, mutually agreed allocation rules for shared infrastructure before charging budgets" },
+      { id: 'A', text: "Agreeing transparent allocation rules before charging budgets" },
       { id: 'B', text: "Hiding cloud invoices to avoid organizational conflict" },
       { id: 'C', text: "Charging the entire company cloud bill to the human resources department" },
       { id: 'D', text: "Eliminating all cost accounting to keep teams happy" }
@@ -375,7 +375,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     type: "single",
     explanation: "Implementing chargeback often encounters political resistance regarding shared platform costs, requiring clear allocation agreements before enforcement. Establishing mature FinOps capabilities drives measurable optimization and financial accountability.",
     referenceUrl: "https://www.finops.org/framework/capabilities/",
-    tags: ["FinOps", "Capabilities", "Chargeback"]
+    tags: ["FinOps","Capabilities","Chargeback"]
   },
   {
     id: "focp-194",
@@ -390,13 +390,13 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
       { id: 'A', text: "Switch all production workloads immediately to uncommitted on-demand pricing" },
       { id: 'B', text: "Purchase additional 3-year all-upfront commitments to force coverage up to 100%" },
       { id: 'C', text: "Delete underutilized application instances without consulting engineering stakeholders" },
-      { id: 'D', text: "Analyze hourly commitment utilization curves to right-size future commitments and exchange or sell underutilized flexible commitments" }
+      { id: 'D', text: "Analyze utilization curves, then resize, exchange or sell commitments" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "High coverage paired with low utilization indicates over-commitment: the organization has purchased commitments exceeding its steady-state baseline. The FinOps team must analyze hourly utilization curves to identify non-working hours dips, exchange convertible reservations or reallocate commitments across organizational units.",
     referenceUrl: "https://www.finops.org/framework/capabilities/rate-optimization/",
-    tags: ["Rate Optimization", "Commitments", "Utilization", "Coverage"]
+    tags: ["Rate Optimization","Commitments","Utilization","Coverage"]
   },
   {
     id: "focp-195",
@@ -409,7 +409,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     question: "Which cost allocation strategy aligns with FinOps best practices for equitable cost distribution?",
     options: [
       { id: 'A', text: "Evenly divide the total dollar cost by the number of active IAM users regardless of resource usage" },
-      { id: 'B', text: "Establish a proportional cost allocation model that distributes shared costs based on each business unit's percentage of total attributed direct spend" },
+      { id: 'B', text: "A proportional model splitting shared cost by each unit's direct spend" },
       { id: 'C', text: "Ignore shared costs in departmental chargeback statements and absorb them into general company overhead" },
       { id: 'D', text: "Allocate 100% of the unallocated shared costs directly to the central IT department's budget" }
     ],
@@ -417,7 +417,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     type: "single",
     explanation: "FinOps best practices recommend establishing agreed-upon cost allocation rules for shared services: distributing costs proportionally based on relative direct spend, fixed percentage splits, or consumption telemetry (e.g. CPU/memory requests in shared Kubernetes clusters).",
     referenceUrl: "https://www.finops.org/framework/capabilities/cost-allocation/",
-    tags: ["Cost Allocation", "Shared Costs", "Chargeback", "Governance"]
+    tags: ["Cost Allocation","Shared Costs","Chargeback","Governance"]
   },
   {
     id: "focp-196",
@@ -429,7 +429,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     scenario: "An engineering team operates 200 legacy x86 virtual machines running Java web services with average CPU utilization below 15%. Finance wants to reduce monthly compute spend by 40%.",
     question: "Which sequenced workload optimization strategy should the FinOps team recommend?",
     options: [
-      { id: 'A', text: "First downsize over-provisioned instances based on p95 memory and CPU metrics, and then evaluate migrating eligible workloads to modern ARM-based instances (like Graviton)" },
+      { id: 'A', text: "Downsize on p95 metrics first, then consider ARM-based instances" },
       { id: 'B', text: "Convert all workloads to multi-tenant serverless functions without profiling execution duration" },
       { id: 'C', text: "Terminate 50% of the instances at random to meet the financial target immediately" },
       { id: 'D', text: "Immediately purchase 3-year all-upfront Reserved Instances for the existing instance sizes to lock in maximum discount" }
@@ -438,7 +438,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     type: "single",
     explanation: "Workload optimization must precede rate optimization. Committing to over-provisioned instance sizes locks in waste. The correct sequence is rightsizing existing machines based on historical peak utilization metrics, modernizing to cost-efficient architectures (such as ARM Graviton), and only then purchasing commitments for the remaining baseline.",
     referenceUrl: "https://www.finops.org/framework/capabilities/workload-optimization/",
-    tags: ["Workload Optimization", "Rightsizing", "Graviton", "Compute"]
+    tags: ["Workload Optimization","Rightsizing","Graviton","Compute"]
   },
   {
     id: "focp-197",
@@ -453,13 +453,13 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
       { id: 'A', text: "Raise the static dollar alert threshold to a level that will never trigger during weekends" },
       { id: 'B', text: "Disable all alerting systems and rely exclusively on monthly invoice reconciliation" },
       { id: 'C', text: "Mandate that engineers manually disable alerting scripts every Friday afternoon" },
-      { id: 'D', text: "Implement machine-learning-based dynamic anomaly detection that evaluates contextual baselines and historical day-of-week seasonality" }
+      { id: 'D', text: "Machine-learning anomaly detection aware of baselines and seasonality" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Modern cloud cost anomaly detection leverages machine learning algorithms that understand cyclical patterns, daily variance, and day-of-week seasonality. This dynamically adapts the expected spending baseline to prevent false alarms during normal weekend spikes while rapidly flagging unexpected mid-week anomalies.",
     referenceUrl: "https://www.finops.org/framework/capabilities/manage-anomalies/",
-    tags: ["Anomaly Management", "Seasonality", "Machine Learning", "Alerts"]
+    tags: ["Anomaly Management","Seasonality","Machine Learning","Alerts"]
   },
   {
     id: "focp-198",
@@ -471,7 +471,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     scenario: "An executive asks the FinOps team why total cloud spending grew from $200,000 to $350,000 in Q3. The engineering team claims infrastructure is more efficient than ever.",
     question: "Which FinOps metric best demonstrates whether the cloud spend increase represents healthy business growth or operational waste?",
     options: [
-      { id: 'A', text: "Unit cost metrics, such as 'Cloud cost per active subscriber' or 'Cloud cost per customer transaction processed'" },
+      { id: 'A', text: "Unit cost metrics such as cloud cost per active subscriber" },
       { id: 'B', text: "The percentage of team members who have completed FinOps certification" },
       { id: 'C', text: "The raw variance in total invoice amount between Q2 and Q3" },
       { id: 'D', text: "The total number of running virtual machines in the production subscription" }
@@ -480,7 +480,7 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     type: "single",
     explanation: "Unit economics connects cloud expenditure directly to business outcomes. If total cloud spend grew by 75% while customer transactions grew by 150%, the cost per transaction actually decreased by 30%, demonstrating improved operational efficiency and profitable business scaling.",
     referenceUrl: "https://www.finops.org/framework/capabilities/unit-economics/",
-    tags: ["Unit Economics", "KPIs", "Business Value", "FinOps"]
+    tags: ["Unit Economics","KPIs","Business Value","FinOps"]
   },
   {
     id: "focp-199",
@@ -493,15 +493,15 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     question: "Which storage optimization policy produces the lowest total cost of ownership without impacting compliance?",
     options: [
       { id: 'A', text: "Immediately move all data to Deep Archive on day 1 to achieve the lowest raw storage rate" },
-      { id: 'B', text: "Delete all log files older than 14 days to eliminate ongoing storage costs entirely" },
+      { id: 'B', text: "Set every log group to a 14-day retention period whatever its purpose" },
       { id: 'C', text: "Retain all data in Standard object storage indefinitely to avoid retrieval and transition fees" },
-      { id: 'D', text: "Implement an automated lifecycle policy: transition to Infrequent Access after 30 days, to Archive/Glacier after 90 days, with automated deletion after 7 years" }
+      { id: 'D', text: "A lifecycle policy: Infrequent Access at 30 days, Archive at 90, delete at 7 years" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Storage optimization requires aligning storage classes with data access lifecycles. Moving data to Infrequent Access after 30 days and cold archive after 90 days balances transition fees against long-term storage savings, while meeting regulatory retention requirements.",
     referenceUrl: "https://www.finops.org/framework/capabilities/workload-optimization/",
-    tags: ["Storage Optimization", "Lifecycle", "Archival", "S3"]
+    tags: ["Storage Optimization","Lifecycle","Archival","S3"]
   },
   {
     id: "focp-200",
@@ -515,14 +515,14 @@ export const FINOPS_FOCP_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "Rely solely on manual paper invoices mailed to department heads once a year" },
       { id: 'B', text: "Permanently avoid Showback because non-financial teams cannot understand raw billing figures" },
-      { id: 'C', text: "Start with Showback to build cost awareness and establish trust in reporting data before transitioning to automated Chargeback cross-charging" },
+      { id: 'C', text: "Start with showback to build trust, then move to chargeback" },
       { id: 'D', text: "Immediately dock engineering departments' corporate bank accounts using aggressive Chargeback on day one" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "In the early Crawl/Walk phases, Showback fosters cost visibility and psychological accountability without immediate financial friction. Once tagging coverage is high, allocation methodologies are verified, and teams understand their drivers, organizations can transition smoothly to formal accounting Chargeback.",
     referenceUrl: "https://www.finops.org/framework/capabilities/chargeback-showback/",
-    tags: ["Showback", "Chargeback", "FinOps Maturity", "Culture"]
+    tags: ["Showback","Chargeback","FinOps Maturity","Culture"]
   }
 ];
 

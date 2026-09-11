@@ -12,7 +12,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
       { id: 'A', text: "Demand an immediate budget freeze and cancel the marketing campaign to bring total cloud spend back down to $50,000." },
       { id: 'B', text: "Measure engineering performance solely by the reduction in absolute dollar expenditure." },
       { id: 'C', text: "Shut down production database clusters whenever cloud spend crosses an arbitrary threshold." },
-      { id: 'D', text: "Frame decisions through business value and unit economics: show that cloud spend per transaction decreased even though total spend increased." }
+      { id: 'D', text: "Frame it in unit economics: cost per transaction fell even as total spend rose." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -30,7 +30,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to justify an increase in monthly cloud spend from $50,000 to $100,000 when business customer transactions have tripled over the same period.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
-      { id: 'A', text: "Frame decisions through business value and unit economics: show that cloud spend per transaction decreased even though total spend increased." },
+      { id: 'A', text: "Frame it in unit economics: cost per transaction fell even as total spend rose." },
       { id: 'B', text: "Shut down production database clusters whenever cloud spend crosses an arbitrary threshold." },
       { id: 'C', text: "Demand an immediate budget freeze and cancel the marketing campaign to bring total cloud spend back down to $50,000." },
       { id: 'D', text: "Measure engineering performance solely by the reduction in absolute dollar expenditure." }
@@ -54,7 +54,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
       { id: 'A', text: "Demand an immediate budget freeze and cancel the marketing campaign to bring total cloud spend back down to $50,000." },
       { id: 'B', text: "Shut down production database clusters whenever cloud spend crosses an arbitrary threshold." },
       { id: 'C', text: "Measure engineering performance solely by the reduction in absolute dollar expenditure." },
-      { id: 'D', text: "Frame decisions through business value and unit economics: show that cloud spend per transaction decreased even though total spend increased." }
+      { id: 'D', text: "Frame it in unit economics: cost per transaction fell even as total spend rose." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -75,7 +75,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
       { id: 'A', text: "Shut down production database clusters whenever cloud spend crosses an arbitrary threshold." },
       { id: 'B', text: "Demand an immediate budget freeze and cancel the marketing campaign to bring total cloud spend back down to $50,000." },
       { id: 'C', text: "Measure engineering performance solely by the reduction in absolute dollar expenditure." },
-      { id: 'D', text: "Frame decisions through business value and unit economics: show that cloud spend per transaction decreased even though total spend increased." }
+      { id: 'D', text: "Frame it in unit economics: cost per transaction fell even as total spend rose." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -94,7 +94,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Demand an immediate budget freeze and cancel the marketing campaign to bring total cloud spend back down to $50,000." },
-      { id: 'B', text: "Frame decisions through business value and unit economics: show that cloud spend per transaction decreased even though total spend increased." },
+      { id: 'B', text: "Frame it in unit economics: cost per transaction fell even as total spend rose." },
       { id: 'C', text: "Measure engineering performance solely by the reduction in absolute dollar expenditure." },
       { id: 'D', text: "Shut down production database clusters whenever cloud spend crosses an arbitrary threshold." }
     ],
@@ -117,7 +117,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
       { id: 'A', text: "Purchase five years of non-refundable server capacity on day one before launching the product." },
       { id: 'B', text: "Prevent application autoscaling to keep monthly cloud bills perfectly flat and predictable." },
       { id: 'C', text: "Overprovision static cloud instances running at 100% capacity 24/7/365 to mimic on-premises data center hardware." },
-      { id: 'D', text: "Embrace the variable cost model: dynamically scale workloads up and down based on real-time traffic, paying only for consumed resources." }
+      { id: 'D', text: "Embrace variable cost: scale with real-time traffic and pay only for what is consumed." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -136,7 +136,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Purchase five years of non-refundable server capacity on day one before launching the product." },
-      { id: 'B', text: "Embrace the variable cost model: dynamically scale workloads up and down based on real-time traffic, paying only for consumed resources." },
+      { id: 'B', text: "Embrace variable cost: scale with real-time traffic and pay only for what is consumed." },
       { id: 'C', text: "Overprovision static cloud instances running at 100% capacity 24/7/365 to mimic on-premises data center hardware." },
       { id: 'D', text: "Prevent application autoscaling to keep monthly cloud bills perfectly flat and predictable." }
     ],
@@ -158,7 +158,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Overprovision static cloud instances running at 100% capacity 24/7/365 to mimic on-premises data center hardware." },
       { id: 'B', text: "Prevent application autoscaling to keep monthly cloud bills perfectly flat and predictable." },
-      { id: 'C', text: "Embrace the variable cost model: dynamically scale workloads up and down based on real-time traffic, paying only for consumed resources." },
+      { id: 'C', text: "Embrace variable cost: scale with real-time traffic and pay only for what is consumed." },
       { id: 'D', text: "Purchase five years of non-refundable server capacity on day one before launching the product." }
     ],
     correctAnswers: ['C'],
@@ -179,7 +179,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Overprovision static cloud instances running at 100% capacity 24/7/365 to mimic on-premises data center hardware." },
       { id: 'B', text: "Prevent application autoscaling to keep monthly cloud bills perfectly flat and predictable." },
-      { id: 'C', text: "Embrace the variable cost model: dynamically scale workloads up and down based on real-time traffic, paying only for consumed resources." },
+      { id: 'C', text: "Embrace variable cost: scale with real-time traffic and pay only for what is consumed." },
       { id: 'D', text: "Purchase five years of non-refundable server capacity on day one before launching the product." }
     ],
     correctAnswers: ['C'],
@@ -198,7 +198,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to transition an enterprise from traditional rigid multi-year data center capacity planning to dynamic cloud elasticity.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
-      { id: 'A', text: "Embrace the variable cost model: dynamically scale workloads up and down based on real-time traffic, paying only for consumed resources." },
+      { id: 'A', text: "Embrace variable cost: scale with real-time traffic and pay only for what is consumed." },
       { id: 'B', text: "Purchase five years of non-refundable server capacity on day one before launching the product." },
       { id: 'C', text: "Prevent application autoscaling to keep monthly cloud bills perfectly flat and predictable." },
       { id: 'D', text: "Overprovision static cloud instances running at 100% capacity 24/7/365 to mimic on-premises data center hardware." }
@@ -219,7 +219,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to explain the financial accounting implications of migrating from on-premises hardware to public cloud infrastructure to a Chief Financial Officer.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
-      { id: 'A', text: "Explain the shift from Capital Expenditures (CapEx: upfront investments depreciated over multi-year useful lives) to Operational Expenditures (OpEx: ongoing operational costs deducted in the period incurred)." },
+      { id: 'A', text: "The shift from depreciated CapEx to OpEx charged in the period." },
       { id: 'B', text: "Explain that cloud providers reimburse companies for all depreciated hardware costs." },
       { id: 'C', text: "Insist that cloud computing eliminates all operational financial obligations." },
       { id: 'D', text: "Claim that public cloud infrastructure is capitalized as physical real estate assets on corporate balance sheets." }
@@ -242,7 +242,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Claim that public cloud infrastructure is capitalized as physical real estate assets on corporate balance sheets." },
       { id: 'B', text: "Explain that cloud providers reimburse companies for all depreciated hardware costs." },
-      { id: 'C', text: "Explain the shift from Capital Expenditures (CapEx: upfront investments depreciated over multi-year useful lives) to Operational Expenditures (OpEx: ongoing operational costs deducted in the period incurred)." },
+      { id: 'C', text: "The shift from depreciated CapEx to OpEx charged in the period." },
       { id: 'D', text: "Insist that cloud computing eliminates all operational financial obligations." }
     ],
     correctAnswers: ['C'],
@@ -264,7 +264,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
       { id: 'A', text: "Explain that cloud providers reimburse companies for all depreciated hardware costs." },
       { id: 'B', text: "Insist that cloud computing eliminates all operational financial obligations." },
       { id: 'C', text: "Claim that public cloud infrastructure is capitalized as physical real estate assets on corporate balance sheets." },
-      { id: 'D', text: "Explain the shift from Capital Expenditures (CapEx: upfront investments depreciated over multi-year useful lives) to Operational Expenditures (OpEx: ongoing operational costs deducted in the period incurred)." }
+      { id: 'D', text: "The shift from depreciated CapEx to OpEx charged in the period." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,7 +282,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to explain the financial accounting implications of migrating from on-premises hardware to public cloud infrastructure to a Chief Financial Officer.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
-      { id: 'A', text: "Explain the shift from Capital Expenditures (CapEx: upfront investments depreciated over multi-year useful lives) to Operational Expenditures (OpEx: ongoing operational costs deducted in the period incurred)." },
+      { id: 'A', text: "The shift from depreciated CapEx to OpEx charged in the period." },
       { id: 'B', text: "Insist that cloud computing eliminates all operational financial obligations." },
       { id: 'C', text: "Claim that public cloud infrastructure is capitalized as physical real estate assets on corporate balance sheets." },
       { id: 'D', text: "Explain that cloud providers reimburse companies for all depreciated hardware costs." }
@@ -303,7 +303,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to explain the financial accounting implications of migrating from on-premises hardware to public cloud infrastructure to a Chief Financial Officer.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
-      { id: 'A', text: "Explain the shift from Capital Expenditures (CapEx: upfront investments depreciated over multi-year useful lives) to Operational Expenditures (OpEx: ongoing operational costs deducted in the period incurred)." },
+      { id: 'A', text: "The shift from depreciated CapEx to OpEx charged in the period." },
       { id: 'B', text: "Insist that cloud computing eliminates all operational financial obligations." },
       { id: 'C', text: "Explain that cloud providers reimburse companies for all depreciated hardware costs." },
       { id: 'D', text: "Claim that public cloud infrastructure is capitalized as physical real estate assets on corporate balance sheets." }
@@ -325,7 +325,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Ignore cost completely and assume speed is the only metric that matters in business." },
-      { id: 'B', text: "Apply the Iron Triangle concept: recognize the continuous trade-offs between Cost, Speed, and Quality, making intentional business choices based on transparent data." },
+      { id: 'B', text: "The Iron Triangle: choose deliberately between cost, speed and quality." },
       { id: 'C', text: "Sacrifice system security and reliability to cut cloud infrastructure costs to zero." },
       { id: 'D', text: "Demand that engineering achieve maximum speed, zero cost, and infinite quality simultaneously with no trade-offs." }
     ],
@@ -348,7 +348,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
       { id: 'A', text: "Demand that engineering achieve maximum speed, zero cost, and infinite quality simultaneously with no trade-offs." },
       { id: 'B', text: "Ignore cost completely and assume speed is the only metric that matters in business." },
       { id: 'C', text: "Sacrifice system security and reliability to cut cloud infrastructure costs to zero." },
-      { id: 'D', text: "Apply the Iron Triangle concept: recognize the continuous trade-offs between Cost, Speed, and Quality, making intentional business choices based on transparent data." }
+      { id: 'D', text: "The Iron Triangle: choose deliberately between cost, speed and quality." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -366,7 +366,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to manage an engineering initiative that must accelerate time-to-market for a new product while staying within funding constraints.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
-      { id: 'A', text: "Apply the Iron Triangle concept: recognize the continuous trade-offs between Cost, Speed, and Quality, making intentional business choices based on transparent data." },
+      { id: 'A', text: "The Iron Triangle: choose deliberately between cost, speed and quality." },
       { id: 'B', text: "Ignore cost completely and assume speed is the only metric that matters in business." },
       { id: 'C', text: "Demand that engineering achieve maximum speed, zero cost, and infinite quality simultaneously with no trade-offs." },
       { id: 'D', text: "Sacrifice system security and reliability to cut cloud infrastructure costs to zero." }
@@ -387,7 +387,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to manage an engineering initiative that must accelerate time-to-market for a new product while staying within funding constraints.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
-      { id: 'A', text: "Apply the Iron Triangle concept: recognize the continuous trade-offs between Cost, Speed, and Quality, making intentional business choices based on transparent data." },
+      { id: 'A', text: "The Iron Triangle: choose deliberately between cost, speed and quality." },
       { id: 'B', text: "Sacrifice system security and reliability to cut cloud infrastructure costs to zero." },
       { id: 'C', text: "Demand that engineering achieve maximum speed, zero cost, and infinite quality simultaneously with no trade-offs." },
       { id: 'D', text: "Ignore cost completely and assume speed is the only metric that matters in business." }
@@ -408,7 +408,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to manage an engineering initiative that must accelerate time-to-market for a new product while staying within funding constraints.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
-      { id: 'A', text: "Apply the Iron Triangle concept: recognize the continuous trade-offs between Cost, Speed, and Quality, making intentional business choices based on transparent data." },
+      { id: 'A', text: "The Iron Triangle: choose deliberately between cost, speed and quality." },
       { id: 'B', text: "Ignore cost completely and assume speed is the only metric that matters in business." },
       { id: 'C', text: "Sacrifice system security and reliability to cut cloud infrastructure costs to zero." },
       { id: 'D', text: "Demand that engineering achieve maximum speed, zero cost, and infinite quality simultaneously with no trade-offs." }
@@ -432,7 +432,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
       { id: 'A', text: "Publicly reprimand developers in company all-hands meetings whenever their cloud bills exceed projections." },
       { id: 'B', text: "Ban all exploratory technology research to ensure cloud spending never fluctuates." },
       { id: 'C', text: "Dock employee salaries to recover cloud cost overruns." },
-      { id: 'D', text: "Establish a blameless financial culture that treats spend anomalies as learning opportunities, instituting automated budget guardrails and psychological safety." }
+      { id: 'D', text: "A blameless culture with automated budget guardrails." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -452,7 +452,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Ban all exploratory technology research to ensure cloud spending never fluctuates." },
       { id: 'B', text: "Publicly reprimand developers in company all-hands meetings whenever their cloud bills exceed projections." },
-      { id: 'C', text: "Establish a blameless financial culture that treats spend anomalies as learning opportunities, instituting automated budget guardrails and psychological safety." },
+      { id: 'C', text: "A blameless culture with automated budget guardrails." },
       { id: 'D', text: "Dock employee salaries to recover cloud cost overruns." }
     ],
     correctAnswers: ['C'],
@@ -473,7 +473,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Ban all exploratory technology research to ensure cloud spending never fluctuates." },
       { id: 'B', text: "Publicly reprimand developers in company all-hands meetings whenever their cloud bills exceed projections." },
-      { id: 'C', text: "Establish a blameless financial culture that treats spend anomalies as learning opportunities, instituting automated budget guardrails and psychological safety." },
+      { id: 'C', text: "A blameless culture with automated budget guardrails." },
       { id: 'D', text: "Dock employee salaries to recover cloud cost overruns." }
     ],
     correctAnswers: ['C'],
@@ -493,7 +493,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Publicly reprimand developers in company all-hands meetings whenever their cloud bills exceed projections." },
-      { id: 'B', text: "Establish a blameless financial culture that treats spend anomalies as learning opportunities, instituting automated budget guardrails and psychological safety." },
+      { id: 'B', text: "A blameless culture with automated budget guardrails." },
       { id: 'C', text: "Ban all exploratory technology research to ensure cloud spending never fluctuates." },
       { id: 'D', text: "Dock employee salaries to recover cloud cost overruns." }
     ],
@@ -514,7 +514,7 @@ export const FINOPS_FOCP_QUESTIONS_12 = [
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Dock employee salaries to recover cloud cost overruns." },
-      { id: 'B', text: "Establish a blameless financial culture that treats spend anomalies as learning opportunities, instituting automated budget guardrails and psychological safety." },
+      { id: 'B', text: "A blameless culture with automated budget guardrails." },
       { id: 'C', text: "Publicly reprimand developers in company all-hands meetings whenever their cloud bills exceed projections." },
       { id: 'D', text: "Ban all exploratory technology research to ensure cloud spending never fluctuates." }
     ],

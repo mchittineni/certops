@@ -431,7 +431,7 @@ export const FINOPS_FOCP_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Keep all development environments running continuously at full capacity 24/7/365." },
       { id: 'B', text: "Rely on developers to remember to log into cloud consoles and turn off virtual machines every Friday at 5 PM." },
-      { id: 'C', text: "Permanently delete all developer accounts to ensure they can never create test servers." },
+      { id: 'C', text: "Remove provisioning permissions from developers in non-production accounts." },
       { id: 'D', text: "Deploy automated policy-as-code controllers that shut down non-production workloads on weeknights and weekends, and enforce allowed instance types." }
     ],
     correctAnswers: ['D'],
@@ -452,7 +452,7 @@ export const FINOPS_FOCP_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Keep all development environments running continuously at full capacity 24/7/365." },
       { id: 'B', text: "Rely on developers to remember to log into cloud consoles and turn off virtual machines every Friday at 5 PM." },
-      { id: 'C', text: "Permanently delete all developer accounts to ensure they can never create test servers." },
+      { id: 'C', text: "Remove provisioning permissions from developers in non-production accounts." },
       { id: 'D', text: "Deploy automated policy-as-code controllers that shut down non-production workloads on weeknights and weekends, and enforce allowed instance types." }
     ],
     correctAnswers: ['D'],
@@ -473,7 +473,7 @@ export const FINOPS_FOCP_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Deploy automated policy-as-code controllers that shut down non-production workloads on weeknights and weekends, and enforce allowed instance types." },
       { id: 'B', text: "Rely on developers to remember to log into cloud consoles and turn off virtual machines every Friday at 5 PM." },
-      { id: 'C', text: "Permanently delete all developer accounts to ensure they can never create test servers." },
+      { id: 'C', text: "Remove provisioning permissions from developers in non-production accounts." },
       { id: 'D', text: "Keep all development environments running continuously at full capacity 24/7/365." }
     ],
     correctAnswers: ['A'],
@@ -495,7 +495,7 @@ export const FINOPS_FOCP_QUESTIONS_20 = [
       { id: 'A', text: "Rely on developers to remember to log into cloud consoles and turn off virtual machines every Friday at 5 PM." },
       { id: 'B', text: "Keep all development environments running continuously at full capacity 24/7/365." },
       { id: 'C', text: "Deploy automated policy-as-code controllers that shut down non-production workloads on weeknights and weekends, and enforce allowed instance types." },
-      { id: 'D', text: "Permanently delete all developer accounts to ensure they can never create test servers." }
+      { id: 'D', text: "Remove provisioning permissions from developers in non-production accounts." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -514,7 +514,7 @@ export const FINOPS_FOCP_QUESTIONS_20 = [
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Deploy automated policy-as-code controllers that shut down non-production workloads on weeknights and weekends, and enforce allowed instance types." },
-      { id: 'B', text: "Permanently delete all developer accounts to ensure they can never create test servers." },
+      { id: 'B', text: "Remove provisioning permissions from developers in non-production accounts." },
       { id: 'C', text: "Rely on developers to remember to log into cloud consoles and turn off virtual machines every Friday at 5 PM." },
       { id: 'D', text: "Keep all development environments running continuously at full capacity 24/7/365." }
     ],

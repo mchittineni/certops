@@ -12,7 +12,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
       { id: 'A', text: "Wait for monthly cloud provider invoices to arrive before checking if new services are expensive." },
       { id: 'B', text: "Prohibit engineers from introducing any new cloud services to avoid cost increases." },
       { id: 'C', text: "Rely on annual retrospective audits to identify architecture inefficiencies." },
-      { id: 'D', text: "Integrate cost estimation tools (e.g., Infracost) into pull requests and CI/CD pipelines, evaluating architectural cost changes before merge." }
+      { id: 'D', text: "Cost estimation in pull requests, judged before merge." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -31,7 +31,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Wait for monthly cloud provider invoices to arrive before checking if new services are expensive." },
-      { id: 'B', text: "Integrate cost estimation tools (e.g., Infracost) into pull requests and CI/CD pipelines, evaluating architectural cost changes before merge." },
+      { id: 'B', text: "Cost estimation in pull requests, judged before merge." },
       { id: 'C', text: "Rely on annual retrospective audits to identify architecture inefficiencies." },
       { id: 'D', text: "Prohibit engineers from introducing any new cloud services to avoid cost increases." }
     ],
@@ -52,7 +52,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Prohibit engineers from introducing any new cloud services to avoid cost increases." },
-      { id: 'B', text: "Integrate cost estimation tools (e.g., Infracost) into pull requests and CI/CD pipelines, evaluating architectural cost changes before merge." },
+      { id: 'B', text: "Cost estimation in pull requests, judged before merge." },
       { id: 'C', text: "Rely on annual retrospective audits to identify architecture inefficiencies." },
       { id: 'D', text: "Wait for monthly cloud provider invoices to arrive before checking if new services are expensive." }
     ],
@@ -72,7 +72,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to shift an engineering organization from cleaning up expensive infrastructure after bills arrive to estimating costs before deployment.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
-      { id: 'A', text: "Integrate cost estimation tools (e.g., Infracost) into pull requests and CI/CD pipelines, evaluating architectural cost changes before merge." },
+      { id: 'A', text: "Cost estimation in pull requests, judged before merge." },
       { id: 'B', text: "Rely on annual retrospective audits to identify architecture inefficiencies." },
       { id: 'C', text: "Wait for monthly cloud provider invoices to arrive before checking if new services are expensive." },
       { id: 'D', text: "Prohibit engineers from introducing any new cloud services to avoid cost increases." }
@@ -94,7 +94,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Rely on annual retrospective audits to identify architecture inefficiencies." },
-      { id: 'B', text: "Integrate cost estimation tools (e.g., Infracost) into pull requests and CI/CD pipelines, evaluating architectural cost changes before merge." },
+      { id: 'B', text: "Cost estimation in pull requests, judged before merge." },
       { id: 'C', text: "Prohibit engineers from introducing any new cloud services to avoid cost increases." },
       { id: 'D', text: "Wait for monthly cloud provider invoices to arrive before checking if new services are expensive." }
     ],
@@ -114,7 +114,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to demonstrate continuous improvement and return on investment (ROI) of the internal FinOps practice over a two-year period.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
-      { id: 'A', text: "Demonstrate ongoing reductions in unit cost per customer, sustained commitment utilization above 95%, and lower MTTR for spend anomalies." },
+      { id: 'A', text: "Falling unit cost, utilization above 95%, and faster anomaly MTTR." },
       { id: 'B', text: "Stop measuring metrics once the initial low-hanging cleanup fruit has been harvested." },
       { id: 'C', text: "Show that total company cloud spending decreased while customer traffic simultaneously plummeted by 90%." },
       { id: 'D', text: "Claim that purchasing a commercial FinOps software license is sufficient evidence of continuous improvement." }
@@ -135,7 +135,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to demonstrate continuous improvement and return on investment (ROI) of the internal FinOps practice over a two-year period.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
-      { id: 'A', text: "Demonstrate ongoing reductions in unit cost per customer, sustained commitment utilization above 95%, and lower MTTR for spend anomalies." },
+      { id: 'A', text: "Falling unit cost, utilization above 95%, and faster anomaly MTTR." },
       { id: 'B', text: "Stop measuring metrics once the initial low-hanging cleanup fruit has been harvested." },
       { id: 'C', text: "Claim that purchasing a commercial FinOps software license is sufficient evidence of continuous improvement." },
       { id: 'D', text: "Show that total company cloud spending decreased while customer traffic simultaneously plummeted by 90%." }
@@ -156,7 +156,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to demonstrate continuous improvement and return on investment (ROI) of the internal FinOps practice over a two-year period.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
-      { id: 'A', text: "Demonstrate ongoing reductions in unit cost per customer, sustained commitment utilization above 95%, and lower MTTR for spend anomalies." },
+      { id: 'A', text: "Falling unit cost, utilization above 95%, and faster anomaly MTTR." },
       { id: 'B', text: "Stop measuring metrics once the initial low-hanging cleanup fruit has been harvested." },
       { id: 'C', text: "Claim that purchasing a commercial FinOps software license is sufficient evidence of continuous improvement." },
       { id: 'D', text: "Show that total company cloud spending decreased while customer traffic simultaneously plummeted by 90%." }
@@ -178,7 +178,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Show that total company cloud spending decreased while customer traffic simultaneously plummeted by 90%." },
-      { id: 'B', text: "Demonstrate ongoing reductions in unit cost per customer, sustained commitment utilization above 95%, and lower MTTR for spend anomalies." },
+      { id: 'B', text: "Falling unit cost, utilization above 95%, and faster anomaly MTTR." },
       { id: 'C', text: "Claim that purchasing a commercial FinOps software license is sufficient evidence of continuous improvement." },
       { id: 'D', text: "Stop measuring metrics once the initial low-hanging cleanup fruit has been harvested." }
     ],
@@ -201,7 +201,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
       { id: 'A', text: "Stop measuring metrics once the initial low-hanging cleanup fruit has been harvested." },
       { id: 'B', text: "Show that total company cloud spending decreased while customer traffic simultaneously plummeted by 90%." },
       { id: 'C', text: "Claim that purchasing a commercial FinOps software license is sufficient evidence of continuous improvement." },
-      { id: 'D', text: "Demonstrate ongoing reductions in unit cost per customer, sustained commitment utilization above 95%, and lower MTTR for spend anomalies." }
+      { id: 'D', text: "Falling unit cost, utilization above 95%, and faster anomaly MTTR." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -220,9 +220,9 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Engineering wants all cloud infrastructure replaced by manual paperwork." },
-      { id: 'B', text: "Engineering focuses on building reliable, performant services while seeking frictionless self-service and actionable cost recommendations." },
+      { id: 'B', text: "Engineering wants reliable services and actionable cost advice." },
       { id: 'C', text: "Engineering focuses exclusively on general ledger journal entries and balance sheet depreciation schedules." },
-      { id: 'D', text: "Engineering exists to manually review employee travel expense receipts." }
+      { id: 'D', text: "Engineering owns the budget and finance is only informed of the outcome." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -240,9 +240,9 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to understand the primary goals, motivations, and pain points of the Engineering persona in a FinOps organization.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
-      { id: 'A', text: "Engineering exists to manually review employee travel expense receipts." },
+      { id: 'A', text: "Engineering owns the budget and finance is only informed of the outcome." },
       { id: 'B', text: "Engineering focuses exclusively on general ledger journal entries and balance sheet depreciation schedules." },
-      { id: 'C', text: "Engineering focuses on building reliable, performant services while seeking frictionless self-service and actionable cost recommendations." },
+      { id: 'C', text: "Engineering wants reliable services and actionable cost advice." },
       { id: 'D', text: "Engineering wants all cloud infrastructure replaced by manual paperwork." }
     ],
     correctAnswers: ['C'],
@@ -262,9 +262,9 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Engineering wants all cloud infrastructure replaced by manual paperwork." },
-      { id: 'B', text: "Engineering exists to manually review employee travel expense receipts." },
+      { id: 'B', text: "Engineering owns the budget and finance is only informed of the outcome." },
       { id: 'C', text: "Engineering focuses exclusively on general ledger journal entries and balance sheet depreciation schedules." },
-      { id: 'D', text: "Engineering focuses on building reliable, performant services while seeking frictionless self-service and actionable cost recommendations." }
+      { id: 'D', text: "Engineering wants reliable services and actionable cost advice." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,9 +282,9 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to understand the primary goals, motivations, and pain points of the Engineering persona in a FinOps organization.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
-      { id: 'A', text: "Engineering exists to manually review employee travel expense receipts." },
+      { id: 'A', text: "Engineering owns the budget and finance is only informed of the outcome." },
       { id: 'B', text: "Engineering focuses exclusively on general ledger journal entries and balance sheet depreciation schedules." },
-      { id: 'C', text: "Engineering focuses on building reliable, performant services while seeking frictionless self-service and actionable cost recommendations." },
+      { id: 'C', text: "Engineering wants reliable services and actionable cost advice." },
       { id: 'D', text: "Engineering wants all cloud infrastructure replaced by manual paperwork." }
     ],
     correctAnswers: ['C'],
@@ -303,10 +303,10 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to understand the primary goals, motivations, and pain points of the Engineering persona in a FinOps organization.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
-      { id: 'A', text: "Engineering exists to manually review employee travel expense receipts." },
+      { id: 'A', text: "Engineering owns the budget and finance is only informed of the outcome." },
       { id: 'B', text: "Engineering focuses exclusively on general ledger journal entries and balance sheet depreciation schedules." },
       { id: 'C', text: "Engineering wants all cloud infrastructure replaced by manual paperwork." },
-      { id: 'D', text: "Engineering focuses on building reliable, performant services while seeking frictionless self-service and actionable cost recommendations." }
+      { id: 'D', text: "Engineering wants reliable services and actionable cost advice." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,7 +324,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to identify the core responsibilities and priorities of the Finance and Procurement persona within the FinOps framework.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
-      { id: 'A', text: "Finance focuses on budget predictability, accounting reconciliation, variance analysis, and negotiating favorable enterprise cloud contracts." },
+      { id: 'A', text: "Finance wants predictability, reconciliation and better contracts." },
       { id: 'B', text: "Finance writes application code and troubleshoots Kubernetes container memory leaks." },
       { id: 'C', text: "Finance insists on purchasing physical bare-metal hardware servers for every new software project." },
       { id: 'D', text: "Finance is solely responsible for determining the number of CPU cores in microservices." }
@@ -348,7 +348,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
       { id: 'A', text: "Finance insists on purchasing physical bare-metal hardware servers for every new software project." },
       { id: 'B', text: "Finance writes application code and troubleshoots Kubernetes container memory leaks." },
       { id: 'C', text: "Finance is solely responsible for determining the number of CPU cores in microservices." },
-      { id: 'D', text: "Finance focuses on budget predictability, accounting reconciliation, variance analysis, and negotiating favorable enterprise cloud contracts." }
+      { id: 'D', text: "Finance wants predictability, reconciliation and better contracts." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -368,7 +368,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Finance writes application code and troubleshoots Kubernetes container memory leaks." },
       { id: 'B', text: "Finance is solely responsible for determining the number of CPU cores in microservices." },
-      { id: 'C', text: "Finance focuses on budget predictability, accounting reconciliation, variance analysis, and negotiating favorable enterprise cloud contracts." },
+      { id: 'C', text: "Finance wants predictability, reconciliation and better contracts." },
       { id: 'D', text: "Finance insists on purchasing physical bare-metal hardware servers for every new software project." }
     ],
     correctAnswers: ['C'],
@@ -389,7 +389,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Finance writes application code and troubleshoots Kubernetes container memory leaks." },
       { id: 'B', text: "Finance insists on purchasing physical bare-metal hardware servers for every new software project." },
-      { id: 'C', text: "Finance focuses on budget predictability, accounting reconciliation, variance analysis, and negotiating favorable enterprise cloud contracts." },
+      { id: 'C', text: "Finance wants predictability, reconciliation and better contracts." },
       { id: 'D', text: "Finance is solely responsible for determining the number of CPU cores in microservices." }
     ],
     correctAnswers: ['C'],
@@ -411,7 +411,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
       { id: 'A', text: "Finance insists on purchasing physical bare-metal hardware servers for every new software project." },
       { id: 'B', text: "Finance is solely responsible for determining the number of CPU cores in microservices." },
       { id: 'C', text: "Finance writes application code and troubleshoots Kubernetes container memory leaks." },
-      { id: 'D', text: "Finance focuses on budget predictability, accounting reconciliation, variance analysis, and negotiating favorable enterprise cloud contracts." }
+      { id: 'D', text: "Finance wants predictability, reconciliation and better contracts." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,7 +429,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to describe the specialized role of the FinOps Practitioner within an enterprise cloud financial management practice.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
-      { id: 'A', text: "The FinOps Practitioner acts as the cultural bridge, translating between technical and financial languages, establishing standards, and driving adoption." },
+      { id: 'A', text: "The practitioner bridges the technical and financial languages." },
       { id: 'B', text: "The FinOps Practitioner focuses exclusively on physical data center facilities management." },
       { id: 'C', text: "The FinOps Practitioner is an automated machine learning script that replaces human financial analysts." },
       { id: 'D', text: "The FinOps Practitioner is a dictator who unilaterally cancels cloud projects that exceed cost estimates." }
@@ -451,7 +451,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "The FinOps Practitioner is a dictator who unilaterally cancels cloud projects that exceed cost estimates." },
-      { id: 'B', text: "The FinOps Practitioner acts as the cultural bridge, translating between technical and financial languages, establishing standards, and driving adoption." },
+      { id: 'B', text: "The practitioner bridges the technical and financial languages." },
       { id: 'C', text: "The FinOps Practitioner focuses exclusively on physical data center facilities management." },
       { id: 'D', text: "The FinOps Practitioner is an automated machine learning script that replaces human financial analysts." }
     ],
@@ -473,7 +473,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "The FinOps Practitioner is an automated machine learning script that replaces human financial analysts." },
       { id: 'B', text: "The FinOps Practitioner is a dictator who unilaterally cancels cloud projects that exceed cost estimates." },
-      { id: 'C', text: "The FinOps Practitioner acts as the cultural bridge, translating between technical and financial languages, establishing standards, and driving adoption." },
+      { id: 'C', text: "The practitioner bridges the technical and financial languages." },
       { id: 'D', text: "The FinOps Practitioner focuses exclusively on physical data center facilities management." }
     ],
     correctAnswers: ['C'],
@@ -493,7 +493,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "The FinOps Practitioner is a dictator who unilaterally cancels cloud projects that exceed cost estimates." },
-      { id: 'B', text: "The FinOps Practitioner acts as the cultural bridge, translating between technical and financial languages, establishing standards, and driving adoption." },
+      { id: 'B', text: "The practitioner bridges the technical and financial languages." },
       { id: 'C', text: "The FinOps Practitioner focuses exclusively on physical data center facilities management." },
       { id: 'D', text: "The FinOps Practitioner is an automated machine learning script that replaces human financial analysts." }
     ],
@@ -514,7 +514,7 @@ export const FINOPS_FOCP_QUESTIONS_15 = [
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "The FinOps Practitioner focuses exclusively on physical data center facilities management." },
-      { id: 'B', text: "The FinOps Practitioner acts as the cultural bridge, translating between technical and financial languages, establishing standards, and driving adoption." },
+      { id: 'B', text: "The practitioner bridges the technical and financial languages." },
       { id: 'C', text: "The FinOps Practitioner is a dictator who unilaterally cancels cloud projects that exceed cost estimates." },
       { id: 'D', text: "The FinOps Practitioner is an automated machine learning script that replaces human financial analysts." }
     ],

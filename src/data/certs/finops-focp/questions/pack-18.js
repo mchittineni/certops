@@ -117,7 +117,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
       { id: 'A', text: "Adopt the FinOps Open Cost and Usage Specification (FOCUS), standardizing multi-cloud billing schemas into common normalized columns." },
       { id: 'B', text: "Write bespoke, fragile manual ETL transformation scripts trying to map hundreds of conflicting proprietary vendor billing columns." },
       { id: 'C', text: "Analyze each cloud provider's bill in complete isolation without multi-cloud aggregation." },
-      { id: 'D', text: "Force all cloud providers to change their native billing formats to match an internal company spreadsheet." }
+      { id: 'D', text: "Build an internal schema and map each provider's export onto it by hand." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -138,7 +138,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
       { id: 'A', text: "Analyze each cloud provider's bill in complete isolation without multi-cloud aggregation." },
       { id: 'B', text: "Write bespoke, fragile manual ETL transformation scripts trying to map hundreds of conflicting proprietary vendor billing columns." },
       { id: 'C', text: "Adopt the FinOps Open Cost and Usage Specification (FOCUS), standardizing multi-cloud billing schemas into common normalized columns." },
-      { id: 'D', text: "Force all cloud providers to change their native billing formats to match an internal company spreadsheet." }
+      { id: 'D', text: "Build an internal schema and map each provider's export onto it by hand." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -158,7 +158,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Write bespoke, fragile manual ETL transformation scripts trying to map hundreds of conflicting proprietary vendor billing columns." },
       { id: 'B', text: "Adopt the FinOps Open Cost and Usage Specification (FOCUS), standardizing multi-cloud billing schemas into common normalized columns." },
-      { id: 'C', text: "Force all cloud providers to change their native billing formats to match an internal company spreadsheet." },
+      { id: 'C', text: "Build an internal schema and map each provider's export onto it by hand." },
       { id: 'D', text: "Analyze each cloud provider's bill in complete isolation without multi-cloud aggregation." }
     ],
     correctAnswers: ['B'],
@@ -177,7 +177,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to normalize billing data across AWS, Microsoft Azure, Google Cloud, and Datadog into a single unified schema for enterprise analysis.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
-      { id: 'A', text: "Force all cloud providers to change their native billing formats to match an internal company spreadsheet." },
+      { id: 'A', text: "Build an internal schema and map each provider's export onto it by hand." },
       { id: 'B', text: "Analyze each cloud provider's bill in complete isolation without multi-cloud aggregation." },
       { id: 'C', text: "Adopt the FinOps Open Cost and Usage Specification (FOCUS), standardizing multi-cloud billing schemas into common normalized columns." },
       { id: 'D', text: "Write bespoke, fragile manual ETL transformation scripts trying to map hundreds of conflicting proprietary vendor billing columns." }
@@ -198,7 +198,7 @@ export const FINOPS_FOCP_QUESTIONS_18 = [
     scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to normalize billing data across AWS, Microsoft Azure, Google Cloud, and Datadog into a single unified schema for enterprise analysis.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
-      { id: 'A', text: "Force all cloud providers to change their native billing formats to match an internal company spreadsheet." },
+      { id: 'A', text: "Build an internal schema and map each provider's export onto it by hand." },
       { id: 'B', text: "Adopt the FinOps Open Cost and Usage Specification (FOCUS), standardizing multi-cloud billing schemas into common normalized columns." },
       { id: 'C', text: "Write bespoke, fragile manual ETL transformation scripts trying to map hundreds of conflicting proprietary vendor billing columns." },
       { id: 'D', text: "Analyze each cloud provider's bill in complete isolation without multi-cloud aggregation." }

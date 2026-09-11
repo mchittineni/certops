@@ -8,12 +8,13 @@
  */
 
 /**
- * With 4 options, picking the longest — or the shortest — should win about 25%
- * of the time. `longest` caps the familiar tell; `shortest` guards the inverse
- * one, because a bank where the key is never the shortest hands the candidate
- * an elimination rule just as useful as "pick the longest".
+ * With 4 options, picking the longest — or the shortest — wins about 25% of the
+ * time by chance. Either figure is a tell in both directions: too high and
+ * "always pick it" works, too low and "always eliminate it" works. So both are
+ * held inside one band around chance rather than merely capped.
  */
-export const THRESHOLDS = { longest: 40, shortest: 12, strawman: 5, leak: 35, delta: 15 };
+export const LENGTH_BAND = { min: 12, max: 40 };
+export const THRESHOLDS = { ...LENGTH_BAND, strawman: 5, leak: 35, delta: 15 };
 
 /** Distractors no candidate would weigh, which collapse a 4-way item to 1-way. */
 export const STRAWMAN = [
@@ -132,8 +133,9 @@ export function scoreCertification(questions) {
     delta: keyLen / keyN - distLen / distN,
     worst
   };
-  score.breached = score.longest > THRESHOLDS.longest || score.strawman > THRESHOLDS.strawman ||
-    score.leak > THRESHOLDS.leak || score.delta > THRESHOLDS.delta ||
-    (score.shortest !== null && score.shortest < THRESHOLDS.shortest);
+  const outOfBand = v => v !== null && (v < LENGTH_BAND.min || v > LENGTH_BAND.max);
+  score.breached = outOfBand(score.longest) || outOfBand(score.shortest) ||
+    score.strawman > THRESHOLDS.strawman || score.leak > THRESHOLDS.leak ||
+    score.delta > THRESHOLDS.delta;
   return score;
 }

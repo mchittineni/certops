@@ -12,7 +12,7 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
       { id: 'A', text: "Prohibit cross-departmental training to keep job roles strictly siloed." },
       { id: 'B', text: "Assume finance professionals already know how Kubernetes autoscaling and microservices work." },
       { id: 'C', text: "Assume engineers intuitively understand corporate financial depreciation and amortization rules." },
-      { id: 'D', text: "Implement structured FinOps training programs: educate finance teams on cloud elasticity and architecture, and train engineers on financial literacy." }
+      { id: 'D', text: "Training both ways: cloud for finance, finance for engineers." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -31,7 +31,7 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Assume engineers intuitively understand corporate financial depreciation and amortization rules." },
-      { id: 'B', text: "Implement structured FinOps training programs: educate finance teams on cloud elasticity and architecture, and train engineers on financial literacy." },
+      { id: 'B', text: "Training both ways: cloud for finance, finance for engineers." },
       { id: 'C', text: "Prohibit cross-departmental training to keep job roles strictly siloed." },
       { id: 'D', text: "Assume finance professionals already know how Kubernetes autoscaling and microservices work." }
     ],
@@ -53,7 +53,7 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Assume finance professionals already know how Kubernetes autoscaling and microservices work." },
       { id: 'B', text: "Assume engineers intuitively understand corporate financial depreciation and amortization rules." },
-      { id: 'C', text: "Implement structured FinOps training programs: educate finance teams on cloud elasticity and architecture, and train engineers on financial literacy." },
+      { id: 'C', text: "Training both ways: cloud for finance, finance for engineers." },
       { id: 'D', text: "Prohibit cross-departmental training to keep job roles strictly siloed." }
     ],
     correctAnswers: ['C'],
@@ -72,7 +72,7 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to bridge the deep knowledge gap between financial accountants and software engineers across an enterprise.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
-      { id: 'A', text: "Implement structured FinOps training programs: educate finance teams on cloud elasticity and architecture, and train engineers on financial literacy." },
+      { id: 'A', text: "Training both ways: cloud for finance, finance for engineers." },
       { id: 'B', text: "Assume finance professionals already know how Kubernetes autoscaling and microservices work." },
       { id: 'C', text: "Assume engineers intuitively understand corporate financial depreciation and amortization rules." },
       { id: 'D', text: "Prohibit cross-departmental training to keep job roles strictly siloed." }
@@ -96,7 +96,7 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
       { id: 'A', text: "Assume engineers intuitively understand corporate financial depreciation and amortization rules." },
       { id: 'B', text: "Prohibit cross-departmental training to keep job roles strictly siloed." },
       { id: 'C', text: "Assume finance professionals already know how Kubernetes autoscaling and microservices work." },
-      { id: 'D', text: "Implement structured FinOps training programs: educate finance teams on cloud elasticity and architecture, and train engineers on financial literacy." }
+      { id: 'D', text: "Training both ways: cloud for finance, finance for engineers." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -116,7 +116,7 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Assume everyone in the company is equally responsible for every cloud cost overrun." },
       { id: 'B', text: "Refuse to define accountability to avoid workplace conflict." },
-      { id: 'C', text: "Establish a clear FinOps RACI matrix: Engineering is Responsible for remediation, the Product Owner is Accountable for budget, Finance is Consulted, Leadership is Informed." },
+      { id: 'C', text: "A RACI: engineering responsible, product owner accountable." },
       { id: 'D', text: "Blame whichever employee logged into the cloud console most recently without a defined governance matrix." }
     ],
     correctAnswers: ['C'],
@@ -136,7 +136,7 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Refuse to define accountability to avoid workplace conflict." },
-      { id: 'B', text: "Establish a clear FinOps RACI matrix: Engineering is Responsible for remediation, the Product Owner is Accountable for budget, Finance is Consulted, Leadership is Informed." },
+      { id: 'B', text: "A RACI: engineering responsible, product owner accountable." },
       { id: 'C', text: "Assume everyone in the company is equally responsible for every cloud cost overrun." },
       { id: 'D', text: "Blame whichever employee logged into the cloud console most recently without a defined governance matrix." }
     ],
@@ -157,7 +157,7 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Assume everyone in the company is equally responsible for every cloud cost overrun." },
-      { id: 'B', text: "Establish a clear FinOps RACI matrix: Engineering is Responsible for remediation, the Product Owner is Accountable for budget, Finance is Consulted, Leadership is Informed." },
+      { id: 'B', text: "A RACI: engineering responsible, product owner accountable." },
       { id: 'C', text: "Refuse to define accountability to avoid workplace conflict." },
       { id: 'D', text: "Blame whichever employee logged into the cloud console most recently without a defined governance matrix." }
     ],
@@ -178,7 +178,7 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Refuse to define accountability to avoid workplace conflict." },
-      { id: 'B', text: "Establish a clear FinOps RACI matrix: Engineering is Responsible for remediation, the Product Owner is Accountable for budget, Finance is Consulted, Leadership is Informed." },
+      { id: 'B', text: "A RACI: engineering responsible, product owner accountable." },
       { id: 'C', text: "Assume everyone in the company is equally responsible for every cloud cost overrun." },
       { id: 'D', text: "Blame whichever employee logged into the cloud console most recently without a defined governance matrix." }
     ],
@@ -199,7 +199,7 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Assume everyone in the company is equally responsible for every cloud cost overrun." },
-      { id: 'B', text: "Establish a clear FinOps RACI matrix: Engineering is Responsible for remediation, the Product Owner is Accountable for budget, Finance is Consulted, Leadership is Informed." },
+      { id: 'B', text: "A RACI: engineering responsible, product owner accountable." },
       { id: 'C', text: "Blame whichever employee logged into the cloud console most recently without a defined governance matrix." },
       { id: 'D', text: "Refuse to define accountability to avoid workplace conflict." }
     ],
@@ -222,7 +222,7 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
       { id: 'A', text: "Threaten to cancel developer bonuses whenever cloud spending increases during traffic surges." },
       { id: 'B', text: "Mandate cost optimization through punitive corporate policy memos." },
       { id: 'C', text: "Create a public wall of shame listing developers who launched expensive test environments." },
-      { id: 'D', text: "Introduce positive gamification and recognition: establish cost-efficiency leaderboards, host FinOps hackathons, and reward unit cost optimizations." }
+      { id: 'D', text: "Leaderboards, hackathons and recognition for unit cost wins." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -243,7 +243,7 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
       { id: 'A', text: "Create a public wall of shame listing developers who launched expensive test environments." },
       { id: 'B', text: "Mandate cost optimization through punitive corporate policy memos." },
       { id: 'C', text: "Threaten to cancel developer bonuses whenever cloud spending increases during traffic surges." },
-      { id: 'D', text: "Introduce positive gamification and recognition: establish cost-efficiency leaderboards, host FinOps hackathons, and reward unit cost optimizations." }
+      { id: 'D', text: "Leaderboards, hackathons and recognition for unit cost wins." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -262,7 +262,7 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Mandate cost optimization through punitive corporate policy memos." },
-      { id: 'B', text: "Introduce positive gamification and recognition: establish cost-efficiency leaderboards, host FinOps hackathons, and reward unit cost optimizations." },
+      { id: 'B', text: "Leaderboards, hackathons and recognition for unit cost wins." },
       { id: 'C', text: "Create a public wall of shame listing developers who launched expensive test environments." },
       { id: 'D', text: "Threaten to cancel developer bonuses whenever cloud spending increases during traffic surges." }
     ],
@@ -284,7 +284,7 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Mandate cost optimization through punitive corporate policy memos." },
       { id: 'B', text: "Create a public wall of shame listing developers who launched expensive test environments." },
-      { id: 'C', text: "Introduce positive gamification and recognition: establish cost-efficiency leaderboards, host FinOps hackathons, and reward unit cost optimizations." },
+      { id: 'C', text: "Leaderboards, hackathons and recognition for unit cost wins." },
       { id: 'D', text: "Threaten to cancel developer bonuses whenever cloud spending increases during traffic surges." }
     ],
     correctAnswers: ['C'],
@@ -304,7 +304,7 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Create a public wall of shame listing developers who launched expensive test environments." },
-      { id: 'B', text: "Introduce positive gamification and recognition: establish cost-efficiency leaderboards, host FinOps hackathons, and reward unit cost optimizations." },
+      { id: 'B', text: "Leaderboards, hackathons and recognition for unit cost wins." },
       { id: 'C', text: "Threaten to cancel developer bonuses whenever cloud spending increases during traffic surges." },
       { id: 'D', text: "Mandate cost optimization through punitive corporate policy memos." }
     ],

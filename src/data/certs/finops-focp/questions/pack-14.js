@@ -9,7 +9,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to evaluate whether a technology organization has progressed from the Crawl stage into the 'Walk' stage of FinOps maturity.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
-      { id: 'A', text: "Look for established KPIs, automated reporting dashboards, widespread tag enforcement policies, proactive forecasting, and medium commitment coverage." },
+      { id: 'A', text: "Established KPIs, automated reporting and proactive forecasting." },
       { id: 'B', text: "Look for completely manual weekly CSV downloads managed by a single summer intern." },
       { id: 'C', text: "Look for fully autonomous AI agents that negotiate and purchase cloud commitments with zero human intervention." },
       { id: 'D', text: "Look for an organization that has eliminated all cloud usage." }
@@ -31,7 +31,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
       { id: 'A', text: "Look for completely manual weekly CSV downloads managed by a single summer intern." },
-      { id: 'B', text: "Look for established KPIs, automated reporting dashboards, widespread tag enforcement policies, proactive forecasting, and medium commitment coverage." },
+      { id: 'B', text: "Established KPIs, automated reporting and proactive forecasting." },
       { id: 'C', text: "Look for an organization that has eliminated all cloud usage." },
       { id: 'D', text: "Look for fully autonomous AI agents that negotiate and purchase cloud commitments with zero human intervention." }
     ],
@@ -53,7 +53,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Look for an organization that has eliminated all cloud usage." },
       { id: 'B', text: "Look for fully autonomous AI agents that negotiate and purchase cloud commitments with zero human intervention." },
-      { id: 'C', text: "Look for established KPIs, automated reporting dashboards, widespread tag enforcement policies, proactive forecasting, and medium commitment coverage." },
+      { id: 'C', text: "Established KPIs, automated reporting and proactive forecasting." },
       { id: 'D', text: "Look for completely manual weekly CSV downloads managed by a single summer intern." }
     ],
     correctAnswers: ['C'],
@@ -74,7 +74,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Look for an organization that has eliminated all cloud usage." },
       { id: 'B', text: "Look for completely manual weekly CSV downloads managed by a single summer intern." },
-      { id: 'C', text: "Look for established KPIs, automated reporting dashboards, widespread tag enforcement policies, proactive forecasting, and medium commitment coverage." },
+      { id: 'C', text: "Established KPIs, automated reporting and proactive forecasting." },
       { id: 'D', text: "Look for fully autonomous AI agents that negotiate and purchase cloud commitments with zero human intervention." }
     ],
     correctAnswers: ['C'],
@@ -96,7 +96,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
       { id: 'A', text: "Look for an organization that has eliminated all cloud usage." },
       { id: 'B', text: "Look for completely manual weekly CSV downloads managed by a single summer intern." },
       { id: 'C', text: "Look for fully autonomous AI agents that negotiate and purchase cloud commitments with zero human intervention." },
-      { id: 'D', text: "Look for established KPIs, automated reporting dashboards, widespread tag enforcement policies, proactive forecasting, and medium commitment coverage." }
+      { id: 'D', text: "Established KPIs, automated reporting and proactive forecasting." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -116,7 +116,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Characterized by panic-driven quarterly budget freezes ordered by executive leadership." },
       { id: 'B', text: "Characterized by relying exclusively on monthly paper billing invoices from the cloud provider." },
-      { id: 'C', text: "Characterized by automated policy enforcement, advanced unit economics tied to business KPIs, dynamic commitment hedging, and continuous organizational alignment." },
+      { id: 'C', text: "Automated enforcement, unit economics tied to KPIs, and hedging." },
       { id: 'D', text: "Characterized by zero commitment discounts and 100% on-demand compute spending." }
     ],
     correctAnswers: ['C'],
@@ -137,7 +137,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Characterized by panic-driven quarterly budget freezes ordered by executive leadership." },
       { id: 'B', text: "Characterized by relying exclusively on monthly paper billing invoices from the cloud provider." },
-      { id: 'C', text: "Characterized by automated policy enforcement, advanced unit economics tied to business KPIs, dynamic commitment hedging, and continuous organizational alignment." },
+      { id: 'C', text: "Automated enforcement, unit economics tied to KPIs, and hedging." },
       { id: 'D', text: "Characterized by zero commitment discounts and 100% on-demand compute spending." }
     ],
     correctAnswers: ['C'],
@@ -157,7 +157,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Characterized by zero commitment discounts and 100% on-demand compute spending." },
-      { id: 'B', text: "Characterized by automated policy enforcement, advanced unit economics tied to business KPIs, dynamic commitment hedging, and continuous organizational alignment." },
+      { id: 'B', text: "Automated enforcement, unit economics tied to KPIs, and hedging." },
       { id: 'C', text: "Characterized by panic-driven quarterly budget freezes ordered by executive leadership." },
       { id: 'D', text: "Characterized by relying exclusively on monthly paper billing invoices from the cloud provider." }
     ],
@@ -180,7 +180,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
       { id: 'A', text: "Characterized by panic-driven quarterly budget freezes ordered by executive leadership." },
       { id: 'B', text: "Characterized by zero commitment discounts and 100% on-demand compute spending." },
       { id: 'C', text: "Characterized by relying exclusively on monthly paper billing invoices from the cloud provider." },
-      { id: 'D', text: "Characterized by automated policy enforcement, advanced unit economics tied to business KPIs, dynamic commitment hedging, and continuous organizational alignment." }
+      { id: 'D', text: "Automated enforcement, unit economics tied to KPIs, and hedging." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -198,7 +198,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to distinguish an elite enterprise operating at the 'Run' stage of FinOps maturity from lower maturity tiers.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
-      { id: 'A', text: "Characterized by automated policy enforcement, advanced unit economics tied to business KPIs, dynamic commitment hedging, and continuous organizational alignment." },
+      { id: 'A', text: "Automated enforcement, unit economics tied to KPIs, and hedging." },
       { id: 'B', text: "Characterized by relying exclusively on monthly paper billing invoices from the cloud provider." },
       { id: 'C', text: "Characterized by zero commitment discounts and 100% on-demand compute spending." },
       { id: 'D', text: "Characterized by panic-driven quarterly budget freezes ordered by executive leadership." }
@@ -219,7 +219,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to assess the overall FinOps maturity of an enterprise that has excellent cost allocation tagging but completely lacks forecasting capabilities.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
-      { id: 'A', text: "Assess maturity granularly across each individual capability: the organization is at 'Run' in Cost Allocation, but at 'Crawl' in Forecasting." },
+      { id: 'A', text: "Assess maturity per capability: Run in cost allocation, Crawl in forecasting." },
       { id: 'B', text: "Assign the entire organization a single 'Run' grade because one capability is highly mature." },
       { id: 'C', text: "Assign the entire organization a failing grade because all capabilities must progress at the exact same speed." },
       { id: 'D', text: "Ignore individual capabilities and evaluate maturity solely by the total dollar savings achieved." }
@@ -242,7 +242,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Ignore individual capabilities and evaluate maturity solely by the total dollar savings achieved." },
       { id: 'B', text: "Assign the entire organization a failing grade because all capabilities must progress at the exact same speed." },
-      { id: 'C', text: "Assess maturity granularly across each individual capability: the organization is at 'Run' in Cost Allocation, but at 'Crawl' in Forecasting." },
+      { id: 'C', text: "Assess maturity per capability: Run in cost allocation, Crawl in forecasting." },
       { id: 'D', text: "Assign the entire organization a single 'Run' grade because one capability is highly mature." }
     ],
     correctAnswers: ['C'],
@@ -263,7 +263,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Assign the entire organization a single 'Run' grade because one capability is highly mature." },
       { id: 'B', text: "Assign the entire organization a failing grade because all capabilities must progress at the exact same speed." },
-      { id: 'C', text: "Assess maturity granularly across each individual capability: the organization is at 'Run' in Cost Allocation, but at 'Crawl' in Forecasting." },
+      { id: 'C', text: "Assess maturity per capability: Run in cost allocation, Crawl in forecasting." },
       { id: 'D', text: "Ignore individual capabilities and evaluate maturity solely by the total dollar savings achieved." }
     ],
     correctAnswers: ['C'],
@@ -284,7 +284,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Assign the entire organization a failing grade because all capabilities must progress at the exact same speed." },
       { id: 'B', text: "Ignore individual capabilities and evaluate maturity solely by the total dollar savings achieved." },
-      { id: 'C', text: "Assess maturity granularly across each individual capability: the organization is at 'Run' in Cost Allocation, but at 'Crawl' in Forecasting." },
+      { id: 'C', text: "Assess maturity per capability: Run in cost allocation, Crawl in forecasting." },
       { id: 'D', text: "Assign the entire organization a single 'Run' grade because one capability is highly mature." }
     ],
     correctAnswers: ['C'],
@@ -304,7 +304,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
       { id: 'A', text: "Ignore individual capabilities and evaluate maturity solely by the total dollar savings achieved." },
-      { id: 'B', text: "Assess maturity granularly across each individual capability: the organization is at 'Run' in Cost Allocation, but at 'Crawl' in Forecasting." },
+      { id: 'B', text: "Assess maturity per capability: Run in cost allocation, Crawl in forecasting." },
       { id: 'C', text: "Assign the entire organization a failing grade because all capabilities must progress at the exact same speed." },
       { id: 'D', text: "Assign the entire organization a single 'Run' grade because one capability is highly mature." }
     ],
@@ -324,7 +324,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to prioritize FinOps initiatives for a newly hired FinOps lead facing hundreds of competing optimization requests.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
-      { id: 'A', text: "Conduct a formal FinOps gap analysis to benchmark current capability maturity against target business milestones, prioritizing high-ROI gaps." },
+      { id: 'A', text: "A gap analysis against target milestones, prioritizing high-ROI gaps." },
       { id: 'B', text: "Attempt to implement all 20 FinOps capabilities to the Run level in a single two-week sprint." },
       { id: 'C', text: "Implement whichever tool is recommended by the loudest software vendor sales representative." },
       { id: 'D', text: "Spend the entire annual budget on third-party consulting without assessing internal capabilities." }
@@ -345,7 +345,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to prioritize FinOps initiatives for a newly hired FinOps lead facing hundreds of competing optimization requests.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
-      { id: 'A', text: "Conduct a formal FinOps gap analysis to benchmark current capability maturity against target business milestones, prioritizing high-ROI gaps." },
+      { id: 'A', text: "A gap analysis against target milestones, prioritizing high-ROI gaps." },
       { id: 'B', text: "Attempt to implement all 20 FinOps capabilities to the Run level in a single two-week sprint." },
       { id: 'C', text: "Spend the entire annual budget on third-party consulting without assessing internal capabilities." },
       { id: 'D', text: "Implement whichever tool is recommended by the loudest software vendor sales representative." }
@@ -369,7 +369,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
       { id: 'A', text: "Spend the entire annual budget on third-party consulting without assessing internal capabilities." },
       { id: 'B', text: "Attempt to implement all 20 FinOps capabilities to the Run level in a single two-week sprint." },
       { id: 'C', text: "Implement whichever tool is recommended by the loudest software vendor sales representative." },
-      { id: 'D', text: "Conduct a formal FinOps gap analysis to benchmark current capability maturity against target business milestones, prioritizing high-ROI gaps." }
+      { id: 'D', text: "A gap analysis against target milestones, prioritizing high-ROI gaps." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,7 +387,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to prioritize FinOps initiatives for a newly hired FinOps lead facing hundreds of competing optimization requests.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
-      { id: 'A', text: "Conduct a formal FinOps gap analysis to benchmark current capability maturity against target business milestones, prioritizing high-ROI gaps." },
+      { id: 'A', text: "A gap analysis against target milestones, prioritizing high-ROI gaps." },
       { id: 'B', text: "Implement whichever tool is recommended by the loudest software vendor sales representative." },
       { id: 'C', text: "Spend the entire annual budget on third-party consulting without assessing internal capabilities." },
       { id: 'D', text: "Attempt to implement all 20 FinOps capabilities to the Run level in a single two-week sprint." }
@@ -408,7 +408,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to prioritize FinOps initiatives for a newly hired FinOps lead facing hundreds of competing optimization requests.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
-      { id: 'A', text: "Conduct a formal FinOps gap analysis to benchmark current capability maturity against target business milestones, prioritizing high-ROI gaps." },
+      { id: 'A', text: "A gap analysis against target milestones, prioritizing high-ROI gaps." },
       { id: 'B', text: "Attempt to implement all 20 FinOps capabilities to the Run level in a single two-week sprint." },
       { id: 'C', text: "Spend the entire annual budget on third-party consulting without assessing internal capabilities." },
       { id: 'D', text: "Implement whichever tool is recommended by the loudest software vendor sales representative." }
@@ -430,7 +430,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Set vague qualitative goals like 'make everyone think about cloud costs more often.'" },
-      { id: 'B', text: "Set clear, quantifiable key results: achieve &gt;80% commitment coverage, reduce unallocated spend to &lt;5%, and maintain forecasting variance within 10%." },
+      { id: 'B', text: "Quantified key results for commitment coverage, unallocated spend and forecast variance." },
       { id: 'C', text: "Mandate a flat 50% across-the-board budget cut for all engineering teams regardless of product revenue growth." },
       { id: 'D', text: "Define success solely by the total number of meetings held between finance and engineering." }
     ],
@@ -450,7 +450,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to define measurable Objectives and Key Results (OKRs) for a FinOps team over the upcoming fiscal year.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
-      { id: 'A', text: "Set clear, quantifiable key results: achieve &gt;80% commitment coverage, reduce unallocated spend to &lt;5%, and maintain forecasting variance within 10%." },
+      { id: 'A', text: "Quantified key results for commitment coverage, unallocated spend and forecast variance." },
       { id: 'B', text: "Set vague qualitative goals like 'make everyone think about cloud costs more often.'" },
       { id: 'C', text: "Define success solely by the total number of meetings held between finance and engineering." },
       { id: 'D', text: "Mandate a flat 50% across-the-board budget cut for all engineering teams regardless of product revenue growth." }
@@ -473,7 +473,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Define success solely by the total number of meetings held between finance and engineering." },
       { id: 'B', text: "Set vague qualitative goals like 'make everyone think about cloud costs more often.'" },
-      { id: 'C', text: "Set clear, quantifiable key results: achieve &gt;80% commitment coverage, reduce unallocated spend to &lt;5%, and maintain forecasting variance within 10%." },
+      { id: 'C', text: "Quantified key results for commitment coverage, unallocated spend and forecast variance." },
       { id: 'D', text: "Mandate a flat 50% across-the-board budget cut for all engineering teams regardless of product revenue growth." }
     ],
     correctAnswers: ['C'],
@@ -494,7 +494,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Mandate a flat 50% across-the-board budget cut for all engineering teams regardless of product revenue growth." },
       { id: 'B', text: "Define success solely by the total number of meetings held between finance and engineering." },
-      { id: 'C', text: "Set clear, quantifiable key results: achieve &gt;80% commitment coverage, reduce unallocated spend to &lt;5%, and maintain forecasting variance within 10%." },
+      { id: 'C', text: "Quantified key results for commitment coverage, unallocated spend and forecast variance." },
       { id: 'D', text: "Set vague qualitative goals like 'make everyone think about cloud costs more often.'" }
     ],
     correctAnswers: ['C'],
@@ -513,7 +513,7 @@ export const FINOPS_FOCP_QUESTIONS_14 = [
     scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to define measurable Objectives and Key Results (OKRs) for a FinOps team over the upcoming fiscal year.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
-      { id: 'A', text: "Set clear, quantifiable key results: achieve &gt;80% commitment coverage, reduce unallocated spend to &lt;5%, and maintain forecasting variance within 10%." },
+      { id: 'A', text: "Quantified key results for commitment coverage, unallocated spend and forecast variance." },
       { id: 'B', text: "Set vague qualitative goals like 'make everyone think about cloud costs more often.'" },
       { id: 'C', text: "Define success solely by the total number of meetings held between finance and engineering." },
       { id: 'D', text: "Mandate a flat 50% across-the-board budget cut for all engineering teams regardless of product revenue growth." }

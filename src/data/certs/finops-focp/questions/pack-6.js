@@ -9,7 +9,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
     question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #1?",
     options: [
-      { id: 'A', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'A', text: "Central practitioners handle rate optimization; squads own their rightsizing" },
       { id: 'B', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
       { id: 'C', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
       { id: 'D', text: "Finance arbitrarily shutting down production databases to meet monthly targets" }
@@ -18,7 +18,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-127",
@@ -32,14 +32,14 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
       { id: 'B', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
-      { id: 'C', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'C', text: "Central practitioners handle rate optimization; squads own their rightsizing" },
       { id: 'D', text: "Procurement forbidding the purchase of any cloud commitment discounts" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-128",
@@ -54,13 +54,13 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
       { id: 'A', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
       { id: 'B', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
       { id: 'C', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
-      { id: 'D', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" }
+      { id: 'D', text: "Central practitioners handle rate optimization; squads own their rightsizing" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-129",
@@ -72,7 +72,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
     question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #4?",
     options: [
-      { id: 'A', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'A', text: "Central practitioners handle rate optimization; squads own their rightsizing" },
       { id: 'B', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
       { id: 'C', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
       { id: 'D', text: "Engineering ignoring all cost considerations and rejecting financial visibility" }
@@ -81,7 +81,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-130",
@@ -96,13 +96,13 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
       { id: 'A', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
       { id: 'B', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
       { id: 'C', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
-      { id: 'D', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" }
+      { id: 'D', text: "Central practitioners handle rate optimization; squads own their rightsizing" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-131",
@@ -117,13 +117,13 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
       { id: 'A', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
       { id: 'B', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
       { id: 'C', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
-      { id: 'D', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" }
+      { id: 'D', text: "Central practitioners handle rate optimization; squads own their rightsizing" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-132",
@@ -137,14 +137,14 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
       { id: 'B', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
-      { id: 'C', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'C', text: "Central practitioners handle rate optimization; squads own their rightsizing" },
       { id: 'D', text: "Engineering ignoring all cost considerations and rejecting financial visibility" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-133",
@@ -159,13 +159,13 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
       { id: 'A', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
       { id: 'B', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
       { id: 'C', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
-      { id: 'D', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" }
+      { id: 'D', text: "Central practitioners handle rate optimization; squads own their rightsizing" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-134",
@@ -177,7 +177,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
     question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #9?",
     options: [
-      { id: 'A', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'A', text: "Central practitioners handle rate optimization; squads own their rightsizing" },
       { id: 'B', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
       { id: 'C', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
       { id: 'D', text: "Engineering ignoring all cost considerations and rejecting financial visibility" }
@@ -186,7 +186,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-135",
@@ -200,14 +200,14 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
       { id: 'B', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
-      { id: 'C', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'C', text: "Central practitioners handle rate optimization; squads own their rightsizing" },
       { id: 'D', text: "Engineering ignoring all cost considerations and rejecting financial visibility" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-136",
@@ -219,7 +219,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
     question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #11?",
     options: [
-      { id: 'A', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'A', text: "Central practitioners handle rate optimization; squads own their rightsizing" },
       { id: 'B', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
       { id: 'C', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
       { id: 'D', text: "Finance arbitrarily shutting down production databases to meet monthly targets" }
@@ -228,7 +228,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-137",
@@ -243,13 +243,13 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
       { id: 'A', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
       { id: 'B', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
       { id: 'C', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
-      { id: 'D', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" }
+      { id: 'D', text: "Central practitioners handle rate optimization; squads own their rightsizing" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-138",
@@ -264,13 +264,13 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
       { id: 'A', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
       { id: 'B', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
       { id: 'C', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
-      { id: 'D', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" }
+      { id: 'D', text: "Central practitioners handle rate optimization; squads own their rightsizing" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-139",
@@ -282,7 +282,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
     question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #14?",
     options: [
-      { id: 'A', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'A', text: "Central practitioners handle rate optimization; squads own their rightsizing" },
       { id: 'B', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
       { id: 'C', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
       { id: 'D', text: "Finance arbitrarily shutting down production databases to meet monthly targets" }
@@ -291,7 +291,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-140",
@@ -304,7 +304,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #15?",
     options: [
       { id: 'A', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
-      { id: 'B', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'B', text: "Central practitioners handle rate optimization; squads own their rightsizing" },
       { id: 'C', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
       { id: 'D', text: "Engineering ignoring all cost considerations and rejecting financial visibility" }
     ],
@@ -312,7 +312,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-141",
@@ -325,7 +325,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #16?",
     options: [
       { id: 'A', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
-      { id: 'B', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'B', text: "Central practitioners handle rate optimization; squads own their rightsizing" },
       { id: 'C', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
       { id: 'D', text: "Finance arbitrarily shutting down production databases to meet monthly targets" }
     ],
@@ -333,7 +333,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-142",
@@ -346,7 +346,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #17?",
     options: [
       { id: 'A', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
-      { id: 'B', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'B', text: "Central practitioners handle rate optimization; squads own their rightsizing" },
       { id: 'C', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
       { id: 'D', text: "Procurement forbidding the purchase of any cloud commitment discounts" }
     ],
@@ -354,7 +354,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-143",
@@ -369,13 +369,13 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
       { id: 'A', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
       { id: 'B', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
       { id: 'C', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
-      { id: 'D', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" }
+      { id: 'D', text: "Central practitioners handle rate optimization; squads own their rightsizing" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-144",
@@ -387,7 +387,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
     question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #19?",
     options: [
-      { id: 'A', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'A', text: "Central practitioners handle rate optimization; squads own their rightsizing" },
       { id: 'B', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
       { id: 'C', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
       { id: 'D', text: "Procurement forbidding the purchase of any cloud commitment discounts" }
@@ -396,7 +396,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-145",
@@ -409,7 +409,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #20?",
     options: [
       { id: 'A', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
-      { id: 'B', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'B', text: "Central practitioners handle rate optimization; squads own their rightsizing" },
       { id: 'C', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
       { id: 'D', text: "Procurement forbidding the purchase of any cloud commitment discounts" }
     ],
@@ -417,7 +417,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-146",
@@ -432,13 +432,13 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
       { id: 'A', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
       { id: 'B', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
       { id: 'C', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
-      { id: 'D', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" }
+      { id: 'D', text: "Central practitioners handle rate optimization; squads own their rightsizing" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-147",
@@ -452,14 +452,14 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
       { id: 'B', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
-      { id: 'C', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'C', text: "Central practitioners handle rate optimization; squads own their rightsizing" },
       { id: 'D', text: "Engineering ignoring all cost considerations and rejecting financial visibility" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-148",
@@ -472,7 +472,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #23?",
     options: [
       { id: 'A', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
-      { id: 'B', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'B', text: "Central practitioners handle rate optimization; squads own their rightsizing" },
       { id: 'C', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
       { id: 'D', text: "Finance arbitrarily shutting down production databases to meet monthly targets" }
     ],
@@ -480,7 +480,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-149",
@@ -495,13 +495,13 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
       { id: 'A', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
       { id: 'B', text: "Procurement forbidding the purchase of any cloud commitment discounts" },
       { id: 'C', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
-      { id: 'D', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" }
+      { id: 'D', text: "Central practitioners handle rate optimization; squads own their rightsizing" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   },
   {
     id: "focp-150",
@@ -513,7 +513,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     scenario: "A technology enterprise is structuring its cross-functional FinOps team, defining roles across engineering, finance, procurement, and leadership.",
     question: "Which organizational alignment best demonstrates effective FinOps persona collaboration in scenario #25?",
     options: [
-      { id: 'A', text: "Central FinOps practitioners providing tooling and rate optimization while decentralized engineering squads own resource rightsizing" },
+      { id: 'A', text: "Central practitioners handle rate optimization; squads own their rightsizing" },
       { id: 'B', text: "Finance arbitrarily shutting down production databases to meet monthly targets" },
       { id: 'C', text: "Engineering ignoring all cost considerations and rejecting financial visibility" },
       { id: 'D', text: "Procurement forbidding the purchase of any cloud commitment discounts" }
@@ -522,7 +522,7 @@ export const FINOPS_FOCP_QUESTIONS_6 = [
     type: "single",
     explanation: "Successful FinOps practices rely on a clear division of responsibility: centralized FinOps teams manage rate optimization and provide enablement tooling, while decentralized engineering teams own architectural design and usage optimization.",
     referenceUrl: "https://www.finops.org/framework/personas/",
-    tags: ["FinOps", "Personas", "Collaboration"]
+    tags: ["FinOps","Personas","Collaboration"]
   }
 ];
 
