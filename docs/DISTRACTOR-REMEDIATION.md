@@ -12,13 +12,54 @@ exit non-zero, which is how this becomes a build gate once the content lands.
 
 | Tell | What it detects | Corpus now | Target |
 | --- | --- | --- | --- |
-| `longest%` | the single longest option is the key | **90.0%** | ≤40% (chance is ~25% on four options) |
-| `strawman%` | items with a distractor nobody would pick | **10.7%** | ≤5% |
-| `leak%` | the stem names a term the key uses and no distractor does | **82.9%** | ≤35% |
-| `len gap` | mean key length minus mean distractor length | **+52 chars** | ≤+15 |
+| `longest%` | the single longest option is the key | **62.7%** | 12-40% |
+| `shortest%` | the single shortest option is the key | **11.5%** | 12-40% |
+| `strawman%` | items with a distractor nobody would pick | **4.6%** | ≤5% |
+| `leak%` | the stem names a distinctive term the key uses and no distractor does | **22.3%** | ≤35% |
+| `len gap` | mean key length minus mean distractor length | **+31 chars** | ≤+15 |
 
-27 of 32 live certifications still breach at least one target. The five in phase 1 below
-now pass all four; the remaining 27 cover ~13,500 questions and ~40,500 distractors.
+`longest%` and `shortest%` are held inside one band rather than merely capped. Chance is
+~25% each on four options; far above the band "always pick it" works, far below it
+"always eliminate it" works. Both are tells. Trimming keys to fix `longest%` overshoots
+into the opposite tell if left unwatched — `finops-focp` reached 64.5% `shortest%` mid-
+rewrite, exactly as exploitable as the problem it replaced.
+
+18 of 32 live certifications still breach at least one target.
+
+### What measuring honestly required
+
+Three corrections to the ruler, each of which changed which banks counted as passing:
+
+1. **Leak was measured on words English shares, not words the subject distinguishes.**
+   Counting any repeated term made `azure` a leak in an Azure exam. It now counts a term
+   only when it is distinctive within that bank — used by at most 2% of its own stems —
+   which drops the vendor noise and keeps the real giveaways (`gvisor`, `snapstart`,
+   `distroless`).
+2. **Leak ignored the scenario, then counted the title.** The scenario is read alongside
+   the question, so it counts. The title is not shown while answering (see below), so it
+   does not.
+3. **Only the long tell was measured.** Adding `shortest%` revealed that five banks from
+   the earlier pass sat at 0% — the key was never the shortest option, so eliminating it
+   always worked.
+
+### What the verification found
+
+Four structural problems, none visible from the per-bank scores alone:
+
+- **The question title was rendered above the scenario while answering**, and named the
+  answer in 4,795 items. Real exams do not title their questions; the title now appears
+  only in the bank browser and results review, where the answer is already visible.
+- **6,746 questions carried scaffolding that restated the topic after the question had
+  already been asked** — `"...security controls? AWS WAF layer 7 web application
+  protection is under consideration."` — under five wordings plus 246 fragments left
+  truncated by an internal abbreviation.
+- **4,000 scenarios named the topic before asking about it**: `"The security engineer
+  evaluates Amazon GuardDuty to isolate an EC2 instance..."`. The clause after `to` is
+  the real situation; the name in front of it was the giveaway.
+- **`audit:filler` was reporting a false all-clear.** A second template family went
+  undetected; it now correctly reports 2,000 content-free questions across 8 banks.
+
+Together these took corpus `leak%` from 78.2% to 22.3% without touching a single option.
 
 ### Why length alone is not the fix
 
@@ -54,13 +95,18 @@ the one built for CIDR-bound machine identity. That is the bar for every rewritt
 
 ## Authoring rules
 
+0. **Fix the ruler before the content.** Every threshold here has been wrong at least
+   once, and each time it made banks look better or worse than they were. When a score
+   moves a long way for a small edit, suspect the measure first.
 1. **Every distractor is a real thing.** A named service, setting, or command that
    exists in the exam's blueprint. Never an invented anti-pattern.
 2. **Wrong for a stated reason.** Each distractor fails against something the scenario
    says — wrong latency, wrong consistency model, wrong trust boundary, wrong cost
    profile. If it fails for no scenario reason, the scenario is underspecified.
-3. **Length parity.** Keep all four options within ~20% of each other. The audit's
-   `len gap` catches drift.
+3. **Length parity, in both directions.** Keep all four options within ~20% of each
+   other. Trimming an over-long key is usually right — the removed clause is nearly
+   always already in the explanation — but trim past the distractors and the key becomes
+   identifiable as the short one instead. `shortest%` catches that.
 4. **Do not name the key in the stem.** Generated stems like *"…requirements for
    sagemaker data wrangler"* hand over the answer. Ask what the workload needs, not
    which named service to confirm.
@@ -69,50 +115,54 @@ the one built for CIDR-bound machine identity. That is the bar for every rewritt
 6. **No option letters in prose.** Explanations that say "Option B" break under
    `npm run shuffle`. `npm run audit:explanations` already guards this.
 
-## Sequencing
+## Where each bank stands
 
-Ordered by leverage. Phase 1 is complete; phases 2 and 3 remain.
+Run `npm run audit:distractors` for live numbers. Three groups:
 
-### Phase 1 — the five worst certifications (done)
+### Passing (14)
 
-These five were emitted by generator templates and were the worst-scoring banks in
-the corpus, all at 100% `longest%`. All 276 distractors across their 92 topics were
-rewritten as real alternatives, each losing only on a requirement the scenario states.
+`hashicorp-vault`, `aws-mla`, `finops-focus`, `azure-ai102`, `cncf-opa` (the generator
+banks), plus `azure-az900`, `aws-clf`, `gcp-pca`, `azure-az204`, `aws-dva`, `gcp-ace`,
+`azure-az104`, `aws-saa`, `finops-focp`.
 
-| Cert | `longest%` | `strawman%` | `leak%` | len gap |
-| --- | --- | --- | --- | --- |
-| `hashicorp-vault` | 100.0 → **19.4** | 29.2 → **0.0** | 63.6 → **0.0** | +48 → **+6** |
-| `aws-mla` | 100.0 → **27.8** | 26.2 → **0.0** | 89.0 → **0.2** | +58 → **+8** |
-| `finops-focus` | 100.0 → **30.0** | 25.2 → **0.0** | 70.2 → **0.0** | +65 → **+12** |
-| `azure-ai102` | 100.0 → **31.6** | 30.0 → **0.0** | 93.8 → **0.2** | +59 → **+12** |
-| `cncf-opa` | 100.0 → **30.6** | 26.4 → **0.0** | 73.4 → **32.2** | +57 → **+14** |
+The generators for the first five **have since been deleted** at the maintainer's
+request, so the JS packs under `src/data/certs/<cert>/questions/` are the only source of
+truth. Edit the packs directly; a rerun would overwrite the rewritten content.
 
-Two structural fixes came with it. Each topic gained a solution-neutral challenge
-label used for the question title, and the stem stopped interpolating the topic name —
-between them these removed the `leak%` tell at the source. Scenarios also gained a
-per-pack environment clause, because dropping the old `cycle N.N` suffix had been the
-only thing keeping them unique in domains with more packs than topics.
+One limitation remains in those five: they draw 500 questions from ~20 topics each, so a
+topic recurs about 25 times in different scenario framing. That repetition is inherent to
+how the banks were built and distractor work does not address it.
 
-**The generators have since been deleted** at the maintainer's request, so the JS packs
-under `src/data/certs/<cert>/questions/` are now the only source of truth for these five
-banks. Edit the packs directly; there is nothing left to regenerate from, and a rerun
-would overwrite the rewritten content.
+### Repairable, still breaching (10)
 
-One limitation this leaves in place: these five banks draw 500 questions from ~20 topics
-each, so a topic recurs roughly 25 times wrapped in different scenario contexts, and the
-context is generic framing that rarely bears on the answer. That repetition is inherent
-to how the banks were built and is not something the distractor rewrite addresses.
+`k8s-ckad`, `azure-az400`, `k8s-cka`, `k8s-cks`, `hashicorp-tfa`, `hashicorp-tfp`,
+`github-actions`, `github-ghas`, `aws-dop`, `aws-scs`.
 
-### Phase 2 — hand-authored certs at 98%+ (~3,500 questions)
+These are genuinely hand-authored and the questions are good; the key is simply more
+complete than the distractors. Two of them are part-done. The cost is roughly 200-300
+authored strings each, and it does not compress: unlike the generator banks, where one
+edit covered 30 questions, these average 2.3 questions per distinct option set. Much of
+the remainder is YAML and CLI keys, where the fix is not to trim the key — a correct
+command cannot be shortened — but to write distractors of equal specificity. Several
+existing ones are invented (`kubectl clone pod`, `helm install --fake`) or jokes
+(`Checking email`), which is a content defect independent of length.
 
-`cncf-cba`, `gcp-pcdoe`, `cncf-cnpa`, `cncf-cnpe`, `cncf-cgoa`, `isc2-ccsp`, `cncf-otca`.
-No generator; these are JS packs edited in place. Batch by pack (25 items each) and
-re-audit per cert with `npm run audit:distractors -- --cert <id>`.
+### Blocked on authoring, not repair (8)
 
-### Phase 3 — the remaining 20 certs (~10,000 questions)
+`gcp-pcdoe`, `isc2-ccsp`, `cncf-cgoa`, `cncf-otca`, `cncf-cnpa`, `cncf-cnpe`,
+`gcp-pmle`, `cncf-cba`.
 
-Work down the audit table. `azure-az900` (50.3%) and `aws-clf` (66.6%) are closest to
-target and cheapest to finish; the 90%+ group needs the same treatment as phase 2.
+Half of each of these banks — 2,000 questions — is content-free filler whose key is
+boilerplate with the topic name interpolated into it (`npm run audit:filler` lists them).
+Rewriting distractors cannot rescue an item that asserts nothing. These need real
+questions written, and until they are, the whole-bank scores stay bad however good the
+authored half is. `cncf-cba`'s authored half already meets every target while the bank
+as a whole does not.
+
+Two changes were considered here and rejected as metric-gaming rather than improvement:
+stripping trailing parentheticals corpus-wide (it would turn `AWS Key Management Service
+(AWS KMS)` into a worse option for a learner), and trimming the boilerplate filler keys
+(it would move the score without making the item answerable).
 
 ## Guardrails during the rewrite
 
