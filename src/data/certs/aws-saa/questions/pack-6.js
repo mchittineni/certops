@@ -18,7 +18,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS Elastic Disaster Recovery (AWS DRS) provides continuous, block-level server replication into a low-cost staging area in the target AWS Region, delivering sub-second RPOs and sub-15 minute RTOs during recovery drills or disaster events. AWS MGN is for one-time migrations. DataSync transfers files in batch. AWS Backup performs snapshot-based backups, failing the continuous sub-second RPO requirement.",
     referenceUrl: "https://docs.aws.amazon.com/drs/latest/userguide/what-is-drs.html",
-    tags: ["AWS DRS", "Disaster Recovery", "VMware", "Resilience"]
+    tags: ["AWS DRS","Disaster Recovery","VMware","Resilience"]
   },
   {
     id: "aws-saa-127",
@@ -31,7 +31,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     question: "Which Amazon S3 replication feature satisfies this in-region multi-account requirement?",
     options: [
       { id: 'A', text: "AWS DataSync scheduled hourly." },
-      { id: 'B', text: "S3 Same-Region Replication (SRR) with cross-account ownership override and destination KMS CMK encryption." },
+      { id: 'B', text: "Same-region replication with ownership override" },
       { id: 'C', text: "S3 Object Lock in Governance mode." },
       { id: 'D', text: "S3 Cross-Region Replication (CRR) with Multi-Region Access Points." }
     ],
@@ -39,7 +39,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     type: "single",
     explanation: "Amazon S3 Same-Region Replication (SRR) automatically replicates objects between buckets in the same AWS Region, supporting cross-account destination buckets, changing object ownership to the destination account, and re-encrypting with a destination account KMS Customer Managed Key. CRR replicates across different regions, violating the same-region mandate. DataSync is batch-based without continuous event-driven replication. Object Lock prevents object deletion but does not replicate data across accounts.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-same-region.html",
-    tags: ["S3", "SRR", "Cross-Account", "Compliance", "Resilience"]
+    tags: ["S3","SRR","Cross-Account","Compliance","Resilience"]
   },
   {
     id: "aws-saa-128",
@@ -52,7 +52,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     question: "Which AWS service feature provides highly reliable, redundant routing controls across multiple regions?",
     options: [
       { id: 'A', text: "Application Load Balancer weighted target groups." },
-      { id: 'B', text: "Amazon Route 53 Application Recovery Controller (Route 53 ARC) routing controls." },
+      { id: 'B', text: "Application Recovery Controller routing controls" },
       { id: 'C', text: "Route 53 Simple DNS routing with 60-second TTL." },
       { id: 'D', text: "AWS Global Accelerator standard health checks." }
     ],
@@ -60,7 +60,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     type: "single",
     explanation: "Amazon Route 53 Application Recovery Controller (Route 53 ARC) provides extreme five-region highly available cell-based routing controls (on/off switches) that integrate with Route 53 DNS and health checks to deterministically shift traffic away from impaired availability zones or entire AWS regions in seconds without being blocked by regional control planes or standard DNS TTL caching delays. Simple DNS is subject to client DNS caching. Global Accelerator relies on health checks rather than deterministic operator-controlled cell isolation. ALB target groups are regional.",
     referenceUrl: "https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route-53-recovery.html",
-    tags: ["Route 53 ARC", "Disaster Recovery", "High Availability", "Resilience"]
+    tags: ["Route 53 ARC","Disaster Recovery","High Availability","Resilience"]
   },
   {
     id: "aws-saa-129",
@@ -74,14 +74,14 @@ export const AWS_SAA_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Predictive scaling with fixed maximum capacity." },
       { id: 'B', text: "Simple scaling policies with 1-hour cooldown periods." },
-      { id: 'C', text: "Scheduled scaling actions for Friday evening peaks combined with Target Tracking scaling policies on average CPU utilization for unexpected surges." },
+      { id: 'C', text: "Scheduled scaling plus target tracking on CPU" },
       { id: 'D', text: "Step scaling policies only." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Combining Scheduled Scaling (which proactively pre-provisions capacity ahead of known Friday peak windows) with Target Tracking Dynamic Scaling (which automatically scales capacity based on metrics like CPU utilization or ALB request count per target) provides the optimal balance of proactive readiness and reactive elasticity. Step scaling alone or simple scaling with 1-hour cooldowns react too slowly to pre-scheduled promotions. Fixed maximum capacity limits elasticity during unexpected spikes.",
     referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html",
-    tags: ["Auto Scaling", "Target Tracking", "Scheduled Scaling", "Resilience"]
+    tags: ["Auto Scaling","Target Tracking","Scheduled Scaling","Resilience"]
   },
   {
     id: "aws-saa-130",
@@ -102,7 +102,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     type: "single",
     explanation: "Amazon S3 Batch Operations is a managed feature that executes large-scale batch actions (such as object tagging, copying/re-encrypting, restoring from Glacier, and applying ACLs) across billions of objects in an S3 bucket using an S3 Inventory report or CSV manifest, with built-in audit logging, progress tracking, and retries. Event notifications only trigger on newly created objects. EC2 custom scripts require managing compute, handling rate limits, and failure handling. DataSync is for data transfer between file systems and storage.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html",
-    tags: ["S3", "Batch Operations", "Inventory", "Resilience"]
+    tags: ["S3","Batch Operations","Inventory","Resilience"]
   },
   {
     id: "aws-saa-131",
@@ -123,7 +123,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS Transfer Family provides fully managed, highly available SFTP, FTPS, FTP, and AS2 endpoints that seamlessly store and retrieve files directly in Amazon S3 or Amazon EFS, integrating with Active Directory, custom IdPs, or IAM for authentication. Storage Gateway exposes NFS/SMB file shares. Self-managed EC2 OpenSSH servers require patching, scaling, and high-availability management. S3 MRAP is for global S3 API routing, not legacy SFTP/FTPS protocols.",
     referenceUrl: "https://docs.aws.amazon.com/transfer/latest/userguide/what-is-aws-transfer-family.html",
-    tags: ["AWS Transfer Family", "SFTP", "S3", "Performance"]
+    tags: ["AWS Transfer Family","SFTP","S3","Performance"]
   },
   {
     id: "aws-saa-132",
@@ -144,7 +144,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     type: "single",
     explanation: "Amazon MemoryDB for Redis is a Redis-compatible, durable in-memory database built on a custom Multi-AZ transactional write-ahead log. Unlike ElastiCache (which is an ephemeral cache where asynchronous replication can lose data on node failure), MemoryDB guarantees strong durability (RPO = 0) while delivering microsecond reads and single-digit millisecond writes as a primary transactional database. ElastiCache is designed as a cache layer. DAX is a cache for DynamoDB. Aurora is a relational SQL engine.",
     referenceUrl: "https://docs.aws.amazon.com/memorydb/latest/devguide/what-is-memorydb-for-redis.html",
-    tags: ["MemoryDB", "Redis", "In-Memory", "Durability", "Performance"]
+    tags: ["MemoryDB","Redis","In-Memory","Durability","Performance"]
   },
   {
     id: "aws-saa-133",
@@ -156,7 +156,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     scenario: "A global single-page application hosted on Amazon CloudFront needs to dynamically route viewer API requests to different regional Application Load Balancers (us-east-1, eu-west-1, ap-southeast-1) based on viewer location, user tier, and request headers with minimum round-trip latency.",
     question: "Which CloudFront feature enables dynamic origin selection and request rewrite at edge locations closest to the user?",
     options: [
-      { id: 'A', text: "Lambda@Edge on Origin Request events dynamically modifying the `request.origin` target." },
+      { id: 'A', text: "Lambda@Edge rewriting `request.origin`" },
       { id: 'B', text: "Route 53 Geolocation DNS records." },
       { id: 'C', text: "CloudFront Functions on Viewer Request events." },
       { id: 'D', text: "AWS Global Accelerator endpoint groups." }
@@ -165,7 +165,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     type: "single",
     explanation: "Lambda@Edge functions triggered on CloudFront Origin Request events have access to modify the origin object (`request.origin.custom.domainName`), allowing dynamic routing to different backend load balancers based on headers, query strings, or country headers before fetching from the origin. CloudFront Functions run on viewer request/response and cannot modify or override the origin destination. Route 53 only controls DNS resolution for the CDN domain, not origin selection per HTTP request. Global Accelerator routes at the transport layer, not per-request HTTP header routing.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-examples.html#lambda-examples-content-based-routing",
-    tags: ["Lambda@Edge", "CloudFront", "Dynamic Routing", "Performance"]
+    tags: ["Lambda@Edge","CloudFront","Dynamic Routing","Performance"]
   },
   {
     id: "aws-saa-134",
@@ -179,14 +179,14 @@ export const AWS_SAA_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Enable Enhanced Fan-Out on the producer application." },
       { id: 'B', text: "Perform a Shard Merge operation on all shards." },
-      { id: 'C', text: "Perform a Shard Split operation on shards 3 and 7 to double capacity on the specific hot key ranges." },
+      { id: 'C', text: "Split shards 3 and 7 to double the hot key capacity" },
       { id: 'D', text: "Increase the stream retention period from 24 hours to 7 days." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "In Amazon Kinesis Data Streams, a Shard Split operation splits a single hot shard into two child shards, doubling the provisioned throughput capacity (from 1 MB/s to 2 MB/s) for that specific partition hash key range without having to re-provision or double the entire cluster of shards. Shard Merge combines two shards into one, reducing capacity. Retention period increases affect storage duration, not write ingestion throughput. Enhanced Fan-Out accelerates read consumers, not producer write ingestion.",
     referenceUrl: "https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-resharding-split.html",
-    tags: ["Kinesis", "Shards", "Resharding", "Performance"]
+    tags: ["Kinesis","Shards","Resharding","Performance"]
   },
   {
     id: "aws-saa-135",
@@ -201,13 +201,13 @@ export const AWS_SAA_QUESTIONS_6 = [
       { id: 'A', text: "AWS Step Functions Standard workflow polling DynamoDB every minute." },
       { id: 'B', text: "Amazon SNS topic with cross-account subscription filters." },
       { id: 'C', text: "Amazon Kinesis Data Firehose with inline S3 delivery." },
-      { id: 'D', text: "Amazon EventBridge Pipes with DynamoDB Streams as source, built-in filter pattern, Lambda enrichment, and SQS target." }
+      { id: 'D', text: "EventBridge Pipes from the stream, filtered and enriched, to SQS." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon EventBridge Pipes provides a simple, consistent, and serverless way to create point-to-point integrations between event producers (sources like DynamoDB Streams, Kinesis, SQS) and consumers (targets like SQS, Step Functions, Lambda, EventBridge bus) with built-in filtering, enrichment (via Lambda, API Destinations, Step Functions), and transformation without writing custom polling or glue code. Step Functions polling introduces latency and state transition costs. Firehose is for bulk data loading, not point-to-point SQS delivery. SNS cannot read directly from DynamoDB Streams.",
     referenceUrl: "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html",
-    tags: ["EventBridge Pipes", "DynamoDB Streams", "Serverless", "Performance", "Decoupling"]
+    tags: ["EventBridge Pipes","DynamoDB Streams","Serverless","Performance","Decoupling"]
   },
   {
     id: "aws-saa-136",
@@ -221,14 +221,14 @@ export const AWS_SAA_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "S3 Bucket Policy denying `s3:DeleteObject`." },
       { id: 'B', text: "S3 Object Lock in Governance Mode." },
-      { id: 'C', text: "S3 Object Lock in Compliance Mode with a 7-year retention period." },
+      { id: 'C', text: "S3 Object Lock in compliance mode for 7 years" },
       { id: 'D', text: "S3 Legal Hold with manual deletion triggers." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "S3 Object Lock in Compliance Mode prevents an object version from being overwritten or deleted by any user, including the AWS account root user, for the duration of the retention period. It strictly adheres to SEC Rule 17a-4(f) WORM regulations. Governance Mode allows users with the `s3:BypassGovernanceRetention` permission to delete objects. Legal Hold does not have a fixed expiration timeframe. Bucket policies can be modified or deleted by root or administrators.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html#object-lock-retention-modes",
-    tags: ["S3", "Object Lock", "WORM", "Compliance", "Security"]
+    tags: ["S3","Object Lock","WORM","Compliance","Security"]
   },
   {
     id: "aws-saa-137",
@@ -243,13 +243,13 @@ export const AWS_SAA_QUESTIONS_6 = [
       { id: 'A', text: "Establish VPC Peering connections between VPC A and all customer VPCs with NAT translation." },
       { id: 'B', text: "Configure AWS Site-to-Site VPN connections between each customer VPC and VPC A." },
       { id: 'C', text: "Deploy an AWS Transit Gateway and configure inter-region peering." },
-      { id: 'D', text: "Create an AWS PrivateLink VPC Endpoint Service fronted by a Network Load Balancer in VPC A, and have customers create Interface VPC Endpoints in their VPCs." }
+      { id: 'D', text: "A PrivateLink endpoint service behind an NLB, consumed by interface endpoints." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "AWS PrivateLink (VPC Endpoint Service) allows service providers to expose services hosted behind a Network Load Balancer (NLB) privately to consumer VPCs. Consumers create Interface VPC Endpoints (ENIs with private IPs) in their own subnets. PrivateLink works seamlessly across AWS accounts and supports overlapping CIDR blocks without routing tables or peering meshes. VPC Peering strictly fails if VPC CIDRs overlap. Transit Gateway and VPN also suffer from CIDR collision issues and require full network routing exposure.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/privatelink/endpoint-service.html",
-    tags: ["PrivateLink", "VPC Endpoint Service", "NLB", "Security", "Networking"]
+    tags: ["PrivateLink","VPC Endpoint Service","NLB","Security","Networking"]
   },
   {
     id: "aws-saa-138",
@@ -262,7 +262,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     question: "What is the correct cryptographic sequence for envelope encryption using AWS KMS?",
     options: [
       { id: 'A', text: "Call `kms:Decrypt` with the file metadata, then store the plaintext data key in Secrets Manager." },
-      { id: 'B', text: "Call `kms:GenerateDataKey` to obtain a plaintext data key and an encrypted data key; encrypt the file with the plaintext data key; erase the plaintext data key from memory; store the encrypted data key alongside the encrypted file." },
+      { id: 'B', text: "`GenerateDataKey`, encrypt locally, erase the plaintext key, store the rest." },
       { id: 'C', text: "Download the KMS master private key to the application server and encrypt the file locally with OpenSSL." },
       { id: 'D', text: "Call `kms:Encrypt` passing the entire 5 GB file payload directly to KMS." }
     ],
@@ -270,7 +270,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS KMS envelope encryption follows this standard pattern: 1) The application calls `GenerateDataKey` to receive a plaintext data key and a ciphertext data key (encrypted under the KMS CMK), 2) The application encrypts the large file locally using the plaintext key (e.g. AES-256 GCM), 3) The plaintext key is zeroed out from memory, and 4) The encrypted data key is stored alongside the ciphertext file. KMS `Encrypt` API has a maximum payload limit of 4 KB. KMS private keys never leave Hardware Security Modules. Storing plaintext keys in Secrets Manager violates cryptographic isolation.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping",
-    tags: ["KMS", "Envelope Encryption", "GenerateDataKey", "Security"]
+    tags: ["KMS","Envelope Encryption","GenerateDataKey","Security"]
   },
   {
     id: "aws-saa-139",
@@ -284,14 +284,14 @@ export const AWS_SAA_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Amazon GuardDuty findings export." },
       { id: 'B', text: "AWS Trusted Advisor security checks." },
-      { id: 'C', text: "AWS CloudTrail Lake with an organization event data store." },
+      { id: 'C', text: "A CloudTrail Lake data store" },
       { id: 'D', text: "Amazon CloudWatch Logs basic search." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "AWS CloudTrail Lake is a managed data lake that lets security teams aggregate, immutably store (up to 10 years), and query CloudTrail management and data events using standard ANSI SQL without building custom ETL pipelines, Athena tables, or S3 bucket schemas. CloudWatch Logs is not cost-effective for 7-year multi-account SQL analytics. Trusted Advisor provides high-level health checks. GuardDuty exports threat detections, not full immutable CloudTrail audit event logs.",
     referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html",
-    tags: ["CloudTrail Lake", "Audit", "Security", "Compliance"]
+    tags: ["CloudTrail Lake","Audit","Security","Compliance"]
   },
   {
     id: "aws-saa-140",
@@ -306,13 +306,13 @@ export const AWS_SAA_QUESTIONS_6 = [
       { id: 'A', text: "Route 53 Failover routing records." },
       { id: 'B', text: "Security Group inbound rules blocking non-US IP CIDR blocks." },
       { id: 'C', text: "Network ACL rules with geographical country code filters." },
-      { id: 'D', text: "An AWS WAF Geo Match statement configured to block requests where the country of origin is NOT US or CA." }
+      { id: 'D', text: "A WAF geo match blocking countries other than US and CA" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "AWS WAF Geo Match statements inspect the originating IP address of web requests against an integrated GeoIP database and match on country codes. Setting a rule that denies/blocks requests whose country is not in the US or CA allowlist blocks international requests at the Application Load Balancer. Security groups and NACLs filter by IP addresses/CIDRs, not dynamic country codes. Route 53 routes DNS queries, not web traffic enforcement.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-geo-match.html",
-    tags: ["AWS WAF", "Geo-Match", "Security", "ALB"]
+    tags: ["AWS WAF","Geo-Match","Security","ALB"]
   },
   {
     id: "aws-saa-141",
@@ -333,7 +333,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     type: "single",
     explanation: "S3 Standard has zero retrieval fees and millisecond performance, making it the most cost-effective tier for frequently accessed hot files (avoiding per-GB retrieval charges). S3 Glacier Deep Archive ($0.00099/GB/month) is the lowest cost storage class for compliance logs accessed once a year where 12-hour retrieval is acceptable. Glacier Instant Retrieval for hot files incurs massive retrieval charges. Standard-IA for everything incurs retrieval fees on the active files and is 10x more expensive than Glacier for the logs. EBS is block storage with high hourly GB costs.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html",
-    tags: ["S3", "Glacier Deep Archive", "Storage Classes", "Cost Optimization"]
+    tags: ["S3","Glacier Deep Archive","Storage Classes","Cost Optimization"]
   },
   {
     id: "aws-saa-142",
@@ -354,7 +354,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     type: "single",
     explanation: "DynamoDB Time to Live (TTL) is a fully managed feature that automatically identifies and deletes expired items from tables based on an epoch timestamp attribute at zero additional cost and without consuming table read or write throughput capacity units (RCU/WCU). Custom Lambda cleanup scripts consume extensive RCUs and WCUs for scanning and deleting items, increasing costs. S3 lifecycle rules apply to S3 buckets, not DynamoDB tables. Daily table recreation causes service downtime.",
     referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html",
-    tags: ["DynamoDB", "TTL", "Cost Optimization", "Serverless"]
+    tags: ["DynamoDB","TTL","Cost Optimization","Serverless"]
   },
   {
     id: "aws-saa-143",
@@ -367,7 +367,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     question: "How should the network architecture be consolidated to optimize routing management and data transfer egress costs?",
     options: [
       { id: 'A', text: "Deploy AWS Site-to-Site VPN connections between every VPC pair." },
-      { id: 'B', text: "Deploy an AWS Transit Gateway in us-east-1 and an AWS Transit Gateway in eu-west-1, establish a single Transit Gateway Inter-Region Peering attachment between them, and centralize egress NAT." },
+      { id: 'B', text: "A Transit Gateway in each region with an inter-region peering attachment." },
       { id: 'C', text: "Assign public Elastic IP addresses to all instances and communicate over public internet." },
       { id: 'D', text: "Deploy AWS Direct Connect circuits between both AWS regions." }
     ],
@@ -375,7 +375,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     type: "single",
     explanation: "Transit Gateway Inter-Region Peering allows interconnecting regional Transit Gateways across AWS regions over the encrypted AWS global network backbone. By centralizing VPC attachments and routing through regional TGWs with centralized NAT gateways in inspection/egress VPCs, the organization eliminates redundant NAT gateway hourly costs and simplifies routing across dozens of VPCs. Mesh VPNs add high tunneling overhead and bandwidth limits. Public internet routing compromises security. Direct Connect between cloud regions is not a native cloud-to-cloud inter-region construct.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-peering.html",
-    tags: ["Transit Gateway", "TGW Peering", "Cost Optimization", "Networking"]
+    tags: ["Transit Gateway","TGW Peering","Cost Optimization","Networking"]
   },
   {
     id: "aws-saa-144",
@@ -396,7 +396,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     type: "single",
     explanation: "AWS Batch with AWS Fargate Spot compute environments enables running containerized batch workloads serverlessly without managing any EC2 instances or cluster infrastructure, delivering up to 70% discounts compared to standard Fargate pricing. AWS Batch automatically handles job queues, dependencies, retries, and Spot provisioning. On-Demand EC2 requires cluster management and runs at full price. AWS Lambda has a hard 15-minute maximum execution timeout and cannot run 45-minute simulations. EMR is for big data Spark/Hadoop, not generic container batch jobs.",
     referenceUrl: "https://docs.aws.amazon.com/batch/latest/userguide/fargate.html",
-    tags: ["AWS Batch", "Fargate Spot", "Containers", "Cost Optimization"]
+    tags: ["AWS Batch","Fargate Spot","Containers","Cost Optimization"]
   },
   {
     id: "aws-saa-145",
@@ -417,7 +417,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     type: "single",
     explanation: "Standard and Detailed EC2 CloudWatch metrics only monitor hypervisor-level metrics (CPU utilization, disk I/O, network in/out). Because memory (RAM) is managed inside the guest operating system, capturing memory utilization (`mem_used_percent`) requires installing and configuring the unified Amazon CloudWatch Agent on the instances. Basic monitoring and Detailed monitoring cannot inspect guest OS memory. SSM Inventory collects metadata (installed software, OS versions), not real-time memory metrics.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html",
-    tags: ["CloudWatch Agent", "Memory", "Rightsizing", "Cost Optimization"]
+    tags: ["CloudWatch Agent","Memory","Rightsizing","Cost Optimization"]
   },
   {
     id: "aws-saa-146",
@@ -431,14 +431,14 @@ export const AWS_SAA_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "A single synchronous AWS Lambda function running in a loop over all 1 million files." },
       { id: 'B', text: "Amazon EMR cluster running a custom shell script." },
-      { id: 'C', text: "AWS Step Functions with a Distributed Map state iterating over S3 objects with catch blocks and item-level error handling." },
+      { id: 'C', text: "A Distributed Map over S3 objects with item-level error handling." },
       { id: 'D', text: "Amazon API Gateway WebSocket connection to client browsers." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "AWS Step Functions Distributed Map state can launch up to 10,000 concurrent child workflow executions to process large datasets (like millions of files in Amazon S3). It provides built-in concurrency control, error catching (`Catch`/`Retry`), and item-level failure isolation so individual corrupted documents do not fail the overall batch execution. A single Lambda loop will timeout at 15 minutes and fail completely on errors. EMR shell scripts lack native step-level error handling. API Gateway WebSockets are for browser messaging.",
     referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/concepts-asl-use-map-state-distributed.html",
-    tags: ["Step Functions", "Distributed Map", "Resilience", "Serverless"]
+    tags: ["Step Functions","Distributed Map","Resilience","Serverless"]
   },
   {
     id: "aws-saa-147",
@@ -459,7 +459,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     type: "single",
     explanation: "Amazon SNS Mobile Push notifications enable publishing messages directly to mobile app endpoints on iOS (APNs), Android (FCM), and Windows. SNS scales horizontally to fan out millions of push notifications per second to mobile device tokens with high throughput and low latency. SQS is a message pull queue, not a mobile push gateway. SES sends emails. Amazon Connect is an omnichannel contact center service.",
     referenceUrl: "https://docs.aws.amazon.com/sns/latest/dg/sns-mobile-application-as-subscriber.html",
-    tags: ["SNS", "Mobile Push", "APNs", "FCM", "Performance"]
+    tags: ["SNS","Mobile Push","APNs","FCM","Performance"]
   },
   {
     id: "aws-saa-148",
@@ -481,7 +481,7 @@ export const AWS_SAA_QUESTIONS_6 = [
     type: "multiple",
     explanation: "AWS Config continuously monitors resource configurations against compliance rules (such as `s3-bucket-server-side-encryption-enabled`). When a non-compliant bucket is detected, AWS Config triggers an automated remediation action using an AWS Systems Manager (SSM) Automation document (e.g. `AWS-EnableS3BucketEncryption`) to automatically remediate the issue without human intervention. Shield Advanced protects against DDoS. Inspector scans EC2/ECR for software CVEs. IAM boundaries apply to IAM users/roles, not S3 buckets.",
     referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/remediation.html",
-    tags: ["AWS Config", "SSM Automation", "Compliance", "Security", "S3"]
+    tags: ["AWS Config","SSM Automation","Compliance","Security","S3"]
   },
   {
     id: "aws-saa-149",
@@ -496,13 +496,13 @@ export const AWS_SAA_QUESTIONS_6 = [
       { id: 'A', text: "Configure CloudFront Price Class All." },
       { id: 'B', text: "Disable CloudFront Origin Shield." },
       { id: 'C', text: "Enable CloudFront Geographic Restrictions." },
-      { id: 'D', text: "Configure CloudFront Price Class 100 (North America and Europe edge locations only)." }
+      { id: 'D', text: "CloudFront Price Class 100 edge locations" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "CloudFront Price Classes allow customers to balance cost and performance by selecting the geographic edge tiers used for their distribution. Price Class 100 uses only edge locations in North America, Europe, and Israel (the lowest-cost tiers), reducing distribution expenses for regional businesses. Price Class All uses all global edge locations at highest cost. Geographic Restrictions block viewer IP addresses but do not reduce the billing price class tier of the distribution. Disabling Origin Shield controls origin caching, not edge pricing tiers.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceHierarchy.html",
-    tags: ["CloudFront", "Price Class", "Cost Optimization"]
+    tags: ["CloudFront","Price Class","Cost Optimization"]
   },
   {
     id: "aws-saa-150",
@@ -516,14 +516,14 @@ export const AWS_SAA_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Attach an IAM instance profile directly to the underlying EC2 host with full administrative access." },
       { id: 'B', text: "Hardcode AWS access keys in the container Dockerfile." },
-      { id: 'C', text: "Assign an IAM Task Execution Role with ECR and CloudWatch Logs permissions for the ECS container agent, and assign an IAM Task Role with DynamoDB and Secrets Manager permissions for the application container." },
+      { id: 'C', text: "ECR and logs on the task execution role; DynamoDB and secrets on the task role." },
       { id: 'D', text: "Assign the IAM Task Role to the ECS Cluster Service Linked Role." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon ECS differentiates between two distinct IAM roles: 1) **Task Execution Role**: used by the ECS container agent itself to pull images from ECR and send container logs to CloudWatch Logs, and 2) **Task Role**: assumed by the running application container code inside the task to access AWS services like DynamoDB and Secrets Manager. EC2 instance profiles give all containers on that host shared permissions, violating least privilege. Hardcoding keys violates security best practices. Service Linked Roles manage ECS infrastructure, not application authorization.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html",
-    tags: ["ECS", "IAM Task Role", "Task Execution Role", "Security", "Containers"]
+    tags: ["ECS","IAM Task Role","Task Execution Role","Security","Containers"]
   }
 ];
 

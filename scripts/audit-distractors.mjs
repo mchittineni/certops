@@ -48,16 +48,18 @@ if (!rows.length) {
 
 const weighted = k => rows.reduce((s, r) => s + r[k] * r.n, 0) / rows.reduce((s, r) => s + r.n, 0);
 const flag = (v, t) => (v > t ? '!' : ' ');
+const floorFlag = (v, t) => (v !== null && v < t ? '!' : ' ');
 
 rows.sort((a, b) => b.longest + b.strawman + b.leak - (a.longest + a.strawman + a.leak));
 
 console.log('How often each bank gives its answer away by form rather than content.\n');
-console.log('  cert                  n     longest%   strawman%     leak%    len gap');
-console.log('  ' + '-'.repeat(66));
+console.log('  cert                  n     longest%  shortest%  strawman%     leak%    len gap');
+console.log('  ' + '-'.repeat(77));
 for (const r of rows) {
   console.log(
     `  ${r.certId.padEnd(20)} ${String(r.n).padStart(4)}   ` +
     `${r.longest.toFixed(1).padStart(6)}${flag(r.longest, THRESHOLDS.longest)}  ` +
+    `${(r.shortest === null ? '-' : r.shortest.toFixed(1)).padStart(7)}${floorFlag(r.shortest, THRESHOLDS.shortest)}  ` +
     `${r.strawman.toFixed(1).padStart(6)}${flag(r.strawman, THRESHOLDS.strawman)}  ` +
     `${r.leak.toFixed(1).padStart(6)}${flag(r.leak, THRESHOLDS.leak)}  ` +
     `${('+' + r.delta.toFixed(0)).padStart(6)}${flag(r.delta, THRESHOLDS.delta)}`
@@ -65,18 +67,20 @@ for (const r of rows) {
 }
 
 const totals = {
-  longest: weighted('longest'), strawman: weighted('strawman'),
+  longest: weighted('longest'), shortest: weighted('shortest'), strawman: weighted('strawman'),
   leak: weighted('leak'), delta: weighted('delta')
 };
-console.log('  ' + '-'.repeat(66));
+console.log('  ' + '-'.repeat(77));
 console.log(
   `  ${'CORPUS'.padEnd(20)} ${String(rows.reduce((s, r) => s + r.n, 0)).padStart(4)}   ` +
-  `${totals.longest.toFixed(1).padStart(6)}   ${totals.strawman.toFixed(1).padStart(6)}   ` +
+  `${totals.longest.toFixed(1).padStart(6)}   ${totals.shortest.toFixed(1).padStart(7)}   ` +
+  `${totals.strawman.toFixed(1).padStart(6)}   ` +
   `${totals.leak.toFixed(1).padStart(6)}   ${('+' + totals.delta.toFixed(0)).padStart(6)}`
 );
 
 console.log(
-  `\nTargets: longest <=${THRESHOLDS.longest}% (chance is ~25% on 4 options), ` +
+  `\nTargets: longest <=${THRESHOLDS.longest}% and shortest >=${THRESHOLDS.shortest}% ` +
+  `(chance is ~25% each on 4 options, so either extreme becomes a rule), ` +
   `strawman <=${THRESHOLDS.strawman}%, leak <=${THRESHOLDS.leak}%, len gap <=+${THRESHOLDS.delta} chars.`
 );
 

@@ -10,7 +10,7 @@ export const AWS_SAA_QUESTIONS_12 = [
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
       { id: 'A', text: "Configure client-side message deletion immediately upon receiving each batch." },
-      { id: 'B', text: "Configure a Dead-Letter Queue (DLQ) with a maxReceiveCount threshold on the source queue, and use SQS DLQ redrive to replay corrected messages after fixing the consumer bug." },
+      { id: 'B', text: "A DLQ with maxReceiveCount, then redrive once the bug is fixed." },
       { id: 'C', text: "Replace the standard SQS queue with an Amazon SNS topic with subscription filters." },
       { id: 'D', text: "Increase the source queue message visibility timeout to 12 hours." }
     ],
@@ -30,7 +30,7 @@ export const AWS_SAA_QUESTIONS_12 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on Amazon SQS to isolate poison-pill messages after exhausting retry attempts and replay them after deploying a consumer bug fix.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
-      { id: 'A', text: "Configure a Dead-Letter Queue (DLQ) with a maxReceiveCount threshold on the source queue, and use SQS DLQ redrive to replay corrected messages after fixing the consumer bug." },
+      { id: 'A', text: "A DLQ with maxReceiveCount, then redrive once the bug is fixed." },
       { id: 'B', text: "Configure client-side message deletion immediately upon receiving each batch." },
       { id: 'C', text: "Replace the standard SQS queue with an Amazon SNS topic with subscription filters." },
       { id: 'D', text: "Increase the source queue message visibility timeout to 12 hours." }
@@ -54,7 +54,7 @@ export const AWS_SAA_QUESTIONS_12 = [
       { id: 'A', text: "Configure client-side message deletion immediately upon receiving each batch." },
       { id: 'B', text: "Replace the standard SQS queue with an Amazon SNS topic with subscription filters." },
       { id: 'C', text: "Increase the source queue message visibility timeout to 12 hours." },
-      { id: 'D', text: "Configure a Dead-Letter Queue (DLQ) with a maxReceiveCount threshold on the source queue, and use SQS DLQ redrive to replay corrected messages after fixing the consumer bug." }
+      { id: 'D', text: "A DLQ with maxReceiveCount, then redrive once the bug is fixed." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -75,7 +75,7 @@ export const AWS_SAA_QUESTIONS_12 = [
       { id: 'A', text: "Configure client-side message deletion immediately upon receiving each batch." },
       { id: 'B', text: "Replace the standard SQS queue with an Amazon SNS topic with subscription filters." },
       { id: 'C', text: "Increase the source queue message visibility timeout to 12 hours." },
-      { id: 'D', text: "Configure a Dead-Letter Queue (DLQ) with a maxReceiveCount threshold on the source queue, and use SQS DLQ redrive to replay corrected messages after fixing the consumer bug." }
+      { id: 'D', text: "A DLQ with maxReceiveCount, then redrive once the bug is fixed." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,7 +93,7 @@ export const AWS_SAA_QUESTIONS_12 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on Amazon SQS to isolate poison-pill messages after exhausting retry attempts and replay them after deploying a consumer bug fix.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
-      { id: 'A', text: "Configure a Dead-Letter Queue (DLQ) with a maxReceiveCount threshold on the source queue, and use SQS DLQ redrive to replay corrected messages after fixing the consumer bug." },
+      { id: 'A', text: "A DLQ with maxReceiveCount, then redrive once the bug is fixed." },
       { id: 'B', text: "Replace the standard SQS queue with an Amazon SNS topic with subscription filters." },
       { id: 'C', text: "Increase the source queue message visibility timeout to 12 hours." },
       { id: 'D', text: "Configure client-side message deletion immediately upon receiving each batch." }
@@ -114,7 +114,7 @@ export const AWS_SAA_QUESTIONS_12 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on Amazon FSx to provide high availability shared storage supporting both NFS and SMB protocols with sub-minute automated failover and hardware snapshot cloning.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
-      { id: 'A', text: "Deploy an Amazon FSx for NetApp ONTAP Multi-AZ file system across two Availability Zones." },
+      { id: 'A', text: "A Multi-AZ FSx for NetApp ONTAP file system" },
       { id: 'B', text: "Deploy an Amazon S3 File Gateway on an Amazon EC2 instance." },
       { id: 'C', text: "Deploy Amazon EFS with General Purpose performance mode." },
       { id: 'D', text: "Deploy Amazon FSx for Windows File Server Single-AZ." }
@@ -135,7 +135,7 @@ export const AWS_SAA_QUESTIONS_12 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on Amazon FSx to provide high availability shared storage supporting both NFS and SMB protocols with sub-minute automated failover and hardware snapshot cloning.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
-      { id: 'A', text: "Deploy an Amazon FSx for NetApp ONTAP Multi-AZ file system across two Availability Zones." },
+      { id: 'A', text: "A Multi-AZ FSx for NetApp ONTAP file system" },
       { id: 'B', text: "Deploy an Amazon S3 File Gateway on an Amazon EC2 instance." },
       { id: 'C', text: "Deploy Amazon FSx for Windows File Server Single-AZ." },
       { id: 'D', text: "Deploy Amazon EFS with General Purpose performance mode." }
@@ -159,7 +159,7 @@ export const AWS_SAA_QUESTIONS_12 = [
       { id: 'A', text: "Deploy Amazon FSx for Windows File Server Single-AZ." },
       { id: 'B', text: "Deploy Amazon EFS with General Purpose performance mode." },
       { id: 'C', text: "Deploy an Amazon S3 File Gateway on an Amazon EC2 instance." },
-      { id: 'D', text: "Deploy an Amazon FSx for NetApp ONTAP Multi-AZ file system across two Availability Zones." }
+      { id: 'D', text: "A Multi-AZ FSx for NetApp ONTAP file system" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -179,7 +179,7 @@ export const AWS_SAA_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Deploy Amazon EFS with General Purpose performance mode." },
       { id: 'B', text: "Deploy an Amazon S3 File Gateway on an Amazon EC2 instance." },
-      { id: 'C', text: "Deploy an Amazon FSx for NetApp ONTAP Multi-AZ file system across two Availability Zones." },
+      { id: 'C', text: "A Multi-AZ FSx for NetApp ONTAP file system" },
       { id: 'D', text: "Deploy Amazon FSx for Windows File Server Single-AZ." }
     ],
     correctAnswers: ['C'],
@@ -201,7 +201,7 @@ export const AWS_SAA_QUESTIONS_12 = [
       { id: 'A', text: "Deploy an Amazon S3 File Gateway on an Amazon EC2 instance." },
       { id: 'B', text: "Deploy Amazon EFS with General Purpose performance mode." },
       { id: 'C', text: "Deploy Amazon FSx for Windows File Server Single-AZ." },
-      { id: 'D', text: "Deploy an Amazon FSx for NetApp ONTAP Multi-AZ file system across two Availability Zones." }
+      { id: 'D', text: "A Multi-AZ FSx for NetApp ONTAP file system" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -326,7 +326,7 @@ export const AWS_SAA_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Configure a CloudWatch Logs subscription filter streaming directly to the external endpoint." },
       { id: 'B', text: "Configure an AWS Step Functions state machine with a direct Lambda HTTP call lacking backoff." },
-      { id: 'C', text: "Configure an Amazon EventBridge API Destination with a connection, dead-letter queue, and configured invocation rate limit." },
+      { id: 'C', text: "An EventBridge API destination with a connection, DLQ and rate limit." },
       { id: 'D', text: "Configure an Amazon SNS HTTP subscription without retry configuration." }
     ],
     correctAnswers: ['C'],
@@ -346,7 +346,7 @@ export const AWS_SAA_QUESTIONS_12 = [
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
       { id: 'A', text: "Configure an AWS Step Functions state machine with a direct Lambda HTTP call lacking backoff." },
-      { id: 'B', text: "Configure an Amazon EventBridge API Destination with a connection, dead-letter queue, and configured invocation rate limit." },
+      { id: 'B', text: "An EventBridge API destination with a connection, DLQ and rate limit." },
       { id: 'C', text: "Configure a CloudWatch Logs subscription filter streaming directly to the external endpoint." },
       { id: 'D', text: "Configure an Amazon SNS HTTP subscription without retry configuration." }
     ],
@@ -366,7 +366,7 @@ export const AWS_SAA_QUESTIONS_12 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on Amazon EventBridge to deliver events reliably to an external third-party HTTP webhook that enforces strict rate limits and intermittently returns HTTP 429 errors.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Configure an Amazon EventBridge API Destination with a connection, dead-letter queue, and configured invocation rate limit." },
+      { id: 'A', text: "An EventBridge API destination with a connection, DLQ and rate limit." },
       { id: 'B', text: "Configure an AWS Step Functions state machine with a direct Lambda HTTP call lacking backoff." },
       { id: 'C', text: "Configure an Amazon SNS HTTP subscription without retry configuration." },
       { id: 'D', text: "Configure a CloudWatch Logs subscription filter streaming directly to the external endpoint." }
@@ -387,7 +387,7 @@ export const AWS_SAA_QUESTIONS_12 = [
     scenario: "An enterprise is migrating enterprise workloads from on-premises data centers to AWS. The architecture must integrate existing operational processes while leveraging cloud-native managed services to minimize operational complexity. The system relies on Amazon EventBridge to deliver events reliably to an external third-party HTTP webhook that enforces strict rate limits and intermittently returns HTTP 429 errors.",
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
-      { id: 'A', text: "Configure an Amazon EventBridge API Destination with a connection, dead-letter queue, and configured invocation rate limit." },
+      { id: 'A', text: "An EventBridge API destination with a connection, DLQ and rate limit." },
       { id: 'B', text: "Configure an Amazon SNS HTTP subscription without retry configuration." },
       { id: 'C', text: "Configure an AWS Step Functions state machine with a direct Lambda HTTP call lacking backoff." },
       { id: 'D', text: "Configure a CloudWatch Logs subscription filter streaming directly to the external endpoint." }
@@ -410,7 +410,7 @@ export const AWS_SAA_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Configure an AWS Step Functions state machine with a direct Lambda HTTP call lacking backoff." },
       { id: 'B', text: "Configure a CloudWatch Logs subscription filter streaming directly to the external endpoint." },
-      { id: 'C', text: "Configure an Amazon EventBridge API Destination with a connection, dead-letter queue, and configured invocation rate limit." },
+      { id: 'C', text: "An EventBridge API destination with a connection, DLQ and rate limit." },
       { id: 'D', text: "Configure an Amazon SNS HTTP subscription without retry configuration." }
     ],
     correctAnswers: ['C'],
@@ -430,7 +430,7 @@ export const AWS_SAA_QUESTIONS_12 = [
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
       { id: 'A', text: "Enable S3 Transfer Acceleration on both buckets and configure cross-origin resource sharing (CORS)." },
-      { id: 'B', text: "Configure a CloudFront Origin Group containing the primary S3 bucket and secondary S3 bucket, specifying failover criteria for 5xx status codes." },
+      { id: 'B', text: "A CloudFront origin group over both buckets, failing over on 5xx." },
       { id: 'C', text: "Deploy a Lambda@Edge viewer-request function to catch 5xx errors and redirect client browsers." },
       { id: 'D', text: "Configure a Route 53 Weighted routing policy with equal weights pointing to both S3 buckets." }
     ],
@@ -451,7 +451,7 @@ export const AWS_SAA_QUESTIONS_12 = [
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
       { id: 'A', text: "Configure a Route 53 Weighted routing policy with equal weights pointing to both S3 buckets." },
-      { id: 'B', text: "Configure a CloudFront Origin Group containing the primary S3 bucket and secondary S3 bucket, specifying failover criteria for 5xx status codes." },
+      { id: 'B', text: "A CloudFront origin group over both buckets, failing over on 5xx." },
       { id: 'C', text: "Deploy a Lambda@Edge viewer-request function to catch 5xx errors and redirect client browsers." },
       { id: 'D', text: "Enable S3 Transfer Acceleration on both buckets and configure cross-origin resource sharing (CORS)." }
     ],
@@ -472,7 +472,7 @@ export const AWS_SAA_QUESTIONS_12 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy a Lambda@Edge viewer-request function to catch 5xx errors and redirect client browsers." },
-      { id: 'B', text: "Configure a CloudFront Origin Group containing the primary S3 bucket and secondary S3 bucket, specifying failover criteria for 5xx status codes." },
+      { id: 'B', text: "A CloudFront origin group over both buckets, failing over on 5xx." },
       { id: 'C', text: "Configure a Route 53 Weighted routing policy with equal weights pointing to both S3 buckets." },
       { id: 'D', text: "Enable S3 Transfer Acceleration on both buckets and configure cross-origin resource sharing (CORS)." }
     ],
@@ -493,7 +493,7 @@ export const AWS_SAA_QUESTIONS_12 = [
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
       { id: 'A', text: "Deploy a Lambda@Edge viewer-request function to catch 5xx errors and redirect client browsers." },
-      { id: 'B', text: "Configure a CloudFront Origin Group containing the primary S3 bucket and secondary S3 bucket, specifying failover criteria for 5xx status codes." },
+      { id: 'B', text: "A CloudFront origin group over both buckets, failing over on 5xx." },
       { id: 'C', text: "Enable S3 Transfer Acceleration on both buckets and configure cross-origin resource sharing (CORS)." },
       { id: 'D', text: "Configure a Route 53 Weighted routing policy with equal weights pointing to both S3 buckets." }
     ],
@@ -514,7 +514,7 @@ export const AWS_SAA_QUESTIONS_12 = [
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
       { id: 'A', text: "Enable S3 Transfer Acceleration on both buckets and configure cross-origin resource sharing (CORS)." },
-      { id: 'B', text: "Configure a CloudFront Origin Group containing the primary S3 bucket and secondary S3 bucket, specifying failover criteria for 5xx status codes." },
+      { id: 'B', text: "A CloudFront origin group over both buckets, failing over on 5xx." },
       { id: 'C', text: "Deploy a Lambda@Edge viewer-request function to catch 5xx errors and redirect client browsers." },
       { id: 'D', text: "Configure a Route 53 Weighted routing policy with equal weights pointing to both S3 buckets." }
     ],

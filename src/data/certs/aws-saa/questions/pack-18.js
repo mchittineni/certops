@@ -12,7 +12,7 @@ export const AWS_SAA_QUESTIONS_18 = [
       { id: 'A', text: "Deploy AWS Systems Manager Patch Manager to scan the instance weekly." },
       { id: 'B', text: "Configure Amazon CloudWatch Logs to tail instance syslog and trigger a manual administrator alert." },
       { id: 'C', text: "Configure an AWS WAF rule to block outgoing traffic from the compromised instance." },
-      { id: 'D', text: "Enable Amazon GuardDuty, create an Amazon EventBridge rule matching GuardDuty finding types, and invoke an AWS Lambda function to attach an isolating security group to the compromised instance." }
+      { id: 'D', text: "An EventBridge rule on the findings, invoking a Lambda that isolates the host." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -33,7 +33,7 @@ export const AWS_SAA_QUESTIONS_18 = [
       { id: 'A', text: "Configure Amazon CloudWatch Logs to tail instance syslog and trigger a manual administrator alert." },
       { id: 'B', text: "Configure an AWS WAF rule to block outgoing traffic from the compromised instance." },
       { id: 'C', text: "Deploy AWS Systems Manager Patch Manager to scan the instance weekly." },
-      { id: 'D', text: "Enable Amazon GuardDuty, create an Amazon EventBridge rule matching GuardDuty finding types, and invoke an AWS Lambda function to attach an isolating security group to the compromised instance." }
+      { id: 'D', text: "An EventBridge rule on the findings, invoking a Lambda that isolates the host." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -54,7 +54,7 @@ export const AWS_SAA_QUESTIONS_18 = [
       { id: 'A', text: "Configure an AWS WAF rule to block outgoing traffic from the compromised instance." },
       { id: 'B', text: "Configure Amazon CloudWatch Logs to tail instance syslog and trigger a manual administrator alert." },
       { id: 'C', text: "Deploy AWS Systems Manager Patch Manager to scan the instance weekly." },
-      { id: 'D', text: "Enable Amazon GuardDuty, create an Amazon EventBridge rule matching GuardDuty finding types, and invoke an AWS Lambda function to attach an isolating security group to the compromised instance." }
+      { id: 'D', text: "An EventBridge rule on the findings, invoking a Lambda that isolates the host." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -74,7 +74,7 @@ export const AWS_SAA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Configure Amazon CloudWatch Logs to tail instance syslog and trigger a manual administrator alert." },
       { id: 'B', text: "Deploy AWS Systems Manager Patch Manager to scan the instance weekly." },
-      { id: 'C', text: "Enable Amazon GuardDuty, create an Amazon EventBridge rule matching GuardDuty finding types, and invoke an AWS Lambda function to attach an isolating security group to the compromised instance." },
+      { id: 'C', text: "An EventBridge rule on the findings, invoking a Lambda that isolates the host." },
       { id: 'D', text: "Configure an AWS WAF rule to block outgoing traffic from the compromised instance." }
     ],
     correctAnswers: ['C'],
@@ -96,7 +96,7 @@ export const AWS_SAA_QUESTIONS_18 = [
       { id: 'A', text: "Configure Amazon CloudWatch Logs to tail instance syslog and trigger a manual administrator alert." },
       { id: 'B', text: "Deploy AWS Systems Manager Patch Manager to scan the instance weekly." },
       { id: 'C', text: "Configure an AWS WAF rule to block outgoing traffic from the compromised instance." },
-      { id: 'D', text: "Enable Amazon GuardDuty, create an Amazon EventBridge rule matching GuardDuty finding types, and invoke an AWS Lambda function to attach an isolating security group to the compromised instance." }
+      { id: 'D', text: "An EventBridge rule on the findings, invoking a Lambda that isolates the host." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -116,7 +116,7 @@ export const AWS_SAA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Write custom python scripts querying AWS CloudTrail and AWS Config in each account." },
       { id: 'B', text: "Configure Amazon Inspector in each account without multi-account aggregation." },
-      { id: 'C', text: "Enable AWS Security Hub across all member accounts delegated to a central security account, and activate the CIS AWS Foundations Benchmark standard." },
+      { id: 'C', text: "Security Hub delegated to a central account with the CIS benchmark on." },
       { id: 'D', text: "Deploy AWS Trusted Advisor in each member account independently." }
     ],
     correctAnswers: ['C'],
@@ -135,7 +135,7 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on AWS Security Hub to aggregate security posture, monitor compliance against the CIS AWS Foundations Benchmark, and orchestrate automated remediation across all AWS accounts in an organization.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
-      { id: 'A', text: "Enable AWS Security Hub across all member accounts delegated to a central security account, and activate the CIS AWS Foundations Benchmark standard." },
+      { id: 'A', text: "Security Hub delegated to a central account with the CIS benchmark on." },
       { id: 'B', text: "Write custom python scripts querying AWS CloudTrail and AWS Config in each account." },
       { id: 'C', text: "Deploy AWS Trusted Advisor in each member account independently." },
       { id: 'D', text: "Configure Amazon Inspector in each account without multi-account aggregation." }
@@ -159,7 +159,7 @@ export const AWS_SAA_QUESTIONS_18 = [
       { id: 'A', text: "Deploy AWS Trusted Advisor in each member account independently." },
       { id: 'B', text: "Configure Amazon Inspector in each account without multi-account aggregation." },
       { id: 'C', text: "Write custom python scripts querying AWS CloudTrail and AWS Config in each account." },
-      { id: 'D', text: "Enable AWS Security Hub across all member accounts delegated to a central security account, and activate the CIS AWS Foundations Benchmark standard." }
+      { id: 'D', text: "Security Hub delegated to a central account with the CIS benchmark on." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -178,7 +178,7 @@ export const AWS_SAA_QUESTIONS_18 = [
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
       { id: 'A', text: "Deploy AWS Trusted Advisor in each member account independently." },
-      { id: 'B', text: "Enable AWS Security Hub across all member accounts delegated to a central security account, and activate the CIS AWS Foundations Benchmark standard." },
+      { id: 'B', text: "Security Hub delegated to a central account with the CIS benchmark on." },
       { id: 'C', text: "Configure Amazon Inspector in each account without multi-account aggregation." },
       { id: 'D', text: "Write custom python scripts querying AWS CloudTrail and AWS Config in each account." }
     ],
@@ -200,7 +200,7 @@ export const AWS_SAA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Deploy AWS Trusted Advisor in each member account independently." },
       { id: 'B', text: "Configure Amazon Inspector in each account without multi-account aggregation." },
-      { id: 'C', text: "Enable AWS Security Hub across all member accounts delegated to a central security account, and activate the CIS AWS Foundations Benchmark standard." },
+      { id: 'C', text: "Security Hub delegated to a central account with the CIS benchmark on." },
       { id: 'D', text: "Write custom python scripts querying AWS CloudTrail and AWS Config in each account." }
     ],
     correctAnswers: ['C'],
@@ -222,7 +222,7 @@ export const AWS_SAA_QUESTIONS_18 = [
       { id: 'A', text: "Deploy an open-source scanner inside an Amazon ECS task scheduled to run once a week." },
       { id: 'B', text: "Configure Amazon GuardDuty to scan container image layers for package vulnerabilities." },
       { id: 'C', text: "Configure AWS Config rules to monitor EC2 security group port configurations only." },
-      { id: 'D', text: "Enable Amazon Inspector across the AWS Organization to automatically perform continuous vulnerability scanning of Amazon ECR repositories and Amazon EC2 instances." }
+      { id: 'D', text: "Inspector across the organization, scanning ECR and EC2 continuously." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -242,7 +242,7 @@ export const AWS_SAA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Deploy an open-source scanner inside an Amazon ECS task scheduled to run once a week." },
       { id: 'B', text: "Configure AWS Config rules to monitor EC2 security group port configurations only." },
-      { id: 'C', text: "Enable Amazon Inspector across the AWS Organization to automatically perform continuous vulnerability scanning of Amazon ECR repositories and Amazon EC2 instances." },
+      { id: 'C', text: "Inspector across the organization, scanning ECR and EC2 continuously." },
       { id: 'D', text: "Configure Amazon GuardDuty to scan container image layers for package vulnerabilities." }
     ],
     correctAnswers: ['C'],
@@ -264,7 +264,7 @@ export const AWS_SAA_QUESTIONS_18 = [
       { id: 'A', text: "Deploy an open-source scanner inside an Amazon ECS task scheduled to run once a week." },
       { id: 'B', text: "Configure AWS Config rules to monitor EC2 security group port configurations only." },
       { id: 'C', text: "Configure Amazon GuardDuty to scan container image layers for package vulnerabilities." },
-      { id: 'D', text: "Enable Amazon Inspector across the AWS Organization to automatically perform continuous vulnerability scanning of Amazon ECR repositories and Amazon EC2 instances." }
+      { id: 'D', text: "Inspector across the organization, scanning ECR and EC2 continuously." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -284,7 +284,7 @@ export const AWS_SAA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Deploy an open-source scanner inside an Amazon ECS task scheduled to run once a week." },
       { id: 'B', text: "Configure AWS Config rules to monitor EC2 security group port configurations only." },
-      { id: 'C', text: "Enable Amazon Inspector across the AWS Organization to automatically perform continuous vulnerability scanning of Amazon ECR repositories and Amazon EC2 instances." },
+      { id: 'C', text: "Inspector across the organization, scanning ECR and EC2 continuously." },
       { id: 'D', text: "Configure Amazon GuardDuty to scan container image layers for package vulnerabilities." }
     ],
     correctAnswers: ['C'],
@@ -303,7 +303,7 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on Amazon Inspector to automatically scan container images pushed to Amazon ECR and running Amazon EC2 instances for software vulnerabilities (CVEs) and unintended network exposure.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
-      { id: 'A', text: "Enable Amazon Inspector across the AWS Organization to automatically perform continuous vulnerability scanning of Amazon ECR repositories and Amazon EC2 instances." },
+      { id: 'A', text: "Inspector across the organization, scanning ECR and EC2 continuously." },
       { id: 'B', text: "Deploy an open-source scanner inside an Amazon ECS task scheduled to run once a week." },
       { id: 'C', text: "Configure Amazon GuardDuty to scan container image layers for package vulnerabilities." },
       { id: 'D', text: "Configure AWS Config rules to monitor EC2 security group port configurations only." }
@@ -325,7 +325,7 @@ export const AWS_SAA_QUESTIONS_18 = [
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
       { id: 'A', text: "Write custom code inside an AWS Lambda pre-authentication trigger to query an external IP database synchronously." },
-      { id: 'B', text: "Enable advanced security features in Amazon Cognito User Pools and configure adaptive authentication to enforce MFA when risk is medium or high." },
+      { id: 'B', text: "Cognito advanced security features with adaptive authentication for MFA." },
       { id: 'C', text: "Configure Amazon Cognito Identity Pools with unauthenticated guest access enabled." },
       { id: 'D', text: "Deploy an AWS WAF rate-based rule to block all IP addresses that submit more than 5 sign-in requests." }
     ],
@@ -348,7 +348,7 @@ export const AWS_SAA_QUESTIONS_18 = [
       { id: 'A', text: "Configure Amazon Cognito Identity Pools with unauthenticated guest access enabled." },
       { id: 'B', text: "Write custom code inside an AWS Lambda pre-authentication trigger to query an external IP database synchronously." },
       { id: 'C', text: "Deploy an AWS WAF rate-based rule to block all IP addresses that submit more than 5 sign-in requests." },
-      { id: 'D', text: "Enable advanced security features in Amazon Cognito User Pools and configure adaptive authentication to enforce MFA when risk is medium or high." }
+      { id: 'D', text: "Cognito advanced security features with adaptive authentication for MFA." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -369,7 +369,7 @@ export const AWS_SAA_QUESTIONS_18 = [
       { id: 'A', text: "Deploy an AWS WAF rate-based rule to block all IP addresses that submit more than 5 sign-in requests." },
       { id: 'B', text: "Write custom code inside an AWS Lambda pre-authentication trigger to query an external IP database synchronously." },
       { id: 'C', text: "Configure Amazon Cognito Identity Pools with unauthenticated guest access enabled." },
-      { id: 'D', text: "Enable advanced security features in Amazon Cognito User Pools and configure adaptive authentication to enforce MFA when risk is medium or high." }
+      { id: 'D', text: "Cognito advanced security features with adaptive authentication for MFA." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,7 +387,7 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "An enterprise is migrating enterprise workloads from on-premises data centers to AWS. The architecture must integrate existing operational processes while leveraging cloud-native managed services to minimize operational complexity. The system relies on Amazon Cognito to protect user accounts against compromised credential attacks by evaluating sign-in risk levels and prompting for multi-factor authentication (MFA) on suspicious sign-ins.",
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
-      { id: 'A', text: "Enable advanced security features in Amazon Cognito User Pools and configure adaptive authentication to enforce MFA when risk is medium or high." },
+      { id: 'A', text: "Cognito advanced security features with adaptive authentication for MFA." },
       { id: 'B', text: "Configure Amazon Cognito Identity Pools with unauthenticated guest access enabled." },
       { id: 'C', text: "Deploy an AWS WAF rate-based rule to block all IP addresses that submit more than 5 sign-in requests." },
       { id: 'D', text: "Write custom code inside an AWS Lambda pre-authentication trigger to query an external IP database synchronously." }
@@ -408,7 +408,7 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on Amazon Cognito to protect user accounts against compromised credential attacks by evaluating sign-in risk levels and prompting for multi-factor authentication (MFA) on suspicious sign-ins.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
-      { id: 'A', text: "Enable advanced security features in Amazon Cognito User Pools and configure adaptive authentication to enforce MFA when risk is medium or high." },
+      { id: 'A', text: "Cognito advanced security features with adaptive authentication for MFA." },
       { id: 'B', text: "Write custom code inside an AWS Lambda pre-authentication trigger to query an external IP database synchronously." },
       { id: 'C', text: "Configure Amazon Cognito Identity Pools with unauthenticated guest access enabled." },
       { id: 'D', text: "Deploy an AWS WAF rate-based rule to block all IP addresses that submit more than 5 sign-in requests." }
@@ -432,7 +432,7 @@ export const AWS_SAA_QUESTIONS_18 = [
       { id: 'A', text: "Deploy an Amazon Cognito User Pool with client secret validation." },
       { id: 'B', text: "Deploy an AWS Lambda authorizer that parses client certificates passed in an HTTP Authorization header." },
       { id: 'C', text: "Configure an Application Load Balancer with basic authentication credentials." },
-      { id: 'D', text: "Configure a custom domain name on Amazon API Gateway with mutual TLS (mTLS) enabled and upload the trusted CA certificate bundle to an Amazon S3 bucket." }
+      { id: 'D', text: "An API Gateway custom domain with mTLS and the trust bundle in S3." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -452,7 +452,7 @@ export const AWS_SAA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Deploy an Amazon Cognito User Pool with client secret validation." },
       { id: 'B', text: "Configure an Application Load Balancer with basic authentication credentials." },
-      { id: 'C', text: "Configure a custom domain name on Amazon API Gateway with mutual TLS (mTLS) enabled and upload the trusted CA certificate bundle to an Amazon S3 bucket." },
+      { id: 'C', text: "An API Gateway custom domain with mTLS and the trust bundle in S3." },
       { id: 'D', text: "Deploy an AWS Lambda authorizer that parses client certificates passed in an HTTP Authorization header." }
     ],
     correctAnswers: ['C'],
@@ -473,7 +473,7 @@ export const AWS_SAA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Deploy an Amazon Cognito User Pool with client secret validation." },
       { id: 'B', text: "Configure an Application Load Balancer with basic authentication credentials." },
-      { id: 'C', text: "Configure a custom domain name on Amazon API Gateway with mutual TLS (mTLS) enabled and upload the trusted CA certificate bundle to an Amazon S3 bucket." },
+      { id: 'C', text: "An API Gateway custom domain with mTLS and the trust bundle in S3." },
       { id: 'D', text: "Deploy an AWS Lambda authorizer that parses client certificates passed in an HTTP Authorization header." }
     ],
     correctAnswers: ['C'],
@@ -493,7 +493,7 @@ export const AWS_SAA_QUESTIONS_18 = [
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
       { id: 'A', text: "Deploy an Amazon Cognito User Pool with client secret validation." },
-      { id: 'B', text: "Configure a custom domain name on Amazon API Gateway with mutual TLS (mTLS) enabled and upload the trusted CA certificate bundle to an Amazon S3 bucket." },
+      { id: 'B', text: "An API Gateway custom domain with mTLS and the trust bundle in S3." },
       { id: 'C', text: "Configure an Application Load Balancer with basic authentication credentials." },
       { id: 'D', text: "Deploy an AWS Lambda authorizer that parses client certificates passed in an HTTP Authorization header." }
     ],
@@ -515,7 +515,7 @@ export const AWS_SAA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Deploy an AWS Lambda authorizer that parses client certificates passed in an HTTP Authorization header." },
       { id: 'B', text: "Deploy an Amazon Cognito User Pool with client secret validation." },
-      { id: 'C', text: "Configure a custom domain name on Amazon API Gateway with mutual TLS (mTLS) enabled and upload the trusted CA certificate bundle to an Amazon S3 bucket." },
+      { id: 'C', text: "An API Gateway custom domain with mTLS and the trust bundle in S3." },
       { id: 'D', text: "Configure an Application Load Balancer with basic authentication credentials." }
     ],
     correctAnswers: ['C'],

@@ -7,8 +7,13 @@
  * the numbers in the card are the same ones the audit prints.
  */
 
-/** With 4 options, picking the longest should win ~25% of the time. */
-export const THRESHOLDS = { longest: 40, strawman: 5, leak: 35, delta: 15 };
+/**
+ * With 4 options, picking the longest — or the shortest — should win about 25%
+ * of the time. `longest` caps the familiar tell; `shortest` guards the inverse
+ * one, because a bank where the key is never the shortest hands the candidate
+ * an elimination rule just as useful as "pick the longest".
+ */
+export const THRESHOLDS = { longest: 40, shortest: 12, strawman: 5, leak: 35, delta: 15 };
 
 /** Distractors no candidate would weigh, which collapse a 4-way item to 1-way. */
 export const STRAWMAN = [
@@ -78,7 +83,8 @@ export function scoreCertification(questions) {
   }
   const cap = distinctiveCap(usable.length);
 
-  let longestHit = 0, longestN = 0, strawQ = 0, leakQ = 0;
+  let longestHit = 0, longestN = 0, shortestHit = 0, shortestN = 0;
+  let strawQ = 0, leakQ = 0;
   let keyLen = 0, keyN = 0, distLen = 0, distN = 0;
   const worst = [];
 
@@ -91,6 +97,10 @@ export function scoreCertification(questions) {
     const longest = q.options.filter(o => (o.text || '').length === max);
     const keyIds = new Set(keys.map(o => o.id));
     if (longest.length === 1) { longestN++; if (keyIds.has(longest[0].id)) longestHit++; }
+
+    const min = Math.min(...lens);
+    const shortest = q.options.filter(o => (o.text || '').length === min);
+    if (shortest.length === 1) { shortestN++; if (keyIds.has(shortest[0].id)) shortestHit++; }
 
     keyLen += keys.reduce((s, o) => s + (o.text || '').length, 0); keyN += keys.length;
     distLen += distractors.reduce((s, o) => s + (o.text || '').length, 0); distN += distractors.length;
@@ -116,12 +126,14 @@ export function scoreCertification(questions) {
   const score = {
     n: usable.length,
     longest: (100 * longestHit) / longestN,
+    shortest: shortestN ? (100 * shortestHit) / shortestN : null,
     strawman: (100 * strawQ) / usable.length,
     leak: (100 * leakQ) / usable.length,
     delta: keyLen / keyN - distLen / distN,
     worst
   };
   score.breached = score.longest > THRESHOLDS.longest || score.strawman > THRESHOLDS.strawman ||
-    score.leak > THRESHOLDS.leak || score.delta > THRESHOLDS.delta;
+    score.leak > THRESHOLDS.leak || score.delta > THRESHOLDS.delta ||
+    (score.shortest !== null && score.shortest < THRESHOLDS.shortest);
   return score;
 }

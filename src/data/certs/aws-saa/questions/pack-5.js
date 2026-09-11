@@ -12,13 +12,13 @@ export const AWS_SAA_QUESTIONS_5 = [
       { id: 'A', text: "Amazon S3 Glacier Flexible Retrieval with S3 Object Lock in Governance mode." },
       { id: 'B', text: "Custom AWS Lambda backup scripts orchestrated by AWS Step Functions." },
       { id: 'C', text: "Amazon Data Lifecycle Manager (DLM) with cross-region snapshot policies." },
-      { id: 'D', text: "AWS Backup with AWS Backup Vault Lock and cross-account backup copies enabled via AWS Organizations." }
+      { id: 'D', text: "AWS Backup with Vault Lock and cross-account copies via Organizations" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "AWS Backup is a centralized backup service that provides policy-based backup automation across AWS services (EBS, RDS, DynamoDB, EFS, S3, EC2). Combined with AWS Backup Vault Lock (WORM compliance preventing backup modification or deletion even by root) and cross-account backup copies in AWS Organizations, it satisfies all enterprise disaster recovery and ransomware protection mandates. S3 Object Lock only protects S3 objects, not native EBS/RDS/EFS resources. DLM only manages EBS snapshots and AMIs. Custom Lambda scripts create operational overhead and lack native Vault Lock immutability.",
     referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html",
-    tags: ["AWS Backup", "Vault Lock", "Disaster Recovery", "Ransomware", "Resilience"]
+    tags: ["AWS Backup","Vault Lock","Disaster Recovery","Ransomware","Resilience"]
   },
   {
     id: "aws-saa-102",
@@ -31,7 +31,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     question: "How should the Solutions Architect optimize message consumption without creating multiple SNS topics?",
     options: [
       { id: 'A', text: "Convert all subscriber queues from SQS standard to SQS FIFO." },
-      { id: 'B', text: "Configure Amazon SNS Subscription Filter Policies on each subscriber SQS queue based on event message attributes." },
+      { id: 'B', text: "SNS subscription filter policies on each queue's message attributes." },
       { id: 'C', text: "Deploy an Application Load Balancer with path-based routing rules between SNS and SQS." },
       { id: 'D', text: "Insert an Amazon ElastiCache Redis cluster to filter messages before SQS delivery." }
     ],
@@ -39,7 +39,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "single",
     explanation: "Amazon SNS Subscription Filter Policies allow subscribers (such as Amazon SQS queues or Lambda functions) to define JSON filtering rules matching message attributes (e.g. `eventType = \"order_placed\"`). SNS evaluates filter policies and delivers only matching messages to that specific subscription, eliminating wasteful consumer invocations. ALBs do not sit between SNS and SQS. SQS FIFO guarantees ordering, not topic attribute filtering. ElastiCache cannot act as an intermediary message filter for SNS topics.",
     referenceUrl: "https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html",
-    tags: ["SNS", "Message Filtering", "Decoupling", "Resilience"]
+    tags: ["SNS","Message Filtering","Decoupling","Resilience"]
   },
   {
     id: "aws-saa-103",
@@ -54,13 +54,13 @@ export const AWS_SAA_QUESTIONS_5 = [
       { id: 'A', text: "Continuous EBS volume mirroring using AWS DataSync over AWS Direct Connect." },
       { id: 'B', text: "Amazon RDS Multi-AZ synchronous replication spanning across us-east-1 and us-west-2." },
       { id: 'C', text: "Amazon RDS for PostgreSQL with logical cross-region Read Replicas." },
-      { id: 'D', text: "Amazon Aurora Global Database with a secondary cluster in us-west-2 utilizing storage-level physical replication." }
+      { id: 'D', text: "Aurora Global Database with a secondary cluster in us-west-2" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon Aurora Global Database uses dedicated storage-level physical replication across AWS Regions, providing typical replication latency under 1 second (RPO < 1s) with zero performance impact on the primary cluster database engine. It can be promoted to a full read/write cluster in under 2 minutes during an outage. RDS Multi-AZ is strictly synchronous within a single region across AZs and cannot span multiple AWS Regions. Logical binlog replication incurs significant lag under 10k TPS. DataSync cannot mirror live mounted transactional database EBS volumes.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html",
-    tags: ["Aurora Global Database", "Disaster Recovery", "RPO/RTO", "Resilience"]
+    tags: ["Aurora Global Database","Disaster Recovery","RPO/RTO","Resilience"]
   },
   {
     id: "aws-saa-104",
@@ -81,7 +81,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "single",
     explanation: "ElastiCache for Redis with Cluster Mode Enabled partitions data across multiple shards (up to 500 shards per cluster), allowing total in-memory data capacity up to petabytes and scaling both write and read throughput horizontally. Cluster Mode Disabled is limited to a single primary node for all writes, capping total data size to that single instance memory. Memcached does not support replication. DAX only front-ends DynamoDB.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.RedisClusterMode.html",
-    tags: ["ElastiCache", "Redis", "Cluster Mode", "Performance", "Caching"]
+    tags: ["ElastiCache","Redis","Cluster Mode","Performance","Caching"]
   },
   {
     id: "aws-saa-105",
@@ -96,13 +96,13 @@ export const AWS_SAA_QUESTIONS_5 = [
       { id: 'A', text: "Disable CloudFront caching completely and enable HTTP/2 on the origin ALB." },
       { id: 'B', text: "Deploy Lambda@Edge to parse user location and rewrite URLs into static S3 paths." },
       { id: 'C', text: "Configure CloudFront to forward all headers and increase Default TTL to 86400 seconds." },
-      { id: 'D', text: "Configure a CloudFront Cache Policy to include ONLY the `Accept-Language` header in the cache key, and forward `User-Agent` via an Origin Request Policy without caching on it." }
+      { id: 'D', text: "Cache on `Accept-Language` only; forward `User-Agent` without caching." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "CloudFront Cache Policies determine which headers, query strings, and cookies are included in the cache key. Forwarding `User-Agent` in the cache key fragments the cache into thousands of variants (lowering hit ratio). By creating a Cache Policy that includes ONLY `Accept-Language` in the cache key and using an Origin Request Policy to forward `User-Agent` to the origin without caching on it, CloudFront maintains a high cache hit ratio while serving language-specific content. Forwarding all headers guarantees low cache hit rates. Disabling caching overloads the origin. Lambda@Edge rewriting introduces needless operational complexity.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html",
-    tags: ["CloudFront", "Cache Policy", "Headers", "Performance"]
+    tags: ["CloudFront","Cache Policy","Headers","Performance"]
   },
   {
     id: "aws-saa-106",
@@ -123,7 +123,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "single",
     explanation: "AWS Step Functions Express Workflows are purpose-built for high-volume, event-processing workloads (up to 100,000+ executions per second) with execution durations up to 5 minutes. Express Workflows are priced based on execution duration and memory consumption rather than per-state-transition, resulting in dramatic cost savings for high-throughput microservices. Standard Workflows are priced per state transition and capped at lower execution rates, making 25,000 executions/sec prohibitively expensive. SWF is a legacy workflow service. Airflow/MWAA is meant for long-running batch data engineering DAGs.",
     referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html",
-    tags: ["Step Functions", "Express Workflows", "Serverless", "Performance"]
+    tags: ["Step Functions","Express Workflows","Serverless","Performance"]
   },
   {
     id: "aws-saa-107",
@@ -144,7 +144,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "single",
     explanation: "Amazon OpenSearch Service (successor to Amazon Elasticsearch Service) is a fully managed service for interactive log analytics, real-time application monitoring, and full-text search with indexing, fuzzy matching, and faceting capabilities. Aurora MySQL and DynamoDB are transactional databases not optimized for fuzzy full-text inverted index searches. Neptune is a graph database for relationship querying.",
     referenceUrl: "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html",
-    tags: ["OpenSearch", "Full-Text Search", "Performance", "Analytics"]
+    tags: ["OpenSearch","Full-Text Search","Performance","Analytics"]
   },
   {
     id: "aws-saa-108",
@@ -159,13 +159,13 @@ export const AWS_SAA_QUESTIONS_5 = [
       { id: 'A', text: "Convert both tables to Amazon DynamoDB Global Tables." },
       { id: 'B', text: "Set `ALL` distribution on both `fact_sales` and `dim_customer`." },
       { id: 'C', text: "Set `EVEN` distribution on both tables and increase the cluster node count." },
-      { id: 'D', text: "Configure `KEY` distribution on both `fact_sales` and `dim_customer` using `customer_id` as the distribution key, and set `customer_id` as the sort key." }
+      { id: 'D', text: "KEY distribution on `customer_id` for both tables, sorted on it." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "In Amazon Redshift, setting `DISTSTYLE KEY` on the join column (`customer_id`) on both tables ensures that rows with matching join keys from both tables are colocated on the exact same cluster compute slice. This enables local joins without cross-network data redistribution or broadcasting across nodes. `DISTSTYLE ALL` copies the entire table to every node, which is suitable for small lookup tables (<3M rows) but impossible for a 2-billion-row fact table. `EVEN` distribution forces expensive network redistribution during joins. DynamoDB cannot execute complex SQL joins.",
     referenceUrl: "https://docs.aws.amazon.com/redshift/latest/dg/c_best-practices-selecting-data-distribution-style.html",
-    tags: ["Redshift", "Distribution Keys", "Data Warehouse", "Performance"]
+    tags: ["Redshift","Distribution Keys","Data Warehouse","Performance"]
   },
   {
     id: "aws-saa-109",
@@ -179,14 +179,14 @@ export const AWS_SAA_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Store the configuration data in an Amazon S3 bucket with S3 Transfer Acceleration." },
       { id: 'B', text: "Configure Route 53 Weighted routing to two independent standalone RDS instances." },
-      { id: 'C', text: "Deploy an Amazon Aurora Global Database and have application instances in Europe and Asia connect to their local regional Aurora Reader endpoints." },
+      { id: 'C', text: "An Aurora Global Database with local regional reader endpoints." },
       { id: 'D', text: "Deploy an Amazon RDS for MySQL Multi-AZ instance in us-east-1 with Global Accelerator." }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Amazon Aurora Global Database provides cross-region storage replication with sub-second replication latency. Application servers in Europe (eu-west-1) and Asia (ap-northeast-1) query their local Aurora cluster Reader endpoints directly, delivering single-digit millisecond read latencies locally. Global Accelerator routes traffic across the globe back to us-east-1, adding cross-ocean network transit latency. S3 Transfer Acceleration is for S3 uploads. Independent RDS instances lack automatic data synchronization.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html",
-    tags: ["Aurora Global Database", "Read Scalability", "Performance", "Multi-Region"]
+    tags: ["Aurora Global Database","Read Scalability","Performance","Multi-Region"]
   },
   {
     id: "aws-saa-110",
@@ -207,7 +207,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "single",
     explanation: "AWS App Mesh is a service mesh that uses open-source Envoy sidecar proxies deployed alongside microservice containers to manage service-to-service communication. It provides mutual TLS (mTLS) encryption, traffic routing, circuit breakers, access logging, and distributed tracing across microservices with zero code changes. Transit Gateway operates at the VPC network layer, not container microservice mesh. NLBs add excessive load balancer cost and complexity without service mesh capabilities. CloudFront is an edge CDN for public internet traffic.",
     referenceUrl: "https://docs.aws.amazon.com/app-mesh/latest/userguide/what-is-app-mesh.html",
-    tags: ["App Mesh", "ECS", "mTLS", "Microservices", "Security"]
+    tags: ["App Mesh","ECS","mTLS","Microservices","Security"]
   },
   {
     id: "aws-saa-111",
@@ -229,7 +229,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "multiple",
     explanation: "Interface VPC Endpoints (PrivateLink) for Secrets Manager allow EC2 instances in an isolated private subnet to query the Secrets Manager API over the private AWS backbone without internet access. For automated RDS rotation in a private VPC, the Secrets Manager rotation Lambda function must be configured to run inside the VPC subnets with security groups permitting connectivity to both RDS and the Secrets Manager VPC endpoint. S3 CSV files do not support automated rotation. Elastic IPs and Internet Gateways violate the isolated private subnet requirement.",
     referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/vpc-endpoint-overview.html",
-    tags: ["Secrets Manager", "PrivateLink", "RDS", "Security", "VPC"]
+    tags: ["Secrets Manager","PrivateLink","RDS","Security","VPC"]
   },
   {
     id: "aws-saa-112",
@@ -250,7 +250,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "single",
     explanation: "AWS IAM Identity Center (formerly AWS SSO) is the recommended service for managing centralized workforce access to multiple AWS accounts and SAML-enabled cloud applications. It connects directly with corporate identity providers like Okta, Azure AD, or PingFederate via SAML 2.0 and SCIM protocol for automatic user provisioning across all AWS accounts in AWS Organizations. Cognito User Pools are for end-user consumer mobile/web applications, not internal enterprise workforce administration. Manually creating 150 IAM IdPs creates massive operational overhead. Simple AD is a basic standalone directory that does not integrate natively with external SAML IdPs.",
     referenceUrl: "https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html",
-    tags: ["IAM Identity Center", "SSO", "SAML", "AWS Organizations", "Security"]
+    tags: ["IAM Identity Center","SSO","SAML","AWS Organizations","Security"]
   },
   {
     id: "aws-saa-113",
@@ -271,7 +271,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "single",
     explanation: "AWS Network Firewall is a stateful Layer 3–7 network firewall that provides domain name filtering (allowing only approved FQDNs like `*.example.com`), custom Suricata-compatible IPS/IDS rules, and stateful packet inspection for all VPC traffic. Security Groups and NACLs filter by IP addresses/CIDRs and ports, not domain names (FQDNs), and lack deep packet inspection. Shield Standard is automatic Layer 3/4 DDoS mitigation.",
     referenceUrl: "https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html",
-    tags: ["AWS Network Firewall", "IDS/IPS", "Domain Filtering", "Security", "VPC"]
+    tags: ["AWS Network Firewall","IDS/IPS","Domain Filtering","Security","VPC"]
   },
   {
     id: "aws-saa-114",
@@ -292,7 +292,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "single",
     explanation: "To restrict S3 bucket access strictly to traffic originating from a specific VPC endpoint, an explicit `Deny` statement is added to the S3 bucket policy with the condition `\"StringNotEquals\": {\"aws:sourceVpce\": \"vpce-12345abcde\"}`. Any request not traversing that specific VPC endpoint is denied immediately. S3 does not support Security Groups. Checking private IPs in `aws:SourceIp` does not work for Gateway VPC endpoints because private IPs are not preserved in the HTTP headers. NACLs cannot inspect S3 API calls.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.html",
-    tags: ["S3", "Bucket Policy", "VPC Endpoint", "Security"]
+    tags: ["S3","Bucket Policy","VPC Endpoint","Security"]
   },
   {
     id: "aws-saa-115",
@@ -313,7 +313,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "single",
     explanation: "An API Gateway Lambda Authorizer is an AWS Lambda function that controls access to API methods using bearer token authentication (such as JWTs from third-party IdPs or Cognito) or request parameters. The authorizer executes custom token verification logic, evaluates permissions, generates an IAM policy along with a context object containing user claims, and passes the claims downstream to backend microservices. API Keys are for meter usage and rate limiting, not user identity authorization. IAM DB auth is for RDS databases. ALBs cannot execute custom JWT claim transformation for API Gateway methods.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html",
-    tags: ["API Gateway", "Lambda Authorizer", "JWT", "Security", "Authentication"]
+    tags: ["API Gateway","Lambda Authorizer","JWT","Security","Authentication"]
   },
   {
     id: "aws-saa-116",
@@ -334,7 +334,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "single",
     explanation: "Amazon S3 Glacier Deep Archive is Amazon S3's lowest-cost storage class ($0.00099 per GB/month, or ~$1 per TB/month), designed for long-term retention of data that is accessed rarely (once or twice a year). Objects can be retrieved within 12 hours (Standard retrieval) or 48 hours (Bulk retrieval). Glacier Flexible Retrieval is ~4x more expensive than Deep Archive. Standard-IA and One Zone-IA are designed for millisecond access and are significantly more expensive for multi-year cold archives.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/glacier-deep-archive-storage-class.html",
-    tags: ["S3 Glacier Deep Archive", "Archiving", "Cost Optimization", "Storage"]
+    tags: ["S3 Glacier Deep Archive","Archiving","Cost Optimization","Storage"]
   },
   {
     id: "aws-saa-117",
@@ -355,7 +355,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "single",
     explanation: "AWS Compute Optimizer uses machine learning to analyze historical CloudWatch utilization metrics (CPU, memory, storage, network) to identify under-provisioned and over-provisioned resources. It generates actionable rightsizing recommendations for Amazon EC2 instances, Amazon EBS volumes, AWS Lambda functions, and Amazon ECS on AWS Fargate. CloudTrail logs API calls. Application Discovery Service is for pre-migration on-premises inventory planning. Inspector scans for software vulnerabilities.",
     referenceUrl: "https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html",
-    tags: ["AWS Compute Optimizer", "Rightsizing", "FinOps", "Cost Optimization"]
+    tags: ["AWS Compute Optimizer","Rightsizing","FinOps","Cost Optimization"]
   },
   {
     id: "aws-saa-118",
@@ -376,7 +376,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "single",
     explanation: "AWS Budgets allows setting custom cost and usage budgets with email/SNS alerts when actual or forecasted spend exceeds specified percentage thresholds. Crucially, AWS Budgets Actions can automatically execute remediation actions (such as applying an IAM policy, applying an SCP, or stopping EC2/RDS instances via SSM) when a budget threshold is breached. Cost Explorer provides reporting and visualization, not proactive automated actions. Trusted Advisor provides high-level checks. CloudWatch Billing alarms send SNS notifications but lack native automated budget action policies.",
     referenceUrl: "https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html",
-    tags: ["AWS Budgets", "Budgets Actions", "FinOps", "Cost Optimization"]
+    tags: ["AWS Budgets","Budgets Actions","FinOps","Cost Optimization"]
   },
   {
     id: "aws-saa-119",
@@ -389,7 +389,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     question: "Which S3 Lifecycle rule accomplishes this retention schedule at the lowest cost?",
     options: [
       { id: 'A', text: "Transition to S3 Glacier Instant Retrieval after 30 days and keep indefinitely." },
-      { id: 'B', text: "Transition to S3 Standard-IA after 30 days, transition to S3 Glacier Flexible Retrieval after 90 days, and expire after 1,825 days (5 years)." },
+      { id: 'B', text: "Standard-IA at 30 days, Glacier Flexible at 90, expire at 1,825." },
       { id: 'C', text: "Transition to S3 One Zone-IA after 1 day and expire after 30 days." },
       { id: 'D', text: "Keep in S3 Standard for 5 years, then enable S3 Versioning." }
     ],
@@ -397,7 +397,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "single",
     explanation: "This lifecycle configuration perfectly matches access requirements: 30 days in S3 Standard (frequent millisecond access), transitioning to S3 Standard-IA at 30 days (infrequent millisecond access), moving to S3 Glacier Flexible Retrieval after 90 days for low-cost long-term compliance storage, and expiring (deleting) objects after 5 years (1,825 days). Keeping in Standard is the most expensive. Transitioning to One Zone-IA after 1 day breaks the 30-day requirement. Keeping Glacier Instant indefinitely incurs permanent storage fees after year 5.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html",
-    tags: ["S3", "Lifecycle", "Glacier", "Cost Optimization"]
+    tags: ["S3","Lifecycle","Glacier","Cost Optimization"]
   },
   {
     id: "aws-saa-120",
@@ -418,7 +418,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "single",
     explanation: "Amazon FSx for Lustre Scratch file systems are designed for temporary storage and shorter-term processing of data (such as ML training and HPC burst simulations). Scratch file systems do not replicate data across servers, providing high throughput bursts at a significantly lower cost per GB than Persistent file systems. Data is synchronized directly with S3. Persistent file systems replicate data within the AZ and are designed for longer-term storage at higher cost. EFS and EBS io2 are significantly more expensive and provide lower throughput for burst ML training.",
     referenceUrl: "https://docs.aws.amazon.com/fsx/latest/LustreGuide/scratch-persistent-fs.html",
-    tags: ["FSx for Lustre", "Machine Learning", "Cost Optimization", "Storage"]
+    tags: ["FSx for Lustre","Machine Learning","Cost Optimization","Storage"]
   },
   {
     id: "aws-saa-121",
@@ -439,7 +439,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "single",
     explanation: "AWS Elastic Disaster Recovery (AWS DRS) is purpose-built for continuous disaster recovery. It continuously replicates physical, virtual, and cloud-based servers at the block level into a low-cost staging area in AWS (achieving sub-second RPOs). During a disaster or drill, DRS automatically launches fully provisioned EC2 instances in minutes (RTO < 15 mins). AWS MGN is for one-time migrations, not ongoing 24/7 disaster recovery. DataSync is for file transfer. AWS Backup takes periodic snapshots, failing the 5-second RPO.",
     referenceUrl: "https://docs.aws.amazon.com/drs/latest/userguide/what-is-drs.html",
-    tags: ["AWS DRS", "Disaster Recovery", "VMware", "Resilience"]
+    tags: ["AWS DRS","Disaster Recovery","VMware","Resilience"]
   },
   {
     id: "aws-saa-122",
@@ -461,7 +461,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "multiple",
     explanation: "In Amazon RDS, Multi-AZ deployments provide high availability and automated failover via synchronous replication to a standby instance in another AZ. Read Replicas provide horizontal read scalability via asynchronous replication with independent endpoints. Combining both ensures the database is resilient to infrastructure outages while scaling read query throughput. Single-AZ with snapshots suffers from long downtime during failures. S3 tables and Transit Gateway are invalid database architectures.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RDSCoreDoc.html",
-    tags: ["RDS", "Multi-AZ", "Read Replicas", "High Availability", "Performance"]
+    tags: ["RDS","Multi-AZ","Read Replicas","High Availability","Performance"]
   },
   {
     id: "aws-saa-123",
@@ -476,13 +476,13 @@ export const AWS_SAA_QUESTIONS_5 = [
       { id: 'A', text: "Enable S3 Default Encryption on the EC2 instance profile." },
       { id: 'B', text: "Attach an AWS KMS policy directly to the operating system filesystem." },
       { id: 'C', text: "Modify the live EBS volume attributes in the AWS console and select the KMS key." },
-      { id: 'D', text: "Take a snapshot of the unencrypted EBS volume, copy the snapshot while enabling KMS encryption, create a new EBS volume from the encrypted snapshot, and attach it to the EC2 instance." }
+      { id: 'D', text: "Snapshot, copy the snapshot with encryption, then restore and attach." }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Amazon EBS volumes cannot be directly encrypted in place while attached. The AWS-recommended process is: 1) Create a snapshot of the unencrypted volume, 2) Copy the snapshot and select \"Encrypt this snapshot\" with the desired KMS key, 3) Create a new volume from the encrypted snapshot, and 4) Attach the new encrypted volume to the instance. Live in-place encryption is not supported. KMS policies cannot attach to OS filesystems. S3 encryption does not encrypt EBS block volumes.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-encryption.html#encrypt-unencrypted-volume",
-    tags: ["EBS", "KMS", "Encryption", "Security"]
+    tags: ["EBS","KMS","Encryption","Security"]
   },
   {
     id: "aws-saa-124",
@@ -495,7 +495,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     question: "How can the central network engineering team centralize VPC infrastructure and eliminate redundant NAT Gateways across accounts?",
     options: [
       { id: 'A', text: "Create 40 VPC Peering connections between each account and an on-premises data center." },
-      { id: 'B', text: "Create a central VPC in a Network account and share subnets with all 40 member accounts using AWS Resource Access Manager (AWS RAM) VPC Sharing." },
+      { id: 'B', text: "A central VPC whose subnets are shared to the member accounts via RAM." },
       { id: 'C', text: "Assign Elastic IP addresses directly to all EC2 instances across all accounts." },
       { id: 'D', text: "Deploy an AWS Direct Connect dedicated circuit in every member account." }
     ],
@@ -503,7 +503,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "single",
     explanation: "VPC Sharing (powered by AWS Resource Access Manager / RAM) allows a central networking account to own the VPC (subnets, route tables, NAT Gateways, Internet Gateways) and share subnets with other member accounts in AWS Organizations. Participants in member accounts can launch their EC2 instances, RDS databases, and Lambda functions into the shared subnets. This centralizes network management and eliminates redundant NAT Gateways and Transit Gateway attachments. VPC Peering meshes and multiple Direct Connect circuits vastly multiply network costs. Elastic IPs turn private resources public.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html",
-    tags: ["VPC Sharing", "AWS RAM", "Cost Optimization", "Networking", "FinOps"]
+    tags: ["VPC Sharing","AWS RAM","Cost Optimization","Networking","FinOps"]
   },
   {
     id: "aws-saa-125",
@@ -524,7 +524,7 @@ export const AWS_SAA_QUESTIONS_5 = [
     type: "single",
     explanation: "Amazon FSx for OpenZFS supports instant, near-zero-overhead ZFS snapshots and native cross-Region snapshot copy/replication. This enables point-in-time recovery of file systems in seconds and simple cross-region disaster recovery with low RTO. DataSync is slower and does not preserve ZFS dataset properties natively. Mounting across VPN introduces severe latency bottlenecks. Storage Gateway is for on-premises hybrid file shares.",
     referenceUrl: "https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/snapshots-fsx.html",
-    tags: ["FSx for OpenZFS", "Snapshots", "Disaster Recovery", "Resilience", "Storage"]
+    tags: ["FSx for OpenZFS","Snapshots","Disaster Recovery","Resilience","Storage"]
   }
 ];
 

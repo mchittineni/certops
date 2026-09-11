@@ -10,7 +10,7 @@ export const AWS_SAA_QUESTIONS_17 = [
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
       { id: 'A', text: "Increase the timeout on the backend Application Load Balancer to 300 seconds." },
-      { id: 'B', text: "Associate an AWS WAF Web ACL with the Application Load Balancer, enabling the AWSManagedRulesBotControlRuleSet and a rate-based rule per client IP." },
+      { id: 'B', text: "A WAF web ACL on the ALB with Bot Control and a per-IP rate rule." },
       { id: 'C', text: "Configure a Network Access Control List (NACL) rule blocking all incoming traffic on port 80." },
       { id: 'D', text: "Deploy an Amazon CloudWatch alarm to restart the EC2 instances when CPU exceeds 90%." }
     ],
@@ -33,7 +33,7 @@ export const AWS_SAA_QUESTIONS_17 = [
       { id: 'A', text: "Deploy an Amazon CloudWatch alarm to restart the EC2 instances when CPU exceeds 90%." },
       { id: 'B', text: "Configure a Network Access Control List (NACL) rule blocking all incoming traffic on port 80." },
       { id: 'C', text: "Increase the timeout on the backend Application Load Balancer to 300 seconds." },
-      { id: 'D', text: "Associate an AWS WAF Web ACL with the Application Load Balancer, enabling the AWSManagedRulesBotControlRuleSet and a rate-based rule per client IP." }
+      { id: 'D', text: "A WAF web ACL on the ALB with Bot Control and a per-IP rate rule." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -54,7 +54,7 @@ export const AWS_SAA_QUESTIONS_17 = [
       { id: 'A', text: "Configure a Network Access Control List (NACL) rule blocking all incoming traffic on port 80." },
       { id: 'B', text: "Increase the timeout on the backend Application Load Balancer to 300 seconds." },
       { id: 'C', text: "Deploy an Amazon CloudWatch alarm to restart the EC2 instances when CPU exceeds 90%." },
-      { id: 'D', text: "Associate an AWS WAF Web ACL with the Application Load Balancer, enabling the AWSManagedRulesBotControlRuleSet and a rate-based rule per client IP." }
+      { id: 'D', text: "A WAF web ACL on the ALB with Bot Control and a per-IP rate rule." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -73,7 +73,7 @@ export const AWS_SAA_QUESTIONS_17 = [
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
       { id: 'A', text: "Deploy an Amazon CloudWatch alarm to restart the EC2 instances when CPU exceeds 90%." },
-      { id: 'B', text: "Associate an AWS WAF Web ACL with the Application Load Balancer, enabling the AWSManagedRulesBotControlRuleSet and a rate-based rule per client IP." },
+      { id: 'B', text: "A WAF web ACL on the ALB with Bot Control and a per-IP rate rule." },
       { id: 'C', text: "Configure a Network Access Control List (NACL) rule blocking all incoming traffic on port 80." },
       { id: 'D', text: "Increase the timeout on the backend Application Load Balancer to 300 seconds." }
     ],
@@ -95,7 +95,7 @@ export const AWS_SAA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Configure a Network Access Control List (NACL) rule blocking all incoming traffic on port 80." },
       { id: 'B', text: "Deploy an Amazon CloudWatch alarm to restart the EC2 instances when CPU exceeds 90%." },
-      { id: 'C', text: "Associate an AWS WAF Web ACL with the Application Load Balancer, enabling the AWSManagedRulesBotControlRuleSet and a rate-based rule per client IP." },
+      { id: 'C', text: "A WAF web ACL on the ALB with Bot Control and a per-IP rate rule." },
       { id: 'D', text: "Increase the timeout on the backend Application Load Balancer to 300 seconds." }
     ],
     correctAnswers: ['C'],
@@ -116,7 +116,7 @@ export const AWS_SAA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Deploy an Amazon CloudFront distribution with default AWS Shield Standard." },
       { id: 'B', text: "Deploy an AWS Network Firewall cluster in every Availability Zone." },
-      { id: 'C', text: "Subscribe to AWS Shield Advanced, associate protected resources (CloudFront, ALB, Route 53), and configure Route 53 health-check based automated layer 7 mitigation." },
+      { id: 'C', text: "Shield Advanced on the protected resources with health-based mitigation." },
       { id: 'D', text: "Configure Amazon GuardDuty with automated Lambda instance termination." }
     ],
     correctAnswers: ['C'],
@@ -136,7 +136,7 @@ export const AWS_SAA_QUESTIONS_17 = [
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
       { id: 'A', text: "Deploy an Amazon CloudFront distribution with default AWS Shield Standard." },
-      { id: 'B', text: "Subscribe to AWS Shield Advanced, associate protected resources (CloudFront, ALB, Route 53), and configure Route 53 health-check based automated layer 7 mitigation." },
+      { id: 'B', text: "Shield Advanced on the protected resources with health-based mitigation." },
       { id: 'C', text: "Deploy an AWS Network Firewall cluster in every Availability Zone." },
       { id: 'D', text: "Configure Amazon GuardDuty with automated Lambda instance termination." }
     ],
@@ -156,7 +156,7 @@ export const AWS_SAA_QUESTIONS_17 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on AWS Shield to protect critical public web applications from complex layer 3/4 and layer 7 DDoS attacks with automated mitigation and 24/7 access to the DDoS Response Team (DRT).",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Subscribe to AWS Shield Advanced, associate protected resources (CloudFront, ALB, Route 53), and configure Route 53 health-check based automated layer 7 mitigation." },
+      { id: 'A', text: "Shield Advanced on the protected resources with health-based mitigation." },
       { id: 'B', text: "Deploy an AWS Network Firewall cluster in every Availability Zone." },
       { id: 'C', text: "Configure Amazon GuardDuty with automated Lambda instance termination." },
       { id: 'D', text: "Deploy an Amazon CloudFront distribution with default AWS Shield Standard." }
@@ -180,7 +180,7 @@ export const AWS_SAA_QUESTIONS_17 = [
       { id: 'A', text: "Configure Amazon GuardDuty with automated Lambda instance termination." },
       { id: 'B', text: "Deploy an AWS Network Firewall cluster in every Availability Zone." },
       { id: 'C', text: "Deploy an Amazon CloudFront distribution with default AWS Shield Standard." },
-      { id: 'D', text: "Subscribe to AWS Shield Advanced, associate protected resources (CloudFront, ALB, Route 53), and configure Route 53 health-check based automated layer 7 mitigation." }
+      { id: 'D', text: "Shield Advanced on the protected resources with health-based mitigation." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -200,7 +200,7 @@ export const AWS_SAA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Deploy an Amazon CloudFront distribution with default AWS Shield Standard." },
       { id: 'B', text: "Configure Amazon GuardDuty with automated Lambda instance termination." },
-      { id: 'C', text: "Subscribe to AWS Shield Advanced, associate protected resources (CloudFront, ALB, Route 53), and configure Route 53 health-check based automated layer 7 mitigation." },
+      { id: 'C', text: "Shield Advanced on the protected resources with health-based mitigation." },
       { id: 'D', text: "Deploy an AWS Network Firewall cluster in every Availability Zone." }
     ],
     correctAnswers: ['C'],
@@ -220,7 +220,7 @@ export const AWS_SAA_QUESTIONS_17 = [
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
       { id: 'A', text: "Configure Network Access Control Lists (NACLs) on private subnets with domain name rules." },
-      { id: 'B', text: "Deploy AWS Network Firewall endpoints in dedicated firewall subnets and route outbound VPC traffic through the firewall stateful rule group." },
+      { id: 'B', text: "Network Firewall endpoints in their own subnets, with egress routed through." },
       { id: 'C', text: "Deploy an Internet Gateway directly in private subnets with egress filtering enabled." },
       { id: 'D', text: "Configure Security Groups with outbound rules specifying external domain URLs." }
     ],
@@ -240,7 +240,7 @@ export const AWS_SAA_QUESTIONS_17 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on AWS Network Firewall to inspect all outbound internet traffic from private VPC subnets, enforce domain name allow-lists (FQDN), and block unauthorized egress protocols.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
-      { id: 'A', text: "Deploy AWS Network Firewall endpoints in dedicated firewall subnets and route outbound VPC traffic through the firewall stateful rule group." },
+      { id: 'A', text: "Network Firewall endpoints in their own subnets, with egress routed through." },
       { id: 'B', text: "Deploy an Internet Gateway directly in private subnets with egress filtering enabled." },
       { id: 'C', text: "Configure Network Access Control Lists (NACLs) on private subnets with domain name rules." },
       { id: 'D', text: "Configure Security Groups with outbound rules specifying external domain URLs." }
@@ -264,7 +264,7 @@ export const AWS_SAA_QUESTIONS_17 = [
       { id: 'A', text: "Configure Security Groups with outbound rules specifying external domain URLs." },
       { id: 'B', text: "Configure Network Access Control Lists (NACLs) on private subnets with domain name rules." },
       { id: 'C', text: "Deploy an Internet Gateway directly in private subnets with egress filtering enabled." },
-      { id: 'D', text: "Deploy AWS Network Firewall endpoints in dedicated firewall subnets and route outbound VPC traffic through the firewall stateful rule group." }
+      { id: 'D', text: "Network Firewall endpoints in their own subnets, with egress routed through." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -285,7 +285,7 @@ export const AWS_SAA_QUESTIONS_17 = [
       { id: 'A', text: "Configure Network Access Control Lists (NACLs) on private subnets with domain name rules." },
       { id: 'B', text: "Deploy an Internet Gateway directly in private subnets with egress filtering enabled." },
       { id: 'C', text: "Configure Security Groups with outbound rules specifying external domain URLs." },
-      { id: 'D', text: "Deploy AWS Network Firewall endpoints in dedicated firewall subnets and route outbound VPC traffic through the firewall stateful rule group." }
+      { id: 'D', text: "Network Firewall endpoints in their own subnets, with egress routed through." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -304,7 +304,7 @@ export const AWS_SAA_QUESTIONS_17 = [
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
       { id: 'A', text: "Configure Network Access Control Lists (NACLs) on private subnets with domain name rules." },
-      { id: 'B', text: "Deploy AWS Network Firewall endpoints in dedicated firewall subnets and route outbound VPC traffic through the firewall stateful rule group." },
+      { id: 'B', text: "Network Firewall endpoints in their own subnets, with egress routed through." },
       { id: 'C', text: "Configure Security Groups with outbound rules specifying external domain URLs." },
       { id: 'D', text: "Deploy an Internet Gateway directly in private subnets with egress filtering enabled." }
     ],
@@ -327,7 +327,7 @@ export const AWS_SAA_QUESTIONS_17 = [
       { id: 'A', text: "Configure S3 Object Lock in compliance mode." },
       { id: 'B', text: "Enable default SSE-S3 encryption on the S3 bucket settings." },
       { id: 'C', text: "Deploy an AWS WAF Web ACL associated directly with the S3 bucket." },
-      { id: 'D', text: "Attach an S3 bucket policy with an explicit Deny action for requests where `aws:SecureTransport` is false or `s3:TlsVersion` is less than 1.2." }
+      { id: 'D', text: "A bucket policy denying insecure transport or TLS below 1.2." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -348,7 +348,7 @@ export const AWS_SAA_QUESTIONS_17 = [
       { id: 'A', text: "Deploy an AWS WAF Web ACL associated directly with the S3 bucket." },
       { id: 'B', text: "Configure S3 Object Lock in compliance mode." },
       { id: 'C', text: "Enable default SSE-S3 encryption on the S3 bucket settings." },
-      { id: 'D', text: "Attach an S3 bucket policy with an explicit Deny action for requests where `aws:SecureTransport` is false or `s3:TlsVersion` is less than 1.2." }
+      { id: 'D', text: "A bucket policy denying insecure transport or TLS below 1.2." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -367,7 +367,7 @@ export const AWS_SAA_QUESTIONS_17 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy an AWS WAF Web ACL associated directly with the S3 bucket." },
-      { id: 'B', text: "Attach an S3 bucket policy with an explicit Deny action for requests where `aws:SecureTransport` is false or `s3:TlsVersion` is less than 1.2." },
+      { id: 'B', text: "A bucket policy denying insecure transport or TLS below 1.2." },
       { id: 'C', text: "Enable default SSE-S3 encryption on the S3 bucket settings." },
       { id: 'D', text: "Configure S3 Object Lock in compliance mode." }
     ],
@@ -388,7 +388,7 @@ export const AWS_SAA_QUESTIONS_17 = [
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
       { id: 'A', text: "Enable default SSE-S3 encryption on the S3 bucket settings." },
-      { id: 'B', text: "Attach an S3 bucket policy with an explicit Deny action for requests where `aws:SecureTransport` is false or `s3:TlsVersion` is less than 1.2." },
+      { id: 'B', text: "A bucket policy denying insecure transport or TLS below 1.2." },
       { id: 'C', text: "Configure S3 Object Lock in compliance mode." },
       { id: 'D', text: "Deploy an AWS WAF Web ACL associated directly with the S3 bucket." }
     ],
@@ -409,7 +409,7 @@ export const AWS_SAA_QUESTIONS_17 = [
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
       { id: 'A', text: "Enable default SSE-S3 encryption on the S3 bucket settings." },
-      { id: 'B', text: "Attach an S3 bucket policy with an explicit Deny action for requests where `aws:SecureTransport` is false or `s3:TlsVersion` is less than 1.2." },
+      { id: 'B', text: "A bucket policy denying insecure transport or TLS below 1.2." },
       { id: 'C', text: "Deploy an AWS WAF Web ACL associated directly with the S3 bucket." },
       { id: 'D', text: "Configure S3 Object Lock in compliance mode." }
     ],
@@ -431,7 +431,7 @@ export const AWS_SAA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Configure S3 Object Lock in governance mode." },
       { id: 'B', text: "Enable S3 Versioning and configure an S3 Lifecycle rule to transition objects to S3 Glacier." },
-      { id: 'C', text: "Create an S3 bucket with Object Lock enabled, configure default retention in compliance mode, and apply Legal Holds to critical audit objects." },
+      { id: 'C', text: "Object Lock with compliance-mode default retention and legal holds." },
       { id: 'D', text: "Configure an S3 bucket policy denying `s3:DeleteObject` to all users except root." }
     ],
     correctAnswers: ['C'],
@@ -452,7 +452,7 @@ export const AWS_SAA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Enable S3 Versioning and configure an S3 Lifecycle rule to transition objects to S3 Glacier." },
       { id: 'B', text: "Configure an S3 bucket policy denying `s3:DeleteObject` to all users except root." },
-      { id: 'C', text: "Create an S3 bucket with Object Lock enabled, configure default retention in compliance mode, and apply Legal Holds to critical audit objects." },
+      { id: 'C', text: "Object Lock with compliance-mode default retention and legal holds." },
       { id: 'D', text: "Configure S3 Object Lock in governance mode." }
     ],
     correctAnswers: ['C'],
@@ -474,7 +474,7 @@ export const AWS_SAA_QUESTIONS_17 = [
       { id: 'A', text: "Configure an S3 bucket policy denying `s3:DeleteObject` to all users except root." },
       { id: 'B', text: "Enable S3 Versioning and configure an S3 Lifecycle rule to transition objects to S3 Glacier." },
       { id: 'C', text: "Configure S3 Object Lock in governance mode." },
-      { id: 'D', text: "Create an S3 bucket with Object Lock enabled, configure default retention in compliance mode, and apply Legal Holds to critical audit objects." }
+      { id: 'D', text: "Object Lock with compliance-mode default retention and legal holds." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -494,7 +494,7 @@ export const AWS_SAA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Configure S3 Object Lock in governance mode." },
       { id: 'B', text: "Enable S3 Versioning and configure an S3 Lifecycle rule to transition objects to S3 Glacier." },
-      { id: 'C', text: "Create an S3 bucket with Object Lock enabled, configure default retention in compliance mode, and apply Legal Holds to critical audit objects." },
+      { id: 'C', text: "Object Lock with compliance-mode default retention and legal holds." },
       { id: 'D', text: "Configure an S3 bucket policy denying `s3:DeleteObject` to all users except root." }
     ],
     correctAnswers: ['C'],
@@ -515,7 +515,7 @@ export const AWS_SAA_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Configure an S3 bucket policy denying `s3:DeleteObject` to all users except root." },
       { id: 'B', text: "Enable S3 Versioning and configure an S3 Lifecycle rule to transition objects to S3 Glacier." },
-      { id: 'C', text: "Create an S3 bucket with Object Lock enabled, configure default retention in compliance mode, and apply Legal Holds to critical audit objects." },
+      { id: 'C', text: "Object Lock with compliance-mode default retention and legal holds." },
       { id: 'D', text: "Configure S3 Object Lock in governance mode." }
     ],
     correctAnswers: ['C'],
