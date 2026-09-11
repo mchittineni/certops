@@ -217,7 +217,7 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     domainName: "Modules and Reuse",
     title: "Module Testing with the terraform test Framework: Dr Failover",
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Native Testing to validate that a reusable Terraform module correctly calculates CIDR subnets and sets resource tags without deploying real cloud resources.",
-    question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives? Authoring unit and integration tests for modules using .tftest.",
+    question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Terraform does not support native testing frameworks." },
       { id: 'B', text: "Create a `tests/unit.tftest.hcl` file containing `run` blocks with `command = plan` and custom `assert` conditions." },
@@ -238,7 +238,7 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     domainName: "Modules and Reuse",
     title: "Module Testing with the terraform test Framework: High Load Scale",
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Native Testing to validate that a reusable Terraform module correctly calculates CIDR subnets and sets resource tags without deploying real cloud resources.",
-    question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift? Authoring unit and integration tests for modules using .tftest.",
+    question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
       { id: 'A', text: "Create a `tests/unit.tftest.hcl` file containing `run` blocks with `command = plan` and custom `assert` conditions." },
       { id: 'B', text: "Write custom Bash scripts parsing plan text outputs with grep." },
@@ -259,7 +259,7 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     domainName: "Modules and Reuse",
     title: "Module Testing with the terraform test Framework: Security Compliance",
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Native Testing to validate that a reusable Terraform module correctly calculates CIDR subnets and sets resource tags without deploying real cloud resources.",
-    question: "Which solution implements these mandatory infrastructure as code security and governance controls? Authoring unit and integration tests for modules using .tftest.",
+    question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Terraform does not support native testing frameworks." },
       { id: 'B', text: "Write custom Bash scripts parsing plan text outputs with grep." },
@@ -280,7 +280,7 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     domainName: "Modules and Reuse",
     title: "Module Testing with the terraform test Framework: Hybrid Migration",
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Native Testing to validate that a reusable Terraform module correctly calculates CIDR subnets and sets resource tags without deploying real cloud resources.",
-    question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Authoring unit and integration tests for modules using .tftest.",
+    question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Write custom Bash scripts parsing plan text outputs with grep." },
       { id: 'B', text: "Deploy the module to production and check if anyone complains." },
@@ -301,7 +301,7 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     domainName: "Modules and Reuse",
     title: "Module Testing with the terraform test Framework: Resilience Failure",
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Native Testing to validate that a reusable Terraform module correctly calculates CIDR subnets and sets resource tags without deploying real cloud resources.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Authoring unit and integration tests for modules using .tftest.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Create a `tests/unit.tftest.hcl` file containing `run` blocks with `command = plan` and custom `assert` conditions." },
       { id: 'B', text: "Write custom Bash scripts parsing plan text outputs with grep." },

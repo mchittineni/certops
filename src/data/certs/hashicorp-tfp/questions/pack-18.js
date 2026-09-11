@@ -112,7 +112,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     domainName: "Workflows, CLI and Automation",
     title: "Environment Variable Precedence and Parameter Injection: Dr Failover",
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Variable Precedence to understand which value takes priority when a variable is defined simultaneously in `variables.tf`, `terraform.tfvars`, and via `TF_VAR_`.",
-    question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives? Order of precedence: CLI flags, env vars (TF_VAR_), .",
+    question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
       { id: 'A', text: "`TF_VAR_` environment variables override command-line `-var` flags." },
       { id: 'B', text: "The default value in `variables.tf` always overrides all other values." },
@@ -133,7 +133,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     domainName: "Workflows, CLI and Automation",
     title: "Environment Variable Precedence and Parameter Injection: High Load Scale",
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Variable Precedence to understand which value takes priority when a variable is defined simultaneously in `variables.tf`, `terraform.tfvars`, and via `TF_VAR_`.",
-    question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift? Order of precedence: CLI flags, env vars (TF_VAR_), .",
+    question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
       { id: 'A', text: "Command-line `-var` flags take highest precedence, followed by `-var-file`, `*.auto.tfvars`, `terraform.tfvars`, `TF_VAR_` env vars, and defaults." },
       { id: 'B', text: "`TF_VAR_` environment variables override command-line `-var` flags." },
@@ -154,7 +154,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     domainName: "Workflows, CLI and Automation",
     title: "Environment Variable Precedence and Parameter Injection: Security Compliance",
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Variable Precedence to understand which value takes priority when a variable is defined simultaneously in `variables.tf`, `terraform.tfvars`, and via `TF_VAR_`.",
-    question: "Which solution implements these mandatory infrastructure as code security and governance controls? Order of precedence: CLI flags, env vars (TF_VAR_), .",
+    question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Terraform picks an arbitrary variable source at random." },
       { id: 'B', text: "The default value in `variables.tf` always overrides all other values." },
@@ -175,7 +175,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     domainName: "Workflows, CLI and Automation",
     title: "Environment Variable Precedence and Parameter Injection: Hybrid Migration",
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Variable Precedence to understand which value takes priority when a variable is defined simultaneously in `variables.tf`, `terraform.tfvars`, and via `TF_VAR_`.",
-    question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction? Order of precedence: CLI flags, env vars (TF_VAR_), .",
+    question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Terraform picks an arbitrary variable source at random." },
       { id: 'B', text: "`TF_VAR_` environment variables override command-line `-var` flags." },
@@ -196,7 +196,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     domainName: "Workflows, CLI and Automation",
     title: "Environment Variable Precedence and Parameter Injection: Resilience Failure",
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Variable Precedence to understand which value takes priority when a variable is defined simultaneously in `variables.tf`, `terraform.tfvars`, and via `TF_VAR_`.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability? Order of precedence: CLI flags, env vars (TF_VAR_), .",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "The default value in `variables.tf` always overrides all other values." },
       { id: 'B', text: "Terraform picks an arbitrary variable source at random." },

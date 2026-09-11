@@ -322,7 +322,7 @@ export const ISC2_CCSP_QUESTIONS_13 = [
     domainName: "Cloud Data Security",
     title: "Encryption in Transit and Protocol Hardening: Enterprise Architecture",
     scenario: "An enterprise chief information security officer (CISO) is establishing multi-cloud governance frameworks, shared responsibility models, and Zero Trust architectures across global business units. The cloud security professional evaluates Encryption in Transit to protect cloud API communications and web applications against eavesdropping, downgrade attacks, and man-in-the-middle exploits.",
-    question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives? Enforcing TLS 1.",
+    question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives?",
     options: [
       { id: 'A', text: "Operate internal cloud microservices over unencrypted plaintext HTTP." },
       { id: 'B', text: "Enforce TLS 1.3 with Perfect Forward Secrecy (PFS), disable obsolete SSL/TLS protocols and weak ciphers, and implement mutual TLS (mTLS)." },
@@ -343,7 +343,7 @@ export const ISC2_CCSP_QUESTIONS_13 = [
     domainName: "Cloud Data Security",
     title: "Encryption in Transit and Protocol Hardening: Data Protection And Privacy",
     scenario: "A global data protection officer is implementing cryptographic data lifecycles, crypto-shredding sanitization, and data loss prevention across sensitive cloud repositories. The cloud security professional evaluates Encryption in Transit to protect cloud API communications and web applications against eavesdropping, downgrade attacks, and man-in-the-middle exploits.",
-    question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates? Enforcing TLS 1.",
+    question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates?",
     options: [
       { id: 'A', text: "Permit legacy SSLv3 and TLS 1.0 protocols to maintain compatibility with unpatched ancient client devices." },
       { id: 'B', text: "Operate internal cloud microservices over unencrypted plaintext HTTP." },
@@ -364,7 +364,7 @@ export const ISC2_CCSP_QUESTIONS_13 = [
     domainName: "Cloud Data Security",
     title: "Encryption in Transit and Protocol Hardening: Platform Hardening",
     scenario: "A cloud platform security team is hardening virtualization substrates, implementing micro-segmentation, and enforcing immutable infrastructure across multi-tenant environments. The cloud security professional evaluates Encryption in Transit to protect cloud API communications and web applications against eavesdropping, downgrade attacks, and man-in-the-middle exploits.",
-    question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise? Enforcing TLS 1.",
+    question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise?",
     options: [
       { id: 'A', text: "Use static preshared keys transmitted in plaintext query parameters." },
       { id: 'B', text: "Enforce TLS 1.3 with Perfect Forward Secrecy (PFS), disable obsolete SSL/TLS protocols and weak ciphers, and implement mutual TLS (mTLS)." },
@@ -385,7 +385,7 @@ export const ISC2_CCSP_QUESTIONS_13 = [
     domainName: "Cloud Data Security",
     title: "Encryption in Transit and Protocol Hardening: Application Secops",
     scenario: "A devsecops engineering group is embedding threat modeling, automated SAST/DAST testing, and API gateway security into continuous cloud application delivery lifecycles. The cloud security professional evaluates Encryption in Transit to protect cloud API communications and web applications against eavesdropping, downgrade attacks, and man-in-the-middle exploits.",
-    question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment? Enforcing TLS 1.",
+    question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment?",
     options: [
       { id: 'A', text: "Operate internal cloud microservices over unencrypted plaintext HTTP." },
       { id: 'B', text: "Permit legacy SSLv3 and TLS 1.0 protocols to maintain compatibility with unpatched ancient client devices." },
@@ -406,7 +406,7 @@ export const ISC2_CCSP_QUESTIONS_13 = [
     domainName: "Cloud Data Security",
     title: "Encryption in Transit and Protocol Hardening: Compliance And Risk",
     scenario: "A corporate compliance auditor is evaluating cloud service level agreements, independent SOC 2 Type II audit attestations, and legal hold eDiscovery preservation policies. The cloud security professional evaluates Encryption in Transit to protect cloud API communications and web applications against eavesdropping, downgrade attacks, and man-in-the-middle exploits.",
-    question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements? Enforcing TLS 1.",
+    question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements?",
     options: [
       { id: 'A', text: "Use static preshared keys transmitted in plaintext query parameters." },
       { id: 'B', text: "Enforce TLS 1.3 with Perfect Forward Secrecy (PFS), disable obsolete SSL/TLS protocols and weak ciphers, and implement mutual TLS (mTLS)." },

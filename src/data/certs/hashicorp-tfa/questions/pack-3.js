@@ -18,7 +18,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "Terraform Cloud provides built-in cost estimation for major public cloud providers: AWS, Microsoft Azure, and Google Cloud Platform. It analyzes resource changes against cloud pricing APIs before apply.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/cost-estimation",
-    tags: ["Terraform Cloud", "Cost Estimation", "FinOps"]
+    tags: ["Terraform Cloud","Cost Estimation","FinOps"]
   },
   {
     id: "hashicorp-tfa-52",
@@ -39,7 +39,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "Terraform Cloud provides an `Audit Logging API` (Audit Trail) that records comprehensive, tamper-proof logs of all user actions, run initiations, secret modifications, and state accesses, exportable to external SIEM systems for compliance.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/users-teams-organizations/audit-trails",
-    tags: ["Terraform Cloud", "Audit Logging", "Compliance"]
+    tags: ["Terraform Cloud","Audit Logging","Compliance"]
   },
   {
     id: "hashicorp-tfa-53",
@@ -60,7 +60,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "`Run Triggers` allow workspaces to be connected. When a source workspace (e.g. networking) successfully applies a run, it automatically triggers a plan in connected downstream workspaces (e.g. applications), orchestrating multi-workspace architectures.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/settings/run-triggers",
-    tags: ["Terraform Cloud", "Run Triggers", "Workspace Orchestration"]
+    tags: ["Terraform Cloud","Run Triggers","Workspace Orchestration"]
   },
   {
     id: "hashicorp-tfa-54",
@@ -81,7 +81,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "Sentinel has three enforcement levels: `Advisory` (prints a warning but allows apply), `Soft-Mandatory` (blocks apply, but authorized users can override), and `Hard-Mandatory` (strictly blocks apply with zero override allowed under any condition).",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement/sentinel#enforcement-levels",
-    tags: ["Terraform Cloud", "Sentinel", "Enforcement Levels"]
+    tags: ["Terraform Cloud","Sentinel","Enforcement Levels"]
   },
   {
     id: "hashicorp-tfa-55",
@@ -102,7 +102,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "`Terraform Enterprise` (TFE) is the self-hosted, air-gapped distribution of Terraform Cloud. It installs on customer-owned infrastructure (VMs, Kubernetes) and provides complete organizational governance, private registries, and remote execution isolated from the public internet.",
     referenceUrl: "https://developer.hashicorp.com/terraform/enterprise",
-    tags: ["Terraform Enterprise", "Self-Hosted", "Air-Gapped"]
+    tags: ["Terraform Enterprise","Self-Hosted","Air-Gapped"]
   },
   {
     id: "hashicorp-tfa-56",
@@ -123,7 +123,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "`Terraform Cloud Agents` allow hosted Terraform Cloud to communicate with private, isolated infrastructure. The agent runs inside the private network, polls Terraform Cloud via outbound-only HTTPS, executes the run locally, and returns state updates.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/run/agents",
-    tags: ["Terraform Cloud", "Agents", "Hybrid Cloud"]
+    tags: ["Terraform Cloud","Agents","Hybrid Cloud"]
   },
   {
     id: "hashicorp-tfa-57",
@@ -144,7 +144,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "`Variable Sets` in Terraform Cloud allow administrators to define a group of variables (sensitive credentials or common configuration values) once and apply them globally across all workspaces or to selected workspace subsets.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/variables/variable-sets",
-    tags: ["Terraform Cloud", "Variable Sets", "Credential Management"]
+    tags: ["Terraform Cloud","Variable Sets","Credential Management"]
   },
   {
     id: "hashicorp-tfa-58",
@@ -165,7 +165,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "Marking a variable as `Sensitive` in Terraform Cloud encrypts the value with Vault and makes it write-only. The value is permanently masked in the UI and API, visible only during run execution.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/variables#sensitive-values",
-    tags: ["Terraform Cloud", "Sensitive Variables", "Security"]
+    tags: ["Terraform Cloud","Sensitive Variables","Security"]
   },
   {
     id: "hashicorp-tfa-59",
@@ -186,7 +186,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "The `null_resource` (and modern `terraform_data` built-in) provides a standard resource lifecycle without provisioning real cloud infrastructure. It is commonly used to house `local-exec` or `remote-exec` provisioners with `triggers`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/resources/terraform-data",
-    tags: ["Terraform", "null_resource", "terraform_data"]
+    tags: ["Terraform","null_resource","terraform_data"]
   },
   {
     id: "hashicorp-tfa-60",
@@ -207,7 +207,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "`terraform_data` is built directly into Terraform Core (v1.4+). It requires no external provider plugin, stores arbitrary values in state, triggers lifecycle recreations using `triggers_replace`, and replaces `null_resource` cleanly.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/resources/terraform-data",
-    tags: ["Terraform", "terraform_data", "Built-In Resources"]
+    tags: ["Terraform","terraform_data","Built-In Resources"]
   },
   {
     id: "hashicorp-tfa-61",
@@ -228,7 +228,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "Running `terraform init -migrate-state` instructs Terraform to copy existing state data from the old backend to the new backend. In contrast, `-reconfigure` disregards any existing state and reinitializes from scratch.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/init#backend-initialization",
-    tags: ["Terraform CLI", "terraform init", "Backend Migration"]
+    tags: ["Terraform CLI","terraform init","Backend Migration"]
   },
   {
     id: "hashicorp-tfa-62",
@@ -249,7 +249,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "The `-detailed-exitcode` flag returns specific exit codes: `0` (succeeded, empty plan / no changes), `1` (error occurred), and `2` (succeeded, non-empty plan / changes are present), enabling automated CI/CD pipeline conditionals.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan#detailed-exitcode",
-    tags: ["Terraform CLI", "detailed-exitcode", "CI/CD Automation"]
+    tags: ["Terraform CLI","detailed-exitcode","CI/CD Automation"]
   },
   {
     id: "hashicorp-tfa-63",
@@ -270,7 +270,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "Terraform Cloud provides granular workspace permissions: `Read` (view runs/state), `Plan` (trigger and view speculative plans), `Write` (execute applies), and `Admin` (full workspace configuration and secret management).",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/users-teams-organizations/permissions#workspace-permissions",
-    tags: ["Terraform Cloud", "RBAC", "Workspace Permissions"]
+    tags: ["Terraform Cloud","RBAC","Workspace Permissions"]
   },
   {
     id: "hashicorp-tfa-64",
@@ -291,7 +291,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "`terraform fmt` rewrites Terraform configuration files to canonical format and style, adjusting whitespace, indentation, alignment of equals signs, and block formatting across all `.tf` files.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/fmt",
-    tags: ["Terraform CLI", "terraform fmt", "Formatting"]
+    tags: ["Terraform CLI","terraform fmt","Formatting"]
   },
   {
     id: "hashicorp-tfa-65",
@@ -312,7 +312,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "Running `terraform fmt -check` lists any unformatted files and returns exit code 0 if all files are properly formatted, or non-zero (exit code 3) if any file needs formatting, making it ideal for CI/CD pipeline gating.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/fmt#check",
-    tags: ["Terraform CLI", "terraform fmt -check", "CI/CD"]
+    tags: ["Terraform CLI","terraform fmt -check","CI/CD"]
   },
   {
     id: "hashicorp-tfa-66",
@@ -333,7 +333,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "`terraform validate` checks configuration files purely locally for internal syntax correctness, attribute validation against downloaded provider schemas, and undeclared variables. It does not access remote services, cloud APIs, or state files.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/validate",
-    tags: ["Terraform CLI", "terraform validate", "Syntax Checking"]
+    tags: ["Terraform CLI","terraform validate","Syntax Checking"]
   },
   {
     id: "hashicorp-tfa-67",
@@ -354,7 +354,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "`terraform validate` relies on local provider schemas to verify resource attributes. If `terraform init` has not been run in the directory to install the required provider plugins, validate cannot inspect schemas and fails.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/validate",
-    tags: ["Terraform CLI", "terraform init", "Validation Prerequisite"]
+    tags: ["Terraform CLI","terraform init","Validation Prerequisite"]
   },
   {
     id: "hashicorp-tfa-68",
@@ -375,7 +375,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "Running `terraform plan -out=tfplan` writes the calculated execution plan to a file. Applying that file (`terraform apply tfplan`) guarantees that Terraform executes the exact actions planned, preventing drift or concurrent changes from slipping in.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan#out-path",
-    tags: ["Terraform CLI", "terraform plan -out", "Safe Deployments"]
+    tags: ["Terraform CLI","terraform plan -out","Safe Deployments"]
   },
   {
     id: "hashicorp-tfa-69",
@@ -385,7 +385,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     domainName: "Understand Terraform CLI",
     title: "Applying Saved Plan Files via terraform apply",
     scenario: "A CI/CD runner executes `terraform apply tfplan` referencing a plan file generated in a previous step.",
-    question: "Does Terraform ask for interactive confirmation ('Do you want to perform these actions? yes/no') when applying a saved plan file?",
+    question: "Does Terraform ask for interactive confirmation ('Do you want to perform these actions?",
     options: [
       { id: 'A', text: "No, Terraform applies the saved plan immediately without interactive confirmation" },
       { id: 'B', text: "Yes, the user must still type yes" },
@@ -396,7 +396,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "When `terraform apply` is provided with an explicit plan file created by `terraform plan -out`, Terraform does NOT prompt for interactive confirmation. The plan was already reviewed when created, so it executes immediately.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/apply",
-    tags: ["Terraform CLI", "terraform apply", "Automation"]
+    tags: ["Terraform CLI","terraform apply","Automation"]
   },
   {
     id: "hashicorp-tfa-70",
@@ -417,7 +417,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "The `-auto-approve` flag instructs `terraform apply` to skip interactive approval prompts, automatically accepting the proposed changes. It is commonly used in automated non-interactive CI/CD execution.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/apply#auto-approve",
-    tags: ["Terraform CLI", "-auto-approve", "Non-Interactive"]
+    tags: ["Terraform CLI","-auto-approve","Non-Interactive"]
   },
   {
     id: "hashicorp-tfa-71",
@@ -438,7 +438,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "The `-target` flag restricts `plan`, `apply`, or `destroy` to a specific resource address (or module) and its dependencies. HashiCorp recommends using `-target` only for exceptional emergency troubleshooting, as it can cause state isolation drift.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan#target-resource",
-    tags: ["Terraform CLI", "-target", "Targeted Operations"]
+    tags: ["Terraform CLI","-target","Targeted Operations"]
   },
   {
     id: "hashicorp-tfa-72",
@@ -459,7 +459,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "Starting in Terraform 0.152 and v1.0, `-replace` on `plan` or `apply` is the recommended method to force recreation of a resource. It supersedes the legacy `terraform taint` command, allowing safe previewing during planning.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan#replace-resource",
-    tags: ["Terraform CLI", "-replace", "Recreation"]
+    tags: ["Terraform CLI","-replace","Recreation"]
   },
   {
     id: "hashicorp-tfa-73",
@@ -480,7 +480,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "`terraform apply -refresh-only` queries remote cloud APIs, compares live reality against the state file, displays drift, and prompts to update the state file to match reality WITHOUT making any changes to cloud infrastructure.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan#refresh-only",
-    tags: ["Terraform CLI", "-refresh-only", "State Refresh"]
+    tags: ["Terraform CLI","-refresh-only","State Refresh"]
   },
   {
     id: "hashicorp-tfa-74",
@@ -501,7 +501,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "`terraform state list` lists all resources within the state file matching any provided address filters. It is commonly used to find exact resource addresses before running `state show`, `state mv`, or `-target`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/list",
-    tags: ["Terraform CLI", "terraform state list", "State Inspection"]
+    tags: ["Terraform CLI","terraform state list","State Inspection"]
   },
   {
     id: "hashicorp-tfa-75",
@@ -522,7 +522,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     type: "single",
     explanation: "`terraform state show &lt;address&gt;` displays the full set of attributes, IDs, and metadata recorded in the state file for a single specific resource or data source.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/state/show",
-    tags: ["Terraform CLI", "terraform state show", "State Inspection"]
+    tags: ["Terraform CLI","terraform state show","State Inspection"]
   }
 ];
 

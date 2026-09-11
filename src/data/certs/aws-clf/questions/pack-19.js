@@ -112,7 +112,7 @@ export const AWS_CLF_QUESTIONS_19 = [
     domainName: "Cloud Technology and Services",
     title: "Containers on AWS (ECS vs EKS): Dr Failover",
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Amazon Containers to choose a container orchestration service that allows running Docker containers using native Kubernetes APIs and tooling on AWS.",
-    question: "Which concept or service configuration satisfies these operational resilience objectives? Amazon ECS vs.",
+    question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Amazon Elastic Kubernetes Service (EKS)" },
       { id: 'B', text: "AWS Elastic Beanstalk worker tier" },
@@ -133,7 +133,7 @@ export const AWS_CLF_QUESTIONS_19 = [
     domainName: "Cloud Technology and Services",
     title: "Containers on AWS (ECS vs EKS): High Load Scale",
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Amazon Containers to choose a container orchestration service that allows running Docker containers using native Kubernetes APIs and tooling on AWS.",
-    question: "Which architectural approach should the team select to manage this demand efficiently? Amazon ECS vs.",
+    question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "AWS Elastic Beanstalk worker tier" },
       { id: 'B', text: "Amazon Elastic Kubernetes Service (EKS)" },
@@ -154,7 +154,7 @@ export const AWS_CLF_QUESTIONS_19 = [
     domainName: "Cloud Technology and Services",
     title: "Containers on AWS (ECS vs EKS): Security Compliance",
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Amazon Containers to choose a container orchestration service that allows running Docker containers using native Kubernetes APIs and tooling on AWS.",
-    question: "Which solution properly implements these mandatory security and governance controls? Amazon ECS vs.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "AWS Elastic Beanstalk worker tier" },
       { id: 'B', text: "Amazon EC2 Auto Scaling" },
@@ -175,7 +175,7 @@ export const AWS_CLF_QUESTIONS_19 = [
     domainName: "Cloud Technology and Services",
     title: "Containers on AWS (ECS vs EKS): Hybrid Migration",
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Amazon Containers to choose a container orchestration service that allows running Docker containers using native Kubernetes APIs and tooling on AWS.",
-    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Amazon ECS vs.",
+    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Amazon Elastic Container Service (ECS)" },
       { id: 'B', text: "Amazon Elastic Kubernetes Service (EKS)" },
@@ -196,7 +196,7 @@ export const AWS_CLF_QUESTIONS_19 = [
     domainName: "Cloud Technology and Services",
     title: "Containers on AWS (ECS vs EKS): Resilience Failure",
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Amazon Containers to choose a container orchestration service that allows running Docker containers using native Kubernetes APIs and tooling on AWS.",
-    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Amazon ECS vs.",
+    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Amazon EC2 Auto Scaling" },
       { id: 'B', text: "Amazon Elastic Kubernetes Service (EKS)" },
@@ -217,7 +217,7 @@ export const AWS_CLF_QUESTIONS_19 = [
     domainName: "Cloud Technology and Services",
     title: "Amazon SQS vs Amazon SNS Messaging: Dr Failover",
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates AWS Messaging to decouple microservice architectures where a single publisher sends a notification that must be pushed immediately to multiple downstream subscribers simultaneously.",
-    question: "Which concept or service configuration satisfies these operational resilience objectives? Amazon SQS (pull queue) vs.",
+    question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Amazon Kinesis Video Streams." },
       { id: 'B', text: "Amazon Simple Notification Service (SNS) using a Publish/Subscribe (Pub/Sub) model." },
@@ -238,7 +238,7 @@ export const AWS_CLF_QUESTIONS_19 = [
     domainName: "Cloud Technology and Services",
     title: "Amazon SQS vs Amazon SNS Messaging: High Load Scale",
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates AWS Messaging to decouple microservice architectures where a single publisher sends a notification that must be pushed immediately to multiple downstream subscribers simultaneously.",
-    question: "Which architectural approach should the team select to manage this demand efficiently? Amazon SQS (pull queue) vs.",
+    question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Amazon Kinesis Video Streams." },
       { id: 'B', text: "Amazon Simple Queue Service (SQS) using polling consumers." },
@@ -259,7 +259,7 @@ export const AWS_CLF_QUESTIONS_19 = [
     domainName: "Cloud Technology and Services",
     title: "Amazon SQS vs Amazon SNS Messaging: Security Compliance",
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates AWS Messaging to decouple microservice architectures where a single publisher sends a notification that must be pushed immediately to multiple downstream subscribers simultaneously.",
-    question: "Which solution properly implements these mandatory security and governance controls? Amazon SQS (pull queue) vs.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Amazon Kinesis Video Streams." },
       { id: 'B', text: "Amazon Simple Notification Service (SNS) using a Publish/Subscribe (Pub/Sub) model." },
@@ -280,7 +280,7 @@ export const AWS_CLF_QUESTIONS_19 = [
     domainName: "Cloud Technology and Services",
     title: "Amazon SQS vs Amazon SNS Messaging: Hybrid Migration",
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates AWS Messaging to decouple microservice architectures where a single publisher sends a notification that must be pushed immediately to multiple downstream subscribers simultaneously.",
-    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Amazon SQS (pull queue) vs.",
+    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Amazon CloudWatch Events alone." },
       { id: 'B', text: "Amazon Simple Notification Service (SNS) using a Publish/Subscribe (Pub/Sub) model." },
@@ -301,7 +301,7 @@ export const AWS_CLF_QUESTIONS_19 = [
     domainName: "Cloud Technology and Services",
     title: "Amazon SQS vs Amazon SNS Messaging: Resilience Failure",
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates AWS Messaging to decouple microservice architectures where a single publisher sends a notification that must be pushed immediately to multiple downstream subscribers simultaneously.",
-    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Amazon SQS (pull queue) vs.",
+    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Amazon Simple Notification Service (SNS) using a Publish/Subscribe (Pub/Sub) model." },
       { id: 'B', text: "Amazon Kinesis Video Streams." },

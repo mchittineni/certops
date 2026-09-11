@@ -112,7 +112,7 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     domainName: "Connect to and consume Azure services and third-party services",
     title: "APIM Policy Expressions and Context Variables: Dr Failover",
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure API Management to dynamically route incoming API requests to different backend service URLs based on the value of a custom HTTP header named 'X-Region'.",
-    question: "Which concept or service configuration satisfies these operational resilience objectives? C# policy expressions and context variables (@(context.Request...",
+    question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy separate API Management gateway instances for every geographical region." },
       { id: 'B', text: "Use a set-backend-service policy with a C# policy expression evaluating context.Request.Headers.GetValueOrDefault." },
@@ -133,7 +133,7 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     domainName: "Connect to and consume Azure services and third-party services",
     title: "APIM Policy Expressions and Context Variables: High Load Scale",
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Azure API Management to dynamically route incoming API requests to different backend service URLs based on the value of a custom HTTP header named 'X-Region'.",
-    question: "Which architectural approach should the team select to manage this demand efficiently? C# policy expressions and context variables (@(context.Request...",
+    question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy separate API Management gateway instances for every geographical region." },
       { id: 'B', text: "Use a set-backend-service policy with a C# policy expression evaluating context.Request.Headers.GetValueOrDefault." },
@@ -154,7 +154,7 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     domainName: "Connect to and consume Azure services and third-party services",
     title: "APIM Policy Expressions and Context Variables: Security Compliance",
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The developer evaluates Azure API Management to dynamically route incoming API requests to different backend service URLs based on the value of a custom HTTP header named 'X-Region'.",
-    question: "Which solution properly implements these mandatory security and governance controls? C# policy expressions and context variables (@(context.Request...",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Use a set-backend-service policy with a C# policy expression evaluating context.Request.Headers.GetValueOrDefault." },
       { id: 'B', text: "Deploy separate API Management gateway instances for every geographical region." },
@@ -175,7 +175,7 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     domainName: "Connect to and consume Azure services and third-party services",
     title: "APIM Policy Expressions and Context Variables: Hybrid Migration",
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure API Management to dynamically route incoming API requests to different backend service URLs based on the value of a custom HTTP header named 'X-Region'.",
-    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? C# policy expressions and context variables (@(context.Request...",
+    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Hardcode a single static backend URL and let the backend server forward requests over public internet." },
       { id: 'B', text: "Deploy separate API Management gateway instances for every geographical region." },
@@ -196,7 +196,7 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     domainName: "Connect to and consume Azure services and third-party services",
     title: "APIM Policy Expressions and Context Variables: Resilience Failure",
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The developer evaluates Azure API Management to dynamically route incoming API requests to different backend service URLs based on the value of a custom HTTP header named 'X-Region'.",
-    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? C# policy expressions and context variables (@(context.Request...",
+    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Deploy separate API Management gateway instances for every geographical region." },
       { id: 'B', text: "Modify client browser DNS settings to resolve regional backend servers directly." },

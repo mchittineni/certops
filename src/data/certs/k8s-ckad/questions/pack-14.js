@@ -322,7 +322,7 @@ export const K8S_CKAD_QUESTIONS_14 = [
     domainName: "Application Deployment",
     title: "Deploying with Helm Charts and Values Overrides: Dr Failover",
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Package Management to deploy a complex multi-tier microservice stack consistently across dev, test, and prod environments with environment-specific configuration parameters.",
-    question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? Declarative application deployments using Helm charts and values.",
+    question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
       { id: 'A', text: "Instruct developers to manually edit production YAML manifests with vi before each deployment." },
       { id: 'B', text: "Hardcode production credentials and environment URLs into a single un-parameterized template." },
@@ -343,7 +343,7 @@ export const K8S_CKAD_QUESTIONS_14 = [
     domainName: "Application Deployment",
     title: "Deploying with Helm Charts and Values Overrides: High Load Scale",
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Package Management to deploy a complex multi-tier microservice stack consistently across dev, test, and prod environments with environment-specific configuration parameters.",
-    question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability? Declarative application deployments using Helm charts and values.",
+    question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
       { id: 'A', text: "Maintain completely separate sets of raw duplicate YAML files across dozens of repository branches." },
       { id: 'B', text: "Instruct developers to manually edit production YAML manifests with vi before each deployment." },
@@ -364,7 +364,7 @@ export const K8S_CKAD_QUESTIONS_14 = [
     domainName: "Application Deployment",
     title: "Deploying with Helm Charts and Values Overrides: Security Compliance",
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Package Management to deploy a complex multi-tier microservice stack consistently across dev, test, and prod environments with environment-specific configuration parameters.",
-    question: "Which solution properly implements these mandatory container and cluster security controls? Declarative application deployments using Helm charts and values.",
+    question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
       { id: 'A', text: "Package the application manifests into a Helm chart and deploy using `helm install` or `helm upgrade --install` with environment-specific values files (`-f values-prod.yaml`)." },
       { id: 'B', text: "Hardcode production credentials and environment URLs into a single un-parameterized template." },
@@ -385,7 +385,7 @@ export const K8S_CKAD_QUESTIONS_14 = [
     domainName: "Application Deployment",
     title: "Deploying with Helm Charts and Values Overrides: Hybrid Migration",
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Package Management to deploy a complex multi-tier microservice stack consistently across dev, test, and prod environments with environment-specific configuration parameters.",
-    question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction? Declarative application deployments using Helm charts and values.",
+    question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
       { id: 'A', text: "Instruct developers to manually edit production YAML manifests with vi before each deployment." },
       { id: 'B', text: "Hardcode production credentials and environment URLs into a single un-parameterized template." },
@@ -406,7 +406,7 @@ export const K8S_CKAD_QUESTIONS_14 = [
     domainName: "Application Deployment",
     title: "Deploying with Helm Charts and Values Overrides: Resilience Failure",
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Package Management to deploy a complex multi-tier microservice stack consistently across dev, test, and prod environments with environment-specific configuration parameters.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability? Declarative application deployments using Helm charts and values.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
       { id: 'A', text: "Package the application manifests into a Helm chart and deploy using `helm install` or `helm upgrade --install` with environment-specific values files (`-f values-prod.yaml`)." },
       { id: 'B', text: "Instruct developers to manually edit production YAML manifests with vi before each deployment." },

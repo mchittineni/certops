@@ -322,7 +322,7 @@ export const AWS_CLF_QUESTIONS_14 = [
     domainName: "Security and Compliance",
     title: "Security Groups vs Network ACLs: Dr Failover",
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Amazon VPC to compare the operational behavior of Amazon VPC Security Groups and Network Access Control Lists (NACLs).",
-    question: "Which concept or service configuration satisfies these operational resilience objectives? Security Groups vs.",
+    question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Security Groups are stateful firewalls evaluated at the instance network interface level that only support Allow rules; Network ACLs are stateless firewalls evaluated at the subnet level that support both Allow and Deny rules." },
       { id: 'B', text: "Security Groups evaluate rules in strict numerical order, while Network ACLs evaluate all rules simultaneously." },
@@ -343,7 +343,7 @@ export const AWS_CLF_QUESTIONS_14 = [
     domainName: "Security and Compliance",
     title: "Security Groups vs Network ACLs: High Load Scale",
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Amazon VPC to compare the operational behavior of Amazon VPC Security Groups and Network Access Control Lists (NACLs).",
-    question: "Which architectural approach should the team select to manage this demand efficiently? Security Groups vs.",
+    question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Security Groups evaluate rules in strict numerical order, while Network ACLs evaluate all rules simultaneously." },
       { id: 'B', text: "Security Groups are stateless and support Deny rules; Network ACLs are stateful and support Allow rules only." },
@@ -364,7 +364,7 @@ export const AWS_CLF_QUESTIONS_14 = [
     domainName: "Security and Compliance",
     title: "Security Groups vs Network ACLs: Security Compliance",
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Amazon VPC to compare the operational behavior of Amazon VPC Security Groups and Network Access Control Lists (NACLs).",
-    question: "Which solution properly implements these mandatory security and governance controls? Security Groups vs.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Security Groups evaluate rules in strict numerical order, while Network ACLs evaluate all rules simultaneously." },
       { id: 'B', text: "Security Groups operate at the subnet level, while Network ACLs operate at the instance level." },
@@ -385,7 +385,7 @@ export const AWS_CLF_QUESTIONS_14 = [
     domainName: "Security and Compliance",
     title: "Security Groups vs Network ACLs: Hybrid Migration",
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Amazon VPC to compare the operational behavior of Amazon VPC Security Groups and Network Access Control Lists (NACLs).",
-    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Security Groups vs.",
+    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Security Groups are stateful firewalls evaluated at the instance network interface level that only support Allow rules; Network ACLs are stateless firewalls evaluated at the subnet level that support both Allow and Deny rules." },
       { id: 'B', text: "Security Groups are stateless and support Deny rules; Network ACLs are stateful and support Allow rules only." },
@@ -406,7 +406,7 @@ export const AWS_CLF_QUESTIONS_14 = [
     domainName: "Security and Compliance",
     title: "Security Groups vs Network ACLs: Resilience Failure",
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Amazon VPC to compare the operational behavior of Amazon VPC Security Groups and Network Access Control Lists (NACLs).",
-    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Security Groups vs.",
+    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Security Groups are stateless and support Deny rules; Network ACLs are stateful and support Allow rules only." },
       { id: 'B', text: "Security Groups evaluate rules in strict numerical order, while Network ACLs evaluate all rules simultaneously." },

@@ -112,7 +112,7 @@ export const AWS_DVA_QUESTIONS_18 = [
     domainName: "Deployment",
     title: "Elastic Beanstalk .ebextensions Configuration: Dr Failover",
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes AWS Elastic Beanstalk to customize the runtime environment of an Elastic Beanstalk application by installing Linux packages, configuring system daemons, and setting environment variables at deploy time.",
-    question: "Which implementation or architectural approach satisfies these resilience criteria? Elastic Beanstalk .",
+    question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle." },
       { id: 'B', text: "Store package install scripts in an S3 bucket policy." },
@@ -133,7 +133,7 @@ export const AWS_DVA_QUESTIONS_18 = [
     domainName: "Deployment",
     title: "Elastic Beanstalk .ebextensions Configuration: High Load Scale",
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS Elastic Beanstalk to customize the runtime environment of an Elastic Beanstalk application by installing Linux packages, configuring system daemons, and setting environment variables at deploy time.",
-    question: "Which architectural approach should the developer recommend to handle this workload efficiently? Elastic Beanstalk .",
+    question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Store package install scripts in an S3 bucket policy." },
       { id: 'B', text: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle." },
@@ -154,7 +154,7 @@ export const AWS_DVA_QUESTIONS_18 = [
     domainName: "Deployment",
     title: "Elastic Beanstalk .ebextensions Configuration: Security Compliance",
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes AWS Elastic Beanstalk to customize the runtime environment of an Elastic Beanstalk application by installing Linux packages, configuring system daemons, and setting environment variables at deploy time.",
-    question: "Which solution properly implements these mandatory security and governance controls? Elastic Beanstalk .",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "SSH into each EC2 instance after deployment and install packages manually." },
       { id: 'B', text: "Store package install scripts in an S3 bucket policy." },
@@ -175,7 +175,7 @@ export const AWS_DVA_QUESTIONS_18 = [
     domainName: "Deployment",
     title: "Elastic Beanstalk .ebextensions Configuration: Hybrid Migration",
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes AWS Elastic Beanstalk to customize the runtime environment of an Elastic Beanstalk application by installing Linux packages, configuring system daemons, and setting environment variables at deploy time.",
-    question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance? Elastic Beanstalk .",
+    question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Store package install scripts in an S3 bucket policy." },
       { id: 'B', text: "Deploy an AWS Systems Manager Run Command script every 5 minutes." },
@@ -196,7 +196,7 @@ export const AWS_DVA_QUESTIONS_18 = [
     domainName: "Deployment",
     title: "Elastic Beanstalk .ebextensions Configuration: Resilience Failure",
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS Elastic Beanstalk to customize the runtime environment of an Elastic Beanstalk application by installing Linux packages, configuring system daemons, and setting environment variables at deploy time.",
-    question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery? Elastic Beanstalk .",
+    question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Include YAML or JSON configuration files in the `.ebextensions` directory in the root of the source bundle." },
       { id: 'B', text: "Store package install scripts in an S3 bucket policy." },

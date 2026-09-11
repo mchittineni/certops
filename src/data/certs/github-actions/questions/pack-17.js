@@ -322,7 +322,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     domainName: "Author and maintain actions",
     title: "Action Metadata File: action.yml Syntax: Dr Failover",
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to author the metadata manifest for a custom reusable action defining required input parameters, default values, and outputs.",
-    question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives? Defining action inputs, outputs, branding, and execution runs in action.",
+    question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Declare metadata in a workflow file under `.github/workflows/`." },
       { id: 'B', text: "Put metadata inside a standard package.json file." },
@@ -343,7 +343,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     domainName: "Author and maintain actions",
     title: "Action Metadata File: action.yml Syntax: High Load Scale",
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to author the metadata manifest for a custom reusable action defining required input parameters, default values, and outputs.",
-    question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency? Defining action inputs, outputs, branding, and execution runs in action.",
+    question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Declare metadata in a workflow file under `.github/workflows/`." },
       { id: 'B', text: "Create `action.yml` in the repository root specifying `name`, `description`, `inputs:`, `outputs:`, and `runs:`." },
@@ -364,7 +364,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     domainName: "Author and maintain actions",
     title: "Action Metadata File: action.yml Syntax: Security Compliance",
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to author the metadata manifest for a custom reusable action defining required input parameters, default values, and outputs.",
-    question: "Which solution implements these mandatory CI/CD security and compliance controls? Defining action inputs, outputs, branding, and execution runs in action.",
+    question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Hardcode input parameters inside compiled binary files." },
       { id: 'B', text: "Create `action.yml` in the repository root specifying `name`, `description`, `inputs:`, `outputs:`, and `runs:`." },
@@ -385,7 +385,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     domainName: "Author and maintain actions",
     title: "Action Metadata File: action.yml Syntax: Hybrid Migration",
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to author the metadata manifest for a custom reusable action defining required input parameters, default values, and outputs.",
-    question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction? Defining action inputs, outputs, branding, and execution runs in action.",
+    question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Create `action.yml` in the repository root specifying `name`, `description`, `inputs:`, `outputs:`, and `runs:`." },
       { id: 'B', text: "Hardcode input parameters inside compiled binary files." },
@@ -406,7 +406,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     domainName: "Author and maintain actions",
     title: "Action Metadata File: action.yml Syntax: Resilience Failure",
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to author the metadata manifest for a custom reusable action defining required input parameters, default values, and outputs.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability? Defining action inputs, outputs, branding, and execution runs in action.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Put metadata inside a standard package.json file." },
       { id: 'B', text: "Create `action.yml` in the repository root specifying `name`, `description`, `inputs:`, `outputs:`, and `runs:`." },

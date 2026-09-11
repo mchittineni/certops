@@ -322,7 +322,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainName: "Security and Compliance",
     title: "IAM Roles Anywhere for On-Premises Workloads: Dr Failover",
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
-    question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives? Obtaining short-lived AWS IAM credentials for on-premises servers using X.",
+    question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },
       { id: 'B', text: "Open public internet access to AWS APIs with no authentication." },
@@ -343,7 +343,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainName: "Security and Compliance",
     title: "IAM Roles Anywhere for On-Premises Workloads: High Load Scale",
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
-    question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention? Obtaining short-lived AWS IAM credentials for on-premises servers using X.",
+    question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Open public internet access to AWS APIs with no authentication." },
       { id: 'B', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },
@@ -364,7 +364,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainName: "Security and Compliance",
     title: "IAM Roles Anywhere for On-Premises Workloads: Security Compliance",
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
-    question: "Which solution implements these mandatory compliance and security controls? Obtaining short-lived AWS IAM credentials for on-premises servers using X.",
+    question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },
       { id: 'B', text: "Generate permanent IAM user access keys and hardcode them on on-premises disks." },
@@ -385,7 +385,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainName: "Security and Compliance",
     title: "IAM Roles Anywhere for On-Premises Workloads: Hybrid Migration",
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
-    question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? Obtaining short-lived AWS IAM credentials for on-premises servers using X.",
+    question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Open public internet access to AWS APIs with no authentication." },
       { id: 'B', text: "Commit IAM secret keys to a public GitHub repository." },
@@ -406,7 +406,7 @@ export const AWS_DOP_QUESTIONS_20 = [
     domainName: "Security and Compliance",
     title: "IAM Roles Anywhere for On-Premises Workloads: Resilience Failure",
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability? Obtaining short-lived AWS IAM credentials for on-premises servers using X.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Generate permanent IAM user access keys and hardcode them on on-premises disks." },
       { id: 'B', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },

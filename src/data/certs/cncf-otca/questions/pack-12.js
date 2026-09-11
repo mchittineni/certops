@@ -7,7 +7,7 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Baggage vs Trace Context: Enterprise Observability",
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to propagate a business-level `customerId` and `accountTier` across an entire microservice call graph without recording them in trace span names.",
-    question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives? Propagating cross-cutting business metadata (e.g.",
+    question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Use the OpenTelemetry Baggage API to attach key-value pairs that are propagated across network boundaries via W3C Baggage headers." },
       { id: 'B', text: "Baggage is not supported in OpenTelemetry architectures." },
@@ -28,7 +28,7 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Baggage vs Trace Context: High Throughput Scale",
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to propagate a business-level `customerId` and `accountTier` across an entire microservice call graph without recording them in trace span names.",
-    question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends? Propagating cross-cutting business metadata (e.g.",
+    question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Use the OpenTelemetry Baggage API to attach key-value pairs that are propagated across network boundaries via W3C Baggage headers." },
       { id: 'B', text: "Baggage is not supported in OpenTelemetry architectures." },
@@ -49,7 +49,7 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Baggage vs Trace Context: Security And Governance",
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to propagate a business-level `customerId` and `accountTier` across an entire microservice call graph without recording them in trace span names.",
-    question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls? Propagating cross-cutting business metadata (e.g.",
+    question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Append customer IDs to every database column name." },
       { id: 'B', text: "Use the OpenTelemetry Baggage API to attach key-value pairs that are propagated across network boundaries via W3C Baggage headers." },
@@ -70,7 +70,7 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Baggage vs Trace Context: Microservice Migration",
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to propagate a business-level `customerId` and `accountTier` across an entire microservice call graph without recording them in trace span names.",
-    question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption? Propagating cross-cutting business metadata (e.g.",
+    question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Use the OpenTelemetry Baggage API to attach key-value pairs that are propagated across network boundaries via W3C Baggage headers." },
       { id: 'B', text: "Append customer IDs to every database column name." },
@@ -91,7 +91,7 @@ export const CNCF_OTCA_QUESTIONS_12 = [
     domainName: "OpenTelemetry Overview and Architecture",
     title: "Baggage vs Trace Context: Resilience And Reliability",
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to propagate a business-level `customerId` and `accountTier` across an entire microservice call graph without recording them in trace span names.",
-    question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation? Propagating cross-cutting business metadata (e.g.",
+    question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Use the OpenTelemetry Baggage API to attach key-value pairs that are propagated across network boundaries via W3C Baggage headers." },
       { id: 'B', text: "Baggage is not supported in OpenTelemetry architectures." },

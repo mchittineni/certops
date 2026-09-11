@@ -322,7 +322,7 @@ export const AWS_CLF_QUESTIONS_17 = [
     domainName: "Cloud Technology and Services",
     title: "Amazon RDS Multi-AZ vs Read Replicas: Dr Failover",
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates Amazon RDS to differentiate the primary use case of an Amazon RDS Multi-AZ deployment from an Amazon RDS Read Replica.",
-    question: "Which concept or service configuration satisfies these operational resilience objectives? Amazon RDS Multi-AZ deployments vs.",
+    question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Multi-AZ is designed for read scalability, while Read Replicas are designed for high availability." },
       { id: 'B', text: "Read Replicas synchronously replicate data and act as the primary write target." },
@@ -343,7 +343,7 @@ export const AWS_CLF_QUESTIONS_17 = [
     domainName: "Cloud Technology and Services",
     title: "Amazon RDS Multi-AZ vs Read Replicas: High Load Scale",
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Amazon RDS to differentiate the primary use case of an Amazon RDS Multi-AZ deployment from an Amazon RDS Read Replica.",
-    question: "Which architectural approach should the team select to manage this demand efficiently? Amazon RDS Multi-AZ deployments vs.",
+    question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Amazon RDS Multi-AZ provides high availability and automated synchronous failover for disaster recovery; Read Replicas provide asynchronous read scalability for read-heavy database workloads." },
       { id: 'B', text: "Multi-AZ deployments do not provide automated failover." },
@@ -364,7 +364,7 @@ export const AWS_CLF_QUESTIONS_17 = [
     domainName: "Cloud Technology and Services",
     title: "Amazon RDS Multi-AZ vs Read Replicas: Security Compliance",
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Amazon RDS to differentiate the primary use case of an Amazon RDS Multi-AZ deployment from an Amazon RDS Read Replica.",
-    question: "Which solution properly implements these mandatory security and governance controls? Amazon RDS Multi-AZ deployments vs.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Read Replicas synchronously replicate data and act as the primary write target." },
       { id: 'B', text: "Amazon RDS Multi-AZ provides high availability and automated synchronous failover for disaster recovery; Read Replicas provide asynchronous read scalability for read-heavy database workloads." },
@@ -385,7 +385,7 @@ export const AWS_CLF_QUESTIONS_17 = [
     domainName: "Cloud Technology and Services",
     title: "Amazon RDS Multi-AZ vs Read Replicas: Hybrid Migration",
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates Amazon RDS to differentiate the primary use case of an Amazon RDS Multi-AZ deployment from an Amazon RDS Read Replica.",
-    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? Amazon RDS Multi-AZ deployments vs.",
+    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Amazon RDS Multi-AZ provides high availability and automated synchronous failover for disaster recovery; Read Replicas provide asynchronous read scalability for read-heavy database workloads." },
       { id: 'B', text: "Multi-AZ deployments do not provide automated failover." },
@@ -406,7 +406,7 @@ export const AWS_CLF_QUESTIONS_17 = [
     domainName: "Cloud Technology and Services",
     title: "Amazon RDS Multi-AZ vs Read Replicas: Resilience Failure",
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Amazon RDS to differentiate the primary use case of an Amazon RDS Multi-AZ deployment from an Amazon RDS Read Replica.",
-    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? Amazon RDS Multi-AZ deployments vs.",
+    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Multi-AZ deployments do not provide automated failover." },
       { id: 'B', text: "Read Replicas synchronously replicate data and act as the primary write target." },

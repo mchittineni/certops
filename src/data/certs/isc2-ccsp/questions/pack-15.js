@@ -112,7 +112,7 @@ export const ISC2_CCSP_QUESTIONS_15 = [
     domainName: "Cloud Platform and Infrastructure Security",
     title: "Identity Federation and Single Sign-On Standards: Enterprise Architecture",
     scenario: "An enterprise chief information security officer (CISO) is establishing multi-cloud governance frameworks, shared responsibility models, and Zero Trust architectures across global business units. The cloud security professional evaluates Identity Federation to allow enterprise employees to access multi-cloud administrative consoles using their corporate credentials without duplicating accounts.",
-    question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives? SAML 2.0, OpenID Connect (OIDC), OAuth 2.",
+    question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives?",
     options: [
       { id: 'A', text: "Share a single corporate master administrative password among all IT team members." },
       { id: 'B', text: "Disable multi-factor authentication during identity federation to streamline login workflows." },
@@ -133,7 +133,7 @@ export const ISC2_CCSP_QUESTIONS_15 = [
     domainName: "Cloud Platform and Infrastructure Security",
     title: "Identity Federation and Single Sign-On Standards: Data Protection And Privacy",
     scenario: "A global data protection officer is implementing cryptographic data lifecycles, crypto-shredding sanitization, and data loss prevention across sensitive cloud repositories. The cloud security professional evaluates Identity Federation to allow enterprise employees to access multi-cloud administrative consoles using their corporate credentials without duplicating accounts.",
-    question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates? SAML 2.0, OpenID Connect (OIDC), OAuth 2.",
+    question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates?",
     options: [
       { id: 'A', text: "Implement Identity Federation using SAML 2.0 or OpenID Connect (OIDC) with SCIM for automated user provisioning and deprovisioning." },
       { id: 'B', text: "Disable multi-factor authentication during identity federation to streamline login workflows." },
@@ -154,7 +154,7 @@ export const ISC2_CCSP_QUESTIONS_15 = [
     domainName: "Cloud Platform and Infrastructure Security",
     title: "Identity Federation and Single Sign-On Standards: Platform Hardening",
     scenario: "A cloud platform security team is hardening virtualization substrates, implementing micro-segmentation, and enforcing immutable infrastructure across multi-tenant environments. The cloud security professional evaluates Identity Federation to allow enterprise employees to access multi-cloud administrative consoles using their corporate credentials without duplicating accounts.",
-    question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise? SAML 2.0, OpenID Connect (OIDC), OAuth 2.",
+    question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise?",
     options: [
       { id: 'A', text: "Share a single corporate master administrative password among all IT team members." },
       { id: 'B', text: "Create local username and password accounts for each employee in every individual cloud service console." },
@@ -175,7 +175,7 @@ export const ISC2_CCSP_QUESTIONS_15 = [
     domainName: "Cloud Platform and Infrastructure Security",
     title: "Identity Federation and Single Sign-On Standards: Application Secops",
     scenario: "A devsecops engineering group is embedding threat modeling, automated SAST/DAST testing, and API gateway security into continuous cloud application delivery lifecycles. The cloud security professional evaluates Identity Federation to allow enterprise employees to access multi-cloud administrative consoles using their corporate credentials without duplicating accounts.",
-    question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment? SAML 2.0, OpenID Connect (OIDC), OAuth 2.",
+    question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment?",
     options: [
       { id: 'A', text: "Implement Identity Federation using SAML 2.0 or OpenID Connect (OIDC) with SCIM for automated user provisioning and deprovisioning." },
       { id: 'B', text: "Share a single corporate master administrative password among all IT team members." },
@@ -196,7 +196,7 @@ export const ISC2_CCSP_QUESTIONS_15 = [
     domainName: "Cloud Platform and Infrastructure Security",
     title: "Identity Federation and Single Sign-On Standards: Compliance And Risk",
     scenario: "A corporate compliance auditor is evaluating cloud service level agreements, independent SOC 2 Type II audit attestations, and legal hold eDiscovery preservation policies. The cloud security professional evaluates Identity Federation to allow enterprise employees to access multi-cloud administrative consoles using their corporate credentials without duplicating accounts.",
-    question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements? SAML 2.0, OpenID Connect (OIDC), OAuth 2.",
+    question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements?",
     options: [
       { id: 'A', text: "Create local username and password accounts for each employee in every individual cloud service console." },
       { id: 'B', text: "Disable multi-factor authentication during identity federation to streamline login workflows." },

@@ -112,7 +112,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Load Balancing SSL Policies and Custom Domains: Dr Failover",
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
-    question: "Which concept or service configuration satisfies these operational resilience objectives? SSL Policies enforcing TLS 1.",
+    question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Rely on default client browser TLS negotiation." },
       { id: 'B', text: "Configure SSL termination inside individual backend virtual machines." },
@@ -133,7 +133,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Load Balancing SSL Policies and Custom Domains: High Load Scale",
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
-    question: "Which architectural approach should the team select to manage this demand efficiently? SSL Policies enforcing TLS 1.",
+    question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Rely on default client browser TLS negotiation." },
       { id: 'B', text: "Disable HTTPS encryption and use cleartext HTTP traffic." },
@@ -154,7 +154,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Load Balancing SSL Policies and Custom Domains: Security Compliance",
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
-    question: "Which solution properly implements these mandatory security and governance controls? SSL Policies enforcing TLS 1.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Rely on default client browser TLS negotiation." },
       { id: 'B', text: "Disable HTTPS encryption and use cleartext HTTP traffic." },
@@ -175,7 +175,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Load Balancing SSL Policies and Custom Domains: Hybrid Migration",
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
-    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals? SSL Policies enforcing TLS 1.",
+    question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Rely on default client browser TLS negotiation." },
       { id: 'B', text: "Disable HTTPS encryption and use cleartext HTTP traffic." },
@@ -196,7 +196,7 @@ export const GCP_PCA_QUESTIONS_15 = [
     domainName: "Managing and provisioning the cloud solution infrastructure",
     title: "Cloud Load Balancing SSL Policies and Custom Domains: Resilience Failure",
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
-    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management? SSL Policies enforcing TLS 1.",
+    question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Configure SSL termination inside individual backend virtual machines." },
       { id: 'B', text: "Rely on default client browser TLS negotiation." },

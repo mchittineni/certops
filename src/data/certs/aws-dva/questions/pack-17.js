@@ -112,7 +112,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     domainName: "Deployment",
     title: "AWS CodeBuild buildspec.yml Phases: Dr Failover",
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes AWS CodeBuild to configure a continuous integration build job that installs dependencies, runs unit tests, compiles binaries, and outputs build artifacts to Amazon S3.",
-    question: "Which implementation or architectural approach satisfies these resilience criteria? AWS CodeBuild buildspec.",
+    question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Write a custom Windows batch script and run it on an EC2 instance manually." },
       { id: 'B', text: "Store build commands in an S3 bucket policy." },
@@ -133,7 +133,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     domainName: "Deployment",
     title: "AWS CodeBuild buildspec.yml Phases: High Load Scale",
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS CodeBuild to configure a continuous integration build job that installs dependencies, runs unit tests, compiles binaries, and outputs build artifacts to Amazon S3.",
-    question: "Which architectural approach should the developer recommend to handle this workload efficiently? AWS CodeBuild buildspec.",
+    question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Define a `buildspec.yml` file in the source repository containing `install`, `pre_build`, `build`, and `post_build` phases with an `artifacts` block." },
       { id: 'B', text: "Execute tests inside an AWS Lambda function handler with a 3-second timeout." },
@@ -154,7 +154,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     domainName: "Deployment",
     title: "AWS CodeBuild buildspec.yml Phases: Security Compliance",
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes AWS CodeBuild to configure a continuous integration build job that installs dependencies, runs unit tests, compiles binaries, and outputs build artifacts to Amazon S3.",
-    question: "Which solution properly implements these mandatory security and governance controls? AWS CodeBuild buildspec.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Write a custom Windows batch script and run it on an EC2 instance manually." },
       { id: 'B', text: "Execute tests inside an AWS Lambda function handler with a 3-second timeout." },
@@ -175,7 +175,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     domainName: "Deployment",
     title: "AWS CodeBuild buildspec.yml Phases: Hybrid Migration",
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes AWS CodeBuild to configure a continuous integration build job that installs dependencies, runs unit tests, compiles binaries, and outputs build artifacts to Amazon S3.",
-    question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance? AWS CodeBuild buildspec.",
+    question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Store build commands in an S3 bucket policy." },
       { id: 'B', text: "Define a `buildspec.yml` file in the source repository containing `install`, `pre_build`, `build`, and `post_build` phases with an `artifacts` block." },
@@ -196,7 +196,7 @@ export const AWS_DVA_QUESTIONS_17 = [
     domainName: "Deployment",
     title: "AWS CodeBuild buildspec.yml Phases: Resilience Failure",
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS CodeBuild to configure a continuous integration build job that installs dependencies, runs unit tests, compiles binaries, and outputs build artifacts to Amazon S3.",
-    question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery? AWS CodeBuild buildspec.",
+    question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Execute tests inside an AWS Lambda function handler with a 3-second timeout." },
       { id: 'B', text: "Store build commands in an S3 bucket policy." },

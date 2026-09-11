@@ -112,7 +112,7 @@ export const GCP_PCDOE_QUESTIONS_13 = [
     domainName: "Building and implementing CI/CD pipelines for a service",
     title: "Cloud Build Configuration with cloudbuild.yaml: Dr Failover",
     scenario: "An enterprise SRE organization is establishing operational continuity guidelines and high-availability architecture for its Google Cloud services. The DevOps team evaluates Cloud Build to automate container compilation, security linting, and automated unit test execution using Google Cloud Build.",
-    question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives? cloudbuild.",
+    question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
       { id: 'A', text: "Write custom compile scripts directly into virtual machine operating system crontabs." },
       { id: 'B', text: "Commit compiled binary files directly into source code version control." },
@@ -133,7 +133,7 @@ export const GCP_PCDOE_QUESTIONS_13 = [
     domainName: "Building and implementing CI/CD pipelines for a service",
     title: "Cloud Build Configuration with cloudbuild.yaml: High Load Scale",
     scenario: "A high-throughput Google Cloud application experiences unpredictable bursts of traffic and transactional demands from global users. The DevOps team evaluates Cloud Build to automate container compilation, security linting, and automated unit test execution using Google Cloud Build.",
-    question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention? cloudbuild.",
+    question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention?",
     options: [
       { id: 'A', text: "Define build steps in a cloudbuild.yaml file using containerized builder images with built-in substitution variables." },
       { id: 'B', text: "Run manual shell scripts sequentially on a personal workstation." },
@@ -154,7 +154,7 @@ export const GCP_PCDOE_QUESTIONS_13 = [
     domainName: "Building and implementing CI/CD pipelines for a service",
     title: "Cloud Build Configuration with cloudbuild.yaml: Security Compliance",
     scenario: "A security compliance auditor requires automated verification of system integrity, secret isolation, and governance across all continuous delivery pipelines. The DevOps team evaluates Cloud Build to automate container compilation, security linting, and automated unit test execution using Google Cloud Build.",
-    question: "Which solution implements these mandatory compliance and security controls? cloudbuild.",
+    question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Write custom compile scripts directly into virtual machine operating system crontabs." },
       { id: 'B', text: "Run manual shell scripts sequentially on a personal workstation." },
@@ -175,7 +175,7 @@ export const GCP_PCDOE_QUESTIONS_13 = [
     domainName: "Building and implementing CI/CD pipelines for a service",
     title: "Cloud Build Configuration with cloudbuild.yaml: Hybrid Migration",
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on Google Cloud. The DevOps team evaluates Cloud Build to automate container compilation, security linting, and automated unit test execution using Google Cloud Build.",
-    question: "Which practice or platform capability accelerates this transition while minimizing operational overhead? cloudbuild.",
+    question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Define build steps in a cloudbuild.yaml file using containerized builder images with built-in substitution variables." },
       { id: 'B', text: "Commit compiled binary files directly into source code version control." },
@@ -196,7 +196,7 @@ export const GCP_PCDOE_QUESTIONS_13 = [
     domainName: "Building and implementing CI/CD pipelines for a service",
     title: "Cloud Build Configuration with cloudbuild.yaml: Resilience Failure",
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate operational incident handling. The DevOps team evaluates Cloud Build to automate container compilation, security linting, and automated unit test execution using Google Cloud Build.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability? cloudbuild.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability?",
     options: [
       { id: 'A', text: "Commit compiled binary files directly into source code version control." },
       { id: 'B', text: "Write custom compile scripts directly into virtual machine operating system crontabs." },

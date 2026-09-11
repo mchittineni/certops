@@ -322,7 +322,7 @@ export const AWS_DVA_QUESTIONS_12 = [
     domainName: "Development with AWS Services",
     title: "Lambda Response Streaming: Dr Failover",
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes AWS Lambda to stream large JSON documents and progressive web responses up to 20 MB back to client browsers without buffering the entire payload in memory.",
-    question: "Which implementation or architectural approach satisfies these resilience criteria? AWS Lambda Response Streaming for Node.",
+    question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
       { id: 'A', text: "Increase the Lambda memory size to 10,240 MB to accommodate larger return objects." },
       { id: 'B', text: "Split the JSON document into multiple 6 MB chunks and send multiple SQS messages." },
@@ -343,7 +343,7 @@ export const AWS_DVA_QUESTIONS_12 = [
     domainName: "Development with AWS Services",
     title: "Lambda Response Streaming: High Load Scale",
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS Lambda to stream large JSON documents and progressive web responses up to 20 MB back to client browsers without buffering the entire payload in memory.",
-    question: "Which architectural approach should the developer recommend to handle this workload efficiently? AWS Lambda Response Streaming for Node.",
+    question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Increase the Lambda memory size to 10,240 MB to accommodate larger return objects." },
       { id: 'B', text: "Write the payload to an Amazon S3 bucket and return a presigned URL." },
@@ -364,7 +364,7 @@ export const AWS_DVA_QUESTIONS_12 = [
     domainName: "Development with AWS Services",
     title: "Lambda Response Streaming: Security Compliance",
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes AWS Lambda to stream large JSON documents and progressive web responses up to 20 MB back to client browsers without buffering the entire payload in memory.",
-    question: "Which solution properly implements these mandatory security and governance controls? AWS Lambda Response Streaming for Node.",
+    question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Split the JSON document into multiple 6 MB chunks and send multiple SQS messages." },
       { id: 'B', text: "Configure AWS Lambda response streaming using the `awslambda.streamifyResponse()` decorator." },
@@ -385,7 +385,7 @@ export const AWS_DVA_QUESTIONS_12 = [
     domainName: "Development with AWS Services",
     title: "Lambda Response Streaming: Hybrid Migration",
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes AWS Lambda to stream large JSON documents and progressive web responses up to 20 MB back to client browsers without buffering the entire payload in memory.",
-    question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance? AWS Lambda Response Streaming for Node.",
+    question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
       { id: 'A', text: "Split the JSON document into multiple 6 MB chunks and send multiple SQS messages." },
       { id: 'B', text: "Configure AWS Lambda response streaming using the `awslambda.streamifyResponse()` decorator." },
@@ -406,7 +406,7 @@ export const AWS_DVA_QUESTIONS_12 = [
     domainName: "Development with AWS Services",
     title: "Lambda Response Streaming: Resilience Failure",
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes AWS Lambda to stream large JSON documents and progressive web responses up to 20 MB back to client browsers without buffering the entire payload in memory.",
-    question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery? AWS Lambda Response Streaming for Node.",
+    question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Configure AWS Lambda response streaming using the `awslambda.streamifyResponse()` decorator." },
       { id: 'B', text: "Split the JSON document into multiple 6 MB chunks and send multiple SQS messages." },

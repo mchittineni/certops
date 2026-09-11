@@ -322,7 +322,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainName: "GitOps Architecture and Repositories",
     title: "Helm Charts and HelmReleases in GitOps: Dr Failover",
     scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to deploy and manage complex third-party software (like cert-manager or Prometheus) declaratively using GitOps controllers.",
-    question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives? Managing third-party and internal applications using Helm charts with Git-managed values.",
+    question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Avoid using Helm and write custom Go operators for all third-party software." },
       { id: 'B', text: "Run `helm install` manually from an administrator's laptop over a local terminal." },
@@ -343,7 +343,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainName: "GitOps Architecture and Repositories",
     title: "Helm Charts and HelmReleases in GitOps: High Load Scale",
     scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to deploy and manage complex third-party software (like cert-manager or Prometheus) declaratively using GitOps controllers.",
-    question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays? Managing third-party and internal applications using Helm charts with Git-managed values.",
+    question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Avoid using Helm and write custom Go operators for all third-party software." },
       { id: 'B', text: "Run `helm install` manually from an administrator's laptop over a local terminal." },
@@ -364,7 +364,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainName: "GitOps Architecture and Repositories",
     title: "Helm Charts and HelmReleases in GitOps: Security Compliance",
     scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to deploy and manage complex third-party software (like cert-manager or Prometheus) declaratively using GitOps controllers.",
-    question: "Which solution implements these mandatory GitOps security and governance controls? Managing third-party and internal applications using Helm charts with Git-managed values.",
+    question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Decompile Helm charts into raw static YAML and commit unmaintained manifests." },
       { id: 'B', text: "Run `helm install` manually from an administrator's laptop over a local terminal." },
@@ -385,7 +385,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainName: "GitOps Architecture and Repositories",
     title: "Helm Charts and HelmReleases in GitOps: Hybrid Migration",
     scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to deploy and manage complex third-party software (like cert-manager or Prometheus) declaratively using GitOps controllers.",
-    question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction? Managing third-party and internal applications using Helm charts with Git-managed values.",
+    question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Run `helm install` manually from an administrator's laptop over a local terminal." },
       { id: 'B', text: "Manage Helm charts declaratively using Argo CD `Application` manifests or Flux `HelmRelease` CRDs referencing versioned charts with Git-tracked `values.yaml`." },
@@ -406,7 +406,7 @@ export const CNCF_CGOA_QUESTIONS_13 = [
     domainName: "GitOps Architecture and Repositories",
     title: "Helm Charts and HelmReleases in GitOps: Resilience Failure",
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to deploy and manage complex third-party software (like cert-manager or Prometheus) declaratively using GitOps controllers.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability? Managing third-party and internal applications using Helm charts with Git-managed values.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Avoid using Helm and write custom Go operators for all third-party software." },
       { id: 'B', text: "Decompile Helm charts into raw static YAML and commit unmaintained manifests." },

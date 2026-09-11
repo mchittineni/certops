@@ -217,7 +217,7 @@ export const CNCF_CGOA_QUESTIONS_16 = [
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Sync Waves and Resource Hooks: Dr Failover",
     scenario: "A cloud-native platform engineering team is establishing high-availability deployment patterns, automated disaster recovery procedures, and operational resilience baselines using GitOps. The GitOps engineer needs to ensure a database schema migration Job runs and succeeds before new application backend pods are rolled out.",
-    question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives? Orchestrating multi-phase deployments using argocd.argoproj.",
+    question: "Which architectural approach or configuration satisfies these GitOps disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Deploy the migration and application simultaneously and hope the database finishes first." },
       { id: 'B', text: "Annotate the migration Job with `sync-wave: \"0\"` and the application Deployment with `sync-wave: \"1\"`." },
@@ -238,7 +238,7 @@ export const CNCF_CGOA_QUESTIONS_16 = [
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Sync Waves and Resource Hooks: High Load Scale",
     scenario: "A high-throughput enterprise Kubernetes platform experiences rapid scaling across hundreds of applications and requires automated, consistent GitOps reconciliation. The GitOps engineer needs to ensure a database schema migration Job runs and succeeds before new application backend pods are rolled out.",
-    question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays? Orchestrating multi-phase deployments using argocd.argoproj.",
+    question: "Which architectural pattern or GitOps engine configuration manages this delivery scale effectively while preventing controller bottlenecks and sync delays?",
     options: [
       { id: 'A', text: "Deploy the migration and application simultaneously and hope the database finishes first." },
       { id: 'B', text: "Annotate the migration Job with `sync-wave: \"0\"` and the application Deployment with `sync-wave: \"1\"`." },
@@ -259,7 +259,7 @@ export const CNCF_CGOA_QUESTIONS_16 = [
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Sync Waves and Resource Hooks: Security Compliance",
     scenario: "A security compliance auditor requires cryptographic commit verification, secret protection, and automated drift prevention across all GitOps-managed clusters. The GitOps engineer needs to ensure a database schema migration Job runs and succeeds before new application backend pods are rolled out.",
-    question: "Which solution implements these mandatory GitOps security and governance controls? Orchestrating multi-phase deployments using argocd.argoproj.",
+    question: "Which solution implements these mandatory GitOps security and governance controls?",
     options: [
       { id: 'A', text: "Annotate the migration Job with `sync-wave: \"0\"` and the application Deployment with `sync-wave: \"1\"`." },
       { id: 'B', text: "Sync waves are not supported in Argo CD." },
@@ -280,7 +280,7 @@ export const CNCF_CGOA_QUESTIONS_16 = [
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Sync Waves and Resource Hooks: Hybrid Migration",
     scenario: "An enterprise is modernizing traditional imperative deployment scripts and adopting declarative GitOps continuous delivery across hybrid cloud Kubernetes clusters. The GitOps engineer needs to ensure a database schema migration Job runs and succeeds before new application backend pods are rolled out.",
-    question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction? Orchestrating multi-phase deployments using argocd.argoproj.",
+    question: "Which practice or platform feature enables the engineering team to modernize delivery workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Put both resources in the same YAML file with no annotations." },
       { id: 'B', text: "Annotate the migration Job with `sync-wave: \"0\"` and the application Deployment with `sync-wave: \"1\"`." },
@@ -301,7 +301,7 @@ export const CNCF_CGOA_QUESTIONS_16 = [
     domainName: "GitOps Tools and Workflows",
     title: "Argo CD Sync Waves and Resource Hooks: Resilience Failure",
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline rollback capabilities, and automate self-healing. The GitOps engineer needs to ensure a database schema migration Job runs and succeeds before new application backend pods are rolled out.",
-    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability? Orchestrating multi-phase deployments using argocd.argoproj.",
+    question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster availability?",
     options: [
       { id: 'A', text: "Annotate the migration Job with `sync-wave: \"0\"` and the application Deployment with `sync-wave: \"1\"`." },
       { id: 'B', text: "Deploy the migration and application simultaneously and hope the database finishes first." },

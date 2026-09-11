@@ -217,7 +217,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "API Security and Modern Authentication Standards: Enterprise Architecture",
     scenario: "An enterprise chief information security officer (CISO) is establishing multi-cloud governance frameworks, shared responsibility models, and Zero Trust architectures across global business units. The cloud security professional evaluates API Security to secure REST API endpoints accessed by mobile applications and third-party partners against token forgery and brute-force attacks.",
-    question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives? OAuth 2.",
+    question: "Which architectural approach or cloud security control satisfies these enterprise governance objectives?",
     options: [
       { id: 'A', text: "Accept unsigned JWT tokens with `alg: none` to simplify token parsing." },
       { id: 'B', text: "Implement an API Gateway enforcing OAuth 2.0 authorization code flow with PKCE, validating cryptographic JWT signatures, and rate limiting." },
@@ -238,7 +238,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "API Security and Modern Authentication Standards: Data Protection And Privacy",
     scenario: "A global data protection officer is implementing cryptographic data lifecycles, crypto-shredding sanitization, and data loss prevention across sensitive cloud repositories. The cloud security professional evaluates API Security to secure REST API endpoints accessed by mobile applications and third-party partners against token forgery and brute-force attacks.",
-    question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates? OAuth 2.",
+    question: "Which data security mechanism or cryptographic architecture guarantees compliance with international privacy mandates?",
     options: [
       { id: 'A', text: "Use static, unexpiring API keys shared across all mobile application users." },
       { id: 'B', text: "Accept unsigned JWT tokens with `alg: none` to simplify token parsing." },
@@ -259,7 +259,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "API Security and Modern Authentication Standards: Platform Hardening",
     scenario: "A cloud platform security team is hardening virtualization substrates, implementing micro-segmentation, and enforcing immutable infrastructure across multi-tenant environments. The cloud security professional evaluates API Security to secure REST API endpoints accessed by mobile applications and third-party partners against token forgery and brute-force attacks.",
-    question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise? OAuth 2.",
+    question: "Which infrastructure security design or platform control prevents unauthorized lateral movement and hypervisor compromise?",
     options: [
       { id: 'A', text: "Implement an API Gateway enforcing OAuth 2.0 authorization code flow with PKCE, validating cryptographic JWT signatures, and rate limiting." },
       { id: 'B', text: "Use static, unexpiring API keys shared across all mobile application users." },
@@ -280,7 +280,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "API Security and Modern Authentication Standards: Application Secops",
     scenario: "A devsecops engineering group is embedding threat modeling, automated SAST/DAST testing, and API gateway security into continuous cloud application delivery lifecycles. The cloud security professional evaluates API Security to secure REST API endpoints accessed by mobile applications and third-party partners against token forgery and brute-force attacks.",
-    question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment? OAuth 2.",
+    question: "Which application security practice or runtime defense mitigates critical OWASP vulnerabilities before deployment?",
     options: [
       { id: 'A', text: "Use static, unexpiring API keys shared across all mobile application users." },
       { id: 'B', text: "Accept unsigned JWT tokens with `alg: none` to simplify token parsing." },
@@ -301,7 +301,7 @@ export const ISC2_CCSP_QUESTIONS_17 = [
     domainName: "Cloud Application Security",
     title: "API Security and Modern Authentication Standards: Compliance And Risk",
     scenario: "A corporate compliance auditor is evaluating cloud service level agreements, independent SOC 2 Type II audit attestations, and legal hold eDiscovery preservation policies. The cloud security professional evaluates API Security to secure REST API endpoints accessed by mobile applications and third-party partners against token forgery and brute-force attacks.",
-    question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements? OAuth 2.",
+    question: "Which legal, risk, or compliance procedure guarantees due diligence and satisfies regulatory requirements?",
     options: [
       { id: 'A', text: "Use static, unexpiring API keys shared across all mobile application users." },
       { id: 'B', text: "Accept unsigned JWT tokens with `alg: none` to simplify token parsing." },

@@ -427,7 +427,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainName: "Platform Architecture and API Design",
     title: "Workload Specification Abstractions: Score Specification: Enterprise Platform",
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to enable developers to describe application requirements (containers, ports, variables, resources) once without knowing target cluster topologies.",
-    question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives? Decoupling application workload definitions from environment infrastructure details via score.",
+    question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Require developers to duplicate and maintain separate 500-line Helm charts for every development, staging, and production cluster." },
       { id: 'B', text: "Force developers to learn raw cloud provider infrastructure templates." },
@@ -448,7 +448,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainName: "Platform Architecture and API Design",
     title: "Workload Specification Abstractions: Score Specification: High Scale Orchestration",
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to enable developers to describe application requirements (containers, ports, variables, resources) once without knowing target cluster topologies.",
-    question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift? Decoupling application workload definitions from environment infrastructure details via score.",
+    question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Adopt the CNCF Score specification (`score.yaml`), allowing developers to declare workload requirements independently of environments." },
       { id: 'B', text: "Hardcode environment-specific IP addresses and database endpoints in application source code." },
@@ -469,7 +469,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainName: "Platform Architecture and API Design",
     title: "Workload Specification Abstractions: Score Specification: Zero Trust Governance",
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to enable developers to describe application requirements (containers, ports, variables, resources) once without knowing target cluster topologies.",
-    question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls? Decoupling application workload definitions from environment infrastructure details via score.",
+    question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Force developers to learn raw cloud provider infrastructure templates." },
       { id: 'B', text: "Adopt the CNCF Score specification (`score.yaml`), allowing developers to declare workload requirements independently of environments." },
@@ -490,7 +490,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainName: "Platform Architecture and API Design",
     title: "Workload Specification Abstractions: Score Specification: Workload Automation",
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to enable developers to describe application requirements (containers, ports, variables, resources) once without knowing target cluster topologies.",
-    question: "Which platform capability or automation workflow enables application teams to self-serve safely? Decoupling application workload definitions from environment infrastructure details via score.",
+    question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Force developers to learn raw cloud provider infrastructure templates." },
       { id: 'B', text: "Hardcode environment-specific IP addresses and database endpoints in application source code." },
@@ -511,7 +511,7 @@ export const CNCF_CNPE_QUESTIONS_11 = [
     domainName: "Platform Architecture and API Design",
     title: "Workload Specification Abstractions: Score Specification: Resilience And Sre",
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to enable developers to describe application requirements (containers, ports, variables, resources) once without knowing target cluster topologies.",
-    question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution? Decoupling application workload definitions from environment infrastructure details via score.",
+    question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Force developers to learn raw cloud provider infrastructure templates." },
       { id: 'B', text: "Adopt the CNCF Score specification (`score.yaml`), allowing developers to declare workload requirements independently of environments." },
