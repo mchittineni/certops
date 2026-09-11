@@ -327,7 +327,7 @@ export const K8S_CKAD_QUESTIONS_16 = [
       { id: 'A', text: "Pass configuration values through command line flags in the image entrypoint." },
       { id: 'B', text: "Use `envFrom` with `configMapRef` in the container spec to inject all key-value pairs as environment variables." },
       { id: 'C', text: "Require the application to query the Kubernetes API server directly on startup." },
-      { id: 'D', text: "Hardcode configuration values directly into the container Dockerfile." }
+      { id: 'D', text: "Bake the configuration into the image with Dockerfile ENV lines." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -348,7 +348,7 @@ export const K8S_CKAD_QUESTIONS_16 = [
       { id: 'A', text: "Require the application to query the Kubernetes API server directly on startup." },
       { id: 'B', text: "Pass configuration values through command line flags in the image entrypoint." },
       { id: 'C', text: "Use `envFrom` with `configMapRef` in the container spec to inject all key-value pairs as environment variables." },
-      { id: 'D', text: "Hardcode configuration values directly into the container Dockerfile." }
+      { id: 'D', text: "Bake the configuration into the image with Dockerfile ENV lines." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -367,7 +367,7 @@ export const K8S_CKAD_QUESTIONS_16 = [
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
       { id: 'A', text: "Require the application to query the Kubernetes API server directly on startup." },
-      { id: 'B', text: "Hardcode configuration values directly into the container Dockerfile." },
+      { id: 'B', text: "Bake the configuration into the image with Dockerfile ENV lines." },
       { id: 'C', text: "Pass configuration values through command line flags in the image entrypoint." },
       { id: 'D', text: "Use `envFrom` with `configMapRef` in the container spec to inject all key-value pairs as environment variables." }
     ],
@@ -388,7 +388,7 @@ export const K8S_CKAD_QUESTIONS_16 = [
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
       { id: 'A', text: "Use `envFrom` with `configMapRef` in the container spec to inject all key-value pairs as environment variables." },
-      { id: 'B', text: "Hardcode configuration values directly into the container Dockerfile." },
+      { id: 'B', text: "Bake the configuration into the image with Dockerfile ENV lines." },
       { id: 'C', text: "Require the application to query the Kubernetes API server directly on startup." },
       { id: 'D', text: "Pass configuration values through command line flags in the image entrypoint." }
     ],
@@ -411,7 +411,7 @@ export const K8S_CKAD_QUESTIONS_16 = [
       { id: 'A', text: "Require the application to query the Kubernetes API server directly on startup." },
       { id: 'B', text: "Pass configuration values through command line flags in the image entrypoint." },
       { id: 'C', text: "Use `envFrom` with `configMapRef` in the container spec to inject all key-value pairs as environment variables." },
-      { id: 'D', text: "Hardcode configuration values directly into the container Dockerfile." }
+      { id: 'D', text: "Bake the configuration into the image with Dockerfile ENV lines." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -432,7 +432,7 @@ export const K8S_CKAD_QUESTIONS_16 = [
       { id: 'A', text: "Pass credentials via pod annotations visible to all cluster users." },
       { id: 'B', text: "Store passwords in cleartext in a public ConfigMap." },
       { id: 'C', text: "Mount the Secret as a read-only volume in the container or inject specific keys via `valueFrom.secretKeyRef`." },
-      { id: 'D', text: "Hardcode the database password in the container image layer." }
+      { id: 'D', text: "Pass the password as a plain environment variable in the pod spec." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -452,7 +452,7 @@ export const K8S_CKAD_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Store passwords in cleartext in a public ConfigMap." },
       { id: 'B', text: "Pass credentials via pod annotations visible to all cluster users." },
-      { id: 'C', text: "Hardcode the database password in the container image layer." },
+      { id: 'C', text: "Pass the password as a plain environment variable in the pod spec." },
       { id: 'D', text: "Mount the Secret as a read-only volume in the container or inject specific keys via `valueFrom.secretKeyRef`." }
     ],
     correctAnswers: ['D'],
@@ -472,7 +472,7 @@ export const K8S_CKAD_QUESTIONS_16 = [
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
       { id: 'A', text: "Mount the Secret as a read-only volume in the container or inject specific keys via `valueFrom.secretKeyRef`." },
-      { id: 'B', text: "Hardcode the database password in the container image layer." },
+      { id: 'B', text: "Pass the password as a plain environment variable in the pod spec." },
       { id: 'C', text: "Store passwords in cleartext in a public ConfigMap." },
       { id: 'D', text: "Pass credentials via pod annotations visible to all cluster users." }
     ],
@@ -493,7 +493,7 @@ export const K8S_CKAD_QUESTIONS_16 = [
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
       { id: 'A', text: "Mount the Secret as a read-only volume in the container or inject specific keys via `valueFrom.secretKeyRef`." },
-      { id: 'B', text: "Hardcode the database password in the container image layer." },
+      { id: 'B', text: "Pass the password as a plain environment variable in the pod spec." },
       { id: 'C', text: "Store passwords in cleartext in a public ConfigMap." },
       { id: 'D', text: "Pass credentials via pod annotations visible to all cluster users." }
     ],
@@ -515,7 +515,7 @@ export const K8S_CKAD_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Mount the Secret as a read-only volume in the container or inject specific keys via `valueFrom.secretKeyRef`." },
       { id: 'B', text: "Store passwords in cleartext in a public ConfigMap." },
-      { id: 'C', text: "Hardcode the database password in the container image layer." },
+      { id: 'C', text: "Pass the password as a plain environment variable in the pod spec." },
       { id: 'D', text: "Pass credentials via pod annotations visible to all cluster users." }
     ],
     correctAnswers: ['A'],

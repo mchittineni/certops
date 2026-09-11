@@ -114,7 +114,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Ambassador Pattern to decouple an application container from the complexities of connecting to an external database cluster with custom sharding and read-write split logic.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Hardcode all external database replica IP addresses directly into the application container environment." },
+      { id: 'A', text: "List the replica pod IP addresses in the application environment." },
       { id: 'B', text: "Expose the database cluster directly over the public internet without credentials." },
       { id: 'C', text: "Deploy the database inside the same pod as the application." },
       { id: 'D', text: "Deploy an ambassador container in the pod that listens on localhost and transparently proxies connections to the appropriate external database instances." }
@@ -138,7 +138,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
       { id: 'A', text: "Deploy an ambassador container in the pod that listens on localhost and transparently proxies connections to the appropriate external database instances." },
       { id: 'B', text: "Deploy the database inside the same pod as the application." },
       { id: 'C', text: "Expose the database cluster directly over the public internet without credentials." },
-      { id: 'D', text: "Hardcode all external database replica IP addresses directly into the application container environment." }
+      { id: 'D', text: "List the replica pod IP addresses in the application environment." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,7 +156,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Ambassador Pattern to decouple an application container from the complexities of connecting to an external database cluster with custom sharding and read-write split logic.",
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
-      { id: 'A', text: "Hardcode all external database replica IP addresses directly into the application container environment." },
+      { id: 'A', text: "List the replica pod IP addresses in the application environment." },
       { id: 'B', text: "Deploy the database inside the same pod as the application." },
       { id: 'C', text: "Expose the database cluster directly over the public internet without credentials." },
       { id: 'D', text: "Deploy an ambassador container in the pod that listens on localhost and transparently proxies connections to the appropriate external database instances." }
@@ -179,7 +179,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Expose the database cluster directly over the public internet without credentials." },
       { id: 'B', text: "Deploy the database inside the same pod as the application." },
-      { id: 'C', text: "Hardcode all external database replica IP addresses directly into the application container environment." },
+      { id: 'C', text: "List the replica pod IP addresses in the application environment." },
       { id: 'D', text: "Deploy an ambassador container in the pod that listens on localhost and transparently proxies connections to the appropriate external database instances." }
     ],
     correctAnswers: ['D'],
@@ -199,7 +199,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
       { id: 'A', text: "Deploy an ambassador container in the pod that listens on localhost and transparently proxies connections to the appropriate external database instances." },
-      { id: 'B', text: "Hardcode all external database replica IP addresses directly into the application container environment." },
+      { id: 'B', text: "List the replica pod IP addresses in the application environment." },
       { id: 'C', text: "Expose the database cluster directly over the public internet without credentials." },
       { id: 'D', text: "Deploy the database inside the same pod as the application." }
     ],

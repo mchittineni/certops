@@ -9,7 +9,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     scenario: "A developer writes a Dockerfile for a Go microservice. The build requires a 1 GB Go compiler toolchain, but the production container image must contain only the compiled binary and weigh less than 20 MB.",
     question: "Which Dockerfile design pattern accomplishes this requirement?",
     options: [
-      { id: 'A', text: "Multi-Stage Builds (using separate AS builder and final FROM scratch/distroless stages)" },
+      { id: 'A', text: "Multi-stage builds with a separate builder stage" },
       { id: 'B', text: "Single-stage build with RUN rm -rf /go" },
       { id: 'C', text: "Building on the host and using docker commit" },
       { id: 'D', text: "Using a full Ubuntu base image with apt-get clean" }
@@ -18,7 +18,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "Multi-stage builds allow developers to use separate build stages within a single Dockerfile. Compilers and build dependencies reside in the builder stage (e.g. `FROM golang AS builder`), and only the final compiled executable is copied (`COPY --from=builder`) into a minimal base image like `scratch` or `gcr.io/distroless/static`.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/images/#multi-stage-builds",
-    tags: ["Docker", "Multi-Stage", "Container Security"]
+    tags: ["Docker","Multi-Stage","Container Security"]
   },
   {
     id: "k8s-ckad-2",
@@ -30,7 +30,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     scenario: "A security audit mandates that no container image deployed to production Kubernetes clusters may execute as root (UID 0).",
     question: "Which Dockerfile instruction creates and activates a dedicated unprivileged user for the application process?",
     options: [
-      { id: 'A', text: "USER 10001 (after running useradd/adduser in the image)" },
+      { id: 'A', text: "USER 10001" },
       { id: 'B', text: "ENTRYPOINT ['su', 'nobody']" },
       { id: 'C', text: "EXPOSE 8080" },
       { id: 'D', text: "ENV ROOT=false" }
@@ -39,7 +39,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "The `USER` instruction in a Dockerfile sets the user name (or UID) and optionally the user group (or GID) for the remainder of the current stage and for running the container image. Specifying a numeric UID like `USER 10001` ensures the process does not execute with root privileges.",
     referenceUrl: "https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted",
-    tags: ["Docker", "Non-Root", "Security Standards"]
+    tags: ["Docker","Non-Root","Security Standards"]
   },
   {
     id: "k8s-ckad-3",
@@ -52,7 +52,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     question: "Which class of container base images provides only the application runtime and its runtime dependencies without a Linux shell?",
     options: [
       { id: 'A', text: "Alpine Linux standard images" },
-      { id: 'B', text: "Distroless Images (e.g. gcr.io/distroless/java or static)" },
+      { id: 'B', text: "Distroless images" },
       { id: 'C', text: "Ubuntu minimal images" },
       { id: 'D', text: "CentOS base images" }
     ],
@@ -60,7 +60,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "`Distroless` images contain only your application and its runtime dependencies (like glibc). They do not contain package managers, shells, or any of the standard programs you would expect to find in a standard Linux distribution, drastically shrinking attack surfaces and CVE counts.",
     referenceUrl: "https://github.com/GoogleContainerTools/distroless",
-    tags: ["Docker", "Distroless", "Vulnerability Reduction"]
+    tags: ["Docker","Distroless","Vulnerability Reduction"]
   },
   {
     id: "k8s-ckad-4",
@@ -73,7 +73,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     question: "How should the Kubernetes pod specification reference the container image to guarantee strict immutability?",
     options: [
       { id: 'A', text: "Use the latest tag" },
-      { id: 'B', text: "Reference the image by its cryptographic SHA-256 digest (e.g. image@sha256:4f8e...)" },
+      { id: 'B', text: "Reference the image by digest" },
       { id: 'C', text: "Set imagePullPolicy to Always" },
       { id: 'D', text: "Set imagePullPolicy to Never" }
     ],
@@ -81,7 +81,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "Docker tags are mutable pointers that can be overwritten in registries. Referencing an image by its immutable SHA-256 digest (`image@sha256:&lt;hash&gt;`) cryptographically guarantees that nodes pull the exact identical byte payload regardless of tag mutations.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/images/#image-names",
-    tags: ["Containers", "Image Digest", "Immutability"]
+    tags: ["Containers","Image Digest","Immutability"]
   },
   {
     id: "k8s-ckad-5",
@@ -102,7 +102,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "In a Kubernetes `Job`, `completions: 10` specifies that the Job is considered complete when 10 pods have terminated successfully. `parallelism: 3` defines the maximum number of pods that are permitted to execute simultaneously.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/job/#parallel-execution-for-jobs",
-    tags: ["Kubernetes", "Jobs", "Parallelism"]
+    tags: ["Kubernetes","Jobs","Parallelism"]
   },
   {
     id: "k8s-ckad-6",
@@ -123,7 +123,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "The `backoffLimit` field in a Job specification sets the number of retries before considering a Job as failed (default is 6). Retries are delayed by an exponential backoff interval (10s, 20s, 40s...) to avoid overwhelming failing dependencies.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/job/#pod-backoff-failure-policy",
-    tags: ["Kubernetes", "Jobs", "backoffLimit"]
+    tags: ["Kubernetes","Jobs","backoffLimit"]
   },
   {
     id: "k8s-ckad-7",
@@ -144,7 +144,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "`activeDeadlineSeconds` applies a strict time limit to the duration of a Job. Once a Job reaches `activeDeadlineSeconds`, all of its running pods are terminated and the Job status transitions to `type: Failed` with reason `DeadlineExceeded`.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/job/#job-termination-and-cleanup",
-    tags: ["Kubernetes", "Jobs", "activeDeadlineSeconds"]
+    tags: ["Kubernetes","Jobs","activeDeadlineSeconds"]
   },
   {
     id: "k8s-ckad-8",
@@ -165,7 +165,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "The `ttlSecondsAfterFinished` field in a Job specification specifies the number of seconds after a Job has finished (either Completed or Failed) before the TTL-after-finished controller automatically deletes the Job and its pods.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/job/#ttl-mechanism-for-finished-jobs",
-    tags: ["Kubernetes", "Jobs", "TTL Controller"]
+    tags: ["Kubernetes","Jobs","TTL Controller"]
   },
   {
     id: "k8s-ckad-9",
@@ -186,7 +186,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "Kubernetes CronJobs support three concurrency policies: `Allow` (default, allows concurrent executions), `Forbid` (skips starting a new job if the previous job is still running), and `Replace` (cancels the currently running job and starts a new one).",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#concurrency-policy",
-    tags: ["Kubernetes", "CronJobs", "concurrencyPolicy"]
+    tags: ["Kubernetes","CronJobs","concurrencyPolicy"]
   },
   {
     id: "k8s-ckad-10",
@@ -207,7 +207,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "`startingDeadlineSeconds` defines the deadline in seconds for starting the job if it misses its scheduled time (e.g. due to cluster downtime). If more than 100 missed schedules occur and `startingDeadlineSeconds` is not configured, the CronJob stops scheduling completely.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#starting-deadline-seconds",
-    tags: ["Kubernetes", "CronJobs", "startingDeadlineSeconds"]
+    tags: ["Kubernetes","CronJobs","startingDeadlineSeconds"]
   },
   {
     id: "k8s-ckad-11",
@@ -228,7 +228,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "In the `Sidecar pattern`, a helper container enhances or extends the primary application container. Sharing an `emptyDir` volume between the application and sidecar allows the app to write logs to disk while the sidecar tails and forwards logs in parallel.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/#how-pods-manage-multiple-containers",
-    tags: ["Kubernetes", "Sidecar Pattern", "Multi-Container"]
+    tags: ["Kubernetes","Sidecar Pattern","Multi-Container"]
   },
   {
     id: "k8s-ckad-12",
@@ -249,7 +249,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "The `Ambassador pattern` proxies the application container's connection to the outside world. The application connects to `localhost`, and the ambassador sidecar handles proxying, connection pooling, retries, and routing to the external database.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/#pod-templates",
-    tags: ["Kubernetes", "Ambassador Pattern", "Networking"]
+    tags: ["Kubernetes","Ambassador Pattern","Networking"]
   },
   {
     id: "k8s-ckad-13",
@@ -270,7 +270,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "The `Adapter pattern` standardizes or transforms the interface of the primary application container. The adapter sidecar reads the legacy application's proprietary metrics locally and re-exposes them in the standardized Prometheus format expected by the monitoring system.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/patterns/sidecar",
-    tags: ["Kubernetes", "Adapter Pattern", "Observability"]
+    tags: ["Kubernetes","Adapter Pattern","Observability"]
   },
   {
     id: "k8s-ckad-14",
@@ -291,7 +291,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "`initContainers` execute sequentially before any application containers in the pod start. If an init container fails, Kubernetes restarts the pod until the init container succeeds (unless `restartPolicy: Never`), guaranteeing prerequisites like schema migrations finish first.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/init-containers/",
-    tags: ["Kubernetes", "initContainers", "Pod Lifecycle"]
+    tags: ["Kubernetes","initContainers","Pod Lifecycle"]
   },
   {
     id: "k8s-ckad-15",
@@ -306,13 +306,13 @@ export const K8S_CKAD_QUESTIONS_1 = [
       { id: 'A', text: "Kubernetes does not support ordered sidecars" },
       { id: 'B', text: "Use a custom bash script inside the main container" },
       { id: 'C', text: "Define the container in containers with startupProbe" },
-      { id: 'D', text: "Define the container inside initContainers with restartPolicy: Always" }
+      { id: 'D', text: "An initContainer with restartPolicy: Always" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Kubernetes 1.28+ introduced native `Sidecar Containers`. By setting `restartPolicy: Always` on an entry in `initContainers`, Kubernetes starts the sidecar during init container execution, waits for its startup probe, and keeps it running throughout the pod lifecycle.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/",
-    tags: ["Kubernetes", "Native Sidecars", "InitContainers"]
+    tags: ["Kubernetes","Native Sidecars","InitContainers"]
   },
   {
     id: "k8s-ckad-16",
@@ -324,7 +324,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     scenario: "A production distroless container crashes intermittently. The image contains no bash or curl binaries. An engineer needs to attach an interactive troubleshooting shell with diagnostic tools to inspect the running pod's network and filesystem.",
     question: "Which Kubernetes feature attaches a temporary debugging container to a running pod without restarting it?",
     options: [
-      { id: 'A', text: "Ephemeral Containers (via kubectl debug -it &lt;pod&gt; --image=busybox)" },
+      { id: 'A', text: "Ephemeral containers" },
       { id: 'B', text: "initContainers" },
       { id: 'C', text: "kubectl exec directly into the distroless container" },
       { id: 'D', text: "Rebuilding the production Docker image with bash" }
@@ -333,7 +333,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "`Ephemeral Containers` are temporary containers added to an existing running pod for troubleshooting. They do not guarantee resources or restart policies. Running `kubectl debug` injects an ephemeral container with diagnostic tools into the target pod's namespace.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/",
-    tags: ["Kubernetes", "Ephemeral Containers", "Troubleshooting"]
+    tags: ["Kubernetes","Ephemeral Containers","Troubleshooting"]
   },
   {
     id: "k8s-ckad-17",
@@ -354,7 +354,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "Setting `shareProcessNamespace: true` in the Pod specification enables process namespace sharing between all containers in that pod. Processes in one container become visible to other containers (with distinct PIDs), enabling signals (kill/sighup) across containers.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/",
-    tags: ["Kubernetes", "shareProcessNamespace", "Process Signaling"]
+    tags: ["Kubernetes","shareProcessNamespace","Process Signaling"]
   },
   {
     id: "k8s-ckad-18",
@@ -375,7 +375,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "In Kubernetes volume configuration, setting `emptyDir: { medium: Memory }` mounts a `tmpfs` (RAM-backed filesystem) instead of standard node disk storage. While fast, memory-backed `emptyDir` counts against the container's pod memory limits.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/volumes/#emptydir",
-    tags: ["Kubernetes", "emptyDir", "RAM Storage"]
+    tags: ["Kubernetes","emptyDir","RAM Storage"]
   },
   {
     id: "k8s-ckad-19",
@@ -396,7 +396,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "Kubernetes defines three `Pod Security Standards` levels: `Privileged` (unrestricted, root/host access permitted), `Baseline` (prevents known privilege escalations with default configs), and `Restricted` (hardened profile enforcing non-root execution, dropping all capabilities except NET_BIND_SERVICE, and immutable root filesystems).",
     referenceUrl: "https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted",
-    tags: ["Kubernetes", "Pod Security Standards", "Restricted Profile"]
+    tags: ["Kubernetes","Pod Security Standards","Restricted Profile"]
   },
   {
     id: "k8s-ckad-20",
@@ -417,7 +417,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "`allowPrivilegeEscalation` controls whether a process can gain more privileges than its parent process. Setting it to `false` sets the `no_new_privs` flag on the Linux container process, preventing setuid binaries from escalating permissions.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container",
-    tags: ["Kubernetes", "SecurityContext", "no_new_privs"]
+    tags: ["Kubernetes","SecurityContext","no_new_privs"]
   },
   {
     id: "k8s-ckad-21",
@@ -438,7 +438,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "Setting `readOnlyRootFilesystem: true` mounts the container's root filesystem as read-only. If the application needs to write temporary cache files or logs, developers mount explicit `emptyDir` volumes at specific paths like `/tmp`.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container",
-    tags: ["Kubernetes", "SecurityContext", "readOnlyRootFilesystem"]
+    tags: ["Kubernetes","SecurityContext","readOnlyRootFilesystem"]
   },
   {
     id: "k8s-ckad-22",
@@ -459,7 +459,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "Kubernetes allows fine-grained control over Linux capabilities. Following least privilege, developers configure `capabilities: { drop: ['ALL'], add: ['NET_RAW'] }`, stripping all standard Linux capabilities and adding back only the single required permission.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-capabilities-for-a-container",
-    tags: ["Kubernetes", "Linux Capabilities", "Least Privilege"]
+    tags: ["Kubernetes","Linux Capabilities","Least Privilege"]
   },
   {
     id: "k8s-ckad-23",
@@ -480,7 +480,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "Kubernetes Pods support three restart policies: `Always` (default for Deployments, restarts container upon any exit), `OnFailure` (restarts only if container exits with non-zero status code), and `Never` (never restarts the container after exit).",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy",
-    tags: ["Kubernetes", "restartPolicy", "Pod Lifecycle"]
+    tags: ["Kubernetes","restartPolicy","Pod Lifecycle"]
   },
   {
     id: "k8s-ckad-24",
@@ -492,7 +492,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     scenario: "A web server container must notify an external service registry that it is shutting down and drain active HTTP connections before receiving the SIGTERM signal.",
     question: "Which container lifecycle hook executes synchronously immediately before container termination?",
     options: [
-      { id: 'A', text: "preStop hook (e.g. exec: { command: ['/bin/sh', '-c', 'sleep 10'] })" },
+      { id: 'A', text: "A preStop hook" },
       { id: 'B', text: "postStart hook" },
       { id: 'C', text: "livenessProbe" },
       { id: 'D', text: "terminationGracePeriod alone" }
@@ -501,7 +501,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "Kubernetes executes the `preStop` hook synchronously before terminating the container (before sending SIGTERM). It is commonly used to deregister from load balancers or pause for a few seconds to let in-flight connections finish.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks",
-    tags: ["Kubernetes", "Lifecycle Hooks", "preStop"]
+    tags: ["Kubernetes","Lifecycle Hooks","preStop"]
   },
   {
     id: "k8s-ckad-25",
@@ -522,7 +522,7 @@ export const K8S_CKAD_QUESTIONS_1 = [
     type: "single",
     explanation: "`terminationGracePeriodSeconds` defines the maximum time (default 30 seconds) Kubernetes allows for graceful pod shutdown after issuing the preStop hook and SIGTERM. If the container is still running after this window expires, the kubelet sends SIGKILL to terminate it forcefully.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-termination",
-    tags: ["Kubernetes", "terminationGracePeriodSeconds", "Graceful Shutdown"]
+    tags: ["Kubernetes","terminationGracePeriodSeconds","Graceful Shutdown"]
   }
 ];
 

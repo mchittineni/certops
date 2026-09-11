@@ -114,7 +114,7 @@ export const K8S_CKAD_QUESTIONS_20 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Ingress Routing to route incoming HTTP requests for `api.example.com` to the API Service and requests for `app.example.com` to the Web Service using a single Ingress resource.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Hardcode DNS routing inside client browser cookies." },
+      { id: 'A', text: "Give each backend its own Service and pick one in the client." },
       { id: 'B', text: "Define multiple `rules` in the Ingress resource, each specifying a distinct `host` domain name and target `backend` Service." },
       { id: 'C', text: "Deploy two separate Ingress Controllers and bind them to different physical network cables." },
       { id: 'D', text: "Configure a NodePort service on port 80 and port 443 simultaneously." }
@@ -136,7 +136,7 @@ export const K8S_CKAD_QUESTIONS_20 = [
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
       { id: 'A', text: "Configure a NodePort service on port 80 and port 443 simultaneously." },
-      { id: 'B', text: "Hardcode DNS routing inside client browser cookies." },
+      { id: 'B', text: "Give each backend its own Service and pick one in the client." },
       { id: 'C', text: "Define multiple `rules` in the Ingress resource, each specifying a distinct `host` domain name and target `backend` Service." },
       { id: 'D', text: "Deploy two separate Ingress Controllers and bind them to different physical network cables." }
     ],
@@ -158,7 +158,7 @@ export const K8S_CKAD_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Define multiple `rules` in the Ingress resource, each specifying a distinct `host` domain name and target `backend` Service." },
       { id: 'B', text: "Deploy two separate Ingress Controllers and bind them to different physical network cables." },
-      { id: 'C', text: "Hardcode DNS routing inside client browser cookies." },
+      { id: 'C', text: "Give each backend its own Service and pick one in the client." },
       { id: 'D', text: "Configure a NodePort service on port 80 and port 443 simultaneously." }
     ],
     correctAnswers: ['A'],
@@ -178,7 +178,7 @@ export const K8S_CKAD_QUESTIONS_20 = [
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
       { id: 'A', text: "Deploy two separate Ingress Controllers and bind them to different physical network cables." },
-      { id: 'B', text: "Hardcode DNS routing inside client browser cookies." },
+      { id: 'B', text: "Give each backend its own Service and pick one in the client." },
       { id: 'C', text: "Define multiple `rules` in the Ingress resource, each specifying a distinct `host` domain name and target `backend` Service." },
       { id: 'D', text: "Configure a NodePort service on port 80 and port 443 simultaneously." }
     ],
@@ -199,7 +199,7 @@ export const K8S_CKAD_QUESTIONS_20 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
       { id: 'A', text: "Deploy two separate Ingress Controllers and bind them to different physical network cables." },
-      { id: 'B', text: "Hardcode DNS routing inside client browser cookies." },
+      { id: 'B', text: "Give each backend its own Service and pick one in the client." },
       { id: 'C', text: "Configure a NodePort service on port 80 and port 443 simultaneously." },
       { id: 'D', text: "Define multiple `rules` in the Ingress resource, each specifying a distinct `host` domain name and target `backend` Service." }
     ],
@@ -431,7 +431,7 @@ export const K8S_CKAD_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Address the service using its short name `database`." },
       { id: 'B', text: "Address the service using its Fully Qualified Domain Name (FQDN): `database.production.svc.cluster.local`." },
-      { id: 'C', text: "Hardcode the database pod ephemeral IP address in the application code." },
+      { id: 'C', text: "Resolve the database pod IP once at application startup." },
       { id: 'D', text: "Query `production.database.pod.local`." }
     ],
     correctAnswers: ['B'],
@@ -452,7 +452,7 @@ export const K8S_CKAD_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Address the service using its Fully Qualified Domain Name (FQDN): `database.production.svc.cluster.local`." },
       { id: 'B', text: "Query `production.database.pod.local`." },
-      { id: 'C', text: "Hardcode the database pod ephemeral IP address in the application code." },
+      { id: 'C', text: "Resolve the database pod IP once at application startup." },
       { id: 'D', text: "Address the service using its short name `database`." }
     ],
     correctAnswers: ['A'],
@@ -472,7 +472,7 @@ export const K8S_CKAD_QUESTIONS_20 = [
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
       { id: 'A', text: "Address the service using its Fully Qualified Domain Name (FQDN): `database.production.svc.cluster.local`." },
-      { id: 'B', text: "Hardcode the database pod ephemeral IP address in the application code." },
+      { id: 'B', text: "Resolve the database pod IP once at application startup." },
       { id: 'C', text: "Address the service using its short name `database`." },
       { id: 'D', text: "Query `production.database.pod.local`." }
     ],
@@ -494,7 +494,7 @@ export const K8S_CKAD_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Query `production.database.pod.local`." },
       { id: 'B', text: "Address the service using its short name `database`." },
-      { id: 'C', text: "Hardcode the database pod ephemeral IP address in the application code." },
+      { id: 'C', text: "Resolve the database pod IP once at application startup." },
       { id: 'D', text: "Address the service using its Fully Qualified Domain Name (FQDN): `database.production.svc.cluster.local`." }
     ],
     correctAnswers: ['D'],
@@ -514,7 +514,7 @@ export const K8S_CKAD_QUESTIONS_20 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
       { id: 'A', text: "Query `production.database.pod.local`." },
-      { id: 'B', text: "Hardcode the database pod ephemeral IP address in the application code." },
+      { id: 'B', text: "Resolve the database pod IP once at application startup." },
       { id: 'C', text: "Address the service using its short name `database`." },
       { id: 'D', text: "Address the service using its Fully Qualified Domain Name (FQDN): `database.production.svc.cluster.local`." }
     ],

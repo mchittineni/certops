@@ -18,7 +18,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "A `livenessProbe` determines if a container needs to be restarted. If an application enters a broken state or deadlock where it cannot make progress, failing consecutive liveness probes causes the kubelet to terminate the process and restart the container.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request",
-    tags: ["Kubernetes", "livenessProbe", "Observability"]
+    tags: ["Kubernetes","livenessProbe","Observability"]
   },
   {
     id: "k8s-ckad-102",
@@ -39,7 +39,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "A `readinessProbe` indicates whether a container is ready to accept incoming network traffic. If a readiness probe fails, the pod's IP address is immediately removed from the matching Kubernetes Service Endpoints, ensuring clients never receive failed requests.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes",
-    tags: ["Kubernetes", "readinessProbe", "Traffic Gating"]
+    tags: ["Kubernetes","readinessProbe","Traffic Gating"]
   },
   {
     id: "k8s-ckad-103",
@@ -60,7 +60,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "A `startupProbe` verifies whether the application within a container has started. If configured, it disables all liveness and readiness checks until the startup probe succeeds. This allows slow-starting legacy containers to boot without risking premature termination by aggressive liveness probes.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes",
-    tags: ["Kubernetes", "startupProbe", "Slow Startup"]
+    tags: ["Kubernetes","startupProbe","Slow Startup"]
   },
   {
     id: "k8s-ckad-104",
@@ -81,7 +81,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "Kubernetes natively supports `httpGet` probes. The kubelet sends an HTTP GET request to the specified `path` and `port`. Any status code between 200 and 399 indicates success; status codes >= 400 or timeouts indicate failure.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request",
-    tags: ["Kubernetes", "httpGet", "Probes"]
+    tags: ["Kubernetes","httpGet","Probes"]
   },
   {
     id: "k8s-ckad-105",
@@ -102,7 +102,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "A `tcpSocket` probe instructs the kubelet to attempt to open a TCP socket connection to the container on the specified port. If a connection can be established, the container is diagnosed as healthy; if the connection fails, the probe fails.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-tcp-liveness-probe",
-    tags: ["Kubernetes", "tcpSocket", "Probes"]
+    tags: ["Kubernetes","tcpSocket","Probes"]
   },
   {
     id: "k8s-ckad-106",
@@ -123,7 +123,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "An `exec` probe executes a specified command inside the container process namespace. If the command exits with status code `0`, the container is diagnosed as healthy. Any non-zero exit code diagnoses the probe as failed.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command",
-    tags: ["Kubernetes", "exec Probe", "Diagnostic Commands"]
+    tags: ["Kubernetes","exec Probe","Diagnostic Commands"]
   },
   {
     id: "k8s-ckad-107",
@@ -137,14 +137,14 @@ export const K8S_CKAD_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "tcpSocket: { port: 50051 } alone" },
       { id: 'B', text: "httpGet: { port: 50051, protocol: GRPC }" },
-      { id: 'C', text: "grpc: { port: 50051 } in the liveness or readiness probe specification" },
+      { id: 'C', text: "A grpc probe on port 50051" },
       { id: 'D', text: "exec: { command: ['grpc_health_probe'] }" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "Kubernetes 1.24+ natively supports `grpc` probes. The kubelet connects to the container using the official gRPC health checking protocol over the specified port, verifying service status without needing `exec` commands or external curl/grpc binaries.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-grpc-liveness-probe",
-    tags: ["Kubernetes", "gRPC Probes", "Microservices"]
+    tags: ["Kubernetes","gRPC Probes","Microservices"]
   },
   {
     id: "k8s-ckad-108",
@@ -165,7 +165,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "`initialDelaySeconds` defines the wait time before the first probe executes. `periodSeconds` defines how often (interval) the probe performs the check. `timeoutSeconds` defines the number of seconds after which the probe times out.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes",
-    tags: ["Kubernetes", "Probe Parameters", "Timing Tuning"]
+    tags: ["Kubernetes","Probe Parameters","Timing Tuning"]
   },
   {
     id: "k8s-ckad-109",
@@ -186,7 +186,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "`failureThreshold` is the number of consecutive failures needed before taking action (e.g. restarting the container or removing from endpoints). `successThreshold` (must be 1 for liveness/startup) is the minimum consecutive successes for the probe to be considered successful after having failed.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes",
-    tags: ["Kubernetes", "Probe Thresholds", "Stability"]
+    tags: ["Kubernetes","Probe Thresholds","Stability"]
   },
   {
     id: "k8s-ckad-110",
@@ -207,7 +207,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "The `--previous` (or `-p`) flag in `kubectl logs` instructs the API server to retrieve the stdout/stderr logs from the previous instance of the container if it has exited or crashed, allowing developers to inspect fatal error traces.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/",
-    tags: ["Kubernetes", "kubectl logs", "Crash Analysis"]
+    tags: ["Kubernetes","kubectl logs","Crash Analysis"]
   },
   {
     id: "k8s-ckad-111",
@@ -228,7 +228,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "In multi-container pods, `kubectl logs &lt;pod-name&gt;` requires the `-c &lt;container-name&gt;` flag to designate which container's log stream to display (unless `--all-containers=true` is specified).",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/",
-    tags: ["Kubernetes", "kubectl logs", "Multi-Container"]
+    tags: ["Kubernetes","kubectl logs","Multi-Container"]
   },
   {
     id: "k8s-ckad-112",
@@ -249,7 +249,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "`-f` (or `--follow`) streams real-time stdout/stderr output continuously. `--tail=50` limits the initial output to the most recent 50 lines, avoiding loading massive log histories into terminal buffers.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/",
-    tags: ["Kubernetes", "kubectl logs", "Streaming Logs"]
+    tags: ["Kubernetes","kubectl logs","Streaming Logs"]
   },
   {
     id: "k8s-ckad-113",
@@ -270,7 +270,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "`--since=20m` filters log output to entries generated within the specified relative duration (e.g. `20m`, `3h`). Pairing it with `-l &lt;selector&gt;` queries logs across all pods matching the label selector.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/",
-    tags: ["Kubernetes", "kubectl logs", "Time-Based Filtering"]
+    tags: ["Kubernetes","kubectl logs","Time-Based Filtering"]
   },
   {
     id: "k8s-ckad-114",
@@ -283,15 +283,15 @@ export const K8S_CKAD_QUESTIONS_5 = [
     question: "Which command displays cluster events (such as failed scheduling, insufficient CPU, or missing volumes) for the namespace?",
     options: [
       { id: 'A', text: "kubectl get events --sort-by='.metadata.creationTimestamp'" },
-      { id: 'B', text: "kubectl get nodes -o wide" },
-      { id: 'C', text: "kubectl top pods" },
-      { id: 'D', text: "kubectl cluster-info" }
+      { id: 'B', text: "kubectl get events --field-selector type=Warning" },
+      { id: 'C', text: "kubectl describe pod to read the Events section for each pod" },
+      { id: 'D', text: "kubectl get events -w to watch new events as they arrive" }
     ],
     correctAnswers: ['A'],
     type: "single",
     explanation: "`kubectl get events` displays cluster-level diagnostic events recorded by the kube-scheduler, kubelet, and workload controllers. Sorting by creation timestamp reveals reasons for pod scheduling failures (e.g. `0/10 nodes are available: 10 Insufficient cpu`).",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/",
-    tags: ["Kubernetes", "Events", "Troubleshooting"]
+    tags: ["Kubernetes","Events","Troubleshooting"]
   },
   {
     id: "k8s-ckad-115",
@@ -312,7 +312,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "`Metrics Server` is a cluster-wide aggregator of operational compute usage data. It scrapes resource metrics (CPU and memory) from the kubelet Summary API on each node and exposes them via the `metrics.k8s.io` API, powering `kubectl top` and Horizontal Pod Autoscalers.",
     referenceUrl: "https://github.com/kubernetes-sigs/metrics-server",
-    tags: ["Kubernetes", "Metrics Server", "Resource Telemetry"]
+    tags: ["Kubernetes","Metrics Server","Resource Telemetry"]
   },
   {
     id: "k8s-ckad-116",
@@ -333,7 +333,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "`kubectl top pods` displays current real-time CPU and memory usage of running pods. Passing `--sort-by=memory` (or `--sort-by=cpu`) sorts the output table, immediately highlighting resource hogs.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_top/kubectl_top_pod/",
-    tags: ["Kubernetes", "kubectl top", "Memory Diagnostics"]
+    tags: ["Kubernetes","kubectl top","Memory Diagnostics"]
   },
   {
     id: "k8s-ckad-117",
@@ -348,13 +348,13 @@ export const K8S_CKAD_QUESTIONS_5 = [
       { id: 'A', text: "The container is currently dead and will not restart" },
       { id: 'B', text: "The container exceeded its CPU quota" },
       { id: 'C', text: "A network partition caused the pod to be rescheduled" },
-      { id: 'D', text: "The container is currently running, but previously crashed due to exceeding its memory limit (OOMKilled) and was restarted by the kubelet" }
+      { id: 'D', text: "It runs now but was OOMKilled and restarted earlier" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "In `kubectl describe pod`, `State` reflects the active runtime status (Running), while `Last State` displays the status of the immediate previous container instance before its most recent restart. Seeing `OOMKilled (Exit Code 137)` proves the previous instance exceeded its memory limit.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/determine-reason-pod-failure/",
-    tags: ["Kubernetes", "kubectl describe", "OOMKilled"]
+    tags: ["Kubernetes","kubectl describe","OOMKilled"]
   },
   {
     id: "k8s-ckad-118",
@@ -366,16 +366,16 @@ export const K8S_CKAD_QUESTIONS_5 = [
     scenario: "A production Node.js container runs on a hardened, read-only distroless image without a shell or curl. The app experiences intermittent CPU lockups. An engineer needs to attach `strace` and `gdb` to inspect the running process.",
     question: "Which kubectl command attaches a privileged troubleshooting container sharing the target pod's process namespace?",
     options: [
-      { id: 'A', text: "kubectl attach &lt;pod-name&gt;" },
+      { id: 'A', text: "kubectl attach &lt;pod-name&gt; -c &lt;container-name&gt; to reattach to its stdio" },
       { id: 'B', text: "kubectl debug -it &lt;pod-name&gt; --image=nicolaka/netshoot --target=&lt;container-name&gt;" },
-      { id: 'C', text: "kubectl exec -it &lt;pod-name&gt; -- /bin/bash" },
-      { id: 'D', text: "kubectl run debug --image=nicolaka/netshoot" }
+      { id: 'C', text: "kubectl exec -it &lt;pod-name&gt; -- /bin/bash, which needs a shell in the image" },
+      { id: 'D', text: "kubectl run debug --image=nicolaka/netshoot --rm -it in a pod of its own" }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "`kubectl debug` with `--target=&lt;container-name&gt;` creates an ephemeral container inside the target pod that shares the process namespace (`shareProcessNamespace`) with the specified container, allowing engineers to run `ps`, `strace`, and debuggers against the target process.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-running-pod/#ephemeral-container",
-    tags: ["Kubernetes", "kubectl debug", "Ephemeral Containers"]
+    tags: ["Kubernetes","kubectl debug","Ephemeral Containers"]
   },
   {
     id: "k8s-ckad-119",
@@ -396,7 +396,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "`kubectl debug node/&lt;node-name&gt;` starts a pod on the specified node with host access (privileged, host namespaces) and mounts the node's root filesystem at `/host`, enabling administrators to inspect systemd services, journald logs, and host network configs without SSH.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-cluster/debug-node/",
-    tags: ["Kubernetes", "kubectl debug node", "Cluster Administration"]
+    tags: ["Kubernetes","kubectl debug node","Cluster Administration"]
   },
   {
     id: "k8s-ckad-120",
@@ -408,16 +408,16 @@ export const K8S_CKAD_QUESTIONS_5 = [
     scenario: "A production pod crashes instantly on startup (`CrashLoopBackOff`) because its startup command fails. An engineer wants to clone the pod into a sandbox copy with its command overridden to `sleep 3600` for interactive inspection.",
     question: "Which kubectl debug command creates a modified clone of the pod?",
     options: [
-      { id: 'A', text: "kubectl edit pod &lt;pod-name&gt;" },
+      { id: 'A', text: "kubectl edit pod &lt;pod-name&gt; and change its command to /bin/sh" },
       { id: 'B', text: "kubectl debug &lt;pod-name&gt; --copy-to=my-debugger --image=busybox --container=app -- /bin/sh" },
-      { id: 'C', text: "kubectl copy pod &lt;pod-name&gt;" },
-      { id: 'D', text: "kubectl clone pod &lt;pod-name&gt;" }
+      { id: 'C', text: "kubectl get pod &lt;pod-name&gt; -o yaml, edit it, then apply the copy" },
+      { id: 'D', text: "kubectl debug &lt;pod-name&gt; --image=busybox without --copy-to" }
     ],
     correctAnswers: ['B'],
     type: "single",
     explanation: "`kubectl debug &lt;pod-name&gt; --copy-to=&lt;new-name&gt;` creates an exact clone of the target pod's specification, allowing developers to swap container images, override entrypoint commands (e.g. `-- /bin/sh`), or alter environment variables safely in an isolated copy.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-running-pod/#copying-a-pod-while-changing-its-command",
-    tags: ["Kubernetes", "kubectl debug", "Pod Cloning"]
+    tags: ["Kubernetes","kubectl debug","Pod Cloning"]
   },
   {
     id: "k8s-ckad-121",
@@ -429,7 +429,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     scenario: "A microservice developer exposes application telemetry for Prometheus scraping.",
     question: "What is the standard HTTP endpoint and format expected by Prometheus scrapers?",
     options: [
-      { id: 'A', text: "HTTP GET on /metrics returning plain-text Prometheus exposition format (metric_name{label=\"val\"} value)" },
+      { id: 'A', text: "An HTTP GET on /metrics in Prometheus format" },
       { id: 'B', text: "HTTP POST on /telemetry returning JSON" },
       { id: 'C', text: "HTTP GET on /healthz returning XML" },
       { id: 'D', text: "UDP datagrams on port 8125 in StatsD format" }
@@ -438,7 +438,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "The standard Prometheus model uses pull-based metric collection. Applications expose an HTTP endpoint (conventionally `/metrics`) that outputs metrics as plain-text lines formatted according to the Prometheus / OpenMetrics exposition format.",
     referenceUrl: "https://prometheus.io/docs/instrumenting/exposition_formats/",
-    tags: ["Observability", "Prometheus", "Metrics"]
+    tags: ["Observability","Prometheus","Metrics"]
   },
   {
     id: "k8s-ckad-122",
@@ -450,7 +450,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     scenario: "A developer configures an application to write application error logs to a local disk file `/var/log/app.log`. When running `kubectl logs`, no log lines are displayed.",
     question: "Why does `kubectl logs` fail to show application log messages in this configuration?",
     options: [
-      { id: 'A', text: "Kubernetes log collectors (kubelet, CRI) only capture output written directly to stdout and stderr streams" },
+      { id: 'A', text: "Collectors only capture stdout and stderr" },
       { id: 'B', text: "kubectl logs only captures files in /tmp" },
       { id: 'C', text: "The container must run with root permissions" },
       { id: 'D', text: "Kubernetes requires logs to be written to UDP port 514" }
@@ -459,7 +459,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "The Kubernetes container runtime environment (CRI) captures output that processes write to standard output (`stdout`) and standard error (`stderr`) descriptors. Files written to internal disk paths are not captured by the kubelet unless redirected to `/dev/stdout` or forwarded via a sidecar.",
     referenceUrl: "https://kubernetes.io/docs/concepts/cluster-administration/logging/#basic-workload-logging",
-    tags: ["Kubernetes", "Logging Architecture", "stdout"]
+    tags: ["Kubernetes","Logging Architecture","stdout"]
   },
   {
     id: "k8s-ckad-123",
@@ -473,14 +473,14 @@ export const K8S_CKAD_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "The worker node ran out of disk space" },
       { id: 'B', text: "The cluster control plane is offline" },
-      { id: 'C', text: "The container process starts up, but immediately exits or terminates abnormally, causing the kubelet to restart it with exponential backoff delays" },
+      { id: 'C', text: "It exits at once and the kubelet backs off restarts" },
       { id: 'D', text: "The container image cannot be found in the registry" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "`CrashLoopBackOff` indicates that the container starts up but repeatedly fails or exits (status code != 0, OOMKilled, missing env vars, or fatal app crashes). The kubelet restarts the container, backing off exponentially (10s, 20s, 40s... up to 5 minutes) between attempts.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-running-pod/",
-    tags: ["Kubernetes", "CrashLoopBackOff", "Troubleshooting"]
+    tags: ["Kubernetes","CrashLoopBackOff","Troubleshooting"]
   },
   {
     id: "k8s-ckad-124",
@@ -492,7 +492,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     scenario: "A newly deployed pod displays status `ImagePullBackOff`.",
     question: "Which two issues are the most frequent root causes of this error?",
     options: [
-      { id: 'A', text: "Typo in the image repository or tag name, or missing imagePullSecrets credentials for a private registry" },
+      { id: 'A', text: "Wrong image name or missing pull secret" },
       { id: 'B', text: "The container ran out of memory limits" },
       { id: 'C', text: "The liveness probe failed 3 times" },
       { id: 'D', text: "The pod lacks CPU requests" }
@@ -501,7 +501,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "`ImagePullBackOff` indicates that the kubelet failed to pull the container image from the registry (e.g. invalid tag, non-existent repository name, or unauthorized 401/403 error due to missing `imagePullSecrets`). Inspecting `kubectl describe pod` reveals the exact registry HTTP error.",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy",
-    tags: ["Kubernetes", "ImagePullBackOff", "Troubleshooting"]
+    tags: ["Kubernetes","ImagePullBackOff","Troubleshooting"]
   },
   {
     id: "k8s-ckad-125",
@@ -513,7 +513,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     scenario: "A Kubernetes Deployment manages 3 pods behind a ClusterIP Service. Pod-1's readiness probe begins failing due to high database query load.",
     question: "What immediate action does the Kubernetes endpoint controller take regarding Pod-1?",
     options: [
-      { id: 'A', text: "Pod-1's IP address is immediately removed from the Service Endpoints list, stopping new traffic from reaching it while keeping the container running" },
+      { id: 'A', text: "It is removed from the Service endpoints" },
       { id: 'B', text: "Pod-1 is terminated and restarted immediately" },
       { id: 'C', text: "Pod-1 continues receiving traffic normally" },
       { id: 'D', text: "All 3 pods are restarted" }
@@ -522,7 +522,7 @@ export const K8S_CKAD_QUESTIONS_5 = [
     type: "single",
     explanation: "Unlike liveness probes which kill containers, a failing `readinessProbe` merely signals that the pod is temporarily unable to process traffic. The endpoints controller removes the pod's IP from the Service's Endpoints (or EndpointSlices), shielding the pod from traffic until it becomes healthy again.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#endpoints",
-    tags: ["Kubernetes", "readinessProbe", "Endpoints"]
+    tags: ["Kubernetes","readinessProbe","Endpoints"]
   }
 ];
 

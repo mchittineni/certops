@@ -10,7 +10,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     question: "Which Kubernetes mechanism automatically provisions the underlying cloud storage disk and creates the PV dynamically?",
     options: [
       { id: 'A', text: "LimitRange" },
-      { id: 'B', text: "StorageClass with a dynamic provisioner" },
+      { id: 'B', text: "A dynamic StorageClass" },
       { id: 'C', text: "Static Volume Binding" },
       { id: 'D', text: "ResourceQuota" }
     ],
@@ -18,7 +18,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "A `StorageClass` describes the parameters and provisioner plugin (e.g. `kubernetes.io/aws-ebs`, `pd.csi.storage.gke.io`) for dynamic storage. When a PVC references a StorageClass, the provisioner creates the underlying cloud disk and PV automatically.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/",
-    tags: ["Kubernetes", "StorageClass", "Dynamic Provisioning"]
+    tags: ["Kubernetes","StorageClass","Dynamic Provisioning"]
   },
   {
     id: "k8s-ckad-152",
@@ -39,7 +39,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "`volumeBindingMode: WaitForFirstConsumer` instructs the storage provisioner to wait until the pod requesting the PVC has been scheduled to a specific worker node. This guarantees the volume is provisioned in the exact availability zone where the pod will run.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/storage-classes/#volume-binding-mode",
-    tags: ["Kubernetes", "StorageClass", "WaitForFirstConsumer"]
+    tags: ["Kubernetes","StorageClass","WaitForFirstConsumer"]
   },
   {
     id: "k8s-ckad-153",
@@ -60,7 +60,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "Setting `allowVolumeExpansion: true` on a `StorageClass` allows users to increase the size of an existing PVC by editing its requested storage capacity. The underlying CSI driver expands the cloud storage volume and resizes the filesystem online.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/storage-classes/#allow-volume-expansion",
-    tags: ["Kubernetes", "StorageClass", "Volume Expansion"]
+    tags: ["Kubernetes","StorageClass","Volume Expansion"]
   },
   {
     id: "k8s-ckad-154",
@@ -81,7 +81,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "`kubernetes.io/tls` is the dedicated Secret type for TLS credentials. It requires two specific keys in its data map: `tls.crt` (the certificate chain) and `tls.key` (the unencrypted private key), validated by ingress controllers.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets",
-    tags: ["Kubernetes", "Secrets", "TLS Secrets"]
+    tags: ["Kubernetes","Secrets","TLS Secrets"]
   },
   {
     id: "k8s-ckad-155",
@@ -94,7 +94,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     question: "What security misconception is occurring regarding Kubernetes Secrets?",
     options: [
       { id: 'A', text: "Base64 requires a private decryption key" },
-      { id: 'B', text: "Base64 encoding is an obfuscation encoding scheme, NOT encryption; anyone can decode base64 strings instantaneously using standard command-line tools" },
+      { id: 'B', text: "Base64 is encoding, not encryption; anyone can decode it" },
       { id: 'C', text: "Base64 is an irreversible AES-256 hash" },
       { id: 'D', text: "Secrets are encrypted with hardware HSMs automatically in all clusters" }
     ],
@@ -102,7 +102,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "Base64 encoding (`echo -n YWRtaW4= | base64 -d`) is trivial to decode and provides zero cryptographic security. True secret protection requires enabling `EncryptionConfiguration` at rest in etcd and using RBAC or external secret operators.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/secret/#security-properties",
-    tags: ["Kubernetes", "Secrets", "Base64 Encoding"]
+    tags: ["Kubernetes","Secrets","Base64 Encoding"]
   },
   {
     id: "k8s-ckad-156",
@@ -123,7 +123,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "A `projected` volume maps several existing volume sources (ConfigMaps, Secrets, DownwardAPI, ServiceAccountTokens) into the exact same directory, combining multiple configuration and credential streams cleanly without complex directory structures.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/projected-volumes/",
-    tags: ["Kubernetes", "projected volumes", "Configuration"]
+    tags: ["Kubernetes","projected volumes","Configuration"]
   },
   {
     id: "k8s-ckad-157",
@@ -144,7 +144,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "`defaultMode` on a ConfigMap or Secret volume defines the octal POSIX permissions applied to all mounted files. Setting `defaultMode: 0755` (rwxr-xr-x) grants execute permissions to the container process.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/volumes/#configmap",
-    tags: ["Kubernetes", "ConfigMap", "defaultMode"]
+    tags: ["Kubernetes","ConfigMap","defaultMode"]
   },
   {
     id: "k8s-ckad-158",
@@ -156,7 +156,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     scenario: "A container image was built without specifying a USER directive, defaulting to root (UID 0). The pod manifest configures `securityContext: { runAsNonRoot: true }`.",
     question: "What happens when the kubelet attempts to run this container?",
     options: [
-      { id: 'A', text: "The container fails to start with CreateContainerConfigError and logs a validation failure indicating the container would run as root" },
+      { id: 'A', text: "It fails with CreateContainerConfigError" },
       { id: 'B', text: "Kubernetes automatically changes the user to UID 1000" },
       { id: 'C', text: "The container runs normally as root" },
       { id: 'D', text: "The node reboots" }
@@ -165,7 +165,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "When `runAsNonRoot: true` is configured, the kubelet validates the container image before startup. If the image specifies UID 0 or omits the USER directive, the kubelet refuses to start the container, failing with `CreateContainerConfigError`.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod",
-    tags: ["Kubernetes", "SecurityContext", "runAsNonRoot"]
+    tags: ["Kubernetes","SecurityContext","runAsNonRoot"]
   },
   {
     id: "k8s-ckad-159",
@@ -178,7 +178,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     question: "How do these modern bound tokens differ from legacy Secret-based tokens?",
     options: [
       { id: 'A', text: "Bound tokens never expire" },
-      { id: 'B', text: "Bound tokens are time-limited (expiring after 1 hour), auditable, and cryptographically bound to the specific pod instance and cluster audience" },
+      { id: 'B', text: "They expire hourly and are bound to that pod" },
       { id: 'C', text: "Bound tokens are stored in plain text files in Git" },
       { id: 'D', text: "Bound tokens can be reused on any cluster in the world" }
     ],
@@ -186,7 +186,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "Bound ServiceAccount tokens generated via the `TokenRequest` API are time-bound (automatically refreshed by the kubelet before expiry), audience-bound, and pod-bound (invalidated when the pod terminates), eliminating long-lived static credential leakage risks.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-token-volume-projection",
-    tags: ["Kubernetes", "ServiceAccount", "Bound Tokens"]
+    tags: ["Kubernetes","ServiceAccount","Bound Tokens"]
   },
   {
     id: "k8s-ckad-160",
@@ -201,13 +201,13 @@ export const K8S_CKAD_QUESTIONS_7 = [
       { id: 'A', text: "Environment variable pods update, but volume mounts do not" },
       { id: 'B', text: "Both types of pods update immediately in real time" },
       { id: 'C', text: "Neither pod updates until cluster restart" },
-      { id: 'D', text: "Pods with mounted directory volumes receive updated files within minutes; pods using environment variables NEVER update until they are restarted" }
+      { id: 'D', text: "Mounted volumes update in minutes; env vars need a restart" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "When a ConfigMap is updated, mounted directory volumes are automatically updated by the kubelet within its sync period (typically ~1 minute). However, environment variables are only injected once at container launch; pods consuming env vars never receive updates without a restart.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/configmap/#mounted-configmaps-are-updated-automatically",
-    tags: ["Kubernetes", "ConfigMap", "Update Propagation"]
+    tags: ["Kubernetes","ConfigMap","Update Propagation"]
   },
   {
     id: "k8s-ckad-161",
@@ -222,13 +222,13 @@ export const K8S_CKAD_QUESTIONS_7 = [
       { id: 'A', text: "The kubelet has crashed" },
       { id: 'B', text: "ConfigMaps can only be updated once per month" },
       { id: 'C', text: "The file is read-only" },
-      { id: 'D', text: "Containers using subPath volume mounts do NOT receive automatic ConfigMap updates" }
+      { id: 'D', text: "subPath mounts do not receive updates" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "A well-documented Kubernetes caveat: containers using `subPath` volume mounts do NOT receive automatic updates when the backing ConfigMap or Secret changes. If live updating is required, the whole directory must be mounted without `subPath`.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/configmap/#mounted-configmaps-are-updated-automatically",
-    tags: ["Kubernetes", "ConfigMap", "subPath Caveat"]
+    tags: ["Kubernetes","ConfigMap","subPath Caveat"]
   },
   {
     id: "k8s-ckad-162",
@@ -249,7 +249,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "Most RBAC rules govern API resources (Pods, Deployments). For raw endpoints on the API server (such as `/healthz`, `/metrics`, or `/livez`), ClusterRoles use `nonResourceURLs: ['/metrics']` with allowed HTTP verbs like `get`.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole",
-    tags: ["Kubernetes", "RBAC", "nonResourceURLs"]
+    tags: ["Kubernetes","RBAC","nonResourceURLs"]
   },
   {
     id: "k8s-ckad-163",
@@ -270,7 +270,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "RBAC rules can restrict permissions to individual named resource instances by specifying `resourceNames: ['database-creds']`. When specified, the verb applies exclusively to that exact named object.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/rbac/#referring-to-resources",
-    tags: ["Kubernetes", "RBAC", "resourceNames"]
+    tags: ["Kubernetes","RBAC","resourceNames"]
   },
   {
     id: "k8s-ckad-164",
@@ -291,7 +291,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "`nodeSelector` is the simplest form of node selection constraint. It specifies a map of key-value pairs; for the pod to be eligible to run on a node, the node must have each of the indicated key-value labels.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector",
-    tags: ["Kubernetes", "nodeSelector", "Scheduling"]
+    tags: ["Kubernetes","nodeSelector","Scheduling"]
   },
   {
     id: "k8s-ckad-165",
@@ -312,7 +312,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "`requiredDuringSchedulingIgnoredDuringExecution` specifies a hard scheduling requirement (must be met for pod to be placed on a node). `preferredDuringSchedulingIgnoredDuringExecution` specifies a soft preference that the scheduler attempts to honor without blocking scheduling if unmet.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity",
-    tags: ["Kubernetes", "Node Affinity", "Scheduling"]
+    tags: ["Kubernetes","Node Affinity","Scheduling"]
   },
   {
     id: "k8s-ckad-166",
@@ -324,7 +324,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     scenario: "A high-availability payment service runs 3 replicas. To survive physical hardware failures, no two replicas of this deployment should run on the same physical worker node.",
     question: "Which Kubernetes feature prevents co-locating matching pods on the same node using topologyKey?",
     options: [
-      { id: 'A', text: "podAntiAffinity with topologyKey: kubernetes.io/hostname" },
+      { id: 'A', text: "podAntiAffinity by hostname" },
       { id: 'B', text: "nodeSelector" },
       { id: 'C', text: "DaemonSet" },
       { id: 'D', text: "PodDisruptionBudget alone" }
@@ -333,7 +333,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "`podAntiAffinity` allows architects to prevent pods from being co-located on nodes or zones that share a specified `topologyKey` (e.g. `kubernetes.io/hostname` or `topology.kubernetes.io/zone`), guaranteeing geographic or host dispersion for disaster resilience.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity",
-    tags: ["Kubernetes", "podAntiAffinity", "High Availability"]
+    tags: ["Kubernetes","podAntiAffinity","High Availability"]
   },
   {
     id: "k8s-ckad-167",
@@ -345,7 +345,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     scenario: "A cluster spans 3 availability zones (`zone-a`, `zone-b`, `zone-c`). A Deployment running 6 pods must distribute replicas evenly across all 3 zones, allowing a maximum difference of 1 pod between any two zones.",
     question: "Which Kubernetes feature and parameter enforce balanced pod distribution across failure zones?",
     options: [
-      { id: 'A', text: "topologySpreadConstraints with topologyKey: topology.kubernetes.io/zone and maxSkew: 1" },
+      { id: 'A', text: "topologySpreadConstraints by zone" },
       { id: 'B', text: "podAffinity with maxPods: 2" },
       { id: 'C', text: "nodeSelector alone" },
       { id: 'D', text: "ClusterAutoscaler zone balance flag" }
@@ -354,7 +354,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "`topologySpreadConstraints` control how Pods are spread across failure domains (regions, zones, nodes). `maxSkew: 1` defines the maximum allowable degree of unbalance between any two topology domains matching the label selector.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/",
-    tags: ["Kubernetes", "topologySpreadConstraints", "maxSkew"]
+    tags: ["Kubernetes","topologySpreadConstraints","maxSkew"]
   },
   {
     id: "k8s-ckad-168",
@@ -375,7 +375,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "Kubernetes supports three taint effects: `NoSchedule` (new pods without a matching toleration are not scheduled on the node; existing pods are unaffected), `PreferNoSchedule` (soft preference against scheduling), and `NoExecute` (new pods cannot schedule AND existing pods without matching tolerations are evicted immediately).",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/",
-    tags: ["Kubernetes", "Taints", "NoSchedule vs NoExecute"]
+    tags: ["Kubernetes","Taints","NoSchedule vs NoExecute"]
   },
   {
     id: "k8s-ckad-169",
@@ -388,7 +388,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     question: "Which toleration configuration delays eviction on unreachable nodes?",
     options: [
       { id: 'A', text: "terminationGracePeriodSeconds: 300" },
-      { id: 'B', text: "toleration: { key: node.kubernetes.io/unreachable, operator: Exists, effect: NoExecute, tolerationSeconds: 300 }" },
+      { id: 'B', text: "A 300-second unreachable toleration" },
       { id: 'C', text: "retryAfter: 300" },
       { id: 'D', text: "activeDeadlineSeconds: 300" }
     ],
@@ -396,7 +396,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "Adding a toleration for `node.kubernetes.io/unreachable:NoExecute` with `tolerationSeconds: 300` allows the pod to remain bound to the failing node for 5 minutes before the eviction controller terminates it, preventing premature evictions during transient network drops.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/#taint-based-evictions",
-    tags: ["Kubernetes", "Tolerations", "tolerationSeconds"]
+    tags: ["Kubernetes","Tolerations","tolerationSeconds"]
   },
   {
     id: "k8s-ckad-170",
@@ -409,7 +409,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     question: "Which Kubernetes mechanism defines scheduling priority and enables preemption of lower-priority pods?",
     options: [
       { id: 'A', text: "LimitRange" },
-      { id: 'B', text: "PriorityClass (with value: 1000000 and preemptionPolicy: PreemptLowerPriority)" },
+      { id: 'B', text: "A PriorityClass" },
       { id: 'C', text: "QoS Guaranteed class alone" },
       { id: 'D', text: "ResourceQuota" }
     ],
@@ -417,7 +417,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "A `PriorityClass` maps a name to an integer value (higher values indicate higher priority). When a high-priority pod cannot be scheduled due to lack of resources, the scheduler preempts (evicts) lower-priority pods from a node to make room.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/",
-    tags: ["Kubernetes", "PriorityClass", "Preemption"]
+    tags: ["Kubernetes","PriorityClass","Preemption"]
   },
   {
     id: "k8s-ckad-171",
@@ -429,7 +429,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     scenario: "In a Kubernetes cluster, core control plane components like `kube-apiserver` and `etcd` run as pods on master nodes before the API server itself is functional.",
     question: "How are these core control plane pods created and managed by the kubelet without the API server?",
     options: [
-      { id: 'A', text: "As Static Pods, managed directly by the kubelet reading manifests from /etc/kubernetes/manifests" },
+      { id: 'A', text: "As static pods read by the kubelet" },
       { id: 'B', text: "By Docker Compose" },
       { id: 'C', text: "By systemd daemons running outside containers" },
       { id: 'D', text: "By Helm install on boot" }
@@ -438,7 +438,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "`Static Pods` are managed directly by the kubelet daemon on a specific node without API server supervision. The kubelet watches a local directory (conventionally `/etc/kubernetes/manifests/`) and creates or restarts pods defined by YAML files placed in that directory.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/",
-    tags: ["Kubernetes", "Static Pods", "Control Plane"]
+    tags: ["Kubernetes","Static Pods","Control Plane"]
   },
   {
     id: "k8s-ckad-172",
@@ -459,7 +459,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "`nodeName` is the most direct form of node selection. If `spec.nodeName` is populated in a pod manifest, the kube-scheduler ignores the pod, and the kubelet running on the designated node immediately attempts to instantiate the containers.",
     referenceUrl: "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodename",
-    tags: ["Kubernetes", "nodeName", "Direct Scheduling"]
+    tags: ["Kubernetes","nodeName","Direct Scheduling"]
   },
   {
     id: "k8s-ckad-173",
@@ -480,7 +480,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "Pod Security Admission uses namespace labels with three modes: `enforce` (rejects non-compliant pods immediately), `audit` (logs audit violations without blocking), and `warn` (returns human-readable CLI warnings to users while allowing creation).",
     referenceUrl: "https://kubernetes.io/docs/concepts/security/pod-security-admission/",
-    tags: ["Kubernetes", "Pod Security Admission", "enforce mode"]
+    tags: ["Kubernetes","Pod Security Admission","enforce mode"]
   },
   {
     id: "k8s-ckad-174",
@@ -495,13 +495,13 @@ export const K8S_CKAD_QUESTIONS_7 = [
       { id: 'A', text: "It slows down network throughput by 50%" },
       { id: 'B', text: "It forces the pod to run on master nodes only" },
       { id: 'C', text: "Kubernetes does not support host namespaces" },
-      { id: 'D', text: "It exposes the host node's network interfaces, process table, and shared memory to the container, bypassing Linux namespace isolation" }
+      { id: 'D', text: "It exposes host namespaces to the container" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Setting `hostNetwork: true`, `hostPID: true`, or `hostIPC: true` removes fundamental Linux namespace isolation boundaries. The container sees all network traffic on the host, can inspect or signal other processes running on the host OS, and can intercept IPC mechanisms.",
     referenceUrl: "https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline",
-    tags: ["Kubernetes", "Security", "Host Namespaces"]
+    tags: ["Kubernetes","Security","Host Namespaces"]
   },
   {
     id: "k8s-ckad-175",
@@ -522,7 +522,7 @@ export const K8S_CKAD_QUESTIONS_7 = [
     type: "single",
     explanation: "`kubectl create configmap &lt;name&gt; --from-literal=&lt;key&gt;=&lt;value&gt;` allows setting multiple key-value pairs directly from CLI arguments without creating temporary files on disk.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-configmaps-from-literal-values",
-    tags: ["Kubernetes", "kubectl create configmap", "Imperative CLI"]
+    tags: ["Kubernetes","kubectl create configmap","Imperative CLI"]
   }
 ];
 

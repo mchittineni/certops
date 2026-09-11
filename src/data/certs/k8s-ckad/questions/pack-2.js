@@ -12,13 +12,13 @@ export const K8S_CKAD_QUESTIONS_2 = [
       { id: 'A', text: "There is no difference between requests and limits" },
       { id: 'B', text: "requests enforce hard limits; limits are used for scheduling" },
       { id: 'C', text: "requests apply to disk; limits apply to network" },
-      { id: 'D', text: "requests are used by the kube-scheduler to find a suitable node; limits enforce hard ceilings via cgroups on the node" }
+      { id: 'D', text: "requests guide scheduling; limits are enforced by cgroups" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "`requests` represent the minimum guaranteed compute resources required by the pod; the kube-scheduler uses requests to choose an eligible node with sufficient allocatable capacity. `limits` enforce the maximum CPU throttling and memory caps (OOMKilled) via Linux cgroups.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
-    tags: ["Kubernetes", "Resources", "Requests and Limits"]
+    tags: ["Kubernetes","Resources","Requests and Limits"]
   },
   {
     id: "k8s-ckad-27",
@@ -31,7 +31,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     question: "What caused this container termination?",
     options: [
       { id: 'A', text: "The container CPU quota was exceeded" },
-      { id: 'B', text: "The container process exceeded its memory limit and was terminated by the Linux kernel Out-Of-Memory (OOM) killer (128 + SIGKILL 9 = 137)" },
+      { id: 'B', text: "OOM-killed for exceeding the memory limit" },
       { id: 'C', text: "The container root filesystem was full" },
       { id: 'D', text: "A network timeout occurred" }
     ],
@@ -39,7 +39,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "Exit code 137 indicates that a process was killed by Linux signal 9 (SIGKILL: `128 + 9 = 137`). When a container exceeds its configured `resources.limits.memory`, the Linux kernel OOM killer terminates the process immediately.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#how-pods-with-resource-limits-are-run",
-    tags: ["Kubernetes", "OOMKilled", "Exit Codes"]
+    tags: ["Kubernetes","OOMKilled","Exit Codes"]
   },
   {
     id: "k8s-ckad-28",
@@ -54,13 +54,13 @@ export const K8S_CKAD_QUESTIONS_2 = [
       { id: 'A', text: "Both CPU and memory overages trigger pod restarts" },
       { id: 'B', text: "Kubernetes ignores CPU limits completely" },
       { id: 'C', text: "Containers exceeding CPU limits are terminated immediately" },
-      { id: 'D', text: "Containers exceeding CPU limits are throttled by the CFS scheduler without crashing; containers exceeding memory limits are killed (OOMKilled)" }
+      { id: 'D', text: "CPU over-limit is throttled; memory over-limit is OOMKilled" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "CPU is a compressible resource: when a container hits its CPU limit, the Linux Completely Fair Scheduler (CFS) throttles CPU time slices, causing the app to slow down without crashing. Memory is non-compressible: exceeding memory limits triggers an immediate kernel OOM kill.",
     referenceUrl: "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#how-pods-with-resource-limits-are-run",
-    tags: ["Kubernetes", "CPU Throttling", "Compressible Resources"]
+    tags: ["Kubernetes","CPU Throttling","Compressible Resources"]
   },
   {
     id: "k8s-ckad-29",
@@ -81,7 +81,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "Kubernetes assigns three QoS classes: `Guaranteed` (requests equal limits for all containers, lowest eviction priority), `Burstable` (requests are less than limits, medium eviction priority), and `BestEffort` (no requests or limits defined, evicted first under node pressure).",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/",
-    tags: ["Kubernetes", "QoS Classes", "Pod Eviction"]
+    tags: ["Kubernetes","QoS Classes","Pod Eviction"]
   },
   {
     id: "k8s-ckad-30",
@@ -93,7 +93,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     scenario: "An application running inside a container needs to know its own pod name, pod namespace, and host node IP address for logging and registration purposes.",
     question: "Which Kubernetes mechanism injects pod and cluster metadata into containers as environment variables without querying the API server?",
     options: [
-      { id: 'A', text: "The Downward API (using fieldRef.fieldPath)" },
+      { id: 'A', text: "The Downward API" },
       { id: 'B', text: "Downward Volumes alone" },
       { id: 'C', text: "Secrets" },
       { id: 'D', text: "ConfigMaps" }
@@ -102,7 +102,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "The `Downward API` exposes Pod and container fields to the container via environment variables or volume files using `fieldRef` (e.g. `metadata.name`, `metadata.namespace`, `status.podIP`, `status.hostIP`), avoiding direct RBAC calls to the Kubernetes API server.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/downward-api/",
-    tags: ["Kubernetes", "Downward API", "Metadata"]
+    tags: ["Kubernetes","Downward API","Metadata"]
   },
   {
     id: "k8s-ckad-31",
@@ -115,7 +115,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     question: "Which Downward API reference exposes container resource limits to environment variables?",
     options: [
       { id: 'A', text: "fieldRef.fieldPath" },
-      { id: 'B', text: "resourceFieldRef (e.g. containerName: app, resource: limits.memory)" },
+      { id: 'B', text: "resourceFieldRef" },
       { id: 'C', text: "secretKeyRef" },
       { id: 'D', text: "configMapKeyRef" }
     ],
@@ -123,7 +123,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "The Downward API supports `resourceFieldRef` to expose container-level resource limits and requests (such as `limits.cpu`, `limits.memory`, `requests.cpu`) as environment variables, enabling language runtimes like Java to adapt heap allocations dynamically.",
     referenceUrl: "https://kubernetes.io/docs/tasks/inject-data-application/downward-api-volume-expose-pod-information/#capabilities-of-the-downward-api",
-    tags: ["Kubernetes", "Downward API", "Resource Limits"]
+    tags: ["Kubernetes","Downward API","Resource Limits"]
   },
   {
     id: "k8s-ckad-32",
@@ -135,16 +135,16 @@ export const K8S_CKAD_QUESTIONS_2 = [
     scenario: "A software engineering team builds container images on Apple Silicon (ARM64) Macs that must execute reliably on AMD64 (x86_64) Kubernetes worker nodes in production.",
     question: "Which Docker tool builds multi-architecture container images supporting both amd64 and arm64?",
     options: [
-      { id: 'A', text: "docker build -t app:latest ." },
-      { id: 'B', text: "docker commit" },
-      { id: 'C', text: "docker-compose up" },
+      { id: 'A', text: "docker build -t app:latest --platform linux/arm64 ." },
+      { id: 'B', text: "docker manifest create app:latest app:amd64 app:arm64" },
+      { id: 'C', text: "docker build with QEMU emulation configured for each target" },
       { id: 'D', text: "docker buildx build --platform linux/amd64,linux/arm64" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "`docker buildx` leverages BuildKit and QEMU emulation to compile and assemble multi-architecture container image manifests. Publishing a multi-platform image allows ARM and x86 nodes to automatically pull the appropriate binary layer.",
     referenceUrl: "https://docs.docker.com/build/building/multi-platform/",
-    tags: ["Docker", "buildx", "Multi-Platform"]
+    tags: ["Docker","buildx","Multi-Platform"]
   },
   {
     id: "k8s-ckad-33",
@@ -165,7 +165,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "Docker caches image layers sequentially. Placing rarely changed files (e.g. `package.json`) and expensive dependency installation (`npm install`) before frequently changed source code (`COPY . .`) ensures Docker reuses the cached dependency layer across source code changes.",
     referenceUrl: "https://docs.docker.com/build/cache/",
-    tags: ["Docker", "Layer Caching", "Build Optimization"]
+    tags: ["Docker","Layer Caching","Build Optimization"]
   },
   {
     id: "k8s-ckad-34",
@@ -186,7 +186,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "`Trivy` is a comprehensive open-source security scanner for container images, filesystems, and Git repositories. Running `trivy image --severity CRITICAL --exit-code 1 &lt;image&gt;` scans OS and language dependencies, halting CI/CD builds if critical vulnerabilities exist.",
     referenceUrl: "https://trivy.dev/",
-    tags: ["Security", "Trivy", "Vulnerability Scanning"]
+    tags: ["Security","Trivy","Vulnerability Scanning"]
   },
   {
     id: "k8s-ckad-35",
@@ -200,14 +200,14 @@ export const K8S_CKAD_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "restartPolicy is only valid for DaemonSets" },
       { id: 'B', text: "The API server requires a paid enterprise license for restartPolicy" },
-      { id: 'C', text: "Jobs represent batch tasks intended to run to completion; restartPolicy must be either OnFailure or Never" },
+      { id: 'C', text: "Jobs run to completion; restartPolicy must be OnFailure or Never" },
       { id: 'D', text: "Jobs only support restartPolicy: Always" }
     ],
     correctAnswers: ['C'],
     type: "single",
     explanation: "A Kubernetes `Job` is designed for batch workloads that run to completion. `restartPolicy: Always` makes sense only for long-running services (like Deployments). Jobs require either `OnFailure` (restart container inside the same pod upon failure) or `Never` (spawn a new pod upon failure).",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/job/#pod-template",
-    tags: ["Kubernetes", "Jobs", "restartPolicy"]
+    tags: ["Kubernetes","Jobs","restartPolicy"]
   },
   {
     id: "k8s-ckad-36",
@@ -222,13 +222,13 @@ export const K8S_CKAD_QUESTIONS_2 = [
       { id: 'A', text: "The pod is permanently deleted from the cluster" },
       { id: 'B', text: "Init Container 1 is re-executed simultaneously" },
       { id: 'C', text: "Init Container 2 is skipped and the main container starts immediately" },
-      { id: 'D', text: "The main application container is never started; Kubernetes restarts Init Container 2 according to the pod's restartPolicy" }
+      { id: 'D', text: "The app container never starts; init container 2 is restarted" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "Init containers execute strictly in order. Each init container must complete successfully (`exit 0`) before the next one starts. If any init container fails, Kubernetes restarts the failing init container until it succeeds, completely preventing the main application containers from running.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/init-containers/#understanding-init-containers",
-    tags: ["Kubernetes", "initContainers", "Failure Handling"]
+    tags: ["Kubernetes","initContainers","Failure Handling"]
   },
   {
     id: "k8s-ckad-37",
@@ -249,7 +249,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "All containers in a Kubernetes Pod share the exact same network namespace (the same IP address and port space). Containers in the same pod can communicate with each other over `localhost` (127.0.0.1) using their respective listening port numbers.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking",
-    tags: ["Kubernetes", "Pod Networking", "Localhost"]
+    tags: ["Kubernetes","Pod Networking","Localhost"]
   },
   {
     id: "k8s-ckad-38",
@@ -261,7 +261,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     scenario: "A developer configures a pod containing two containers: an Apache web server and an NGINX web server. Both containers attempt to bind to port 80 simultaneously.",
     question: "What happens when the pod starts on a worker node?",
     options: [
-      { id: 'A', text: "The second container fails to start and crashes with a port binding error (address already in use)" },
+      { id: 'A', text: "The second container fails with a port binding error" },
       { id: 'B', text: "Both containers share port 80 using round-robin DNS" },
       { id: 'C', text: "Kubernetes automatically reassigns NGINX to port 8080" },
       { id: 'D', text: "The worker node crashes" }
@@ -270,7 +270,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "Because all containers in a pod share the same network namespace and IP address, port numbers cannot be duplicated within a pod. If two containers attempt to bind to the same port (e.g. port 80), the second container fails with `bind: address already in use`.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking",
-    tags: ["Kubernetes", "Pod Networking", "Port Binding"]
+    tags: ["Kubernetes","Pod Networking","Port Binding"]
   },
   {
     id: "k8s-ckad-39",
@@ -291,7 +291,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "`runAsGroup` sets the Primary Group ID (GID) for all processes in the container. `runAsUser` sets the UID, and `fsGroup` sets the supplementary group owner of mounted volumes.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod",
-    tags: ["Kubernetes", "SecurityContext", "runAsGroup"]
+    tags: ["Kubernetes","SecurityContext","runAsGroup"]
   },
   {
     id: "k8s-ckad-40",
@@ -312,7 +312,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "`fsGroup` defines a special supplemental group applied to all containers in the Pod. Kubernetes automatically changes the permissions of all files and directories on mounted volumes (like persistent volumes) to be owned by `fsGroup`, allowing all containers in the pod to read and write freely.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#configure-volume-permission-and-ownership-change-policy-for-pods",
-    tags: ["Kubernetes", "fsGroup", "Volume Permissions"]
+    tags: ["Kubernetes","fsGroup","Volume Permissions"]
   },
   {
     id: "k8s-ckad-41",
@@ -333,7 +333,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "`envFrom` allows a container to consume all key-value pairs from a `ConfigMap` or `Secret` as environment variables without defining each key individually, streamlining container manifests and maintaining clean configurations.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#configure-all-key-value-pairs-in-a-configmap-as-container-environment-variables",
-    tags: ["Kubernetes", "envFrom", "ConfigMap"]
+    tags: ["Kubernetes","envFrom","ConfigMap"]
   },
   {
     id: "k8s-ckad-42",
@@ -354,7 +354,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "In Kubernetes container specifications, `command` overrides the container image's Dockerfile `ENTRYPOINT`. `args` overrides the container image's Dockerfile `CMD`. If neither is supplied, the image's default ENTRYPOINT and CMD are executed.",
     referenceUrl: "https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#notes",
-    tags: ["Kubernetes", "Command and Args", "ENTRYPOINT"]
+    tags: ["Kubernetes","Command and Args","ENTRYPOINT"]
   },
   {
     id: "k8s-ckad-43",
@@ -369,13 +369,13 @@ export const K8S_CKAD_QUESTIONS_2 = [
       { id: 'A', text: "env: [ DOCKER_AUTH ]" },
       { id: 'B', text: "dockerAuth: [ name: ghcr-secret ]" },
       { id: 'C', text: "secrets: [ name: ghcr-secret ]" },
-      { id: 'D', text: "imagePullSecrets: [ name: ghcr-secret ] in the Pod specification (or attached to the ServiceAccount)" }
+      { id: 'D', text: "imagePullSecrets on the pod spec" }
     ],
     correctAnswers: ['D'],
     type: "single",
     explanation: "To pull images from private container registries requiring authentication, the pod manifest must reference a `kubernetes.io/dockerconfigjson` Secret via `imagePullSecrets: [{ name: my-registry-key }]` (or link the secret to the Pod's ServiceAccount).",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/",
-    tags: ["Kubernetes", "imagePullSecrets", "Private Registry"]
+    tags: ["Kubernetes","imagePullSecrets","Private Registry"]
   },
   {
     id: "k8s-ckad-44",
@@ -396,7 +396,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "`imagePullPolicy: Always` forces the kubelet to contact the container registry on every container creation to check if the tag's digest has changed. `IfNotPresent` uses the locally cached image if it exists. (Images using the `:latest` tag default to `Always`).",
     referenceUrl: "https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy",
-    tags: ["Kubernetes", "imagePullPolicy", "Container Images"]
+    tags: ["Kubernetes","imagePullPolicy","Container Images"]
   },
   {
     id: "k8s-ckad-45",
@@ -417,7 +417,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "`kubectl describe pod` outputs detailed pod metadata, including the `Last State` section. For terminated containers, it displays the `Exit Code`, `Reason` (e.g. `OOMKilled` or `Error`), `Started` timestamp, and `Finished` timestamp.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-running-pod/#examine-pod-logs",
-    tags: ["Kubernetes", "kubectl describe", "Troubleshooting"]
+    tags: ["Kubernetes","kubectl describe","Troubleshooting"]
   },
   {
     id: "k8s-ckad-46",
@@ -438,7 +438,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "Kubernetes supports suspending and resuming Jobs. Setting `spec.suspend: true` on an existing Job terminates all active pods and prevents new pods from starting. Setting `spec.suspend: false` resumes execution from where it left off.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/job/#suspending-a-job",
-    tags: ["Kubernetes", "Jobs", "Job Suspend"]
+    tags: ["Kubernetes","Jobs","Job Suspend"]
   },
   {
     id: "k8s-ckad-47",
@@ -459,7 +459,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "By default, Kubernetes inspects `/dev/termination-log` (or a custom `terminationMessagePath`). If the container writes text to this file before exiting, Kubernetes displays the text directly in the pod's `Last State: Message` field visible in `kubectl describe`.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/determine-reason-pod-failure/",
-    tags: ["Kubernetes", "terminationMessagePath", "Diagnostics"]
+    tags: ["Kubernetes","terminationMessagePath","Diagnostics"]
   },
   {
     id: "k8s-ckad-48",
@@ -480,7 +480,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "`CAP_SYS_ADMIN` is the most powerful Linux capability. It allows mounting filesystems, configuring namespaces, loading kernel modules, and performing raw device operations. Granting `CAP_SYS_ADMIN` effectively bypasses container isolation boundaries.",
     referenceUrl: "https://man7.org/linux/man-pages/man7/capabilities.7.html",
-    tags: ["Kubernetes", "Security", "CAP_SYS_ADMIN"]
+    tags: ["Kubernetes","Security","CAP_SYS_ADMIN"]
   },
   {
     id: "k8s-ckad-49",
@@ -501,7 +501,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "In a Kubernetes CronJob specification, `successfulJobsHistoryLimit` (default 3) and `failedJobsHistoryLimit` (default 1) govern how many finished Job objects are kept for auditing before the CronJob controller deletes them.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#jobs-history-limits",
-    tags: ["Kubernetes", "CronJobs", "History Limits"]
+    tags: ["Kubernetes","CronJobs","History Limits"]
   },
   {
     id: "k8s-ckad-50",
@@ -522,7 +522,7 @@ export const K8S_CKAD_QUESTIONS_2 = [
     type: "single",
     explanation: "Kubernetes supports seccomp (secure computing mode) to restrict available system calls. Setting `securityContext: { seccompProfile: { type: RuntimeDefault } }` instructs the container runtime to block dangerous syscalls like `sys_chroot` and `kexec_load`.",
     referenceUrl: "https://kubernetes.io/docs/tutorials/security/seccomp/",
-    tags: ["Kubernetes", "seccompProfile", "Runtime Security"]
+    tags: ["Kubernetes","seccompProfile","Runtime Security"]
   }
 ];
 

@@ -12,7 +12,7 @@ export const K8S_CKAD_QUESTIONS_18 = [
       { id: 'A', text: "Use the Downward API to inject `fieldRef` metadata (`metadata.name`, `metadata.namespace`, `status.podIP`) into container environment variables or downwardAPI volumes." },
       { id: 'B', text: "Inspect the local /etc/hosts file to parse arbitrary metadata strings." },
       { id: 'C', text: "Grant the pod cluster-admin RBAC permissions to query its own metadata via curl." },
-      { id: 'D', text: "Hardcode the pod name and namespace inside the container image." }
+      { id: 'D', text: "Read the pod name from the container hostname at startup." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -31,7 +31,7 @@ export const K8S_CKAD_QUESTIONS_18 = [
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
       { id: 'A', text: "Inspect the local /etc/hosts file to parse arbitrary metadata strings." },
-      { id: 'B', text: "Hardcode the pod name and namespace inside the container image." },
+      { id: 'B', text: "Read the pod name from the container hostname at startup." },
       { id: 'C', text: "Grant the pod cluster-admin RBAC permissions to query its own metadata via curl." },
       { id: 'D', text: "Use the Downward API to inject `fieldRef` metadata (`metadata.name`, `metadata.namespace`, `status.podIP`) into container environment variables or downwardAPI volumes." }
     ],
@@ -52,7 +52,7 @@ export const K8S_CKAD_QUESTIONS_18 = [
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
       { id: 'A', text: "Use the Downward API to inject `fieldRef` metadata (`metadata.name`, `metadata.namespace`, `status.podIP`) into container environment variables or downwardAPI volumes." },
-      { id: 'B', text: "Hardcode the pod name and namespace inside the container image." },
+      { id: 'B', text: "Read the pod name from the container hostname at startup." },
       { id: 'C', text: "Inspect the local /etc/hosts file to parse arbitrary metadata strings." },
       { id: 'D', text: "Grant the pod cluster-admin RBAC permissions to query its own metadata via curl." }
     ],
@@ -74,7 +74,7 @@ export const K8S_CKAD_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Use the Downward API to inject `fieldRef` metadata (`metadata.name`, `metadata.namespace`, `status.podIP`) into container environment variables or downwardAPI volumes." },
       { id: 'B', text: "Grant the pod cluster-admin RBAC permissions to query its own metadata via curl." },
-      { id: 'C', text: "Hardcode the pod name and namespace inside the container image." },
+      { id: 'C', text: "Read the pod name from the container hostname at startup." },
       { id: 'D', text: "Inspect the local /etc/hosts file to parse arbitrary metadata strings." }
     ],
     correctAnswers: ['A'],
@@ -95,7 +95,7 @@ export const K8S_CKAD_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Grant the pod cluster-admin RBAC permissions to query its own metadata via curl." },
       { id: 'B', text: "Use the Downward API to inject `fieldRef` metadata (`metadata.name`, `metadata.namespace`, `status.podIP`) into container environment variables or downwardAPI volumes." },
-      { id: 'C', text: "Hardcode the pod name and namespace inside the container image." },
+      { id: 'C', text: "Read the pod name from the container hostname at startup." },
       { id: 'D', text: "Inspect the local /etc/hosts file to parse arbitrary metadata strings." }
     ],
     correctAnswers: ['B'],
@@ -432,7 +432,7 @@ export const K8S_CKAD_QUESTIONS_18 = [
       { id: 'A', text: "Disable RBAC authorization mode on the cluster." },
       { id: 'B', text: "Run the pod using the `default` ServiceAccount and grant cluster-admin to default." },
       { id: 'C', text: "Create a dedicated `ServiceAccount`, bind it to a least-privilege `Role` via a `RoleBinding`, and set `serviceAccountName` in the pod spec." },
-      { id: 'D', text: "Hardcode the cluster administrator kubeconfig inside the runner container image." }
+      { id: 'D', text: "Mount a long-lived admin kubeconfig into the runner as a Secret." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -452,7 +452,7 @@ export const K8S_CKAD_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Create a dedicated `ServiceAccount`, bind it to a least-privilege `Role` via a `RoleBinding`, and set `serviceAccountName` in the pod spec." },
       { id: 'B', text: "Run the pod using the `default` ServiceAccount and grant cluster-admin to default." },
-      { id: 'C', text: "Hardcode the cluster administrator kubeconfig inside the runner container image." },
+      { id: 'C', text: "Mount a long-lived admin kubeconfig into the runner as a Secret." },
       { id: 'D', text: "Disable RBAC authorization mode on the cluster." }
     ],
     correctAnswers: ['A'],
@@ -474,7 +474,7 @@ export const K8S_CKAD_QUESTIONS_18 = [
       { id: 'A', text: "Disable RBAC authorization mode on the cluster." },
       { id: 'B', text: "Create a dedicated `ServiceAccount`, bind it to a least-privilege `Role` via a `RoleBinding`, and set `serviceAccountName` in the pod spec." },
       { id: 'C', text: "Run the pod using the `default` ServiceAccount and grant cluster-admin to default." },
-      { id: 'D', text: "Hardcode the cluster administrator kubeconfig inside the runner container image." }
+      { id: 'D', text: "Mount a long-lived admin kubeconfig into the runner as a Secret." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -494,7 +494,7 @@ export const K8S_CKAD_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Run the pod using the `default` ServiceAccount and grant cluster-admin to default." },
       { id: 'B', text: "Create a dedicated `ServiceAccount`, bind it to a least-privilege `Role` via a `RoleBinding`, and set `serviceAccountName` in the pod spec." },
-      { id: 'C', text: "Hardcode the cluster administrator kubeconfig inside the runner container image." },
+      { id: 'C', text: "Mount a long-lived admin kubeconfig into the runner as a Secret." },
       { id: 'D', text: "Disable RBAC authorization mode on the cluster." }
     ],
     correctAnswers: ['B'],
@@ -516,7 +516,7 @@ export const K8S_CKAD_QUESTIONS_18 = [
       { id: 'A', text: "Create a dedicated `ServiceAccount`, bind it to a least-privilege `Role` via a `RoleBinding`, and set `serviceAccountName` in the pod spec." },
       { id: 'B', text: "Run the pod using the `default` ServiceAccount and grant cluster-admin to default." },
       { id: 'C', text: "Disable RBAC authorization mode on the cluster." },
-      { id: 'D', text: "Hardcode the cluster administrator kubeconfig inside the runner container image." }
+      { id: 'D', text: "Mount a long-lived admin kubeconfig into the runner as a Secret." }
     ],
     correctAnswers: ['A'],
     type: "single",

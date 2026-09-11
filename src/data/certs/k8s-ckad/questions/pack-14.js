@@ -324,8 +324,8 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Package Management to deploy a complex multi-tier microservice stack consistently across dev, test, and prod environments with environment-specific configuration parameters.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Instruct developers to manually edit production YAML manifests with vi before each deployment." },
-      { id: 'B', text: "Hardcode production credentials and environment URLs into a single un-parameterized template." },
+      { id: 'A', text: "Keep a separate full manifest per environment and edit it before deploying." },
+      { id: 'B', text: "Keep one template per environment with the values written into each." },
       { id: 'C', text: "Package the application manifests into a Helm chart and deploy using `helm install` or `helm upgrade --install` with environment-specific values files (`-f values-prod.yaml`)." },
       { id: 'D', text: "Maintain completely separate sets of raw duplicate YAML files across dozens of repository branches." }
     ],
@@ -346,8 +346,8 @@ export const K8S_CKAD_QUESTIONS_14 = [
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
       { id: 'A', text: "Maintain completely separate sets of raw duplicate YAML files across dozens of repository branches." },
-      { id: 'B', text: "Instruct developers to manually edit production YAML manifests with vi before each deployment." },
-      { id: 'C', text: "Hardcode production credentials and environment URLs into a single un-parameterized template." },
+      { id: 'B', text: "Keep a separate full manifest per environment and edit it before deploying." },
+      { id: 'C', text: "Keep one template per environment with the values written into each." },
       { id: 'D', text: "Package the application manifests into a Helm chart and deploy using `helm install` or `helm upgrade --install` with environment-specific values files (`-f values-prod.yaml`)." }
     ],
     correctAnswers: ['D'],
@@ -367,8 +367,8 @@ export const K8S_CKAD_QUESTIONS_14 = [
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
       { id: 'A', text: "Package the application manifests into a Helm chart and deploy using `helm install` or `helm upgrade --install` with environment-specific values files (`-f values-prod.yaml`)." },
-      { id: 'B', text: "Hardcode production credentials and environment URLs into a single un-parameterized template." },
-      { id: 'C', text: "Instruct developers to manually edit production YAML manifests with vi before each deployment." },
+      { id: 'B', text: "Keep one template per environment with the values written into each." },
+      { id: 'C', text: "Keep a separate full manifest per environment and edit it before deploying." },
       { id: 'D', text: "Maintain completely separate sets of raw duplicate YAML files across dozens of repository branches." }
     ],
     correctAnswers: ['A'],
@@ -387,8 +387,8 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Package Management to deploy a complex multi-tier microservice stack consistently across dev, test, and prod environments with environment-specific configuration parameters.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
-      { id: 'A', text: "Instruct developers to manually edit production YAML manifests with vi before each deployment." },
-      { id: 'B', text: "Hardcode production credentials and environment URLs into a single un-parameterized template." },
+      { id: 'A', text: "Keep a separate full manifest per environment and edit it before deploying." },
+      { id: 'B', text: "Keep one template per environment with the values written into each." },
       { id: 'C', text: "Package the application manifests into a Helm chart and deploy using `helm install` or `helm upgrade --install` with environment-specific values files (`-f values-prod.yaml`)." },
       { id: 'D', text: "Maintain completely separate sets of raw duplicate YAML files across dozens of repository branches." }
     ],
@@ -409,8 +409,8 @@ export const K8S_CKAD_QUESTIONS_14 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
       { id: 'A', text: "Package the application manifests into a Helm chart and deploy using `helm install` or `helm upgrade --install` with environment-specific values files (`-f values-prod.yaml`)." },
-      { id: 'B', text: "Instruct developers to manually edit production YAML manifests with vi before each deployment." },
-      { id: 'C', text: "Hardcode production credentials and environment URLs into a single un-parameterized template." },
+      { id: 'B', text: "Keep a separate full manifest per environment and edit it before deploying." },
+      { id: 'C', text: "Keep one template per environment with the values written into each." },
       { id: 'D', text: "Maintain completely separate sets of raw duplicate YAML files across dozens of repository branches." }
     ],
     correctAnswers: ['A'],
