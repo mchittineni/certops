@@ -9,7 +9,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to configure a specific Java 17 and Node.js 20 runtime environment with dependency caching on a standard GitHub-hosted runner.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Use a container job whose image already carries the required toolchain versions." },
+      { id: 'A', text: "Use a container job whose base image already carries every one of the required toolchains." },
       { id: 'B', text: "Use `actions/setup-java@v4` with a distribution and `actions/setup-node@v4` with caching." },
       { id: 'C', text: "Use whichever versions the hosted runner image ships with for that release." },
       { id: 'D', text: "Build the toolchains from source in a setup step so the versions are exact." }
@@ -32,7 +32,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Use `actions/setup-java@v4` with a distribution and `actions/setup-node@v4` with caching." },
       { id: 'B', text: "Use whichever versions the hosted runner image ships with for that release." },
-      { id: 'C', text: "Use a container job whose image already carries the required toolchain versions." },
+      { id: 'C', text: "Use a container job whose base image already carries every one of the required toolchains." },
       { id: 'D', text: "Build the toolchains from source in a setup step so the versions are exact." }
     ],
     correctAnswers: ['A'],
@@ -51,7 +51,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to configure a specific Java 17 and Node.js 20 runtime environment with dependency caching on a standard GitHub-hosted runner.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Use a container job whose image already carries the required toolchain versions." },
+      { id: 'A', text: "Use a container job whose base image already carries every one of the required toolchains." },
       { id: 'B', text: "Use `actions/setup-java@v4` with a distribution and `actions/setup-node@v4` with caching." },
       { id: 'C', text: "Use whichever versions the hosted runner image ships with for that release." },
       { id: 'D', text: "Build the toolchains from source in a setup step so the versions are exact." }
@@ -75,7 +75,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
       { id: 'A', text: "Use `actions/setup-java@v4` with a distribution and `actions/setup-node@v4` with caching." },
       { id: 'B', text: "Build the toolchains from source in a setup step so the versions are exact." },
       { id: 'C', text: "Use whichever versions the hosted runner image ships with for that release." },
-      { id: 'D', text: "Use a container job whose image already carries the required toolchain versions." }
+      { id: 'D', text: "Use a container job whose base image already carries every one of the required toolchains." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -94,7 +94,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Use whichever versions the hosted runner image ships with for that release." },
-      { id: 'B', text: "Use a container job whose image already carries the required toolchain versions." },
+      { id: 'B', text: "Use a container job whose base image already carries every one of the required toolchains." },
       { id: 'C', text: "Use `actions/setup-java@v4` with a distribution and `actions/setup-node@v4` with caching." },
       { id: 'D', text: "Build the toolchains from source in a setup step so the versions are exact." }
     ],
@@ -115,7 +115,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Set `retention-days: 3` on the upload step, or lower the repository default." },
-      { id: 'B', text: "Leave the artifacts on the 90-day default and prune them by API later." },
+      { id: 'B', text: "Leave the artifacts on the 90-day default and prune them through the API later." },
       { id: 'C', text: "Stop uploading the intermediate artifacts and rebuild them when needed." },
       { id: 'D', text: "Delete the artifacts through the web interface at the end of each week." }
     ],
@@ -138,7 +138,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
       { id: 'A', text: "Stop uploading the intermediate artifacts and rebuild them when needed." },
       { id: 'B', text: "Delete the artifacts through the web interface at the end of each week." },
       { id: 'C', text: "Set `retention-days: 3` on the upload step, or lower the repository default." },
-      { id: 'D', text: "Leave the artifacts on the 90-day default and prune them by API later." }
+      { id: 'D', text: "Leave the artifacts on the 90-day default and prune them through the API later." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,7 +156,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to prevent high-volume build artifacts and logs from consuming enterprise storage quotas by retaining development artifacts for only 3 days.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Leave the artifacts on the 90-day default and prune them by API later." },
+      { id: 'A', text: "Leave the artifacts on the 90-day default and prune them through the API later." },
       { id: 'B', text: "Delete the artifacts through the web interface at the end of each week." },
       { id: 'C', text: "Stop uploading the intermediate artifacts and rebuild them when needed." },
       { id: 'D', text: "Set `retention-days: 3` on the upload step, or lower the repository default." }
@@ -179,7 +179,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Delete the artifacts through the web interface at the end of each week." },
       { id: 'B', text: "Stop uploading the intermediate artifacts and rebuild them when needed." },
-      { id: 'C', text: "Leave the artifacts on the 90-day default and prune them by API later." },
+      { id: 'C', text: "Leave the artifacts on the 90-day default and prune them through the API later." },
       { id: 'D', text: "Set `retention-days: 3` on the upload step, or lower the repository default." }
     ],
     correctAnswers: ['D'],
@@ -198,7 +198,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to prevent high-volume build artifacts and logs from consuming enterprise storage quotas by retaining development artifacts for only 3 days.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Leave the artifacts on the 90-day default and prune them by API later." },
+      { id: 'A', text: "Leave the artifacts on the 90-day default and prune them through the API later." },
       { id: 'B', text: "Stop uploading the intermediate artifacts and rebuild them when needed." },
       { id: 'C', text: "Set `retention-days: 3` on the upload step, or lower the repository default." },
       { id: 'D', text: "Delete the artifacts through the web interface at the end of each week." }
@@ -325,7 +325,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Create `action.yml` under `.github/actions/` with the same four sections." },
-      { id: 'B', text: "Declare the inputs and outputs in `package.json` alongside the entry point." },
+      { id: 'B', text: "Declare the inputs and outputs in `package.json` alongside the action's entry point." },
       { id: 'C', text: "Create `action.yml` in the root with `name`, `inputs:`, `outputs:` and `runs:`." },
       { id: 'D', text: "Declare the metadata in a workflow file under `.github/workflows/`." }
     ],
@@ -347,7 +347,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Create `action.yml` under `.github/actions/` with the same four sections." },
       { id: 'B', text: "Declare the metadata in a workflow file under `.github/workflows/`." },
-      { id: 'C', text: "Declare the inputs and outputs in `package.json` alongside the entry point." },
+      { id: 'C', text: "Declare the inputs and outputs in `package.json` alongside the action's entry point." },
       { id: 'D', text: "Create `action.yml` in the root with `name`, `inputs:`, `outputs:` and `runs:`." }
     ],
     correctAnswers: ['D'],
@@ -369,7 +369,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
       { id: 'A', text: "Declare the metadata in a workflow file under `.github/workflows/`." },
       { id: 'B', text: "Create `action.yml` under `.github/actions/` with the same four sections." },
       { id: 'C', text: "Create `action.yml` in the root with `name`, `inputs:`, `outputs:` and `runs:`." },
-      { id: 'D', text: "Declare the inputs and outputs in `package.json` alongside the entry point." }
+      { id: 'D', text: "Declare the inputs and outputs in `package.json` alongside the action's entry point." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -390,7 +390,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
       { id: 'A', text: "Create `action.yml` in the root with `name`, `inputs:`, `outputs:` and `runs:`." },
       { id: 'B', text: "Declare the metadata in a workflow file under `.github/workflows/`." },
       { id: 'C', text: "Create `action.yml` under `.github/actions/` with the same four sections." },
-      { id: 'D', text: "Declare the inputs and outputs in `package.json` alongside the entry point." }
+      { id: 'D', text: "Declare the inputs and outputs in `package.json` alongside the action's entry point." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -409,7 +409,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Create `action.yml` in the root with `name`, `inputs:`, `outputs:` and `runs:`." },
-      { id: 'B', text: "Declare the inputs and outputs in `package.json` alongside the entry point." },
+      { id: 'B', text: "Declare the inputs and outputs in `package.json` alongside the action's entry point." },
       { id: 'C', text: "Declare the metadata in a workflow file under `.github/workflows/`." },
       { id: 'D', text: "Create `action.yml` under `.github/actions/` with the same four sections." }
     ],
@@ -430,7 +430,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Set `runs: using: 'node20'` with the shell commands in the entry point." },
-      { id: 'B', text: "Set `runs: using: 'composite'` and give every `run:` step a `shell:`." },
+      { id: 'B', text: "Set `runs: using: 'composite'` and give each `run:` a `shell:`." },
       { id: 'C', text: "Set `runs: using: 'docker'` and put the commands in the entrypoint." },
       { id: 'D', text: "Set `runs: using: 'composite'` and omit `shell:` so the default applies." }
     ],
@@ -450,7 +450,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to bundle a series of setup commands and test scripts into a composite action while ensuring commands execute in bash on all platforms.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Set `runs: using: 'composite'` and give every `run:` step a `shell:`." },
+      { id: 'A', text: "Set `runs: using: 'composite'` and give each `run:` a `shell:`." },
       { id: 'B', text: "Set `runs: using: 'composite'` and omit `shell:` so the default applies." },
       { id: 'C', text: "Set `runs: using: 'docker'` and put the commands in the entrypoint." },
       { id: 'D', text: "Set `runs: using: 'node20'` with the shell commands in the entry point." }
@@ -471,7 +471,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to bundle a series of setup commands and test scripts into a composite action while ensuring commands execute in bash on all platforms.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Set `runs: using: 'composite'` and give every `run:` step a `shell:`." },
+      { id: 'A', text: "Set `runs: using: 'composite'` and give each `run:` a `shell:`." },
       { id: 'B', text: "Set `runs: using: 'composite'` and omit `shell:` so the default applies." },
       { id: 'C', text: "Set `runs: using: 'docker'` and put the commands in the entrypoint." },
       { id: 'D', text: "Set `runs: using: 'node20'` with the shell commands in the entry point." }
@@ -492,7 +492,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to bundle a series of setup commands and test scripts into a composite action while ensuring commands execute in bash on all platforms.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Set `runs: using: 'composite'` and give every `run:` step a `shell:`." },
+      { id: 'A', text: "Set `runs: using: 'composite'` and give each `run:` a `shell:`." },
       { id: 'B', text: "Set `runs: using: 'composite'` and omit `shell:` so the default applies." },
       { id: 'C', text: "Set `runs: using: 'docker'` and put the commands in the entrypoint." },
       { id: 'D', text: "Set `runs: using: 'node20'` with the shell commands in the entry point." }
@@ -515,7 +515,7 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Set `runs: using: 'docker'` and put the commands in the entrypoint." },
       { id: 'B', text: "Set `runs: using: 'node20'` with the shell commands in the entry point." },
-      { id: 'C', text: "Set `runs: using: 'composite'` and give every `run:` step a `shell:`." },
+      { id: 'C', text: "Set `runs: using: 'composite'` and give each `run:` a `shell:`." },
       { id: 'D', text: "Set `runs: using: 'composite'` and omit `shell:` so the default applies." }
     ],
     correctAnswers: ['C'],

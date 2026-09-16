@@ -11,7 +11,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Use `actions/upload-artifact` in the build job and `download-artifact` downstream." },
       { id: 'B', text: "Commit the compiled binary to the repository so later jobs check it out." },
-      { id: 'C', text: "Use `actions/cache` keyed on the commit SHA to carry the build across jobs." },
+      { id: 'C', text: "Use `actions/cache` keyed on the commit SHA to carry the build output across the jobs." },
       { id: 'D', text: "Rely on the workspace persisting, since the jobs share the same runner." }
     ],
     correctAnswers: ['A'],
@@ -32,7 +32,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Rely on the workspace persisting, since the jobs share the same runner." },
       { id: 'B', text: "Use `actions/upload-artifact` in the build job and `download-artifact` downstream." },
-      { id: 'C', text: "Use `actions/cache` keyed on the commit SHA to carry the build across jobs." },
+      { id: 'C', text: "Use `actions/cache` keyed on the commit SHA to carry the build output across the jobs." },
       { id: 'D', text: "Commit the compiled binary to the repository so later jobs check it out." }
     ],
     correctAnswers: ['B'],
@@ -53,7 +53,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Use `actions/upload-artifact` in the build job and `download-artifact` downstream." },
       { id: 'B', text: "Commit the compiled binary to the repository so later jobs check it out." },
-      { id: 'C', text: "Use `actions/cache` keyed on the commit SHA to carry the build across jobs." },
+      { id: 'C', text: "Use `actions/cache` keyed on the commit SHA to carry the build output across the jobs." },
       { id: 'D', text: "Rely on the workspace persisting, since the jobs share the same runner." }
     ],
     correctAnswers: ['A'],
@@ -74,7 +74,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Use `actions/upload-artifact` in the build job and `download-artifact` downstream." },
       { id: 'B', text: "Commit the compiled binary to the repository so later jobs check it out." },
-      { id: 'C', text: "Use `actions/cache` keyed on the commit SHA to carry the build across jobs." },
+      { id: 'C', text: "Use `actions/cache` keyed on the commit SHA to carry the build output across the jobs." },
       { id: 'D', text: "Rely on the workspace persisting, since the jobs share the same runner." }
     ],
     correctAnswers: ['A'],
@@ -96,7 +96,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
       { id: 'A', text: "Commit the compiled binary to the repository so later jobs check it out." },
       { id: 'B', text: "Use `actions/upload-artifact` in the build job and `download-artifact` downstream." },
       { id: 'C', text: "Rely on the workspace persisting, since the jobs share the same runner." },
-      { id: 'D', text: "Use `actions/cache` keyed on the commit SHA to carry the build across jobs." }
+      { id: 'D', text: "Use `actions/cache` keyed on the commit SHA to carry the build output across the jobs." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -114,7 +114,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to reduce workflow execution duration by avoiding re-downloading thousands of npm packages on every single commit.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Use `actions/cache@v4` with a `key` built from the run number so each run differs." },
+      { id: 'A', text: "Use `actions/cache@v4` with a `key` built from the run number so that each run differs." },
       { id: 'B', text: "Use `npm install` without a lockfile so the newest compatible versions resolve." },
       { id: 'C', text: "Commit the dependency directory to the repository through Git LFS instead." },
       { id: 'D', text: "Use `actions/cache@v4` with a `key` built from `hashFiles('**/package-lock.json')`." }
@@ -135,7 +135,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to reduce workflow execution duration by avoiding re-downloading thousands of npm packages on every single commit.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Use `actions/cache@v4` with a `key` built from the run number so each run differs." },
+      { id: 'A', text: "Use `actions/cache@v4` with a `key` built from the run number so that each run differs." },
       { id: 'B', text: "Use `npm install` without a lockfile so the newest compatible versions resolve." },
       { id: 'C', text: "Commit the dependency directory to the repository through Git LFS instead." },
       { id: 'D', text: "Use `actions/cache@v4` with a `key` built from `hashFiles('**/package-lock.json')`." }
@@ -157,7 +157,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Commit the dependency directory to the repository through Git LFS instead." },
-      { id: 'B', text: "Use `actions/cache@v4` with a `key` built from the run number so each run differs." },
+      { id: 'B', text: "Use `actions/cache@v4` with a `key` built from the run number so that each run differs." },
       { id: 'C', text: "Use `npm install` without a lockfile so the newest compatible versions resolve." },
       { id: 'D', text: "Use `actions/cache@v4` with a `key` built from `hashFiles('**/package-lock.json')`." }
     ],
@@ -180,7 +180,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
       { id: 'A', text: "Use `actions/cache@v4` with a `key` built from `hashFiles('**/package-lock.json')`." },
       { id: 'B', text: "Commit the dependency directory to the repository through Git LFS instead." },
       { id: 'C', text: "Use `npm install` without a lockfile so the newest compatible versions resolve." },
-      { id: 'D', text: "Use `actions/cache@v4` with a `key` built from the run number so each run differs." }
+      { id: 'D', text: "Use `actions/cache@v4` with a `key` built from the run number so that each run differs." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -201,7 +201,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
       { id: 'A', text: "Use `actions/cache@v4` with a `key` built from `hashFiles('**/package-lock.json')`." },
       { id: 'B', text: "Commit the dependency directory to the repository through Git LFS instead." },
       { id: 'C', text: "Use `npm install` without a lockfile so the newest compatible versions resolve." },
-      { id: 'D', text: "Use `actions/cache@v4` with a `key` built from the run number so each run differs." }
+      { id: 'D', text: "Use `actions/cache@v4` with a `key` built from the run number so that each run differs." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,7 +219,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to allow operations engineers to trigger an on-demand deployment workflow manually via the GitHub UI with environment and debug parameters.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Use `on: workflow_dispatch` with typed `inputs:` and their defaults." },
+      { id: 'A', text: "Use `on: workflow_dispatch` with typed `inputs:` and defaults." },
       { id: 'B', text: "Use `on: repository_dispatch` with a payload posted by the engineer." },
       { id: 'C', text: "Use `on: push` and have the engineer edit the parameters in the file." },
       { id: 'D', text: "Use `on: schedule` and have the engineer wait for the next window." }
@@ -240,7 +240,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to allow operations engineers to trigger an on-demand deployment workflow manually via the GitHub UI with environment and debug parameters.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Use `on: workflow_dispatch` with typed `inputs:` and their defaults." },
+      { id: 'A', text: "Use `on: workflow_dispatch` with typed `inputs:` and defaults." },
       { id: 'B', text: "Use `on: repository_dispatch` with a payload posted by the engineer." },
       { id: 'C', text: "Use `on: push` and have the engineer edit the parameters in the file." },
       { id: 'D', text: "Use `on: schedule` and have the engineer wait for the next window." }
@@ -262,7 +262,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Use `on: schedule` and have the engineer wait for the next window." },
-      { id: 'B', text: "Use `on: workflow_dispatch` with typed `inputs:` and their defaults." },
+      { id: 'B', text: "Use `on: workflow_dispatch` with typed `inputs:` and defaults." },
       { id: 'C', text: "Use `on: push` and have the engineer edit the parameters in the file." },
       { id: 'D', text: "Use `on: repository_dispatch` with a payload posted by the engineer." }
     ],
@@ -282,7 +282,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to allow operations engineers to trigger an on-demand deployment workflow manually via the GitHub UI with environment and debug parameters.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use `on: workflow_dispatch` with typed `inputs:` and their defaults." },
+      { id: 'A', text: "Use `on: workflow_dispatch` with typed `inputs:` and defaults." },
       { id: 'B', text: "Use `on: repository_dispatch` with a payload posted by the engineer." },
       { id: 'C', text: "Use `on: push` and have the engineer edit the parameters in the file." },
       { id: 'D', text: "Use `on: schedule` and have the engineer wait for the next window." }
@@ -303,7 +303,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to allow operations engineers to trigger an on-demand deployment workflow manually via the GitHub UI with environment and debug parameters.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Use `on: workflow_dispatch` with typed `inputs:` and their defaults." },
+      { id: 'A', text: "Use `on: workflow_dispatch` with typed `inputs:` and defaults." },
       { id: 'B', text: "Use `on: repository_dispatch` with a payload posted by the engineer." },
       { id: 'C', text: "Use `on: push` and have the engineer edit the parameters in the file." },
       { id: 'D', text: "Use `on: schedule` and have the engineer wait for the next window." }
@@ -325,7 +325,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Author a composite action holding the steps and call it from each job." },
-      { id: 'B', text: "Author a starter workflow template in the organization's `.github` repo." },
+      { id: 'B', text: "Author a starter workflow template in the organization's own `.github` repository." },
       { id: 'C', text: "Author a reusable workflow with `on: workflow_call` and call it with `uses:`." },
       { id: 'D', text: "Author a script that syncs the same workflow file into each repository." }
     ],
@@ -348,7 +348,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
       { id: 'A', text: "Author a reusable workflow with `on: workflow_call` and call it with `uses:`." },
       { id: 'B', text: "Author a script that syncs the same workflow file into each repository." },
       { id: 'C', text: "Author a composite action holding the steps and call it from each job." },
-      { id: 'D', text: "Author a starter workflow template in the organization's `.github` repo." }
+      { id: 'D', text: "Author a starter workflow template in the organization's own `.github` repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -368,7 +368,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Author a script that syncs the same workflow file into each repository." },
       { id: 'B', text: "Author a reusable workflow with `on: workflow_call` and call it with `uses:`." },
-      { id: 'C', text: "Author a starter workflow template in the organization's `.github` repo." },
+      { id: 'C', text: "Author a starter workflow template in the organization's own `.github` repository." },
       { id: 'D', text: "Author a composite action holding the steps and call it from each job." }
     ],
     correctAnswers: ['B'],
@@ -390,7 +390,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
       { id: 'A', text: "Author a reusable workflow with `on: workflow_call` and call it with `uses:`." },
       { id: 'B', text: "Author a script that syncs the same workflow file into each repository." },
       { id: 'C', text: "Author a composite action holding the steps and call it from each job." },
-      { id: 'D', text: "Author a starter workflow template in the organization's `.github` repo." }
+      { id: 'D', text: "Author a starter workflow template in the organization's own `.github` repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,7 +408,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to standardize a multi-job build, test, and container push workflow across 50 enterprise repositories without code duplication.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Author a starter workflow template in the organization's `.github` repo." },
+      { id: 'A', text: "Author a starter workflow template in the organization's own `.github` repository." },
       { id: 'B', text: "Author a script that syncs the same workflow file into each repository." },
       { id: 'C', text: "Author a reusable workflow with `on: workflow_call` and call it with `uses:`." },
       { id: 'D', text: "Author a composite action holding the steps and call it from each job." }
@@ -429,7 +429,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to prevent production deployments from executing until a senior security engineer approves and an automated 15-minute wait timer expires.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Target an `environment: production` and add a branch protection rule to the branch." },
+      { id: 'A', text: "Target an `environment: production` and add a branch protection rule on the release branch." },
       { id: 'B', text: "Target an `environment: production` and set required reviewers and a wait timer on it." },
       { id: 'C', text: "Add a `workflow_dispatch` input that a release manager sets before the deploy runs." },
       { id: 'D', text: "Add a manual `if:` condition on the job that checks the actor against a list." }
@@ -453,7 +453,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
       { id: 'A', text: "Add a manual `if:` condition on the job that checks the actor against a list." },
       { id: 'B', text: "Add a `workflow_dispatch` input that a release manager sets before the deploy runs." },
       { id: 'C', text: "Target an `environment: production` and set required reviewers and a wait timer on it." },
-      { id: 'D', text: "Target an `environment: production` and add a branch protection rule to the branch." }
+      { id: 'D', text: "Target an `environment: production` and add a branch protection rule on the release branch." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -471,7 +471,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to prevent production deployments from executing until a senior security engineer approves and an automated 15-minute wait timer expires.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Target an `environment: production` and add a branch protection rule to the branch." },
+      { id: 'A', text: "Target an `environment: production` and add a branch protection rule on the release branch." },
       { id: 'B', text: "Add a manual `if:` condition on the job that checks the actor against a list." },
       { id: 'C', text: "Target an `environment: production` and set required reviewers and a wait timer on it." },
       { id: 'D', text: "Add a `workflow_dispatch` input that a release manager sets before the deploy runs." }
@@ -494,7 +494,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Target an `environment: production` and set required reviewers and a wait timer on it." },
       { id: 'B', text: "Add a `workflow_dispatch` input that a release manager sets before the deploy runs." },
-      { id: 'C', text: "Target an `environment: production` and add a branch protection rule to the branch." },
+      { id: 'C', text: "Target an `environment: production` and add a branch protection rule on the release branch." },
       { id: 'D', text: "Add a manual `if:` condition on the job that checks the actor against a list." }
     ],
     correctAnswers: ['A'],
@@ -515,7 +515,7 @@ export const GITHUB_ACTIONS_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Add a `workflow_dispatch` input that a release manager sets before the deploy runs." },
       { id: 'B', text: "Add a manual `if:` condition on the job that checks the actor against a list." },
-      { id: 'C', text: "Target an `environment: production` and add a branch protection rule to the branch." },
+      { id: 'C', text: "Target an `environment: production` and add a branch protection rule on the release branch." },
       { id: 'D', text: "Target an `environment: production` and set required reviewers and a wait timer on it." }
     ],
     correctAnswers: ['D'],

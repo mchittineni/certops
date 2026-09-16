@@ -11,7 +11,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Reference the `github` context: `${{ github.repository }}` and `${{ github.sha }}`." },
       { id: 'B', text: "Reference the `env` context after a step has written the values into it." },
-      { id: 'C', text: "Reference the `runner` context, which carries the checkout's own metadata." },
+      { id: 'C', text: "Reference the `runner` context, which carries the checkout's own repository metadata." },
       { id: 'D', text: "Parse `git rev-parse HEAD` output in a step and pass it on as an output." }
     ],
     correctAnswers: ['A'],
@@ -31,7 +31,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Reference the `github` context: `${{ github.repository }}` and `${{ github.sha }}`." },
-      { id: 'B', text: "Reference the `runner` context, which carries the checkout's own metadata." },
+      { id: 'B', text: "Reference the `runner` context, which carries the checkout's own repository metadata." },
       { id: 'C', text: "Parse `git rev-parse HEAD` output in a step and pass it on as an output." },
       { id: 'D', text: "Reference the `env` context after a step has written the values into it." }
     ],
@@ -51,7 +51,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to dynamically label a container image with the repository name, commit SHA, and current Git reference during workflow execution.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Reference the `runner` context, which carries the checkout's own metadata." },
+      { id: 'A', text: "Reference the `runner` context, which carries the checkout's own repository metadata." },
       { id: 'B', text: "Parse `git rev-parse HEAD` output in a step and pass it on as an output." },
       { id: 'C', text: "Reference the `github` context: `${{ github.repository }}` and `${{ github.sha }}`." },
       { id: 'D', text: "Reference the `env` context after a step has written the values into it." }
@@ -75,7 +75,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
       { id: 'A', text: "Reference the `github` context: `${{ github.repository }}` and `${{ github.sha }}`." },
       { id: 'B', text: "Parse `git rev-parse HEAD` output in a step and pass it on as an output." },
       { id: 'C', text: "Reference the `env` context after a step has written the values into it." },
-      { id: 'D', text: "Reference the `runner` context, which carries the checkout's own metadata." }
+      { id: 'D', text: "Reference the `runner` context, which carries the checkout's own repository metadata." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -96,7 +96,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
       { id: 'A', text: "Reference the `github` context: `${{ github.repository }}` and `${{ github.sha }}`." },
       { id: 'B', text: "Parse `git rev-parse HEAD` output in a step and pass it on as an output." },
       { id: 'C', text: "Reference the `env` context after a step has written the values into it." },
-      { id: 'D', text: "Reference the `runner` context, which carries the checkout's own metadata." }
+      { id: 'D', text: "Reference the `runner` context, which carries the checkout's own repository metadata." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -116,7 +116,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Set the variable in the job's `env:` and override it in the step's own `env:`." },
       { id: 'B', text: "Set the variable at workflow level only, and read it from every step." },
-      { id: 'C', text: "Export the variable in a shell step without writing it to `$GITHUB_ENV`." },
+      { id: 'C', text: "Export the variable in an earlier shell step without writing it to `$GITHUB_ENV`." },
       { id: 'D', text: "Write the value into each command string wherever the step needs it." }
     ],
     correctAnswers: ['A'],
@@ -137,7 +137,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Set the variable in the job's `env:` and override it in the step's own `env:`." },
       { id: 'B', text: "Set the variable at workflow level only, and read it from every step." },
-      { id: 'C', text: "Export the variable in a shell step without writing it to `$GITHUB_ENV`." },
+      { id: 'C', text: "Export the variable in an earlier shell step without writing it to `$GITHUB_ENV`." },
       { id: 'D', text: "Write the value into each command string wherever the step needs it." }
     ],
     correctAnswers: ['A'],
@@ -156,7 +156,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to pass an environment variable to all steps within a job while overriding it with a specialized value for one specific step.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Export the variable in a shell step without writing it to `$GITHUB_ENV`." },
+      { id: 'A', text: "Export the variable in an earlier shell step without writing it to `$GITHUB_ENV`." },
       { id: 'B', text: "Write the value into each command string wherever the step needs it." },
       { id: 'C', text: "Set the variable in the job's `env:` and override it in the step's own `env:`." },
       { id: 'D', text: "Set the variable at workflow level only, and read it from every step." }
@@ -179,7 +179,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Set the variable in the job's `env:` and override it in the step's own `env:`." },
       { id: 'B', text: "Set the variable at workflow level only, and read it from every step." },
-      { id: 'C', text: "Export the variable in a shell step without writing it to `$GITHUB_ENV`." },
+      { id: 'C', text: "Export the variable in an earlier shell step without writing it to `$GITHUB_ENV`." },
       { id: 'D', text: "Write the value into each command string wherever the step needs it." }
     ],
     correctAnswers: ['A'],
@@ -200,7 +200,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Set the variable in the job's `env:` and override it in the step's own `env:`." },
       { id: 'B', text: "Set the variable at workflow level only, and read it from every step." },
-      { id: 'C', text: "Export the variable in a shell step without writing it to `$GITHUB_ENV`." },
+      { id: 'C', text: "Export the variable in an earlier shell step without writing it to `$GITHUB_ENV`." },
       { id: 'D', text: "Write the value into each command string wherever the step needs it." }
     ],
     correctAnswers: ['A'],
@@ -222,7 +222,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
       { id: 'A', text: "Write it to `$GITHUB_OUTPUT` and read `steps.&lt;id&gt;.outputs.version` downstream." },
       { id: 'B', text: "Write it with the `::set-output` workflow command and read it downstream." },
       { id: 'C', text: "Export it as a shell variable so later steps in the job inherit the value." },
-      { id: 'D', text: "Write it to `$GITHUB_ENV` and read it as an environment variable downstream." }
+      { id: 'D', text: "Write it to `$GITHUB_ENV` and read it back as an ordinary environment variable downstream." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -241,7 +241,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Export it as a shell variable so later steps in the job inherit the value." },
-      { id: 'B', text: "Write it to `$GITHUB_ENV` and read it as an environment variable downstream." },
+      { id: 'B', text: "Write it to `$GITHUB_ENV` and read it back as an ordinary environment variable downstream." },
       { id: 'C', text: "Write it to `$GITHUB_OUTPUT` and read `steps.&lt;id&gt;.outputs.version` downstream." },
       { id: 'D', text: "Write it with the `::set-output` workflow command and read it downstream." }
     ],
@@ -264,7 +264,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
       { id: 'A', text: "Export it as a shell variable so later steps in the job inherit the value." },
       { id: 'B', text: "Write it to `$GITHUB_OUTPUT` and read `steps.&lt;id&gt;.outputs.version` downstream." },
       { id: 'C', text: "Write it with the `::set-output` workflow command and read it downstream." },
-      { id: 'D', text: "Write it to `$GITHUB_ENV` and read it as an environment variable downstream." }
+      { id: 'D', text: "Write it to `$GITHUB_ENV` and read it back as an ordinary environment variable downstream." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -283,7 +283,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Export it as a shell variable so later steps in the job inherit the value." },
-      { id: 'B', text: "Write it to `$GITHUB_ENV` and read it as an environment variable downstream." },
+      { id: 'B', text: "Write it to `$GITHUB_ENV` and read it back as an ordinary environment variable downstream." },
       { id: 'C', text: "Write it to `$GITHUB_OUTPUT` and read `steps.&lt;id&gt;.outputs.version` downstream." },
       { id: 'D', text: "Write it with the `::set-output` workflow command and read it downstream." }
     ],
@@ -306,7 +306,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
       { id: 'A', text: "Write it with the `::set-output` workflow command and read it downstream." },
       { id: 'B', text: "Export it as a shell variable so later steps in the job inherit the value." },
       { id: 'C', text: "Write it to `$GITHUB_OUTPUT` and read `steps.&lt;id&gt;.outputs.version` downstream." },
-      { id: 'D', text: "Write it to `$GITHUB_ENV` and read it as an environment variable downstream." }
+      { id: 'D', text: "Write it to `$GITHUB_ENV` and read it back as an ordinary environment variable downstream." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -325,7 +325,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Append the Markdown to `$GITHUB_STEP_SUMMARY`, which renders on the run's page." },
-      { id: 'B', text: "Append the Markdown to `$GITHUB_ENV`, which the following steps then render." },
+      { id: 'B', text: "Append the Markdown to `$GITHUB_ENV`, which each of the following steps then renders." },
       { id: 'C', text: "Post the Markdown as a pull request comment from the workflow's own token." },
       { id: 'D', text: "Upload the Markdown with `actions/upload-artifact` for reviewers to open." }
     ],
@@ -348,7 +348,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
       { id: 'A', text: "Upload the Markdown with `actions/upload-artifact` for reviewers to open." },
       { id: 'B', text: "Append the Markdown to `$GITHUB_STEP_SUMMARY`, which renders on the run's page." },
       { id: 'C', text: "Post the Markdown as a pull request comment from the workflow's own token." },
-      { id: 'D', text: "Append the Markdown to `$GITHUB_ENV`, which the following steps then render." }
+      { id: 'D', text: "Append the Markdown to `$GITHUB_ENV`, which each of the following steps then renders." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -368,7 +368,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Upload the Markdown with `actions/upload-artifact` for reviewers to open." },
       { id: 'B', text: "Post the Markdown as a pull request comment from the workflow's own token." },
-      { id: 'C', text: "Append the Markdown to `$GITHUB_ENV`, which the following steps then render." },
+      { id: 'C', text: "Append the Markdown to `$GITHUB_ENV`, which each of the following steps then renders." },
       { id: 'D', text: "Append the Markdown to `$GITHUB_STEP_SUMMARY`, which renders on the run's page." }
     ],
     correctAnswers: ['D'],
@@ -388,7 +388,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Append the Markdown to `$GITHUB_STEP_SUMMARY`, which renders on the run's page." },
-      { id: 'B', text: "Append the Markdown to `$GITHUB_ENV`, which the following steps then render." },
+      { id: 'B', text: "Append the Markdown to `$GITHUB_ENV`, which each of the following steps then renders." },
       { id: 'C', text: "Post the Markdown as a pull request comment from the workflow's own token." },
       { id: 'D', text: "Upload the Markdown with `actions/upload-artifact` for reviewers to open." }
     ],
@@ -410,7 +410,7 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Post the Markdown as a pull request comment from the workflow's own token." },
       { id: 'B', text: "Append the Markdown to `$GITHUB_STEP_SUMMARY`, which renders on the run's page." },
-      { id: 'C', text: "Append the Markdown to `$GITHUB_ENV`, which the following steps then render." },
+      { id: 'C', text: "Append the Markdown to `$GITHUB_ENV`, which each of the following steps then renders." },
       { id: 'D', text: "Upload the Markdown with `actions/upload-artifact` for reviewers to open." }
     ],
     correctAnswers: ['B'],

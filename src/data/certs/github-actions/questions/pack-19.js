@@ -115,7 +115,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Keep a static pool of ten persistent runner VMs registered to the group." },
-      { id: 'B', text: "Run Actions Runner Controller on Kubernetes with an `AutoScalingRunnerSet`." },
+      { id: 'B', text: "Run Actions Runner Controller with an `AutoScalingRunnerSet`." },
       { id: 'C', text: "Move the jobs to GitHub-hosted larger runners and retire the self-hosted pool." },
       { id: 'D', text: "Add runner VMs by hand whenever the queue depth grows beyond a threshold." }
     ],
@@ -138,7 +138,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
       { id: 'A', text: "Move the jobs to GitHub-hosted larger runners and retire the self-hosted pool." },
       { id: 'B', text: "Add runner VMs by hand whenever the queue depth grows beyond a threshold." },
       { id: 'C', text: "Keep a static pool of ten persistent runner VMs registered to the group." },
-      { id: 'D', text: "Run Actions Runner Controller on Kubernetes with an `AutoScalingRunnerSet`." }
+      { id: 'D', text: "Run Actions Runner Controller with an `AutoScalingRunnerSet`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -159,7 +159,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
       { id: 'A', text: "Add runner VMs by hand whenever the queue depth grows beyond a threshold." },
       { id: 'B', text: "Keep a static pool of ten persistent runner VMs registered to the group." },
       { id: 'C', text: "Move the jobs to GitHub-hosted larger runners and retire the self-hosted pool." },
-      { id: 'D', text: "Run Actions Runner Controller on Kubernetes with an `AutoScalingRunnerSet`." }
+      { id: 'D', text: "Run Actions Runner Controller with an `AutoScalingRunnerSet`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -180,7 +180,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
       { id: 'A', text: "Move the jobs to GitHub-hosted larger runners and retire the self-hosted pool." },
       { id: 'B', text: "Add runner VMs by hand whenever the queue depth grows beyond a threshold." },
       { id: 'C', text: "Keep a static pool of ten persistent runner VMs registered to the group." },
-      { id: 'D', text: "Run Actions Runner Controller on Kubernetes with an `AutoScalingRunnerSet`." }
+      { id: 'D', text: "Run Actions Runner Controller with an `AutoScalingRunnerSet`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -198,7 +198,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Run Actions Runner Controller on Kubernetes with an `AutoScalingRunnerSet`." },
+      { id: 'A', text: "Run Actions Runner Controller with an `AutoScalingRunnerSet`." },
       { id: 'B', text: "Keep a static pool of ten persistent runner VMs registered to the group." },
       { id: 'C', text: "Add runner VMs by hand whenever the queue depth grows beyond a threshold." },
       { id: 'D', text: "Move the jobs to GitHub-hosted larger runners and retire the self-hosted pool." }
@@ -219,7 +219,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Put the runners in a runner group and limit it to the approved repositories." },
+      { id: 'A', text: "Put the runners in a runner group limited to the approved repos." },
       { id: 'B', text: "Put the runners at organization level, available to every repository in it." },
       { id: 'C', text: "Register the runners per repository so only that repository can use them." },
       { id: 'D', text: "Put the runners in a runner group open to all repositories, audited after use." }
@@ -242,7 +242,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Register the runners per repository so only that repository can use them." },
       { id: 'B', text: "Put the runners in a runner group open to all repositories, audited after use." },
-      { id: 'C', text: "Put the runners in a runner group and limit it to the approved repositories." },
+      { id: 'C', text: "Put the runners in a runner group limited to the approved repos." },
       { id: 'D', text: "Put the runners at organization level, available to every repository in it." }
     ],
     correctAnswers: ['C'],
@@ -263,7 +263,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Put the runners in a runner group open to all repositories, audited after use." },
       { id: 'B', text: "Put the runners at organization level, available to every repository in it." },
-      { id: 'C', text: "Put the runners in a runner group and limit it to the approved repositories." },
+      { id: 'C', text: "Put the runners in a runner group limited to the approved repos." },
       { id: 'D', text: "Register the runners per repository so only that repository can use them." }
     ],
     correctAnswers: ['C'],
@@ -282,7 +282,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Put the runners in a runner group and limit it to the approved repositories." },
+      { id: 'A', text: "Put the runners in a runner group limited to the approved repos." },
       { id: 'B', text: "Put the runners at organization level, available to every repository in it." },
       { id: 'C', text: "Register the runners per repository so only that repository can use them." },
       { id: 'D', text: "Put the runners in a runner group open to all repositories, audited after use." }
@@ -303,7 +303,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Put the runners in a runner group and limit it to the approved repositories." },
+      { id: 'A', text: "Put the runners in a runner group limited to the approved repos." },
       { id: 'B', text: "Put the runners at organization level, available to every repository in it." },
       { id: 'C', text: "Register the runners per repository so only that repository can use them." },
       { id: 'D', text: "Put the runners in a runner group open to all repositories, audited after use." }
@@ -324,7 +324,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Store a long-lived IAM access key in repository secrets and configure it per job." },
+      { id: 'A', text: "Store a long-lived IAM access key in the repository's secrets and configure it for each job." },
       { id: 'B', text: "Store the IAM access key in an organization secret scoped to the deploy repos." },
       { id: 'C', text: "Trust GitHub's OIDC provider in the IAM role and use `role-to-assume` in the workflow." },
       { id: 'D', text: "Create an IAM user with the deploy policy and rotate its keys on a schedule." }
@@ -346,7 +346,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Trust GitHub's OIDC provider in the IAM role and use `role-to-assume` in the workflow." },
-      { id: 'B', text: "Store a long-lived IAM access key in repository secrets and configure it per job." },
+      { id: 'B', text: "Store a long-lived IAM access key in the repository's secrets and configure it for each job." },
       { id: 'C', text: "Store the IAM access key in an organization secret scoped to the deploy repos." },
       { id: 'D', text: "Create an IAM user with the deploy policy and rotate its keys on a schedule." }
     ],
@@ -367,7 +367,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Store the IAM access key in an organization secret scoped to the deploy repos." },
-      { id: 'B', text: "Store a long-lived IAM access key in repository secrets and configure it per job." },
+      { id: 'B', text: "Store a long-lived IAM access key in the repository's secrets and configure it for each job." },
       { id: 'C', text: "Create an IAM user with the deploy policy and rotate its keys on a schedule." },
       { id: 'D', text: "Trust GitHub's OIDC provider in the IAM role and use `role-to-assume` in the workflow." }
     ],
@@ -389,7 +389,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Trust GitHub's OIDC provider in the IAM role and use `role-to-assume` in the workflow." },
       { id: 'B', text: "Create an IAM user with the deploy policy and rotate its keys on a schedule." },
-      { id: 'C', text: "Store a long-lived IAM access key in repository secrets and configure it per job." },
+      { id: 'C', text: "Store a long-lived IAM access key in the repository's secrets and configure it for each job." },
       { id: 'D', text: "Store the IAM access key in an organization secret scoped to the deploy repos." }
     ],
     correctAnswers: ['A'],
@@ -410,7 +410,7 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Trust GitHub's OIDC provider in the IAM role and use `role-to-assume` in the workflow." },
       { id: 'B', text: "Create an IAM user with the deploy policy and rotate its keys on a schedule." },
-      { id: 'C', text: "Store a long-lived IAM access key in repository secrets and configure it per job." },
+      { id: 'C', text: "Store a long-lived IAM access key in the repository's secrets and configure it for each job." },
       { id: 'D', text: "Store the IAM access key in an organization secret scoped to the deploy repos." }
     ],
     correctAnswers: ['A'],
@@ -430,9 +430,9 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Specify `permissions: contents: read, id-token: write` at the workflow or job level." },
-      { id: 'B', text: "Grant full `write-all` permissions to the GITHUB_TOKEN across all workflows." },
+      { id: 'B', text: "Grant full `write-all` permissions to the GITHUB_TOKEN across every one of the workflows." },
       { id: 'C', text: "Use a personal access token with admin privileges instead of GITHUB_TOKEN." },
-      { id: 'D', text: "Disable permissions entirely in repository settings." }
+      { id: 'D', text: "Disable permissions entirely in the repository's settings." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -452,8 +452,8 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Specify `permissions: contents: read, id-token: write` at the workflow or job level." },
       { id: 'B', text: "Use a personal access token with admin privileges instead of GITHUB_TOKEN." },
-      { id: 'C', text: "Disable permissions entirely in repository settings." },
-      { id: 'D', text: "Grant full `write-all` permissions to the GITHUB_TOKEN across all workflows." }
+      { id: 'C', text: "Disable permissions entirely in the repository's settings." },
+      { id: 'D', text: "Grant full `write-all` permissions to the GITHUB_TOKEN across every one of the workflows." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -472,9 +472,9 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Use a personal access token with admin privileges instead of GITHUB_TOKEN." },
-      { id: 'B', text: "Disable permissions entirely in repository settings." },
+      { id: 'B', text: "Disable permissions entirely in the repository's settings." },
       { id: 'C', text: "Specify `permissions: contents: read, id-token: write` at the workflow or job level." },
-      { id: 'D', text: "Grant full `write-all` permissions to the GITHUB_TOKEN across all workflows." }
+      { id: 'D', text: "Grant full `write-all` permissions to the GITHUB_TOKEN across every one of the workflows." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -493,9 +493,9 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Specify `permissions: contents: read, id-token: write` at the workflow or job level." },
-      { id: 'B', text: "Grant full `write-all` permissions to the GITHUB_TOKEN across all workflows." },
+      { id: 'B', text: "Grant full `write-all` permissions to the GITHUB_TOKEN across every one of the workflows." },
       { id: 'C', text: "Use a personal access token with admin privileges instead of GITHUB_TOKEN." },
-      { id: 'D', text: "Disable permissions entirely in repository settings." }
+      { id: 'D', text: "Disable permissions entirely in the repository's settings." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,9 +513,9 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to enforce the principle of least privilege on the automatic `GITHUB_TOKEN` so a workflow can only read repository contents and request OIDC tokens.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Disable permissions entirely in repository settings." },
+      { id: 'A', text: "Disable permissions entirely in the repository's settings." },
       { id: 'B', text: "Use a personal access token with admin privileges instead of GITHUB_TOKEN." },
-      { id: 'C', text: "Grant full `write-all` permissions to the GITHUB_TOKEN across all workflows." },
+      { id: 'C', text: "Grant full `write-all` permissions to the GITHUB_TOKEN across every one of the workflows." },
       { id: 'D', text: "Specify `permissions: contents: read, id-token: write` at the workflow or job level." }
     ],
     correctAnswers: ['D'],
