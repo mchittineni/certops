@@ -219,10 +219,10 @@ export const AWS_DOP_QUESTIONS_16 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to monitor application error frequency and trigger automated notifications whenever HTTP 500 error occurrences exceed 50 in a 5-minute window.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Create a CloudWatch Logs Metric Filter with a pattern matching `[..., status = 500, ...]` and configure a CloudWatch Alarm on the resulting custom metric." },
-      { id: 'B', text: "Download raw log files daily to run manual grep commands." },
-      { id: 'C', text: "Configure an alarm directly on EC2 CPU utilization." },
-      { id: 'D', text: "Disable application error logging to suppress alarms." }
+      { id: 'A', text: "A CloudWatch Logs metric filter matching the status code, with an alarm on the resulting metric." },
+      { id: 'B', text: "A CloudWatch Logs subscription filter to Lambda, which counts and republishes the events." },
+      { id: 'C', text: "A CloudWatch alarm on the load balancer's own 5XX metric, aggregated per target group." },
+      { id: 'D', text: "A CloudWatch Logs Insights query run on a schedule, alerting on the row count." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const AWS_DOP_QUESTIONS_16 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to monitor application error frequency and trigger automated notifications whenever HTTP 500 error occurrences exceed 50 in a 5-minute window.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Create a CloudWatch Logs Metric Filter with a pattern matching `[..., status = 500, ...]` and configure a CloudWatch Alarm on the resulting custom metric." },
-      { id: 'B', text: "Download raw log files daily to run manual grep commands." },
-      { id: 'C', text: "Configure an alarm directly on EC2 CPU utilization." },
-      { id: 'D', text: "Disable application error logging to suppress alarms." }
+      { id: 'A', text: "A CloudWatch Logs metric filter matching the status code, with an alarm on the resulting metric." },
+      { id: 'B', text: "A CloudWatch Logs subscription filter to Lambda, which counts and republishes the events." },
+      { id: 'C', text: "A CloudWatch alarm on the load balancer's own 5XX metric, aggregated per target group." },
+      { id: 'D', text: "A CloudWatch Logs Insights query run on a schedule, alerting on the row count." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const AWS_DOP_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to monitor application error frequency and trigger automated notifications whenever HTTP 500 error occurrences exceed 50 in a 5-minute window.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Configure an alarm directly on EC2 CPU utilization." },
-      { id: 'B', text: "Disable application error logging to suppress alarms." },
-      { id: 'C', text: "Create a CloudWatch Logs Metric Filter with a pattern matching `[..., status = 500, ...]` and configure a CloudWatch Alarm on the resulting custom metric." },
-      { id: 'D', text: "Download raw log files daily to run manual grep commands." }
+      { id: 'A', text: "A CloudWatch alarm on the load balancer's own 5XX metric, aggregated per target group." },
+      { id: 'B', text: "A CloudWatch Logs Insights query run on a schedule, alerting on the row count." },
+      { id: 'C', text: "A CloudWatch Logs metric filter matching the status code, with an alarm on the resulting metric." },
+      { id: 'D', text: "A CloudWatch Logs subscription filter to Lambda, which counts and republishes the events." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,10 +282,10 @@ export const AWS_DOP_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to monitor application error frequency and trigger automated notifications whenever HTTP 500 error occurrences exceed 50 in a 5-minute window.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Create a CloudWatch Logs Metric Filter with a pattern matching `[..., status = 500, ...]` and configure a CloudWatch Alarm on the resulting custom metric." },
-      { id: 'B', text: "Download raw log files daily to run manual grep commands." },
-      { id: 'C', text: "Configure an alarm directly on EC2 CPU utilization." },
-      { id: 'D', text: "Disable application error logging to suppress alarms." }
+      { id: 'A', text: "A CloudWatch Logs metric filter matching the status code, with an alarm on the resulting metric." },
+      { id: 'B', text: "A CloudWatch Logs subscription filter to Lambda, which counts and republishes the events." },
+      { id: 'C', text: "A CloudWatch alarm on the load balancer's own 5XX metric, aggregated per target group." },
+      { id: 'D', text: "A CloudWatch Logs Insights query run on a schedule, alerting on the row count." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const AWS_DOP_QUESTIONS_16 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to monitor application error frequency and trigger automated notifications whenever HTTP 500 error occurrences exceed 50 in a 5-minute window.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Configure an alarm directly on EC2 CPU utilization." },
-      { id: 'B', text: "Disable application error logging to suppress alarms." },
-      { id: 'C', text: "Create a CloudWatch Logs Metric Filter with a pattern matching `[..., status = 500, ...]` and configure a CloudWatch Alarm on the resulting custom metric." },
-      { id: 'D', text: "Download raw log files daily to run manual grep commands." }
+      { id: 'A', text: "A CloudWatch alarm on the load balancer's own 5XX metric, aggregated per target group." },
+      { id: 'B', text: "A CloudWatch Logs Insights query run on a schedule, alerting on the row count." },
+      { id: 'C', text: "A CloudWatch Logs metric filter matching the status code, with an alarm on the resulting metric." },
+      { id: 'D', text: "A CloudWatch Logs subscription filter to Lambda, which counts and republishes the events." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,10 +324,10 @@ export const AWS_DOP_QUESTIONS_16 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to aggregate application and system logs from hundreds of AWS accounts into a centralized security data lake in Amazon S3 for long-term compliance retention.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Configure CloudWatch Logs Subscription Filters to stream logs to an Amazon Kinesis Data Firehose delivery stream backed by a centralized S3 bucket." },
-      { id: 'B', text: "Set up cross-account VPC peering between every account and SCP raw log files over SSH." },
-      { id: 'C', text: "Store logs in local instance filesystems without off-instance streaming." },
-      { id: 'D', text: "Email log archives to a centralized distribution list." }
+      { id: 'A', text: "CloudWatch Logs subscription filters streaming through Firehose into a central bucket." },
+      { id: 'B', text: "A CloudWatch Logs destination in the central account, written to by each log group." },
+      { id: 'C', text: "The CloudWatch agent on each instance, writing directly into the central bucket." },
+      { id: 'D', text: "A scheduled export task per log group, landing the data in the central bucket." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const AWS_DOP_QUESTIONS_16 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to aggregate application and system logs from hundreds of AWS accounts into a centralized security data lake in Amazon S3 for long-term compliance retention.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Configure CloudWatch Logs Subscription Filters to stream logs to an Amazon Kinesis Data Firehose delivery stream backed by a centralized S3 bucket." },
-      { id: 'B', text: "Set up cross-account VPC peering between every account and SCP raw log files over SSH." },
-      { id: 'C', text: "Store logs in local instance filesystems without off-instance streaming." },
-      { id: 'D', text: "Email log archives to a centralized distribution list." }
+      { id: 'A', text: "CloudWatch Logs subscription filters streaming through Firehose into a central bucket." },
+      { id: 'B', text: "A CloudWatch Logs destination in the central account, written to by each log group." },
+      { id: 'C', text: "The CloudWatch agent on each instance, writing directly into the central bucket." },
+      { id: 'D', text: "A scheduled export task per log group, landing the data in the central bucket." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const AWS_DOP_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to aggregate application and system logs from hundreds of AWS accounts into a centralized security data lake in Amazon S3 for long-term compliance retention.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Store logs in local instance filesystems without off-instance streaming." },
-      { id: 'B', text: "Email log archives to a centralized distribution list." },
-      { id: 'C', text: "Configure CloudWatch Logs Subscription Filters to stream logs to an Amazon Kinesis Data Firehose delivery stream backed by a centralized S3 bucket." },
-      { id: 'D', text: "Set up cross-account VPC peering between every account and SCP raw log files over SSH." }
+      { id: 'A', text: "The CloudWatch agent on each instance, writing directly into the central bucket." },
+      { id: 'B', text: "A scheduled export task per log group, landing the data in the central bucket." },
+      { id: 'C', text: "CloudWatch Logs subscription filters streaming through Firehose into a central bucket." },
+      { id: 'D', text: "A CloudWatch Logs destination in the central account, written to by each log group." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const AWS_DOP_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to aggregate application and system logs from hundreds of AWS accounts into a centralized security data lake in Amazon S3 for long-term compliance retention.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Configure CloudWatch Logs Subscription Filters to stream logs to an Amazon Kinesis Data Firehose delivery stream backed by a centralized S3 bucket." },
-      { id: 'B', text: "Set up cross-account VPC peering between every account and SCP raw log files over SSH." },
-      { id: 'C', text: "Store logs in local instance filesystems without off-instance streaming." },
-      { id: 'D', text: "Email log archives to a centralized distribution list." }
+      { id: 'A', text: "CloudWatch Logs subscription filters streaming through Firehose into a central bucket." },
+      { id: 'B', text: "A CloudWatch Logs destination in the central account, written to by each log group." },
+      { id: 'C', text: "The CloudWatch agent on each instance, writing directly into the central bucket." },
+      { id: 'D', text: "A scheduled export task per log group, landing the data in the central bucket." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const AWS_DOP_QUESTIONS_16 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to aggregate application and system logs from hundreds of AWS accounts into a centralized security data lake in Amazon S3 for long-term compliance retention.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Set up cross-account VPC peering between every account and SCP raw log files over SSH." },
-      { id: 'B', text: "Configure CloudWatch Logs Subscription Filters to stream logs to an Amazon Kinesis Data Firehose delivery stream backed by a centralized S3 bucket." },
-      { id: 'C', text: "Email log archives to a centralized distribution list." },
-      { id: 'D', text: "Store logs in local instance filesystems without off-instance streaming." }
+      { id: 'A', text: "A CloudWatch Logs destination in the central account, written to by each log group." },
+      { id: 'B', text: "CloudWatch Logs subscription filters streaming through Firehose into a central bucket." },
+      { id: 'C', text: "A scheduled export task per log group, landing the data in the central bucket." },
+      { id: 'D', text: "The CloudWatch agent on each instance, writing directly into the central bucket." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const AWS_DOP_QUESTIONS_16 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to identify which downstream microservice or database query is responsible for latency spikes in an e-commerce checkout flow.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Inspect individual EC2 CPU graphs without correlating request IDs." },
-      { id: 'B', text: "Add print statements in code and attempt to align log timestamps manually." },
-      { id: 'C', text: "Instrument services with the AWS X-Ray SDK or AWS Distro for OpenTelemetry (ADOT) to propagate trace headers and view trace maps in CloudWatch ServiceLens." },
-      { id: 'D', text: "Restart all microservices simultaneously whenever a slow request occurs." }
+      { id: 'A', text: "Enable VPC Flow Logs between the services and correlate the records by timestamp." },
+      { id: 'B', text: "Enable CloudWatch Container Insights and compare the per-service latency metrics." },
+      { id: 'C', text: "Instrument the services with X-Ray or ADOT so trace headers propagate into ServiceLens." },
+      { id: 'D', text: "Enable access logging on each load balancer and join the logs by request identifier." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const AWS_DOP_QUESTIONS_16 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to identify which downstream microservice or database query is responsible for latency spikes in an e-commerce checkout flow.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Inspect individual EC2 CPU graphs without correlating request IDs." },
-      { id: 'B', text: "Restart all microservices simultaneously whenever a slow request occurs." },
-      { id: 'C', text: "Add print statements in code and attempt to align log timestamps manually." },
-      { id: 'D', text: "Instrument services with the AWS X-Ray SDK or AWS Distro for OpenTelemetry (ADOT) to propagate trace headers and view trace maps in CloudWatch ServiceLens." }
+      { id: 'A', text: "Enable VPC Flow Logs between the services and correlate the records by timestamp." },
+      { id: 'B', text: "Enable access logging on each load balancer and join the logs by request identifier." },
+      { id: 'C', text: "Enable CloudWatch Container Insights and compare the per-service latency metrics." },
+      { id: 'D', text: "Instrument the services with X-Ray or ADOT so trace headers propagate into ServiceLens." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const AWS_DOP_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to identify which downstream microservice or database query is responsible for latency spikes in an e-commerce checkout flow.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Instrument services with the AWS X-Ray SDK or AWS Distro for OpenTelemetry (ADOT) to propagate trace headers and view trace maps in CloudWatch ServiceLens." },
-      { id: 'B', text: "Inspect individual EC2 CPU graphs without correlating request IDs." },
-      { id: 'C', text: "Add print statements in code and attempt to align log timestamps manually." },
-      { id: 'D', text: "Restart all microservices simultaneously whenever a slow request occurs." }
+      { id: 'A', text: "Instrument the services with X-Ray or ADOT so trace headers propagate into ServiceLens." },
+      { id: 'B', text: "Enable VPC Flow Logs between the services and correlate the records by timestamp." },
+      { id: 'C', text: "Enable CloudWatch Container Insights and compare the per-service latency metrics." },
+      { id: 'D', text: "Enable access logging on each load balancer and join the logs by request identifier." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const AWS_DOP_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to identify which downstream microservice or database query is responsible for latency spikes in an e-commerce checkout flow.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Add print statements in code and attempt to align log timestamps manually." },
-      { id: 'B', text: "Instrument services with the AWS X-Ray SDK or AWS Distro for OpenTelemetry (ADOT) to propagate trace headers and view trace maps in CloudWatch ServiceLens." },
-      { id: 'C', text: "Inspect individual EC2 CPU graphs without correlating request IDs." },
-      { id: 'D', text: "Restart all microservices simultaneously whenever a slow request occurs." }
+      { id: 'A', text: "Enable CloudWatch Container Insights and compare the per-service latency metrics." },
+      { id: 'B', text: "Instrument the services with X-Ray or ADOT so trace headers propagate into ServiceLens." },
+      { id: 'C', text: "Enable VPC Flow Logs between the services and correlate the records by timestamp." },
+      { id: 'D', text: "Enable access logging on each load balancer and join the logs by request identifier." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -513,10 +513,10 @@ export const AWS_DOP_QUESTIONS_16 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to identify which downstream microservice or database query is responsible for latency spikes in an e-commerce checkout flow.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Instrument services with the AWS X-Ray SDK or AWS Distro for OpenTelemetry (ADOT) to propagate trace headers and view trace maps in CloudWatch ServiceLens." },
-      { id: 'B', text: "Inspect individual EC2 CPU graphs without correlating request IDs." },
-      { id: 'C', text: "Add print statements in code and attempt to align log timestamps manually." },
-      { id: 'D', text: "Restart all microservices simultaneously whenever a slow request occurs." }
+      { id: 'A', text: "Instrument the services with X-Ray or ADOT so trace headers propagate into ServiceLens." },
+      { id: 'B', text: "Enable VPC Flow Logs between the services and correlate the records by timestamp." },
+      { id: 'C', text: "Enable CloudWatch Container Insights and compare the per-service latency metrics." },
+      { id: 'D', text: "Enable access logging on each load balancer and join the logs by request identifier." }
     ],
     correctAnswers: ['A'],
     type: "single",

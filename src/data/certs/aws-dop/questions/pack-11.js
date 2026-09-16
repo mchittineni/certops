@@ -9,10 +9,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to deploy built application artifacts from a centralized DevOps tooling account into multiple workload accounts (staging, prod) securely.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Encrypt the S3 artifact bucket with an AWS KMS Customer Managed Key (CMK) granting decrypt permissions to workload account roles, and configure CodePipeline stages to assume deployment roles in target accounts." },
-      { id: 'B', text: "Use default aws/s3 KMS encryption and grant public read access to the artifact bucket." },
-      { id: 'C', text: "Copy artifacts manually via SCP across VPC peering connections." },
-      { id: 'D', text: "Deploy independent standalone pipelines in each target account pulling from unauthenticated Git repositories." }
+      { id: 'A', text: "Encrypt the artifact bucket with a customer-managed key the workload roles may decrypt, and assume roles per account." },
+      { id: 'B', text: "Encrypt the artifact bucket with the default S3 key and grant the workload accounts bucket-level read." },
+      { id: 'C', text: "Replicate the artifact bucket into each workload account and let the local pipeline read its copy." },
+      { id: 'D', text: "Run an independent pipeline per account, each building the artifact again from the source repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to deploy built application artifacts from a centralized DevOps tooling account into multiple workload accounts (staging, prod) securely.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Encrypt the S3 artifact bucket with an AWS KMS Customer Managed Key (CMK) granting decrypt permissions to workload account roles, and configure CodePipeline stages to assume deployment roles in target accounts." },
-      { id: 'B', text: "Use default aws/s3 KMS encryption and grant public read access to the artifact bucket." },
-      { id: 'C', text: "Copy artifacts manually via SCP across VPC peering connections." },
-      { id: 'D', text: "Deploy independent standalone pipelines in each target account pulling from unauthenticated Git repositories." }
+      { id: 'A', text: "Encrypt the artifact bucket with a customer-managed key the workload roles may decrypt, and assume roles per account." },
+      { id: 'B', text: "Encrypt the artifact bucket with the default S3 key and grant the workload accounts bucket-level read." },
+      { id: 'C', text: "Replicate the artifact bucket into each workload account and let the local pipeline read its copy." },
+      { id: 'D', text: "Run an independent pipeline per account, each building the artifact again from the source repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to deploy built application artifacts from a centralized DevOps tooling account into multiple workload accounts (staging, prod) securely.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Deploy independent standalone pipelines in each target account pulling from unauthenticated Git repositories." },
-      { id: 'B', text: "Encrypt the S3 artifact bucket with an AWS KMS Customer Managed Key (CMK) granting decrypt permissions to workload account roles, and configure CodePipeline stages to assume deployment roles in target accounts." },
-      { id: 'C', text: "Copy artifacts manually via SCP across VPC peering connections." },
-      { id: 'D', text: "Use default aws/s3 KMS encryption and grant public read access to the artifact bucket." }
+      { id: 'A', text: "Run an independent pipeline per account, each building the artifact again from the source repository." },
+      { id: 'B', text: "Encrypt the artifact bucket with a customer-managed key the workload roles may decrypt, and assume roles per account." },
+      { id: 'C', text: "Replicate the artifact bucket into each workload account and let the local pipeline read its copy." },
+      { id: 'D', text: "Encrypt the artifact bucket with the default S3 key and grant the workload accounts bucket-level read." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,10 +72,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to deploy built application artifacts from a centralized DevOps tooling account into multiple workload accounts (staging, prod) securely.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Copy artifacts manually via SCP across VPC peering connections." },
-      { id: 'B', text: "Deploy independent standalone pipelines in each target account pulling from unauthenticated Git repositories." },
-      { id: 'C', text: "Encrypt the S3 artifact bucket with an AWS KMS Customer Managed Key (CMK) granting decrypt permissions to workload account roles, and configure CodePipeline stages to assume deployment roles in target accounts." },
-      { id: 'D', text: "Use default aws/s3 KMS encryption and grant public read access to the artifact bucket." }
+      { id: 'A', text: "Replicate the artifact bucket into each workload account and let the local pipeline read its copy." },
+      { id: 'B', text: "Run an independent pipeline per account, each building the artifact again from the source repository." },
+      { id: 'C', text: "Encrypt the artifact bucket with a customer-managed key the workload roles may decrypt, and assume roles per account." },
+      { id: 'D', text: "Encrypt the artifact bucket with the default S3 key and grant the workload accounts bucket-level read." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -93,10 +93,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to deploy built application artifacts from a centralized DevOps tooling account into multiple workload accounts (staging, prod) securely.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Encrypt the S3 artifact bucket with an AWS KMS Customer Managed Key (CMK) granting decrypt permissions to workload account roles, and configure CodePipeline stages to assume deployment roles in target accounts." },
-      { id: 'B', text: "Use default aws/s3 KMS encryption and grant public read access to the artifact bucket." },
-      { id: 'C', text: "Copy artifacts manually via SCP across VPC peering connections." },
-      { id: 'D', text: "Deploy independent standalone pipelines in each target account pulling from unauthenticated Git repositories." }
+      { id: 'A', text: "Encrypt the artifact bucket with a customer-managed key the workload roles may decrypt, and assume roles per account." },
+      { id: 'B', text: "Encrypt the artifact bucket with the default S3 key and grant the workload accounts bucket-level read." },
+      { id: 'C', text: "Replicate the artifact bucket into each workload account and let the local pipeline read its copy." },
+      { id: 'D', text: "Run an independent pipeline per account, each building the artifact again from the source repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to deploy containerized microservices to Amazon ECS with automated canary traffic routing and automated rollback on elevated CloudWatch alarm thresholds.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Configure an ECS Blue/Green deployment using AWS CodeDeploy with a canary traffic-shifting routing preference (e.g., CodeDeployDefault.ECSCanary10Percent5Minutes) and CloudWatch alarm rollbacks." },
-      { id: 'B', text: "Perform an in-place rolling update replacing all container tasks simultaneously." },
-      { id: 'C', text: "Update the ECS task definition and reboot the EC2 container instances manually." },
-      { id: 'D', text: "Deploy a secondary duplicate ECS cluster and update public Route 53 DNS records manually." }
+      { id: 'A', text: "An ECS blue/green deployment through CodeDeploy with a canary traffic shift and alarm rollback." },
+      { id: 'B', text: "An ECS rolling update with `minimumHealthyPercent: 100` and alarm-based rollback." },
+      { id: 'C', text: "An ECS blue/green deployment through CodeDeploy with an all-at-once traffic shift." },
+      { id: 'D', text: "A second ECS service behind a weighted Route 53 record, shifted by hand." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to deploy containerized microservices to Amazon ECS with automated canary traffic routing and automated rollback on elevated CloudWatch alarm thresholds.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Configure an ECS Blue/Green deployment using AWS CodeDeploy with a canary traffic-shifting routing preference (e.g., CodeDeployDefault.ECSCanary10Percent5Minutes) and CloudWatch alarm rollbacks." },
-      { id: 'B', text: "Perform an in-place rolling update replacing all container tasks simultaneously." },
-      { id: 'C', text: "Update the ECS task definition and reboot the EC2 container instances manually." },
-      { id: 'D', text: "Deploy a secondary duplicate ECS cluster and update public Route 53 DNS records manually." }
+      { id: 'A', text: "An ECS blue/green deployment through CodeDeploy with a canary traffic shift and alarm rollback." },
+      { id: 'B', text: "An ECS rolling update with `minimumHealthyPercent: 100` and alarm-based rollback." },
+      { id: 'C', text: "An ECS blue/green deployment through CodeDeploy with an all-at-once traffic shift." },
+      { id: 'D', text: "A second ECS service behind a weighted Route 53 record, shifted by hand." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to deploy containerized microservices to Amazon ECS with automated canary traffic routing and automated rollback on elevated CloudWatch alarm thresholds.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Deploy a secondary duplicate ECS cluster and update public Route 53 DNS records manually." },
-      { id: 'B', text: "Configure an ECS Blue/Green deployment using AWS CodeDeploy with a canary traffic-shifting routing preference (e.g., CodeDeployDefault.ECSCanary10Percent5Minutes) and CloudWatch alarm rollbacks." },
-      { id: 'C', text: "Update the ECS task definition and reboot the EC2 container instances manually." },
-      { id: 'D', text: "Perform an in-place rolling update replacing all container tasks simultaneously." }
+      { id: 'A', text: "A second ECS service behind a weighted Route 53 record, shifted by hand." },
+      { id: 'B', text: "An ECS blue/green deployment through CodeDeploy with a canary traffic shift and alarm rollback." },
+      { id: 'C', text: "An ECS blue/green deployment through CodeDeploy with an all-at-once traffic shift." },
+      { id: 'D', text: "An ECS rolling update with `minimumHealthyPercent: 100` and alarm-based rollback." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -177,10 +177,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to deploy containerized microservices to Amazon ECS with automated canary traffic routing and automated rollback on elevated CloudWatch alarm thresholds.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Configure an ECS Blue/Green deployment using AWS CodeDeploy with a canary traffic-shifting routing preference (e.g., CodeDeployDefault.ECSCanary10Percent5Minutes) and CloudWatch alarm rollbacks." },
-      { id: 'B', text: "Perform an in-place rolling update replacing all container tasks simultaneously." },
-      { id: 'C', text: "Update the ECS task definition and reboot the EC2 container instances manually." },
-      { id: 'D', text: "Deploy a secondary duplicate ECS cluster and update public Route 53 DNS records manually." }
+      { id: 'A', text: "An ECS blue/green deployment through CodeDeploy with a canary traffic shift and alarm rollback." },
+      { id: 'B', text: "An ECS rolling update with `minimumHealthyPercent: 100` and alarm-based rollback." },
+      { id: 'C', text: "An ECS blue/green deployment through CodeDeploy with an all-at-once traffic shift." },
+      { id: 'D', text: "A second ECS service behind a weighted Route 53 record, shifted by hand." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to deploy containerized microservices to Amazon ECS with automated canary traffic routing and automated rollback on elevated CloudWatch alarm thresholds.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Perform an in-place rolling update replacing all container tasks simultaneously." },
-      { id: 'B', text: "Update the ECS task definition and reboot the EC2 container instances manually." },
-      { id: 'C', text: "Configure an ECS Blue/Green deployment using AWS CodeDeploy with a canary traffic-shifting routing preference (e.g., CodeDeployDefault.ECSCanary10Percent5Minutes) and CloudWatch alarm rollbacks." },
-      { id: 'D', text: "Deploy a secondary duplicate ECS cluster and update public Route 53 DNS records manually." }
+      { id: 'A', text: "An ECS rolling update with `minimumHealthyPercent: 100` and alarm-based rollback." },
+      { id: 'B', text: "An ECS blue/green deployment through CodeDeploy with an all-at-once traffic shift." },
+      { id: 'C', text: "An ECS blue/green deployment through CodeDeploy with a canary traffic shift and alarm rollback." },
+      { id: 'D', text: "A second ECS service behind a weighted Route 53 record, shifted by hand." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -219,10 +219,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to deploy an update across a fleet of 100 EC2 instances while ensuring that at least 85 instances remain active and serving traffic at all times during deployment.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Create a custom CodeDeploy deployment configuration specifying `MinimumHealthyHosts` with type `FLEET_PERCENT` set to `85`." },
-      { id: 'B', text: "Use `CodeDeployDefault.AllAtOnce` deployment configuration." },
-      { id: 'C', text: "Use `CodeDeployDefault.OneAtATime` which guarantees only 50% capacity." },
-      { id: 'D', text: "Terminate 15 instances manually and launch 15 new instances." }
+      { id: 'A', text: "A custom CodeDeploy configuration with `MinimumHealthyHosts` at 85 percent of the fleet." },
+      { id: 'B', text: "The `CodeDeployDefault.AllAtOnce` configuration for the deployment group." },
+      { id: 'C', text: "The `CodeDeployDefault.HalfAtATime` configuration, which keeps half in service." },
+      { id: 'D', text: "A custom configuration with `MinimumHealthyHosts` as a host count of 15." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to deploy an update across a fleet of 100 EC2 instances while ensuring that at least 85 instances remain active and serving traffic at all times during deployment.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Use `CodeDeployDefault.OneAtATime` which guarantees only 50% capacity." },
-      { id: 'B', text: "Use `CodeDeployDefault.AllAtOnce` deployment configuration." },
-      { id: 'C', text: "Terminate 15 instances manually and launch 15 new instances." },
-      { id: 'D', text: "Create a custom CodeDeploy deployment configuration specifying `MinimumHealthyHosts` with type `FLEET_PERCENT` set to `85`." }
+      { id: 'A', text: "The `CodeDeployDefault.HalfAtATime` configuration, which keeps half in service." },
+      { id: 'B', text: "The `CodeDeployDefault.AllAtOnce` configuration for the deployment group." },
+      { id: 'C', text: "A custom configuration with `MinimumHealthyHosts` as a host count of 15." },
+      { id: 'D', text: "A custom CodeDeploy configuration with `MinimumHealthyHosts` at 85 percent of the fleet." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to deploy an update across a fleet of 100 EC2 instances while ensuring that at least 85 instances remain active and serving traffic at all times during deployment.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Create a custom CodeDeploy deployment configuration specifying `MinimumHealthyHosts` with type `FLEET_PERCENT` set to `85`." },
-      { id: 'B', text: "Use `CodeDeployDefault.AllAtOnce` deployment configuration." },
-      { id: 'C', text: "Use `CodeDeployDefault.OneAtATime` which guarantees only 50% capacity." },
-      { id: 'D', text: "Terminate 15 instances manually and launch 15 new instances." }
+      { id: 'A', text: "A custom CodeDeploy configuration with `MinimumHealthyHosts` at 85 percent of the fleet." },
+      { id: 'B', text: "The `CodeDeployDefault.AllAtOnce` configuration for the deployment group." },
+      { id: 'C', text: "The `CodeDeployDefault.HalfAtATime` configuration, which keeps half in service." },
+      { id: 'D', text: "A custom configuration with `MinimumHealthyHosts` as a host count of 15." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to deploy an update across a fleet of 100 EC2 instances while ensuring that at least 85 instances remain active and serving traffic at all times during deployment.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Use `CodeDeployDefault.OneAtATime` which guarantees only 50% capacity." },
-      { id: 'B', text: "Create a custom CodeDeploy deployment configuration specifying `MinimumHealthyHosts` with type `FLEET_PERCENT` set to `85`." },
-      { id: 'C', text: "Use `CodeDeployDefault.AllAtOnce` deployment configuration." },
-      { id: 'D', text: "Terminate 15 instances manually and launch 15 new instances." }
+      { id: 'A', text: "The `CodeDeployDefault.HalfAtATime` configuration, which keeps half in service." },
+      { id: 'B', text: "A custom CodeDeploy configuration with `MinimumHealthyHosts` at 85 percent of the fleet." },
+      { id: 'C', text: "The `CodeDeployDefault.AllAtOnce` configuration for the deployment group." },
+      { id: 'D', text: "A custom configuration with `MinimumHealthyHosts` as a host count of 15." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to deploy an update across a fleet of 100 EC2 instances while ensuring that at least 85 instances remain active and serving traffic at all times during deployment.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Create a custom CodeDeploy deployment configuration specifying `MinimumHealthyHosts` with type `FLEET_PERCENT` set to `85`." },
-      { id: 'B', text: "Use `CodeDeployDefault.AllAtOnce` deployment configuration." },
-      { id: 'C', text: "Use `CodeDeployDefault.OneAtATime` which guarantees only 50% capacity." },
-      { id: 'D', text: "Terminate 15 instances manually and launch 15 new instances." }
+      { id: 'A', text: "A custom CodeDeploy configuration with `MinimumHealthyHosts` at 85 percent of the fleet." },
+      { id: 'B', text: "The `CodeDeployDefault.AllAtOnce` configuration for the deployment group." },
+      { id: 'C', text: "The `CodeDeployDefault.HalfAtATime` configuration, which keeps half in service." },
+      { id: 'D', text: "A custom configuration with `MinimumHealthyHosts` as a host count of 15." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to reduce build duration for high-frequency container builds in AWS CodeBuild where downloading dependencies takes up 80% of build time.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Enable CodeBuild local caching for Docker layers and source dependencies, or configure an Amazon S3 build cache in `buildspec.yml`." },
-      { id: 'B', text: "Run CodeBuild with `--no-cache` on every single build to guarantee clean state." },
-      { id: 'C', text: "Store dependencies on ephemeral EC2 instance store disks without cache configuration." },
-      { id: 'D', text: "Download all dependencies over public Git repositories sequentially on every build." }
+      { id: 'A', text: "Enable CodeBuild local caching for layers and dependencies, or an S3 build cache." },
+      { id: 'B', text: "Enable a larger compute type so each build completes more quickly." },
+      { id: 'C', text: "Enable a VPC endpoint so the dependency downloads stay off the internet." },
+      { id: 'D', text: "Enable batch builds so the dependencies are fetched once per batch." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to reduce build duration for high-frequency container builds in AWS CodeBuild where downloading dependencies takes up 80% of build time.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Store dependencies on ephemeral EC2 instance store disks without cache configuration." },
-      { id: 'B', text: "Enable CodeBuild local caching for Docker layers and source dependencies, or configure an Amazon S3 build cache in `buildspec.yml`." },
-      { id: 'C', text: "Run CodeBuild with `--no-cache` on every single build to guarantee clean state." },
-      { id: 'D', text: "Download all dependencies over public Git repositories sequentially on every build." }
+      { id: 'A', text: "Enable a VPC endpoint so the dependency downloads stay off the internet." },
+      { id: 'B', text: "Enable CodeBuild local caching for layers and dependencies, or an S3 build cache." },
+      { id: 'C', text: "Enable a larger compute type so each build completes more quickly." },
+      { id: 'D', text: "Enable batch builds so the dependencies are fetched once per batch." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to reduce build duration for high-frequency container builds in AWS CodeBuild where downloading dependencies takes up 80% of build time.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Enable CodeBuild local caching for Docker layers and source dependencies, or configure an Amazon S3 build cache in `buildspec.yml`." },
-      { id: 'B', text: "Store dependencies on ephemeral EC2 instance store disks without cache configuration." },
-      { id: 'C', text: "Download all dependencies over public Git repositories sequentially on every build." },
-      { id: 'D', text: "Run CodeBuild with `--no-cache` on every single build to guarantee clean state." }
+      { id: 'A', text: "Enable CodeBuild local caching for layers and dependencies, or an S3 build cache." },
+      { id: 'B', text: "Enable a VPC endpoint so the dependency downloads stay off the internet." },
+      { id: 'C', text: "Enable batch builds so the dependencies are fetched once per batch." },
+      { id: 'D', text: "Enable a larger compute type so each build completes more quickly." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to reduce build duration for high-frequency container builds in AWS CodeBuild where downloading dependencies takes up 80% of build time.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Enable CodeBuild local caching for Docker layers and source dependencies, or configure an Amazon S3 build cache in `buildspec.yml`." },
-      { id: 'B', text: "Run CodeBuild with `--no-cache` on every single build to guarantee clean state." },
-      { id: 'C', text: "Store dependencies on ephemeral EC2 instance store disks without cache configuration." },
-      { id: 'D', text: "Download all dependencies over public Git repositories sequentially on every build." }
+      { id: 'A', text: "Enable CodeBuild local caching for layers and dependencies, or an S3 build cache." },
+      { id: 'B', text: "Enable a larger compute type so each build completes more quickly." },
+      { id: 'C', text: "Enable a VPC endpoint so the dependency downloads stay off the internet." },
+      { id: 'D', text: "Enable batch builds so the dependencies are fetched once per batch." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to reduce build duration for high-frequency container builds in AWS CodeBuild where downloading dependencies takes up 80% of build time.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Enable CodeBuild local caching for Docker layers and source dependencies, or configure an Amazon S3 build cache in `buildspec.yml`." },
-      { id: 'B', text: "Run CodeBuild with `--no-cache` on every single build to guarantee clean state." },
-      { id: 'C', text: "Store dependencies on ephemeral EC2 instance store disks without cache configuration." },
-      { id: 'D', text: "Download all dependencies over public Git repositories sequentially on every build." }
+      { id: 'A', text: "Enable CodeBuild local caching for layers and dependencies, or an S3 build cache." },
+      { id: 'B', text: "Enable a larger compute type so each build completes more quickly." },
+      { id: 'C', text: "Enable a VPC endpoint so the dependency downloads stay off the internet." },
+      { id: 'D', text: "Enable batch builds so the dependencies are fetched once per batch." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to enforce a requirement where production deployments in AWS CodePipeline must be explicitly reviewed and approved by an authorized release manager.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Use a sleep step of 24 hours in buildspec.yml to simulate an approval gate." },
-      { id: 'B', text: "Insert a Manual Approval stage in CodePipeline configured with an Amazon SNS notification topic, restricting approval permissions via IAM policies." },
-      { id: 'C', text: "Rely on verbal confirmation without recording the approver's identity in the pipeline history." },
-      { id: 'D', text: "Pause the pipeline by deleting the production deployment stage before every release." }
+      { id: 'A', text: "A CodeBuild stage that waits on an external ticket system before continuing." },
+      { id: 'B', text: "A manual approval stage in CodePipeline with an SNS topic and IAM-restricted approvers." },
+      { id: 'C', text: "A Lambda invoke action that checks the change calendar before the deploy runs." },
+      { id: 'D', text: "A disabled stage transition that a release manager enables for each release." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,10 +450,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to enforce a requirement where production deployments in AWS CodePipeline must be explicitly reviewed and approved by an authorized release manager.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Insert a Manual Approval stage in CodePipeline configured with an Amazon SNS notification topic, restricting approval permissions via IAM policies." },
-      { id: 'B', text: "Rely on verbal confirmation without recording the approver's identity in the pipeline history." },
-      { id: 'C', text: "Use a sleep step of 24 hours in buildspec.yml to simulate an approval gate." },
-      { id: 'D', text: "Pause the pipeline by deleting the production deployment stage before every release." }
+      { id: 'A', text: "A manual approval stage in CodePipeline with an SNS topic and IAM-restricted approvers." },
+      { id: 'B', text: "A Lambda invoke action that checks the change calendar before the deploy runs." },
+      { id: 'C', text: "A CodeBuild stage that waits on an external ticket system before continuing." },
+      { id: 'D', text: "A disabled stage transition that a release manager enables for each release." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to enforce a requirement where production deployments in AWS CodePipeline must be explicitly reviewed and approved by an authorized release manager.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Insert a Manual Approval stage in CodePipeline configured with an Amazon SNS notification topic, restricting approval permissions via IAM policies." },
-      { id: 'B', text: "Pause the pipeline by deleting the production deployment stage before every release." },
-      { id: 'C', text: "Rely on verbal confirmation without recording the approver's identity in the pipeline history." },
-      { id: 'D', text: "Use a sleep step of 24 hours in buildspec.yml to simulate an approval gate." }
+      { id: 'A', text: "A manual approval stage in CodePipeline with an SNS topic and IAM-restricted approvers." },
+      { id: 'B', text: "A disabled stage transition that a release manager enables for each release." },
+      { id: 'C', text: "A Lambda invoke action that checks the change calendar before the deploy runs." },
+      { id: 'D', text: "A CodeBuild stage that waits on an external ticket system before continuing." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to enforce a requirement where production deployments in AWS CodePipeline must be explicitly reviewed and approved by an authorized release manager.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Insert a Manual Approval stage in CodePipeline configured with an Amazon SNS notification topic, restricting approval permissions via IAM policies." },
-      { id: 'B', text: "Pause the pipeline by deleting the production deployment stage before every release." },
-      { id: 'C', text: "Rely on verbal confirmation without recording the approver's identity in the pipeline history." },
-      { id: 'D', text: "Use a sleep step of 24 hours in buildspec.yml to simulate an approval gate." }
+      { id: 'A', text: "A manual approval stage in CodePipeline with an SNS topic and IAM-restricted approvers." },
+      { id: 'B', text: "A disabled stage transition that a release manager enables for each release." },
+      { id: 'C', text: "A Lambda invoke action that checks the change calendar before the deploy runs." },
+      { id: 'D', text: "A CodeBuild stage that waits on an external ticket system before continuing." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to enforce a requirement where production deployments in AWS CodePipeline must be explicitly reviewed and approved by an authorized release manager.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Insert a Manual Approval stage in CodePipeline configured with an Amazon SNS notification topic, restricting approval permissions via IAM policies." },
-      { id: 'B', text: "Use a sleep step of 24 hours in buildspec.yml to simulate an approval gate." },
-      { id: 'C', text: "Pause the pipeline by deleting the production deployment stage before every release." },
-      { id: 'D', text: "Rely on verbal confirmation without recording the approver's identity in the pipeline history." }
+      { id: 'A', text: "A manual approval stage in CodePipeline with an SNS topic and IAM-restricted approvers." },
+      { id: 'B', text: "A CodeBuild stage that waits on an external ticket system before continuing." },
+      { id: 'C', text: "A disabled stage transition that a release manager enables for each release." },
+      { id: 'D', text: "A Lambda invoke action that checks the change calendar before the deploy runs." }
     ],
     correctAnswers: ['A'],
     type: "single",

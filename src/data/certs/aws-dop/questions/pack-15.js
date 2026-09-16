@@ -9,10 +9,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Perform manual Route 53 DNS record updates using the AWS Console during an active outage." },
-      { id: 'B', text: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities." },
-      { id: 'C', text: "Route all traffic through a single EC2 instance running BIND DNS." },
-      { id: 'D', text: "Use basic Route 53 health checks without evaluating recovery readiness." }
+      { id: 'A', text: "Route 53 failover records with health checks on the regional endpoints." },
+      { id: 'B', text: "Route 53 ARC routing controls with readiness checks and zonal shift." },
+      { id: 'C', text: "Route 53 latency records, with the unhealthy region removed by hand." },
+      { id: 'D', text: "Route 53 weighted records, adjusted by a Lambda when an alarm fires." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -30,10 +30,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities." },
-      { id: 'B', text: "Perform manual Route 53 DNS record updates using the AWS Console during an active outage." },
-      { id: 'C', text: "Use basic Route 53 health checks without evaluating recovery readiness." },
-      { id: 'D', text: "Route all traffic through a single EC2 instance running BIND DNS." }
+      { id: 'A', text: "Route 53 ARC routing controls with readiness checks and zonal shift." },
+      { id: 'B', text: "Route 53 failover records with health checks on the regional endpoints." },
+      { id: 'C', text: "Route 53 weighted records, adjusted by a Lambda when an alarm fires." },
+      { id: 'D', text: "Route 53 latency records, with the unhealthy region removed by hand." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities." },
-      { id: 'B', text: "Perform manual Route 53 DNS record updates using the AWS Console during an active outage." },
-      { id: 'C', text: "Use basic Route 53 health checks without evaluating recovery readiness." },
-      { id: 'D', text: "Route all traffic through a single EC2 instance running BIND DNS." }
+      { id: 'A', text: "Route 53 ARC routing controls with readiness checks and zonal shift." },
+      { id: 'B', text: "Route 53 failover records with health checks on the regional endpoints." },
+      { id: 'C', text: "Route 53 weighted records, adjusted by a Lambda when an alarm fires." },
+      { id: 'D', text: "Route 53 latency records, with the unhealthy region removed by hand." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities." },
-      { id: 'B', text: "Perform manual Route 53 DNS record updates using the AWS Console during an active outage." },
-      { id: 'C', text: "Use basic Route 53 health checks without evaluating recovery readiness." },
-      { id: 'D', text: "Route all traffic through a single EC2 instance running BIND DNS." }
+      { id: 'A', text: "Route 53 ARC routing controls with readiness checks and zonal shift." },
+      { id: 'B', text: "Route 53 failover records with health checks on the regional endpoints." },
+      { id: 'C', text: "Route 53 weighted records, adjusted by a Lambda when an alarm fires." },
+      { id: 'D', text: "Route 53 latency records, with the unhealthy region removed by hand." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to orchestrate safe, reliable failover of application traffic between AWS regions without relying on impaired regional control planes during an outage.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Use basic Route 53 health checks without evaluating recovery readiness." },
-      { id: 'B', text: "Implement Route 53 Application Recovery Controller (ARC) routing controls with regional readiness checks and zonal shift capabilities." },
-      { id: 'C', text: "Perform manual Route 53 DNS record updates using the AWS Console during an active outage." },
-      { id: 'D', text: "Route all traffic through a single EC2 instance running BIND DNS." }
+      { id: 'A', text: "Route 53 weighted records, adjusted by a Lambda when an alarm fires." },
+      { id: 'B', text: "Route 53 ARC routing controls with readiness checks and zonal shift." },
+      { id: 'C', text: "Route 53 failover records with health checks on the regional endpoints." },
+      { id: 'D', text: "Route 53 latency records, with the unhealthy region removed by hand." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -114,10 +114,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Manually scale instance counts by hand at 8:00 AM every single morning." },
-      { id: 'B', text: "Use Simple Scaling policies with static thresholds and 10-minute cooldown periods." },
-      { id: 'C', text: "Over-provision thousands of static EC2 instances permanently." },
-      { id: 'D', text: "Configure Predictive Scaling based on historical metrics combined with a Target Tracking scaling policy maintaining 60% average CPU utilization." }
+      { id: 'A', text: "Step scaling policies with thresholds tuned to the morning traffic pattern." },
+      { id: 'B', text: "Simple scaling with static thresholds and a ten-minute cooldown period." },
+      { id: 'C', text: "A scheduled scaling action that raises the desired count before the peak." },
+      { id: 'D', text: "Predictive scaling on the historical metrics, with target tracking holding the CPU level." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,10 +135,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Configure Predictive Scaling based on historical metrics combined with a Target Tracking scaling policy maintaining 60% average CPU utilization." },
-      { id: 'B', text: "Use Simple Scaling policies with static thresholds and 10-minute cooldown periods." },
-      { id: 'C', text: "Manually scale instance counts by hand at 8:00 AM every single morning." },
-      { id: 'D', text: "Over-provision thousands of static EC2 instances permanently." }
+      { id: 'A', text: "Predictive scaling on the historical metrics, with target tracking holding the CPU level." },
+      { id: 'B', text: "Simple scaling with static thresholds and a ten-minute cooldown period." },
+      { id: 'C', text: "Step scaling policies with thresholds tuned to the morning traffic pattern." },
+      { id: 'D', text: "A scheduled scaling action that raises the desired count before the peak." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Configure Predictive Scaling based on historical metrics combined with a Target Tracking scaling policy maintaining 60% average CPU utilization." },
-      { id: 'B', text: "Use Simple Scaling policies with static thresholds and 10-minute cooldown periods." },
-      { id: 'C', text: "Manually scale instance counts by hand at 8:00 AM every single morning." },
-      { id: 'D', text: "Over-provision thousands of static EC2 instances permanently." }
+      { id: 'A', text: "Predictive scaling on the historical metrics, with target tracking holding the CPU level." },
+      { id: 'B', text: "Simple scaling with static thresholds and a ten-minute cooldown period." },
+      { id: 'C', text: "Step scaling policies with thresholds tuned to the morning traffic pattern." },
+      { id: 'D', text: "A scheduled scaling action that raises the desired count before the peak." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Manually scale instance counts by hand at 8:00 AM every single morning." },
-      { id: 'B', text: "Over-provision thousands of static EC2 instances permanently." },
-      { id: 'C', text: "Configure Predictive Scaling based on historical metrics combined with a Target Tracking scaling policy maintaining 60% average CPU utilization." },
-      { id: 'D', text: "Use Simple Scaling policies with static thresholds and 10-minute cooldown periods." }
+      { id: 'A', text: "Step scaling policies with thresholds tuned to the morning traffic pattern." },
+      { id: 'B', text: "A scheduled scaling action that raises the desired count before the peak." },
+      { id: 'C', text: "Predictive scaling on the historical metrics, with target tracking holding the CPU level." },
+      { id: 'D', text: "Simple scaling with static thresholds and a ten-minute cooldown period." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -198,10 +198,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Configure Predictive Scaling based on historical metrics combined with a Target Tracking scaling policy maintaining 60% average CPU utilization." },
-      { id: 'B', text: "Use Simple Scaling policies with static thresholds and 10-minute cooldown periods." },
-      { id: 'C', text: "Manually scale instance counts by hand at 8:00 AM every single morning." },
-      { id: 'D', text: "Over-provision thousands of static EC2 instances permanently." }
+      { id: 'A', text: "Predictive scaling on the historical metrics, with target tracking holding the CPU level." },
+      { id: 'B', text: "Simple scaling with static thresholds and a ten-minute cooldown period." },
+      { id: 'C', text: "Step scaling policies with thresholds tuned to the morning traffic pattern." },
+      { id: 'D', text: "A scheduled scaling action that raises the desired count before the peak." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers." },
-      { id: 'B', text: "Shut down random production servers during peak business hours without stop conditions." },
-      { id: 'C', text: "Assume multi-AZ deployment guarantees high availability without empirical validation." },
-      { id: 'D', text: "Simulate failures only in non-cloud local desktop environments." }
+      { id: 'A', text: "Controlled experiments with Fault Injection Service against the live stack." },
+      { id: 'B', text: "A scheduled Lambda that terminates random instances during business hours." },
+      { id: 'C', text: "A load test against the production stack with the alarms watched throughout." },
+      { id: 'D', text: "A failover rehearsal in the staging account with the same topology deployed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers." },
-      { id: 'B', text: "Shut down random production servers during peak business hours without stop conditions." },
-      { id: 'C', text: "Assume multi-AZ deployment guarantees high availability without empirical validation." },
-      { id: 'D', text: "Simulate failures only in non-cloud local desktop environments." }
+      { id: 'A', text: "Controlled experiments with Fault Injection Service against the live stack." },
+      { id: 'B', text: "A scheduled Lambda that terminates random instances during business hours." },
+      { id: 'C', text: "A load test against the production stack with the alarms watched throughout." },
+      { id: 'D', text: "A failover rehearsal in the staging account with the same topology deployed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Assume multi-AZ deployment guarantees high availability without empirical validation." },
-      { id: 'B', text: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers." },
-      { id: 'C', text: "Shut down random production servers during peak business hours without stop conditions." },
-      { id: 'D', text: "Simulate failures only in non-cloud local desktop environments." }
+      { id: 'A', text: "A load test against the production stack with the alarms watched throughout." },
+      { id: 'B', text: "Controlled experiments with Fault Injection Service against the live stack." },
+      { id: 'C', text: "A scheduled Lambda that terminates random instances during business hours." },
+      { id: 'D', text: "A failover rehearsal in the staging account with the same topology deployed." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers." },
-      { id: 'B', text: "Shut down random production servers during peak business hours without stop conditions." },
-      { id: 'C', text: "Assume multi-AZ deployment guarantees high availability without empirical validation." },
-      { id: 'D', text: "Simulate failures only in non-cloud local desktop environments." }
+      { id: 'A', text: "Controlled experiments with Fault Injection Service against the live stack." },
+      { id: 'B', text: "A scheduled Lambda that terminates random instances during business hours." },
+      { id: 'C', text: "A load test against the production stack with the alarms watched throughout." },
+      { id: 'D', text: "A failover rehearsal in the staging account with the same topology deployed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to test whether an auto-scaling, multi-AZ application gracefully survives sudden availability zone disconnects and database failovers before going live to customers.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Simulate failures only in non-cloud local desktop environments." },
-      { id: 'B', text: "Assume multi-AZ deployment guarantees high availability without empirical validation." },
-      { id: 'C', text: "Shut down random production servers during peak business hours without stop conditions." },
-      { id: 'D', text: "Design and execute controlled experiments using AWS Fault Injection Service (FIS) to inject AZ network disruptions, latency, and RDS failovers." }
+      { id: 'A', text: "A failover rehearsal in the staging account with the same topology deployed." },
+      { id: 'B', text: "A load test against the production stack with the alarms watched throughout." },
+      { id: 'C', text: "A scheduled Lambda that terminates random instances during business hours." },
+      { id: 'D', text: "Controlled experiments with Fault Injection Service against the live stack." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to prevent backend order processing services from crashing during traffic spikes while isolating malformed messages that fail processing repeatedly.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Place an Amazon SQS queue between frontend APIs and backend workers, and configure a Dead Letter Queue (DLQ) with `maxReceiveCount: 5` and a CloudWatch alarm." },
-      { id: 'B', text: "Call backend worker APIs synchronously from the frontend web servers." },
-      { id: 'C', text: "Discard any message that encounters an error immediately without logging." },
-      { id: 'D', text: "Store orders in a flat text file on an ephemeral EC2 instance disk." }
+      { id: 'A', text: "Put an SQS queue between the tiers, with a dead-letter queue and an alarm on its depth." },
+      { id: 'B', text: "Put an SNS topic between the tiers, with the workers subscribed to it directly." },
+      { id: 'C', text: "Put an SQS queue between the tiers with a long visibility timeout and no redrive." },
+      { id: 'D', text: "Put a Kinesis stream between the tiers, with the workers reading from the shards." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to prevent backend order processing services from crashing during traffic spikes while isolating malformed messages that fail processing repeatedly.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Place an Amazon SQS queue between frontend APIs and backend workers, and configure a Dead Letter Queue (DLQ) with `maxReceiveCount: 5` and a CloudWatch alarm." },
-      { id: 'B', text: "Call backend worker APIs synchronously from the frontend web servers." },
-      { id: 'C', text: "Discard any message that encounters an error immediately without logging." },
-      { id: 'D', text: "Store orders in a flat text file on an ephemeral EC2 instance disk." }
+      { id: 'A', text: "Put an SQS queue between the tiers, with a dead-letter queue and an alarm on its depth." },
+      { id: 'B', text: "Put an SNS topic between the tiers, with the workers subscribed to it directly." },
+      { id: 'C', text: "Put an SQS queue between the tiers with a long visibility timeout and no redrive." },
+      { id: 'D', text: "Put a Kinesis stream between the tiers, with the workers reading from the shards." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to prevent backend order processing services from crashing during traffic spikes while isolating malformed messages that fail processing repeatedly.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Place an Amazon SQS queue between frontend APIs and backend workers, and configure a Dead Letter Queue (DLQ) with `maxReceiveCount: 5` and a CloudWatch alarm." },
-      { id: 'B', text: "Store orders in a flat text file on an ephemeral EC2 instance disk." },
-      { id: 'C', text: "Call backend worker APIs synchronously from the frontend web servers." },
-      { id: 'D', text: "Discard any message that encounters an error immediately without logging." }
+      { id: 'A', text: "Put an SQS queue between the tiers, with a dead-letter queue and an alarm on its depth." },
+      { id: 'B', text: "Put a Kinesis stream between the tiers, with the workers reading from the shards." },
+      { id: 'C', text: "Put an SNS topic between the tiers, with the workers subscribed to it directly." },
+      { id: 'D', text: "Put an SQS queue between the tiers with a long visibility timeout and no redrive." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to prevent backend order processing services from crashing during traffic spikes while isolating malformed messages that fail processing repeatedly.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Store orders in a flat text file on an ephemeral EC2 instance disk." },
-      { id: 'B', text: "Discard any message that encounters an error immediately without logging." },
-      { id: 'C', text: "Call backend worker APIs synchronously from the frontend web servers." },
-      { id: 'D', text: "Place an Amazon SQS queue between frontend APIs and backend workers, and configure a Dead Letter Queue (DLQ) with `maxReceiveCount: 5` and a CloudWatch alarm." }
+      { id: 'A', text: "Put a Kinesis stream between the tiers, with the workers reading from the shards." },
+      { id: 'B', text: "Put an SQS queue between the tiers with a long visibility timeout and no redrive." },
+      { id: 'C', text: "Put an SNS topic between the tiers, with the workers subscribed to it directly." },
+      { id: 'D', text: "Put an SQS queue between the tiers, with a dead-letter queue and an alarm on its depth." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -408,10 +408,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to prevent backend order processing services from crashing during traffic spikes while isolating malformed messages that fail processing repeatedly.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Store orders in a flat text file on an ephemeral EC2 instance disk." },
-      { id: 'B', text: "Call backend worker APIs synchronously from the frontend web servers." },
-      { id: 'C', text: "Place an Amazon SQS queue between frontend APIs and backend workers, and configure a Dead Letter Queue (DLQ) with `maxReceiveCount: 5` and a CloudWatch alarm." },
-      { id: 'D', text: "Discard any message that encounters an error immediately without logging." }
+      { id: 'A', text: "Put a Kinesis stream between the tiers, with the workers reading from the shards." },
+      { id: 'B', text: "Put an SNS topic between the tiers, with the workers subscribed to it directly." },
+      { id: 'C', text: "Put an SQS queue between the tiers, with a dead-letter queue and an alarm on its depth." },
+      { id: 'D', text: "Put an SQS queue between the tiers with a long visibility timeout and no redrive." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,10 +429,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Disable snapshot encryption to speed up copy times." },
-      { id: 'B', text: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption." },
-      { id: 'C', text: "Rely on single-AZ database storage without backups." },
-      { id: 'D', text: "Take manual database dumps using mysqldump and store them on the local database host disk." }
+      { id: 'A', text: "Automated RDS backups with a retention period, kept within the primary region." },
+      { id: 'B', text: "Automated RDS backups with a retention period, plus encrypted cross-region snapshot copies." },
+      { id: 'C', text: "A read replica in the second region, promoted if the primary is lost." },
+      { id: 'D', text: "Manual snapshots taken by a scheduled Lambda and copied across regions." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,10 +450,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Take manual database dumps using mysqldump and store them on the local database host disk." },
-      { id: 'B', text: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption." },
-      { id: 'C', text: "Disable snapshot encryption to speed up copy times." },
-      { id: 'D', text: "Rely on single-AZ database storage without backups." }
+      { id: 'A', text: "Manual snapshots taken by a scheduled Lambda and copied across regions." },
+      { id: 'B', text: "Automated RDS backups with a retention period, plus encrypted cross-region snapshot copies." },
+      { id: 'C', text: "Automated RDS backups with a retention period, kept within the primary region." },
+      { id: 'D', text: "A read replica in the second region, promoted if the primary is lost." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,10 +471,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Rely on single-AZ database storage without backups." },
-      { id: 'B', text: "Disable snapshot encryption to speed up copy times." },
-      { id: 'C', text: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption." },
-      { id: 'D', text: "Take manual database dumps using mysqldump and store them on the local database host disk." }
+      { id: 'A', text: "A read replica in the second region, promoted if the primary is lost." },
+      { id: 'B', text: "Automated RDS backups with a retention period, kept within the primary region." },
+      { id: 'C', text: "Automated RDS backups with a retention period, plus encrypted cross-region snapshot copies." },
+      { id: 'D', text: "Manual snapshots taken by a scheduled Lambda and copied across regions." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,10 +492,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Disable snapshot encryption to speed up copy times." },
-      { id: 'B', text: "Rely on single-AZ database storage without backups." },
-      { id: 'C', text: "Take manual database dumps using mysqldump and store them on the local database host disk." },
-      { id: 'D', text: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption." }
+      { id: 'A', text: "Automated RDS backups with a retention period, kept within the primary region." },
+      { id: 'B', text: "A read replica in the second region, promoted if the primary is lost." },
+      { id: 'C', text: "Manual snapshots taken by a scheduled Lambda and copied across regions." },
+      { id: 'D', text: "Automated RDS backups with a retention period, plus encrypted cross-region snapshot copies." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Take manual database dumps using mysqldump and store them on the local database host disk." },
-      { id: 'B', text: "Rely on single-AZ database storage without backups." },
-      { id: 'C', text: "Enable automated RDS backups with a retention period and configure AWS Backup or RDS automated cross-region snapshot copy with KMS encryption." },
-      { id: 'D', text: "Disable snapshot encryption to speed up copy times." }
+      { id: 'A', text: "Manual snapshots taken by a scheduled Lambda and copied across regions." },
+      { id: 'B', text: "A read replica in the second region, promoted if the primary is lost." },
+      { id: 'C', text: "Automated RDS backups with a retention period, plus encrypted cross-region snapshot copies." },
+      { id: 'D', text: "Automated RDS backups with a retention period, kept within the primary region." }
     ],
     correctAnswers: ['C'],
     type: "single",

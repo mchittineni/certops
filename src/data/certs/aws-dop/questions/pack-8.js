@@ -32,7 +32,7 @@ export const AWS_DOP_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "Amazon EventBridge rules triggering an AWS Step Functions state machine that sends text messages via Amazon Pinpoint" },
       { id: 'B', text: "AWS Trusted Advisor automated notifications sent via Amazon SES" },
-      { id: 'C', text: "AWS Systems Manager Incident Manager with configured Response Plans, Engagement Plans, Escalation Plans, and AWS Chatbot integration" },
+      { id: 'C', text: "Incident Manager with response, engagement and escalation plans, and chat integration" },
       { id: 'D', text: "Amazon SNS topics subscribed to a distribution email list" }
     ],
     correctAnswers: ['C'],
@@ -53,7 +53,7 @@ export const AWS_DOP_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "AWS Systems Manager Run Command executing stress-ng across all nodes simultaneously" },
       { id: 'B', text: "An AWS Lambda function that deletes Auto Scaling instances using the AWS CLI" },
-      { id: 'C', text: "AWS Fault Injection Simulator (FIS) configured with experiment templates, target filters, and CloudWatch alarms defined as Stop Conditions" },
+      { id: 'C', text: "Fault Injection Simulator with experiment templates and alarms as stop conditions" },
       { id: 'D', text: "A bash script running in an EC2 cron job that executes 'kill -9' on random processes" }
     ],
     correctAnswers: ['C'],
@@ -72,7 +72,7 @@ export const AWS_DOP_QUESTIONS_8 = [
     scenario: "Amazon GuardDuty generates a high-severity finding 'UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration' indicating that temporary IAM credentials for an EC2 instance were accessed from an external, unauthorized IP address. Security policy requires that the compromised credentials must be revoked immediately, an explicit Deny policy attached, and the incident response team paged within 30 seconds.",
     question: "Which event-driven architecture delivers this immediate automated response?",
     options: [
-      { id: 'A', text: "Create an Amazon EventBridge rule matching the specific GuardDuty finding type, targeting an AWS Systems Manager Automation document (or AWS Lambda function) that revokes active IAM sessions and attaches an inline Deny policy, while publishing an alert to an Amazon SNS topic" },
+      { id: 'A', text: "An EventBridge rule on that finding type, targeting a Systems Manager Automation document" },
       { id: 'B', text: "Instruct the security engineer to manually log into the IAM console and click 'Revoke active sessions' upon receiving an email" },
       { id: 'C', text: "Configure a daily AWS Config rule that scans IAM credential reports and flags exposed keys" },
       { id: 'D', text: "Write a script on an administrative workstation that polls GuardDuty findings every 15 minutes" }
@@ -95,7 +95,7 @@ export const AWS_DOP_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "Write an AWS Lambda function in each member account that writes events to an Amazon S3 bucket in the central account" },
       { id: 'B', text: "Deploy an Amazon SQS queue in each member account and configure cross-account VPC peering to the central account" },
-      { id: 'C', text: "Grant the member accounts permission to put events onto the central account's event bus using an EventBridge resource policy in the central account, and create EventBridge rules in member accounts targeting the central bus ARN" },
+      { id: 'C', text: "An EventBridge resource policy letting the member accounts put events onto the central bus" },
       { id: 'D', text: "Configure AWS CloudTrail in each member account to publish to an Amazon SNS topic in the central account" }
     ],
     correctAnswers: ['C'],
@@ -114,7 +114,7 @@ export const AWS_DOP_QUESTIONS_8 = [
     scenario: "When Amazon GuardDuty detects an active malware command-and-control connection from an Amazon EC2 instance (finding 'Backdoor:EC2/C&CActivity.B!DNS'), the instance must be immediately isolated from the network without deleting its EBS volumes or terminating the instance, allowing the forensic team to conduct memory and disk analysis.",
     question: "Which automated remediation workflow securely isolates the instance?",
     options: [
-      { id: 'A', text: "An EventBridge rule triggers an SSM Automation runbook that replaces the instance's security groups with an isolation security group having no ingress or egress rules, takes EBS snapshots of all attached volumes, and tags the instance as 'Quarantined'" },
+      { id: 'A', text: "An EventBridge rule running a runbook that swaps in an isolation security group with no ingress" },
       { id: 'B', text: "An EventBridge rule triggers an AWS Lambda function that immediately calls ec2:TerminateInstances" },
       { id: 'C', text: "An AWS Config rule that restarts the instance in single-user mode" },
       { id: 'D', text: "A Systems Manager Run Command that executes 'rm -rf /' inside the running guest OS" }
@@ -138,7 +138,7 @@ export const AWS_DOP_QUESTIONS_8 = [
       { id: 'A', text: "Configure an AWS Lambda function with concurrency set to 1,000 to read from the DLQ and send HTTP POST requests" },
       { id: 'B', text: "Write a Python script on an EC2 instance that reads messages from the DLQ and puts them into an S3 bucket" },
       { id: 'C', text: "Delete the DLQ and let the primary queue regenerate the lost messages" },
-      { id: 'D', text: "Use SQS Dead-Letter Queue Redrive (StartMessageMoveTask API or console 'Start DLQ redrive') to move messages back to the source queue" }
+      { id: 'D', text: "An SQS dead-letter queue redrive, moving the messages back to the source queue" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,7 +156,7 @@ export const AWS_DOP_QUESTIONS_8 = [
     scenario: "A company security policy strictly prohibits opening port 22 (SSH) or port 3389 (RDP) to the internet (0.0.0.0/0) in any VPC security group. The security team needs an automated mechanism that detects unauthorized ingress rules within seconds and revokes them immediately.",
     question: "Which event-driven architecture provides the fastest remediation?",
     options: [
-      { id: 'A', text: "An Amazon EventBridge rule matching AWS CloudTrail API calls for AuthorizeSecurityGroupIngress, triggering an AWS Lambda function that evaluates the CIDR block and calls RevokeSecurityGroupIngress if 0.0.0.0/0 is present" },
+      { id: 'A', text: "An EventBridge rule on the `AuthorizeSecurityGroupIngress` call, running a Lambda that reverts it" },
       { id: 'B', text: "An AWS Config periodic rule scheduled to run once every 24 hours" },
       { id: 'C', text: "An Amazon Inspector assessment running weekly against EC2 instances" },
       { id: 'D', text: "An AWS Systems Manager State Manager association running a bash script every 6 hours" }
@@ -177,10 +177,10 @@ export const AWS_DOP_QUESTIONS_8 = [
     scenario: "AWS sends an AWS Health notification indicating that an underlying hardware degradation event requires an Amazon EC2 instance hosting a production database to undergo scheduled retirement. The DevOps team wants to automatically stop and start the instance during an off-peak maintenance window to migrate it to healthy host hardware without manual intervention.",
     question: "Which architecture pattern automates this instance migration?",
     options: [
-      { id: 'A', text: "Wait for the scheduled retirement date and let AWS terminate the instance automatically" },
-      { id: 'B', text: "Configure an Auto Scaling lifecycle hook with a 48-hour timeout" },
-      { id: 'C', text: "Create an Amazon EventBridge rule matching AWS Health events for 'AWS_EC2_INSTANCE_RETIREMENT_SCHEDULED', targeting an AWS Step Functions state machine or SSM Automation runbook that waits until the scheduled maintenance window and executes ec2:StopInstances followed by ec2:StartInstances" },
-      { id: 'D', text: "Create a CloudWatch billing alarm that alerts the billing department when retirement occurs" }
+      { id: 'A', text: "An EventBridge rule on the AWS Health retirement event, targeting a Lambda that terminates and replaces the instance." },
+      { id: 'B', text: "An Auto Scaling lifecycle hook with a long timeout, which drains the instance before the retirement date arrives." },
+      { id: 'C', text: "An EventBridge rule on the AWS Health retirement event, targeting an Automation runbook that stops and starts the instance." },
+      { id: 'D', text: "A CloudWatch alarm on the instance's status checks, which recovers it once the retirement actually takes effect." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -200,7 +200,7 @@ export const AWS_DOP_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "Deploy a secondary EventBridge rule with an identical pattern pointing to an Amazon SNS topic" },
       { id: 'B', text: "Enable CloudTrail data events on the EventBridge rule" },
-      { id: 'C', text: "Configure a Dead-Letter Queue (Amazon SQS) on the EventBridge rule target and set an appropriate retry policy with maximum event age and retry attempts" },
+      { id: 'C', text: "A dead-letter queue on the EventBridge target, with a retry policy and max age" },
       { id: 'D', text: "Increase the Lambda function timeout from 1 minute to 15 minutes" }
     ],
     correctAnswers: ['C'],
@@ -220,7 +220,7 @@ export const AWS_DOP_QUESTIONS_8 = [
     question: "Which FIS action and architecture executes this test?",
     options: [
       { id: 'A', text: "Block port 3306 on the database security group for 10 minutes" },
-      { id: 'B', text: "Use AWS Fault Injection Simulator (FIS) with the 'aws:rds:failover-db-cluster' action targeting the Aurora cluster, monitoring CloudWatch metrics for downtime and connection recovery" },
+      { id: 'B', text: "Fault Injection Simulator's `aws:rds:failover-db-cluster` action against the cluster" },
       { id: 'C', text: "Manually reboot the primary database instance via the console using the 'Reboot with failover' option while timing with a stopwatch" },
       { id: 'D', text: "Delete the primary DB instance using the AWS CLI and wait for Auto Scaling to launch a replacement" }
     ],
@@ -242,7 +242,7 @@ export const AWS_DOP_QUESTIONS_8 = [
     options: [
       { id: 'A', text: "Configure Amazon SES email templates with custom Handlebars logic" },
       { id: 'B', text: "Modify the EC2 instance operating system syslog format" },
-      { id: 'C', text: "Use an EventBridge Input Transformer with Input Path to extract event variables and Input Template to format the human-readable message string" },
+      { id: 'C', text: "An EventBridge input transformer extracting the fields into a readable message" },
       { id: 'D', text: "Write an intermediate AWS Lambda function between EventBridge and Amazon SNS solely to format strings" }
     ],
     correctAnswers: ['C'],
@@ -262,7 +262,7 @@ export const AWS_DOP_QUESTIONS_8 = [
     question: "Which Auto Scaling action places the instance into an isolated maintenance state?",
     options: [
       { id: 'A', text: "Stop the instance using the EC2 console; Auto Scaling will pause until the instance is started" },
-      { id: 'B', text: "Put the instance into the 'Standby' state using the EnterStandby API, inspect the instance, and return it using ExitStandby when complete" },
+      { id: 'B', text: "Put the instance into Standby, inspect it, and return it with ExitStandby" },
       { id: 'C', text: "Delete the target group from the Application Load Balancer" },
       { id: 'D', text: "Reboot the instance repeatedly to clear OS buffer caches" }
     ],
@@ -285,7 +285,7 @@ export const AWS_DOP_QUESTIONS_8 = [
       { id: 'A', text: "Configure an Amazon SNS topic subscribed to the manager's phone number" },
       { id: 'B', text: "Add a sleep step for 30 minutes in the bash script to give managers time to inspect the database" },
       { id: 'C', text: "Use AWS CloudTrail Insights to detect the execution and pause the runbook" },
-      { id: 'D', text: "Add an 'aws:approve' step in the Automation document specifying the Approvers (IAM users or roles) and MinRequiredApprovals" }
+      { id: 'D', text: "An `aws:approve` step in the Automation document naming the approvers" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -304,7 +304,7 @@ export const AWS_DOP_QUESTIONS_8 = [
     question: "Which EventBridge event pattern syntax expresses these criteria?",
     options: [
       { id: 'A', text: "Use an Amazon SQS message filter policy matching S3 metadata headers" },
-      { id: 'B', text: "Use content-based filtering with 'suffix' matching on object key and numeric range matching 'numeric': ['>', 1073741824] on object size in the event pattern" },
+      { id: 'B', text: "Content filtering on the key suffix and a numeric range on the object size" },
       { id: 'C', text: "Configure an S3 lifecycle policy that invokes an AWS Lambda function for files over 1 GB" },
       { id: 'D', text: "Write a regex string directly in the EventBridge event bus properties" }
     ],
@@ -325,7 +325,7 @@ export const AWS_DOP_QUESTIONS_8 = [
     question: "Which combination of AWS Config and Systems Manager achieves this continuous remediation?",
     options: [
       { id: 'A', text: "Write a Python script running in an EC2 cron job every 24 hours" },
-      { id: 'B', text: "Deploy the AWS Config managed rule 's3-bucket-level-public-access-prohibited' with an automatic remediation pointing to the SSM Automation document 'AWS-DisableS3BucketPublicReadWrite' (or 'AWS-ConfigureS3BucketPublicAccessBlock')" },
+      { id: 'B', text: "The `s3-bucket-level-public-access-prohibited` Config rule, with automatic remediation" },
       { id: 'C', text: "Deploy an Amazon CloudWatch billing alarm for S3 transfer costs" },
       { id: 'D', text: "Create an IAM policy denying the s3:ListBucket action to all developers" }
     ],
@@ -348,7 +348,7 @@ export const AWS_DOP_QUESTIONS_8 = [
       { id: 'A', text: "An open-source webhook running on a public EC2 instance listening for Slack slash commands" },
       { id: 'B', text: "Amazon Pinpoint two-way SMS integration" },
       { id: 'C', text: "Amazon SES email forwarding to a Slack email integration address" },
-      { id: 'D', text: "AWS Chatbot configured with Slack workspace integration and an IAM role defining permissions for channel members" }
+      { id: 'D', text: "AWS Chatbot with the Slack workspace and an IAM role for the channel" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -366,10 +366,10 @@ export const AWS_DOP_QUESTIONS_8 = [
     scenario: "An operations team initiates an OS maintenance update on an Amazon RDS for PostgreSQL Multi-AZ database instance. The application begins experiencing elevated latency and connection timeouts during the maintenance. The team needs to immediately abort the maintenance and roll back to the previous version.",
     question: "How does Amazon RDS Multi-AZ architecture handle maintenance patching and rollback?",
     options: [
-      { id: 'A', text: "CloudFormation automatically rolls back RDS database updates without snapshot restoration" },
-      { id: 'B', text: "Disable Multi-AZ before running any maintenance updates" },
-      { id: 'C', text: "RDS Multi-AZ updates the standby instance first, performs an automatic failover to the updated standby, and then updates the original primary; to roll back if issues arise, initiate a reboot with failover back to the previous primary if not yet upgraded or restore from the pre-maintenance snapshot" },
-      { id: 'D', text: "RDS instances cannot be rolled back; the database must be completely re-imported from CSV files" }
+      { id: 'A', text: "CloudFormation rolls the database update back automatically, restoring the instance to its previous engine version." },
+      { id: 'B', text: "Multi-AZ updates both instances at once after a brief outage, so a rollback means restoring the pre-update snapshot." },
+      { id: 'C', text: "Multi-AZ updates the standby, fails over to it, then updates the old primary; roll back by failing back or restoring the snapshot." },
+      { id: 'D', text: "An RDS instance cannot be rolled back at all, so the data has to be exported and reimported at the old version." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -388,7 +388,7 @@ export const AWS_DOP_QUESTIONS_8 = [
     question: "Which AWS Fault Injection Simulator (FIS) action targets network degradation on container workloads?",
     options: [
       { id: 'A', text: "Change the MTU size on the VPC Internet Gateway to 500 bytes" },
-      { id: 'B', text: "Use the FIS action 'aws:network:disrupt-connectivity' (or container-level network latency injection actions)" },
+      { id: 'B', text: "The FIS `aws:network:disrupt-connectivity` action against the subnets" },
       { id: 'C', text: "Deploy an AWS WAF rule that drops 10% of incoming requests" },
       { id: 'D', text: "Modify the VPC route table to route traffic through an unconfigured NAT instance" }
     ],
@@ -409,7 +409,7 @@ export const AWS_DOP_QUESTIONS_8 = [
     question: "Which architecture pattern captures logs prior to instance termination?",
     options: [
       { id: 'A', text: "Run a cron job that uploads logs to S3 every 24 hours" },
-      { id: 'B', text: "Configure an Auto Scaling Lifecycle Hook for EC2_INSTANCE_TERMINATING; an EventBridge rule catches the lifecycle action event and triggers an SSM Automation runbook that runs a script to collect logs, upload to S3, and complete the lifecycle action" },
+      { id: 'B', text: "A terminating lifecycle hook whose event triggers an Automation runbook to collect the logs" },
       { id: 'C', text: "Use the EC2 StopInstances API to pause the instance indefinitely" },
       { id: 'D', text: "Rely on CloudWatch Logs default retention without configuring lifecycle hooks" }
     ],
@@ -429,7 +429,7 @@ export const AWS_DOP_QUESTIONS_8 = [
     scenario: "Following a major production outage, enterprise compliance requires the SRE team to complete a comprehensive Post-Incident Analysis (post-mortem), establish a detailed incident timeline, document root causes, and track remediation action items to completion.",
     question: "Which feature of AWS Systems Manager Incident Manager supports this workflow?",
     options: [
-      { id: 'A', text: "Incident Manager Post-Incident Analysis (PIR) with automated timeline generation, root cause documentation, and AWS Systems Manager OpsCenter action item integration" },
+      { id: 'A', text: "Incident Manager post-incident analysis with follow-up items" },
       { id: 'B', text: "AWS Trusted Advisor Cost Optimization recommendations" },
       { id: 'C', text: "AWS Cost Explorer anomaly detection reports" },
       { id: 'D', text: "Amazon CloudWatch ServiceLens dependency maps" }
@@ -450,7 +450,7 @@ export const AWS_DOP_QUESTIONS_8 = [
     scenario: "A company hosts a public web application across two AWS Regions (active-passive). Route 53 routes traffic to the primary region. If the primary region's backend application health endpoint fails, Route 53 must automatically divert traffic to the secondary passive region within 60 seconds.",
     question: "Which Route 53 configuration provides this automated failover?",
     options: [
-      { id: 'A', text: "Configure a Route 53 Failover Routing Policy with a Primary record pointing to the primary region's ALB associated with a Route 53 Health Check, and a Secondary record pointing to the disaster recovery region's ALB" },
+      { id: 'A', text: "A Route 53 failover policy: a primary record with a health check, and a secondary for the standby" },
       { id: 'B', text: "Write a Python script that modifies DNS records when an on-call engineer receives an email" },
       { id: 'C', text: "Deploy an AWS Global Accelerator with endpoint weights set to 50/50" },
       { id: 'D', text: "Configure a Route 53 Simple Routing Policy with two IP addresses" }
@@ -474,7 +474,7 @@ export const AWS_DOP_QUESTIONS_8 = [
       { id: 'A', text: "Manually write JSON Schema documents and upload them to an Amazon S3 bucket" },
       { id: 'B', text: "Use AWS Glue Data Catalog to crawl Amazon SQS queues" },
       { id: 'C', text: "Deploy an Amazon DynamoDB table to store event definitions" },
-      { id: 'D', text: "Enable EventBridge Schema Discovery on the event bus, and download code bindings directly from the EventBridge Schema Registry" }
+      { id: 'D', text: "EventBridge schema discovery on the bus, with code bindings from the registry" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -493,7 +493,7 @@ export const AWS_DOP_QUESTIONS_8 = [
     question: "Which CloudWatch Alarm action configures this automated recovery?",
     options: [
       { id: 'A', text: "Configure an Auto Scaling group with Minimum=1, Maximum=1, and Desired=1" },
-      { id: 'B', text: "Create a CloudWatch alarm on the 'StatusCheckFailed_System' metric and attach the EC2 action 'Recover this instance'" },
+      { id: 'B', text: "An alarm on `StatusCheckFailed_System` with the EC2 recover action" },
       { id: 'C', text: "Deploy an AWS Lambda function that calls ec2:TerminateInstances and ec2:RunInstances" },
       { id: 'D', text: "Create a CloudWatch alarm on CPUUtilization and attach the EC2 action 'Reboot this instance'" }
     ],
@@ -516,7 +516,7 @@ export const AWS_DOP_QUESTIONS_8 = [
       { id: 'A', text: "Add an Amazon SQS queue in front of every consumer" },
       { id: 'B', text: "Replace Kinesis Data Streams with Amazon DynamoDB Streams" },
       { id: 'C', text: "Increase the Kinesis shard retention period from 24 hours to 7 days" },
-      { id: 'D', text: "Enable Enhanced Fan-Out (EFO) on the consumers to provide dedicated 2 MB/sec throughput per consumer per shard using HTTP/2" }
+      { id: 'D', text: "Enhanced fan-out, giving each consumer its own 2 MB/s per shard over HTTP/2" }
     ],
     correctAnswers: ['D'],
     type: "single",

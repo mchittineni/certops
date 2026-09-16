@@ -9,7 +9,7 @@ export const AWS_DOP_QUESTIONS_10 = [
     scenario: "A corporate finance team mandates that every taggable AWS resource created across 100 AWS member accounts must include specific standardized tags ('CostCenter', 'Environment', 'Owner') with validated casing and allowed values. Non-compliant tag values must be blocked at creation time.",
     question: "Which AWS Organizations governance capability enforces standardized tagging across accounts?",
     options: [
-      { id: 'A', text: "Attach an AWS Organizations Tag Policy with enforcement enabled ('enforced_for') to the organization root or target OUs" },
+      { id: 'A', text: "An Organizations tag policy with enforcement enabled on the target units" },
       { id: 'B', text: "Deploy an AWS Lambda function in each account that runs a daily tagging audit" },
       { id: 'C', text: "Create an Amazon CloudWatch billing alarm that alerts on untagged resources" },
       { id: 'D', text: "Instruct engineers to follow a wiki guide when creating resources" }
@@ -31,7 +31,7 @@ export const AWS_DOP_QUESTIONS_10 = [
     question: "Which setting ensures that public access is blocked unconditionally across all buckets in the account?",
     options: [
       { id: 'A', text: "Deploy an AWS WAF Web ACL on all S3 buckets" },
-      { id: 'B', text: "Enable Amazon S3 Block Public Access at the AWS Account level, enabling all four settings (BlockPublicAcls, IgnorePublicAcls, BlockPublicPolicy, RestrictPublicBuckets)" },
+      { id: 'B', text: "Account-level S3 Block Public Access, with all four settings enabled" },
       { id: 'C', text: "Configure a VPC Endpoint for S3 and delete the VPC Internet Gateway" },
       { id: 'D', text: "Remove all IAM users from the AWS account" }
     ],
@@ -74,7 +74,7 @@ export const AWS_DOP_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "Export CloudWatch Logs to an S3 bucket in each account weekly" },
       { id: 'B', text: "Configure an EC2 syslog daemon to pull CloudTrail logs via the AWS API" },
-      { id: 'C', text: "Create an AWS Organizations Organization Trail in the management (or delegated administrator) account that logs to an S3 bucket in the Log Archive account encrypted with a Customer Managed Key (CMK)" },
+      { id: 'C', text: "An organization trail logging to the log archive account's bucket" },
       { id: 'D', text: "Create separate regional trails manually in each member account console" }
     ],
     correctAnswers: ['C'],
@@ -94,7 +94,7 @@ export const AWS_DOP_QUESTIONS_10 = [
     question: "Which combination of AWS Config rule and remediation action achieves this?",
     options: [
       { id: 'A', text: "Deploy an Amazon Inspector assessment targeting EC2 instances" },
-      { id: 'B', text: "Deploy the AWS Config managed rule 'restricted-ssh' with an automatic remediation action that executes the SSM Automation document 'AWS-DisablePublicAccessForSecurityGroup'" },
+      { id: 'B', text: "The `restricted-ssh` Config rule with automatic remediation" },
       { id: 'C', text: "Create an AWS WAF rule that filters port 22 traffic" },
       { id: 'D', text: "Configure an IAM policy that denies the ec2:CreateSecurityGroup action" }
     ],
@@ -114,7 +114,7 @@ export const AWS_DOP_QUESTIONS_10 = [
     scenario: "A business-to-business (B2B) REST API hosted on Amazon API Gateway requires mutual TLS (mTLS) authentication to ensure that only authorized partner clients presenting a valid certificate signed by a corporate Private Certificate Authority (CA) can establish a connection.",
     question: "How should the DevOps engineer configure API Gateway for mutual TLS?",
     options: [
-      { id: 'A', text: "Create a custom domain name in API Gateway, enable Mutual TLS, and upload the truststore PEM file (containing CA root and intermediate certificates) to an Amazon S3 bucket referenced by API Gateway" },
+      { id: 'A', text: "An API Gateway custom domain with mutual TLS and a truststore holding the CA certificates" },
       { id: 'B', text: "Use Amazon Cognito user pools with SMS multi-factor authentication" },
       { id: 'C', text: "Deploy an Application Load Balancer in front of API Gateway with basic authentication headers" },
       { id: 'D', text: "Configure an API Gateway Lambda authorizer to inspect the client IP address" }
@@ -156,10 +156,10 @@ export const AWS_DOP_QUESTIONS_10 = [
     scenario: "A financial microservices team packages AWS Lambda functions as container images stored in Amazon ECR. Corporate policy dictates that container images must be encrypted using a KMS Customer Managed Key (CMK), and Lambda must have permissions to pull images from the ECR repository.",
     question: "Which configuration allows AWS Lambda to deploy and execute container images from an encrypted ECR repository?",
     options: [
-      { id: 'A', text: "Ensure the ECR repository is encrypted with a KMS CMK, configure the KMS key policy to grant 'kms:Decrypt' to the AWS Lambda service principal (or execution role), and configure an ECR repository policy granting 'ecr:BatchGetImage' and 'ecr:GetDownloadUrlForLayer' to Lambda" },
-      { id: 'B', text: "Store the container image in a public Docker Hub repository" },
-      { id: 'C', text: "Disable KMS encryption on the Amazon ECR repository" },
-      { id: 'D', text: "Grant the Lambda function full AdministratorAccess IAM permissions" }
+      { id: 'A', text: "Encrypt the repository with a CMK whose policy grants Lambda `kms:Decrypt`, and grant Lambda the ECR pull actions." },
+      { id: 'B', text: "Grant the function's execution role the ECR pull actions, which also covers decrypting the image layers." },
+      { id: 'C', text: "Encrypt the repository with the AWS-managed ECR key, which the Lambda service can already decrypt." },
+      { id: 'D', text: "Grant the repository policy to the account root, so any principal in it may pull the image layers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,7 +177,7 @@ export const AWS_DOP_QUESTIONS_10 = [
     scenario: "A company uses an AWS VPC Gateway Endpoint for Amazon S3 to allow instances in private subnets to access S3. The security team discovers that an infected instance could exfiltrate data to an external personal S3 bucket using the gateway endpoint. The endpoint must allow access ONLY to the company's internal S3 buckets in account 111122223333.",
     question: "Which security control restricts data transfers through the VPC Gateway Endpoint?",
     options: [
-      { id: 'A', text: "Attach a VPC Endpoint Policy to the S3 Gateway Endpoint that specifies an 'Allow' on 's3:*' only for resources matching 'arn:aws:s3:::company-*' or with a Condition on 'aws:ResourceAccount' equal to '111122223333'" },
+      { id: 'A', text: "A VPC endpoint policy allowing only the company's bucket prefix" },
       { id: 'B', text: "Modify the EC2 instance security group outbound rules" },
       { id: 'C', text: "Enable S3 Transfer Acceleration on internal buckets" },
       { id: 'D', text: "Disable VPC Endpoint and route traffic through a NAT Gateway" }
@@ -222,7 +222,7 @@ export const AWS_DOP_QUESTIONS_10 = [
       { id: 'A', text: "A policy statement with 'Effect: Allow' and a Condition 'StringEquals: { \"aws:Protocol\": \"https\" }'" },
       { id: 'B', text: "Enabling default SSE-KMS encryption on the bucket properties" },
       { id: 'C', text: "Configuring an Amazon CloudFront distribution with Origin Access Control" },
-      { id: 'D', text: "A policy statement with 'Effect: Deny', 'Principal: *', 'Action: s3:*', and a Condition 'Bool: { \"aws:SecureTransport\": \"false\" }'" }
+      { id: 'D', text: "A bucket policy denying `s3:*` when `aws:SecureTransport` is false" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,7 +261,7 @@ export const AWS_DOP_QUESTIONS_10 = [
     scenario: "A continuous delivery pipeline automatically rotates third-party SaaS API tokens stored in AWS Secrets Manager every 60 days. The database or external API requires that both the old token and the new token remain valid during a 1-hour grace period while running microservices drain existing requests and adopt the new token.",
     question: "How does AWS Secrets Manager support dual-secret validity during rotation?",
     options: [
-      { id: 'A', text: "Secrets Manager uses staging labels: AWSPENDING (new secret being tested), AWSCURRENT (active secret), and AWSPREVIOUS (previous secret retained for rollback), allowing the rotation Lambda function to manage both tokens during rotation" },
+      { id: 'A', text: "Staging labels: `AWSPENDING`, `AWSCURRENT` and `AWSPREVIOUS`" },
       { id: 'B', text: "Secrets Manager creates two separate secrets with different ARNs" },
       { id: 'C', text: "Secrets Manager pauses all application microservices for 1 hour during rotation" },
       { id: 'D', text: "Developers must manually update application config files in Git" }
@@ -284,7 +284,7 @@ export const AWS_DOP_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "Amazon GuardDuty VPC Flow Log analysis" },
       { id: 'B', text: "AWS Config managed rules evaluated periodically" },
-      { id: 'C', text: "Amazon Inspector (v2) using the AWS Systems Manager Agent (SSM Agent)" },
+      { id: 'C', text: "Amazon Inspector, through the Systems Manager agent" },
       { id: 'D', text: "AWS Security Hub CIS benchmark checks" }
     ],
     correctAnswers: ['C'],
@@ -304,7 +304,7 @@ export const AWS_DOP_QUESTIONS_10 = [
     question: "How does AWS KMS enforce protection against immediate key destruction?",
     options: [
       { id: 'A', text: "KMS requires physical authorization via an on-premises HSM smart card" },
-      { id: 'B', text: "AWS KMS enforces a mandatory waiting period of 7 to 30 days for any key deletion request (ScheduleKeyDeletion), during which the key enters the PendingDeletion state and can be cancelled" },
+      { id: 'B', text: "KMS enforces a 7-to-30 day waiting period, during which the key is pending deletion" },
       { id: 'C', text: "KMS keys can be deleted immediately if the administrator passes the --force flag in the AWS CLI" },
       { id: 'D', text: "KMS keys are automatically recreated by CloudFormation if deleted" }
     ],
@@ -326,7 +326,7 @@ export const AWS_DOP_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "Block port 80 outbound in all VPC security groups" },
       { id: 'B', text: "Disable the EC2 Instance Metadata Service entirely on all instances" },
-      { id: 'C', text: "Apply an IAM Service Control Policy (SCP) denying 'ec2:RunInstances' unless 'ec2:MetadataHttpTokens' is set to 'required', and update existing instances using the modify-instance-metadata-options CLI command with HttpTokens set to required" },
+      { id: 'C', text: "An SCP denying `ec2:RunInstances` unless IMDSv2 tokens are required" },
       { id: 'D', text: "Deploy an AWS WAF rule that blocks HTTP requests to 169.254.169.254" }
     ],
     correctAnswers: ['C'],
@@ -345,7 +345,7 @@ export const AWS_DOP_QUESTIONS_10 = [
     scenario: "A forensic investigator needs to search 2 years of audit logs across 50 AWS accounts to identify all IAM role assumptions and policy changes performed by a terminated contractor. Standard CloudTrail Event History only retains 90 days of management events.",
     question: "Which AWS CloudTrail feature enables multi-year, multi-account SQL query investigations without maintaining custom Big Data pipelines?",
     options: [
-      { id: 'A', text: "AWS CloudTrail Lake with an event data store configured to retain events for up to 7 years" },
+      { id: 'A', text: "CloudTrail Lake with a seven-year event data store" },
       { id: 'B', text: "Amazon DynamoDB with automated TTL" },
       { id: 'C', text: "CloudTrail standard Event History in the console" },
       { id: 'D', text: "CloudWatch Logs Insights with default retention" }
@@ -369,7 +369,7 @@ export const AWS_DOP_QUESTIONS_10 = [
       { id: 'A', text: "Create thousands of distinct IAM roles, one for each tenant" },
       { id: 'B', text: "Modify the S3 bucket policy synchronously before each job execution" },
       { id: 'C', text: "Encrypt each tenant's folder with a different client-side password" },
-      { id: 'D', text: "Pass an inline IAM Session Policy when calling STS AssumeRole (or AssumeRoleWithWebIdentity) that scopes down the session to only Tenant A's S3 path" }
+      { id: 'D', text: "An inline session policy scoping the session to that tenant" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,7 +387,7 @@ export const AWS_DOP_QUESTIONS_10 = [
     scenario: "An enterprise requires all AWS WAF access logs from multiple regional Application Load Balancers and CloudFront distributions to be centralized, partitioned by year/month/day, and stored in an Amazon S3 bucket for security analysis with Amazon Athena.",
     question: "How should the AWS WAF logging configuration be established?",
     options: [
-      { id: 'A', text: "Configure AWS WAF to send logs to an Amazon Kinesis Data Firehose delivery stream named with the required 'aws-waf-logs-' prefix, pointing to the centralized Amazon S3 bucket with dynamic partitioning enabled" },
+      { id: 'A', text: "Send the WAF logs to a Firehose stream whose name carries the required `aws-waf-logs-` prefix" },
       { id: 'B', text: "Stream logs directly to Amazon DynamoDB using an EventBridge rule" },
       { id: 'C', text: "Write a Python script on an EC2 instance that queries the AWS WAF API every 5 minutes" },
       { id: 'D', text: "Download WAF logs manually from the CloudWatch Metrics console" }
@@ -408,7 +408,7 @@ export const AWS_DOP_QUESTIONS_10 = [
     scenario: "A central security team builds hardened golden AMIs weekly using EC2 Image Builder. The hardened AMI must be shared automatically with 40 member accounts in an AWS Organization and copied to three AWS Regions, with launch permissions granted to member account IDs.",
     question: "Which EC2 Image Builder component automates multi-account and multi-region AMI distribution?",
     options: [
-      { id: 'A', text: "An EC2 Image Builder Distribution Configuration specifying the target regions, target AWS account IDs (or AWS Organizations ARN), and AMI launch permissions" },
+      { id: 'A', text: "An Image Builder distribution configuration naming the target regions and accounts" },
       { id: 'B', text: "An AWS Lambda function that copies snapshots manually using the ec2:CopySnapshot API" },
       { id: 'C', text: "An S3 bucket policy with public read access to raw VMDK files" },
       { id: 'D', text: "An AWS CloudFormation StackSet deployed to every account" }
@@ -472,7 +472,7 @@ export const AWS_DOP_QUESTIONS_10 = [
     question: "How can the DevOps engineer associate a customer-managed KMS key with a CloudWatch log group?",
     options: [
       { id: 'A', text: "Deploy an EC2 instance to encrypt log files locally before sending to CloudWatch" },
-      { id: 'B', text: "Associate the KMS Key ARN with the log group using the 'aws logs associate-kms-key' CLI command, ensuring the KMS key policy grants the regional CloudWatch Logs service principal permissions to generate data keys and decrypt" },
+      { id: 'B', text: "Associate the KMS key with the log group, with a policy granting the Logs service principal" },
       { id: 'C', text: "CloudWatch Logs only supports AWS-managed encryption keys" },
       { id: 'D', text: "Re-create all log groups with SSE-S3 encryption enabled" }
     ],
@@ -492,7 +492,7 @@ export const AWS_DOP_QUESTIONS_10 = [
     scenario: "An enterprise password policy mandates that all IAM user passwords must be at least 14 characters long, require numbers and symbols, and expire every 90 days. An automated control must detect non-compliant account password policies and reconfigure them to the compliant standard.",
     question: "Which combination of AWS Config and Systems Manager enforces account password policies?",
     options: [
-      { id: 'A', text: "Deploy the AWS Config managed rule 'iam-password-policy' with an automated remediation action executing the SSM Automation document 'AWS-UpdateAccountPasswordPolicy'" },
+      { id: 'A', text: "The `iam-password-policy` Config rule, remediated by an Automation runbook" },
       { id: 'B', text: "Deploy an AWS Lambda function that deletes users without passwords" },
       { id: 'C', text: "Attach an IAM permission boundary to all IAM users" },
       { id: 'D', text: "Enable MFA on the AWS root user account" }
@@ -513,10 +513,10 @@ export const AWS_DOP_QUESTIONS_10 = [
     scenario: "An Amazon RDS MySQL database requires zero downtime during secret rotation. When Secrets Manager rotates the master password, existing active database connections must not be abruptly terminated, and new connections must seamlessly transition to the new credentials.",
     question: "Which rotation strategy maintains zero connection drops during password rotation?",
     options: [
-      { id: 'A', text: "Hardcode credentials in application memory and disable rotation" },
-      { id: 'B', text: "Deploy an AWS WAF rule that buffers SQL requests during rotation" },
-      { id: 'C', text: "Use the Secrets Manager 'Multi-User Rotation' strategy with two database users: one user rotates and updates its password in Secrets Manager while the alternate user services active client connections, swapping roles alternately on each rotation" },
-      { id: 'D', text: "Use the Single-User Rotation strategy with a 10-minute database reboot" }
+      { id: 'A', text: "Single-user rotation with the application retrying on failure, since the window is only a few seconds." },
+      { id: 'B', text: "Single-user rotation with a proxy in front that buffers connections while the password is changed." },
+      { id: 'C', text: "Multi-user rotation: two database users, one rotating while the other serves connections, swapping each time." },
+      { id: 'D', text: "Multi-user rotation with both users rotated together, so neither password is ever long-lived." }
     ],
     correctAnswers: ['C'],
     type: "single",

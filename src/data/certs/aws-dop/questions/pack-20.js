@@ -114,10 +114,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Use single-region KMS keys and decrypt data to cleartext before cross-region replication." },
-      { id: 'B', text: "Disable encryption to simplify multi-region disaster recovery." },
-      { id: 'C', text: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies." },
-      { id: 'D', text: "Export KMS private key material and email it to the secondary region team." }
+      { id: 'A', text: "A separate KMS key per region, with the data re-encrypted as it replicates." },
+      { id: 'B', text: "A single-region KMS key, with the secondary region granted decrypt on it." },
+      { id: 'C', text: "A KMS multi-region key, with a replica in the second region and matching policies." },
+      { id: 'D', text: "A customer-supplied key held by the application in both of the regions." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Use single-region KMS keys and decrypt data to cleartext before cross-region replication." },
-      { id: 'B', text: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies." },
-      { id: 'C', text: "Export KMS private key material and email it to the secondary region team." },
-      { id: 'D', text: "Disable encryption to simplify multi-region disaster recovery." }
+      { id: 'A', text: "A separate KMS key per region, with the data re-encrypted as it replicates." },
+      { id: 'B', text: "A KMS multi-region key, with a replica in the second region and matching policies." },
+      { id: 'C', text: "A customer-supplied key held by the application in both of the regions." },
+      { id: 'D', text: "A single-region KMS key, with the secondary region granted decrypt on it." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -156,10 +156,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Use single-region KMS keys and decrypt data to cleartext before cross-region replication." },
-      { id: 'B', text: "Export KMS private key material and email it to the secondary region team." },
-      { id: 'C', text: "Disable encryption to simplify multi-region disaster recovery." },
-      { id: 'D', text: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies." }
+      { id: 'A', text: "A separate KMS key per region, with the data re-encrypted as it replicates." },
+      { id: 'B', text: "A customer-supplied key held by the application in both of the regions." },
+      { id: 'C', text: "A single-region KMS key, with the secondary region granted decrypt on it." },
+      { id: 'D', text: "A KMS multi-region key, with a replica in the second region and matching policies." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies." },
-      { id: 'B', text: "Use single-region KMS keys and decrypt data to cleartext before cross-region replication." },
-      { id: 'C', text: "Disable encryption to simplify multi-region disaster recovery." },
-      { id: 'D', text: "Export KMS private key material and email it to the secondary region team." }
+      { id: 'A', text: "A KMS multi-region key, with a replica in the second region and matching policies." },
+      { id: 'B', text: "A separate KMS key per region, with the data re-encrypted as it replicates." },
+      { id: 'C', text: "A single-region KMS key, with the secondary region granted decrypt on it." },
+      { id: 'D', text: "A customer-supplied key held by the application in both of the regions." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to replicate encrypted data across AWS regions while allowing applications in both regions to decrypt data using identical key IDs without re-encrypting.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Create an AWS KMS multi-region key (primary key in primary region, replica key in secondary region) with matching key policies." },
-      { id: 'B', text: "Export KMS private key material and email it to the secondary region team." },
-      { id: 'C', text: "Use single-region KMS keys and decrypt data to cleartext before cross-region replication." },
-      { id: 'D', text: "Disable encryption to simplify multi-region disaster recovery." }
+      { id: 'A', text: "A KMS multi-region key, with a replica in the second region and matching policies." },
+      { id: 'B', text: "A customer-supplied key held by the application in both of the regions." },
+      { id: 'C', text: "A separate KMS key per region, with the data re-encrypted as it replicates." },
+      { id: 'D', text: "A single-region KMS key, with the secondary region granted decrypt on it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation." },
-      { id: 'B', text: "Manually audit accounts using paper checklists once a year." },
-      { id: 'C', text: "Disable Security Hub to reduce cloud management overhead." },
-      { id: 'D', text: "Rely solely on developer self-reporting." }
+      { id: 'A', text: "Enable Security Hub with a delegated administrator, the standard benchmarks, and finding aggregation." },
+      { id: 'B', text: "Enable AWS Config with an organization aggregator and the conformance packs per account." },
+      { id: 'C', text: "Enable GuardDuty with a delegated administrator and route the findings to a central topic." },
+      { id: 'D', text: "Enable CloudTrail organization trails and query the events with Athena on a schedule." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Rely solely on developer self-reporting." },
-      { id: 'B', text: "Manually audit accounts using paper checklists once a year." },
-      { id: 'C', text: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation." },
-      { id: 'D', text: "Disable Security Hub to reduce cloud management overhead." }
+      { id: 'A', text: "Enable CloudTrail organization trails and query the events with Athena on a schedule." },
+      { id: 'B', text: "Enable AWS Config with an organization aggregator and the conformance packs per account." },
+      { id: 'C', text: "Enable Security Hub with a delegated administrator, the standard benchmarks, and finding aggregation." },
+      { id: 'D', text: "Enable GuardDuty with a delegated administrator and route the findings to a central topic." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -261,10 +261,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Disable Security Hub to reduce cloud management overhead." },
-      { id: 'B', text: "Manually audit accounts using paper checklists once a year." },
-      { id: 'C', text: "Rely solely on developer self-reporting." },
-      { id: 'D', text: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation." }
+      { id: 'A', text: "Enable GuardDuty with a delegated administrator and route the findings to a central topic." },
+      { id: 'B', text: "Enable AWS Config with an organization aggregator and the conformance packs per account." },
+      { id: 'C', text: "Enable CloudTrail organization trails and query the events with Athena on a schedule." },
+      { id: 'D', text: "Enable Security Hub with a delegated administrator, the standard benchmarks, and finding aggregation." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,10 +282,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Disable Security Hub to reduce cloud management overhead." },
-      { id: 'B', text: "Manually audit accounts using paper checklists once a year." },
-      { id: 'C', text: "Rely solely on developer self-reporting." },
-      { id: 'D', text: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation." }
+      { id: 'A', text: "Enable GuardDuty with a delegated administrator and route the findings to a central topic." },
+      { id: 'B', text: "Enable AWS Config with an organization aggregator and the conformance packs per account." },
+      { id: 'C', text: "Enable CloudTrail organization trails and query the events with Athena on a schedule." },
+      { id: 'D', text: "Enable Security Hub with a delegated administrator, the standard benchmarks, and finding aggregation." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,10 +303,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to continuously evaluate organizational adherence to security standards (CIS AWS Foundations, AWS Foundational Security Best Practices) across all member accounts.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Disable Security Hub to reduce cloud management overhead." },
-      { id: 'B', text: "Manually audit accounts using paper checklists once a year." },
-      { id: 'C', text: "Rely solely on developer self-reporting." },
-      { id: 'D', text: "Enable AWS Security Hub as a delegated administrator across all accounts, enabling standard security benchmarks and automated finding aggregation." }
+      { id: 'A', text: "Enable GuardDuty with a delegated administrator and route the findings to a central topic." },
+      { id: 'B', text: "Enable AWS Config with an organization aggregator and the conformance packs per account." },
+      { id: 'C', text: "Enable CloudTrail organization trails and query the events with Athena on a schedule." },
+      { id: 'D', text: "Enable Security Hub with a delegated administrator, the standard benchmarks, and finding aggregation." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },
-      { id: 'B', text: "Generate permanent IAM user access keys and hardcode them on on-premises disks." },
-      { id: 'C', text: "Commit IAM secret keys to a public GitHub repository." },
-      { id: 'D', text: "Open public internet access to AWS APIs with no authentication." }
+      { id: 'A', text: "IAM Roles Anywhere, with the on-premises certificate authority as the trust anchor." },
+      { id: 'B', text: "An IAM user per server, with its access keys rotated by a scheduled job." },
+      { id: 'C', text: "An OIDC identity provider trusting the on-premises workload identity system." },
+      { id: 'D', text: "A bastion in the VPC that the servers reach through, holding the credentials." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Commit IAM secret keys to a public GitHub repository." },
-      { id: 'B', text: "Open public internet access to AWS APIs with no authentication." },
-      { id: 'C', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },
-      { id: 'D', text: "Generate permanent IAM user access keys and hardcode them on on-premises disks." }
+      { id: 'A', text: "An OIDC identity provider trusting the on-premises workload identity system." },
+      { id: 'B', text: "A bastion in the VPC that the servers reach through, holding the credentials." },
+      { id: 'C', text: "IAM Roles Anywhere, with the on-premises certificate authority as the trust anchor." },
+      { id: 'D', text: "An IAM user per server, with its access keys rotated by a scheduled job." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -366,10 +366,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },
-      { id: 'B', text: "Generate permanent IAM user access keys and hardcode them on on-premises disks." },
-      { id: 'C', text: "Commit IAM secret keys to a public GitHub repository." },
-      { id: 'D', text: "Open public internet access to AWS APIs with no authentication." }
+      { id: 'A', text: "IAM Roles Anywhere, with the on-premises certificate authority as the trust anchor." },
+      { id: 'B', text: "An IAM user per server, with its access keys rotated by a scheduled job." },
+      { id: 'C', text: "An OIDC identity provider trusting the on-premises workload identity system." },
+      { id: 'D', text: "A bastion in the VPC that the servers reach through, holding the credentials." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Generate permanent IAM user access keys and hardcode them on on-premises disks." },
-      { id: 'B', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },
-      { id: 'C', text: "Open public internet access to AWS APIs with no authentication." },
-      { id: 'D', text: "Commit IAM secret keys to a public GitHub repository." }
+      { id: 'A', text: "An IAM user per server, with its access keys rotated by a scheduled job." },
+      { id: 'B', text: "IAM Roles Anywhere, with the on-premises certificate authority as the trust anchor." },
+      { id: 'C', text: "A bastion in the VPC that the servers reach through, holding the credentials." },
+      { id: 'D', text: "An OIDC identity provider trusting the on-premises workload identity system." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -408,10 +408,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to enable on-premises servers in a corporate data center to authenticate to AWS APIs securely without creating or storing long-lived IAM access keys.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Deploy AWS IAM Roles Anywhere using an on-premises enterprise Public Key Infrastructure (PKI) Certificate Authority (CA) trust anchor." },
-      { id: 'B', text: "Generate permanent IAM user access keys and hardcode them on on-premises disks." },
-      { id: 'C', text: "Commit IAM secret keys to a public GitHub repository." },
-      { id: 'D', text: "Open public internet access to AWS APIs with no authentication." }
+      { id: 'A', text: "IAM Roles Anywhere, with the on-premises certificate authority as the trust anchor." },
+      { id: 'B', text: "An IAM user per server, with its access keys rotated by a scheduled job." },
+      { id: 'C', text: "An OIDC identity provider trusting the on-premises workload identity system." },
+      { id: 'D', text: "A bastion in the VPC that the servers reach through, holding the credentials." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to discover and protect unencrypted Personally Identifiable Information (PII) or credit card numbers stored across enterprise Amazon S3 buckets.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Enable Amazon Macie across the organization to automatically scan S3 buckets for sensitive data and generate findings for unencrypted PII." },
-      { id: 'B', text: "Manually download every S3 object and inspect contents by eye." },
-      { id: 'C', text: "Assume no developers ever upload sensitive data to S3 buckets." },
-      { id: 'D', text: "Disable S3 bucket logging to prevent discovering sensitive information." }
+      { id: 'A', text: "Enable Macie across the organization to scan the buckets and raise findings." },
+      { id: 'B', text: "Enable S3 Inventory across the buckets and review the object listings." },
+      { id: 'C', text: "Enable Access Analyzer for S3 and act on the public access findings." },
+      { id: 'D', text: "Enable S3 server access logging and query the logs for the object keys." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to discover and protect unencrypted Personally Identifiable Information (PII) or credit card numbers stored across enterprise Amazon S3 buckets.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Assume no developers ever upload sensitive data to S3 buckets." },
-      { id: 'B', text: "Manually download every S3 object and inspect contents by eye." },
-      { id: 'C', text: "Disable S3 bucket logging to prevent discovering sensitive information." },
-      { id: 'D', text: "Enable Amazon Macie across the organization to automatically scan S3 buckets for sensitive data and generate findings for unencrypted PII." }
+      { id: 'A', text: "Enable Access Analyzer for S3 and act on the public access findings." },
+      { id: 'B', text: "Enable S3 Inventory across the buckets and review the object listings." },
+      { id: 'C', text: "Enable S3 server access logging and query the logs for the object keys." },
+      { id: 'D', text: "Enable Macie across the organization to scan the buckets and raise findings." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to discover and protect unencrypted Personally Identifiable Information (PII) or credit card numbers stored across enterprise Amazon S3 buckets.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Enable Amazon Macie across the organization to automatically scan S3 buckets for sensitive data and generate findings for unencrypted PII." },
-      { id: 'B', text: "Manually download every S3 object and inspect contents by eye." },
-      { id: 'C', text: "Assume no developers ever upload sensitive data to S3 buckets." },
-      { id: 'D', text: "Disable S3 bucket logging to prevent discovering sensitive information." }
+      { id: 'A', text: "Enable Macie across the organization to scan the buckets and raise findings." },
+      { id: 'B', text: "Enable S3 Inventory across the buckets and review the object listings." },
+      { id: 'C', text: "Enable Access Analyzer for S3 and act on the public access findings." },
+      { id: 'D', text: "Enable S3 server access logging and query the logs for the object keys." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to discover and protect unencrypted Personally Identifiable Information (PII) or credit card numbers stored across enterprise Amazon S3 buckets.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Enable Amazon Macie across the organization to automatically scan S3 buckets for sensitive data and generate findings for unencrypted PII." },
-      { id: 'B', text: "Disable S3 bucket logging to prevent discovering sensitive information." },
-      { id: 'C', text: "Manually download every S3 object and inspect contents by eye." },
-      { id: 'D', text: "Assume no developers ever upload sensitive data to S3 buckets." }
+      { id: 'A', text: "Enable Macie across the organization to scan the buckets and raise findings." },
+      { id: 'B', text: "Enable S3 server access logging and query the logs for the object keys." },
+      { id: 'C', text: "Enable S3 Inventory across the buckets and review the object listings." },
+      { id: 'D', text: "Enable Access Analyzer for S3 and act on the public access findings." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const AWS_DOP_QUESTIONS_20 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to discover and protect unencrypted Personally Identifiable Information (PII) or credit card numbers stored across enterprise Amazon S3 buckets.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Enable Amazon Macie across the organization to automatically scan S3 buckets for sensitive data and generate findings for unencrypted PII." },
-      { id: 'B', text: "Manually download every S3 object and inspect contents by eye." },
-      { id: 'C', text: "Assume no developers ever upload sensitive data to S3 buckets." },
-      { id: 'D', text: "Disable S3 bucket logging to prevent discovering sensitive information." }
+      { id: 'A', text: "Enable Macie across the organization to scan the buckets and raise findings." },
+      { id: 'B', text: "Enable S3 Inventory across the buckets and review the object listings." },
+      { id: 'C', text: "Enable Access Analyzer for S3 and act on the public access findings." },
+      { id: 'D', text: "Enable S3 server access logging and query the logs for the object keys." }
     ],
     correctAnswers: ['A'],
     type: "single",

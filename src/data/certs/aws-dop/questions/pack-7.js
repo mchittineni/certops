@@ -31,7 +31,7 @@ export const AWS_DOP_QUESTIONS_7 = [
     question: "How can the DevOps engineer create an alarm based on error percentage?",
     options: [
       { id: 'A', text: "Create an SQS dead-letter queue and monitor the ApproximateNumberOfMessagesVisible metric" },
-      { id: 'B', text: "Use CloudWatch Metric Math to calculate '(m1 / m2) * 100' (where m1 is HTTP 5xx count and m2 is total request count) and set the alarm threshold to 1.0" },
+      { id: 'B', text: "Metric math computing the error percentage, with the alarm set on that expression" },
       { id: 'C', text: "Deploy an AWS WAF rate-based rule set to 100 requests per 5 minutes" },
       { id: 'D', text: "Configure an ALB listener rule to redirect 5xx responses to an error tracking Lambda function" }
     ],
@@ -53,7 +53,7 @@ export const AWS_DOP_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Attach an IAM policy with xray:PutTraceSegments to the Lambda execution role" },
       { id: 'B', text: "Print the start and end timestamp of each call to stdout using standard logging" },
-      { id: 'C', text: "Use the AWS X-Ray SDK to create custom subsegments around each downstream HTTP and database call, passing the trace context into the worker threads" },
+      { id: 'C', text: "X-Ray subsegments around each downstream call, with the context passed on" },
       { id: 'D', text: "Increase the Lambda memory size to 10 GB to allow X-Ray to sample faster" }
     ],
     correctAnswers: ['C'],
@@ -72,7 +72,7 @@ export const AWS_DOP_QUESTIONS_7 = [
     scenario: "An Amazon Aurora PostgreSQL database outputs slow query logs to Amazon CloudWatch Logs. An operational review requires finding the 10 slowest queries by average execution time over the past 24 hours, grouped by query fingerprint.",
     question: "Which tool and approach should the operations engineer use to analyze the logs quickly without provisioning external infrastructure?",
     options: [
-      { id: 'A', text: "Use CloudWatch Logs Insights and execute a query parsing the query duration, aggregating with avg(duration) as avg_dur by query, sorting by avg_dur desc, and limiting to 10" },
+      { id: 'A', text: "A Logs Insights query averaging the duration by query and sorting descending" },
       { id: 'B', text: "Download all log files to an EC2 instance and run a Python script with pandas" },
       { id: 'C', text: "Create a CloudWatch Metric Filter that extracts duration into a custom metric" },
       { id: 'D', text: "Stream logs to Amazon Kinesis and write an Apache Flink application in Kinesis Data Analytics" }
@@ -116,7 +116,7 @@ export const AWS_DOP_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Configure the alarm with TreatMissingData set to 'ignore' and threshold >= 1" },
       { id: 'B', text: "Create a metric filter that assigns a default value of 1 and set TreatMissingData to 'notBreaching'" },
-      { id: 'C', text: "Create a metric filter counting occurrences of 'AGENT_STATUS: OK', and configure the CloudWatch alarm with TreatMissingData set to 'breaching' and a threshold < 1 over two 5-minute evaluation periods" },
+      { id: 'C', text: "A metric filter counting the healthy status lines, with the alarm treating missing data as breaching" },
       { id: 'D', text: "Configure an Amazon EventBridge scheduled rule that checks the S3 bucket size every 5 minutes" }
     ],
     correctAnswers: ['C'],
@@ -136,7 +136,7 @@ export const AWS_DOP_QUESTIONS_7 = [
     question: "Which service capability provides automated end-to-end user workflow simulation?",
     options: [
       { id: 'A', text: "AWS WAF Bot Control rules configured in count mode" },
-      { id: 'B', text: "CloudWatch Synthetics GUI Workflow Canaries running Node.js Puppeteer or Python Selenium scripts on scheduled intervals" },
+      { id: 'B', text: "CloudWatch Synthetics canaries running a scripted browser workflow on a schedule" },
       { id: 'C', text: "CloudWatch Metric Filters searching for HTTP 200 in access logs" },
       { id: 'D', text: "Route 53 DNS health checks querying the homepage HTTP status code" }
     ],
@@ -157,7 +157,7 @@ export const AWS_DOP_QUESTIONS_7 = [
     question: "Which event-driven architecture fulfills this sub-minute response SLA?",
     options: [
       { id: 'A', text: "Use an AWS Systems Manager State Manager association scheduled to run every 2 hours" },
-      { id: 'B', text: "Create a CloudWatch Logs Subscription Filter on the /var/log/messages log group matching the exploit pattern, targeting an AWS Lambda function that modifies the instance security group to an isolation security group" },
+      { id: 'B', text: "A subscription filter on the system log group matching the pattern, targeting a Lambda" },
       { id: 'C', text: "Configure an AWS Config rule evaluated on 24-hour configuration changes" },
       { id: 'D', text: "Configure Amazon Athena to run an hourly query on CloudWatch log exports in S3 and invoke Lambda via SNS" }
     ],
@@ -179,7 +179,7 @@ export const AWS_DOP_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Enable AWS GuardDuty and wait for an SSH brute-force finding to appear in Security Hub" },
       { id: 'B', text: "Download all VPC Flow Log gzip archives from S3 and write a grep script on a local workstation" },
-      { id: 'C', text: "Execute a query in CloudWatch Logs Insights on the VPC Flow Log group: 'filter dstPort = 22 and action = \"REJECT\" | stats count(*) as rejections by srcAddr | sort rejections desc'" },
+      { id: 'C', text: "A Logs Insights query over the flow logs filtering rejected port 22 traffic" },
       { id: 'D', text: "Configure an Amazon EventBridge rule matching VPC Flow Log creation events" }
     ],
     correctAnswers: ['C'],
@@ -199,7 +199,7 @@ export const AWS_DOP_QUESTIONS_7 = [
     question: "How should the operations team store and distribute the CloudWatch agent configuration?",
     options: [
       { id: 'A', text: "Hardcode the configuration file inside the EC2 user data script and reboot all instances" },
-      { id: 'B', text: "Store the CloudWatch Agent JSON configuration file in AWS Systems Manager Parameter Store, and use the AmazonCloudWatch-ManageAgent SSM document to apply the configuration across instances" },
+      { id: 'B', text: "Keep the agent configuration in Parameter Store and apply it with the ManageAgent document" },
       { id: 'C', text: "Embed the configuration in an Amazon Machine Image (AMI) and deploy an ASG instance refresh" },
       { id: 'D', text: "Upload the configuration to an S3 bucket and run a cron job on instances that downloads it daily" }
     ],
@@ -243,7 +243,7 @@ export const AWS_DOP_QUESTIONS_7 = [
       { id: 'A', text: "Write a monthly cron job that uses the AWS CLI to export logs to EBS volumes attached to a management instance" },
       { id: 'B', text: "Set CloudWatch Logs retention to Never Expire and request an AWS enterprise discount" },
       { id: 'C', text: "Delete log groups every 30 days and instruct developers to write logs to local /tmp directories" },
-      { id: 'D', text: "Set the CloudWatch Logs retention period to 30 days on log groups, and stream logs via a Subscription Filter to Kinesis Data Firehose which archives them to an Amazon S3 bucket with S3 Lifecycle rules transitioning objects to S3 Glacier Deep Archive after 30 days" }
+      { id: 'D', text: "A 30-day log group retention, with a subscription filter streaming through Firehose to Glacier" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -285,7 +285,7 @@ export const AWS_DOP_QUESTIONS_7 = [
       { id: 'A', text: "Open an AWS support ticket to increase the PutMetricData API limit to 10,000,000 calls per second" },
       { id: 'B', text: "Store metrics in an Amazon DynamoDB table and query it using CloudWatch Synthetics" },
       { id: 'C', text: "Send metric values over UDP to an Amazon SNS topic" },
-      { id: 'D', text: "Batch multiple MetricDatum objects into a single PutMetricData request (up to 1,000 metrics or 1 MB per call) and implement exponential backoff with jitter" }
+      { id: 'D', text: "Batch the metric data into one call and back off exponentially on throttling" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -304,7 +304,7 @@ export const AWS_DOP_QUESTIONS_7 = [
     question: "How should trace context propagation be configured across Amazon SQS?",
     options: [
       { id: 'A', text: "Configure an API Gateway WebSocket API to maintain persistent connection state" },
-      { id: 'B', text: "Enable active tracing on Lambda and SQS, and ensure the producer embeds the X-Ray trace header (AWSTraceHeader) in the SQS message system attributes; Lambda extracts and continues the trace segment" },
+      { id: 'B', text: "Enable active tracing on both, and have the producer set the X-Ray header on the message" },
       { id: 'C', text: "Pass the trace ID in the SQS message body JSON and manually construct a new segment with a random trace ID" },
       { id: 'D', text: "Replace Amazon SQS with an Amazon Kinesis Data Stream" }
     ],
@@ -324,7 +324,7 @@ export const AWS_DOP_QUESTIONS_7 = [
     scenario: "A company wants to share operational CloudWatch dashboards displaying fleet availability and performance metrics with third-party executive stakeholders who do not have IAM user accounts or federated access in the AWS Organization.",
     question: "Which CloudWatch dashboard capability enables secure sharing without creating IAM credentials?",
     options: [
-      { id: 'A', text: "Share the CloudWatch dashboard publicly with a passphrase or via Single Sign-On (SSO) using an external OpenID Connect (OIDC) identity provider" },
+      { id: 'A', text: "Share the dashboard through single sign-on with an external identity provider" },
       { id: 'B', text: "Grant the external stakeholders IAM AdministratorAccess credentials in a sandbox account" },
       { id: 'C', text: "Create a public Amazon S3 website bucket and mirror the dashboard HTML" },
       { id: 'D', text: "Take daily screenshots of the dashboard and email them via Amazon SES" }
@@ -346,7 +346,7 @@ export const AWS_DOP_QUESTIONS_7 = [
     question: "Which combination of CloudTrail features verifies delivery timeliness and immutability?",
     options: [
       { id: 'A', text: "Run an hourly Lambda function that compares MD5 hashes of local files against S3 objects" },
-      { id: 'B', text: "Enable CloudTrail Log File Integrity Validation, enable S3 Object Lock in compliance mode on the target bucket, and monitor CloudTrail delivery metrics in CloudWatch" },
+      { id: 'B', text: "CloudTrail log file validation, with S3 Object Lock in compliance mode on the bucket" },
       { id: 'C', text: "Deploy an AWS Config rule that restarts CloudTrail every 24 hours" },
       { id: 'D', text: "Configure Amazon S3 server-side encryption with SSE-S3 and enable S3 versioning" }
     ],
@@ -369,7 +369,7 @@ export const AWS_DOP_QUESTIONS_7 = [
       { id: 'A', text: "Write a separate Metric Filter for every individual tenant with hardcoded filter strings" },
       { id: 'B', text: "Stream all logs to Amazon Redshift and generate daily billing reports" },
       { id: 'C', text: "Configure Amazon Athena to export CSV files to an S3 bucket every minute" },
-      { id: 'D', text: "Create a CloudWatch Logs Metric Filter with metric dimensions, setting the dimension name to TenantId and dimension value to $tenantId extracted from the log pattern" }
+      { id: 'D', text: "A metric filter publishing a `TenantId` dimension extracted from the log event" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -390,7 +390,7 @@ export const AWS_DOP_QUESTIONS_7 = [
       { id: 'A', text: "Amazon GuardDuty DNS log monitoring" },
       { id: 'B', text: "Amazon Inspector network reachability package" },
       { id: 'C', text: "AWS Trusted Advisor security checks" },
-      { id: 'D', text: "Amazon CloudWatch Network Flow Monitor (part of CloudWatch Network Monitor)" }
+      { id: 'D', text: "Amazon CloudWatch Network Flow Monitor" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -410,7 +410,7 @@ export const AWS_DOP_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Increase the alarm threshold to 10,000 milliseconds" },
       { id: 'B', text: "Disable alarm actions between 00:00 and 08:00 UTC" },
-      { id: 'C', text: "Configure the alarm with an 'M out of N' evaluation rule, such as 3 out of 5 datapoints breaching the threshold within a 5-minute evaluation window" },
+      { id: 'C', text: "An M-out-of-N evaluation, such as 3 of 5 datapoints" },
       { id: 'D', text: "Change the alarm metric statistic from Average to Maximum" }
     ],
     correctAnswers: ['C'],
@@ -430,7 +430,7 @@ export const AWS_DOP_QUESTIONS_7 = [
     question: "Which architecture pattern streams cross-region logs with minimal latency and high reliability?",
     options: [
       { id: 'A', text: "Run an hourly script on an EC2 instance that copies /var/log directories across regions using rsync over SSH" },
-      { id: 'B', text: "In each secondary region, configure CloudWatch Logs Subscription Filters to stream to a local Kinesis Data Stream, replicated to the primary region's Kinesis Data Firehose via an AWS Lambda function or cross-region event bridge, delivering to OpenSearch" },
+      { id: 'B', text: "A subscription filter in each region streaming to a local stream, replicated to the primary" },
       { id: 'C', text: "Configure CloudWatch Logs in all secondary regions to stream directly to an OpenSearch endpoint in the primary region over public internet" },
       { id: 'D', text: "Export CloudWatch Logs to regional S3 buckets and configure S3 Cross-Region Replication (CRR) with Athena" }
     ],
@@ -451,7 +451,7 @@ export const AWS_DOP_QUESTIONS_7 = [
     question: "Why did CloudWatch fail to show memory utilization, and how is it resolved?",
     options: [
       { id: 'A', text: "Detailed Monitoring was disabled on the instance; enabling Detailed Monitoring automatically adds memory metrics" },
-      { id: 'B', text: "RAM and disk space are operating system-level metrics that the hypervisor cannot observe; install the unified Amazon CloudWatch agent on the EC2 instances to publish these metrics" },
+      { id: 'B', text: "Memory and disk are guest-level metrics, so the unified CloudWatch agent has to publish them" },
       { id: 'C', text: "CloudWatch does not support memory metrics on Linux operating systems" },
       { id: 'D', text: "The instance security group blocked outbound port 443 to the CloudWatch API" }
     ],
@@ -471,7 +471,7 @@ export const AWS_DOP_QUESTIONS_7 = [
     scenario: "A continuous deployment pipeline deploys new application releases using canary deployments. The deployment engine must automatically assess error rates, CPU load, and latency during a 30-minute canary soak phase, automatically aborting the rollout and rolling back if any key metric degrades by more than 5% compared to the baseline fleet.",
     question: "Which mechanism connects deployment automation to automated metric health assessment?",
     options: [
-      { id: 'A', text: "Configure CodeDeploy deployment rollback alarms targeting CloudWatch metric alarms, stopping traffic shifting and reverting automatically if an alarm triggers" },
+      { id: 'A', text: "CodeDeploy rollback alarms, which stop the traffic shift and revert automatically" },
       { id: 'B', text: "Schedule an AWS Lambda function to poll CloudWatch metrics once after 24 hours" },
       { id: 'C', text: "Configure a manual approval gate in CodePipeline requiring an operator to visually inspect Grafana dashboards" },
       { id: 'D', text: "Deploy an AWS Config rule that triggers an EC2 reboot when CPU exceeds 80%" }
@@ -492,7 +492,7 @@ export const AWS_DOP_QUESTIONS_7 = [
     scenario: "A security compliance policy mandates that if an Amazon S3 bucket is ever configured with public read access, the public access must be revoked immediately, and an alert must be published to a security Slack channel within 60 seconds.",
     question: "Which event-driven architecture satisfies this requirement automatically?",
     options: [
-      { id: 'A', text: "Create an Amazon EventBridge rule that matches AWS Config compliance change events or CloudTrail PutBucketAcl API calls, triggering an AWS Systems Manager Automation runbook (or Lambda function) that applies S3 Block Public Access and sends an SNS notification" },
+      { id: 'A', text: "An EventBridge rule on the Config compliance change, targeting a Systems Manager runbook" },
       { id: 'B', text: "Send an email to the bucket creator requesting that they manually update bucket permissions" },
       { id: 'C', text: "Write a cron job on an EC2 instance that checks S3 permissions once every 24 hours" },
       { id: 'D', text: "Configure an S3 bucket lifecycle policy that deletes all objects in public buckets" }

@@ -9,10 +9,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to automate the installation of critical operating system security patches across a hybrid fleet of Linux and Windows servers during non-business hours.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Define custom Patch Baselines in Systems Manager Patch Manager and execute patching via Systems Manager Maintenance Windows targeting instance tags." },
-      { id: 'B', text: "Disable all operating system security patching to avoid unexpected software regressions." },
-      { id: 'C', text: "Allow servers to automatically reboot and patch during peak daytime traffic hours." },
-      { id: 'D', text: "Instruct system administrators to log in to each server and run apt-get upgrade manually." }
+      { id: 'A', text: "Patch Manager baselines applied through maintenance windows targeting instance tags." },
+      { id: 'B', text: "Patch Manager baselines applied by a State Manager association on every instance." },
+      { id: 'C', text: "An Image Builder pipeline that rebuilds the AMI and replaces the fleet each month." },
+      { id: 'D', text: "A Run Command document invoked by hand against the fleet during the window." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to automate the installation of critical operating system security patches across a hybrid fleet of Linux and Windows servers during non-business hours.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Allow servers to automatically reboot and patch during peak daytime traffic hours." },
-      { id: 'B', text: "Define custom Patch Baselines in Systems Manager Patch Manager and execute patching via Systems Manager Maintenance Windows targeting instance tags." },
-      { id: 'C', text: "Disable all operating system security patching to avoid unexpected software regressions." },
-      { id: 'D', text: "Instruct system administrators to log in to each server and run apt-get upgrade manually." }
+      { id: 'A', text: "An Image Builder pipeline that rebuilds the AMI and replaces the fleet each month." },
+      { id: 'B', text: "Patch Manager baselines applied through maintenance windows targeting instance tags." },
+      { id: 'C', text: "Patch Manager baselines applied by a State Manager association on every instance." },
+      { id: 'D', text: "A Run Command document invoked by hand against the fleet during the window." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,10 +51,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to automate the installation of critical operating system security patches across a hybrid fleet of Linux and Windows servers during non-business hours.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Disable all operating system security patching to avoid unexpected software regressions." },
-      { id: 'B', text: "Allow servers to automatically reboot and patch during peak daytime traffic hours." },
-      { id: 'C', text: "Define custom Patch Baselines in Systems Manager Patch Manager and execute patching via Systems Manager Maintenance Windows targeting instance tags." },
-      { id: 'D', text: "Instruct system administrators to log in to each server and run apt-get upgrade manually." }
+      { id: 'A', text: "Patch Manager baselines applied by a State Manager association on every instance." },
+      { id: 'B', text: "An Image Builder pipeline that rebuilds the AMI and replaces the fleet each month." },
+      { id: 'C', text: "Patch Manager baselines applied through maintenance windows targeting instance tags." },
+      { id: 'D', text: "A Run Command document invoked by hand against the fleet during the window." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,10 +72,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to automate the installation of critical operating system security patches across a hybrid fleet of Linux and Windows servers during non-business hours.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Allow servers to automatically reboot and patch during peak daytime traffic hours." },
-      { id: 'B', text: "Disable all operating system security patching to avoid unexpected software regressions." },
-      { id: 'C', text: "Instruct system administrators to log in to each server and run apt-get upgrade manually." },
-      { id: 'D', text: "Define custom Patch Baselines in Systems Manager Patch Manager and execute patching via Systems Manager Maintenance Windows targeting instance tags." }
+      { id: 'A', text: "An Image Builder pipeline that rebuilds the AMI and replaces the fleet each month." },
+      { id: 'B', text: "Patch Manager baselines applied by a State Manager association on every instance." },
+      { id: 'C', text: "A Run Command document invoked by hand against the fleet during the window." },
+      { id: 'D', text: "Patch Manager baselines applied through maintenance windows targeting instance tags." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to automate the installation of critical operating system security patches across a hybrid fleet of Linux and Windows servers during non-business hours.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Define custom Patch Baselines in Systems Manager Patch Manager and execute patching via Systems Manager Maintenance Windows targeting instance tags." },
-      { id: 'B', text: "Allow servers to automatically reboot and patch during peak daytime traffic hours." },
-      { id: 'C', text: "Instruct system administrators to log in to each server and run apt-get upgrade manually." },
-      { id: 'D', text: "Disable all operating system security patching to avoid unexpected software regressions." }
+      { id: 'A', text: "Patch Manager baselines applied through maintenance windows targeting instance tags." },
+      { id: 'B', text: "An Image Builder pipeline that rebuilds the AMI and replaces the fleet each month." },
+      { id: 'C', text: "A Run Command document invoked by hand against the fleet during the window." },
+      { id: 'D', text: "Patch Manager baselines applied by a State Manager association on every instance." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to provision a third-party SaaS resource or perform complex data lookups that are not natively supported by standard AWS CloudFormation resource types.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Write an external shell script that runs outside of the CloudFormation lifecycle." },
-      { id: 'B', text: "Define a CloudFormation `Custom::` resource backed by an AWS Lambda function that handles `Create`, `Update`, and `Delete` lifecycle events via cfn-response." },
-      { id: 'C', text: "Wait for AWS to release native CloudFormation support before deploying the stack." },
-      { id: 'D', text: "Manually create the unsupported resource in the third-party web console after stack deployment." }
+      { id: 'A', text: "A CloudFormation macro that expands the template before the stack is created." },
+      { id: 'B', text: "A CloudFormation `Custom::` resource backed by a Lambda handling the lifecycle events." },
+      { id: 'C', text: "A CloudFormation module packaging the resource for reuse across the stacks." },
+      { id: 'D', text: "A stack output consumed by a pipeline step that creates the resource afterwards." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -135,10 +135,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to provision a third-party SaaS resource or perform complex data lookups that are not natively supported by standard AWS CloudFormation resource types.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Wait for AWS to release native CloudFormation support before deploying the stack." },
-      { id: 'B', text: "Write an external shell script that runs outside of the CloudFormation lifecycle." },
-      { id: 'C', text: "Define a CloudFormation `Custom::` resource backed by an AWS Lambda function that handles `Create`, `Update`, and `Delete` lifecycle events via cfn-response." },
-      { id: 'D', text: "Manually create the unsupported resource in the third-party web console after stack deployment." }
+      { id: 'A', text: "A CloudFormation module packaging the resource for reuse across the stacks." },
+      { id: 'B', text: "A CloudFormation macro that expands the template before the stack is created." },
+      { id: 'C', text: "A CloudFormation `Custom::` resource backed by a Lambda handling the lifecycle events." },
+      { id: 'D', text: "A stack output consumed by a pipeline step that creates the resource afterwards." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to provision a third-party SaaS resource or perform complex data lookups that are not natively supported by standard AWS CloudFormation resource types.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Manually create the unsupported resource in the third-party web console after stack deployment." },
-      { id: 'B', text: "Wait for AWS to release native CloudFormation support before deploying the stack." },
-      { id: 'C', text: "Define a CloudFormation `Custom::` resource backed by an AWS Lambda function that handles `Create`, `Update`, and `Delete` lifecycle events via cfn-response." },
-      { id: 'D', text: "Write an external shell script that runs outside of the CloudFormation lifecycle." }
+      { id: 'A', text: "A stack output consumed by a pipeline step that creates the resource afterwards." },
+      { id: 'B', text: "A CloudFormation module packaging the resource for reuse across the stacks." },
+      { id: 'C', text: "A CloudFormation `Custom::` resource backed by a Lambda handling the lifecycle events." },
+      { id: 'D', text: "A CloudFormation macro that expands the template before the stack is created." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -177,10 +177,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to provision a third-party SaaS resource or perform complex data lookups that are not natively supported by standard AWS CloudFormation resource types.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Manually create the unsupported resource in the third-party web console after stack deployment." },
-      { id: 'B', text: "Define a CloudFormation `Custom::` resource backed by an AWS Lambda function that handles `Create`, `Update`, and `Delete` lifecycle events via cfn-response." },
-      { id: 'C', text: "Write an external shell script that runs outside of the CloudFormation lifecycle." },
-      { id: 'D', text: "Wait for AWS to release native CloudFormation support before deploying the stack." }
+      { id: 'A', text: "A stack output consumed by a pipeline step that creates the resource afterwards." },
+      { id: 'B', text: "A CloudFormation `Custom::` resource backed by a Lambda handling the lifecycle events." },
+      { id: 'C', text: "A CloudFormation macro that expands the template before the stack is created." },
+      { id: 'D', text: "A CloudFormation module packaging the resource for reuse across the stacks." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -198,10 +198,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to provision a third-party SaaS resource or perform complex data lookups that are not natively supported by standard AWS CloudFormation resource types.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Define a CloudFormation `Custom::` resource backed by an AWS Lambda function that handles `Create`, `Update`, and `Delete` lifecycle events via cfn-response." },
-      { id: 'B', text: "Write an external shell script that runs outside of the CloudFormation lifecycle." },
-      { id: 'C', text: "Manually create the unsupported resource in the third-party web console after stack deployment." },
-      { id: 'D', text: "Wait for AWS to release native CloudFormation support before deploying the stack." }
+      { id: 'A', text: "A CloudFormation `Custom::` resource backed by a Lambda handling the lifecycle events." },
+      { id: 'B', text: "A CloudFormation macro that expands the template before the stack is created." },
+      { id: 'C', text: "A stack output consumed by a pipeline step that creates the resource afterwards." },
+      { id: 'D', text: "A CloudFormation module packaging the resource for reuse across the stacks." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to manage hundreds of non-sensitive application configuration strings cost-effectively while storing database passwords with automated rotation.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Store all non-sensitive configuration keys in Secrets Manager, paying monthly per-secret charges unnecessarily." },
-      { id: 'B', text: "Hardcode environment parameters in the application binary." },
-      { id: 'C', text: "Store non-sensitive configurations in SSM Parameter Store (Standard tier, free), and store database passwords in AWS Secrets Manager with automated Lambda rotation." },
-      { id: 'D', text: "Store all database passwords in plaintext in Git repository source code." }
+      { id: 'A', text: "Secrets Manager for both, so every value is rotated on the same schedule." },
+      { id: 'B', text: "Parameter Store secure strings for both, with a rotation Lambda per parameter." },
+      { id: 'C', text: "Parameter Store for the plain values, Secrets Manager for the passwords." },
+      { id: 'D', text: "Environment variables on the task definition for both, set by the pipeline." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,10 +240,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to manage hundreds of non-sensitive application configuration strings cost-effectively while storing database passwords with automated rotation.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Store all non-sensitive configuration keys in Secrets Manager, paying monthly per-secret charges unnecessarily." },
-      { id: 'B', text: "Store non-sensitive configurations in SSM Parameter Store (Standard tier, free), and store database passwords in AWS Secrets Manager with automated Lambda rotation." },
-      { id: 'C', text: "Store all database passwords in plaintext in Git repository source code." },
-      { id: 'D', text: "Hardcode environment parameters in the application binary." }
+      { id: 'A', text: "Secrets Manager for both, so every value is rotated on the same schedule." },
+      { id: 'B', text: "Parameter Store for the plain values, Secrets Manager for the passwords." },
+      { id: 'C', text: "Environment variables on the task definition for both, set by the pipeline." },
+      { id: 'D', text: "Parameter Store secure strings for both, with a rotation Lambda per parameter." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,10 +261,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to manage hundreds of non-sensitive application configuration strings cost-effectively while storing database passwords with automated rotation.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Store non-sensitive configurations in SSM Parameter Store (Standard tier, free), and store database passwords in AWS Secrets Manager with automated Lambda rotation." },
-      { id: 'B', text: "Store all database passwords in plaintext in Git repository source code." },
-      { id: 'C', text: "Store all non-sensitive configuration keys in Secrets Manager, paying monthly per-secret charges unnecessarily." },
-      { id: 'D', text: "Hardcode environment parameters in the application binary." }
+      { id: 'A', text: "Parameter Store for the plain values, Secrets Manager for the passwords." },
+      { id: 'B', text: "Environment variables on the task definition for both, set by the pipeline." },
+      { id: 'C', text: "Secrets Manager for both, so every value is rotated on the same schedule." },
+      { id: 'D', text: "Parameter Store secure strings for both, with a rotation Lambda per parameter." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to manage hundreds of non-sensitive application configuration strings cost-effectively while storing database passwords with automated rotation.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Hardcode environment parameters in the application binary." },
-      { id: 'B', text: "Store non-sensitive configurations in SSM Parameter Store (Standard tier, free), and store database passwords in AWS Secrets Manager with automated Lambda rotation." },
-      { id: 'C', text: "Store all non-sensitive configuration keys in Secrets Manager, paying monthly per-secret charges unnecessarily." },
-      { id: 'D', text: "Store all database passwords in plaintext in Git repository source code." }
+      { id: 'A', text: "Parameter Store secure strings for both, with a rotation Lambda per parameter." },
+      { id: 'B', text: "Parameter Store for the plain values, Secrets Manager for the passwords." },
+      { id: 'C', text: "Secrets Manager for both, so every value is rotated on the same schedule." },
+      { id: 'D', text: "Environment variables on the task definition for both, set by the pipeline." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to manage hundreds of non-sensitive application configuration strings cost-effectively while storing database passwords with automated rotation.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Store non-sensitive configurations in SSM Parameter Store (Standard tier, free), and store database passwords in AWS Secrets Manager with automated Lambda rotation." },
-      { id: 'B', text: "Store all database passwords in plaintext in Git repository source code." },
-      { id: 'C', text: "Store all non-sensitive configuration keys in Secrets Manager, paying monthly per-secret charges unnecessarily." },
-      { id: 'D', text: "Hardcode environment parameters in the application binary." }
+      { id: 'A', text: "Parameter Store for the plain values, Secrets Manager for the passwords." },
+      { id: 'B', text: "Environment variables on the task definition for both, set by the pipeline." },
+      { id: 'C', text: "Secrets Manager for both, so every value is rotated on the same schedule." },
+      { id: 'D', text: "Parameter Store secure strings for both, with a rotation Lambda per parameter." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to prevent accidental deletion of a production Amazon RDS database if an engineer accidentally deletes or updates the enclosing CloudFormation stack.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Grant full CloudFormation administrator access to all team members." },
-      { id: 'B', text: "Set `DeletionPolicy: Retain` on the RDS resource and enable `TerminationProtection` on the CloudFormation stack." },
-      { id: 'C', text: "Delete the CloudFormation stack template from S3." },
-      { id: 'D', text: "Set `DeletionPolicy: Delete` so all resources are removed cleanly." }
+      { id: 'A', text: "A stack policy denying updates or deletes on the database resource." },
+      { id: 'B', text: "`DeletionPolicy: Retain` on the database, with stack termination protection on." },
+      { id: 'C', text: "`UpdateReplacePolicy: Retain` on the database, with no deletion policy." },
+      { id: 'D', text: "`DeletionPolicy: Snapshot` on the database, with a manual final snapshot." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -345,10 +345,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to prevent accidental deletion of a production Amazon RDS database if an engineer accidentally deletes or updates the enclosing CloudFormation stack.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Set `DeletionPolicy: Retain` on the RDS resource and enable `TerminationProtection` on the CloudFormation stack." },
-      { id: 'B', text: "Set `DeletionPolicy: Delete` so all resources are removed cleanly." },
-      { id: 'C', text: "Delete the CloudFormation stack template from S3." },
-      { id: 'D', text: "Grant full CloudFormation administrator access to all team members." }
+      { id: 'A', text: "`DeletionPolicy: Retain` on the database, with stack termination protection on." },
+      { id: 'B', text: "`DeletionPolicy: Snapshot` on the database, with a manual final snapshot." },
+      { id: 'C', text: "`UpdateReplacePolicy: Retain` on the database, with no deletion policy." },
+      { id: 'D', text: "A stack policy denying updates or deletes on the database resource." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to prevent accidental deletion of a production Amazon RDS database if an engineer accidentally deletes or updates the enclosing CloudFormation stack.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Set `DeletionPolicy: Delete` so all resources are removed cleanly." },
-      { id: 'B', text: "Set `DeletionPolicy: Retain` on the RDS resource and enable `TerminationProtection` on the CloudFormation stack." },
-      { id: 'C', text: "Grant full CloudFormation administrator access to all team members." },
-      { id: 'D', text: "Delete the CloudFormation stack template from S3." }
+      { id: 'A', text: "`DeletionPolicy: Snapshot` on the database, with a manual final snapshot." },
+      { id: 'B', text: "`DeletionPolicy: Retain` on the database, with stack termination protection on." },
+      { id: 'C', text: "A stack policy denying updates or deletes on the database resource." },
+      { id: 'D', text: "`UpdateReplacePolicy: Retain` on the database, with no deletion policy." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to prevent accidental deletion of a production Amazon RDS database if an engineer accidentally deletes or updates the enclosing CloudFormation stack.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Set `DeletionPolicy: Retain` on the RDS resource and enable `TerminationProtection` on the CloudFormation stack." },
-      { id: 'B', text: "Set `DeletionPolicy: Delete` so all resources are removed cleanly." },
-      { id: 'C', text: "Delete the CloudFormation stack template from S3." },
-      { id: 'D', text: "Grant full CloudFormation administrator access to all team members." }
+      { id: 'A', text: "`DeletionPolicy: Retain` on the database, with stack termination protection on." },
+      { id: 'B', text: "`DeletionPolicy: Snapshot` on the database, with a manual final snapshot." },
+      { id: 'C', text: "`UpdateReplacePolicy: Retain` on the database, with no deletion policy." },
+      { id: 'D', text: "A stack policy denying updates or deletes on the database resource." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to prevent accidental deletion of a production Amazon RDS database if an engineer accidentally deletes or updates the enclosing CloudFormation stack.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Delete the CloudFormation stack template from S3." },
-      { id: 'B', text: "Grant full CloudFormation administrator access to all team members." },
-      { id: 'C', text: "Set `DeletionPolicy: Retain` on the RDS resource and enable `TerminationProtection` on the CloudFormation stack." },
-      { id: 'D', text: "Set `DeletionPolicy: Delete` so all resources are removed cleanly." }
+      { id: 'A', text: "`UpdateReplacePolicy: Retain` on the database, with no deletion policy." },
+      { id: 'B', text: "A stack policy denying updates or deletes on the database resource." },
+      { id: 'C', text: "`DeletionPolicy: Retain` on the database, with stack termination protection on." },
+      { id: 'D', text: "`DeletionPolicy: Snapshot` on the database, with a manual final snapshot." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,10 +429,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to design a disaster recovery strategy for a mission-critical financial application that satisfies an RTO under 15 minutes and RPO under 1 minute across AWS regions.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy a Warm Standby architecture using Amazon Aurora Global Database with cross-region replication and Route 53 Application Recovery Controller routing controls." },
-      { id: 'B', text: "Deploy a Backup and Restore strategy restoring raw database snapshots from S3 during an outage." },
-      { id: 'C', text: "Deploy a single-region active-passive architecture in the same availability zone." },
-      { id: 'D', text: "Rely on manual DNS updates and cold server provisioning during a regional disaster." }
+      { id: 'A', text: "A warm standby on Aurora Global Database, with Route 53 ARC routing controls." },
+      { id: 'B', text: "A backup-and-restore strategy restoring the latest snapshot into the second region." },
+      { id: 'C', text: "A pilot light with the database replicated and the compute tier scaled to zero." },
+      { id: 'D', text: "An active-active deployment with the writer in one region and readers in the other." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to design a disaster recovery strategy for a mission-critical financial application that satisfies an RTO under 15 minutes and RPO under 1 minute across AWS regions.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Rely on manual DNS updates and cold server provisioning during a regional disaster." },
-      { id: 'B', text: "Deploy a single-region active-passive architecture in the same availability zone." },
-      { id: 'C', text: "Deploy a Backup and Restore strategy restoring raw database snapshots from S3 during an outage." },
-      { id: 'D', text: "Deploy a Warm Standby architecture using Amazon Aurora Global Database with cross-region replication and Route 53 Application Recovery Controller routing controls." }
+      { id: 'A', text: "An active-active deployment with the writer in one region and readers in the other." },
+      { id: 'B', text: "A pilot light with the database replicated and the compute tier scaled to zero." },
+      { id: 'C', text: "A backup-and-restore strategy restoring the latest snapshot into the second region." },
+      { id: 'D', text: "A warm standby on Aurora Global Database, with Route 53 ARC routing controls." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to design a disaster recovery strategy for a mission-critical financial application that satisfies an RTO under 15 minutes and RPO under 1 minute across AWS regions.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Deploy a Warm Standby architecture using Amazon Aurora Global Database with cross-region replication and Route 53 Application Recovery Controller routing controls." },
-      { id: 'B', text: "Deploy a Backup and Restore strategy restoring raw database snapshots from S3 during an outage." },
-      { id: 'C', text: "Deploy a single-region active-passive architecture in the same availability zone." },
-      { id: 'D', text: "Rely on manual DNS updates and cold server provisioning during a regional disaster." }
+      { id: 'A', text: "A warm standby on Aurora Global Database, with Route 53 ARC routing controls." },
+      { id: 'B', text: "A backup-and-restore strategy restoring the latest snapshot into the second region." },
+      { id: 'C', text: "A pilot light with the database replicated and the compute tier scaled to zero." },
+      { id: 'D', text: "An active-active deployment with the writer in one region and readers in the other." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to design a disaster recovery strategy for a mission-critical financial application that satisfies an RTO under 15 minutes and RPO under 1 minute across AWS regions.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Deploy a single-region active-passive architecture in the same availability zone." },
-      { id: 'B', text: "Rely on manual DNS updates and cold server provisioning during a regional disaster." },
-      { id: 'C', text: "Deploy a Warm Standby architecture using Amazon Aurora Global Database with cross-region replication and Route 53 Application Recovery Controller routing controls." },
-      { id: 'D', text: "Deploy a Backup and Restore strategy restoring raw database snapshots from S3 during an outage." }
+      { id: 'A', text: "A pilot light with the database replicated and the compute tier scaled to zero." },
+      { id: 'B', text: "An active-active deployment with the writer in one region and readers in the other." },
+      { id: 'C', text: "A warm standby on Aurora Global Database, with Route 53 ARC routing controls." },
+      { id: 'D', text: "A backup-and-restore strategy restoring the latest snapshot into the second region." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to design a disaster recovery strategy for a mission-critical financial application that satisfies an RTO under 15 minutes and RPO under 1 minute across AWS regions.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Deploy a Warm Standby architecture using Amazon Aurora Global Database with cross-region replication and Route 53 Application Recovery Controller routing controls." },
-      { id: 'B', text: "Deploy a Backup and Restore strategy restoring raw database snapshots from S3 during an outage." },
-      { id: 'C', text: "Deploy a single-region active-passive architecture in the same availability zone." },
-      { id: 'D', text: "Rely on manual DNS updates and cold server provisioning during a regional disaster." }
+      { id: 'A', text: "A warm standby on Aurora Global Database, with Route 53 ARC routing controls." },
+      { id: 'B', text: "A backup-and-restore strategy restoring the latest snapshot into the second region." },
+      { id: 'C', text: "A pilot light with the database replicated and the compute tier scaled to zero." },
+      { id: 'D', text: "An active-active deployment with the writer in one region and readers in the other." }
     ],
     correctAnswers: ['A'],
     type: "single",

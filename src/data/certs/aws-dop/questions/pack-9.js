@@ -10,7 +10,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     question: "Which Amazon S3 feature provides replication monitoring and alerting?",
     options: [
       { id: 'A', text: "Enable S3 Transfer Acceleration on both buckets" },
-      { id: 'B', text: "Enable S3 Replication Time Control (S3 RTC) and configure CloudWatch alarms on the ReplicationLatency and OperationsFailedReplication metrics" },
+      { id: 'B', text: "S3 Replication Time Control, with alarms on the replication latency metrics" },
       { id: 'C', text: "Write a Python script that compares S3 bucket inventory files daily using Athena" },
       { id: 'D', text: "Configure S3 Object Lock with legal hold enabled" }
     ],
@@ -30,7 +30,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     scenario: "A security team wants to ensure that all EC2 instances launched across 50 member accounts in an AWS Organization automatically have the Amazon CloudWatch Agent and AWS Systems Manager Agent installed and kept up-to-date without writing custom scripts.",
     question: "Which native AWS capability configures this across an entire AWS Organization?",
     options: [
-      { id: 'A', text: "AWS Systems Manager Quick Setup deployed at the AWS Organizations management level targeting all member accounts" },
+      { id: 'A', text: "Systems Manager Quick Setup at the organization level, across the member accounts" },
       { id: 'B', text: "A manual bash script executed via SSH on each instance" },
       { id: 'C', text: "An AWS CloudFormation template applied manually in each member account console" },
       { id: 'D', text: "An AWS Organizations SCP denying instance launches without tags" }
@@ -72,7 +72,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     scenario: "An application uses Amazon DynamoDB Global Tables replicated between us-east-1 and eu-west-1. If an entire AWS Region experiences a service degradation, the application routing layer must seamlessly direct database read and write requests to the healthy region without data divergence.",
     question: "How do DynamoDB Global Tables handle multi-region replication and conflict resolution?",
     options: [
-      { id: 'A', text: "DynamoDB Global Tables provide active-active multi-region replication with automatic 'last-writer-wins' conflict resolution; applications simply redirect requests to the healthy regional DynamoDB endpoint" },
+      { id: 'A', text: "DynamoDB global tables replicate actively in both regions, resolving conflicts last-writer-wins" },
       { id: 'B', text: "Applications must execute a manual failover command in the DynamoDB console to promote the replica table" },
       { id: 'C', text: "Write operations are blocked during a regional outage until an administrator restores a backup" },
       { id: 'D', text: "DynamoDB Global Tables require an external Redis cluster to synchronize distributed transaction locks" }
@@ -157,7 +157,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     question: "How does CodeDeploy automatically protect production traffic from the buggy release?",
     options: [
       { id: 'A', text: "CodeDeploy retries the deployment 3 times before terminating the Lambda function" },
-      { id: 'B', text: "CodeDeploy monitors the CloudWatch alarm configured on the deployment group; when the alarm triggers, CodeDeploy immediately aborts the deployment, shifts 100% of traffic back to the previous Lambda version, and marks the deployment as failed" },
+      { id: 'B', text: "CodeDeploy watches the alarm on the deployment group and aborts, shifting traffic back" },
       { id: 'C', text: "API Gateway returns HTTP 503 until a developer pushes a hotfix to CodeCommit" },
       { id: 'D', text: "The engineer must manually click 'Stop and roll back deployment' in the CodeDeploy console" }
     ],
@@ -178,7 +178,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     question: "What is the cause of this permission failure?",
     options: [
       { id: 'A', text: "The IAM role must be assigned an Elastic IP address to authenticate with KMS" },
-      { id: 'B', text: "The KMS key policy does not contain a statement delegating access to the account root or specifically authorizing the IAM role" },
+      { id: 'B', text: "The key policy delegates access neither to the account root nor to that role" },
       { id: 'C', text: "KMS Customer Managed Keys only support symmetrical encryption via AWS CLI root credentials" },
       { id: 'D', text: "KMS keys cannot be accessed by IAM roles within the same AWS account" }
     ],
@@ -200,7 +200,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Store passwords in clear text in an S3 bucket with versioning and object lock enabled" },
       { id: 'B', text: "Rotate passwords manually during quarterly maintenance downtime windows" },
-      { id: 'C', text: "Configure AWS Secrets Manager with automatic rotation enabled, using the built-in AWS Lambda rotation function template within the database VPC" },
+      { id: 'C', text: "Secrets Manager rotation using the built-in Lambda rotation template" },
       { id: 'D', text: "Write an on-premises batch script that changes passwords and emails credentials to developers" }
     ],
     correctAnswers: ['C'],
@@ -221,7 +221,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "An IAM permission boundary applied to individual IAM users in member accounts" },
       { id: 'B', text: "An AWS Config rule that automatically terminates instances launched outside of the approved European regions" },
-      { id: 'C', text: "An SCP with an explicit 'Deny' on '*' with a StringNotEquals condition on 'aws:RequestedRegion' for 'eu-west-1' and 'eu-central-1', combined with a StringNotLike condition excluding services like 'iam:*', 'route53:*', 'cloudfront:*', and 'support:*'" },
+      { id: 'C', text: "An SCP denying everything outside the two permitted regions, with the global services excepted" },
       { id: 'D', text: "An SCP with an explicit 'Allow' statement that lists only 'eu-west-1' and 'eu-central-1' in the Action element" }
     ],
     correctAnswers: ['C'],
@@ -241,7 +241,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     question: "Which network and security architecture enables Secrets Manager to rotate the database passwords automatically?",
     options: [
       { id: 'A', text: "Attach an Internet Gateway to the database private subnets to allow the rotation Lambda to reach AWS endpoints" },
-      { id: 'B', text: "Deploy the rotation Lambda function in the same VPC and private subnets as the Aurora database, configure a Secrets Manager VPC Interface Endpoint (PrivateLink) with appropriate security group rules, and configure Secrets Manager automatic rotation" },
+      { id: 'B', text: "Run the rotation Lambda in the database's own subnets, with a Secrets Manager VPC endpoint" },
       { id: 'C', text: "Store database credentials in plaintext in an Amazon S3 bucket with versioning enabled" },
       { id: 'D', text: "Write a Python script on an on-premises server that connects over public internet to change the password" }
     ],
@@ -262,7 +262,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     question: "Which IAM mechanism restricts the maximum permissions developers can assign to newly created roles?",
     options: [
       { id: 'A', text: "Use Service Control Policies (SCPs) to deny IAM role creation across all member accounts" },
-      { id: 'B', text: "Attach an IAM Permission Boundary to developer identities requiring that any 'iam:CreateRole' or 'iam:PutRolePolicy' call must specify the same permission boundary ARN" },
+      { id: 'B', text: "A permissions boundary requiring the same boundary on any role the developer creates" },
       { id: 'C', text: "Configure an AWS Config rule that triggers an alert when a role with AdministratorAccess is created" },
       { id: 'D', text: "Grant developers IAM ReadOnlyAccess and require support tickets for all role requests" }
     ],
@@ -283,7 +283,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     question: "Which Amazon ECR configuration fulfills continuous scanning with the least operational overhead?",
     options: [
       { id: 'A', text: "Run an open-source scanner in the local Docker daemon on developer laptops before pushing" },
-      { id: 'B', text: "Enable Amazon ECR Enhanced Scanning powered by Amazon Inspector, configured with continuous scanning on repositories" },
+      { id: 'B', text: "ECR enhanced scanning through Inspector, set to scan continuously" },
       { id: 'C', text: "Deploy an EC2 instance running a vulnerability scanner that pulls images from ECR hourly" },
       { id: 'D', text: "Enable ECR Basic Scanning on push and run a daily cron job that triggers scans via the AWS CLI" }
     ],
@@ -303,10 +303,10 @@ export const AWS_DOP_QUESTIONS_9 = [
     scenario: "Account A contains an Amazon S3 bucket encrypted with an AWS KMS Customer Managed Key (CMK). A CI/CD deployment pipeline running in Account B needs to read deployment artifacts from the S3 bucket in Account A.",
     question: "Which combination of policies must be configured to grant Account B access to the encrypted data?",
     options: [
-      { id: 'A', text: "Attach the AWS-managed 'aws/s3' KMS key policy to the Account B IAM role" },
-      { id: 'B', text: "Create an IAM user in Account A and hardcode its static access keys in Account B" },
-      { id: 'C', text: "Disable encryption on the S3 bucket in Account A" },
-      { id: 'D', text: "The KMS Key Policy in Account A must grant 'kms:Decrypt' to Account B (or the pipeline role ARN), the S3 Bucket Policy in Account A must grant 's3:GetObject' to Account B, and the IAM Role in Account B must have permissions for both 's3:GetObject' and 'kms:Decrypt' targeting the Key ARN in Account A" }
+      { id: 'A', text: "Account B's role needs `s3:GetObject` and `kms:Decrypt`, and Account A's bucket policy must grant the same to it." },
+      { id: 'B', text: "Account A's key policy must grant `kms:Decrypt` to the AWS-managed S3 key, which Account B's role then uses." },
+      { id: 'C', text: "Account B's role must be trusted by Account A's pipeline role, which then copies the artifact across for it." },
+      { id: 'D', text: "Account A's key policy must grant `kms:Decrypt` and its bucket policy `s3:GetObject` to Account B, whose role needs both." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const AWS_DOP_QUESTIONS_9 = [
     scenario: "A compliance audit requires that all web traffic to a public-facing e-commerce application must use HTTPS with TLS version 1.2 or higher. Insecure HTTP requests must be redirected to HTTPS, and insecure legacy cipher suites must be blocked.",
     question: "Which configuration combination on Amazon CloudFront and Application Load Balancer (ALB) enforces these requirements?",
     options: [
-      { id: 'A', text: "Enable Route 53 DNSSEC on the domain hosted zone" },
-      { id: 'B', text: "Disable port 80 in the VPC security group and configure a self-signed certificate on the EC2 instances" },
-      { id: 'C', text: "Configure the CloudFront cache behavior with 'Viewer Protocol Policy: Redirect HTTP to HTTPS', set the CloudFront Security Policy to TLSv1.2_2021, and configure the ALB HTTPS listener with a modern predefined SSL Security Policy (such as ELBSecurityPolicy-TLS13-1-2-2021-06)" },
-      { id: 'D', text: "Deploy an AWS WAF rule that blocks HTTP requests with a 403 status code" }
+      { id: 'A', text: "Enable DNSSEC on the hosted zone and attach an ACM certificate to the CloudFront distribution." },
+      { id: 'B', text: "Close port 80 on the security groups and put a self-signed certificate on the instances behind the load balancer." },
+      { id: 'C', text: "Redirect HTTP to HTTPS on the CloudFront behavior, set the security policy to TLS 1.2, and match it on the ALB listener." },
+      { id: 'D', text: "Add a WAF rule that returns 403 to any request arriving over HTTP rather than HTTPS at the edge." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,7 +345,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     scenario: "An enterprise needs to evaluate all AWS accounts against the AWS Foundational Security Best Practices standard and CIS AWS Foundations Benchmark. Compliance reports must be generated weekly, and non-compliant findings must automatically trigger notification emails to account owners.",
     question: "Which AWS service provides centralized security posture management with automated compliance scoring?",
     options: [
-      { id: 'A', text: "AWS Security Hub with automated security standards enabled across all member accounts" },
+      { id: 'A', text: "Security Hub with its standards enabled across the member accounts" },
       { id: 'B', text: "Amazon CloudWatch Billing Alarms" },
       { id: 'C', text: "AWS Trusted Advisor Cost Optimization dashboard" },
       { id: 'D', text: "AWS Systems Manager Run Command executing OpenSCAP scripts" }
@@ -368,7 +368,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Create 20 separate IAM policies explicitly hardcoding the resource ARNs for each project" },
       { id: 'B', text: "Use Service Control Policies with an explicit deny for all EC2 actions" },
-      { id: 'C', text: "Use the Condition 'StringEquals: { \"aws:ResourceTag/Project\": \"${aws:PrincipalTag/Project}\" }' in the IAM policy attached to the developer role" },
+      { id: 'C', text: "A condition matching the resource's project tag to the principal's own project tag" },
       { id: 'D', text: "Deploy an AWS Lambda function that checks tags every 5 minutes and terminates non-compliant instances" }
     ],
     correctAnswers: ['C'],
@@ -388,7 +388,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     question: "Which configuration establishes this automated detection and remediation loop?",
     options: [
       { id: 'A', text: "Create an IAM policy denying the ec2:CreateVolume API action" },
-      { id: 'B', text: "Deploy the AWS Config managed rule 'encrypted-volumes', configure an Automatic Remediation targeting an SSM Automation runbook that creates an encrypted copy and updates the instance attachment" },
+      { id: 'B', text: "The `encrypted-volumes` Config rule with automatic remediation" },
       { id: 'C', text: "Schedule an AWS Lambda function to poll all EBS volumes once a week" },
       { id: 'D', text: "Deploy an AWS WAF rule targeting EBS API endpoints" }
     ],
@@ -409,7 +409,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     question: "Which modern security architecture replaces static credentials with temporary, short-lived tokens?",
     options: [
       { id: 'A', text: "Rotate the static IAM access keys manually every 7 days in the GitHub secrets settings" },
-      { id: 'B', text: "Configure an IAM OpenID Connect (OIDC) identity provider for GitHub in AWS, and create an IAM role with a trust policy allowing GitHub Actions to assume the role using the sts:AssumeRoleWithWebIdentity action with repository-specific Subject (sub) conditions" },
+      { id: 'B', text: "An IAM OIDC provider for GitHub, with a role whose trust policy limits the repository and branch" },
       { id: 'C', text: "Generate temporary AWS credentials using AWS CloudShell and paste them into GitHub before each build" },
       { id: 'D', text: "Deploy an EC2 instance in a public subnet to act as a self-hosted GitHub Actions runner" }
     ],
@@ -429,7 +429,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     scenario: "A company manages hundreds of public SSL/TLS certificates across multiple domains using AWS Certificate Manager (ACM). The DevOps team needs to ensure all certificates renew automatically every year without human intervention, email confirmation delays, or expiring unnoticed.",
     question: "Which ACM validation method enables seamless, automated certificate renewal?",
     options: [
-      { id: 'A', text: "Use DNS Validation and add the generated CNAME records to the domain's Amazon Route 53 hosted zone; ACM automatically validates and renews the certificates as long as the CNAME records remain in place" },
+      { id: 'A', text: "DNS validation, adding the CNAME to the hosted zone so ACM renews the certificate itself" },
       { id: 'B', text: "Write a script that calls the acm:RequestCertificate API every 90 days" },
       { id: 'C', text: "Purchase certificates from a third-party CA and import them into ACM annually" },
       { id: 'D', text: "Use Email Validation and configure an automated email parsing Lambda function" }
@@ -450,7 +450,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     scenario: "A public API on Amazon API Gateway experiences malicious SQL injection payloads and automated bot scraping that overwhelms backend services. The DevOps engineer needs to deploy a security layer that inspects incoming HTTP request bodies for SQL injection patterns, enforces rate-limiting per client IP, and blocks known malicious IPs.",
     question: "Which AWS WAF configuration implements these protections?",
     options: [
-      { id: 'A', text: "Create an AWS WAF Web ACL associated with the API Gateway stage, adding the AWSManagedRulesSQLiRuleSet, the AWSManagedRulesAmazonIpReputationList, and a custom Rate-Based Rule with an action of Block" },
+      { id: 'A', text: "A WAF web ACL on the API stage with the SQL injection and IP reputation managed rule groups" },
       { id: 'B', text: "Configure an EC2 security group allowing inbound traffic only from port 443" },
       { id: 'C', text: "Deploy an Amazon CloudFront distribution with an origin access control (OAC)" },
       { id: 'D', text: "Enable Amazon GuardDuty S3 Protection in the account" }
@@ -472,7 +472,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     question: "Which AWS CLI command and service validates IAM policies against AWS best practices during CI/CD builds?",
     options: [
       { id: 'A', text: "Run 'aws iam get-account-summary' to check policy quota limits" },
-      { id: 'B', text: "Run 'aws accessanalyzer validate-policy' in the CI build step to check policies for syntax errors, security warnings, and general recommendations" },
+      { id: 'B', text: "Run `accessanalyzer validate-policy` in the build to check the policy documents" },
       { id: 'C', text: "Deploy the policies to a production account and check CloudWatch alarms" },
       { id: 'D', text: "Execute 'aws cloudtrail lookup-events' to verify IAM API calls" }
     ],
@@ -492,7 +492,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     scenario: "A financial institution requires that historical regulatory compliance logs stored in Amazon S3 must be completely immutable for 7 years: no user, including account root or AWS administrators, can delete, overwrite, or alter the objects before the retention period expires.",
     question: "Which Amazon S3 storage configuration guarantees write-once-read-many (WORM) immutability?",
     options: [
-      { id: 'A', text: "Enable S3 Versioning and S3 Object Lock in Compliance Mode with a retention period of 7 years on the bucket" },
+      { id: 'A', text: "S3 versioning with Object Lock in compliance mode for seven years" },
       { id: 'B', text: "Enable S3 Object Lock in Governance Mode with a retention period of 7 years" },
       { id: 'C', text: "Configure an S3 Bucket Policy with an explicit Deny on s3:DeleteObject" },
       { id: 'D', text: "Enable S3 Server-Side Encryption with Customer-Provided Keys (SSE-C)" }
@@ -514,7 +514,7 @@ export const AWS_DOP_QUESTIONS_9 = [
     question: "Which native AWS security service provides threat detection for Kubernetes clusters without requiring host agent software?",
     options: [
       { id: 'A', text: "Deploy an open-source Falco DaemonSet that writes logs to a local file" },
-      { id: 'B', text: "Enable Amazon GuardDuty with EKS Audit Log Monitoring and GuardDuty EKS Runtime Monitoring" },
+      { id: 'B', text: "GuardDuty with EKS audit log and runtime monitoring" },
       { id: 'C', text: "Configure Amazon Inspector on EC2 worker nodes" },
       { id: 'D', text: "Enable AWS Config managed rules for EC2 instances" }
     ],
