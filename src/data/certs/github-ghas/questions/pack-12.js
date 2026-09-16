@@ -220,7 +220,7 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Enable secret scanning over the non-code surfaces too: wikis, issues and pull request comments." },
-      { id: 'B', text: "Enable push protection on the default branch, which covers whatever reaches the repository." },
+      { id: 'B', text: "Enable push protection on the default branch, which covers whatever reaches the repository itself." },
       { id: 'C', text: "Disable the repository wikis and issue templates so credentials cannot be pasted into them." },
       { id: 'D', text: "Add a moderation workflow that scans new issue comments with the organization's patterns." }
     ],
@@ -241,7 +241,7 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Enable secret scanning over the non-code surfaces too: wikis, issues and pull request comments." },
-      { id: 'B', text: "Enable push protection on the default branch, which covers whatever reaches the repository." },
+      { id: 'B', text: "Enable push protection on the default branch, which covers whatever reaches the repository itself." },
       { id: 'C', text: "Disable the repository wikis and issue templates so credentials cannot be pasted into them." },
       { id: 'D', text: "Add a moderation workflow that scans new issue comments with the organization's patterns." }
     ],
@@ -263,7 +263,7 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Add a moderation workflow that scans new issue comments with the organization's patterns." },
       { id: 'B', text: "Disable the repository wikis and issue templates so credentials cannot be pasted into them." },
-      { id: 'C', text: "Enable push protection on the default branch, which covers whatever reaches the repository." },
+      { id: 'C', text: "Enable push protection on the default branch, which covers whatever reaches the repository itself." },
       { id: 'D', text: "Enable secret scanning over the non-code surfaces too: wikis, issues and pull request comments." }
     ],
     correctAnswers: ['D'],
@@ -283,7 +283,7 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Enable secret scanning over the non-code surfaces too: wikis, issues and pull request comments." },
-      { id: 'B', text: "Enable push protection on the default branch, which covers whatever reaches the repository." },
+      { id: 'B', text: "Enable push protection on the default branch, which covers whatever reaches the repository itself." },
       { id: 'C', text: "Disable the repository wikis and issue templates so credentials cannot be pasted into them." },
       { id: 'D', text: "Add a moderation workflow that scans new issue comments with the organization's patterns." }
     ],
@@ -303,7 +303,7 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to prevent engineers from pasting sensitive production credentials into repository wiki pages, issue descriptions, or PR comments.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Enable push protection on the default branch, which covers whatever reaches the repository." },
+      { id: 'A', text: "Enable push protection on the default branch, which covers whatever reaches the repository itself." },
       { id: 'B', text: "Add a moderation workflow that scans new issue comments with the organization's patterns." },
       { id: 'C', text: "Disable the repository wikis and issue templates so credentials cannot be pasted into them." },
       { id: 'D', text: "Enable secret scanning over the non-code surfaces too: wikis, issues and pull request comments." }
@@ -432,7 +432,7 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
       { id: 'A', text: "Alert on the push protection bypass audit events, and have security managers review the reasons." },
       { id: 'B', text: "Require a second approver on each bypass, configured through the repository's own ruleset." },
       { id: 'C', text: "Allow bypasses only from the organization owners, who record the reason in the audit trail." },
-      { id: 'D', text: "Ban bypasses outright, so a false positive is resolved by adding a pattern exclusion instead." }
+      { id: 'D', text: "Ban bypasses outright, so that a false positive is resolved by adding a pattern exclusion instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,7 +450,7 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to ensure security teams maintain oversight when developers bypass push protection for urgent production deployments.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Ban bypasses outright, so a false positive is resolved by adding a pattern exclusion instead." },
+      { id: 'A', text: "Ban bypasses outright, so that a false positive is resolved by adding a pattern exclusion instead." },
       { id: 'B', text: "Allow bypasses only from the organization owners, who record the reason in the audit trail." },
       { id: 'C', text: "Require a second approver on each bypass, configured through the repository's own ruleset." },
       { id: 'D', text: "Alert on the push protection bypass audit events, and have security managers review the reasons." }
@@ -474,7 +474,7 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
       { id: 'A', text: "Alert on the push protection bypass audit events, and have security managers review the reasons." },
       { id: 'B', text: "Require a second approver on each bypass, configured through the repository's own ruleset." },
       { id: 'C', text: "Allow bypasses only from the organization owners, who record the reason in the audit trail." },
-      { id: 'D', text: "Ban bypasses outright, so a false positive is resolved by adding a pattern exclusion instead." }
+      { id: 'D', text: "Ban bypasses outright, so that a false positive is resolved by adding a pattern exclusion instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -493,7 +493,7 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Allow bypasses only from the organization owners, who record the reason in the audit trail." },
-      { id: 'B', text: "Ban bypasses outright, so a false positive is resolved by adding a pattern exclusion instead." },
+      { id: 'B', text: "Ban bypasses outright, so that a false positive is resolved by adding a pattern exclusion instead." },
       { id: 'C', text: "Alert on the push protection bypass audit events, and have security managers review the reasons." },
       { id: 'D', text: "Require a second approver on each bypass, configured through the repository's own ruleset." }
     ],
@@ -516,7 +516,7 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
       { id: 'A', text: "Alert on the push protection bypass audit events, and have security managers review the reasons." },
       { id: 'B', text: "Require a second approver on each bypass, configured through the repository's own ruleset." },
       { id: 'C', text: "Allow bypasses only from the organization owners, who record the reason in the audit trail." },
-      { id: 'D', text: "Ban bypasses outright, so a false positive is resolved by adding a pattern exclusion instead." }
+      { id: 'D', text: "Ban bypasses outright, so that a false positive is resolved by adding a pattern exclusion instead." }
     ],
     correctAnswers: ['A'],
     type: "single",

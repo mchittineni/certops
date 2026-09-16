@@ -222,7 +222,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
       { id: 'A', text: "Enable the dependency graph everywhere, so manifests and lock files are parsed automatically." },
       { id: 'B', text: "Submit the resolved dependency set from each build through the dependency submission API." },
       { id: 'C', text: "Generate an SBOM per repository on a schedule and store the output as a release asset." },
-      { id: 'D', text: "Enable Dependabot alerts alone, which infer the dependency set from the advisories raised." }
+      { id: 'D', text: "Enable Dependabot alerts alone, which infer the dependency set from the advisories that are raised." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -243,7 +243,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
       { id: 'A', text: "Enable the dependency graph everywhere, so manifests and lock files are parsed automatically." },
       { id: 'B', text: "Submit the resolved dependency set from each build through the dependency submission API." },
       { id: 'C', text: "Generate an SBOM per repository on a schedule and store the output as a release asset." },
-      { id: 'D', text: "Enable Dependabot alerts alone, which infer the dependency set from the advisories raised." }
+      { id: 'D', text: "Enable Dependabot alerts alone, which infer the dependency set from the advisories that are raised." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -264,7 +264,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
       { id: 'A', text: "Enable the dependency graph everywhere, so manifests and lock files are parsed automatically." },
       { id: 'B', text: "Submit the resolved dependency set from each build through the dependency submission API." },
       { id: 'C', text: "Generate an SBOM per repository on a schedule and store the output as a release asset." },
-      { id: 'D', text: "Enable Dependabot alerts alone, which infer the dependency set from the advisories raised." }
+      { id: 'D', text: "Enable Dependabot alerts alone, which infer the dependency set from the advisories that are raised." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -283,7 +283,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Generate an SBOM per repository on a schedule and store the output as a release asset." },
-      { id: 'B', text: "Enable Dependabot alerts alone, which infer the dependency set from the advisories raised." },
+      { id: 'B', text: "Enable Dependabot alerts alone, which infer the dependency set from the advisories that are raised." },
       { id: 'C', text: "Enable the dependency graph everywhere, so manifests and lock files are parsed automatically." },
       { id: 'D', text: "Submit the resolved dependency set from each build through the dependency submission API." }
     ],
@@ -305,7 +305,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Enable the dependency graph everywhere, so manifests and lock files are parsed automatically." },
       { id: 'B', text: "Generate an SBOM per repository on a schedule and store the output as a release asset." },
-      { id: 'C', text: "Enable Dependabot alerts alone, which infer the dependency set from the advisories raised." },
+      { id: 'C', text: "Enable Dependabot alerts alone, which infer the dependency set from the advisories that are raised." },
       { id: 'D', text: "Submit the resolved dependency set from each build through the dependency submission API." }
     ],
     correctAnswers: ['A'],
@@ -324,9 +324,9 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to prioritize patching critical open-source package vulnerabilities that have active, known in-the-wild exploits.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Review Dependabot alerts prioritized by CVSS severity score and Exploit Prediction Scoring System (EPSS) percentage." },
+      { id: 'A', text: "Review Dependabot alerts by CVSS severity score and EPSS exploit-prediction percentage." },
       { id: 'B', text: "Ignore all dependency alerts until a security breach is publicly reported." },
-      { id: 'C', text: "Disable Dependabot alerts to reduce notification email volume." },
+      { id: 'C', text: "Disable Dependabot alerts entirely to reduce the volume of notification email." },
       { id: 'D', text: "Treat all 500 open dependency alerts with identical urgency regardless of CVSS severity or exploit status." }
     ],
     correctAnswers: ['A'],
@@ -345,9 +345,9 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to prioritize patching critical open-source package vulnerabilities that have active, known in-the-wild exploits.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Disable Dependabot alerts to reduce notification email volume." },
+      { id: 'A', text: "Disable Dependabot alerts entirely to reduce the volume of notification email." },
       { id: 'B', text: "Treat all 500 open dependency alerts with identical urgency regardless of CVSS severity or exploit status." },
-      { id: 'C', text: "Review Dependabot alerts prioritized by CVSS severity score and Exploit Prediction Scoring System (EPSS) percentage." },
+      { id: 'C', text: "Review Dependabot alerts by CVSS severity score and EPSS exploit-prediction percentage." },
       { id: 'D', text: "Ignore all dependency alerts until a security breach is publicly reported." }
     ],
     correctAnswers: ['C'],
@@ -366,9 +366,9 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to prioritize patching critical open-source package vulnerabilities that have active, known in-the-wild exploits.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Disable Dependabot alerts to reduce notification email volume." },
+      { id: 'A', text: "Disable Dependabot alerts entirely to reduce the volume of notification email." },
       { id: 'B', text: "Treat all 500 open dependency alerts with identical urgency regardless of CVSS severity or exploit status." },
-      { id: 'C', text: "Review Dependabot alerts prioritized by CVSS severity score and Exploit Prediction Scoring System (EPSS) percentage." },
+      { id: 'C', text: "Review Dependabot alerts by CVSS severity score and EPSS exploit-prediction percentage." },
       { id: 'D', text: "Ignore all dependency alerts until a security breach is publicly reported." }
     ],
     correctAnswers: ['C'],
@@ -387,8 +387,8 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to prioritize patching critical open-source package vulnerabilities that have active, known in-the-wild exploits.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Review Dependabot alerts prioritized by CVSS severity score and Exploit Prediction Scoring System (EPSS) percentage." },
-      { id: 'B', text: "Disable Dependabot alerts to reduce notification email volume." },
+      { id: 'A', text: "Review Dependabot alerts by CVSS severity score and EPSS exploit-prediction percentage." },
+      { id: 'B', text: "Disable Dependabot alerts entirely to reduce the volume of notification email." },
       { id: 'C', text: "Treat all 500 open dependency alerts with identical urgency regardless of CVSS severity or exploit status." },
       { id: 'D', text: "Ignore all dependency alerts until a security breach is publicly reported." }
     ],
@@ -408,9 +408,9 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to prioritize patching critical open-source package vulnerabilities that have active, known in-the-wild exploits.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Review Dependabot alerts prioritized by CVSS severity score and Exploit Prediction Scoring System (EPSS) percentage." },
+      { id: 'A', text: "Review Dependabot alerts by CVSS severity score and EPSS exploit-prediction percentage." },
       { id: 'B', text: "Ignore all dependency alerts until a security breach is publicly reported." },
-      { id: 'C', text: "Disable Dependabot alerts to reduce notification email volume." },
+      { id: 'C', text: "Disable Dependabot alerts entirely to reduce the volume of notification email." },
       { id: 'D', text: "Treat all 500 open dependency alerts with identical urgency regardless of CVSS severity or exploit status." }
     ],
     correctAnswers: ['A'],
@@ -429,7 +429,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to ensure vulnerable dependencies are patched with minimal risk of introducing breaking application changes.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Enable Dependabot version updates on a weekly schedule for every manifest." },
+      { id: 'A', text: "Enable Dependabot version updates on a weekly schedule for every one of the manifests." },
       { id: 'B', text: "Enable Dependabot security updates, which open PRs to the minimum fixed version." },
       { id: 'C', text: "Enable the dependency graph alone, so the alerts list what needs updating." },
       { id: 'D', text: "Enable grouped updates that move each package to its latest major release." }
@@ -451,7 +451,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Enable Dependabot security updates, which open PRs to the minimum fixed version." },
-      { id: 'B', text: "Enable Dependabot version updates on a weekly schedule for every manifest." },
+      { id: 'B', text: "Enable Dependabot version updates on a weekly schedule for every one of the manifests." },
       { id: 'C', text: "Enable grouped updates that move each package to its latest major release." },
       { id: 'D', text: "Enable the dependency graph alone, so the alerts list what needs updating." }
     ],
@@ -472,7 +472,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Enable Dependabot security updates, which open PRs to the minimum fixed version." },
-      { id: 'B', text: "Enable Dependabot version updates on a weekly schedule for every manifest." },
+      { id: 'B', text: "Enable Dependabot version updates on a weekly schedule for every one of the manifests." },
       { id: 'C', text: "Enable grouped updates that move each package to its latest major release." },
       { id: 'D', text: "Enable the dependency graph alone, so the alerts list what needs updating." }
     ],
@@ -492,7 +492,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to ensure vulnerable dependencies are patched with minimal risk of introducing breaking application changes.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Enable Dependabot version updates on a weekly schedule for every manifest." },
+      { id: 'A', text: "Enable Dependabot version updates on a weekly schedule for every one of the manifests." },
       { id: 'B', text: "Enable Dependabot security updates, which open PRs to the minimum fixed version." },
       { id: 'C', text: "Enable the dependency graph alone, so the alerts list what needs updating." },
       { id: 'D', text: "Enable grouped updates that move each package to its latest major release." }
@@ -514,7 +514,7 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Enable Dependabot security updates, which open PRs to the minimum fixed version." },
-      { id: 'B', text: "Enable Dependabot version updates on a weekly schedule for every manifest." },
+      { id: 'B', text: "Enable Dependabot version updates on a weekly schedule for every one of the manifests." },
       { id: 'C', text: "Enable grouped updates that move each package to its latest major release." },
       { id: 'D', text: "Enable the dependency graph alone, so the alerts list what needs updating." }
     ],

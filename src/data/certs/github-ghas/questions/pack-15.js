@@ -11,7 +11,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Set `groups` in `.github/dependabot.yml` to combine the minor and patch updates." },
       { id: 'B', text: "Set `open-pull-requests-limit: 1` so only one update is in flight at a time." },
-      { id: 'C', text: "Set `schedule.interval: monthly` so the updates arrive in one batch each month." },
+      { id: 'C', text: "Set `schedule.interval: monthly` so that the updates arrive in one batch each month." },
       { id: 'D', text: "Set `versioning-strategy: increase` so each package moves in a single commit." }
     ],
     correctAnswers: ['A'],
@@ -32,7 +32,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Set `groups` in `.github/dependabot.yml` to combine the minor and patch updates." },
       { id: 'B', text: "Set `open-pull-requests-limit: 1` so only one update is in flight at a time." },
-      { id: 'C', text: "Set `schedule.interval: monthly` so the updates arrive in one batch each month." },
+      { id: 'C', text: "Set `schedule.interval: monthly` so that the updates arrive in one batch each month." },
       { id: 'D', text: "Set `versioning-strategy: increase` so each package moves in a single commit." }
     ],
     correctAnswers: ['A'],
@@ -53,7 +53,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Set `groups` in `.github/dependabot.yml` to combine the minor and patch updates." },
       { id: 'B', text: "Set `open-pull-requests-limit: 1` so only one update is in flight at a time." },
-      { id: 'C', text: "Set `schedule.interval: monthly` so the updates arrive in one batch each month." },
+      { id: 'C', text: "Set `schedule.interval: monthly` so that the updates arrive in one batch each month." },
       { id: 'D', text: "Set `versioning-strategy: increase` so each package moves in a single commit." }
     ],
     correctAnswers: ['A'],
@@ -73,7 +73,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Set `versioning-strategy: increase` so each package moves in a single commit." },
-      { id: 'B', text: "Set `schedule.interval: monthly` so the updates arrive in one batch each month." },
+      { id: 'B', text: "Set `schedule.interval: monthly` so that the updates arrive in one batch each month." },
       { id: 'C', text: "Set `open-pull-requests-limit: 1` so only one update is in flight at a time." },
       { id: 'D', text: "Set `groups` in `.github/dependabot.yml` to combine the minor and patch updates." }
     ],
@@ -96,7 +96,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
       { id: 'A', text: "Set `groups` in `.github/dependabot.yml` to combine the minor and patch updates." },
       { id: 'B', text: "Set `versioning-strategy: increase` so each package moves in a single commit." },
       { id: 'C', text: "Set `open-pull-requests-limit: 1` so only one update is in flight at a time." },
-      { id: 'D', text: "Set `schedule.interval: monthly` so the updates arrive in one batch each month." }
+      { id: 'D', text: "Set `schedule.interval: monthly` so that the updates arrive in one batch each month." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,7 +114,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to prevent commercial software products from incorporating libraries with restrictive copyleft licenses like GNU Affero GPL (AGPL).",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Export the SBOM on each release and have the legal team review the licences it lists." },
+      { id: 'A', text: "Export the SBOM on each release and have the legal team review the licences that it lists." },
       { id: 'B', text: "Enable Dependabot alerts, which raise a finding when a package changes its licence." },
       { id: 'C', text: "Run a scheduled workflow that fails when any manifest lists an unapproved licence." },
       { id: 'D', text: "Use dependency review with a licence policy, so PRs adding an unapproved licence fail." }
@@ -137,7 +137,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Run a scheduled workflow that fails when any manifest lists an unapproved licence." },
       { id: 'B', text: "Use dependency review with a licence policy, so PRs adding an unapproved licence fail." },
-      { id: 'C', text: "Export the SBOM on each release and have the legal team review the licences it lists." },
+      { id: 'C', text: "Export the SBOM on each release and have the legal team review the licences that it lists." },
       { id: 'D', text: "Enable Dependabot alerts, which raise a finding when a package changes its licence." }
     ],
     correctAnswers: ['B'],
@@ -156,7 +156,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to prevent commercial software products from incorporating libraries with restrictive copyleft licenses like GNU Affero GPL (AGPL).",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Export the SBOM on each release and have the legal team review the licences it lists." },
+      { id: 'A', text: "Export the SBOM on each release and have the legal team review the licences that it lists." },
       { id: 'B', text: "Use dependency review with a licence policy, so PRs adding an unapproved licence fail." },
       { id: 'C', text: "Enable Dependabot alerts, which raise a finding when a package changes its licence." },
       { id: 'D', text: "Run a scheduled workflow that fails when any manifest lists an unapproved licence." }
@@ -179,7 +179,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Use dependency review with a licence policy, so PRs adding an unapproved licence fail." },
       { id: 'B', text: "Enable Dependabot alerts, which raise a finding when a package changes its licence." },
-      { id: 'C', text: "Export the SBOM on each release and have the legal team review the licences it lists." },
+      { id: 'C', text: "Export the SBOM on each release and have the legal team review the licences that it lists." },
       { id: 'D', text: "Run a scheduled workflow that fails when any manifest lists an unapproved licence." }
     ],
     correctAnswers: ['A'],
@@ -201,7 +201,7 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
       { id: 'A', text: "Use dependency review with a licence policy, so PRs adding an unapproved licence fail." },
       { id: 'B', text: "Run a scheduled workflow that fails when any manifest lists an unapproved licence." },
       { id: 'C', text: "Enable Dependabot alerts, which raise a finding when a package changes its licence." },
-      { id: 'D', text: "Export the SBOM on each release and have the legal team review the licences it lists." }
+      { id: 'D', text: "Export the SBOM on each release and have the legal team review the licences that it lists." }
     ],
     correctAnswers: ['A'],
     type: "single",

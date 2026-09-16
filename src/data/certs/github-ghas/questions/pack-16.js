@@ -10,7 +10,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Enable code scanning default setup, which picks the languages and query suites itself." },
-      { id: 'B', text: "Add an advanced setup workflow per repository, written by hand for its build system." },
+      { id: 'B', text: "Add an advanced setup workflow per repository, written by hand for its own build system." },
       { id: 'C', text: "Have developers run the CodeQL CLI locally and upload the SARIF before each merge." },
       { id: 'D', text: "Add a required workflow at organization level that calls a shared analysis template." }
     ],
@@ -32,7 +32,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Enable code scanning default setup, which picks the languages and query suites itself." },
       { id: 'B', text: "Add a required workflow at organization level that calls a shared analysis template." },
-      { id: 'C', text: "Add an advanced setup workflow per repository, written by hand for its build system." },
+      { id: 'C', text: "Add an advanced setup workflow per repository, written by hand for its own build system." },
       { id: 'D', text: "Have developers run the CodeQL CLI locally and upload the SARIF before each merge." }
     ],
     correctAnswers: ['A'],
@@ -52,7 +52,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Have developers run the CodeQL CLI locally and upload the SARIF before each merge." },
-      { id: 'B', text: "Add an advanced setup workflow per repository, written by hand for its build system." },
+      { id: 'B', text: "Add an advanced setup workflow per repository, written by hand for its own build system." },
       { id: 'C', text: "Add a required workflow at organization level that calls a shared analysis template." },
       { id: 'D', text: "Enable code scanning default setup, which picks the languages and query suites itself." }
     ],
@@ -73,7 +73,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Add a required workflow at organization level that calls a shared analysis template." },
-      { id: 'B', text: "Add an advanced setup workflow per repository, written by hand for its build system." },
+      { id: 'B', text: "Add an advanced setup workflow per repository, written by hand for its own build system." },
       { id: 'C', text: "Enable code scanning default setup, which picks the languages and query suites itself." },
       { id: 'D', text: "Have developers run the CodeQL CLI locally and upload the SARIF before each merge." }
     ],
@@ -94,7 +94,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Enable code scanning default setup, which picks the languages and query suites itself." },
-      { id: 'B', text: "Add an advanced setup workflow per repository, written by hand for its build system." },
+      { id: 'B', text: "Add an advanced setup workflow per repository, written by hand for its own build system." },
       { id: 'C', text: "Have developers run the CodeQL CLI locally and upload the SARIF before each merge." },
       { id: 'D', text: "Add a required workflow at organization level that calls a shared analysis template." }
     ],
@@ -327,7 +327,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
       { id: 'A', text: "Read the alert's data flow path in the UI, stepping through each intermediate variable." },
       { id: 'B', text: "Read the SARIF file's `codeFlows` array and follow the locations it lists in order." },
       { id: 'C', text: "Reproduce the finding by sending the payloads the alert's description suggests." },
-      { id: 'D', text: "Dismiss the alert as a false positive, since source and sink are in different files." }
+      { id: 'D', text: "Dismiss the alert as a false positive, since the source and sink are in different files." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -348,7 +348,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
       { id: 'A', text: "Read the alert's data flow path in the UI, stepping through each intermediate variable." },
       { id: 'B', text: "Read the SARIF file's `codeFlows` array and follow the locations it lists in order." },
       { id: 'C', text: "Reproduce the finding by sending the payloads the alert's description suggests." },
-      { id: 'D', text: "Dismiss the alert as a false positive, since source and sink are in different files." }
+      { id: 'D', text: "Dismiss the alert as a false positive, since the source and sink are in different files." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -369,7 +369,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
       { id: 'A', text: "Read the alert's data flow path in the UI, stepping through each intermediate variable." },
       { id: 'B', text: "Read the SARIF file's `codeFlows` array and follow the locations it lists in order." },
       { id: 'C', text: "Reproduce the finding by sending the payloads the alert's description suggests." },
-      { id: 'D', text: "Dismiss the alert as a false positive, since source and sink are in different files." }
+      { id: 'D', text: "Dismiss the alert as a false positive, since the source and sink are in different files." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -389,7 +389,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Read the SARIF file's `codeFlows` array and follow the locations it lists in order." },
       { id: 'B', text: "Read the alert's data flow path in the UI, stepping through each intermediate variable." },
-      { id: 'C', text: "Dismiss the alert as a false positive, since source and sink are in different files." },
+      { id: 'C', text: "Dismiss the alert as a false positive, since the source and sink are in different files." },
       { id: 'D', text: "Reproduce the finding by sending the payloads the alert's description suggests." }
     ],
     correctAnswers: ['B'],
@@ -411,7 +411,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
       { id: 'A', text: "Read the alert's data flow path in the UI, stepping through each intermediate variable." },
       { id: 'B', text: "Read the SARIF file's `codeFlows` array and follow the locations it lists in order." },
       { id: 'C', text: "Reproduce the finding by sending the payloads the alert's description suggests." },
-      { id: 'D', text: "Dismiss the alert as a false positive, since source and sink are in different files." }
+      { id: 'D', text: "Dismiss the alert as a false positive, since the source and sink are in different files." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -430,7 +430,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Write a custom CodeQL query and ship it as a versioned query pack via `qlpack.yml`." },
-      { id: 'B', text: "Write a custom secret scanning pattern and publish it at the organization level." },
+      { id: 'B', text: "Write a custom secret scanning pattern and publish it at the organization level instead." },
       { id: 'C', text: "Write a CodeQL model pack that adds the framework's own sources and sinks only." },
       { id: 'D', text: "Write a CodeQL config file that extends the default query suite with its rules." }
     ],
@@ -451,7 +451,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Write a CodeQL config file that extends the default query suite with its rules." },
-      { id: 'B', text: "Write a custom secret scanning pattern and publish it at the organization level." },
+      { id: 'B', text: "Write a custom secret scanning pattern and publish it at the organization level instead." },
       { id: 'C', text: "Write a custom CodeQL query and ship it as a versioned query pack via `qlpack.yml`." },
       { id: 'D', text: "Write a CodeQL model pack that adds the framework's own sources and sinks only." }
     ],
@@ -472,7 +472,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Write a custom CodeQL query and ship it as a versioned query pack via `qlpack.yml`." },
-      { id: 'B', text: "Write a custom secret scanning pattern and publish it at the organization level." },
+      { id: 'B', text: "Write a custom secret scanning pattern and publish it at the organization level instead." },
       { id: 'C', text: "Write a CodeQL model pack that adds the framework's own sources and sinks only." },
       { id: 'D', text: "Write a CodeQL config file that extends the default query suite with its rules." }
     ],
@@ -494,7 +494,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Write a custom CodeQL query and ship it as a versioned query pack via `qlpack.yml`." },
       { id: 'B', text: "Write a CodeQL config file that extends the default query suite with its rules." },
-      { id: 'C', text: "Write a custom secret scanning pattern and publish it at the organization level." },
+      { id: 'C', text: "Write a custom secret scanning pattern and publish it at the organization level instead." },
       { id: 'D', text: "Write a CodeQL model pack that adds the framework's own sources and sinks only." }
     ],
     correctAnswers: ['A'],
@@ -514,7 +514,7 @@ export const GITHUB_GHAS_QUESTIONS_16 = [
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Write a custom CodeQL query and ship it as a versioned query pack via `qlpack.yml`." },
-      { id: 'B', text: "Write a custom secret scanning pattern and publish it at the organization level." },
+      { id: 'B', text: "Write a custom secret scanning pattern and publish it at the organization level instead." },
       { id: 'C', text: "Write a CodeQL model pack that adds the framework's own sources and sinks only." },
       { id: 'D', text: "Write a CodeQL config file that extends the default query suite with its rules." }
     ],

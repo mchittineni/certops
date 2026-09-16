@@ -11,7 +11,7 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Enable secret scanning alerts and triage the queue on a weekly cadence." },
       { id: 'B', text: "Distribute a pre-commit hook that runs the same patterns before each push." },
-      { id: 'C', text: "Enable push protection only for the custom patterns the platform team owns." },
+      { id: 'C', text: "Enable push protection only for the custom patterns that the platform team owns." },
       { id: 'D', text: "Enable secret scanning push protection across the organization's repositories." }
     ],
     correctAnswers: ['D'],
@@ -33,7 +33,7 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
       { id: 'A', text: "Enable secret scanning alerts and triage the queue on a weekly cadence." },
       { id: 'B', text: "Enable secret scanning push protection across the organization's repositories." },
       { id: 'C', text: "Distribute a pre-commit hook that runs the same patterns before each push." },
-      { id: 'D', text: "Enable push protection only for the custom patterns the platform team owns." }
+      { id: 'D', text: "Enable push protection only for the custom patterns that the platform team owns." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -53,7 +53,7 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Enable secret scanning push protection across the organization's repositories." },
       { id: 'B', text: "Enable secret scanning alerts and triage the queue on a weekly cadence." },
-      { id: 'C', text: "Enable push protection only for the custom patterns the platform team owns." },
+      { id: 'C', text: "Enable push protection only for the custom patterns that the platform team owns." },
       { id: 'D', text: "Distribute a pre-commit hook that runs the same patterns before each push." }
     ],
     correctAnswers: ['A'],
@@ -74,7 +74,7 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Enable secret scanning push protection across the organization's repositories." },
       { id: 'B', text: "Enable secret scanning alerts and triage the queue on a weekly cadence." },
-      { id: 'C', text: "Enable push protection only for the custom patterns the platform team owns." },
+      { id: 'C', text: "Enable push protection only for the custom patterns that the platform team owns." },
       { id: 'D', text: "Distribute a pre-commit hook that runs the same patterns before each push." }
     ],
     correctAnswers: ['A'],
@@ -95,7 +95,7 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Enable secret scanning push protection across the organization's repositories." },
       { id: 'B', text: "Enable secret scanning alerts and triage the queue on a weekly cadence." },
-      { id: 'C', text: "Enable push protection only for the custom patterns the platform team owns." },
+      { id: 'C', text: "Enable push protection only for the custom patterns that the platform team owns." },
       { id: 'D', text: "Distribute a pre-commit hook that runs the same patterns before each push." }
     ],
     correctAnswers: ['A'],
@@ -432,7 +432,7 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
       { id: 'A', text: "Enable AI-powered generic secret detection, which finds unstructured credentials." },
       { id: 'B', text: "Enable push protection for custom patterns so unstructured secrets are blocked." },
       { id: 'C', text: "Enable a custom pattern per credential shape the platform team can enumerate." },
-      { id: 'D', text: "Enable validity checks so only credentials that still authenticate are alerted." }
+      { id: 'D', text: "Enable validity checks so that only credentials which still authenticate are alerted." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -453,7 +453,7 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
       { id: 'A', text: "Enable a custom pattern per credential shape the platform team can enumerate." },
       { id: 'B', text: "Enable AI-powered generic secret detection, which finds unstructured credentials." },
       { id: 'C', text: "Enable push protection for custom patterns so unstructured secrets are blocked." },
-      { id: 'D', text: "Enable validity checks so only credentials that still authenticate are alerted." }
+      { id: 'D', text: "Enable validity checks so that only credentials which still authenticate are alerted." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -474,7 +474,7 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
       { id: 'A', text: "Enable push protection for custom patterns so unstructured secrets are blocked." },
       { id: 'B', text: "Enable a custom pattern per credential shape the platform team can enumerate." },
       { id: 'C', text: "Enable AI-powered generic secret detection, which finds unstructured credentials." },
-      { id: 'D', text: "Enable validity checks so only credentials that still authenticate are alerted." }
+      { id: 'D', text: "Enable validity checks so that only credentials which still authenticate are alerted." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -493,7 +493,7 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Enable a custom pattern per credential shape the platform team can enumerate." },
-      { id: 'B', text: "Enable validity checks so only credentials that still authenticate are alerted." },
+      { id: 'B', text: "Enable validity checks so that only credentials which still authenticate are alerted." },
       { id: 'C', text: "Enable AI-powered generic secret detection, which finds unstructured credentials." },
       { id: 'D', text: "Enable push protection for custom patterns so unstructured secrets are blocked." }
     ],
@@ -514,7 +514,7 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Enable push protection for custom patterns so unstructured secrets are blocked." },
-      { id: 'B', text: "Enable validity checks so only credentials that still authenticate are alerted." },
+      { id: 'B', text: "Enable validity checks so that only credentials which still authenticate are alerted." },
       { id: 'C', text: "Enable a custom pattern per credential shape the platform team can enumerate." },
       { id: 'D', text: "Enable AI-powered generic secret detection, which finds unstructured credentials." }
     ],
