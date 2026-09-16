@@ -324,7 +324,7 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Resource Management to ensure a web application is guaranteed 500m CPU and 512Mi memory while preventing it from consuming more than 1 CPU core and 1Gi memory.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Set `requests` of `500m` CPU and `512Mi` memory, with `limits` of `1` CPU and `1Gi` memory." },
+      { id: 'A', text: "Set `requests` of `500m`/`512Mi` with `limits` of `1` CPU and `1Gi` memory." },
       { id: 'B', text: "Set `limits` of `1` CPU and `1Gi` memory and leave `requests` out of the container spec." },
       { id: 'C', text: "Set `requests` of `1` CPU and `1Gi` memory, with `limits` of `500m` CPU and `512Mi` memory." },
       { id: 'D', text: "Set a namespace `LimitRange` whose default is `500m`/`512Mi` and whose maximum is `1`/`1Gi`." }
@@ -345,7 +345,7 @@ export const K8S_CKAD_QUESTIONS_17 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Resource Management to ensure a web application is guaranteed 500m CPU and 512Mi memory while preventing it from consuming more than 1 CPU core and 1Gi memory.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Set `requests` of `500m` CPU and `512Mi` memory, with `limits` of `1` CPU and `1Gi` memory." },
+      { id: 'A', text: "Set `requests` of `500m`/`512Mi` with `limits` of `1` CPU and `1Gi` memory." },
       { id: 'B', text: "Set a namespace `LimitRange` whose default is `500m`/`512Mi` and whose maximum is `1`/`1Gi`." },
       { id: 'C', text: "Set `limits` of `1` CPU and `1Gi` memory and leave `requests` out of the container spec." },
       { id: 'D', text: "Set `requests` of `1` CPU and `1Gi` memory, with `limits` of `500m` CPU and `512Mi` memory." }
@@ -369,7 +369,7 @@ export const K8S_CKAD_QUESTIONS_17 = [
       { id: 'A', text: "Set a namespace `LimitRange` whose default is `500m`/`512Mi` and whose maximum is `1`/`1Gi`." },
       { id: 'B', text: "Set `requests` of `1` CPU and `1Gi` memory, with `limits` of `500m` CPU and `512Mi` memory." },
       { id: 'C', text: "Set `limits` of `1` CPU and `1Gi` memory and leave `requests` out of the container spec." },
-      { id: 'D', text: "Set `requests` of `500m` CPU and `512Mi` memory, with `limits` of `1` CPU and `1Gi` memory." }
+      { id: 'D', text: "Set `requests` of `500m`/`512Mi` with `limits` of `1` CPU and `1Gi` memory." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -388,7 +388,7 @@ export const K8S_CKAD_QUESTIONS_17 = [
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
       { id: 'A', text: "Set `limits` of `1` CPU and `1Gi` memory and leave `requests` out of the container spec." },
-      { id: 'B', text: "Set `requests` of `500m` CPU and `512Mi` memory, with `limits` of `1` CPU and `1Gi` memory." },
+      { id: 'B', text: "Set `requests` of `500m`/`512Mi` with `limits` of `1` CPU and `1Gi` memory." },
       { id: 'C', text: "Set a namespace `LimitRange` whose default is `500m`/`512Mi` and whose maximum is `1`/`1Gi`." },
       { id: 'D', text: "Set `requests` of `1` CPU and `1Gi` memory, with `limits` of `500m` CPU and `512Mi` memory." }
     ],
@@ -410,7 +410,7 @@ export const K8S_CKAD_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Set `limits` of `1` CPU and `1Gi` memory and leave `requests` out of the container spec." },
       { id: 'B', text: "Set `requests` of `1` CPU and `1Gi` memory, with `limits` of `500m` CPU and `512Mi` memory." },
-      { id: 'C', text: "Set `requests` of `500m` CPU and `512Mi` memory, with `limits` of `1` CPU and `1Gi` memory." },
+      { id: 'C', text: "Set `requests` of `500m`/`512Mi` with `limits` of `1` CPU and `1Gi` memory." },
       { id: 'D', text: "Set a namespace `LimitRange` whose default is `500m`/`512Mi` and whose maximum is `1`/`1Gi`." }
     ],
     correctAnswers: ['C'],

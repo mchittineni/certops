@@ -9,7 +9,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Sidecar Pattern to collect, filter, and stream application log files from a shared volume to an external logging service without modifying application source code.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Add a DaemonSet log agent that reads the container logs from the node's `/var/log` path." },
+      { id: 'A', text: "Add a DaemonSet log agent that reads the container logs from the node's own `/var/log` path." },
       { id: 'B', text: "Add a sidecar container that reads the logs from an `emptyDir` shared with the application." },
       { id: 'C', text: "Add a CronJob that mounts the same `emptyDir` each minute and ships whatever it finds." },
       { id: 'D', text: "Add an init container that opens the log file and forwards it for the pod's lifetime." }
@@ -32,7 +32,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Add a sidecar container that reads the logs from an `emptyDir` shared with the application." },
       { id: 'B', text: "Add a CronJob that mounts the same `emptyDir` each minute and ships whatever it finds." },
-      { id: 'C', text: "Add a DaemonSet log agent that reads the container logs from the node's `/var/log` path." },
+      { id: 'C', text: "Add a DaemonSet log agent that reads the container logs from the node's own `/var/log` path." },
       { id: 'D', text: "Add an init container that opens the log file and forwards it for the pod's lifetime." }
     ],
     correctAnswers: ['A'],
@@ -52,7 +52,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
       { id: 'A', text: "Add an init container that opens the log file and forwards it for the pod's lifetime." },
-      { id: 'B', text: "Add a DaemonSet log agent that reads the container logs from the node's `/var/log` path." },
+      { id: 'B', text: "Add a DaemonSet log agent that reads the container logs from the node's own `/var/log` path." },
       { id: 'C', text: "Add a CronJob that mounts the same `emptyDir` each minute and ships whatever it finds." },
       { id: 'D', text: "Add a sidecar container that reads the logs from an `emptyDir` shared with the application." }
     ],
@@ -74,7 +74,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Add a CronJob that mounts the same `emptyDir` each minute and ships whatever it finds." },
       { id: 'B', text: "Add an init container that opens the log file and forwards it for the pod's lifetime." },
-      { id: 'C', text: "Add a DaemonSet log agent that reads the container logs from the node's `/var/log` path." },
+      { id: 'C', text: "Add a DaemonSet log agent that reads the container logs from the node's own `/var/log` path." },
       { id: 'D', text: "Add a sidecar container that reads the logs from an `emptyDir` shared with the application." }
     ],
     correctAnswers: ['D'],
@@ -96,7 +96,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
       { id: 'A', text: "Add a sidecar container that reads the logs from an `emptyDir` shared with the application." },
       { id: 'B', text: "Add an init container that opens the log file and forwards it for the pod's lifetime." },
       { id: 'C', text: "Add a CronJob that mounts the same `emptyDir` each minute and ships whatever it finds." },
-      { id: 'D', text: "Add a DaemonSet log agent that reads the container logs from the node's `/var/log` path." }
+      { id: 'D', text: "Add a DaemonSet log agent that reads the container logs from the node's own `/var/log` path." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,7 +324,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Init Containers to ensure a web application container does not start until a backend database service is fully reachable and database schema migrations have executed.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Add a readiness probe that fails until the database answers, so the container is kept out of the Service." },
+      { id: 'A', text: "Add a readiness probe that fails until the database answers, so that the container is kept out of the Service." },
       { id: 'B', text: "Add a `postStart` lifecycle hook that runs the migration script as the application container comes up." },
       { id: 'C', text: "Add a sidecar container that runs the migrations alongside the application and exits when they complete." },
       { id: 'D', text: "Add an `initContainers` block that runs the connectivity check and the schema migration before the app starts." }
@@ -346,7 +346,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
       { id: 'A', text: "Add an `initContainers` block that runs the connectivity check and the schema migration before the app starts." },
-      { id: 'B', text: "Add a readiness probe that fails until the database answers, so the container is kept out of the Service." },
+      { id: 'B', text: "Add a readiness probe that fails until the database answers, so that the container is kept out of the Service." },
       { id: 'C', text: "Add a sidecar container that runs the migrations alongside the application and exits when they complete." },
       { id: 'D', text: "Add a `postStart` lifecycle hook that runs the migration script as the application container comes up." }
     ],
@@ -367,7 +367,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
       { id: 'A', text: "Add an `initContainers` block that runs the connectivity check and the schema migration before the app starts." },
-      { id: 'B', text: "Add a readiness probe that fails until the database answers, so the container is kept out of the Service." },
+      { id: 'B', text: "Add a readiness probe that fails until the database answers, so that the container is kept out of the Service." },
       { id: 'C', text: "Add a sidecar container that runs the migrations alongside the application and exits when they complete." },
       { id: 'D', text: "Add a `postStart` lifecycle hook that runs the migration script as the application container comes up." }
     ],
@@ -388,7 +388,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
       { id: 'A', text: "Add an `initContainers` block that runs the connectivity check and the schema migration before the app starts." },
-      { id: 'B', text: "Add a readiness probe that fails until the database answers, so the container is kept out of the Service." },
+      { id: 'B', text: "Add a readiness probe that fails until the database answers, so that the container is kept out of the Service." },
       { id: 'C', text: "Add a sidecar container that runs the migrations alongside the application and exits when they complete." },
       { id: 'D', text: "Add a `postStart` lifecycle hook that runs the migration script as the application container comes up." }
     ],
@@ -409,7 +409,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
       { id: 'A', text: "Add an `initContainers` block that runs the connectivity check and the schema migration before the app starts." },
-      { id: 'B', text: "Add a readiness probe that fails until the database answers, so the container is kept out of the Service." },
+      { id: 'B', text: "Add a readiness probe that fails until the database answers, so that the container is kept out of the Service." },
       { id: 'C', text: "Add a sidecar container that runs the migrations alongside the application and exits when they complete." },
       { id: 'D', text: "Add a `postStart` lifecycle hook that runs the migration script as the application container comes up." }
     ],
@@ -431,7 +431,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Define the proxy in `initContainers` with `restartPolicy: Always`, so it starts first and keeps running." },
       { id: 'B', text: "Define the proxy as a regular container and place it first in the pod's `containers` list." },
-      { id: 'C', text: "Define the proxy in `initContainers` and let the default restart policy bring it back after it exits." },
+      { id: 'C', text: "Define the proxy in `initContainers` and let the default restart policy bring it back after it has exited." },
       { id: 'D', text: "Define the proxy as a regular container with a `postStart` hook that waits for it to accept traffic." }
     ],
     correctAnswers: ['A'],
@@ -453,7 +453,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
       { id: 'A', text: "Define the proxy as a regular container with a `postStart` hook that waits for it to accept traffic." },
       { id: 'B', text: "Define the proxy as a regular container and place it first in the pod's `containers` list." },
       { id: 'C', text: "Define the proxy in `initContainers` with `restartPolicy: Always`, so it starts first and keeps running." },
-      { id: 'D', text: "Define the proxy in `initContainers` and let the default restart policy bring it back after it exits." }
+      { id: 'D', text: "Define the proxy in `initContainers` and let the default restart policy bring it back after it has exited." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -473,7 +473,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Define the proxy in `initContainers` with `restartPolicy: Always`, so it starts first and keeps running." },
       { id: 'B', text: "Define the proxy as a regular container and place it first in the pod's `containers` list." },
-      { id: 'C', text: "Define the proxy in `initContainers` and let the default restart policy bring it back after it exits." },
+      { id: 'C', text: "Define the proxy in `initContainers` and let the default restart policy bring it back after it has exited." },
       { id: 'D', text: "Define the proxy as a regular container with a `postStart` hook that waits for it to accept traffic." }
     ],
     correctAnswers: ['A'],
@@ -494,7 +494,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Define the proxy in `initContainers` with `restartPolicy: Always`, so it starts first and keeps running." },
       { id: 'B', text: "Define the proxy as a regular container and place it first in the pod's `containers` list." },
-      { id: 'C', text: "Define the proxy in `initContainers` and let the default restart policy bring it back after it exits." },
+      { id: 'C', text: "Define the proxy in `initContainers` and let the default restart policy bring it back after it has exited." },
       { id: 'D', text: "Define the proxy as a regular container with a `postStart` hook that waits for it to accept traffic." }
     ],
     correctAnswers: ['A'],
@@ -515,7 +515,7 @@ export const K8S_CKAD_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Define the proxy in `initContainers` with `restartPolicy: Always`, so it starts first and keeps running." },
       { id: 'B', text: "Define the proxy as a regular container and place it first in the pod's `containers` list." },
-      { id: 'C', text: "Define the proxy in `initContainers` and let the default restart policy bring it back after it exits." },
+      { id: 'C', text: "Define the proxy in `initContainers` and let the default restart policy bring it back after it has exited." },
       { id: 'D', text: "Define the proxy as a regular container with a `postStart` hook that waits for it to accept traffic." }
     ],
     correctAnswers: ['A'],

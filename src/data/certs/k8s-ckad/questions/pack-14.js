@@ -222,7 +222,7 @@ export const K8S_CKAD_QUESTIONS_14 = [
       { id: 'A', text: "Set `revisionHistoryLimit: 0` on the Deployment so no ReplicaSet history is retained." },
       { id: 'B', text: "Set an `ownerReferences` TTL on the ReplicaSets so the collector removes them in turn." },
       { id: 'C', text: "Set `ttlSecondsAfterFinished` on the Deployment so completed rollouts are collected." },
-      { id: 'D', text: "Set `revisionHistoryLimit` on the Deployment to the number of rollbacks worth keeping." }
+      { id: 'D', text: "Set `revisionHistoryLimit` on the Deployment to the rollbacks worth keeping." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,7 +240,7 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Resource Hygiene to prevent thousands of obsolete ReplicaSets and associated deployment metadata from cluttering the Kubernetes API server over months of CI/CD releases.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Set `revisionHistoryLimit` on the Deployment to the number of rollbacks worth keeping." },
+      { id: 'A', text: "Set `revisionHistoryLimit` on the Deployment to the rollbacks worth keeping." },
       { id: 'B', text: "Set an `ownerReferences` TTL on the ReplicaSets so the collector removes them in turn." },
       { id: 'C', text: "Set `revisionHistoryLimit: 0` on the Deployment so no ReplicaSet history is retained." },
       { id: 'D', text: "Set `ttlSecondsAfterFinished` on the Deployment so completed rollouts are collected." }
@@ -261,7 +261,7 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Resource Hygiene to prevent thousands of obsolete ReplicaSets and associated deployment metadata from cluttering the Kubernetes API server over months of CI/CD releases.",
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
-      { id: 'A', text: "Set `revisionHistoryLimit` on the Deployment to the number of rollbacks worth keeping." },
+      { id: 'A', text: "Set `revisionHistoryLimit` on the Deployment to the rollbacks worth keeping." },
       { id: 'B', text: "Set an `ownerReferences` TTL on the ReplicaSets so the collector removes them in turn." },
       { id: 'C', text: "Set `revisionHistoryLimit: 0` on the Deployment so no ReplicaSet history is retained." },
       { id: 'D', text: "Set `ttlSecondsAfterFinished` on the Deployment so completed rollouts are collected." }
@@ -282,7 +282,7 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Resource Hygiene to prevent thousands of obsolete ReplicaSets and associated deployment metadata from cluttering the Kubernetes API server over months of CI/CD releases.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
-      { id: 'A', text: "Set `revisionHistoryLimit` on the Deployment to the number of rollbacks worth keeping." },
+      { id: 'A', text: "Set `revisionHistoryLimit` on the Deployment to the rollbacks worth keeping." },
       { id: 'B', text: "Set an `ownerReferences` TTL on the ReplicaSets so the collector removes them in turn." },
       { id: 'C', text: "Set `revisionHistoryLimit: 0` on the Deployment so no ReplicaSet history is retained." },
       { id: 'D', text: "Set `ttlSecondsAfterFinished` on the Deployment so completed rollouts are collected." }
@@ -304,7 +304,7 @@ export const K8S_CKAD_QUESTIONS_14 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
       { id: 'A', text: "Set an `ownerReferences` TTL on the ReplicaSets so the collector removes them in turn." },
-      { id: 'B', text: "Set `revisionHistoryLimit` on the Deployment to the number of rollbacks worth keeping." },
+      { id: 'B', text: "Set `revisionHistoryLimit` on the Deployment to the rollbacks worth keeping." },
       { id: 'C', text: "Set `ttlSecondsAfterFinished` on the Deployment so completed rollouts are collected." },
       { id: 'D', text: "Set `revisionHistoryLimit: 0` on the Deployment so no ReplicaSet history is retained." }
     ],
@@ -429,7 +429,7 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Manifest Customization to customize container images, namespace targets, and replica counts for development and production environments without using complex templating engines.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Structure the manifests as a Kustomize `base` with one `overlay` directory per environment." },
+      { id: 'A', text: "Structure the manifests as a Kustomize `base` with an `overlay` per environment." },
       { id: 'B', text: "Structure the manifests as a Helm chart with one templated `values.yaml` per environment." },
       { id: 'C', text: "Keep one manifest set and apply the per-environment differences with `kubectl patch` in CI." },
       { id: 'D', text: "Keep one manifest set and override the fields at apply time with `kubectl set image` calls." }
@@ -450,7 +450,7 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Manifest Customization to customize container images, namespace targets, and replica counts for development and production environments without using complex templating engines.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Structure the manifests as a Kustomize `base` with one `overlay` directory per environment." },
+      { id: 'A', text: "Structure the manifests as a Kustomize `base` with an `overlay` per environment." },
       { id: 'B', text: "Structure the manifests as a Helm chart with one templated `values.yaml` per environment." },
       { id: 'C', text: "Keep one manifest set and apply the per-environment differences with `kubectl patch` in CI." },
       { id: 'D', text: "Keep one manifest set and override the fields at apply time with `kubectl set image` calls." }
@@ -474,7 +474,7 @@ export const K8S_CKAD_QUESTIONS_14 = [
       { id: 'A', text: "Keep one manifest set and override the fields at apply time with `kubectl set image` calls." },
       { id: 'B', text: "Keep one manifest set and apply the per-environment differences with `kubectl patch` in CI." },
       { id: 'C', text: "Structure the manifests as a Helm chart with one templated `values.yaml` per environment." },
-      { id: 'D', text: "Structure the manifests as a Kustomize `base` with one `overlay` directory per environment." }
+      { id: 'D', text: "Structure the manifests as a Kustomize `base` with an `overlay` per environment." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -495,7 +495,7 @@ export const K8S_CKAD_QUESTIONS_14 = [
       { id: 'A', text: "Structure the manifests as a Helm chart with one templated `values.yaml` per environment." },
       { id: 'B', text: "Keep one manifest set and override the fields at apply time with `kubectl set image` calls." },
       { id: 'C', text: "Keep one manifest set and apply the per-environment differences with `kubectl patch` in CI." },
-      { id: 'D', text: "Structure the manifests as a Kustomize `base` with one `overlay` directory per environment." }
+      { id: 'D', text: "Structure the manifests as a Kustomize `base` with an `overlay` per environment." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -514,7 +514,7 @@ export const K8S_CKAD_QUESTIONS_14 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
       { id: 'A', text: "Keep one manifest set and apply the per-environment differences with `kubectl patch` in CI." },
-      { id: 'B', text: "Structure the manifests as a Kustomize `base` with one `overlay` directory per environment." },
+      { id: 'B', text: "Structure the manifests as a Kustomize `base` with an `overlay` per environment." },
       { id: 'C', text: "Structure the manifests as a Helm chart with one templated `values.yaml` per environment." },
       { id: 'D', text: "Keep one manifest set and override the fields at apply time with `kubectl set image` calls." }
     ],
