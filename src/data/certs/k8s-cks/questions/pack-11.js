@@ -114,10 +114,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to harden the Kubernetes API server against unauthenticated requests and enforce RBAC and Node authorization.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Set `--anonymous-auth=false` and `--authorization-mode=Node,RBAC` in `/etc/kubernetes/manifests/kube-apiserver.yaml`." },
-      { id: 'B', text: "Set `--anonymous-auth=true` and `--authorization-mode=AlwaysAllow`." },
-      { id: 'C', text: "Expose the unencrypted insecure port 8080 on all network interfaces." },
-      { id: 'D', text: "Disable TLS client certificate verification on the API server." }
+      { id: 'A', text: "Set `--anonymous-auth=false` and `--authorization-mode=Node,RBAC` on the kube-apiserver." },
+      { id: 'B', text: "Set `--anonymous-auth=false` and `--authorization-mode=AlwaysAllow` on the kube-apiserver." },
+      { id: 'C', text: "Set `--authorization-mode=Node,RBAC` and keep `--insecure-port=8080` on the loopback address." },
+      { id: 'D', text: "Set `--anonymous-auth=false` and rely on the kubelet's own webhook to authorize the callers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to harden the Kubernetes API server against unauthenticated requests and enforce RBAC and Node authorization.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Set `--anonymous-auth=false` and `--authorization-mode=Node,RBAC` in `/etc/kubernetes/manifests/kube-apiserver.yaml`." },
-      { id: 'B', text: "Set `--anonymous-auth=true` and `--authorization-mode=AlwaysAllow`." },
-      { id: 'C', text: "Expose the unencrypted insecure port 8080 on all network interfaces." },
-      { id: 'D', text: "Disable TLS client certificate verification on the API server." }
+      { id: 'A', text: "Set `--anonymous-auth=false` and `--authorization-mode=Node,RBAC` on the kube-apiserver." },
+      { id: 'B', text: "Set `--anonymous-auth=false` and `--authorization-mode=AlwaysAllow` on the kube-apiserver." },
+      { id: 'C', text: "Set `--authorization-mode=Node,RBAC` and keep `--insecure-port=8080` on the loopback address." },
+      { id: 'D', text: "Set `--anonymous-auth=false` and rely on the kubelet's own webhook to authorize the callers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to harden the Kubernetes API server against unauthenticated requests and enforce RBAC and Node authorization.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Set `--anonymous-auth=false` and `--authorization-mode=Node,RBAC` in `/etc/kubernetes/manifests/kube-apiserver.yaml`." },
-      { id: 'B', text: "Set `--anonymous-auth=true` and `--authorization-mode=AlwaysAllow`." },
-      { id: 'C', text: "Expose the unencrypted insecure port 8080 on all network interfaces." },
-      { id: 'D', text: "Disable TLS client certificate verification on the API server." }
+      { id: 'A', text: "Set `--anonymous-auth=false` and `--authorization-mode=Node,RBAC` on the kube-apiserver." },
+      { id: 'B', text: "Set `--anonymous-auth=false` and `--authorization-mode=AlwaysAllow` on the kube-apiserver." },
+      { id: 'C', text: "Set `--authorization-mode=Node,RBAC` and keep `--insecure-port=8080` on the loopback address." },
+      { id: 'D', text: "Set `--anonymous-auth=false` and rely on the kubelet's own webhook to authorize the callers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to harden the Kubernetes API server against unauthenticated requests and enforce RBAC and Node authorization.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Set `--anonymous-auth=false` and `--authorization-mode=Node,RBAC` in `/etc/kubernetes/manifests/kube-apiserver.yaml`." },
-      { id: 'B', text: "Set `--anonymous-auth=true` and `--authorization-mode=AlwaysAllow`." },
-      { id: 'C', text: "Expose the unencrypted insecure port 8080 on all network interfaces." },
-      { id: 'D', text: "Disable TLS client certificate verification on the API server." }
+      { id: 'A', text: "Set `--anonymous-auth=false` and `--authorization-mode=Node,RBAC` on the kube-apiserver." },
+      { id: 'B', text: "Set `--anonymous-auth=false` and `--authorization-mode=AlwaysAllow` on the kube-apiserver." },
+      { id: 'C', text: "Set `--authorization-mode=Node,RBAC` and keep `--insecure-port=8080` on the loopback address." },
+      { id: 'D', text: "Set `--anonymous-auth=false` and rely on the kubelet's own webhook to authorize the callers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to harden the Kubernetes API server against unauthenticated requests and enforce RBAC and Node authorization.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Set `--anonymous-auth=false` and `--authorization-mode=Node,RBAC` in `/etc/kubernetes/manifests/kube-apiserver.yaml`." },
-      { id: 'B', text: "Set `--anonymous-auth=true` and `--authorization-mode=AlwaysAllow`." },
-      { id: 'C', text: "Expose the unencrypted insecure port 8080 on all network interfaces." },
-      { id: 'D', text: "Disable TLS client certificate verification on the API server." }
+      { id: 'A', text: "Set `--anonymous-auth=false` and `--authorization-mode=Node,RBAC` on the kube-apiserver." },
+      { id: 'B', text: "Set `--anonymous-auth=false` and `--authorization-mode=AlwaysAllow` on the kube-apiserver." },
+      { id: 'C', text: "Set `--authorization-mode=Node,RBAC` and keep `--insecure-port=8080` on the loopback address." },
+      { id: 'D', text: "Set `--anonymous-auth=false` and rely on the kubelet's own webhook to authorize the callers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent unauthorized attackers from querying kubelet endpoints or running arbitrary commands via kubelet port 10250.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Open the kubelet read-only port 10255 to public internet access." },
-      { id: 'B', text: "Grant full root sudo permissions to anonymous callers on the node." },
-      { id: 'C', text: "In `/var/lib/kubelet/config.yaml`, set `authentication.anonymous.enabled: false`, `authorization.mode: Webhook`, and `readOnlyPort: 0`." },
-      { id: 'D', text: "Set `authentication.anonymous.enabled: true` and `authorization.mode: AlwaysAllow`." }
+      { id: 'A', text: "In the kubelet config, set anonymous auth off, `authorization.mode: AlwaysAllow`, and keep port 10255." },
+      { id: 'B', text: "In the kubelet config, enable client certificate rotation and leave the read-only port serving." },
+      { id: 'C', text: "In the kubelet config, set anonymous auth off, `authorization.mode: Webhook`, and `readOnlyPort: 0`." },
+      { id: 'D', text: "In the kubelet config, set `authentication.webhook.enabled: false` and firewall the node's ports." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent unauthorized attackers from querying kubelet endpoints or running arbitrary commands via kubelet port 10250.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "In `/var/lib/kubelet/config.yaml`, set `authentication.anonymous.enabled: false`, `authorization.mode: Webhook`, and `readOnlyPort: 0`." },
-      { id: 'B', text: "Grant full root sudo permissions to anonymous callers on the node." },
-      { id: 'C', text: "Set `authentication.anonymous.enabled: true` and `authorization.mode: AlwaysAllow`." },
-      { id: 'D', text: "Open the kubelet read-only port 10255 to public internet access." }
+      { id: 'A', text: "In the kubelet config, set anonymous auth off, `authorization.mode: Webhook`, and `readOnlyPort: 0`." },
+      { id: 'B', text: "In the kubelet config, enable client certificate rotation and leave the read-only port serving." },
+      { id: 'C', text: "In the kubelet config, set `authentication.webhook.enabled: false` and firewall the node's ports." },
+      { id: 'D', text: "In the kubelet config, set anonymous auth off, `authorization.mode: AlwaysAllow`, and keep port 10255." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent unauthorized attackers from querying kubelet endpoints or running arbitrary commands via kubelet port 10250.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "In `/var/lib/kubelet/config.yaml`, set `authentication.anonymous.enabled: false`, `authorization.mode: Webhook`, and `readOnlyPort: 0`." },
-      { id: 'B', text: "Set `authentication.anonymous.enabled: true` and `authorization.mode: AlwaysAllow`." },
-      { id: 'C', text: "Open the kubelet read-only port 10255 to public internet access." },
-      { id: 'D', text: "Grant full root sudo permissions to anonymous callers on the node." }
+      { id: 'A', text: "In the kubelet config, set anonymous auth off, `authorization.mode: Webhook`, and `readOnlyPort: 0`." },
+      { id: 'B', text: "In the kubelet config, set `authentication.webhook.enabled: false` and firewall the node's ports." },
+      { id: 'C', text: "In the kubelet config, set anonymous auth off, `authorization.mode: AlwaysAllow`, and keep port 10255." },
+      { id: 'D', text: "In the kubelet config, enable client certificate rotation and leave the read-only port serving." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent unauthorized attackers from querying kubelet endpoints or running arbitrary commands via kubelet port 10250.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Set `authentication.anonymous.enabled: true` and `authorization.mode: AlwaysAllow`." },
-      { id: 'B', text: "In `/var/lib/kubelet/config.yaml`, set `authentication.anonymous.enabled: false`, `authorization.mode: Webhook`, and `readOnlyPort: 0`." },
-      { id: 'C', text: "Grant full root sudo permissions to anonymous callers on the node." },
-      { id: 'D', text: "Open the kubelet read-only port 10255 to public internet access." }
+      { id: 'A', text: "In the kubelet config, set `authentication.webhook.enabled: false` and firewall the node's ports." },
+      { id: 'B', text: "In the kubelet config, set anonymous auth off, `authorization.mode: Webhook`, and `readOnlyPort: 0`." },
+      { id: 'C', text: "In the kubelet config, enable client certificate rotation and leave the read-only port serving." },
+      { id: 'D', text: "In the kubelet config, set anonymous auth off, `authorization.mode: AlwaysAllow`, and keep port 10255." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent unauthorized attackers from querying kubelet endpoints or running arbitrary commands via kubelet port 10250.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "In `/var/lib/kubelet/config.yaml`, set `authentication.anonymous.enabled: false`, `authorization.mode: Webhook`, and `readOnlyPort: 0`." },
-      { id: 'B', text: "Set `authentication.anonymous.enabled: true` and `authorization.mode: AlwaysAllow`." },
-      { id: 'C', text: "Open the kubelet read-only port 10255 to public internet access." },
-      { id: 'D', text: "Grant full root sudo permissions to anonymous callers on the node." }
+      { id: 'A', text: "In the kubelet config, set anonymous auth off, `authorization.mode: Webhook`, and `readOnlyPort: 0`." },
+      { id: 'B', text: "In the kubelet config, set `authentication.webhook.enabled: false` and firewall the node's ports." },
+      { id: 'C', text: "In the kubelet config, set anonymous auth off, `authorization.mode: AlwaysAllow`, and keep port 10255." },
+      { id: 'D', text: "In the kubelet config, enable client certificate rotation and leave the read-only port serving." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to ensure that all Kubernetes Secret resources stored within the etcd database are encrypted at rest on disk.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Store Secrets in plaintext ConfigMaps instead." },
-      { id: 'B', text: "Configure an `EncryptionConfiguration` provider file (e.g., using `aescbc` or `kms`) and pass `--encryption-provider-config` to the apiserver." },
-      { id: 'C', text: "Encode Secrets with base64 and assume base64 provides cryptographic confidentiality." },
-      { id: 'D', text: "Rely on standard Linux ext4 filesystem encryption without etcd configuration." }
+      { id: 'A', text: "Pass `--encryption-provider-config` to the API server with the `identity` provider listed first." },
+      { id: 'B', text: "Pass `--encryption-provider-config` to the API server with an `aescbc` or `kms` provider." },
+      { id: 'C', text: "Enable etcd's own `--data-dir` encryption flag so the keyspace is written encrypted." },
+      { id: 'D', text: "Encrypt the etcd data directory's filesystem with LUKS and leave the API server unchanged." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to ensure that all Kubernetes Secret resources stored within the etcd database are encrypted at rest on disk.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Configure an `EncryptionConfiguration` provider file (e.g., using `aescbc` or `kms`) and pass `--encryption-provider-config` to the apiserver." },
-      { id: 'B', text: "Store Secrets in plaintext ConfigMaps instead." },
-      { id: 'C', text: "Rely on standard Linux ext4 filesystem encryption without etcd configuration." },
-      { id: 'D', text: "Encode Secrets with base64 and assume base64 provides cryptographic confidentiality." }
+      { id: 'A', text: "Pass `--encryption-provider-config` to the API server with an `aescbc` or `kms` provider." },
+      { id: 'B', text: "Pass `--encryption-provider-config` to the API server with the `identity` provider listed first." },
+      { id: 'C', text: "Encrypt the etcd data directory's filesystem with LUKS and leave the API server unchanged." },
+      { id: 'D', text: "Enable etcd's own `--data-dir` encryption flag so the keyspace is written encrypted." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to ensure that all Kubernetes Secret resources stored within the etcd database are encrypted at rest on disk.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Encode Secrets with base64 and assume base64 provides cryptographic confidentiality." },
-      { id: 'B', text: "Rely on standard Linux ext4 filesystem encryption without etcd configuration." },
-      { id: 'C', text: "Store Secrets in plaintext ConfigMaps instead." },
-      { id: 'D', text: "Configure an `EncryptionConfiguration` provider file (e.g., using `aescbc` or `kms`) and pass `--encryption-provider-config` to the apiserver." }
+      { id: 'A', text: "Enable etcd's own `--data-dir` encryption flag so the keyspace is written encrypted." },
+      { id: 'B', text: "Encrypt the etcd data directory's filesystem with LUKS and leave the API server unchanged." },
+      { id: 'C', text: "Pass `--encryption-provider-config` to the API server with the `identity` provider listed first." },
+      { id: 'D', text: "Pass `--encryption-provider-config` to the API server with an `aescbc` or `kms` provider." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to ensure that all Kubernetes Secret resources stored within the etcd database are encrypted at rest on disk.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Configure an `EncryptionConfiguration` provider file (e.g., using `aescbc` or `kms`) and pass `--encryption-provider-config` to the apiserver." },
-      { id: 'B', text: "Rely on standard Linux ext4 filesystem encryption without etcd configuration." },
-      { id: 'C', text: "Encode Secrets with base64 and assume base64 provides cryptographic confidentiality." },
-      { id: 'D', text: "Store Secrets in plaintext ConfigMaps instead." }
+      { id: 'A', text: "Pass `--encryption-provider-config` to the API server with an `aescbc` or `kms` provider." },
+      { id: 'B', text: "Encrypt the etcd data directory's filesystem with LUKS and leave the API server unchanged." },
+      { id: 'C', text: "Enable etcd's own `--data-dir` encryption flag so the keyspace is written encrypted." },
+      { id: 'D', text: "Pass `--encryption-provider-config` to the API server with the `identity` provider listed first." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to ensure that all Kubernetes Secret resources stored within the etcd database are encrypted at rest on disk.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Configure an `EncryptionConfiguration` provider file (e.g., using `aescbc` or `kms`) and pass `--encryption-provider-config` to the apiserver." },
-      { id: 'B', text: "Rely on standard Linux ext4 filesystem encryption without etcd configuration." },
-      { id: 'C', text: "Encode Secrets with base64 and assume base64 provides cryptographic confidentiality." },
-      { id: 'D', text: "Store Secrets in plaintext ConfigMaps instead." }
+      { id: 'A', text: "Pass `--encryption-provider-config` to the API server with an `aescbc` or `kms` provider." },
+      { id: 'B', text: "Encrypt the etcd data directory's filesystem with LUKS and leave the API server unchanged." },
+      { id: 'C', text: "Enable etcd's own `--data-dir` encryption flag so the keyspace is written encrypted." },
+      { id: 'D', text: "Pass `--encryption-provider-config` to the API server with the `identity` provider listed first." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent workloads in a multi-tenant cluster from accessing sensitive services running in other namespaces.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Apply a default-deny NetworkPolicy in every tenant namespace and whitelist only required ingress/egress CIDRs and selectors." },
-      { id: 'B', text: "Rely on Kubernetes namespaces as secure network isolation boundaries by default." },
-      { id: 'C', text: "Disable CNI network plugins across tenant nodes." },
-      { id: 'D', text: "Assign unique DNS domain suffixes without network firewall rules." }
+      { id: 'A', text: "Apply a default-deny NetworkPolicy per tenant namespace and allow only the required selectors." },
+      { id: 'B', text: "Apply a default-deny NetworkPolicy at the cluster scope and allow each tenant's own CIDR." },
+      { id: 'C', text: "Apply a NetworkPolicy per tenant whose `namespaceSelector` matches the tenant's own label." },
+      { id: 'D', text: "Give each tenant its own CNI network attachment so the pods land on separate subnets." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent workloads in a multi-tenant cluster from accessing sensitive services running in other namespaces.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Apply a default-deny NetworkPolicy in every tenant namespace and whitelist only required ingress/egress CIDRs and selectors." },
-      { id: 'B', text: "Rely on Kubernetes namespaces as secure network isolation boundaries by default." },
-      { id: 'C', text: "Disable CNI network plugins across tenant nodes." },
-      { id: 'D', text: "Assign unique DNS domain suffixes without network firewall rules." }
+      { id: 'A', text: "Apply a default-deny NetworkPolicy per tenant namespace and allow only the required selectors." },
+      { id: 'B', text: "Apply a default-deny NetworkPolicy at the cluster scope and allow each tenant's own CIDR." },
+      { id: 'C', text: "Apply a NetworkPolicy per tenant whose `namespaceSelector` matches the tenant's own label." },
+      { id: 'D', text: "Give each tenant its own CNI network attachment so the pods land on separate subnets." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent workloads in a multi-tenant cluster from accessing sensitive services running in other namespaces.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Apply a default-deny NetworkPolicy in every tenant namespace and whitelist only required ingress/egress CIDRs and selectors." },
-      { id: 'B', text: "Assign unique DNS domain suffixes without network firewall rules." },
-      { id: 'C', text: "Rely on Kubernetes namespaces as secure network isolation boundaries by default." },
-      { id: 'D', text: "Disable CNI network plugins across tenant nodes." }
+      { id: 'A', text: "Apply a default-deny NetworkPolicy per tenant namespace and allow only the required selectors." },
+      { id: 'B', text: "Give each tenant its own CNI network attachment so the pods land on separate subnets." },
+      { id: 'C', text: "Apply a default-deny NetworkPolicy at the cluster scope and allow each tenant's own CIDR." },
+      { id: 'D', text: "Apply a NetworkPolicy per tenant whose `namespaceSelector` matches the tenant's own label." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent workloads in a multi-tenant cluster from accessing sensitive services running in other namespaces.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Rely on Kubernetes namespaces as secure network isolation boundaries by default." },
-      { id: 'B', text: "Apply a default-deny NetworkPolicy in every tenant namespace and whitelist only required ingress/egress CIDRs and selectors." },
-      { id: 'C', text: "Assign unique DNS domain suffixes without network firewall rules." },
-      { id: 'D', text: "Disable CNI network plugins across tenant nodes." }
+      { id: 'A', text: "Apply a default-deny NetworkPolicy at the cluster scope and allow each tenant's own CIDR." },
+      { id: 'B', text: "Apply a default-deny NetworkPolicy per tenant namespace and allow only the required selectors." },
+      { id: 'C', text: "Give each tenant its own CNI network attachment so the pods land on separate subnets." },
+      { id: 'D', text: "Apply a NetworkPolicy per tenant whose `namespaceSelector` matches the tenant's own label." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKS_QUESTIONS_11 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent workloads in a multi-tenant cluster from accessing sensitive services running in other namespaces.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Assign unique DNS domain suffixes without network firewall rules." },
-      { id: 'B', text: "Disable CNI network plugins across tenant nodes." },
-      { id: 'C', text: "Rely on Kubernetes namespaces as secure network isolation boundaries by default." },
-      { id: 'D', text: "Apply a default-deny NetworkPolicy in every tenant namespace and whitelist only required ingress/egress CIDRs and selectors." }
+      { id: 'A', text: "Give each tenant its own CNI network attachment so the pods land on separate subnets." },
+      { id: 'B', text: "Apply a NetworkPolicy per tenant whose `namespaceSelector` matches the tenant's own label." },
+      { id: 'C', text: "Apply a default-deny NetworkPolicy at the cluster scope and allow each tenant's own CIDR." },
+      { id: 'D', text: "Apply a default-deny NetworkPolicy per tenant namespace and allow only the required selectors." }
     ],
     correctAnswers: ['D'],
     type: "single",

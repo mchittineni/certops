@@ -9,10 +9,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent a compromised microservice from connecting to external command-and-control (C2) servers or exfiltrating stolen customer data.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Apply an egress NetworkPolicy restricting outbound traffic strictly to approved cluster internal services and designated external payment API endpoints." },
-      { id: 'B', text: "Allow unrestricted outbound egress to 0.0.0.0/0 on all ports." },
-      { id: 'C', text: "Delete the DNS configuration from the pod." },
-      { id: 'D', text: "Assume internal containers cannot be compromised." }
+      { id: 'A', text: "Apply an egress NetworkPolicy allowing only cluster services and the payment API endpoints." },
+      { id: 'B', text: "Apply an ingress NetworkPolicy allowing only the cluster services that call the workload." },
+      { id: 'C', text: "Apply an egress NetworkPolicy whose `ipBlock` covers the whole VPC range on port 443." },
+      { id: 'D', text: "Apply a `dnsPolicy: None` with a resolver that answers only for the payment API hostname." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent a compromised microservice from connecting to external command-and-control (C2) servers or exfiltrating stolen customer data.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Apply an egress NetworkPolicy restricting outbound traffic strictly to approved cluster internal services and designated external payment API endpoints." },
-      { id: 'B', text: "Delete the DNS configuration from the pod." },
-      { id: 'C', text: "Assume internal containers cannot be compromised." },
-      { id: 'D', text: "Allow unrestricted outbound egress to 0.0.0.0/0 on all ports." }
+      { id: 'A', text: "Apply an egress NetworkPolicy allowing only cluster services and the payment API endpoints." },
+      { id: 'B', text: "Apply an egress NetworkPolicy whose `ipBlock` covers the whole VPC range on port 443." },
+      { id: 'C', text: "Apply a `dnsPolicy: None` with a resolver that answers only for the payment API hostname." },
+      { id: 'D', text: "Apply an ingress NetworkPolicy allowing only the cluster services that call the workload." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent a compromised microservice from connecting to external command-and-control (C2) servers or exfiltrating stolen customer data.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Delete the DNS configuration from the pod." },
-      { id: 'B', text: "Apply an egress NetworkPolicy restricting outbound traffic strictly to approved cluster internal services and designated external payment API endpoints." },
-      { id: 'C', text: "Allow unrestricted outbound egress to 0.0.0.0/0 on all ports." },
-      { id: 'D', text: "Assume internal containers cannot be compromised." }
+      { id: 'A', text: "Apply an egress NetworkPolicy whose `ipBlock` covers the whole VPC range on port 443." },
+      { id: 'B', text: "Apply an egress NetworkPolicy allowing only cluster services and the payment API endpoints." },
+      { id: 'C', text: "Apply an ingress NetworkPolicy allowing only the cluster services that call the workload." },
+      { id: 'D', text: "Apply a `dnsPolicy: None` with a resolver that answers only for the payment API hostname." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent a compromised microservice from connecting to external command-and-control (C2) servers or exfiltrating stolen customer data.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Assume internal containers cannot be compromised." },
-      { id: 'B', text: "Apply an egress NetworkPolicy restricting outbound traffic strictly to approved cluster internal services and designated external payment API endpoints." },
-      { id: 'C', text: "Delete the DNS configuration from the pod." },
-      { id: 'D', text: "Allow unrestricted outbound egress to 0.0.0.0/0 on all ports." }
+      { id: 'A', text: "Apply a `dnsPolicy: None` with a resolver that answers only for the payment API hostname." },
+      { id: 'B', text: "Apply an egress NetworkPolicy allowing only cluster services and the payment API endpoints." },
+      { id: 'C', text: "Apply an egress NetworkPolicy whose `ipBlock` covers the whole VPC range on port 443." },
+      { id: 'D', text: "Apply an ingress NetworkPolicy allowing only the cluster services that call the workload." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent a compromised microservice from connecting to external command-and-control (C2) servers or exfiltrating stolen customer data.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Allow unrestricted outbound egress to 0.0.0.0/0 on all ports." },
-      { id: 'B', text: "Delete the DNS configuration from the pod." },
-      { id: 'C', text: "Apply an egress NetworkPolicy restricting outbound traffic strictly to approved cluster internal services and designated external payment API endpoints." },
-      { id: 'D', text: "Assume internal containers cannot be compromised." }
+      { id: 'A', text: "Apply an ingress NetworkPolicy allowing only the cluster services that call the workload." },
+      { id: 'B', text: "Apply an egress NetworkPolicy whose `ipBlock` covers the whole VPC range on port 443." },
+      { id: 'C', text: "Apply an egress NetworkPolicy allowing only cluster services and the payment API endpoints." },
+      { id: 'D', text: "Apply a `dnsPolicy: None` with a resolver that answers only for the payment API hostname." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to detect security misconfigurations (such as missing resource limits or running as root) in Kubernetes YAML manifests before merging pull requests.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Disable all automated pull request checks to speed up releases." },
-      { id: 'B', text: "Deploy unvalidated manifests directly to production and test security at runtime." },
-      { id: 'C', text: "Rely on manual human code review of thousands of YAML files." },
-      { id: 'D', text: "Integrate static analysis tools like `kube-linter`, `checkov`, or `conftest` (OPA) into the CI pipeline to fail builds on insecure manifest patterns." }
+      { id: 'A', text: "Run Pod Security Admission in `warn` mode so insecure manifests are reported on apply." },
+      { id: 'B', text: "Run Trivy's image scan in CI so the manifests are checked against the image's findings." },
+      { id: 'C', text: "Run a Kyverno mutate policy in the cluster that repairs the insecure fields on admission." },
+      { id: 'D', text: "Run `kube-linter`, `checkov` or `conftest` in CI so insecure manifest patterns fail the build." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to detect security misconfigurations (such as missing resource limits or running as root) in Kubernetes YAML manifests before merging pull requests.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Rely on manual human code review of thousands of YAML files." },
-      { id: 'B', text: "Deploy unvalidated manifests directly to production and test security at runtime." },
-      { id: 'C', text: "Integrate static analysis tools like `kube-linter`, `checkov`, or `conftest` (OPA) into the CI pipeline to fail builds on insecure manifest patterns." },
-      { id: 'D', text: "Disable all automated pull request checks to speed up releases." }
+      { id: 'A', text: "Run a Kyverno mutate policy in the cluster that repairs the insecure fields on admission." },
+      { id: 'B', text: "Run Trivy's image scan in CI so the manifests are checked against the image's findings." },
+      { id: 'C', text: "Run `kube-linter`, `checkov` or `conftest` in CI so insecure manifest patterns fail the build." },
+      { id: 'D', text: "Run Pod Security Admission in `warn` mode so insecure manifests are reported on apply." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to detect security misconfigurations (such as missing resource limits or running as root) in Kubernetes YAML manifests before merging pull requests.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy unvalidated manifests directly to production and test security at runtime." },
-      { id: 'B', text: "Disable all automated pull request checks to speed up releases." },
-      { id: 'C', text: "Integrate static analysis tools like `kube-linter`, `checkov`, or `conftest` (OPA) into the CI pipeline to fail builds on insecure manifest patterns." },
-      { id: 'D', text: "Rely on manual human code review of thousands of YAML files." }
+      { id: 'A', text: "Run Trivy's image scan in CI so the manifests are checked against the image's findings." },
+      { id: 'B', text: "Run Pod Security Admission in `warn` mode so insecure manifests are reported on apply." },
+      { id: 'C', text: "Run `kube-linter`, `checkov` or `conftest` in CI so insecure manifest patterns fail the build." },
+      { id: 'D', text: "Run a Kyverno mutate policy in the cluster that repairs the insecure fields on admission." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to detect security misconfigurations (such as missing resource limits or running as root) in Kubernetes YAML manifests before merging pull requests.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Integrate static analysis tools like `kube-linter`, `checkov`, or `conftest` (OPA) into the CI pipeline to fail builds on insecure manifest patterns." },
-      { id: 'B', text: "Rely on manual human code review of thousands of YAML files." },
-      { id: 'C', text: "Deploy unvalidated manifests directly to production and test security at runtime." },
-      { id: 'D', text: "Disable all automated pull request checks to speed up releases." }
+      { id: 'A', text: "Run `kube-linter`, `checkov` or `conftest` in CI so insecure manifest patterns fail the build." },
+      { id: 'B', text: "Run a Kyverno mutate policy in the cluster that repairs the insecure fields on admission." },
+      { id: 'C', text: "Run Trivy's image scan in CI so the manifests are checked against the image's findings." },
+      { id: 'D', text: "Run Pod Security Admission in `warn` mode so insecure manifests are reported on apply." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to detect security misconfigurations (such as missing resource limits or running as root) in Kubernetes YAML manifests before merging pull requests.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Disable all automated pull request checks to speed up releases." },
-      { id: 'B', text: "Deploy unvalidated manifests directly to production and test security at runtime." },
-      { id: 'C', text: "Rely on manual human code review of thousands of YAML files." },
-      { id: 'D', text: "Integrate static analysis tools like `kube-linter`, `checkov`, or `conftest` (OPA) into the CI pipeline to fail builds on insecure manifest patterns." }
+      { id: 'A', text: "Run Pod Security Admission in `warn` mode so insecure manifests are reported on apply." },
+      { id: 'B', text: "Run Trivy's image scan in CI so the manifests are checked against the image's findings." },
+      { id: 'C', text: "Run a Kyverno mutate policy in the cluster that repairs the insecure fields on admission." },
+      { id: 'D', text: "Run `kube-linter`, `checkov` or `conftest` in CI so insecure manifest patterns fail the build." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent container images containing high or critical severity CVEs from being pushed to the enterprise container registry.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Filter out all critical CVEs from scanner reports to prevent build interruptions." },
-      { id: 'B', text: "Scan containers only after they have run in production for six months." },
-      { id: 'C', text: "Rely on public Docker Hub star ratings as proof of container security." },
-      { id: 'D', text: "Execute `trivy image --severity HIGH,CRITICAL --exit-code 1 &lt;image-name&gt;` in the CI build step to block vulnerable artifacts." }
+      { id: 'A', text: "Run `trivy image --severity HIGH,CRITICAL --exit-code 0 &lt;image&gt;` and publish the report." },
+      { id: 'B', text: "Run the registry's own scheduled scanning and review the findings on the release cadence." },
+      { id: 'C', text: "Run `trivy image --ignore-unfixed &lt;image&gt;` so only actionable findings reach the build." },
+      { id: 'D', text: "Run `trivy image --severity HIGH,CRITICAL --exit-code 1 &lt;image&gt;` as a CI build step." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent container images containing high or critical severity CVEs from being pushed to the enterprise container registry.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Execute `trivy image --severity HIGH,CRITICAL --exit-code 1 &lt;image-name&gt;` in the CI build step to block vulnerable artifacts." },
-      { id: 'B', text: "Scan containers only after they have run in production for six months." },
-      { id: 'C', text: "Filter out all critical CVEs from scanner reports to prevent build interruptions." },
-      { id: 'D', text: "Rely on public Docker Hub star ratings as proof of container security." }
+      { id: 'A', text: "Run `trivy image --severity HIGH,CRITICAL --exit-code 1 &lt;image&gt;` as a CI build step." },
+      { id: 'B', text: "Run the registry's own scheduled scanning and review the findings on the release cadence." },
+      { id: 'C', text: "Run `trivy image --severity HIGH,CRITICAL --exit-code 0 &lt;image&gt;` and publish the report." },
+      { id: 'D', text: "Run `trivy image --ignore-unfixed &lt;image&gt;` so only actionable findings reach the build." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent container images containing high or critical severity CVEs from being pushed to the enterprise container registry.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Execute `trivy image --severity HIGH,CRITICAL --exit-code 1 &lt;image-name&gt;` in the CI build step to block vulnerable artifacts." },
-      { id: 'B', text: "Rely on public Docker Hub star ratings as proof of container security." },
-      { id: 'C', text: "Scan containers only after they have run in production for six months." },
-      { id: 'D', text: "Filter out all critical CVEs from scanner reports to prevent build interruptions." }
+      { id: 'A', text: "Run `trivy image --severity HIGH,CRITICAL --exit-code 1 &lt;image&gt;` as a CI build step." },
+      { id: 'B', text: "Run `trivy image --ignore-unfixed &lt;image&gt;` so only actionable findings reach the build." },
+      { id: 'C', text: "Run the registry's own scheduled scanning and review the findings on the release cadence." },
+      { id: 'D', text: "Run `trivy image --severity HIGH,CRITICAL --exit-code 0 &lt;image&gt;` and publish the report." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent container images containing high or critical severity CVEs from being pushed to the enterprise container registry.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Filter out all critical CVEs from scanner reports to prevent build interruptions." },
-      { id: 'B', text: "Scan containers only after they have run in production for six months." },
-      { id: 'C', text: "Rely on public Docker Hub star ratings as proof of container security." },
-      { id: 'D', text: "Execute `trivy image --severity HIGH,CRITICAL --exit-code 1 &lt;image-name&gt;` in the CI build step to block vulnerable artifacts." }
+      { id: 'A', text: "Run `trivy image --severity HIGH,CRITICAL --exit-code 0 &lt;image&gt;` and publish the report." },
+      { id: 'B', text: "Run the registry's own scheduled scanning and review the findings on the release cadence." },
+      { id: 'C', text: "Run `trivy image --ignore-unfixed &lt;image&gt;` so only actionable findings reach the build." },
+      { id: 'D', text: "Run `trivy image --severity HIGH,CRITICAL --exit-code 1 &lt;image&gt;` as a CI build step." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent container images containing high or critical severity CVEs from being pushed to the enterprise container registry.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Rely on public Docker Hub star ratings as proof of container security." },
-      { id: 'B', text: "Filter out all critical CVEs from scanner reports to prevent build interruptions." },
-      { id: 'C', text: "Scan containers only after they have run in production for six months." },
-      { id: 'D', text: "Execute `trivy image --severity HIGH,CRITICAL --exit-code 1 &lt;image-name&gt;` in the CI build step to block vulnerable artifacts." }
+      { id: 'A', text: "Run `trivy image --ignore-unfixed &lt;image&gt;` so only actionable findings reach the build." },
+      { id: 'B', text: "Run `trivy image --severity HIGH,CRITICAL --exit-code 0 &lt;image&gt;` and publish the report." },
+      { id: 'C', text: "Run the registry's own scheduled scanning and review the findings on the release cadence." },
+      { id: 'D', text: "Run `trivy image --severity HIGH,CRITICAL --exit-code 1 &lt;image&gt;` as a CI build step." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to guarantee that only container images built and signed by the authorized corporate CI pipeline can be executed in Kubernetes.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Allow developers to manually sign images using self-signed ad-hoc certificates." },
-      { id: 'B', text: "Commit unencrypted GPG private keys to public GitHub repositories." },
-      { id: 'C', text: "Trust image tags without cryptographic verification." },
-      { id: 'D', text: "Sign container images in CI using `cosign sign` with KMS or keyless OIDC, and verify signatures before deployment using Cosign or an admission controller." }
+      { id: 'A', text: "Sign images in CI with `cosign sign` and have the deploy job verify before it applies." },
+      { id: 'B', text: "Enable registry content trust so the registry rejects any unsigned tag on push." },
+      { id: 'C', text: "Pin every workload to an image digest so the tag cannot be moved after review." },
+      { id: 'D', text: "Sign images in CI with `cosign sign` and verify the signature in an admission controller." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to guarantee that only container images built and signed by the authorized corporate CI pipeline can be executed in Kubernetes.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Sign container images in CI using `cosign sign` with KMS or keyless OIDC, and verify signatures before deployment using Cosign or an admission controller." },
-      { id: 'B', text: "Trust image tags without cryptographic verification." },
-      { id: 'C', text: "Commit unencrypted GPG private keys to public GitHub repositories." },
-      { id: 'D', text: "Allow developers to manually sign images using self-signed ad-hoc certificates." }
+      { id: 'A', text: "Sign images in CI with `cosign sign` and verify the signature in an admission controller." },
+      { id: 'B', text: "Pin every workload to an image digest so the tag cannot be moved after review." },
+      { id: 'C', text: "Enable registry content trust so the registry rejects any unsigned tag on push." },
+      { id: 'D', text: "Sign images in CI with `cosign sign` and have the deploy job verify before it applies." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to guarantee that only container images built and signed by the authorized corporate CI pipeline can be executed in Kubernetes.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Sign container images in CI using `cosign sign` with KMS or keyless OIDC, and verify signatures before deployment using Cosign or an admission controller." },
-      { id: 'B', text: "Trust image tags without cryptographic verification." },
-      { id: 'C', text: "Commit unencrypted GPG private keys to public GitHub repositories." },
-      { id: 'D', text: "Allow developers to manually sign images using self-signed ad-hoc certificates." }
+      { id: 'A', text: "Sign images in CI with `cosign sign` and verify the signature in an admission controller." },
+      { id: 'B', text: "Pin every workload to an image digest so the tag cannot be moved after review." },
+      { id: 'C', text: "Enable registry content trust so the registry rejects any unsigned tag on push." },
+      { id: 'D', text: "Sign images in CI with `cosign sign` and have the deploy job verify before it applies." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to guarantee that only container images built and signed by the authorized corporate CI pipeline can be executed in Kubernetes.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Commit unencrypted GPG private keys to public GitHub repositories." },
-      { id: 'B', text: "Trust image tags without cryptographic verification." },
-      { id: 'C', text: "Allow developers to manually sign images using self-signed ad-hoc certificates." },
-      { id: 'D', text: "Sign container images in CI using `cosign sign` with KMS or keyless OIDC, and verify signatures before deployment using Cosign or an admission controller." }
+      { id: 'A', text: "Enable registry content trust so the registry rejects any unsigned tag on push." },
+      { id: 'B', text: "Pin every workload to an image digest so the tag cannot be moved after review." },
+      { id: 'C', text: "Sign images in CI with `cosign sign` and have the deploy job verify before it applies." },
+      { id: 'D', text: "Sign images in CI with `cosign sign` and verify the signature in an admission controller." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to guarantee that only container images built and signed by the authorized corporate CI pipeline can be executed in Kubernetes.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Commit unencrypted GPG private keys to public GitHub repositories." },
-      { id: 'B', text: "Allow developers to manually sign images using self-signed ad-hoc certificates." },
-      { id: 'C', text: "Sign container images in CI using `cosign sign` with KMS or keyless OIDC, and verify signatures before deployment using Cosign or an admission controller." },
-      { id: 'D', text: "Trust image tags without cryptographic verification." }
+      { id: 'A', text: "Enable registry content trust so the registry rejects any unsigned tag on push." },
+      { id: 'B', text: "Sign images in CI with `cosign sign` and have the deploy job verify before it applies." },
+      { id: 'C', text: "Sign images in CI with `cosign sign` and verify the signature in an admission controller." },
+      { id: 'D', text: "Pin every workload to an image digest so the tag cannot be moved after review." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to produce a comprehensive, machine-readable inventory of all software packages and open-source dependencies included in a production container image.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Generate an SBOM using tools like `syft &lt;image&gt; -o spdx-json` or `trivy image --format cyclonedx` during container image build." },
-      { id: 'B', text: "Maintain a handwritten text file listing libraries remembered by the author." },
-      { id: 'C', text: "Ask developers to recall dependencies from memory during compliance audits." },
-      { id: 'D', text: "Delete all package metadata from containers to save disk space." }
+      { id: 'A', text: "Generate an SBOM at build time with `syft` or `trivy image --format cyclonedx`." },
+      { id: 'B', text: "Generate an SBOM at admission time with a Kyverno policy that records each image's layers." },
+      { id: 'C', text: "Generate an SBOM from the registry's own manifest list once the image has been pushed." },
+      { id: 'D', text: "Generate an SBOM from the package manager's lock files checked into the source repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to produce a comprehensive, machine-readable inventory of all software packages and open-source dependencies included in a production container image.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Delete all package metadata from containers to save disk space." },
-      { id: 'B', text: "Ask developers to recall dependencies from memory during compliance audits." },
-      { id: 'C', text: "Maintain a handwritten text file listing libraries remembered by the author." },
-      { id: 'D', text: "Generate an SBOM using tools like `syft &lt;image&gt; -o spdx-json` or `trivy image --format cyclonedx` during container image build." }
+      { id: 'A', text: "Generate an SBOM from the package manager's lock files checked into the source repository." },
+      { id: 'B', text: "Generate an SBOM from the registry's own manifest list once the image has been pushed." },
+      { id: 'C', text: "Generate an SBOM at admission time with a Kyverno policy that records each image's layers." },
+      { id: 'D', text: "Generate an SBOM at build time with `syft` or `trivy image --format cyclonedx`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to produce a comprehensive, machine-readable inventory of all software packages and open-source dependencies included in a production container image.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Ask developers to recall dependencies from memory during compliance audits." },
-      { id: 'B', text: "Maintain a handwritten text file listing libraries remembered by the author." },
-      { id: 'C', text: "Delete all package metadata from containers to save disk space." },
-      { id: 'D', text: "Generate an SBOM using tools like `syft &lt;image&gt; -o spdx-json` or `trivy image --format cyclonedx` during container image build." }
+      { id: 'A', text: "Generate an SBOM from the registry's own manifest list once the image has been pushed." },
+      { id: 'B', text: "Generate an SBOM at admission time with a Kyverno policy that records each image's layers." },
+      { id: 'C', text: "Generate an SBOM from the package manager's lock files checked into the source repository." },
+      { id: 'D', text: "Generate an SBOM at build time with `syft` or `trivy image --format cyclonedx`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to produce a comprehensive, machine-readable inventory of all software packages and open-source dependencies included in a production container image.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Ask developers to recall dependencies from memory during compliance audits." },
-      { id: 'B', text: "Generate an SBOM using tools like `syft &lt;image&gt; -o spdx-json` or `trivy image --format cyclonedx` during container image build." },
-      { id: 'C', text: "Maintain a handwritten text file listing libraries remembered by the author." },
-      { id: 'D', text: "Delete all package metadata from containers to save disk space." }
+      { id: 'A', text: "Generate an SBOM from the registry's own manifest list once the image has been pushed." },
+      { id: 'B', text: "Generate an SBOM at build time with `syft` or `trivy image --format cyclonedx`." },
+      { id: 'C', text: "Generate an SBOM at admission time with a Kyverno policy that records each image's layers." },
+      { id: 'D', text: "Generate an SBOM from the package manager's lock files checked into the source repository." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to produce a comprehensive, machine-readable inventory of all software packages and open-source dependencies included in a production container image.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Maintain a handwritten text file listing libraries remembered by the author." },
-      { id: 'B', text: "Generate an SBOM using tools like `syft &lt;image&gt; -o spdx-json` or `trivy image --format cyclonedx` during container image build." },
-      { id: 'C', text: "Delete all package metadata from containers to save disk space." },
-      { id: 'D', text: "Ask developers to recall dependencies from memory during compliance audits." }
+      { id: 'A', text: "Generate an SBOM at admission time with a Kyverno policy that records each image's layers." },
+      { id: 'B', text: "Generate an SBOM at build time with `syft` or `trivy image --format cyclonedx`." },
+      { id: 'C', text: "Generate an SBOM from the package manager's lock files checked into the source repository." },
+      { id: 'D', text: "Generate an SBOM from the registry's own manifest list once the image has been pushed." }
     ],
     correctAnswers: ['B'],
     type: "single",

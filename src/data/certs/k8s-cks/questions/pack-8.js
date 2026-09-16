@@ -9,10 +9,10 @@ export const K8S_CKS_QUESTIONS_8 = [
     scenario: "A compliance framework requires auditing all administrative actions on Kubernetes Secrets. Because Secrets contain sensitive passwords, the request and response body payloads must never be logged to disk, but the metadata (who, when, what) must be preserved.",
     question: "Which audit rule configuration in the audit policy YAML file achieves this objective?",
     options: [
-      { id: 'A', text: "Set <code>level: Metadata</code> for resources <code>secrets</code> under the core API group" },
+      { id: 'A', text: "Set <code>level: Metadata</code> for <code>secrets</code> in the core group" },
       { id: 'B', text: "Set <code>level: RequestResponse</code> for resources <code>secrets</code>" },
-      { id: 'C', text: "Set <code>level: Request</code> with an omitStages filter" },
-      { id: 'D', text: "Set <code>level: None</code> for resources <code>secrets</code>" }
+      { id: 'C', text: "Set <code>level: Request</code> for <code>secrets</code>, with an omitStages filter" },
+      { id: 'D', text: "Set <code>level: None</code> for <code>secrets</code> across every namespace" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKS_QUESTIONS_8 = [
     scenario: "A cluster administrator needs to activate audit logging on the <code>kube-apiserver</code> control plane static pod manifest.",
     question: "Which set of flags and volume mounts must be added to <code>/etc/kubernetes/manifests/kube-apiserver.yaml</code>?",
     options: [
-      { id: 'A', text: "Add <code>--enable-audit-logs=true</code> and set <code>--audit-destination=syslog</code> without volume mounts" },
-      { id: 'B', text: "Add <code>--audit-policy-file=/etc/kubernetes/audit-policy.yaml</code>, <code>--audit-log-path=/var/log/kubernetes/audit.log</code>, <code>--audit-log-maxage=30</code>, <code>--audit-log-maxbackup=10</code>, and mount the host directories into the static pod" },
-      { id: 'C', text: "Set <code>--log-dir=/var/log/audit</code> on the kubelet daemon on each worker node" },
-      { id: 'D', text: "Configure <code>audit: true</code> in the kube-apiserver ConfigMap in <code>kube-system</code>" }
+      { id: 'A', text: "Add <code>--audit-policy-file</code> and <code>--audit-log-path</code>, relying on the static pod's existing <code>/etc/kubernetes</code> mount for both" },
+      { id: 'B', text: "Add <code>--audit-policy-file</code> and <code>--audit-log-path</code> with the retention flags, and mount both host paths into the static pod" },
+      { id: 'C', text: "Add <code>--audit-webhook-config-file</code> and its retention flags, and mount the webhook kubeconfig into the static pod" },
+      { id: 'D', text: "Add <code>--audit-log-path</code> alone, and set the policy through the <code>kube-apiserver</code> ConfigMap in <code>kube-system</code>" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKS_QUESTIONS_8 = [
     scenario: "A SOC alert must fire immediately whenever an interactive shell (e.g., <code>bash</code>, <code>sh</code>, <code>zsh</code>) is spawned inside any container in a production namespace.",
     question: "Which Falco condition expression detects interactive shell execution inside a container?",
     options: [
-      { id: 'A', text: "<code>evt.type = open and file.name = '/bin/bash'</code>" },
-      { id: 'B', text: "<code>evt.type = connect and fd.port = 22</code>" },
-      { id: 'C', text: "<code>evt.type = execve and container.id != host and proc.name in (bash, sh, zsh, ksh) and proc.tty != 0</code>" },
-      { id: 'D', text: "<code>container.image = 'ubuntu' and syscall = 'fork'</code>" }
+      { id: 'A', text: "<code>evt.type = open and fd.name = '/bin/bash' and container.id != host</code>" },
+      { id: 'B', text: "<code>evt.type = connect and fd.port = 22 and container.id != host</code>" },
+      { id: 'C', text: "<code>evt.type = execve and proc.name in (bash, sh, zsh) and proc.tty != 0</code>" },
+      { id: 'D', text: "<code>evt.type = clone and proc.name in (bash, sh) and proc.tty = 0</code>" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKS_QUESTIONS_8 = [
     scenario: "A security engineer creates a custom Falco rule to detect when a container attempts to modify system binaries in <code>/bin</code> or <code>/usr/bin</code>.",
     question: "How are lists, macros, and rules structured in Falco YAML rule definitions?",
     options: [
-      { id: 'A', text: "Falco uses Rego syntax identical to Open Policy Agent" },
-      { id: 'B', text: "Falco rules must be compiled into C code before loading" },
-      { id: 'C', text: "<code>list</code> defines reusable items; <code>macro</code> defines reusable condition snippets; <code>rule</code> combines conditions with <code>output</code>, <code>priority</code>, and <code>tags</code>" },
-      { id: 'D', text: "<code>rule</code> defines YAML loops; <code>macro</code> defines regex filters; <code>output</code> formats syslog packets" }
+      { id: 'A', text: "<code>list</code> holds Rego imports, <code>macro</code> the policy package, and <code>rule</code> the deny expression Falco evaluates" },
+      { id: 'B', text: "<code>list</code> holds compiled filters, <code>macro</code> the C preprocessor defines, and <code>rule</code> the handler to link against" },
+      { id: 'C', text: "<code>list</code> holds reusable items, <code>macro</code> reusable conditions, and <code>rule</code> joins them with an output and priority" },
+      { id: 'D', text: "<code>list</code> holds YAML loops, <code>macro</code> the regex filters, and <code>rule</code> the syslog packet format to emit" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKS_QUESTIONS_8 = [
     scenario: "An attacker gains remote code execution in a web container and attempts to add a backdoor user account to <code>/etc/passwd</code>.",
     question: "Which Falco rule condition detects write operations to sensitive configuration directories inside a container?",
     options: [
-      { id: 'A', text: "<code>evt.type = clone and proc.name = 'vipw'</code>" },
-      { id: 'B', text: "<code>evt.type = read and fd.name = /etc/passwd</code>" },
-      { id: 'C', text: "<code>evt.type in (open, openat, openat2) and evt.is_open_write=true and fd.name startswith /etc/ and container.id != host</code>" },
-      { id: 'D', text: "<code>syscall = chdir and dir = /etc</code>" }
+      { id: 'A', text: "<code>evt.type = open and fd.name startswith /etc/ and container.id != host</code>" },
+      { id: 'B', text: "<code>evt.type = read and fd.name = /etc/passwd and container.id != host</code>" },
+      { id: 'C', text: "<code>evt.is_open_write=true and fd.name startswith /etc/ and container.id != host</code>" },
+      { id: 'D', text: "<code>evt.type = chdir and fd.name startswith /etc/ and container.id != host</code>" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKS_QUESTIONS_8 = [
     scenario: "A container attempts to access or mount <code>/proc/kcore</code> or <code>/dev/mem</code> from the underlying host node.",
     question: "Why does Falco flag access to <code>/dev/mem</code> and <code>/proc/kcore</code> as a critical severity incident?",
     options: [
-      { id: 'A', text: "Access to these devices automatically resets the node's network interface" },
-      { id: 'B', text: "Access to <code>/dev/mem</code> causes the kubelet to restart immediately" },
-      { id: 'C', text: "Direct access to <code>/dev/mem</code> or <code>/proc/kcore</code> exposes physical host memory, allowing attackers to extract cryptographic keys, read other processes' memory, or overwrite kernel code" },
-      { id: 'D', text: "These devices can only be mounted by CoreDNS" }
+      { id: 'A', text: "Those devices expose the node's block layer, so a process can write to the etcd data directory unnoticed" },
+      { id: 'B', text: "Those devices expose the kubelet's own address space, so a process can read the node's client certificate" },
+      { id: 'C', text: "Those devices expose physical host memory, so a process can read keys from other processes or patch the kernel" },
+      { id: 'D', text: "Those devices expose the container runtime's socket, so a process can start a privileged container of its own" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKS_QUESTIONS_8 = [
     scenario: "A security analyst suspects that an attacker modified application source files inside a running container that was deployed with a mutable root filesystem.",
     question: "How can an analyst inspect the container's writable upper layer to identify files that were added, modified, or deleted since the container started?",
     options: [
-      { id: 'A', text: "Inspect the container's storage root graph driver directory (under <code>/var/lib/containerd/...</code> or overlayfs <code>diff/</code> directory) on the host node" },
-      { id: 'B', text: "Run <code>crictl stats --format json</code>" },
-      { id: 'C', text: "Run <code>kubectl logs &lt;pod&gt; --all-files</code>" },
-      { id: 'D', text: "Run <code>etcdctl get /containers/diff</code>" }
+      { id: 'A', text: "Read the container's overlayfs <code>diff/</code> directory on the node" },
+      { id: 'B', text: "Read the layer digests that <code>crictl inspect</code> reports for the running container" },
+      { id: 'C', text: "Read the mount table in <code>/proc/&lt;PID&gt;/mountinfo</code> for the container's root" },
+      { id: 'D', text: "Read the image's manifest from the registry and compare it with the node's cache" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKS_QUESTIONS_8 = [
     scenario: "A cluster penetration test detects that <code>system:anonymous</code> is executing read queries against the API server.",
     question: "How can an administrator locate and audit all requests originating from unauthenticated users in the Kubernetes audit log?",
     options: [
-      { id: 'A', text: "Filter the audit log for HTTP status code 404" },
-      { id: 'B', text: "Check <code>dmesg</code> for unauthenticated kernel calls" },
-      { id: 'C', text: "Search the audit log for entries matching <code>user.username: 'system:anonymous'</code>" },
-      { id: 'D', text: "Query <code>kubectl get events -n kube-system</code>" }
+      { id: 'A', text: "Search the audit log for a <code>responseStatus.code</code> of 404" },
+      { id: 'B', text: "Search the node journal for the API server's rejected requests" },
+      { id: 'C', text: "Search the audit log for <code>user.username: 'system:anonymous'</code>" },
+      { id: 'D', text: "Search the events API in <code>kube-system</code> for auth warnings" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKS_QUESTIONS_8 = [
     scenario: "An advanced threat actor avoids writing malware binaries to disk by compiling or executing malicious ELF binaries directly in Linux memory using the <code>memfd_create</code> system call.",
     question: "Which Falco detection logic flags in-memory file descriptor execution?",
     options: [
-      { id: 'A', text: "Monitor <code>evt.type = memfd_create</code> or <code>proc.cmdline startswith '/memfd:'</code>" },
-      { id: 'B', text: "Monitor <code>evt.type = socket</code> for TCP connections" },
-      { id: 'C', text: "Monitor <code>syscall = mprotect</code> with PROT_READ only" },
-      { id: 'D', text: "Monitor <code>evt.type = read</code> on <code>/tmp</code>" }
+      { id: 'A', text: "Match <code>evt.type = memfd_create</code>, or a cmdline starting <code>/memfd:</code>" },
+      { id: 'B', text: "Match <code>evt.type = socket</code> followed by an <code>execve</code> in the container" },
+      { id: 'C', text: "Match <code>evt.type = mprotect</code> where the new protection is read-only" },
+      { id: 'D', text: "Match <code>evt.type = read</code> on a file under <code>/tmp</code> in the container" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKS_QUESTIONS_8 = [
     scenario: "A Kubernetes audit log file is filling up disk space rapidly due to thousands of repeated <code>get</code> and <code>watch</code> requests from <code>kube-proxy</code> and <code>kubelet</code> on endpoints and configmaps.",
     question: "How can noisy non-security-relevant queries be excluded in the audit policy without omitting critical administrative modifications?",
     options: [
-      { id: 'A', text: "Add early audit rules matching users <code>system:kube-proxy</code> and <code>system:nodes</code> with verbs <code>get, watch, list</code> and set <code>level: None</code>" },
-      { id: 'B', text: "Delete the <code>kube-proxy</code> DaemonSet from the cluster" },
-      { id: 'C', text: "Set <code>--audit-log-path=/dev/null</code> on the API server" },
-      { id: 'D', text: "Set <code>level: RequestResponse</code> for all resources across all namespaces" }
+      { id: 'A', text: "Add early rules at <code>level: None</code> for the system components' read verbs" },
+      { id: 'B', text: "Add a final rule at <code>level: None</code> for read verbs across every user and resource" },
+      { id: 'C', text: "Add early rules at <code>level: Metadata</code> for every user, and omit the write verbs" },
+      { id: 'D', text: "Add one rule at <code>level: RequestResponse</code> for all resources in all namespaces" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKS_QUESTIONS_8 = [
     scenario: "An attacker breaks into a container and runs <code>nmap</code> or <code>masscan</code> to map internal cluster network services.",
     question: "Which system call pattern indicates network scanning activity inside a container?",
     options: [
-      { id: 'A', text: "Continuous <code>gettimeofday</code> invocations" },
-      { id: 'B', text: "A rapid burst of outbound <code>connect</code> system calls to a high volume of distinct destination IP addresses or ports within a short time window" },
-      { id: 'C', text: "Binding to localhost port 8080" },
-      { id: 'D', text: "Multiple <code>read</code> calls on <code>/etc/hosts</code>" }
+      { id: 'A', text: "A burst of <code>socket</code> calls followed by repeated <code>gettimeofday</code> invocations" },
+      { id: 'B', text: "A burst of outbound <code>connect</code> calls to many distinct addresses or ports in a short window" },
+      { id: 'C', text: "A burst of <code>bind</code> calls across a range of local ports on the loopback address" },
+      { id: 'D', text: "A burst of <code>read</code> calls on <code>/etc/hosts</code> and <code>/etc/resolv.conf</code>" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKS_QUESTIONS_8 = [
     scenario: "A critical payment pod is compromised. Before terminating the pod, security investigators must capture a forensic image of the container's process memory without alerting the attacker.",
     question: "Which tool or technique captures process memory from the host worker node?",
     options: [
-      { id: 'A', text: "Copy <code>/var/log/pods</code> to an external USB stick" },
-      { id: 'B', text: "Run <code>kubectl delete pod &lt;pod-name&gt; --now</code>" },
-      { id: 'C', text: "Run <code>crictl stop &lt;container-id&gt;</code>" },
-      { id: 'D', text: "Dump the memory pages of the container process using <code>gcore &lt;PID&gt;</code> (or reading <code>/proc/&lt;PID&gt;/mem</code> using LiME / AVML)" }
+      { id: 'A', text: "Copy the container's writable layer off the node and carve the strings out of it" },
+      { id: 'B', text: "Checkpoint the container with <code>crictl checkpoint</code> and export the archive" },
+      { id: 'C', text: "Stop the container with <code>crictl stop</code> and collect the runtime's core file" },
+      { id: 'D', text: "Dump the process with <code>gcore &lt;PID&gt;</code>, or LiME over its memory" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKS_QUESTIONS_8 = [
     scenario: "A containerized pod is infected by a trojan that initiates outbound HTTPS connections to an external command-and-control (C2) IP address.",
     question: "Which Falco macro or condition identifies unexpected outbound network connections from containers?",
     options: [
-      { id: 'A', text: "<code>evt.type = connect and evt.dir = &lt; and (fd.typechar = 4 or fd.typechar = 6) and container.id != host and not inbound</code>" },
-      { id: 'B', text: "<code>evt.type = accept and container.id = host</code>" },
-      { id: 'C', text: "<code>evt.type = recvfrom and fd.port = 53</code>" },
-      { id: 'D', text: "<code>evt.type = listen and fd.port = 443</code>" }
+      { id: 'A', text: "<code>evt.type = connect and evt.dir = &lt; and container.id != host and not inbound</code>" },
+      { id: 'B', text: "<code>evt.type = accept and evt.dir = &lt; and container.id != host and not outbound</code>" },
+      { id: 'C', text: "<code>evt.type = recvfrom and fd.port = 53 and container.id != host</code>" },
+      { id: 'D', text: "<code>evt.type = listen and fd.port = 443 and container.id != host</code>" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKS_QUESTIONS_8 = [
     scenario: "On a hardened Linux worker node where loading third-party kernel modules is disabled, Falco must run using its modern eBPF driver.",
     question: "Which setting in <code>/etc/falco/falco.yaml</code> or environment variable configures Falco to use eBPF instead of a kernel module?",
     options: [
-      { id: 'A', text: "Set <code>runtime: containerd</code>" },
-      { id: 'B', text: "Set <code>kernel_module: force</code>" },
-      { id: 'C', text: "Set <code>driver: none</code>" },
-      { id: 'D', text: "Set <code>engine: { kind: ebpf }</code> (or <code>ebpf: { enabled: true }</code>) and specify <code>probe: /root/.falco/falco-bpf.o</code>" }
+      { id: 'A', text: "Set <code>engine: { kind: kmod }</code> and let the driver loader build the module" },
+      { id: 'B', text: "Set <code>driver: { mode: force }</code> so the kernel module is preferred at start" },
+      { id: 'C', text: "Set <code>engine: { kind: nodriver }</code> and read the events from the runtime" },
+      { id: 'D', text: "Set <code>engine: { kind: ebpf }</code> and point <code>probe</code> at the compiled BPF object" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKS_QUESTIONS_8 = [
     scenario: "An attacker with stolen cluster credentials executes <code>kubectl get secrets -A -o yaml</code> to harvest all secrets across the entire cluster.",
     question: "Which signature in the Kubernetes audit log indicates a cluster-wide secret harvesting operation?",
     options: [
-      { id: 'A', text: "An audit event with <code>verb: list</code>, <code>objectRef.resource: secrets</code>, and an empty (all namespaces) <code>objectRef.namespace</code> field" },
-      { id: 'B', text: "An audit event with <code>level: None</code>" },
-      { id: 'C', text: "An audit event with <code>verb: delete</code> on namespace <code>kube-system</code>" },
-      { id: 'D', text: "An audit event with <code>verb: get</code> on resource <code>nodes</code>" }
+      { id: 'A', text: "A <code>verb: list</code> on <code>secrets</code> with no namespace in <code>objectRef</code>" },
+      { id: 'B', text: "A <code>verb: get</code> on <code>secrets</code> repeated across many namespaces" },
+      { id: 'C', text: "A <code>verb: delete</code> on <code>secrets</code> in the <code>kube-system</code> namespace" },
+      { id: 'D', text: "A <code>verb: watch</code> on <code>nodes</code> from an unexpected user agent" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKS_QUESTIONS_8 = [
     scenario: "An attacker compromises a container and initiates a Monero crypto-miner that connects to a public mining pool using the Stratum protocol over port 3333 or 4444.",
     question: "Which Falco detection strategy identifies crypto-mining software in containers?",
     options: [
-      { id: 'A', text: "Monitor container CPU usage using <code>top</code>" },
-      { id: 'B', text: "Check for HTTP 200 responses from Google" },
-      { id: 'C', text: "Detect known miner process names (e.g., <code>xmrig</code>, <code>minerd</code>) and monitor network connections on common mining pool ports (3333, 4444, 5555) or Stratum protocol negotiation strings" },
-      { id: 'D', text: "Block all UDP packets on port 53" }
+      { id: 'A', text: "Match sustained container CPU above a threshold using Falco's metrics source" },
+      { id: 'B', text: "Match outbound DNS queries whose answers resolve to unknown hosting ranges" },
+      { id: 'C', text: "Match known miner process names and connections to the Stratum pool ports" },
+      { id: 'D', text: "Match writes into <code>/tmp</code> followed by an <code>execve</code> of the written file" }
     ],
     correctAnswers: ['C'],
     type: "single",

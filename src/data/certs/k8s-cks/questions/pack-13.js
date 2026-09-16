@@ -9,10 +9,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent a container from snooping on host network packets, inspecting host process IDs, or accessing host shared memory.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Run containers in the host root cgroup namespace." },
-      { id: 'B', text: "Mount `/proc` and `/sys` from the host directly into the container." },
-      { id: 'C', text: "Ensure `hostNetwork: false`, `hostPID: false`, and `hostIPC: false` are set (the secure defaults) in the pod spec." },
-      { id: 'D', text: "Set hostNetwork: true and hostPID: true on all application pods." }
+      { id: 'A', text: "Keep `hostNetwork: false` but set `hostPID: true` so the sidecar can see the app's processes." },
+      { id: 'B', text: "Keep the host namespaces off and mount `/proc` from the host so metrics can still be read." },
+      { id: 'C', text: "Keep `hostNetwork`, `hostPID` and `hostIPC` at their secure default of false in the pod spec." },
+      { id: 'D', text: "Set `shareProcessNamespace: true` so the containers share a namespace with each other." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent a container from snooping on host network packets, inspecting host process IDs, or accessing host shared memory.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Set hostNetwork: true and hostPID: true on all application pods." },
-      { id: 'B', text: "Run containers in the host root cgroup namespace." },
-      { id: 'C', text: "Ensure `hostNetwork: false`, `hostPID: false`, and `hostIPC: false` are set (the secure defaults) in the pod spec." },
-      { id: 'D', text: "Mount `/proc` and `/sys` from the host directly into the container." }
+      { id: 'A', text: "Set `shareProcessNamespace: true` so the containers share a namespace with each other." },
+      { id: 'B', text: "Keep `hostNetwork: false` but set `hostPID: true` so the sidecar can see the app's processes." },
+      { id: 'C', text: "Keep `hostNetwork`, `hostPID` and `hostIPC` at their secure default of false in the pod spec." },
+      { id: 'D', text: "Keep the host namespaces off and mount `/proc` from the host so metrics can still be read." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent a container from snooping on host network packets, inspecting host process IDs, or accessing host shared memory.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Ensure `hostNetwork: false`, `hostPID: false`, and `hostIPC: false` are set (the secure defaults) in the pod spec." },
-      { id: 'B', text: "Set hostNetwork: true and hostPID: true on all application pods." },
-      { id: 'C', text: "Run containers in the host root cgroup namespace." },
-      { id: 'D', text: "Mount `/proc` and `/sys` from the host directly into the container." }
+      { id: 'A', text: "Keep `hostNetwork`, `hostPID` and `hostIPC` at their secure default of false in the pod spec." },
+      { id: 'B', text: "Set `shareProcessNamespace: true` so the containers share a namespace with each other." },
+      { id: 'C', text: "Keep `hostNetwork: false` but set `hostPID: true` so the sidecar can see the app's processes." },
+      { id: 'D', text: "Keep the host namespaces off and mount `/proc` from the host so metrics can still be read." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent a container from snooping on host network packets, inspecting host process IDs, or accessing host shared memory.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Mount `/proc` and `/sys` from the host directly into the container." },
-      { id: 'B', text: "Run containers in the host root cgroup namespace." },
-      { id: 'C', text: "Set hostNetwork: true and hostPID: true on all application pods." },
-      { id: 'D', text: "Ensure `hostNetwork: false`, `hostPID: false`, and `hostIPC: false` are set (the secure defaults) in the pod spec." }
+      { id: 'A', text: "Keep the host namespaces off and mount `/proc` from the host so metrics can still be read." },
+      { id: 'B', text: "Keep `hostNetwork: false` but set `hostPID: true` so the sidecar can see the app's processes." },
+      { id: 'C', text: "Set `shareProcessNamespace: true` so the containers share a namespace with each other." },
+      { id: 'D', text: "Keep `hostNetwork`, `hostPID` and `hostIPC` at their secure default of false in the pod spec." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent a container from snooping on host network packets, inspecting host process IDs, or accessing host shared memory.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Run containers in the host root cgroup namespace." },
-      { id: 'B', text: "Mount `/proc` and `/sys` from the host directly into the container." },
-      { id: 'C', text: "Ensure `hostNetwork: false`, `hostPID: false`, and `hostIPC: false` are set (the secure defaults) in the pod spec." },
-      { id: 'D', text: "Set hostNetwork: true and hostPID: true on all application pods." }
+      { id: 'A', text: "Keep `hostNetwork: false` but set `hostPID: true` so the sidecar can see the app's processes." },
+      { id: 'B', text: "Keep the host namespaces off and mount `/proc` from the host so metrics can still be read." },
+      { id: 'C', text: "Keep `hostNetwork`, `hostPID` and `hostIPC` at their secure default of false in the pod spec." },
+      { id: 'D', text: "Set `shareProcessNamespace: true` so the containers share a namespace with each other." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent a pod from mounting the host `/etc/shadow` file or Docker/containerd socket and gaining root host takeover.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Allow containers to mount `/` with read-write hostPath access." },
-      { id: 'B', text: "Share the root directory of the master node with all pod developers." },
-      { id: 'C', text: "Prohibit `hostPath` volume mounts via admission control (e.g., Pod Security Admission restricted level), using PVCs or emptyDir instead." },
-      { id: 'D', text: "Store application database files on hostPath volumes in `/root/`." }
+      { id: 'A', text: "Allow `hostPath` volumes but set `readOnly: true` on each mount so the node cannot be written to." },
+      { id: 'B', text: "Allow `hostPath` volumes only under `/var/lib/app`, enforced by a Kyverno validate policy." },
+      { id: 'C', text: "Reject `hostPath` volumes by admission — the restricted Pod Security level — and use PVCs or `emptyDir`." },
+      { id: 'D', text: "Reject `hostPath` volumes with a LimitRange on the namespace that omits the volume type." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent a pod from mounting the host `/etc/shadow` file or Docker/containerd socket and gaining root host takeover.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Store application database files on hostPath volumes in `/root/`." },
-      { id: 'B', text: "Share the root directory of the master node with all pod developers." },
-      { id: 'C', text: "Allow containers to mount `/` with read-write hostPath access." },
-      { id: 'D', text: "Prohibit `hostPath` volume mounts via admission control (e.g., Pod Security Admission restricted level), using PVCs or emptyDir instead." }
+      { id: 'A', text: "Reject `hostPath` volumes with a LimitRange on the namespace that omits the volume type." },
+      { id: 'B', text: "Allow `hostPath` volumes only under `/var/lib/app`, enforced by a Kyverno validate policy." },
+      { id: 'C', text: "Allow `hostPath` volumes but set `readOnly: true` on each mount so the node cannot be written to." },
+      { id: 'D', text: "Reject `hostPath` volumes by admission — the restricted Pod Security level — and use PVCs or `emptyDir`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent a pod from mounting the host `/etc/shadow` file or Docker/containerd socket and gaining root host takeover.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Share the root directory of the master node with all pod developers." },
-      { id: 'B', text: "Allow containers to mount `/` with read-write hostPath access." },
-      { id: 'C', text: "Store application database files on hostPath volumes in `/root/`." },
-      { id: 'D', text: "Prohibit `hostPath` volume mounts via admission control (e.g., Pod Security Admission restricted level), using PVCs or emptyDir instead." }
+      { id: 'A', text: "Allow `hostPath` volumes only under `/var/lib/app`, enforced by a Kyverno validate policy." },
+      { id: 'B', text: "Allow `hostPath` volumes but set `readOnly: true` on each mount so the node cannot be written to." },
+      { id: 'C', text: "Reject `hostPath` volumes with a LimitRange on the namespace that omits the volume type." },
+      { id: 'D', text: "Reject `hostPath` volumes by admission — the restricted Pod Security level — and use PVCs or `emptyDir`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent a pod from mounting the host `/etc/shadow` file or Docker/containerd socket and gaining root host takeover.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Prohibit `hostPath` volume mounts via admission control (e.g., Pod Security Admission restricted level), using PVCs or emptyDir instead." },
-      { id: 'B', text: "Allow containers to mount `/` with read-write hostPath access." },
-      { id: 'C', text: "Share the root directory of the master node with all pod developers." },
-      { id: 'D', text: "Store application database files on hostPath volumes in `/root/`." }
+      { id: 'A', text: "Reject `hostPath` volumes by admission — the restricted Pod Security level — and use PVCs or `emptyDir`." },
+      { id: 'B', text: "Allow `hostPath` volumes but set `readOnly: true` on each mount so the node cannot be written to." },
+      { id: 'C', text: "Allow `hostPath` volumes only under `/var/lib/app`, enforced by a Kyverno validate policy." },
+      { id: 'D', text: "Reject `hostPath` volumes with a LimitRange on the namespace that omits the volume type." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent a pod from mounting the host `/etc/shadow` file or Docker/containerd socket and gaining root host takeover.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Prohibit `hostPath` volume mounts via admission control (e.g., Pod Security Admission restricted level), using PVCs or emptyDir instead." },
-      { id: 'B', text: "Allow containers to mount `/` with read-write hostPath access." },
-      { id: 'C', text: "Share the root directory of the master node with all pod developers." },
-      { id: 'D', text: "Store application database files on hostPath volumes in `/root/`." }
+      { id: 'A', text: "Reject `hostPath` volumes by admission — the restricted Pod Security level — and use PVCs or `emptyDir`." },
+      { id: 'B', text: "Allow `hostPath` volumes but set `readOnly: true` on each mount so the node cannot be written to." },
+      { id: 'C', text: "Allow `hostPath` volumes only under `/var/lib/app`, enforced by a Kyverno validate policy." },
+      { id: 'D', text: "Reject `hostPath` volumes with a LimitRange on the namespace that omits the volume type." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to harden Linux worker node operating systems against unauthorized lateral movement and privilege escalation.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Disable unused systemd services, remove unnecessary compilers/packages, close unused ports with UFW/iptables, and apply security kernel updates." },
-      { id: 'B', text: "Install development compilers, debugging suites, and game servers on production worker nodes." },
-      { id: 'C', text: "Disable operating system firewall rules entirely." },
-      { id: 'D', text: "Allow SSH login using empty passwords for root users." }
+      { id: 'A', text: "Disable unused services, remove build toolchains, close ports with the host firewall, and patch the kernel." },
+      { id: 'B', text: "Disable unused services, keep the build toolchain for debugging, and patch on the quarterly cycle." },
+      { id: 'C', text: "Disable the host firewall so kube-proxy owns the rules, and patch the kernel on each reboot." },
+      { id: 'D', text: "Disable password SSH in favour of keys, and leave the remaining packages for the image owner." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to harden Linux worker node operating systems against unauthorized lateral movement and privilege escalation.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Disable operating system firewall rules entirely." },
-      { id: 'B', text: "Install development compilers, debugging suites, and game servers on production worker nodes." },
-      { id: 'C', text: "Allow SSH login using empty passwords for root users." },
-      { id: 'D', text: "Disable unused systemd services, remove unnecessary compilers/packages, close unused ports with UFW/iptables, and apply security kernel updates." }
+      { id: 'A', text: "Disable the host firewall so kube-proxy owns the rules, and patch the kernel on each reboot." },
+      { id: 'B', text: "Disable unused services, keep the build toolchain for debugging, and patch on the quarterly cycle." },
+      { id: 'C', text: "Disable password SSH in favour of keys, and leave the remaining packages for the image owner." },
+      { id: 'D', text: "Disable unused services, remove build toolchains, close ports with the host firewall, and patch the kernel." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to harden Linux worker node operating systems against unauthorized lateral movement and privilege escalation.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Disable unused systemd services, remove unnecessary compilers/packages, close unused ports with UFW/iptables, and apply security kernel updates." },
-      { id: 'B', text: "Disable operating system firewall rules entirely." },
-      { id: 'C', text: "Allow SSH login using empty passwords for root users." },
-      { id: 'D', text: "Install development compilers, debugging suites, and game servers on production worker nodes." }
+      { id: 'A', text: "Disable unused services, remove build toolchains, close ports with the host firewall, and patch the kernel." },
+      { id: 'B', text: "Disable the host firewall so kube-proxy owns the rules, and patch the kernel on each reboot." },
+      { id: 'C', text: "Disable password SSH in favour of keys, and leave the remaining packages for the image owner." },
+      { id: 'D', text: "Disable unused services, keep the build toolchain for debugging, and patch on the quarterly cycle." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to harden Linux worker node operating systems against unauthorized lateral movement and privilege escalation.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Disable unused systemd services, remove unnecessary compilers/packages, close unused ports with UFW/iptables, and apply security kernel updates." },
-      { id: 'B', text: "Install development compilers, debugging suites, and game servers on production worker nodes." },
-      { id: 'C', text: "Disable operating system firewall rules entirely." },
-      { id: 'D', text: "Allow SSH login using empty passwords for root users." }
+      { id: 'A', text: "Disable unused services, remove build toolchains, close ports with the host firewall, and patch the kernel." },
+      { id: 'B', text: "Disable unused services, keep the build toolchain for debugging, and patch on the quarterly cycle." },
+      { id: 'C', text: "Disable the host firewall so kube-proxy owns the rules, and patch the kernel on each reboot." },
+      { id: 'D', text: "Disable password SSH in favour of keys, and leave the remaining packages for the image owner." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to harden Linux worker node operating systems against unauthorized lateral movement and privilege escalation.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Disable operating system firewall rules entirely." },
-      { id: 'B', text: "Install development compilers, debugging suites, and game servers on production worker nodes." },
-      { id: 'C', text: "Allow SSH login using empty passwords for root users." },
-      { id: 'D', text: "Disable unused systemd services, remove unnecessary compilers/packages, close unused ports with UFW/iptables, and apply security kernel updates." }
+      { id: 'A', text: "Disable the host firewall so kube-proxy owns the rules, and patch the kernel on each reboot." },
+      { id: 'B', text: "Disable unused services, keep the build toolchain for debugging, and patch on the quarterly cycle." },
+      { id: 'C', text: "Disable password SSH in favour of keys, and leave the remaining packages for the image owner." },
+      { id: 'D', text: "Disable unused services, remove build toolchains, close ports with the host firewall, and patch the kernel." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent a container from mounting filesystems, creating cgroups, or modifying network routing tables inside the host kernel.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Explicitly disallow `CAP_SYS_ADMIN` and `CAP_NET_ADMIN` in container securityContext, adhering to restricted Pod Security Standards." },
-      { id: 'B', text: "Grant `CAP_SYS_ADMIN` to all application containers by default." },
-      { id: 'C', text: "Add all Linux capabilities to the container process." },
-      { id: 'D', text: "Run the container with `--cap-add=ALL`." }
+      { id: 'A', text: "Deny `CAP_SYS_ADMIN` and `CAP_NET_ADMIN` in the securityContext, per the restricted Pod Security Standard." },
+      { id: 'B', text: "Set `privileged: false` with `allowPrivilegeEscalation: true`, per the baseline Pod Security Standard." },
+      { id: 'C', text: "Add `CAP_NET_ADMIN` back after dropping all, so the workload keeps its own network setup." },
+      { id: 'D', text: "Set `procMount: Default` and `hostPID: false`, which removes the capabilities from the container." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent a container from mounting filesystems, creating cgroups, or modifying network routing tables inside the host kernel.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Explicitly disallow `CAP_SYS_ADMIN` and `CAP_NET_ADMIN` in container securityContext, adhering to restricted Pod Security Standards." },
-      { id: 'B', text: "Grant `CAP_SYS_ADMIN` to all application containers by default." },
-      { id: 'C', text: "Add all Linux capabilities to the container process." },
-      { id: 'D', text: "Run the container with `--cap-add=ALL`." }
+      { id: 'A', text: "Deny `CAP_SYS_ADMIN` and `CAP_NET_ADMIN` in the securityContext, per the restricted Pod Security Standard." },
+      { id: 'B', text: "Set `privileged: false` with `allowPrivilegeEscalation: true`, per the baseline Pod Security Standard." },
+      { id: 'C', text: "Add `CAP_NET_ADMIN` back after dropping all, so the workload keeps its own network setup." },
+      { id: 'D', text: "Set `procMount: Default` and `hostPID: false`, which removes the capabilities from the container." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent a container from mounting filesystems, creating cgroups, or modifying network routing tables inside the host kernel.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Run the container with `--cap-add=ALL`." },
-      { id: 'B', text: "Add all Linux capabilities to the container process." },
-      { id: 'C', text: "Grant `CAP_SYS_ADMIN` to all application containers by default." },
-      { id: 'D', text: "Explicitly disallow `CAP_SYS_ADMIN` and `CAP_NET_ADMIN` in container securityContext, adhering to restricted Pod Security Standards." }
+      { id: 'A', text: "Set `procMount: Default` and `hostPID: false`, which removes the capabilities from the container." },
+      { id: 'B', text: "Add `CAP_NET_ADMIN` back after dropping all, so the workload keeps its own network setup." },
+      { id: 'C', text: "Set `privileged: false` with `allowPrivilegeEscalation: true`, per the baseline Pod Security Standard." },
+      { id: 'D', text: "Deny `CAP_SYS_ADMIN` and `CAP_NET_ADMIN` in the securityContext, per the restricted Pod Security Standard." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent a container from mounting filesystems, creating cgroups, or modifying network routing tables inside the host kernel.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Explicitly disallow `CAP_SYS_ADMIN` and `CAP_NET_ADMIN` in container securityContext, adhering to restricted Pod Security Standards." },
-      { id: 'B', text: "Grant `CAP_SYS_ADMIN` to all application containers by default." },
-      { id: 'C', text: "Add all Linux capabilities to the container process." },
-      { id: 'D', text: "Run the container with `--cap-add=ALL`." }
+      { id: 'A', text: "Deny `CAP_SYS_ADMIN` and `CAP_NET_ADMIN` in the securityContext, per the restricted Pod Security Standard." },
+      { id: 'B', text: "Set `privileged: false` with `allowPrivilegeEscalation: true`, per the baseline Pod Security Standard." },
+      { id: 'C', text: "Add `CAP_NET_ADMIN` back after dropping all, so the workload keeps its own network setup." },
+      { id: 'D', text: "Set `procMount: Default` and `hostPID: false`, which removes the capabilities from the container." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent a container from mounting filesystems, creating cgroups, or modifying network routing tables inside the host kernel.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Explicitly disallow `CAP_SYS_ADMIN` and `CAP_NET_ADMIN` in container securityContext, adhering to restricted Pod Security Standards." },
-      { id: 'B', text: "Grant `CAP_SYS_ADMIN` to all application containers by default." },
-      { id: 'C', text: "Add all Linux capabilities to the container process." },
-      { id: 'D', text: "Run the container with `--cap-add=ALL`." }
+      { id: 'A', text: "Deny `CAP_SYS_ADMIN` and `CAP_NET_ADMIN` in the securityContext, per the restricted Pod Security Standard." },
+      { id: 'B', text: "Set `privileged: false` with `allowPrivilegeEscalation: true`, per the baseline Pod Security Standard." },
+      { id: 'C', text: "Add `CAP_NET_ADMIN` back after dropping all, so the workload keeps its own network setup." },
+      { id: 'D', text: "Set `procMount: Default` and `hostPID: false`, which removes the capabilities from the container." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to identify unauthorized network listeners and unknown processes running on a Kubernetes worker node.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Execute `ss -tulpn` (or `netstat -tulpn`) and `lsof -i` to inspect listening sockets and trace them back to specific process IDs." },
-      { id: 'B', text: "Reboot the worker node and assume unauthorized listeners will not restart." },
-      { id: 'C', text: "Query the Kubernetes API server for pod names without checking host ports." },
-      { id: 'D', text: "Inspect DNS query logs exclusively without examining listening TCP sockets." }
+      { id: 'A', text: "Run `ss -tulpn` and `lsof -i` on the node to trace each listening socket to its process." },
+      { id: 'B', text: "Run `crictl ps` and compare the container ports against the pods the API server reports." },
+      { id: 'C', text: "Run `kubectl get pods -o wide --all-namespaces` and check which pods declare host ports." },
+      { id: 'D', text: "Run `iptables -t nat -L KUBE-SERVICES` and read the ports kube-proxy has programmed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to identify unauthorized network listeners and unknown processes running on a Kubernetes worker node.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Execute `ss -tulpn` (or `netstat -tulpn`) and `lsof -i` to inspect listening sockets and trace them back to specific process IDs." },
-      { id: 'B', text: "Reboot the worker node and assume unauthorized listeners will not restart." },
-      { id: 'C', text: "Query the Kubernetes API server for pod names without checking host ports." },
-      { id: 'D', text: "Inspect DNS query logs exclusively without examining listening TCP sockets." }
+      { id: 'A', text: "Run `ss -tulpn` and `lsof -i` on the node to trace each listening socket to its process." },
+      { id: 'B', text: "Run `crictl ps` and compare the container ports against the pods the API server reports." },
+      { id: 'C', text: "Run `kubectl get pods -o wide --all-namespaces` and check which pods declare host ports." },
+      { id: 'D', text: "Run `iptables -t nat -L KUBE-SERVICES` and read the ports kube-proxy has programmed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to identify unauthorized network listeners and unknown processes running on a Kubernetes worker node.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Reboot the worker node and assume unauthorized listeners will not restart." },
-      { id: 'B', text: "Execute `ss -tulpn` (or `netstat -tulpn`) and `lsof -i` to inspect listening sockets and trace them back to specific process IDs." },
-      { id: 'C', text: "Inspect DNS query logs exclusively without examining listening TCP sockets." },
-      { id: 'D', text: "Query the Kubernetes API server for pod names without checking host ports." }
+      { id: 'A', text: "Run `crictl ps` and compare the container ports against the pods the API server reports." },
+      { id: 'B', text: "Run `ss -tulpn` and `lsof -i` on the node to trace each listening socket to its process." },
+      { id: 'C', text: "Run `iptables -t nat -L KUBE-SERVICES` and read the ports kube-proxy has programmed." },
+      { id: 'D', text: "Run `kubectl get pods -o wide --all-namespaces` and check which pods declare host ports." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to identify unauthorized network listeners and unknown processes running on a Kubernetes worker node.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Execute `ss -tulpn` (or `netstat -tulpn`) and `lsof -i` to inspect listening sockets and trace them back to specific process IDs." },
-      { id: 'B', text: "Reboot the worker node and assume unauthorized listeners will not restart." },
-      { id: 'C', text: "Query the Kubernetes API server for pod names without checking host ports." },
-      { id: 'D', text: "Inspect DNS query logs exclusively without examining listening TCP sockets." }
+      { id: 'A', text: "Run `ss -tulpn` and `lsof -i` on the node to trace each listening socket to its process." },
+      { id: 'B', text: "Run `crictl ps` and compare the container ports against the pods the API server reports." },
+      { id: 'C', text: "Run `kubectl get pods -o wide --all-namespaces` and check which pods declare host ports." },
+      { id: 'D', text: "Run `iptables -t nat -L KUBE-SERVICES` and read the ports kube-proxy has programmed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to identify unauthorized network listeners and unknown processes running on a Kubernetes worker node.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Inspect DNS query logs exclusively without examining listening TCP sockets." },
-      { id: 'B', text: "Query the Kubernetes API server for pod names without checking host ports." },
-      { id: 'C', text: "Reboot the worker node and assume unauthorized listeners will not restart." },
-      { id: 'D', text: "Execute `ss -tulpn` (or `netstat -tulpn`) and `lsof -i` to inspect listening sockets and trace them back to specific process IDs." }
+      { id: 'A', text: "Run `iptables -t nat -L KUBE-SERVICES` and read the ports kube-proxy has programmed." },
+      { id: 'B', text: "Run `kubectl get pods -o wide --all-namespaces` and check which pods declare host ports." },
+      { id: 'C', text: "Run `crictl ps` and compare the container ports against the pods the API server reports." },
+      { id: 'D', text: "Run `ss -tulpn` and `lsof -i` on the node to trace each listening socket to its process." }
     ],
     correctAnswers: ['D'],
     type: "single",

@@ -9,10 +9,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "A malicious pod configuration includes <code>hostNetwork: true</code>, <code>hostPID: true</code>, and <code>hostIPC: true</code>. What threat does this pose to the host node?",
     question: "What critical security capability does sharing host namespaces grant to a container process?",
     options: [
-      { id: 'A', text: "The container can snoop on host loopback traffic, sniff network traffic of all other pods on the node, view and signal all host processes, and interact with host shared memory" },
-      { id: 'B', text: "The container encrypts all node file systems using root certificates" },
-      { id: 'C', text: "The container is automatically granted the <code>cluster-admin</code> RBAC role by the API server" },
-      { id: 'D', text: "The container forces the node to reboot when its process finishes execution" }
+      { id: 'A', text: "It can sniff the node's loopback and pod traffic, see and signal host processes, and reach host shared memory" },
+      { id: 'B', text: "It can read every file on the node, since the host mount namespace is shared along with the others" },
+      { id: 'C', text: "It can call the API server as the node's own identity, which carries the <code>system:node</code> role" },
+      { id: 'D', text: "It can restart the node's services, since the host's systemd socket is exposed with the namespace" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "An attacker crafts a pod manifest mounting <code>/etc</code> and <code>/var/run/docker.sock</code> from the host using <code>hostPath</code> volumes in order to achieve container escape and take full control of the worker node.",
     question: "Which cluster-level policy mechanism prevents pods from mounting dangerous host filesystem paths?",
     options: [
-      { id: 'A', text: "Set <code>readOnlyRootFilesystem: true</code> on the container specification" },
-      { id: 'B', text: "Configure an egress NetworkPolicy blocking UDP port 53" },
-      { id: 'C', text: "Enable the <code>NodeRestriction</code> admission plugin on <code>kube-apiserver</code>" },
-      { id: 'D', text: "Enforce the Pod Security Standard <code>baseline</code> or <code>restricted</code> profile, or deploy admission policies (e.g., OPA Gatekeeper, Kyverno) that forbid <code>hostPath</code> volume types" }
+      { id: 'A', text: "Set <code>readOnlyRootFilesystem: true</code> on the containers so a mounted host path cannot be written to" },
+      { id: 'B', text: "Enable the <code>NodeRestriction</code> plugin so a kubelet cannot admit pods that mount paths it does not own" },
+      { id: 'C', text: "Set a <code>LimitRange</code> in each namespace that omits <code>hostPath</code> from the allowed volume types" },
+      { id: 'D', text: "Enforce the <code>restricted</code> Pod Security Standard, or an admission policy that forbids <code>hostPath</code> volumes" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "Before blocking application actions in production, a security engineer wants to monitor and log all AppArmor profile policy violations without terminating or disrupting running container processes.",
     question: "How should the AppArmor profile be loaded to monitor violations without actively enforcing restrictions?",
     options: [
-      { id: 'A', text: "Mount <code>/var/log/audit/audit.log</code> as an emptyDir volume inside the container" },
-      { id: 'B', text: "Set <code>enforce: false</code> inside the Pod <code>securityContext.appArmorProfile</code> block" },
-      { id: 'C', text: "Load the profile in complain mode using <code>aa-complain &lt;profile-name&gt;</code> or pass the <code>-C</code> flag to <code>apparmor_parser</code>" },
-      { id: 'D', text: "Annotate the pod with <code>container.apparmor.security.beta.kubernetes.io/mode: 'audit-only'</code>" }
+      { id: 'A', text: "Load it in enforce mode and read the denials from the node's audit log" },
+      { id: 'B', text: "Load it in enforce mode and set <code>enforce: false</code> in the pod's profile block" },
+      { id: 'C', text: "Load it in complain mode with <code>aa-complain</code>, or <code>apparmor_parser -C</code>" },
+      { id: 'D', text: "Load it in enforce mode and annotate the pod with an audit-only profile mode" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "After applying a custom seccomp profile with <code>defaultAction: SCMP_ACT_ERRNO</code>, a container crashes with error <code>operation not permitted</code> during startup.",
     question: "Where should the systems engineer look to determine which specific system call was blocked by seccomp?",
     options: [
-      { id: 'A', text: "Run <code>crictl stats</code> to view blocked system call counts" },
-      { id: 'B', text: "Inspect the host audit logs via <code>/var/log/audit/audit.log</code> (or <code>journalctl -k</code> / <code>dmesg</code>) for <code>type=SECCOMP</code> audit messages containing the system call number (<code>syscall=...</code>)" },
-      { id: 'C', text: "Check <code>/etc/kubernetes/manifests/kube-apiserver.yaml</code> for audit denial entries" },
-      { id: 'D', text: "Query <code>kubectl logs</code> for the container to view the seccomp trace table" }
+      { id: 'A', text: "In <code>crictl stats</code> for the container, which reports the count of syscalls the profile has denied so far" },
+      { id: 'B', text: "In the host audit log or <code>dmesg</code>, for <code>type=SECCOMP</code> records naming the syscall" },
+      { id: 'C', text: "In the API server audit log, which records the denial alongside the pod that triggered the seccomp filter" },
+      { id: 'D', text: "In <code>kubectl logs</code> for the container, where the runtime writes the seccomp trace before the process dies" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "A legacy third-party Helm chart includes <code>capabilities.add: ['CAP_SYS_ADMIN']</code> in its deployment template.",
     question: "Why is granting <code>CAP_SYS_ADMIN</code> to a container considered equivalent to granting full root control over the host node?",
     options: [
-      { id: 'A', text: "<code>CAP_SYS_ADMIN</code> allows mounting filesystems, configuring namespaces, modifying kernel parameters, and easily bypassing container cgroups and chroot sandboxes" },
-      { id: 'B', text: "<code>CAP_SYS_ADMIN</code> forces kubelet to mount host <code>/etc/shadow</code> into the container" },
-      { id: 'C', text: "<code>CAP_SYS_ADMIN</code> automatically overrides Kubernetes RBAC bindings and grants cluster-admin tokens" },
-      { id: 'D', text: "<code>CAP_SYS_ADMIN</code> disables network policy enforcement for all pods on the cluster" }
+      { id: 'A', text: "It permits mounting filesystems, reconfiguring namespaces and kernel parameters — enough to leave the sandbox" },
+      { id: 'B', text: "It causes the kubelet to mount the node's <code>/etc/shadow</code> into the container's filesystem" },
+      { id: 'C', text: "It overrides the cluster's RBAC decisions, so the pod's token is treated as cluster-admin" },
+      { id: 'D', text: "It disables NetworkPolicy enforcement for every pod scheduled onto the same node" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "When an application container crashes on a worker node, a core dump containing plaintext API keys and user passwords in process memory is written to the host filesystem.",
     question: "Which host configuration prevents unprivileged processes and crashed containers from dumping core memory?",
     options: [
-      { id: 'A', text: "Mount <code>/var/log</code> with <code>readOnly: true</code> in all pod specifications" },
-      { id: 'B', text: "Add <code>securityContext.privileged: false</code> to <code>kube-proxy</code>" },
-      { id: 'C', text: "Configure <code>--enable-core-dumps=false</code> on <code>kube-apiserver</code>" },
-      { id: 'D', text: "Set <code>fs.suid_dumpable = 0</code> in <code>/etc/sysctl.d/99-security.conf</code> and configure <code>* hard core 0</code> in <code>/etc/security/limits.conf</code>" }
+      { id: 'A', text: "Set <code>kernel.core_pattern</code> to a path inside <code>/var/log</code> mounted read-only on each node" },
+      { id: 'B', text: "Set <code>privileged: false</code> on every container so no process may raise its own core limit" },
+      { id: 'C', text: "Set <code>--enable-core-dumps=false</code> on the kubelet so the runtime discards the dumps" },
+      { id: 'D', text: "Set <code>fs.suid_dumpable = 0</code> in sysctl and <code>* hard core 0</code> in limits" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "A financial transaction processing workload requires hypervisor-level isolation rather than shared Linux kernel namespace separation to guarantee tenant isolation.",
     question: "Which container runtime implementation runs each Kubernetes pod inside its own dedicated lightweight virtual machine with an independent Linux kernel?",
     options: [
-      { id: 'A', text: "Kata Containers (using QEMU, Cloud-Hypervisor, or Firecracker via <code>kata-runtime</code>)" },
-      { id: 'B', text: "Standard containerd with AppArmor enforce profiles" },
-      { id: 'C', text: "Cilium CNI with eBPF host routing enabled" },
-      { id: 'D', text: "Docker daemon with <code>runc</code> and default seccomp profiles" }
+      { id: 'A', text: "Kata Containers, via <code>kata-runtime</code> on QEMU or Firecracker" },
+      { id: 'B', text: "containerd with an AppArmor profile enforced on every pod" },
+      { id: 'C', text: "gVisor's <code>runsc</code>, which intercepts syscalls in userspace" },
+      { id: 'D', text: "<code>runc</code> with the runtime's default seccomp profile applied" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "A CIS Benchmark audit recommends hardening SSH server configurations across all control plane and worker nodes.",
     question: "Which configuration directives in <code>/etc/ssh/sshd_config</code> satisfy security best practices?",
     options: [
-      { id: 'A', text: "Set <code>PermitRootLogin no</code>, <code>PasswordAuthentication no</code>, <code>MaxAuthTries 3</code>, and <code>ClientAliveInterval 300</code>" },
-      { id: 'B', text: "Set <code>StrictModes no</code> and configure <code>X11Forwarding yes</code>" },
-      { id: 'C', text: "Set <code>AllowUsers *</code> and disable <code>PubkeyAuthentication</code>" },
-      { id: 'D', text: "Set <code>PermitRootLogin yes</code> and configure <code>Port 2222</code> with password authentication" }
+      { id: 'A', text: "Set <code>PermitRootLogin no</code>, <code>PasswordAuthentication no</code> and <code>MaxAuthTries 3</code>" },
+      { id: 'B', text: "Set <code>StrictModes no</code>, <code>X11Forwarding yes</code> and <code>MaxAuthTries 3</code>" },
+      { id: 'C', text: "Set <code>AllowUsers *</code>, <code>PubkeyAuthentication no</code> and <code>Port 2222</code>" },
+      { id: 'D', text: "Set <code>PermitRootLogin yes</code>, <code>Port 2222</code> and <code>ClientAliveInterval 300</code>" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "A developer deploys a pod with <code>securityContext.privileged: true</code> to mount a network filesystem. What security boundaries are eliminated by this setting?",
     question: "What is the primary architectural impact of setting a container to privileged mode?",
     options: [
-      { id: 'A', text: "The container is assigned a public IP address directly on the cloud provider's network" },
-      { id: 'B', text: "The container's logs are routed directly to the control plane etcd database" },
-      { id: 'C', text: "The container is granted access to all host devices in <code>/dev</code>, disables seccomp and AppArmor profiles, and inherits nearly all Linux kernel capabilities, effectively negating container isolation" },
-      { id: 'D', text: "The container gains automatic approval to modify other pods' resource quotas" }
+      { id: 'A', text: "The container joins the host's network namespace and can bind any port on the node's own addresses" },
+      { id: 'B', text: "The container gets the node's kubelet credentials, which lets it read every Secret the node has mounted" },
+      { id: 'C', text: "The container gets every host device, loses its seccomp and AppArmor profiles, and keeps nearly all capabilities" },
+      { id: 'D', text: "The container may exceed its resource limits, since the runtime stops enforcing its cgroup constraints" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "A security engineer must detect unauthorized modifications to critical host binaries such as <code>/bin/bash</code>, <code>/usr/bin/kubelet</code>, and <code>/etc/shadow</code> on worker nodes.",
     question: "Which host-level security tool provides continuous file integrity monitoring (FIM) and alerts on file changes?",
     options: [
-      { id: 'A', text: "CoreDNS metrics scraper" },
-      { id: 'B', text: "CRI-O log parser" },
-      { id: 'C', text: "AIDE (Advanced Intrusion Detection Environment) or Tripwire" },
-      { id: 'D', text: "Kube-bench static YAML analyzer" }
+      { id: 'A', text: "Falco, with its file-write rules" },
+      { id: 'B', text: "kube-bench, with its CIS checks" },
+      { id: 'C', text: "AIDE, or Tripwire, run from a timer" },
+      { id: 'D', text: "auditd, with its watch rules" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "An attacker initiates a fork bomb inside an unprivileged container, spawning thousands of processes that consume all available thread and process IDs on the host node.",
     question: "Which container resource constraint prevents fork bombs from exhausting host PID tables?",
     options: [
-      { id: 'A', text: "Mount <code>/proc</code> with <code>readOnly: true</code>" },
-      { id: 'B', text: "Set <code>securityContext.runAsNonRoot: true</code>" },
-      { id: 'C', text: "Configure <code>pidsLimit</code> in the container runtime / kubelet or declare <code>spec.containers[].resources.limits</code> with PID limits where supported" },
-      { id: 'D', text: "Configure an ingress NetworkPolicy on TCP port 80" }
+      { id: 'A', text: "Mount <code>/proc</code> read-only so the process table cannot be enumerated or extended" },
+      { id: 'B', text: "Set the kubelet's own eviction threshold for node filesystem usage instead" },
+      { id: 'C', text: "Set <code>pidsLimit</code> on the kubelet, or a per-pod PID limit where the runtime supports it" },
+      { id: 'D', text: "Set a memory limit so the cgroup's OOM killer reaps the forked children in turn" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "An incident investigation suspects that a rootkit has loaded a malicious kernel module on a Kubernetes worker node to conceal rogue processes.",
     question: "Which commands allow administrators to inspect currently loaded Linux kernel modules?",
     options: [
-      { id: 'A', text: "Execute <code>lsmod</code> (or inspect <code>/proc/modules</code>) and verify module signatures using <code>modinfo &lt;module-name&gt;</code>" },
-      { id: 'B', text: "Execute <code>crictl images</code>" },
-      { id: 'C', text: "Execute <code>kubectl get nodes -o wide</code>" },
-      { id: 'D', text: "Execute <code>systemctl list-dependencies kubelet</code>" }
+      { id: 'A', text: "Run <code>lsmod</code>, or read <code>/proc/modules</code>, then check with <code>modinfo</code>" },
+      { id: 'B', text: "Run <code>systemctl list-dependencies kubelet</code> and read the loaded driver units" },
+      { id: 'C', text: "Run <code>kubectl get nodes -o wide</code> and read the kernel version it reports" },
+      { id: 'D', text: "Run <code>crictl info</code> and read the runtime's list of kernel features in use" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "A legacy monitoring daemon requires mounting <code>/var/log</code> from the host node to aggregate system log files. The security team insists that the daemon cannot tamper with or delete host log files.",
     question: "How should the volume mount be configured in the container specification?",
     options: [
-      { id: 'A', text: "Configure <code>allowPrivilegeEscalation: false</code> on the container" },
-      { id: 'B', text: "Set <code>readOnly: true</code> in the container's <code>volumeMounts</code> entry referencing the <code>hostPath</code> volume" },
-      { id: 'C', text: "Set <code>readOnlyRootFilesystem: true</code> in the pod's <code>securityContext</code>" },
-      { id: 'D', text: "Set <code>hostNetwork: false</code> in the pod specification" }
+      { id: 'A', text: "Set <code>allowPrivilegeEscalation: false</code> on the container's securityContext" },
+      { id: 'B', text: "Set <code>readOnly: true</code> on the <code>volumeMounts</code> entry for that volume" },
+      { id: 'C', text: "Set <code>readOnlyRootFilesystem: true</code> on the container's securityContext" },
+      { id: 'D', text: "Set <code>readOnly: true</code> on the <code>hostPath</code> volume's own definition" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "A worker node hardening checklist requires that newly created system files default to restricted file permissions (e.g., owner read/write only).",
     question: "Which setting enforces a restrictive default file creation mask across Linux system services?",
     options: [
-      { id: 'A', text: "Set <code>chmod 600 /</code> across the entire filesystem" },
-      { id: 'B', text: "Set <code>umask 027</code> or <code>umask 077</code> in <code>/etc/profile</code> and systemd service unit configurations" },
-      { id: 'C', text: "Configure <code>--file-umask=000</code> in the kubelet configuration file" },
-      { id: 'D', text: "Add <code>securityContext.runAsGroup: 0</code> to all pod manifests" }
+      { id: 'A', text: "Set <code>umask 000</code> in <code>/etc/profile</code> and <code>chmod 600 /</code> once" },
+      { id: 'B', text: "Set <code>umask 027</code> in <code>/etc/profile</code> and in the systemd unit files" },
+      { id: 'C', text: "Set <code>--file-umask=027</code> in the kubelet's own configuration file" },
+      { id: 'D', text: "Set <code>runAsGroup: 0</code> on the pods so new files are owned by root" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "To defend against IP spoofing attacks where external packets claim to originate from internal pod CIDR subnets, the worker node network interfaces must validate source addresses.",
     question: "Which sysctl parameter enables strict Reverse Path Filtering (RPF) on all network interfaces?",
     options: [
-      { id: 'A', text: "Set <code>net.ipv4.conf.all.accept_source_route = 1</code>" },
-      { id: 'B', text: "Set <code>net.ipv4.ip_forward = 1</code> and disable bridge netfilter" },
-      { id: 'C', text: "Set <code>net.ipv4.tcp_rfc1337 = 0</code>" },
-      { id: 'D', text: "Set <code>net.ipv4.conf.all.rp_filter = 1</code> and <code>net.ipv4.conf.default.rp_filter = 1</code> in sysctl configuration" }
+      { id: 'A', text: "Set <code>net.ipv4.conf.all.accept_source_route = 0</code> and <code>rp_filter = 0</code>" },
+      { id: 'B', text: "Set <code>net.ipv4.ip_forward = 1</code> and disable the bridge netfilter hooks" },
+      { id: 'C', text: "Set <code>net.ipv4.tcp_rfc1337 = 1</code> and <code>conf.all.arp_filter = 1</code>" },
+      { id: 'D', text: "Set <code>net.ipv4.conf.all.rp_filter = 1</code> and the same for <code>conf.default</code>" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "Two containers running on the same worker node must be strictly prevented from sharing shared memory segments (shm) or semaphores with the host or between pods.",
     question: "What is the default Kubernetes configuration for the IPC namespace, and how is it secured?",
     options: [
-      { id: 'A', text: "Pods share an IPC namespace across the entire namespace unless an AppArmor profile is loaded" },
-      { id: 'B', text: "IPC namespace isolation is only supported when running under gVisor" },
-      { id: 'C', text: "Kubernetes assigns each Pod its own dedicated IPC namespace by default; ensuring <code>hostIPC: false</code> (the default) prevents pods from accessing host POSIX shared memory" },
-      { id: 'D', text: "Kubernetes shares the host IPC namespace by default and requires <code>isolateIPC: true</code>" }
+      { id: 'A', text: "Pods in a namespace share one IPC namespace, and an AppArmor profile is what separates them" },
+      { id: 'B', text: "Pods share the node's IPC namespace unless a sandboxed runtime such as gVisor is selected" },
+      { id: 'C', text: "Each pod gets its own IPC namespace, and <code>hostIPC: false</code> keeps host memory out of reach" },
+      { id: 'D', text: "Pods share the host IPC namespace by default, and <code>isolateIPC: true</code> separates them" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "A Linux worker node security audit detects that legacy network protocols such as DCCP, SCTP, and RDS are available and can be loaded dynamically by unprivileged users.",
     question: "How can system administrators permanently disable the loading of vulnerable kernel modules?",
     options: [
-      { id: 'A', text: "Add an iptables drop rule for protocol 47 on the external firewall" },
-      { id: 'B', text: "Set <code>allowPrivilegeEscalation: false</code> in the kubelet configuration" },
-      { id: 'C', text: "Create configuration files in <code>/etc/modprobe.d/</code> setting <code>install &lt;module-name&gt; /bin/true</code> (or <code>blacklist &lt;module-name&gt;</code>)" },
-      { id: 'D', text: "Remove the <code>/lib/modules</code> directory entirely from the worker node filesystem" }
+      { id: 'A', text: "Write <code>kernel.modules_disabled = 1</code> into <code>/etc/sysctl.d/</code> on every worker node" },
+      { id: 'B', text: "Write the module name into the kubelet's <code>--denied-kernel-modules</code> flag on each node" },
+      { id: 'C', text: "Write <code>install &lt;module&gt; /bin/true</code> into <code>/etc/modprobe.d/</code>" },
+      { id: 'D', text: "Remove the module's object file from <code>/lib/modules</code> and rebuild the initramfs" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "A container needs access to a mounted persistent storage volume owned by Linux GID 2000, while running as non-root user UID 10001.",
     question: "Which securityContext setting grants group access without running as root or changing user ownership?",
     options: [
-      { id: 'A', text: "Set <code>privileged: true</code> on the volume mount specification" },
-      { id: 'B', text: "Add the <code>CAP_DAC_OVERRIDE</code> capability to the container" },
-      { id: 'C', text: "Set <code>securityContext.runAsUser: 0</code> and change file permissions via an entrypoint script" },
-      { id: 'D', text: "Configure <code>securityContext.supplementalGroups: [2000]</code> (or <code>fsGroup: 2000</code>) in the Pod specification" }
+      { id: 'A', text: "Set <code>privileged: true</code> on the container that mounts the volume" },
+      { id: 'B', text: "Add the <code>CAP_DAC_OVERRIDE</code> capability to the container instead" },
+      { id: 'C', text: "Set <code>runAsUser: 0</code> and fix the ownership from the entrypoint" },
+      { id: 'D', text: "Set <code>supplementalGroups: [2000]</code>, or <code>fsGroup: 2000</code>, on the pod" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "A zero-day Linux kernel vulnerability allows a process that is root inside a container to break out to the host if UID 0 in the container maps directly to host UID 0.",
     question: "How does User Namespace (userns) mapping mitigate this vulnerability?",
     options: [
-      { id: 'A', text: "It automatically disables all networking when a container attempts to execute a shell" },
-      { id: 'B', text: "It maps UID 0 (root) inside the container to an unprivileged high-numbered UID (e.g., UID 100000) on the host, ensuring that even if a process breaks out, it has zero privileges on the host" },
-      { id: 'C', text: "It mounts the host root filesystem as an immutable tmpfs volume" },
-      { id: 'D', text: "It forces all container processes to execute inside a virtual machine hardware sandbox" }
+      { id: 'A', text: "It gives the container its own network namespace, so a breakout cannot reach the node's own services" },
+      { id: 'B', text: "It maps container UID 0 to an unprivileged host UID, so a breakout lands with no privileges on the node" },
+      { id: 'C', text: "It mounts the host root as an immutable overlay, so a breakout cannot write to any node filesystem" },
+      { id: 'D', text: "It runs the container under a hardware sandbox, so a breakout stays inside the virtual machine boundary" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "A security auditor wants to verify from the host command line that a specific running container process is actively restricted by a seccomp filter.",
     question: "Which field in <code>/proc/&lt;PID&gt;/status</code> confirms that seccomp filtering is active on the process?",
     options: [
-      { id: 'A', text: "Inspect <code>Cpus_allowed:</code> to confirm CPU core pin state" },
-      { id: 'B', text: "Inspect <code>CapEff:</code> to ensure it is set to all zeros" },
-      { id: 'C', text: "Inspect <code>Uid:</code> to confirm it is not 0" },
-      { id: 'D', text: "Inspect <code>Seccomp:</code> in <code>/proc/&lt;PID&gt;/status</code> (where <code>2</code> indicates seccomp filtering mode is enabled)" }
+      { id: 'A', text: "Read <code>Cpus_allowed:</code>, which the runtime narrows when a filter is loaded" },
+      { id: 'B', text: "Read <code>CapEff:</code>, which is all zeros once a seccomp filter is attached" },
+      { id: 'C', text: "Read <code>NoNewPrivs:</code>, which is set to <code>1</code> by the seccomp loader" },
+      { id: 'D', text: "Read <code>Seccomp:</code>, where a value of <code>2</code> means filter mode is active" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "An enterprise requires locking accounts after 5 consecutive failed login attempts on worker node console and SSH sessions.",
     question: "Which Pluggable Authentication Module (PAM) configuration enforces account lockout policies?",
     options: [
-      { id: 'A', text: "Configure <code>pam_faillock.so</code> (or legacy <code>pam_tally2.so</code>) in <code>/etc/pam.d/common-auth</code> with <code>deny=5 unlock_time=900</code>" },
-      { id: 'B', text: "Add <code>--max-auth-failures=5</code> to the kubelet configuration file" },
-      { id: 'C', text: "Modify <code>/etc/security/limits.conf</code> to set <code>* soft nproc 5</code>" },
-      { id: 'D', text: "Configure an admission webhook that denies pods requesting SSH ports" }
+      { id: 'A', text: "Set <code>pam_faillock.so</code> with <code>deny=5 unlock_time=900</code> in <code>/etc/pam.d/common-auth</code>" },
+      { id: 'B', text: "Set <code>pam_limits.so</code> with <code>deny=5</code> in <code>/etc/pam.d/common-session</code> on each node" },
+      { id: 'C', text: "Set <code>* hard maxlogins 5</code> in <code>/etc/security/limits.conf</code> on each worker node" },
+      { id: 'D', text: "Set <code>MaxAuthTries 5</code> in <code>/etc/ssh/sshd_config</code> and reload the SSH daemon" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKS_QUESTIONS_3 = [
     scenario: "A compliance standard requires that container log files located at <code>/var/log/pods/</code> cannot be tampered with or deleted by unprivileged local users or compromised containers.",
     question: "Which file permissions and log rotation practices should be maintained for container logs on worker nodes?",
     options: [
-      { id: 'A', text: "Ensure <code>/var/log/pods</code> directories are owned by <code>root:root</code> with permissions <code>0700</code> or <code>0750</code>, and configure kubelet log rotation parameters (<code>containerLogMaxSize</code> and <code>containerLogMaxFiles</code>)" },
-      { id: 'B', text: "Mount <code>/var/log/pods</code> inside every pod with <code>readOnly: false</code>" },
-      { id: 'C', text: "Set permissions to <code>0777</code> to allow log shippers running as unprivileged users to read logs" },
-      { id: 'D', text: "Delete <code>/var/log/pods</code> and stream all logs directly over raw UDP to external syslog" }
+      { id: 'A', text: "Own <code>/var/log/pods</code> as <code>root:root</code> at <code>0700</code>, and set the kubelet's log rotation limits" },
+      { id: 'B', text: "Own <code>/var/log/pods</code> as <code>root:root</code> at <code>0700</code>, and rotate with a host <code>logrotate</code> unit that runs on a timer" },
+      { id: 'C', text: "Own <code>/var/log/pods</code> as <code>root:adm</code> at <code>0750</code>, and let the log shipper mount the directory read-write" },
+      { id: 'D', text: "Own <code>/var/log/pods</code> as <code>root:root</code> at <code>0755</code>, and set the container runtime's own size limit instead" }
     ],
     correctAnswers: ['A'],
     type: "single",

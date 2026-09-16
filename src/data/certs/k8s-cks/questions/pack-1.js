@@ -9,10 +9,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "A security audit running <code>kube-bench</code> on a Kubernetes control plane node flags non-compliant file permissions on the static pod manifest for <code>kube-apiserver.yaml</code>, which is currently set to mode <code>0664</code> and owned by an unprivileged user group.",
     question: "Which corrective permission and ownership configuration should be applied to satisfy the CIS Kubernetes Benchmark recommendations?",
     options: [
-      { id: 'A', text: "Set ownership to <code>root:root</code> and file permissions to <code>0600</code> or <code>0644</code> using <code>chown root:root /etc/kubernetes/manifests/kube-apiserver.yaml && chmod 600 /etc/kubernetes/manifests/kube-apiserver.yaml</code>" },
-      { id: 'B', text: "Set ownership to <code>kubelet:kubelet</code> and permissions to <code>0400</code> to prevent root processes from modifying static pod definitions" },
-      { id: 'C', text: "Set ownership to <code>nobody:nogroup</code> with <code>chmod 0444</code> so all control plane controllers have read-only access" },
-      { id: 'D', text: "Move the static manifest to <code>/var/run/kubernetes/</code> and grant ownership to the container runtime socket user" }
+      { id: 'A', text: "Own the manifest as <code>root:root</code> and set <code>chmod 600</code> on it" },
+      { id: 'B', text: "Own the manifest as <code>kubelet:kubelet</code> and set <code>chmod 400</code> on it" },
+      { id: 'C', text: "Own the manifest as <code>nobody:nogroup</code> and set <code>chmod 444</code> on it" },
+      { id: 'D', text: "Move the manifest to <code>/var/run/kubernetes</code> and own it as the runtime user" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "A security policy requires that all newly provisioned tenant namespaces in a multi-tenant cluster isolate pod traffic by default, blocking all incoming and outgoing connections unless explicitly allowed by subsequent granular NetworkPolicies.",
     question: "Which NetworkPolicy manifest correctly establishes a complete default-deny baseline for both ingress and egress traffic across a namespace?",
     options: [
-      { id: 'A', text: "Create a NetworkPolicy with <code>policyTypes: ['Ingress']</code> and specify <code>ingress: [{ from: [] }]</code>" },
-      { id: 'B', text: "Configure a NetworkPolicy with <code>podSelector: { role: 'deny-all' }</code> and omit the <code>policyTypes</code> field" },
-      { id: 'C', text: "Define a NetworkPolicy selecting <code>matchLabels: { env: 'all' }</code> with an egress CIDR rule of <code>0.0.0.0/0</code>" },
-      { id: 'D', text: "Define a NetworkPolicy with <code>podSelector: {}</code> and <code>policyTypes: ['Ingress', 'Egress']</code> with empty ingress and egress rule lists" }
+      { id: 'A', text: "A NetworkPolicy with <code>policyTypes: ['Ingress']</code> and <code>ingress: [{ from: [] }]</code>" },
+      { id: 'B', text: "A NetworkPolicy with <code>podSelector: { role: 'deny-all' }</code> and no <code>policyTypes</code>" },
+      { id: 'C', text: "A NetworkPolicy with <code>matchLabels: { env: 'all' }</code> and an egress <code>0.0.0.0/0</code> rule" },
+      { id: 'D', text: "A NetworkPolicy with <code>podSelector: {}</code> and both <code>policyTypes</code>, with no rules" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "Workloads running on a managed cloud Kubernetes cluster attempt to query the link-local Instance Metadata Service (IMDS) at <code>169.254.169.254</code> to extract instance IAM credentials. The security team must block all microservice pods from reaching this IP while preserving outbound Internet access.",
     question: "Which egress NetworkPolicy configuration enforces this metadata isolation?",
     options: [
-      { id: 'A', text: "Add an egress rule with <code>to: [{ ipBlock: { cidr: '0.0.0.0/0', except: ['169.254.169.254/32'] } }]</code> under <code>policyTypes: ['Egress']</code>" },
-      { id: 'B', text: "Configure a NetworkPolicy that restricts pod DNS queries to internal cluster service names only" },
-      { id: 'C', text: "Define an egress rule specifying <code>ports: [{ port: 80, protocol: 'TCP' }]</code> without an <code>ipBlock</code> definition" },
-      { id: 'D', text: "Set an ingress rule denying incoming responses from <code>169.254.169.254/32</code> while allowing all port 80 traffic" }
+      { id: 'A', text: "An egress rule whose <code>ipBlock</code> is <code>0.0.0.0/0</code> with the metadata IP under <code>except</code>" },
+      { id: 'B', text: "An egress rule restricting the pods' DNS lookups to the cluster's own service names" },
+      { id: 'C', text: "An egress rule with <code>ports: [{ port: 80, protocol: 'TCP' }]</code> and no <code>to</code> block" },
+      { id: 'D', text: "An ingress rule denying traffic from the metadata address while allowing port 80" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "A financial enterprise discovers that sensitive tokens and certificates stored as Kubernetes Secrets are saved in plaintext format inside <code>etcd</code> datastores, failing compliance with regulatory data-at-rest encryption standards.",
     question: "What is the correct procedure to enable secret encryption at rest using the native EncryptionConfiguration mechanism?",
     options: [
-      { id: 'A', text: "Modify <code>etcd.conf</code> to enable disk volume encryption on <code>/var/lib/etcd</code> and restart the <code>etcd</code> systemd service unit" },
-      { id: 'B', text: "Annotate all secret resources with <code>kubernetes.io/encrypt: 'true'</code> and trigger a rolling restart of all application worker nodes" },
-      { id: 'C', text: "Deploy a sidecar container to all control plane pods that encrypts secret payloads using mutual TLS before writing to etcd" },
-      { id: 'D', text: "Create an <code>EncryptionConfiguration</code> file specifying an encryption provider such as <code>aescbc</code> or <code>kms</code>, mount the configuration into the <code>kube-apiserver</code> pod, set the <code>--encryption-provider-config</code> flag, and run <code>kubectl get secrets -A -o json | kubectl replace -f -</code> to rewrite existing secrets" }
+      { id: 'A', text: "Write an <code>EncryptionConfiguration</code> with an <code>aescbc</code> provider and enable disk encryption on <code>/var/lib/etcd</code>, then restart etcd" },
+      { id: 'B', text: "Write an <code>EncryptionConfiguration</code> with the <code>identity</code> provider first, mount it into the API server, and annotate the secrets to be encrypted" },
+      { id: 'C', text: "Write an <code>EncryptionConfiguration</code> with a <code>kms</code> provider and have a sidecar on each control plane pod encrypt payloads before they reach etcd" },
+      { id: 'D', text: "Write an <code>EncryptionConfiguration</code> with an <code>aescbc</code> provider, mount it into the API server, set the flag, then rewrite the secrets" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "An external security penetration test discovers that the Kubernetes API server accepts unauthenticated requests and permits requests over an unencrypted local port on older control plane nodes.",
     question: "Which configuration flags must be set in <code>/etc/kubernetes/manifests/kube-apiserver.yaml</code> to completely disable anonymous requests and unencrypted communication?",
     options: [
-      { id: 'A', text: "Set <code>--anonymous-auth=false</code> and ensure <code>--insecure-port=0</code> is configured (or entirely omitted in modern versions where the insecure port has been deprecated and removed)" },
-      { id: 'B', text: "Set <code>--enable-bootstrap-token-auth=false</code> and configure <code>--secure-port=8080</code>" },
-      { id: 'C', text: "Configure <code>--authorization-mode=AlwaysDeny</code> and remove the client CA file flag" },
-      { id: 'D', text: "Set <code>--allow-privileged=false</code> and configure <code>--bind-address=0.0.0.0</code>" }
+      { id: 'A', text: "Set <code>--anonymous-auth=false</code>, and leave <code>--insecure-port</code> unset, as it no longer exists" },
+      { id: 'B', text: "Set <code>--enable-bootstrap-token-auth=false</code>, and move the serving port to <code>--secure-port=8080</code>" },
+      { id: 'C', text: "Set <code>--authorization-mode=AlwaysDeny</code>, and drop the client CA so no anonymous client is trusted" },
+      { id: 'D', text: "Set <code>--allow-privileged=false</code>, and bind the serving port to <code>--bind-address=0.0.0.0</code>" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -115,7 +115,7 @@ export const K8S_CKS_QUESTIONS_1 = [
     question: "Which declarative setting prevents the default ServiceAccount token from being mounted into pod containers?",
     options: [
       { id: 'A', text: "Delete the <code>default</code> ServiceAccount in the target application namespace" },
-      { id: 'B', text: "Set <code>automountServiceAccountToken: false</code> in the Pod specification or on the associated ServiceAccount resource" },
+      { id: 'B', text: "Set <code>automountServiceAccountToken: false</code> on the pod or its ServiceAccount" },
       { id: 'C', text: "Define an empty volume named <code>service-token</code> in the pod and set <code>readOnly: true</code>" },
       { id: 'D', text: "Set <code>serviceAccountName: none</code> inside the Pod template specification" }
     ],
@@ -135,10 +135,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "An enterprise cluster must upgrade from legacy permanent secret-based ServiceAccount tokens to short-lived Bound ServiceAccount Tokens that are cryptographically bound to specific pod instances and audiences.",
     question: "Which kube-apiserver parameters must be configured to enable Bound ServiceAccount Token projection with audience and expiration controls?",
     options: [
-      { id: 'A', text: "Set <code>--service-account-lookup=false</code> and configure a custom etcd certificate bundle" },
-      { id: 'B', text: "Configure <code>--service-account-issuer</code>, <code>--service-account-key-file</code>, <code>--service-account-signing-key-file</code>, and <code>--api-audiences</code> on <code>kube-apiserver</code>" },
-      { id: 'C', text: "Enable the <code>TokenRequestValidation</code> feature gate on all kubelet daemons across worker nodes" },
-      { id: 'D', text: "Deploy an external Vault agent daemonset to rotate ServiceAccount tokens every 60 minutes" }
+      { id: 'A', text: "Set <code>--service-account-lookup=false</code> and the signing key flags on the API server" },
+      { id: 'B', text: "Set <code>--service-account-issuer</code>, the signing key flags and <code>--api-audiences</code>" },
+      { id: 'C', text: "Enable the <code>TokenRequestValidation</code> feature gate on every kubelet in the cluster" },
+      { id: 'D', text: "Run a controller that rotates the ServiceAccount token secrets on a fixed interval" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "A security audit reports that an etcd cluster is running without client certificate verification, allowing any host on the internal network to issue unauthenticated read/write queries to the etcd key-value store on port 2379.",
     question: "Which flags must be set in <code>/etc/kubernetes/manifests/etcd.yaml</code> to enforce mutual TLS (mTLS) client verification?",
     options: [
-      { id: 'A', text: "Set <code>--peer-client-cert-auth=true</code> and configure <code>--auto-tls=true</code>" },
-      { id: 'B', text: "Set <code>--listen-client-urls=http://127.0.0.1:2379</code> and disable SSL encryption" },
-      { id: 'C', text: "Set <code>--insecure-transport-security=false</code> and configure <code>--enable-v2=false</code>" },
-      { id: 'D', text: "Set <code>--client-cert-auth=true</code>, <code>--trusted-ca-file</code>, <code>--cert-file</code>, and <code>--key-file</code>" }
+      { id: 'A', text: "Set <code>--peer-client-cert-auth=true</code> with <code>--auto-tls=true</code> as well" },
+      { id: 'B', text: "Set <code>--listen-client-urls</code> to the loopback address and omit the CA file" },
+      { id: 'C', text: "Set <code>--insecure-transport-security=false</code> with <code>--enable-v2=false</code>" },
+      { id: 'D', text: "Set <code>--client-cert-auth=true</code> with the CA, certificate and key files" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "An audit discovers a ClusterRole named <code>support-role</code> containing verbs <code>['*']</code> and resources <code>['*']</code>. The team must restrict this role so that support engineers can only inspect pod status and read pod logs across all namespaces without accessing secret values or deleting resources.",
     question: "Which RBAC rule definition enforces this restricted least-privilege support policy?",
     options: [
-      { id: 'A', text: "Specify <code>apiGroups: ['']</code>, <code>resources: ['pods', 'pods/log', 'pods/status']</code>, and <code>verbs: ['get', 'list', 'watch']</code>" },
-      { id: 'B', text: "Specify <code>apiGroups: ['*']</code>, <code>resources: ['pods']</code>, and <code>verbs: ['*']</code>" },
-      { id: 'C', text: "Specify <code>apiGroups: ['']</code>, <code>resources: ['*']</code>, and <code>verbs: ['inspect', 'read']</code>" },
-      { id: 'D', text: "Specify <code>apiGroups: ['core']</code>, <code>resources: ['pods', 'secrets']</code>, and <code>verbs: ['get']</code>" }
+      { id: 'A', text: "<code>apiGroups: ['']</code>, <code>resources: ['pods', 'pods/log']</code>, <code>verbs: ['get', 'list', 'watch']</code>" },
+      { id: 'B', text: "<code>apiGroups: ['*']</code>, <code>resources: ['pods', 'pods/log']</code>, <code>verbs: ['*']</code>" },
+      { id: 'C', text: "<code>apiGroups: ['']</code>, <code>resources: ['*']</code>, <code>verbs: ['get', 'list', 'watch']</code>" },
+      { id: 'D', text: "<code>apiGroups: ['core']</code>, <code>resources: ['pods', 'secrets']</code>, <code>verbs: ['get']</code>" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "A namespace administrator with a custom Role creates a new RoleBinding that grants another developer the <code>cluster-admin</code> ClusterRole, escalating their administrative boundaries beyond the namespace.",
     question: "How does the Kubernetes API server natively prevent privilege escalation during RBAC Role and RoleBinding creation?",
     options: [
-      { id: 'A', text: "The API server automatically drops any RoleBinding referencing a ClusterRole unless executed by the <code>system:masters</code> group" },
-      { id: 'B', text: "The API server requires all RoleBinding creation requests to be approved by an external webhook admission controller" },
-      { id: 'C', text: "The API server enforces that a user cannot create or update a Role or RoleBinding with permissions that exceed the user's own current permissions, unless the user has the explicit <code>escalate</code> verb on roles or <code>bind</code> verb on the target role" },
-      { id: 'D', text: "The API server disables RoleBinding creation if the namespace contains pods running as root" }
+      { id: 'A', text: "A RoleBinding that references a ClusterRole is rejected unless the caller is in the <code>system:masters</code> group" },
+      { id: 'B', text: "A Role or RoleBinding write is forwarded to an admission webhook, which compares it with the caller's own rules" },
+      { id: 'C', text: "A user cannot grant permissions they do not already hold, unless they have the <code>escalate</code> or <code>bind</code> verb" },
+      { id: 'D', text: "A Role may only name resources that already exist in the namespace, which bounds what a binding can grant" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "A platform engineer is downloading official Kubernetes control plane binaries (such as <code>kubectl</code>, <code>kubelet</code>, and <code>kubeadm</code>) to build an air-gapped node template. The team must ensure the binaries have not been tampered with or corrupted in transit.",
     question: "What is the recommended method to verify the authenticity and integrity of downloaded Kubernetes binaries?",
     options: [
-      { id: 'A', text: "Rely exclusively on TLS certificate validation during the HTTPS file download from the public CDN" },
-      { id: 'B', text: "Run <code>strings &lt;binary&gt; | grep 'kubernetes.io'</code> to verify the embedded source repository string" },
-      { id: 'C', text: "Execute the binary with <code>--version</code> and verify that the output string matches the release branch tag" },
-      { id: 'D', text: "Download the corresponding <code>.sha256</code> or <code>.sha512</code> checksum file from the official Kubernetes release bucket and verify using <code>sha256sum --check &lt;binary&gt;.sha256</code>" }
+      { id: 'A', text: "Rely on TLS validation of the release CDN, which authenticates the file's origin on download" },
+      { id: 'B', text: "Run <code>strings</code> over the binary and confirm the embedded repository string is present" },
+      { id: 'C', text: "Run the binary with <code>--version</code> and confirm the output matches the release tag" },
+      { id: 'D', text: "Fetch the release's <code>.sha256</code> file and check the binary with <code>sha256sum --check</code>" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "An ingress controller running in the <code>ingress-nginx</code> namespace must route external HTTP/HTTPS traffic to microservices in the <code>production</code> namespace. All other inter-namespace pod communication into <code>production</code> must remain blocked.",
     question: "Which ingress rule in the <code>production</code> namespace NetworkPolicy allows traffic specifically from the ingress controller?",
     options: [
-      { id: 'A', text: "Specify an ingress rule with <code>from: [{ namespaceSelector: { matchLabels: { 'kubernetes.io/metadata.name': 'ingress-nginx' } }, podSelector: { matchLabels: { 'app.kubernetes.io/name': 'ingress-nginx' } } }]</code>" },
-      { id: 'B', text: "Specify an ingress rule with <code>from: [{ ipBlock: { cidr: '10.0.0.0/8' } }]</code> covering the entire node network subnet" },
-      { id: 'C', text: "Specify an ingress rule with <code>from: [{ podSelector: { matchLabels: { role: 'ingress' } } }]</code> without a namespaceSelector" },
-      { id: 'D', text: "Specify an ingress rule with <code>from: []</code> and set <code>policyTypes: ['Ingress']</code>" }
+      { id: 'A', text: "An ingress rule whose <code>from</code> names the <code>ingress-nginx</code> namespace and its controller pods" },
+      { id: 'B', text: "An ingress rule whose <code>from</code> names an <code>ipBlock</code> covering the node network subnet" },
+      { id: 'C', text: "An ingress rule whose <code>from</code> names a <code>podSelector</code> of <code>role: ingress</code> only" },
+      { id: 'D', text: "An ingress rule with an empty <code>from</code> and <code>policyTypes: ['Ingress']</code> set" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "A vulnerability scanner discovers that <code>kube-apiserver</code> supports legacy, weak TLS cipher suites (such as CBC-mode ciphers) susceptible to padding oracle exploits.",
     question: "Which parameter on the <code>kube-apiserver</code> static manifest configures approved modern TLS cipher suites?",
     options: [
-      { id: 'A', text: "Set <code>--ssl-protocols=TLSv1.2,TLSv1.3</code> inside the <code>kube-proxy</code> ConfigMap" },
-      { id: 'B', text: "Set <code>--tls-min-version=VersionTLS10</code> and enable <code>--tls-sni=true</code>" },
-      { id: 'C', text: "Configure <code>--secure-ciphers=HIGH:!aNULL:!kEDH</code> in <code>/etc/kubernetes/admin.conf</code>" },
-      { id: 'D', text: "Set <code>--tls-cipher-suites=TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305</code>" }
+      { id: 'A', text: "Set <code>--tls-min-version=VersionTLS12</code> on <code>kube-apiserver</code>, which selects the modern suites for you" },
+      { id: 'B', text: "Set <code>--ssl-protocols=TLSv1.2,TLSv1.3</code> in the <code>kube-proxy</code> ConfigMap for the whole cluster" },
+      { id: 'C', text: "Set <code>--secure-ciphers=HIGH:!aNULL:!kEDH</code> in <code>/etc/kubernetes/admin.conf</code> on each node" },
+      { id: 'D', text: "Set <code>--tls-cipher-suites</code> to the approved ECDHE GCM and CHACHA20 suites on <code>kube-apiserver</code>" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "A security review discovers that an automated deployment pipeline was bound to the built-in <code>cluster-admin</code> ClusterRole across the entire cluster, creating a critical blast radius if the CI/CD service account is compromised.",
     question: "What is the recommended remediation to replace this overly permissive binding?",
     options: [
-      { id: 'A', text: "Downgrade the ServiceAccount token by adding <code>automountServiceAccountToken: false</code> while maintaining the <code>cluster-admin</code> binding" },
-      { id: 'B', text: "Leave the <code>ClusterRoleBinding</code> active but configure an admission webhook that denies requests submitted outside business hours" },
-      { id: 'C', text: "Change the <code>cluster-admin</code> ClusterRole definition to remove the <code>delete</code> verb globally across the cluster" },
-      { id: 'D', text: "Delete the <code>ClusterRoleBinding</code>, create a scoped <code>Role</code> with only the required deployment verbs (e.g., <code>create</code>, <code>patch</code>, <code>get</code> on <code>deployments</code> and <code>services</code>), and bind it via a <code>RoleBinding</code> inside the target deployment namespace" }
+      { id: 'A', text: "Keep the <code>ClusterRoleBinding</code> but set <code>automountServiceAccountToken: false</code> so the token is never mounted" },
+      { id: 'B', text: "Keep the <code>ClusterRoleBinding</code> and add an admission webhook that denies its requests outside business hours" },
+      { id: 'C', text: "Edit the <code>cluster-admin</code> ClusterRole to drop the <code>delete</code> verb, which narrows every binding to it" },
+      { id: 'D', text: "Delete the <code>ClusterRoleBinding</code> and bind a namespaced <code>Role</code> carrying only the deployment verbs the pipeline uses" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "A sensitive database pod in namespace <code>backend</code> has an egress default-deny NetworkPolicy applied. The database needs to resolve cluster service domain names using CoreDNS in the <code>kube-system</code> namespace.",
     question: "Which egress rule must be added to the database NetworkPolicy to permit CoreDNS resolution while maintaining default-deny for all other destinations?",
     options: [
-      { id: 'A', text: "Add an egress rule with <code>to: [{ ipBlock: { cidr: '0.0.0.0/0' } }]</code> on port <code>8080</code>" },
-      { id: 'B', text: "Add an egress rule selecting namespace <code>kube-system</code> and pods with label <code>k8s-app: kube-dns</code> on UDP and TCP port <code>53</code>" },
-      { id: 'C', text: "Set <code>policyTypes: ['Ingress']</code> so egress traffic is no longer subject to NetworkPolicy rules" },
-      { id: 'D', text: "Add an ingress rule allowing CoreDNS to initiate connections back to the database pod on port 53" }
+      { id: 'A', text: "An egress rule whose <code>ipBlock</code> is <code>0.0.0.0/0</code> restricted to UDP and TCP port 53" },
+      { id: 'B', text: "An egress rule for the <code>kube-system</code> namespace's <code>k8s-app: kube-dns</code> pods on port 53" },
+      { id: 'C', text: "An egress rule for the <code>kube-system</code> namespace as a whole, on every port and protocol" },
+      { id: 'D', text: "An ingress rule letting the CoreDNS pods open connections back to the database on port 53" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "To avoid expired TLS certificates disrupting cluster operations, worker node kubelet server certificates must automatically rotate upon reaching expiration, with certificates signed by the cluster CA.",
     question: "Which kubelet configuration and control plane mechanism enable automated kubelet server certificate rotation?",
     options: [
-      { id: 'A', text: "Set <code>serverTLSBootstrap: true</code> in <code>/var/lib/kubelet/config.yaml</code> and ensure a certificate approval controller or administrator approves the generated CertificateSigningRequests (CSRs)" },
-      { id: 'B', text: "Set <code>rotateCertificates: true</code> in <code>kube-proxy</code> and restart <code>etcd</code>" },
-      { id: 'C', text: "Deploy a cron job on each node that executes <code>kubeadm certs renew</code> every 30 days" },
-      { id: 'D', text: "Configure <code>--insecure-port=10250</code> to bypass TLS certificate validation on worker nodes" }
+      { id: 'A', text: "Set <code>serverTLSBootstrap: true</code> in the kubelet config, and have a controller approve the resulting CSRs" },
+      { id: 'B', text: "Set <code>rotateCertificates: true</code> in the kubelet config, which renews the serving certificate on its own" },
+      { id: 'C', text: "Run <code>kubeadm certs renew</code> from a scheduled job on each node and restart the kubelet afterwards" },
+      { id: 'D', text: "Set <code>--rotate-server-certificates</code> on <code>kube-controller-manager</code> so it reissues node certificates" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "A compliance audit detects that the <code>/var/lib/etcd</code> directory on an etcd control plane node has permissions <code>0775</code> and is owned by a standard operational group.",
     question: "Which permission and ownership settings are required by CIS benchmarks to secure the etcd data directory?",
     options: [
-      { id: 'A', text: "Ensure permissions are set to <code>0755</code> and owned by <code>nobody:nogroup</code>" },
-      { id: 'B', text: "Set permissions to <code>0777</code> to allow containerized backup tools to dump snapshot files" },
-      { id: 'C', text: "Ensure ownership is <code>etcd:etcd</code> (or <code>root:root</code> depending on setup) and permissions are strictly set to <code>0700</code> using <code>chmod 700 /var/lib/etcd</code>" },
-      { id: 'D', text: "Ensure permissions are set to <code>0644</code> and owned by <code>kubelet:root</code>" }
+      { id: 'A', text: "Own <code>/var/lib/etcd</code> as <code>nobody:nogroup</code> with mode <code>0755</code>" },
+      { id: 'B', text: "Own <code>/var/lib/etcd</code> as <code>root:root</code> with mode <code>0777</code>" },
+      { id: 'C', text: "Own <code>/var/lib/etcd</code> as <code>etcd:etcd</code> with mode <code>0700</code>" },
+      { id: 'D', text: "Own <code>/var/lib/etcd</code> as <code>kubelet:root</code> with mode <code>0644</code>" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "In older or customized Kubernetes distributions, an administrative script attempts to pass <code>--insecure-port=8080</code> to the <code>kube-apiserver</code> startup parameters.",
     question: "What is the security danger associated with running <code>kube-apiserver</code> with an active insecure port?",
     options: [
-      { id: 'A', text: "The insecure port only accepts requests from the <code>system:masters</code> group over plain HTTP" },
-      { id: 'B', text: "The insecure port causes etcd to disable encryption at rest for all newly created secrets" },
-      { id: 'C', text: "The insecure port forces all pods to communicate without NetworkPolicies" },
-      { id: 'D', text: "The insecure port transmits unencrypted HTTP traffic and completely bypasses all authentication, authorization, and admission control checks" }
+      { id: 'A', text: "It carries plain HTTP but accepts only <code>system:masters</code> callers on the loopback" },
+      { id: 'B', text: "It causes etcd to store newly created secrets without applying the encryption provider" },
+      { id: 'C', text: "It causes pods admitted through it to run without NetworkPolicy enforcement applied" },
+      { id: 'D', text: "It carries plain HTTP and bypasses authentication, authorization and admission entirely" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "A security engineer inspects <code>/etc/kubernetes/admin.conf</code> on a master node and finds that the file has permissions <code>0666</code>, allowing any local user to read the embedded cluster administrator private key and certificate.",
     question: "What are the required ownership and permission values for <code>admin.conf</code> according to CIS Kubernetes Benchmark recommendations?",
     options: [
-      { id: 'A', text: "Ownership <code>kubelet:root</code> and permissions <code>0640</code>" },
-      { id: 'B', text: "Ownership <code>etcd:etcd</code> and permissions <code>0400</code>" },
-      { id: 'C', text: "Ownership <code>root:root</code> and permissions <code>0600</code> (or <code>chmod 600 /etc/kubernetes/admin.conf</code>)" },
-      { id: 'D', text: "Ownership <code>root:admin</code> and permissions <code>0660</code>" }
+      { id: 'A', text: "Ownership <code>kubelet:root</code> with permissions <code>0640</code>" },
+      { id: 'B', text: "Ownership <code>etcd:etcd</code> with permissions <code>0400</code>" },
+      { id: 'C', text: "Ownership <code>root:root</code> with permissions <code>0600</code>" },
+      { id: 'D', text: "Ownership <code>root:admin</code> with permissions <code>0660</code>" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "A development team wants to ensure that pods deployed in user namespaces cannot communicate with the control plane nodes' API server IP on port 6443 directly, unless specifically routed through an authorized ingress gateway.",
     question: "Which egress NetworkPolicy rule blocks traffic to the control plane IP range while allowing public web access?",
     options: [
-      { id: 'A', text: "Create a NetworkPolicy targeting the <code>kube-system</code> namespace with an empty podSelector" },
-      { id: 'B', text: "Set <code>spec.policyTypes: ['Ingress']</code> and omit all egress blocks" },
-      { id: 'C', text: "Define an egress <code>ipBlock</code> with <code>cidr: 0.0.0.0/0</code> and add the control plane subnet CIDR (e.g., <code>10.0.1.0/24</code>) to the <code>except</code> list" },
-      { id: 'D', text: "Configure an ingress rule with <code>from: [{ ipBlock: { cidr: '10.0.1.0/24' } }]</code>" }
+      { id: 'A', text: "An egress <code>ipBlock</code> of <code>0.0.0.0/0</code> plus a policy on <code>kube-system</code> with an empty selector" },
+      { id: 'B', text: "An egress rule listing only the public ranges, with <code>policyTypes: ['Ingress']</code> set as well" },
+      { id: 'C', text: "An egress <code>ipBlock</code> of <code>0.0.0.0/0</code> with the control plane subnet in its <code>except</code> list" },
+      { id: 'D', text: "An ingress rule whose <code>from</code> excludes the control plane subnet CIDR from the pod network" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "After configuring an <code>EncryptionConfiguration</code> on <code>kube-apiserver</code>, a security engineer must verify directly in etcd that newly created Secrets are stored in encrypted format rather than plain JSON text.",
     question: "Which command sequence directly queries etcd to confirm that the secret value contains the encryption provider prefix?",
     options: [
-      { id: 'A', text: "Run <code>kubectl get secret &lt;secret-name&gt; -o yaml</code> and inspect the <code>metadata.encrypted</code> annotation" },
-      { id: 'B', text: "Run <code>ETCDCTL_API=3 etcdctl --cacert=&lt;ca&gt; --cert=&lt;cert&gt; --key=&lt;key&gt; get /registry/secrets/&lt;namespace&gt;/&lt;secret-name&gt;</code> and verify that the output begins with <code>k8s:enc:aescbc:v1:</code> or similar provider prefix" },
-      { id: 'C', text: "Run <code>crictl inspect --output json &lt;etcd-container-id&gt; | grep 'encrypted'</code>" },
-      { id: 'D', text: "Run <code>openssl verify -CAfile /etc/kubernetes/pki/ca.crt /var/lib/etcd/member/snap/db</code>" }
+      { id: 'A', text: "Run <code>kubectl get secret &lt;name&gt; -o yaml</code> and check the <code>metadata.encrypted</code> annotation the provider adds" },
+      { id: 'B', text: "Run <code>etcdctl get /registry/secrets/&lt;ns&gt;/&lt;name&gt;</code> and look for the <code>k8s:enc:aescbc:v1:</code> prefix" },
+      { id: 'C', text: "Run <code>crictl inspect &lt;etcd-container-id&gt;</code> and check the mounted provider configuration it reports" },
+      { id: 'D', text: "Run <code>openssl verify -CAfile /etc/kubernetes/pki/ca.crt</code> against the etcd snapshot on disk" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKS_QUESTIONS_1 = [
     scenario: "An enterprise key rotation policy mandates replacing the primary Secret encryption key in <code>/etc/kubernetes/enc.yaml</code> with a newly generated random 32-byte secret without breaking decryption of existing cluster secrets.",
     question: "What is the correct multi-step process to safely rotate secret encryption keys without downtime?",
     options: [
-      { id: 'A', text: "Replace the old key directly with the new key in <code>enc.yaml</code> and restart all control plane and worker nodes simultaneously" },
-      { id: 'B', text: "Add the new key as the first entry under <code>keys</code> in the provider configuration, keep the old key as a secondary entry, restart <code>kube-apiserver</code>, rewrite all secrets with <code>kubectl get secrets -A -o json | kubectl replace -f -</code>, and finally remove the old key from the configuration file" },
-      { id: 'C', text: "Change the provider name from <code>aescbc</code> to <code>identity</code>, restart <code>kube-apiserver</code>, and then add the new key" },
-      { id: 'D', text: "Delete all existing secrets from etcd, restart <code>kube-apiserver</code> with the new key, and redeploy applications from Helm charts" }
+      { id: 'A', text: "Add the new key as the second <code>keys</code> entry, restart <code>kube-apiserver</code>, rewrite all secrets, then promote the new key to first" },
+      { id: 'B', text: "Add the new key as the first <code>keys</code> entry, keep the old one second, restart <code>kube-apiserver</code>, rewrite all secrets, then drop the old key" },
+      { id: 'C', text: "Replace the old key with the new one in the provider configuration and restart every control plane node at the same time" },
+      { id: 'D', text: "Switch the provider to <code>identity</code>, restart <code>kube-apiserver</code> to decrypt the keyspace, then add the new key as the only entry" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -515,7 +515,7 @@ export const K8S_CKS_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "Set <code>--anonymous-auth=true</code> and remove the <code>--client-ca-file</code> parameter" },
       { id: 'B', text: "Configure <code>--kubelet-port=10255</code> and disable <code>--kubelet-https</code>" },
-      { id: 'C', text: "Configure <code>--kubelet-client-certificate</code>, <code>--kubelet-client-key</code>, and <code>--kubelet-certificate-authority</code>" },
+      { id: 'C', text: "Configure the API server's <code>--kubelet-client-certificate</code>, key, and CA flags" },
       { id: 'D', text: "Configure <code>--insecure-kubelet-tls=true</code> and set <code>--kubelet-preferred-address-types=InternalIP</code>" }
     ],
     correctAnswers: ['C'],

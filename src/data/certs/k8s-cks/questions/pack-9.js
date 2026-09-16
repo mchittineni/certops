@@ -9,10 +9,10 @@ export const K8S_CKS_QUESTIONS_9 = [
     scenario: "A container is suspected of leaking data to an unknown external server. An administrator on the worker node knows the container's PID on the host is 8940.",
     question: "Where can the administrator view all open sockets, pipes, and files held by this process?",
     options: [
-      { id: 'A', text: "Read <code>/var/log/messages</code>" },
-      { id: 'B', text: "Inspect <code>/etc/hosts</code>" },
-      { id: 'C', text: "Inspect the symbolic links in <code>/proc/8940/fd/</code>" },
-      { id: 'D', text: "Query <code>kubectl describe pod</code>" }
+      { id: 'A', text: "Read the node's <code>/var/log/messages</code>" },
+      { id: 'B', text: "Inspect the container's <code>/etc/hosts</code>" },
+      { id: 'C', text: "Inspect the links in <code>/proc/8940/fd/</code>" },
+      { id: 'D', text: "Query <code>kubectl describe pod &lt;pod&gt;</code>" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKS_QUESTIONS_9 = [
     scenario: "An attacker attempts to perform man-in-the-middle attacks against container outbound HTTPS traffic by injecting a rogue root certificate into <code>/etc/ssl/certs/</code> inside a container.",
     question: "Which Falco rule triggers when an untrusted process writes to system certificate stores?",
     options: [
-      { id: 'A', text: "<code>evt.type in (open, openat) and evt.is_open_write=true and fd.name startswith /etc/ssl/certs/</code>" },
-      { id: 'B', text: "<code>syscall = socket and fd.port = 443</code>" },
-      { id: 'C', text: "<code>evt.type = read and fd.name = /etc/ssl/certs/ca-certificates.crt</code>" },
-      { id: 'D', text: "<code>evt.type = execve and proc.name = 'curl'</code>" }
+      { id: 'A', text: "<code>evt.is_open_write=true and fd.name startswith /etc/ssl/certs/</code>" },
+      { id: 'B', text: "<code>evt.type = connect and fd.port = 443 and container.id != host</code>" },
+      { id: 'C', text: "<code>evt.type = read and fd.name startswith /etc/ssl/certs/</code>" },
+      { id: 'D', text: "<code>evt.type = execve and proc.name in (curl, wget)</code>" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKS_QUESTIONS_9 = [
     scenario: "An insider threat grants the <code>cluster-admin</code> ClusterRole to their personal ServiceAccount to maintain persistent administrative backdoor access.",
     question: "Which audit log filter captures privilege escalation via RBAC role bindings?",
     options: [
-      { id: 'A', text: "Filter audit logs for <code>objectRef.resource: services</code>" },
-      { id: 'B', text: "Filter audit logs for <code>objectRef.resource in ('clusterrolebindings', 'rolebindings')</code> and <code>verb in ('create', 'update', 'patch')</code>" },
-      { id: 'C', text: "Filter audit logs for <code>verb: get</code> on pods" },
-      { id: 'D', text: "Filter for HTTP 200 responses on the <code>/healthz</code> endpoint" }
+      { id: 'A', text: "Filter for <code>objectRef.resource: clusterroles</code> with a <code>verb: get</code> match" },
+      { id: 'B', text: "Filter for <code>objectRef.resource</code> in the rolebinding kinds with a write <code>verb</code>" },
+      { id: 'C', text: "Filter for <code>objectRef.subresource: exec</code> with a write <code>verb</code> on pods" },
+      { id: 'D', text: "Filter for <code>responseStatus.code: 403</code> on the <code>authorization</code> group" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKS_QUESTIONS_9 = [
     scenario: "A forensic analyst investigates a suspicious running process (PID 5531) inside a container on a worker node to determine what Linux capabilities were granted to it.",
     question: "Which command decodes and displays the effective capabilities of the process?",
     options: [
-      { id: 'A', text: "Execute <code>kubectl get pod 5531 -o json</code>" },
-      { id: 'B', text: "Execute <code>crictl stats 5531</code>" },
-      { id: 'C', text: "Execute <code>ls -l /proc/5531/cwd</code>" },
-      { id: 'D', text: "Execute <code>getpcaps 5531</code> (or <code>capsh --decode=$(grep CapEff /proc/5531/status | awk '{print $2}')</code>)" }
+      { id: 'A', text: "Run <code>kubectl get pod -o json</code> and read the container's securityContext block" },
+      { id: 'B', text: "Run <code>crictl inspect</code> on the container and read the runtime's capability list" },
+      { id: 'C', text: "Run <code>ls -l /proc/5531/</code> and read the ownership of the process's own entries" },
+      { id: 'D', text: "Run <code>getpcaps 5531</code>, or decode <code>CapEff</code> with <code>capsh</code>" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -115,9 +115,9 @@ export const K8S_CKS_QUESTIONS_9 = [
     question: "Which Linux signal instructs the Falco daemon to reload its configuration and rules files?",
     options: [
       { id: 'A', text: "Send <code>SIGKILL</code> using <code>kill -9 &lt;falco-pid&gt;</code>" },
-      { id: 'B', text: "Send <code>SIGHUP</code> to the Falco process using <code>kill -1 &lt;falco-pid&gt;</code>" },
+      { id: 'B', text: "Send <code>SIGHUP</code> with <code>kill -1 &lt;falco-pid&gt;</code>" },
       { id: 'C', text: "Send <code>SIGTERM</code> using <code>systemctl stop falco</code>" },
-      { id: 'D', text: "Send <code>SIGUSR1</code> to kubelet" }
+      { id: 'D', text: "Send <code>SIGUSR1</code> with <code>kill -10 &lt;falco-pid&gt;</code>" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKS_QUESTIONS_9 = [
     scenario: "During an API flood attack, the audit backend buffer fills faster than logs can be written to disk. The cluster administrator must ensure that API requests are not blocked even if audit logging lags.",
     question: "Which <code>kube-apiserver</code> flag controls how the audit logging batch queue handles buffer overflow?",
     options: [
-      { id: 'A', text: "<code>--disable-audit-throttling=true</code>" },
-      { id: 'B', text: "<code>--audit-fail-action=ignore</code>" },
-      { id: 'C', text: "<code>--audit-buffer-mode=unlimited</code>" },
-      { id: 'D', text: "<code>--audit-log-mode=batch</code> with <code>--audit-log-batch-buffer-size</code> and <code>--audit-log-batch-throttle-enable</code>" }
+      { id: 'A', text: "<code>--audit-log-mode=blocking</code>, with the request timeout flag" },
+      { id: 'B', text: "<code>--audit-log-maxbackup</code>, with the log rotation age flag" },
+      { id: 'C', text: "<code>--audit-webhook-mode=batch</code>, with the webhook retry flags" },
+      { id: 'D', text: "<code>--audit-log-mode=batch</code>, with the batch buffer size and throttle flags" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKS_QUESTIONS_9 = [
     scenario: "An attacker with container root privileges attempts to exploit a kernel core dump vulnerability by modifying <code>/proc/sys/kernel/core_pattern</code> to execute a script on the host upon a segmentation fault.",
     question: "Which Falco rule flags modifications to the Linux kernel core dump handler?",
     options: [
-      { id: 'A', text: "<code>evt.type = read and fd.name = /proc/cpuinfo</code>" },
-      { id: 'B', text: "<code>evt.type = execve and proc.name = 'gdb'</code>" },
-      { id: 'C', text: "<code>evt.type in (open, openat) and evt.is_open_write=true and fd.name = /proc/sys/kernel/core_pattern</code>" },
-      { id: 'D', text: "<code>syscall = kill and sig = 11</code>" }
+      { id: 'A', text: "<code>evt.is_open_write=true and fd.name = /proc/sys/kernel/kptr_restrict</code>" },
+      { id: 'B', text: "<code>evt.type = execve and proc.name = 'gdb' and container.id != host</code>" },
+      { id: 'C', text: "<code>evt.is_open_write=true and fd.name = /proc/sys/kernel/core_pattern</code>" },
+      { id: 'D', text: "<code>evt.type = kill and evt.arg.sig = 11 and container.id != host</code>" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKS_QUESTIONS_9 = [
     scenario: "An analyst suspects that a pod is participating in a DDoS attack. The pod has no network debugging utilities.",
     question: "How can the analyst run <code>ss -ant</code> to inspect active TCP connections within the pod's network namespace from the host node?",
     options: [
-      { id: 'A', text: "Run <code>kubectl top pod</code>" },
-      { id: 'B', text: "Inspect <code>/etc/resolv.conf</code>" },
-      { id: 'C', text: "Find the container PID using <code>crictl inspect</code>, then execute <code>nsenter -t &lt;PID&gt; -n ss -ant</code>" },
-      { id: 'D', text: "Run <code>crictl logs</code> on the container" }
+      { id: 'A', text: "Find the container PID with <code>crictl inspect</code>, then run <code>ss -ant</code> on the host itself" },
+      { id: 'B', text: "Find the pod IP with <code>kubectl get pod -o wide</code>, then filter the host's own <code>ss -ant</code>" },
+      { id: 'C', text: "Find the container PID with <code>crictl inspect</code>, then run <code>nsenter -t &lt;PID&gt; -n ss -ant</code>" },
+      { id: 'D', text: "Find the sandbox with <code>crictl pods</code>, then run <code>crictl exec</code> with the <code>ss</code> binary" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKS_QUESTIONS_9 = [
     scenario: "A slow external audit webhook is causing API server request processing to stall.",
     question: "Which parameter in the audit webhook configuration file limits the time <code>kube-apiserver</code> waits for an audit webhook response?",
     options: [
-      { id: 'A', text: "Disable TLS on the webhook endpoint" },
-      { id: 'B', text: "Configure <code>timeout</code> in the webhook client configuration (or <code>--audit-webhook-batch-max-wait</code>)" },
-      { id: 'C', text: "Set <code>--audit-timeout=immediate</code> on the API server" },
-      { id: 'D', text: "Set <code>--request-timeout=1s</code> on kubelet" }
+      { id: 'A', text: "The <code>--audit-webhook-initial-backoff</code> flag" },
+      { id: 'B', text: "The <code>timeout</code> in the webhook's client configuration" },
+      { id: 'C', text: "The <code>--audit-log-batch-max-wait</code> flag" },
+      { id: 'D', text: "The <code>--request-timeout</code> flag on the API server" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -221,7 +221,7 @@ export const K8S_CKS_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "<code>evt.type = socket and evt.arg.domain = AF_PACKET and container.id != host</code>" },
       { id: 'B', text: "<code>evt.type = connect and fd.port = 53</code>" },
-      { id: 'C', text: "<code>evt.type = listen and fd.port = 443</code>" },
+      { id: 'C', text: "<code>evt.type = listen and fd.port = 443 and container.id != host</code>" },
       { id: 'D', text: "<code>evt.type = bind and fd.port = 80</code>" }
     ],
     correctAnswers: ['A'],
@@ -262,9 +262,9 @@ export const K8S_CKS_QUESTIONS_9 = [
     question: "Which Falco rule pattern enforces a strict process allow-list for a designated container image?",
     options: [
       { id: 'A', text: "<code>container.image.repository = 'nginx' and evt.type = execve and not proc.name in (nginx)</code>" },
-      { id: 'B', text: "<code>container.name = 'nginx' and syscall = 'fork'</code>" },
-      { id: 'C', text: "<code>evt.type = read and file.name = '/etc/nginx/nginx.conf'</code>" },
-      { id: 'D', text: "<code>evt.type = connect and fd.port = 80</code>" }
+      { id: 'B', text: "<code>container.image.repository = 'nginx' and evt.type = clone and proc.name in (nginx)</code>" },
+      { id: 'C', text: "<code>container.image.repository = 'nginx' and evt.type = open and fd.name = '/etc/nginx'</code>" },
+      { id: 'D', text: "<code>container.image.repository = 'nginx' and evt.type = connect and fd.port = 80</code>" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKS_QUESTIONS_9 = [
     scenario: "An attacker uses a compromised ServiceAccount to trigger mass pod evictions across multiple namespaces.",
     question: "Which subresource in the Kubernetes audit log tracks pod eviction API calls?",
     options: [
-      { id: 'A', text: "<code>objectRef.subresource: 'eviction'</code> under resource <code>pods</code>" },
-      { id: 'B', text: "<code>objectRef.resource: 'deployments/scale'</code>" },
-      { id: 'C', text: "<code>objectRef.subresource: 'status'</code>" },
-      { id: 'D', text: "<code>objectRef.resource: 'nodes/drain'</code>" }
+      { id: 'A', text: "<code>objectRef.subresource: 'eviction'</code> on <code>pods</code>" },
+      { id: 'B', text: "<code>objectRef.subresource: 'scale'</code> on <code>deployments</code>" },
+      { id: 'C', text: "<code>objectRef.subresource: 'status'</code> on <code>pods</code>" },
+      { id: 'D', text: "<code>objectRef.subresource: 'drain'</code> on <code>nodes</code>" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,7 +303,7 @@ export const K8S_CKS_QUESTIONS_9 = [
     scenario: "A compromised container spawns an OpenSSH daemon (<code>sshd</code>) to establish an unauthorized remote access channel.",
     question: "Which Falco condition detects unauthorized listening services on SSH port 22 inside a container?",
     options: [
-      { id: 'A', text: "<code>evt.type = connect and fd.port = 80</code>" },
+      { id: 'A', text: "<code>container.image.repository = 'nginx' and evt.type = connect and fd.port = 80</code>" },
       { id: 'B', text: "<code>evt.type = listen and fd.port = 22 and container.id != host</code>" },
       { id: 'C', text: "<code>evt.type = execve and proc.name = 'sshd' and container.id = host</code>" },
       { id: 'D', text: "<code>evt.type = accept and fd.port = 443</code>" }
@@ -345,10 +345,10 @@ export const K8S_CKS_QUESTIONS_9 = [
     scenario: "An attacker alters the system clock using <code>settimeofday</code> or <code>clock_settime</code> inside a container that has <code>CAP_SYS_TIME</code> in order to invalidate TLS certificate validation or corrupt audit timestamps.",
     question: "Which Falco event condition detects system time modifications?",
     options: [
-      { id: 'A', text: "<code>evt.type in (settimeofday, clock_settime) and container.id != host</code>" },
-      { id: 'B', text: "<code>syscall = adjtimex and container.id = host</code>" },
-      { id: 'C', text: "<code>evt.type = gettimeofday</code>" },
-      { id: 'D', text: "<code>evt.type = nanosleep</code>" }
+      { id: 'A', text: "<code>evt.type in (settimeofday, clock_settime)</code>" },
+      { id: 'B', text: "<code>evt.type = adjtimex and container.id = host</code>" },
+      { id: 'C', text: "<code>evt.type = gettimeofday and evt.dir = &lt;</code>" },
+      { id: 'D', text: "<code>evt.type = nanosleep and evt.dir = &gt;</code>" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKS_QUESTIONS_9 = [
     scenario: "An attacker establishes persistence on a compromised node by creating a malicious cron job in <code>/etc/cron.d/</code>.",
     question: "Which Falco rule flags unauthorized persistence mechanisms created in system scheduling directories?",
     options: [
-      { id: 'A', text: "<code>evt.type = read and fd.name = /etc/crontab</code>" },
-      { id: 'B', text: "<code>evt.type = execve and proc.name = 'crond'</code>" },
-      { id: 'C', text: "<code>evt.type in (open, openat) and evt.is_open_write=true and fd.name startswith /etc/cron</code>" },
-      { id: 'D', text: "<code>syscall = sleep and evt.arg.duration &gt; 3600</code>" }
+      { id: 'A', text: "<code>evt.type = read and fd.name startswith /etc/cron</code>" },
+      { id: 'B', text: "<code>evt.type = execve and proc.name in (crond, cron)</code>" },
+      { id: 'C', text: "<code>evt.is_open_write=true and fd.name startswith /etc/cron</code>" },
+      { id: 'D', text: "<code>evt.type = openat and fd.name = /var/spool/cron</code>" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKS_QUESTIONS_9 = [
     scenario: "An enterprise requires streaming millions of Falco security events directly into a high-throughput Go-based security event collector with mutual TLS encryption.",
     question: "Which Falco output channel provides high-speed binary streaming over gRPC?",
     options: [
-      { id: 'A', text: "Configure <code>file_output</code> with a shared NFS mount" },
-      { id: 'B', text: "Enable <code>grpc_output: { enabled: true }</code> and configure <code>grpc: { threadiness: 8 }</code> in <code>falco.yaml</code>" },
-      { id: 'C', text: "Enable <code>syslog_output</code> over UDP port 514" },
-      { id: 'D', text: "Configure <code>program_output</code> with <code>curl</code> commands" }
+      { id: 'A', text: "Set <code>file_output.enabled: true</code> with a shared NFS path in <code>falco.yaml</code>" },
+      { id: 'B', text: "Set <code>grpc_output.enabled: true</code> with a <code>grpc</code> block in <code>falco.yaml</code>" },
+      { id: 'C', text: "Set <code>syslog_output.enabled: true</code> and forward over UDP port 514" },
+      { id: 'D', text: "Set <code>program_output.enabled: true</code> with a <code>curl</code> program line" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKS_QUESTIONS_9 = [
     scenario: "An attacker uses an exploit to load unauthorized eBPF programs into the kernel to manipulate network packets and hide rootkit processes.",
     question: "Which Linux system call is used to load BPF programs, and how is it monitored by Falco?",
     options: [
-      { id: 'A', text: "Monitor <code>evt.type = mmap</code> on <code>/etc/shadow</code>" },
-      { id: 'B', text: "Monitor <code>syscall = socket</code> for ICMP packets" },
-      { id: 'C', text: "Monitor <code>evt.type = ioctl</code> on <code>/dev/null</code>" },
-      { id: 'D', text: "Monitor <code>evt.type = bpf</code> system calls originating from unapproved processes" }
+      { id: 'A', text: "Monitor <code>evt.type = mmap</code> on <code>/etc/shadow</code> in containers" },
+      { id: 'B', text: "Monitor <code>evt.type = socket</code> for raw ICMP sockets in containers" },
+      { id: 'C', text: "Monitor <code>evt.type = ioctl</code> against the container's own devices" },
+      { id: 'D', text: "Monitor <code>evt.type = bpf</code> from unapproved processes" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKS_QUESTIONS_9 = [
     scenario: "An investigator suspects that the <code>nginx</code> binary inside a running container was replaced by an attacker with a trojanized version.",
     question: "How can the investigator verify the binary's integrity against the original container image?",
     options: [
-      { id: 'A', text: "Check <code>kubectl describe pod</code> for checksum mismatch errors" },
-      { id: 'B', text: "Compare the file sizes using <code>ls -lh</code>" },
-      { id: 'C', text: "Reboot the worker node to see if the hash changes" },
-      { id: 'D', text: "Calculate the SHA-256 hash of the running binary on the host (<code>sha256sum /proc/&lt;PID&gt;/root/usr/sbin/nginx</code>) and compare it against the hash from a freshly pulled original image" }
+      { id: 'A', text: "Read the checksum mismatch warnings that <code>kubectl describe pod</code> records against the container's image" },
+      { id: 'B', text: "Compare the binary's size and modification time with the values recorded in the image's layer metadata" },
+      { id: 'C', text: "Restart the container so the runtime re-extracts the layer, then compare the binary with the running one" },
+      { id: 'D', text: "Hash the running binary through <code>/proc/&lt;PID&gt;/root</code> and compare it with the same path in a freshly pulled image" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKS_QUESTIONS_9 = [
     scenario: "A malicious mutating admission webhook is covertly altering pod specifications to inject unauthorized sidecar containers.",
     question: "Where can an investigator find evidence of webhook modifications in Kubernetes audit logs?",
     options: [
-      { id: 'A', text: "Check <code>dmesg</code> for webhook kernel events" },
-      { id: 'B', text: "Inspect the <code>responseObject</code> in audit logs recorded at <code>level: RequestResponse</code> and examine the <code>mutation: true</code> annotations added by the admission chain" },
-      { id: 'C', text: "Filter audit logs at <code>level: Metadata</code> for HTTP 200" },
-      { id: 'D', text: "Read <code>/var/log/syslog</code> on worker nodes" }
+      { id: 'A', text: "In the <code>requestObject</code> of entries logged at <code>Metadata</code> level, which records the submitted webhook spec" },
+      { id: 'B', text: "In the <code>responseObject</code> of entries logged at <code>RequestResponse</code> level, with the admission chain's mutation annotations" },
+      { id: 'C', text: "In the <code>annotations</code> of entries logged at <code>Request</code> level, which name the plugin that admitted the change" },
+      { id: 'D', text: "In the node's journal, where the API server writes each admission plugin decision alongside the caller" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -513,9 +513,9 @@ export const K8S_CKS_QUESTIONS_9 = [
     scenario: "An attacker exploits a known vulnerability (e.g., CVE-2022-0492) by modifying the <code>release_agent</code> file in a v1 cgroup to execute an arbitrary command on the host.",
     question: "Which Falco rule flags container attempts to write to cgroup release_agent files?",
     options: [
-      { id: 'A', text: "<code>syscall = mkdir and dir startswith /sys</code>" },
-      { id: 'B', text: "<code>evt.type = execve and proc.name = 'systemd'</code>" },
-      { id: 'C', text: "<code>evt.type in (open, openat) and evt.is_open_write=true and fd.name endswith /release_agent and container.id != host</code>" },
+      { id: 'A', text: "<code>evt.type = mkdir and fd.name startswith /sys/fs/cgroup and container.id != host</code>" },
+      { id: 'B', text: "<code>evt.type = execve and proc.name = 'systemd' and container.id != host</code>" },
+      { id: 'C', text: "<code>evt.is_open_write=true and fd.name endswith /release_agent and container.id != host</code>" },
       { id: 'D', text: "<code>evt.type = read and fd.name = /sys/fs/cgroup/cpu/cpu.shares</code>" }
     ],
     correctAnswers: ['C'],

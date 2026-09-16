@@ -9,10 +9,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to audit the cluster to detect users or ServiceAccounts that have been granted dangerous wildcard (`*`) permissions or unnecessary `cluster-admin` bindings.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Grant cluster-admin to all developers to eliminate permission request tickets." },
-      { id: 'B', text: "Delete all RoleBindings and rely on anonymous access." },
-      { id: 'C', text: "Use `kubectl get clusterrolebindings` and tools like `audit2rbac` or `kubectl-who-can` to identify over-privileged subjects and restrict them to least privilege." },
-      { id: 'D', text: "Ignore RBAC permissions because containers run in isolated cgroups." }
+      { id: 'A', text: "List the ClusterRoleBindings and replace each aggregated ClusterRole with the built-in `edit` role." },
+      { id: 'B', text: "Enable the `RBAC` authorization mode's audit annotations and read the decisions from the audit log." },
+      { id: 'C', text: "List the ClusterRoleBindings and use `audit2rbac` or `kubectl-who-can` to cut the over-broad subjects back." },
+      { id: 'D', text: "Set `automountServiceAccountToken: false` on every namespace's default ServiceAccount instead." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to audit the cluster to detect users or ServiceAccounts that have been granted dangerous wildcard (`*`) permissions or unnecessary `cluster-admin` bindings.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Use `kubectl get clusterrolebindings` and tools like `audit2rbac` or `kubectl-who-can` to identify over-privileged subjects and restrict them to least privilege." },
-      { id: 'B', text: "Grant cluster-admin to all developers to eliminate permission request tickets." },
-      { id: 'C', text: "Delete all RoleBindings and rely on anonymous access." },
-      { id: 'D', text: "Ignore RBAC permissions because containers run in isolated cgroups." }
+      { id: 'A', text: "List the ClusterRoleBindings and use `audit2rbac` or `kubectl-who-can` to cut the over-broad subjects back." },
+      { id: 'B', text: "List the ClusterRoleBindings and replace each aggregated ClusterRole with the built-in `edit` role." },
+      { id: 'C', text: "Enable the `RBAC` authorization mode's audit annotations and read the decisions from the audit log." },
+      { id: 'D', text: "Set `automountServiceAccountToken: false` on every namespace's default ServiceAccount instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to audit the cluster to detect users or ServiceAccounts that have been granted dangerous wildcard (`*`) permissions or unnecessary `cluster-admin` bindings.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Use `kubectl get clusterrolebindings` and tools like `audit2rbac` or `kubectl-who-can` to identify over-privileged subjects and restrict them to least privilege." },
-      { id: 'B', text: "Grant cluster-admin to all developers to eliminate permission request tickets." },
-      { id: 'C', text: "Delete all RoleBindings and rely on anonymous access." },
-      { id: 'D', text: "Ignore RBAC permissions because containers run in isolated cgroups." }
+      { id: 'A', text: "List the ClusterRoleBindings and use `audit2rbac` or `kubectl-who-can` to cut the over-broad subjects back." },
+      { id: 'B', text: "List the ClusterRoleBindings and replace each aggregated ClusterRole with the built-in `edit` role." },
+      { id: 'C', text: "Enable the `RBAC` authorization mode's audit annotations and read the decisions from the audit log." },
+      { id: 'D', text: "Set `automountServiceAccountToken: false` on every namespace's default ServiceAccount instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to audit the cluster to detect users or ServiceAccounts that have been granted dangerous wildcard (`*`) permissions or unnecessary `cluster-admin` bindings.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Delete all RoleBindings and rely on anonymous access." },
-      { id: 'B', text: "Use `kubectl get clusterrolebindings` and tools like `audit2rbac` or `kubectl-who-can` to identify over-privileged subjects and restrict them to least privilege." },
-      { id: 'C', text: "Grant cluster-admin to all developers to eliminate permission request tickets." },
-      { id: 'D', text: "Ignore RBAC permissions because containers run in isolated cgroups." }
+      { id: 'A', text: "Enable the `RBAC` authorization mode's audit annotations and read the decisions from the audit log." },
+      { id: 'B', text: "List the ClusterRoleBindings and use `audit2rbac` or `kubectl-who-can` to cut the over-broad subjects back." },
+      { id: 'C', text: "List the ClusterRoleBindings and replace each aggregated ClusterRole with the built-in `edit` role." },
+      { id: 'D', text: "Set `automountServiceAccountToken: false` on every namespace's default ServiceAccount instead." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to audit the cluster to detect users or ServiceAccounts that have been granted dangerous wildcard (`*`) permissions or unnecessary `cluster-admin` bindings.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Use `kubectl get clusterrolebindings` and tools like `audit2rbac` or `kubectl-who-can` to identify over-privileged subjects and restrict them to least privilege." },
-      { id: 'B', text: "Grant cluster-admin to all developers to eliminate permission request tickets." },
-      { id: 'C', text: "Delete all RoleBindings and rely on anonymous access." },
-      { id: 'D', text: "Ignore RBAC permissions because containers run in isolated cgroups." }
+      { id: 'A', text: "List the ClusterRoleBindings and use `audit2rbac` or `kubectl-who-can` to cut the over-broad subjects back." },
+      { id: 'B', text: "List the ClusterRoleBindings and replace each aggregated ClusterRole with the built-in `edit` role." },
+      { id: 'C', text: "Enable the `RBAC` authorization mode's audit annotations and read the decisions from the audit log." },
+      { id: 'D', text: "Set `automountServiceAccountToken: false` on every namespace's default ServiceAccount instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to ensure that unauthorized host users on a master node cannot view or tamper with control plane manifests or certificate private keys.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Store private keys in a public world-readable web server directory." },
-      { id: 'B', text: "Set all file permissions in /etc/kubernetes/ to 777 to avoid permission errors." },
-      { id: 'C', text: "Set ownership to `root:root` and file permissions to `600` on private keys and `644` on public certificates and manifests in `/etc/kubernetes/`." },
-      { id: 'D', text: "Change ownership of private keys to the nobody user." }
+      { id: 'A', text: "Own `/etc/kubernetes` as `root:root`, with `644` on private keys and `600` on certificates." },
+      { id: 'B', text: "Own `/etc/kubernetes` as `kubelet:kubelet`, with `640` on both the keys and the manifests." },
+      { id: 'C', text: "Own `/etc/kubernetes` as `root:root`, with `600` on private keys and `644` on certificates." },
+      { id: 'D', text: "Own `/etc/kubernetes` as `root:root`, with `700` on the directory and `666` on its files." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to ensure that unauthorized host users on a master node cannot view or tamper with control plane manifests or certificate private keys.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Change ownership of private keys to the nobody user." },
-      { id: 'B', text: "Store private keys in a public world-readable web server directory." },
-      { id: 'C', text: "Set ownership to `root:root` and file permissions to `600` on private keys and `644` on public certificates and manifests in `/etc/kubernetes/`." },
-      { id: 'D', text: "Set all file permissions in /etc/kubernetes/ to 777 to avoid permission errors." }
+      { id: 'A', text: "Own `/etc/kubernetes` as `root:root`, with `700` on the directory and `666` on its files." },
+      { id: 'B', text: "Own `/etc/kubernetes` as `root:root`, with `644` on private keys and `600` on certificates." },
+      { id: 'C', text: "Own `/etc/kubernetes` as `root:root`, with `600` on private keys and `644` on certificates." },
+      { id: 'D', text: "Own `/etc/kubernetes` as `kubelet:kubelet`, with `640` on both the keys and the manifests." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to ensure that unauthorized host users on a master node cannot view or tamper with control plane manifests or certificate private keys.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Set ownership to `root:root` and file permissions to `600` on private keys and `644` on public certificates and manifests in `/etc/kubernetes/`." },
-      { id: 'B', text: "Set all file permissions in /etc/kubernetes/ to 777 to avoid permission errors." },
-      { id: 'C', text: "Change ownership of private keys to the nobody user." },
-      { id: 'D', text: "Store private keys in a public world-readable web server directory." }
+      { id: 'A', text: "Own `/etc/kubernetes` as `root:root`, with `600` on private keys and `644` on certificates." },
+      { id: 'B', text: "Own `/etc/kubernetes` as `kubelet:kubelet`, with `640` on both the keys and the manifests." },
+      { id: 'C', text: "Own `/etc/kubernetes` as `root:root`, with `700` on the directory and `666` on its files." },
+      { id: 'D', text: "Own `/etc/kubernetes` as `root:root`, with `644` on private keys and `600` on certificates." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to ensure that unauthorized host users on a master node cannot view or tamper with control plane manifests or certificate private keys.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Set all file permissions in /etc/kubernetes/ to 777 to avoid permission errors." },
-      { id: 'B', text: "Set ownership to `root:root` and file permissions to `600` on private keys and `644` on public certificates and manifests in `/etc/kubernetes/`." },
-      { id: 'C', text: "Store private keys in a public world-readable web server directory." },
-      { id: 'D', text: "Change ownership of private keys to the nobody user." }
+      { id: 'A', text: "Own `/etc/kubernetes` as `kubelet:kubelet`, with `640` on both the keys and the manifests." },
+      { id: 'B', text: "Own `/etc/kubernetes` as `root:root`, with `600` on private keys and `644` on certificates." },
+      { id: 'C', text: "Own `/etc/kubernetes` as `root:root`, with `644` on private keys and `600` on certificates." },
+      { id: 'D', text: "Own `/etc/kubernetes` as `root:root`, with `700` on the directory and `666` on its files." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to ensure that unauthorized host users on a master node cannot view or tamper with control plane manifests or certificate private keys.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Set ownership to `root:root` and file permissions to `600` on private keys and `644` on public certificates and manifests in `/etc/kubernetes/`." },
-      { id: 'B', text: "Set all file permissions in /etc/kubernetes/ to 777 to avoid permission errors." },
-      { id: 'C', text: "Change ownership of private keys to the nobody user." },
-      { id: 'D', text: "Store private keys in a public world-readable web server directory." }
+      { id: 'A', text: "Own `/etc/kubernetes` as `root:root`, with `600` on private keys and `644` on certificates." },
+      { id: 'B', text: "Own `/etc/kubernetes` as `kubelet:kubelet`, with `640` on both the keys and the manifests." },
+      { id: 'C', text: "Own `/etc/kubernetes` as `root:root`, with `700` on the directory and `666` on its files." },
+      { id: 'D', text: "Own `/etc/kubernetes` as `root:root`, with `644` on private keys and `600` on certificates." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent unauthorized nodes or rogue pods from reading or injecting key-value data directly into the etcd datastore.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Enforce mutual TLS (mTLS) on etcd using `--client-cert-auth=true`, dedicated CA certificates, and restrict firewall access strictly to apiserver nodes." },
-      { id: 'B', text: "Allow unencrypted plaintext communication to etcd port 2379." },
-      { id: 'C', text: "Expose etcd on a public NodePort service to allow remote administrative debugging." },
-      { id: 'D', text: "Share the API server client certificate with all application workloads." }
+      { id: 'A', text: "Require etcd client certificates with `--client-cert-auth=true` on its own CA, reachable only from the API servers." },
+      { id: 'B', text: "Require etcd peer TLS with `--peer-client-cert-auth=true`, leaving the client port on the node's address." },
+      { id: 'C', text: "Require etcd RBAC users with passwords, and bind the client port to the node's private interface." },
+      { id: 'D', text: "Reuse the API server's client certificate for etcd and restrict the port with a host firewall rule." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent unauthorized nodes or rogue pods from reading or injecting key-value data directly into the etcd datastore.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Expose etcd on a public NodePort service to allow remote administrative debugging." },
-      { id: 'B', text: "Share the API server client certificate with all application workloads." },
-      { id: 'C', text: "Enforce mutual TLS (mTLS) on etcd using `--client-cert-auth=true`, dedicated CA certificates, and restrict firewall access strictly to apiserver nodes." },
-      { id: 'D', text: "Allow unencrypted plaintext communication to etcd port 2379." }
+      { id: 'A', text: "Require etcd RBAC users with passwords, and bind the client port to the node's private interface." },
+      { id: 'B', text: "Reuse the API server's client certificate for etcd and restrict the port with a host firewall rule." },
+      { id: 'C', text: "Require etcd client certificates with `--client-cert-auth=true` on its own CA, reachable only from the API servers." },
+      { id: 'D', text: "Require etcd peer TLS with `--peer-client-cert-auth=true`, leaving the client port on the node's address." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent unauthorized nodes or rogue pods from reading or injecting key-value data directly into the etcd datastore.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Enforce mutual TLS (mTLS) on etcd using `--client-cert-auth=true`, dedicated CA certificates, and restrict firewall access strictly to apiserver nodes." },
-      { id: 'B', text: "Allow unencrypted plaintext communication to etcd port 2379." },
-      { id: 'C', text: "Expose etcd on a public NodePort service to allow remote administrative debugging." },
-      { id: 'D', text: "Share the API server client certificate with all application workloads." }
+      { id: 'A', text: "Require etcd client certificates with `--client-cert-auth=true` on its own CA, reachable only from the API servers." },
+      { id: 'B', text: "Require etcd peer TLS with `--peer-client-cert-auth=true`, leaving the client port on the node's address." },
+      { id: 'C', text: "Require etcd RBAC users with passwords, and bind the client port to the node's private interface." },
+      { id: 'D', text: "Reuse the API server's client certificate for etcd and restrict the port with a host firewall rule." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent unauthorized nodes or rogue pods from reading or injecting key-value data directly into the etcd datastore.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Expose etcd on a public NodePort service to allow remote administrative debugging." },
-      { id: 'B', text: "Allow unencrypted plaintext communication to etcd port 2379." },
-      { id: 'C', text: "Share the API server client certificate with all application workloads." },
-      { id: 'D', text: "Enforce mutual TLS (mTLS) on etcd using `--client-cert-auth=true`, dedicated CA certificates, and restrict firewall access strictly to apiserver nodes." }
+      { id: 'A', text: "Require etcd RBAC users with passwords, and bind the client port to the node's private interface." },
+      { id: 'B', text: "Require etcd peer TLS with `--peer-client-cert-auth=true`, leaving the client port on the node's address." },
+      { id: 'C', text: "Reuse the API server's client certificate for etcd and restrict the port with a host firewall rule." },
+      { id: 'D', text: "Require etcd client certificates with `--client-cert-auth=true` on its own CA, reachable only from the API servers." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent unauthorized nodes or rogue pods from reading or injecting key-value data directly into the etcd datastore.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Share the API server client certificate with all application workloads." },
-      { id: 'B', text: "Allow unencrypted plaintext communication to etcd port 2379." },
-      { id: 'C', text: "Enforce mutual TLS (mTLS) on etcd using `--client-cert-auth=true`, dedicated CA certificates, and restrict firewall access strictly to apiserver nodes." },
-      { id: 'D', text: "Expose etcd on a public NodePort service to allow remote administrative debugging." }
+      { id: 'A', text: "Reuse the API server's client certificate for etcd and restrict the port with a host firewall rule." },
+      { id: 'B', text: "Require etcd peer TLS with `--peer-client-cert-auth=true`, leaving the client port on the node's address." },
+      { id: 'C', text: "Require etcd client certificates with `--client-cert-auth=true` on its own CA, reachable only from the API servers." },
+      { id: 'D', text: "Require etcd RBAC users with passwords, and bind the client port to the node's private interface." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent a compromised container process from writing to `/proc` or executing network socket creation on the host node.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Load an AppArmor profile on host nodes and configure `appArmorProfile: {type: Localhost, localhostProfile: &lt;profile-name&gt;}` in the container securityContext." },
-      { id: 'B', text: "Disable AppArmor across all host worker nodes." },
-      { id: 'C', text: "Set privileged: true on the container to bypass AppArmor." },
-      { id: 'D', text: "Rely exclusively on application-layer input validation." }
+      { id: 'A', text: "Load the AppArmor profile on the nodes and set `appArmorProfile: {type: Localhost}` on the container." },
+      { id: 'B', text: "Load the AppArmor profile on the nodes and set `appArmorProfile: {type: RuntimeDefault}` instead." },
+      { id: 'C', text: "Set `seccompProfile: {type: Localhost}` on the container and ship the profile with the image." },
+      { id: 'D', text: "Set `procMount: Default` with `readOnlyRootFilesystem: true` on the container securityContext." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent a compromised container process from writing to `/proc` or executing network socket creation on the host node.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Disable AppArmor across all host worker nodes." },
-      { id: 'B', text: "Load an AppArmor profile on host nodes and configure `appArmorProfile: {type: Localhost, localhostProfile: &lt;profile-name&gt;}` in the container securityContext." },
-      { id: 'C', text: "Rely exclusively on application-layer input validation." },
-      { id: 'D', text: "Set privileged: true on the container to bypass AppArmor." }
+      { id: 'A', text: "Load the AppArmor profile on the nodes and set `appArmorProfile: {type: RuntimeDefault}` instead." },
+      { id: 'B', text: "Load the AppArmor profile on the nodes and set `appArmorProfile: {type: Localhost}` on the container." },
+      { id: 'C', text: "Set `procMount: Default` with `readOnlyRootFilesystem: true` on the container securityContext." },
+      { id: 'D', text: "Set `seccompProfile: {type: Localhost}` on the container and ship the profile with the image." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent a compromised container process from writing to `/proc` or executing network socket creation on the host node.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Load an AppArmor profile on host nodes and configure `appArmorProfile: {type: Localhost, localhostProfile: &lt;profile-name&gt;}` in the container securityContext." },
-      { id: 'B', text: "Disable AppArmor across all host worker nodes." },
-      { id: 'C', text: "Set privileged: true on the container to bypass AppArmor." },
-      { id: 'D', text: "Rely exclusively on application-layer input validation." }
+      { id: 'A', text: "Load the AppArmor profile on the nodes and set `appArmorProfile: {type: Localhost}` on the container." },
+      { id: 'B', text: "Load the AppArmor profile on the nodes and set `appArmorProfile: {type: RuntimeDefault}` instead." },
+      { id: 'C', text: "Set `seccompProfile: {type: Localhost}` on the container and ship the profile with the image." },
+      { id: 'D', text: "Set `procMount: Default` with `readOnlyRootFilesystem: true` on the container securityContext." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent a compromised container process from writing to `/proc` or executing network socket creation on the host node.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Load an AppArmor profile on host nodes and configure `appArmorProfile: {type: Localhost, localhostProfile: &lt;profile-name&gt;}` in the container securityContext." },
-      { id: 'B', text: "Disable AppArmor across all host worker nodes." },
-      { id: 'C', text: "Set privileged: true on the container to bypass AppArmor." },
-      { id: 'D', text: "Rely exclusively on application-layer input validation." }
+      { id: 'A', text: "Load the AppArmor profile on the nodes and set `appArmorProfile: {type: Localhost}` on the container." },
+      { id: 'B', text: "Load the AppArmor profile on the nodes and set `appArmorProfile: {type: RuntimeDefault}` instead." },
+      { id: 'C', text: "Set `seccompProfile: {type: Localhost}` on the container and ship the profile with the image." },
+      { id: 'D', text: "Set `procMount: Default` with `readOnlyRootFilesystem: true` on the container securityContext." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent a compromised container process from writing to `/proc` or executing network socket creation on the host node.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Rely exclusively on application-layer input validation." },
-      { id: 'B', text: "Load an AppArmor profile on host nodes and configure `appArmorProfile: {type: Localhost, localhostProfile: &lt;profile-name&gt;}` in the container securityContext." },
-      { id: 'C', text: "Set privileged: true on the container to bypass AppArmor." },
-      { id: 'D', text: "Disable AppArmor across all host worker nodes." }
+      { id: 'A', text: "Set `procMount: Default` with `readOnlyRootFilesystem: true` on the container securityContext." },
+      { id: 'B', text: "Load the AppArmor profile on the nodes and set `appArmorProfile: {type: Localhost}` on the container." },
+      { id: 'C', text: "Set `seccompProfile: {type: Localhost}` on the container and ship the profile with the image." },
+      { id: 'D', text: "Load the AppArmor profile on the nodes and set `appArmorProfile: {type: RuntimeDefault}` instead." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to block containers from executing dangerous or unnecessary Linux system calls (such as `ptrace` or `sys_chroot`).",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Configure `seccompProfile: {type: RuntimeDefault}` or `{type: Localhost, localhostProfile: &lt;profile.json&gt;}` in the pod or container `securityContext`." },
-      { id: 'B', text: "Set seccompProfile type to Unconfined." },
-      { id: 'C', text: "Grant full root privileges to the container process." },
-      { id: 'D', text: "Disable the Linux kernel seccomp subsystem on worker nodes." }
+      { id: 'A', text: "Set `seccompProfile: {type: RuntimeDefault}` — or `Localhost` with a profile — in the securityContext." },
+      { id: 'B', text: "Set `seccompProfile: {type: Unconfined}` in the securityContext and drop all Linux capabilities." },
+      { id: 'C', text: "Set `appArmorProfile: {type: RuntimeDefault}` in the securityContext on each container." },
+      { id: 'D', text: "Set `allowPrivilegeEscalation: false` in the securityContext so the syscall set is reduced." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to block containers from executing dangerous or unnecessary Linux system calls (such as `ptrace` or `sys_chroot`).",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Set seccompProfile type to Unconfined." },
-      { id: 'B', text: "Configure `seccompProfile: {type: RuntimeDefault}` or `{type: Localhost, localhostProfile: &lt;profile.json&gt;}` in the pod or container `securityContext`." },
-      { id: 'C', text: "Disable the Linux kernel seccomp subsystem on worker nodes." },
-      { id: 'D', text: "Grant full root privileges to the container process." }
+      { id: 'A', text: "Set `seccompProfile: {type: Unconfined}` in the securityContext and drop all Linux capabilities." },
+      { id: 'B', text: "Set `seccompProfile: {type: RuntimeDefault}` — or `Localhost` with a profile — in the securityContext." },
+      { id: 'C', text: "Set `allowPrivilegeEscalation: false` in the securityContext so the syscall set is reduced." },
+      { id: 'D', text: "Set `appArmorProfile: {type: RuntimeDefault}` in the securityContext on each container." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to block containers from executing dangerous or unnecessary Linux system calls (such as `ptrace` or `sys_chroot`).",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Configure `seccompProfile: {type: RuntimeDefault}` or `{type: Localhost, localhostProfile: &lt;profile.json&gt;}` in the pod or container `securityContext`." },
-      { id: 'B', text: "Set seccompProfile type to Unconfined." },
-      { id: 'C', text: "Grant full root privileges to the container process." },
-      { id: 'D', text: "Disable the Linux kernel seccomp subsystem on worker nodes." }
+      { id: 'A', text: "Set `seccompProfile: {type: RuntimeDefault}` — or `Localhost` with a profile — in the securityContext." },
+      { id: 'B', text: "Set `seccompProfile: {type: Unconfined}` in the securityContext and drop all Linux capabilities." },
+      { id: 'C', text: "Set `appArmorProfile: {type: RuntimeDefault}` in the securityContext on each container." },
+      { id: 'D', text: "Set `allowPrivilegeEscalation: false` in the securityContext so the syscall set is reduced." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to block containers from executing dangerous or unnecessary Linux system calls (such as `ptrace` or `sys_chroot`).",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Configure `seccompProfile: {type: RuntimeDefault}` or `{type: Localhost, localhostProfile: &lt;profile.json&gt;}` in the pod or container `securityContext`." },
-      { id: 'B', text: "Set seccompProfile type to Unconfined." },
-      { id: 'C', text: "Grant full root privileges to the container process." },
-      { id: 'D', text: "Disable the Linux kernel seccomp subsystem on worker nodes." }
+      { id: 'A', text: "Set `seccompProfile: {type: RuntimeDefault}` — or `Localhost` with a profile — in the securityContext." },
+      { id: 'B', text: "Set `seccompProfile: {type: Unconfined}` in the securityContext and drop all Linux capabilities." },
+      { id: 'C', text: "Set `appArmorProfile: {type: RuntimeDefault}` in the securityContext on each container." },
+      { id: 'D', text: "Set `allowPrivilegeEscalation: false` in the securityContext so the syscall set is reduced." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKS_QUESTIONS_12 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to block containers from executing dangerous or unnecessary Linux system calls (such as `ptrace` or `sys_chroot`).",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Configure `seccompProfile: {type: RuntimeDefault}` or `{type: Localhost, localhostProfile: &lt;profile.json&gt;}` in the pod or container `securityContext`." },
-      { id: 'B', text: "Set seccompProfile type to Unconfined." },
-      { id: 'C', text: "Grant full root privileges to the container process." },
-      { id: 'D', text: "Disable the Linux kernel seccomp subsystem on worker nodes." }
+      { id: 'A', text: "Set `seccompProfile: {type: RuntimeDefault}` — or `Localhost` with a profile — in the securityContext." },
+      { id: 'B', text: "Set `seccompProfile: {type: Unconfined}` in the securityContext and drop all Linux capabilities." },
+      { id: 'C', text: "Set `appArmorProfile: {type: RuntimeDefault}` in the securityContext on each container." },
+      { id: 'D', text: "Set `allowPrivilegeEscalation: false` in the securityContext so the syscall set is reduced." }
     ],
     correctAnswers: ['A'],
     type: "single",

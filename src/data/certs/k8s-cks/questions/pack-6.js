@@ -9,10 +9,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "A DevSecOps engineer runs <code>kubesec scan deployment.yaml</code> against a proposed microservice manifest. The tool returns a negative score and highlights critical risks.",
     question: "Which set of findings in a manifest causes Kubesec to output severe negative scores?",
     options: [
-      { id: 'A', text: "Configuring an egress NetworkPolicy with DNS port 53 allowed" },
-      { id: 'B', text: "Setting <code>privileged: true</code>, declaring <code>hostNetwork: true</code>, mounting host directories via <code>hostPath</code>, and adding <code>CAP_SYS_ADMIN</code>" },
-      { id: 'C', text: "Setting <code>readOnlyRootFilesystem: true</code> and declaring resource requests and limits" },
-      { id: 'D', text: "Specifying an explicit namespace and configuring a liveness probe" }
+      { id: 'A', text: "<code>runAsUser: 1000</code>, a seccomp profile, and an egress policy allowing only port 53" },
+      { id: 'B', text: "<code>privileged: true</code>, <code>hostNetwork: true</code>, and <code>CAP_SYS_ADMIN</code>" },
+      { id: 'C', text: "<code>readOnlyRootFilesystem: true</code>, declared resource requests, and declared limits" },
+      { id: 'D', text: "An explicit namespace, a liveness probe, and a declared <code>serviceAccountName</code>" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "A CI/CD pipeline builds a container image for an authentication service. The pipeline must automatically fail and abort deployment if the container contains any unpatched vulnerabilities with severity <code>CRITICAL</code> or <code>HIGH</code>.",
     question: "Which Trivy CLI invocation enforces this automated pipeline gate?",
     options: [
-      { id: 'A', text: "Execute <code>trivy image --severity HIGH,CRITICAL --exit-code 1 --ignore-unfixed &lt;image-name&gt;</code>" },
+      { id: 'A', text: "Execute <code>trivy image --severity HIGH,CRITICAL --exit-code 1 &lt;image&gt;</code>" },
       { id: 'B', text: "Execute <code>trivy image --severity LOW,MEDIUM --exit-code 0 &lt;image-name&gt;</code>" },
-      { id: 'C', text: "Execute <code>trivy k8s cluster --all-namespaces</code>" },
-      { id: 'D', text: "Execute <code>trivy fs --format table /var/run/docker.sock</code>" }
+      { id: 'C', text: "Execute <code>trivy k8s cluster --all-namespaces --report summary</code>" },
+      { id: 'D', text: "Execute <code>trivy fs --format table /var/run/containerd.sock</code>" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "An organization signs all production container images using Sigstore Cosign. Before deploying a container image to Kubernetes, an automated script must verify that the image was signed with the company's public key.",
     question: "Which Cosign command verifies the cryptographic signature of a container image stored in a registry?",
     options: [
-      { id: 'A', text: "Execute <code>cosign sign --key cosign.key &lt;image&gt;</code>" },
-      { id: 'B', text: "Execute <code>cosign verify --key cosign.pub &lt;registry-url&gt;/&lt;image&gt;:&lt;tag&gt;</code>" },
-      { id: 'C', text: "Execute <code>cosign triangulate --verify &lt;image&gt;</code>" },
-      { id: 'D', text: "Execute <code>cosign generate-key-pair &lt;image&gt;</code>" }
+      { id: 'A', text: "Run <code>cosign sign --key cosign.key &lt;image&gt;:&lt;tag&gt;</code>" },
+      { id: 'B', text: "Run <code>cosign verify --key cosign.pub &lt;image&gt;:&lt;tag&gt;</code>" },
+      { id: 'C', text: "Run <code>cosign triangulate &lt;image&gt;:&lt;tag&gt;</code> and fetch it" },
+      { id: 'D', text: "Run <code>cosign download signature &lt;image&gt;:&lt;tag&gt;</code>" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "A Golang web microservice currently packages the Go compiler toolchain, git, curl, and build tools into its production container image, resulting in an image size of 950MB and over 120 CVEs.",
     question: "How does a multi-stage Dockerfile remediate these security and bloat issues?",
     options: [
-      { id: 'A', text: "Set <code>USER root</code> in the final layer to strip unnecessary libraries" },
-      { id: 'B', text: "Add <code>--no-cache</code> to every RUN command inside a single build stage" },
-      { id: 'C', text: "Run <code>RUN apt-get update && apt-get install golang</code> inside an Ubuntu base image" },
-      { id: 'D', text: "Build the application binary in a temporary builder stage (<code>FROM golang:1.22 AS builder</code>) and copy only the compiled executable into a minimal final stage (<code>FROM gcr.io/distroless/static-debian12</code>)" }
+      { id: 'A', text: "Compile in a builder stage and copy the binary plus its toolchain into an <code>alpine</code> final stage" },
+      { id: 'B', text: "Compile in one stage with <code>--no-cache</code> on each <code>RUN</code>, so no build layer is kept in the image" },
+      { id: 'C', text: "Compile in one stage on an <code>ubuntu</code> base and remove the compiler in the final <code>RUN</code> step" },
+      { id: 'D', text: "Compile in a builder stage and copy only the binary into a minimal <code>distroless/static</code> final stage" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "A DevSecOps engineer runs <code>hadolint Dockerfile</code> against a development Dockerfile. The linter flags rule DL3008: 'Pin versions in apt get install'.",
     question: "Why does Hadolint recommend pinning package versions when installing packages in Dockerfiles?",
     options: [
-      { id: 'A', text: "Pinning package versions ensures deterministic, reproducible builds and prevents unexpected breaking changes or unverified upstream package updates from silently slipping into images" },
-      { id: 'B', text: "Package managers refuse to execute unless an exact version string is specified" },
-      { id: 'C', text: "Pinning package versions is required by the Linux kernel to execute setuid binaries" },
-      { id: 'D', text: "Pinning package versions automatically encrypts the installed binaries with TLS" }
+      { id: 'A', text: "Pinning keeps builds reproducible and stops an upstream change slipping into the image unreviewed" },
+      { id: 'B', text: "Pinning is required by the package manager, which refuses to install without an exact version" },
+      { id: 'C', text: "Pinning lets the scanner match the installed set against advisories, which it cannot do otherwise" },
+      { id: 'D', text: "Pinning lets the build verify each package's signature, which floating versions cannot support" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "A security operations team wants to identify new vulnerabilities in previously deployed container images without pulling large multi-gigabyte container images from the registry every night.",
     question: "How can the team scan existing workloads efficiently using stored SBOM files?",
     options: [
-      { id: 'A', text: "Run <code>grype sbom:sbom.json</code> against stored SBOM files to instantly match package inventories against the latest vulnerability databases" },
-      { id: 'B', text: "Run <code>apparmor_parser --scan sbom.json</code> on all worker nodes" },
-      { id: 'C', text: "Execute <code>trivy fs /</code> inside every running pod every midnight" },
-      { id: 'D', text: "Rebuild the container images from scratch and run Docker scout" }
+      { id: 'A', text: "Run <code>grype sbom:sbom.json</code> over the stored SBOMs against the current advisory feed" },
+      { id: 'B', text: "Run <code>trivy sbom sbom.json</code> after regenerating each SBOM from the running containers" },
+      { id: 'C', text: "Run <code>trivy fs /</code> inside each running pod on a nightly schedule and collect the reports" },
+      { id: 'D', text: "Run the image scanner over every tag in the registry and match the results to the workloads" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "An enterprise wants to eliminate long-lived cryptographic private keys for container image signing, avoiding the risks of private key theft or key rotation management.",
     question: "How does keyless signing in Sigstore Cosign establish image authenticity?",
     options: [
-      { id: 'A', text: "Cosign uses an OIDC identity token from the CI/CD pipeline (e.g., GitHub Actions), obtains an ephemeral short-lived X.509 certificate from Fulcio, and records the signature in Rekor's tamper-evident transparency log" },
-      { id: 'B', text: "Cosign stores plaintext image hashes in a shared Kubernetes ConfigMap" },
-      { id: 'C', text: "Cosign relies on Docker Hub password authentication to verify image ownership" },
-      { id: 'D', text: "Cosign calculates a MD5 checksum of the image layers and emails it to the cluster administrator" }
+      { id: 'A', text: "It takes an OIDC token from the CI job, gets a short-lived certificate from Fulcio, and logs the signature in Rekor" },
+      { id: 'B', text: "It takes an OIDC token from the CI job and stores the resulting signature in the cluster as a ConfigMap entry" },
+      { id: 'C', text: "It takes the registry credentials from the CI job and has the registry vouch for the identity that pushed the image" },
+      { id: 'D', text: "It takes a hash of the image layers and records it in a transparency log without issuing any certificate at all" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "A deployment manifest specifies <code>image: my-app:latest</code>. An attacker tampers with the image tag in the remote registry, replacing the legitimate container with malware.",
     question: "How should container image references be specified to guarantee that only the exact, tamper-proof bit-for-bit image is pulled?",
     options: [
-      { id: 'A', text: "Pin the container image by its immutable SHA-256 digest: <code>image: my-app@sha256:7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069</code>" },
-      { id: 'B', text: "Specify <code>imagePullPolicy: Always</code> with the <code>:latest</code> tag" },
-      { id: 'C', text: "Set <code>securityContext.readOnlyRootFilesystem: true</code> on the deployment" },
-      { id: 'D', text: "Use semantic version tags such as <code>image: my-app:v1.2.3</code> without a digest" }
+      { id: 'A', text: "Pin the image by its immutable digest, as <code>image: my-app@sha256:7f83b165...</code>" },
+      { id: 'B', text: "Pin the image by tag with <code>imagePullPolicy: Always</code> so the newest layer is fetched" },
+      { id: 'C', text: "Pin the image by tag and enable the <code>AlwaysPullImages</code> admission plugin cluster-wide" },
+      { id: 'D', text: "Pin the image by an exact semantic version tag, as <code>image: my-app:v1.2.3</code>" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "An attacker exploits an arbitrary file upload bug in a Java web application. The attacker tries to spawn a reverse shell by invoking <code>/bin/sh</code> or downloading netcat using <code>apt-get</code> or <code>curl</code>.",
     question: "Why does packaging the Java application in a Google Distroless base image (<code>gcr.io/distroless/java17-debian12</code>) thwart this attack?",
     options: [
-      { id: 'A', text: "Distroless images run all applications inside a hardware hypervisor sandbox" },
-      { id: 'B', text: "Distroless images automatically kill any process that receives incoming HTTP traffic" },
-      { id: 'C', text: "Distroless images encrypt all container memory using the node's TPM chip" },
-      { id: 'D', text: "Distroless images contain strictly the application and its minimal runtime dependencies; they contain no shells (<code>sh</code>, <code>bash</code>), no package managers (<code>apt</code>, <code>dpkg</code>), and no standard Unix utilities (<code>curl</code>, <code>wget</code>)" }
+      { id: 'A', text: "Distroless images run each process under a seccomp profile that blocks the <code>execve</code> syscall outright" },
+      { id: 'B', text: "Distroless images mount their root filesystem read-only, so a downloaded payload cannot be written anywhere" },
+      { id: 'C', text: "Distroless images drop every Linux capability at build time, so a spawned process cannot open a socket" },
+      { id: 'D', text: "Distroless images ship the application and its runtime only — no shell, no package manager, no Unix utilities" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "A team uses Terraform and Helm to provision Kubernetes clusters and workloads. The security pipeline uses Checkov to scan IaC templates before applying them.",
     question: "Which capability differentiates Checkov from standard container image scanners like Trivy?",
     options: [
-      { id: 'A', text: "Checkov intercepts network packets at the eBPF layer to block DDoS attacks" },
-      { id: 'B', text: "Checkov scans running worker node memory for active malware rootkits" },
-      { id: 'C', text: "Checkov replaces the Linux kernel seccomp filter on worker nodes" },
-      { id: 'D', text: "Checkov performs static policy analysis on IaC templates (Terraform, CloudFormation, Helm, Kubernetes YAML) to detect misconfigurations, excessive permissions, and compliance violations prior to infrastructure deployment" }
+      { id: 'A', text: "Checkov analyses the running cluster's objects and reports the ones that drift from the committed manifests" },
+      { id: 'B', text: "Checkov analyses image layers for vulnerable OS packages, which Trivy only does for language dependencies" },
+      { id: 'C', text: "Checkov analyses the kernel's audit stream and maps each denied syscall back to the manifest that caused it" },
+      { id: 'D', text: "Checkov analyses IaC — Terraform, Helm, Kubernetes YAML — for misconfiguration before anything is deployed" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "A base operating system image contains utilities such as <code>passwd</code>, <code>chsh</code>, and <code>gpasswd</code> with the setuid bit set. If an unprivileged container process finds an exploit in one of these binaries, it can escalate to root.",
     question: "Which command in a Dockerfile safely strips setuid and setgid permissions from all binaries across the container filesystem?",
     options: [
-      { id: 'A', text: "Run <code>RUN chmod -R 777 /bin</code>" },
-      { id: 'B', text: "Run <code>RUN rm -rf /etc/passwd</code>" },
-      { id: 'C', text: "Run <code>RUN find / -type f \\( -perm -4000 -o -perm -2000 \\) -exec chmod a-s {} + 2&gt;/dev/null || true</code>" },
-      { id: 'D', text: "Run <code>RUN chown -R nobody:nogroup /usr/bin</code>" }
+      { id: 'A', text: "<code>RUN find /bin -type f -exec chmod 777 {} +</code>" },
+      { id: 'B', text: "<code>RUN find / -perm -4000 -exec rm -f {} +</code>" },
+      { id: 'C', text: "<code>RUN find / -perm /6000 -exec chmod a-s {} +</code>" },
+      { id: 'D', text: "<code>RUN chown -R nobody:nogroup /usr/bin /bin</code>" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "A Kubernetes cluster must reject any Pod whose container image is not cryptographically signed by the corporate Cosign key.",
     question: "Which Kyverno <code>ClusterPolicy</code> rule pattern verifies image signatures before admitting pods?",
     options: [
-      { id: 'A', text: "A <code>mutate</code> rule setting <code>imagePullPolicy: IfNotPresent</code>" },
-      { id: 'B', text: "A <code>generate</code> rule that creates a Secret containing the Cosign private key" },
-      { id: 'C', text: "A <code>validate</code> rule matching <code>spec.containers[*].image</code> with a regex pattern" },
-      { id: 'D', text: "A <code>verifyImages</code> rule specifying the target image repository pattern, <code>attestors</code> referencing the Cosign public key, and <code>mutateDigest: true</code>" }
+      { id: 'A', text: "A <code>mutate</code> rule that rewrites the image to its digest and sets <code>imagePullPolicy: IfNotPresent</code>" },
+      { id: 'B', text: "A <code>generate</code> rule that places the Cosign public key into the namespace for the kubelet to read" },
+      { id: 'C', text: "A <code>validate</code> rule that matches <code>spec.containers[*].image</code> against an approved regex" },
+      { id: 'D', text: "A <code>verifyImages</code> rule naming the repository pattern, its <code>attestors</code>, and <code>mutateDigest: true</code>" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "A platform team wants the <code>kube-apiserver</code> to query an external image scanning backend before allowing any container image to be scheduled on the cluster.",
     question: "What is the role of the <code>ImagePolicyWebhook</code> admission controller plugin?",
     options: [
-      { id: 'A', text: "It automatically rebuilds vulnerable Docker images using cached layers" },
-      { id: 'B', text: "It pulls the container image onto the control plane node to run antivirus scans" },
-      { id: 'C', text: "It replaces private registry credentials with temporary AWS IAM roles" },
-      { id: 'D', text: "It intercepts pod creation requests, sends the container image references to an external webhook service for policy evaluation (e.g., verifying vulnerability scan status and signatures), and admits or rejects the pod based on the response" }
+      { id: 'A', text: "It sends each new pod's image references to the registry and rebuilds any image whose base layer is outdated" },
+      { id: 'B', text: "It pulls each new pod's image onto the control plane node and scans the layers before the pod is scheduled" },
+      { id: 'C', text: "It rewrites each new pod's image references to the internal mirror and injects the matching pull secret" },
+      { id: 'D', text: "It sends each new pod's image references to an external webhook and admits or rejects the pod on its verdict" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "A team compares using Alpine Linux vs Google Distroless as the base image for Python and Node.js microservices.",
     question: "What security advantage does a Distroless image offer over an Alpine Linux base image?",
     options: [
-      { id: 'A', text: "Alpine images cannot be scanned by Trivy or Grype" },
-      { id: 'B', text: "Distroless images run only in privileged mode" },
-      { id: 'C', text: "Alpine Linux uses glibc while Distroless exclusively uses musl" },
-      { id: 'D', text: "Alpine includes the <code>apk</code> package manager and BusyBox shell (<code>/bin/sh</code>), providing tools an attacker can use post-exploitation; Distroless completely omits shells and package managers" }
+      { id: 'A', text: "Alpine ships musl rather than glibc, so exploits compiled against the standard library fail to run at all" },
+      { id: 'B', text: "Alpine ships a smaller kernel surface, whereas distroless images carry the full set of Debian security patches" },
+      { id: 'C', text: "Alpine ships no package database, so a scanner cannot enumerate what is installed inside the image" },
+      { id: 'D', text: "Alpine ships <code>apk</code> and a BusyBox shell that an attacker can use after a breach; distroless ships neither" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "An enterprise policy dictates that all Kubernetes manifests must declare CPU and memory limits, and must not mount hostPath volumes. The team enforces this in CI pipelines before deployment.",
     question: "Which tool allows writing custom declarative policies in Rego to validate Kubernetes YAML files locally?",
     options: [
-      { id: 'A', text: "Etcdctl snapshot utility" },
-      { id: 'B', text: "Conftest (leveraging Open Policy Agent's Rego engine)" },
-      { id: 'C', text: "Kubeadm cluster bootstrapper" },
-      { id: 'D', text: "Hadolint Dockerfile linter" }
+      { id: 'A', text: "Kubeval, which checks the API schema" },
+      { id: 'B', text: "Conftest, which runs OPA's Rego locally" },
+      { id: 'C', text: "Kubesec, which scores the manifests" },
+      { id: 'D', text: "Hadolint, which lints Dockerfiles" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "A developer writes a Dockerfile containing:<br><code>RUN apt-get update</code><br><code>RUN apt-get install -y curl</code><br>In subsequent builds, changes to source code do not trigger <code>apt-get update</code>.",
     question: "What security problem results from splitting <code>apt-get update</code> and <code>apt-get install</code> into separate RUN commands?",
     options: [
-      { id: 'A', text: "The build fails immediately with a syntax error" },
-      { id: 'B', text: "Docker reuses the cached layer from the previous <code>apt-get update</code>, meaning subsequent builds may install stale, vulnerable packages rather than latest security patches" },
-      { id: 'C', text: "The container runtime disables seccomp filters for cached layers" },
-      { id: 'D', text: "The apt cache is permanently encrypted on disk" }
+      { id: 'A', text: "Docker reruns both layers on each build, so the image is rebuilt from scratch every time" },
+      { id: 'B', text: "Docker reuses the cached <code>apt-get update</code> layer, so later builds install stale package versions" },
+      { id: 'C', text: "Docker keeps the apt lists in the image, so the package database ships to production unused" },
+      { id: 'D', text: "Docker cannot squash the two layers, so the resulting image carries the cache directory twice" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "To prevent unauthorized or untrusted images from running on production clusters, pods must only pull images from <code>registry.enterprise.com/apps/*</code>. Pulling from public registries like Docker Hub or Quay must be blocked.",
     question: "Which cluster admission mechanism reliably enforces allowed container registry domains?",
     options: [
-      { id: 'A', text: "Configuring <code>--enable-bootstrap-token-auth=false</code> on kube-apiserver" },
-      { id: 'B', text: "An egress NetworkPolicy blocking external HTTPS traffic to port 443" },
-      { id: 'C', text: "A Validating Admission Policy (or OPA Gatekeeper / Kyverno policy) checking that <code>spec.containers[*].image</code> starts with the approved domain prefix" },
-      { id: 'D', text: "Setting <code>readOnlyPort: 0</code> on worker node kubelets" }
+      { id: 'A', text: "The <code>ImagePolicyWebhook</code> plugin with its backend defaulting to allow when unreachable" },
+      { id: 'B', text: "An egress NetworkPolicy that blocks outbound HTTPS to every registry but the approved one" },
+      { id: 'C', text: "A ValidatingAdmissionPolicy — or Gatekeeper / Kyverno rule — checking the image's domain prefix" },
+      { id: 'D', text: "A Kyverno mutate rule that rewrites each image reference to the approved domain instead" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "An enterprise must satisfy SLSA (Supply-chain Levels for Software Artifacts) Level 3 requirements by verifying that a container image was built on a certified GitHub Actions runner using an authorized repository workflow.",
     question: "Which cryptographic artifact provides tamper-proof build provenance linked to the container image?",
     options: [
-      { id: 'A', text: "A base64-encoded Kubernetes ConfigMap containing git logs" },
-      { id: 'B', text: "An MD5 checksum file uploaded to Amazon S3" },
-      { id: 'C', text: "A standard TLS server certificate issued by Let's Encrypt" },
-      { id: 'D', text: "An in-toto attestation signed with Cosign and recorded in the Rekor ledger containing the build environment metadata, commit SHA, and builder identity" }
+      { id: 'A', text: "A build metadata ConfigMap holding the commit SHA and pipeline identifier for the image" },
+      { id: 'B', text: "A checksum manifest published beside the image, listing the digest of each built layer" },
+      { id: 'C', text: "A TLS certificate issued to the build service, presented when the image is pushed" },
+      { id: 'D', text: "An in-toto attestation, signed with Cosign and recorded in Rekor, naming the builder and commit" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "A Node.js web application is packaged for deployment in Kubernetes. Which Dockerfile instructions harden the runtime environment against common vulnerabilities?",
     question: "Which Dockerfile configuration correctly establishes a hardened Node.js container?",
     options: [
-      { id: 'A', text: "Set <code>USER root</code> and install all development dependencies using <code>npm install</code>" },
-      { id: 'B', text: "Execute the container using <code>npm start</code> without an explicit USER directive" },
-      { id: 'C', text: "Set <code>ENV NODE_ENV=production</code>, install dependencies using <code>npm ci --only=production</code>, and switch execution using <code>USER node</code>" },
-      { id: 'D', text: "Mount <code>node_modules</code> from the host using a hostPath volume" }
+      { id: 'A', text: "Set <code>NODE_ENV=production</code>, install with <code>npm install</code> as root, then <code>USER node</code>" },
+      { id: 'B', text: "Set <code>NODE_ENV=production</code>, install with <code>npm ci</code>, and start with <code>npm start</code>" },
+      { id: 'C', text: "Set <code>NODE_ENV=production</code>, install with <code>npm ci --only=production</code>, then <code>USER node</code>" },
+      { id: 'D', text: "Set <code>NODE_ENV=production</code> and mount <code>node_modules</code> from the host at runtime" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "A container vulnerability scan reports zero operating system vulnerabilities, but the application was breached via a remote code execution flaw in an outdated Log4j or NPM dependency.",
     question: "Why did an OS package scan fail to detect this critical vulnerability?",
     options: [
-      { id: 'A', text: "Trivy cannot scan files residing outside <code>/usr/bin</code>" },
-      { id: 'B', text: "Standard OS package scanners only inspect distribution packages (deb, rpm, apk), missing language-level application dependencies (Maven, npm, pip, Go modules) unless language-specific dependency scanning is enabled" },
-      { id: 'C', text: "Java applications are immune to container scanning tools" },
-      { id: 'D', text: "Log4j operates exclusively in kernel space where scanners cannot reach" }
+      { id: 'A', text: "OS package scanners read only the image's final layer, so a dependency added in an earlier build stage is invisible" },
+      { id: 'B', text: "OS package scanners read the distribution's package database and miss language dependencies unless language scanning is on" },
+      { id: 'C', text: "OS package scanners match against the vendor's advisory feed, which carries no entries for application frameworks" },
+      { id: 'D', text: "OS package scanners skip files the manifest marks as application data, which is where the shaded JAR was placed" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "An administrator configures the <code>ImagePolicyWebhook</code> admission plugin by creating an admission configuration file specified via <code>--admission-control-config-file</code>.",
     question: "What must be set under <code>defaultAllow</code> in the ImagePolicyWebhook configuration to ensure a fail-secure posture?",
     options: [
-      { id: 'A', text: "Omit <code>defaultAllow</code> to allow the cluster administrator to approve pods manually" },
-      { id: 'B', text: "Configure <code>defaultAllow: audit</code> to write violations to syslog" },
-      { id: 'C', text: "Set <code>defaultAllow: false</code> so that if the backend webhook server fails or is unreachable, the API server rejects pod creation" },
-      { id: 'D', text: "Set <code>defaultAllow: true</code> to avoid disrupting developers during webhook outages" }
+      { id: 'A', text: "Set <code>defaultAllow: false</code> and raise the webhook's retry budget so outages are ridden out" },
+      { id: 'B', text: "Set <code>defaultAllow: audit</code>, so an unreachable backend records the pod and admits it" },
+      { id: 'C', text: "Set <code>defaultAllow: false</code>, so an unreachable backend causes the pod to be rejected" },
+      { id: 'D', text: "Set <code>defaultAllow: true</code>, so an unreachable backend does not block any deployments" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKS_QUESTIONS_6 = [
     scenario: "A Dockerfile contains the line: <code>RUN curl -sSL https://get.example.com/install.sh | bash</code>. Hadolint flags rule DL4006.",
     question: "What security risk is introduced by piping unverified remote scripts directly into bash during container builds?",
     options: [
-      { id: 'A', text: "Bash scripts cannot execute inside Docker containers" },
-      { id: 'B', text: "The pipe command causes Docker layer caching to run out of memory" },
-      { id: 'C', text: "The container image size increases by 4GB" },
-      { id: 'D', text: "If the remote server or network transit is compromised (MITM), arbitrary malicious code is executed with root build privileges without checksum or signature verification" }
+      { id: 'A', text: "A piped script cannot be cached as its own layer, so each rebuild fetches whatever upstream now serves" },
+      { id: 'B', text: "A piped script runs before the build context is copied, so it cannot be reviewed alongside the source" },
+      { id: 'C', text: "A piped script leaves its downloads in the layer, which inflates the final image by whatever it fetched" },
+      { id: 'D', text: "A compromised server or transit path runs arbitrary code with root build privileges, with nothing verifying it" }
     ],
     correctAnswers: ['D'],
     type: "single",

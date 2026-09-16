@@ -9,10 +9,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to ensure that pods across all cluster nodes run the exact bit-for-bit identical binary image and prevent tag-hijacking attacks.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Configure imagePullPolicy: IfNotPresent with mutable tags." },
-      { id: 'B', text: "Deploy images using the mutable :latest tag." },
-      { id: 'C', text: "Specify container images using the immutable SHA256 digest (`image: repo/app@sha256:...`) instead of mutable tags." },
-      { id: 'D', text: "Allow container runtimes to pull arbitrary versions if tags change." }
+      { id: 'A', text: "Reference the image by tag with `imagePullPolicy: Always` so the newest layer is fetched." },
+      { id: 'B', text: "Reference the image by a release tag and enable the `AlwaysPullImages` admission plugin." },
+      { id: 'C', text: "Reference the image by immutable digest, as `image: repo/app@sha256:...`." },
+      { id: 'D', text: "Reference the image by tag and mirror the registry so the tag cannot move underneath." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to ensure that pods across all cluster nodes run the exact bit-for-bit identical binary image and prevent tag-hijacking attacks.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Allow container runtimes to pull arbitrary versions if tags change." },
-      { id: 'B', text: "Deploy images using the mutable :latest tag." },
-      { id: 'C', text: "Configure imagePullPolicy: IfNotPresent with mutable tags." },
-      { id: 'D', text: "Specify container images using the immutable SHA256 digest (`image: repo/app@sha256:...`) instead of mutable tags." }
+      { id: 'A', text: "Reference the image by tag and mirror the registry so the tag cannot move underneath." },
+      { id: 'B', text: "Reference the image by a release tag and enable the `AlwaysPullImages` admission plugin." },
+      { id: 'C', text: "Reference the image by tag with `imagePullPolicy: Always` so the newest layer is fetched." },
+      { id: 'D', text: "Reference the image by immutable digest, as `image: repo/app@sha256:...`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to ensure that pods across all cluster nodes run the exact bit-for-bit identical binary image and prevent tag-hijacking attacks.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Specify container images using the immutable SHA256 digest (`image: repo/app@sha256:...`) instead of mutable tags." },
-      { id: 'B', text: "Deploy images using the mutable :latest tag." },
-      { id: 'C', text: "Allow container runtimes to pull arbitrary versions if tags change." },
-      { id: 'D', text: "Configure imagePullPolicy: IfNotPresent with mutable tags." }
+      { id: 'A', text: "Reference the image by immutable digest, as `image: repo/app@sha256:...`." },
+      { id: 'B', text: "Reference the image by a release tag and enable the `AlwaysPullImages` admission plugin." },
+      { id: 'C', text: "Reference the image by tag and mirror the registry so the tag cannot move underneath." },
+      { id: 'D', text: "Reference the image by tag with `imagePullPolicy: Always` so the newest layer is fetched." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to ensure that pods across all cluster nodes run the exact bit-for-bit identical binary image and prevent tag-hijacking attacks.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Allow container runtimes to pull arbitrary versions if tags change." },
-      { id: 'B', text: "Specify container images using the immutable SHA256 digest (`image: repo/app@sha256:...`) instead of mutable tags." },
-      { id: 'C', text: "Deploy images using the mutable :latest tag." },
-      { id: 'D', text: "Configure imagePullPolicy: IfNotPresent with mutable tags." }
+      { id: 'A', text: "Reference the image by tag and mirror the registry so the tag cannot move underneath." },
+      { id: 'B', text: "Reference the image by immutable digest, as `image: repo/app@sha256:...`." },
+      { id: 'C', text: "Reference the image by a release tag and enable the `AlwaysPullImages` admission plugin." },
+      { id: 'D', text: "Reference the image by tag with `imagePullPolicy: Always` so the newest layer is fetched." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to ensure that pods across all cluster nodes run the exact bit-for-bit identical binary image and prevent tag-hijacking attacks.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Specify container images using the immutable SHA256 digest (`image: repo/app@sha256:...`) instead of mutable tags." },
-      { id: 'B', text: "Deploy images using the mutable :latest tag." },
-      { id: 'C', text: "Allow container runtimes to pull arbitrary versions if tags change." },
-      { id: 'D', text: "Configure imagePullPolicy: IfNotPresent with mutable tags." }
+      { id: 'A', text: "Reference the image by immutable digest, as `image: repo/app@sha256:...`." },
+      { id: 'B', text: "Reference the image by a release tag and enable the `AlwaysPullImages` admission plugin." },
+      { id: 'C', text: "Reference the image by tag and mirror the registry so the tag cannot move underneath." },
+      { id: 'D', text: "Reference the image by tag with `imagePullPolicy: Always` so the newest layer is fetched." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to restrict container image downloads so that only authenticated cluster worker nodes can pull proprietary enterprise software images.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Store private registry credentials in a Kubernetes Secret of type `kubernetes.io/dockerconfigjson` and reference it via `imagePullSecrets`." },
-      { id: 'B', text: "Make the enterprise container registry completely public without authentication." },
-      { id: 'C', text: "Hardcode registry admin passwords in the container entrypoint script." },
-      { id: 'D', text: "Distribute raw docker config files manually across worker node file systems." }
+      { id: 'A', text: "Hold the registry credentials in a `kubernetes.io/dockerconfigjson` Secret named by `imagePullSecrets`." },
+      { id: 'B', text: "Hold the registry credentials in an `Opaque` Secret mounted into each pod as a config file." },
+      { id: 'C', text: "Hold the registry credentials in the node's own `/var/lib/kubelet/config.json` on every node." },
+      { id: 'D', text: "Hold the registry credentials in the default ServiceAccount's `imagePullSecrets` for every namespace." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to restrict container image downloads so that only authenticated cluster worker nodes can pull proprietary enterprise software images.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Store private registry credentials in a Kubernetes Secret of type `kubernetes.io/dockerconfigjson` and reference it via `imagePullSecrets`." },
-      { id: 'B', text: "Distribute raw docker config files manually across worker node file systems." },
-      { id: 'C', text: "Make the enterprise container registry completely public without authentication." },
-      { id: 'D', text: "Hardcode registry admin passwords in the container entrypoint script." }
+      { id: 'A', text: "Hold the registry credentials in a `kubernetes.io/dockerconfigjson` Secret named by `imagePullSecrets`." },
+      { id: 'B', text: "Hold the registry credentials in the default ServiceAccount's `imagePullSecrets` for every namespace." },
+      { id: 'C', text: "Hold the registry credentials in an `Opaque` Secret mounted into each pod as a config file." },
+      { id: 'D', text: "Hold the registry credentials in the node's own `/var/lib/kubelet/config.json` on every node." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to restrict container image downloads so that only authenticated cluster worker nodes can pull proprietary enterprise software images.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Store private registry credentials in a Kubernetes Secret of type `kubernetes.io/dockerconfigjson` and reference it via `imagePullSecrets`." },
-      { id: 'B', text: "Make the enterprise container registry completely public without authentication." },
-      { id: 'C', text: "Hardcode registry admin passwords in the container entrypoint script." },
-      { id: 'D', text: "Distribute raw docker config files manually across worker node file systems." }
+      { id: 'A', text: "Hold the registry credentials in a `kubernetes.io/dockerconfigjson` Secret named by `imagePullSecrets`." },
+      { id: 'B', text: "Hold the registry credentials in an `Opaque` Secret mounted into each pod as a config file." },
+      { id: 'C', text: "Hold the registry credentials in the node's own `/var/lib/kubelet/config.json` on every node." },
+      { id: 'D', text: "Hold the registry credentials in the default ServiceAccount's `imagePullSecrets` for every namespace." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to restrict container image downloads so that only authenticated cluster worker nodes can pull proprietary enterprise software images.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Store private registry credentials in a Kubernetes Secret of type `kubernetes.io/dockerconfigjson` and reference it via `imagePullSecrets`." },
-      { id: 'B', text: "Make the enterprise container registry completely public without authentication." },
-      { id: 'C', text: "Hardcode registry admin passwords in the container entrypoint script." },
-      { id: 'D', text: "Distribute raw docker config files manually across worker node file systems." }
+      { id: 'A', text: "Hold the registry credentials in a `kubernetes.io/dockerconfigjson` Secret named by `imagePullSecrets`." },
+      { id: 'B', text: "Hold the registry credentials in an `Opaque` Secret mounted into each pod as a config file." },
+      { id: 'C', text: "Hold the registry credentials in the node's own `/var/lib/kubelet/config.json` on every node." },
+      { id: 'D', text: "Hold the registry credentials in the default ServiceAccount's `imagePullSecrets` for every namespace." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to restrict container image downloads so that only authenticated cluster worker nodes can pull proprietary enterprise software images.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Make the enterprise container registry completely public without authentication." },
-      { id: 'B', text: "Hardcode registry admin passwords in the container entrypoint script." },
-      { id: 'C', text: "Store private registry credentials in a Kubernetes Secret of type `kubernetes.io/dockerconfigjson` and reference it via `imagePullSecrets`." },
-      { id: 'D', text: "Distribute raw docker config files manually across worker node file systems." }
+      { id: 'A', text: "Hold the registry credentials in an `Opaque` Secret mounted into each pod as a config file." },
+      { id: 'B', text: "Hold the registry credentials in the node's own `/var/lib/kubelet/config.json` on every node." },
+      { id: 'C', text: "Hold the registry credentials in a `kubernetes.io/dockerconfigjson` Secret named by `imagePullSecrets`." },
+      { id: 'D', text: "Hold the registry credentials in the default ServiceAccount's `imagePullSecrets` for every namespace." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent malicious script injection and maintain build repeatability during container image construction.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Pin base image digests, avoid downloading unverified scripts via `curl | sh`, create an unprivileged user, and run multi-stage builds." },
-      { id: 'B', text: "Execute curl piped directly to bash inside Dockerfile RUN instructions." },
-      { id: 'C', text: "Run all container build steps under root without creating a dedicated user." },
-      { id: 'D', text: "Include developer SSH keys and API tokens in intermediate Docker build layers." }
+      { id: 'A', text: "Pin base digests, drop `curl | sh` steps, add an unprivileged user, and build in stages." },
+      { id: 'B', text: "Pin base tags, verify downloads against a checksum, and run the final stage as root." },
+      { id: 'C', text: "Pin base digests, squash the layers on push, and set `USER root` for the runtime stage." },
+      { id: 'D', text: "Pin base digests, pass credentials with `ARG`, and keep the toolchain in the final image." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent malicious script injection and maintain build repeatability during container image construction.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Pin base image digests, avoid downloading unverified scripts via `curl | sh`, create an unprivileged user, and run multi-stage builds." },
-      { id: 'B', text: "Include developer SSH keys and API tokens in intermediate Docker build layers." },
-      { id: 'C', text: "Execute curl piped directly to bash inside Dockerfile RUN instructions." },
-      { id: 'D', text: "Run all container build steps under root without creating a dedicated user." }
+      { id: 'A', text: "Pin base digests, drop `curl | sh` steps, add an unprivileged user, and build in stages." },
+      { id: 'B', text: "Pin base digests, pass credentials with `ARG`, and keep the toolchain in the final image." },
+      { id: 'C', text: "Pin base tags, verify downloads against a checksum, and run the final stage as root." },
+      { id: 'D', text: "Pin base digests, squash the layers on push, and set `USER root` for the runtime stage." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent malicious script injection and maintain build repeatability during container image construction.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Pin base image digests, avoid downloading unverified scripts via `curl | sh`, create an unprivileged user, and run multi-stage builds." },
-      { id: 'B', text: "Execute curl piped directly to bash inside Dockerfile RUN instructions." },
-      { id: 'C', text: "Run all container build steps under root without creating a dedicated user." },
-      { id: 'D', text: "Include developer SSH keys and API tokens in intermediate Docker build layers." }
+      { id: 'A', text: "Pin base digests, drop `curl | sh` steps, add an unprivileged user, and build in stages." },
+      { id: 'B', text: "Pin base tags, verify downloads against a checksum, and run the final stage as root." },
+      { id: 'C', text: "Pin base digests, squash the layers on push, and set `USER root` for the runtime stage." },
+      { id: 'D', text: "Pin base digests, pass credentials with `ARG`, and keep the toolchain in the final image." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent malicious script injection and maintain build repeatability during container image construction.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Pin base image digests, avoid downloading unverified scripts via `curl | sh`, create an unprivileged user, and run multi-stage builds." },
-      { id: 'B', text: "Execute curl piped directly to bash inside Dockerfile RUN instructions." },
-      { id: 'C', text: "Run all container build steps under root without creating a dedicated user." },
-      { id: 'D', text: "Include developer SSH keys and API tokens in intermediate Docker build layers." }
+      { id: 'A', text: "Pin base digests, drop `curl | sh` steps, add an unprivileged user, and build in stages." },
+      { id: 'B', text: "Pin base tags, verify downloads against a checksum, and run the final stage as root." },
+      { id: 'C', text: "Pin base digests, squash the layers on push, and set `USER root` for the runtime stage." },
+      { id: 'D', text: "Pin base digests, pass credentials with `ARG`, and keep the toolchain in the final image." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent malicious script injection and maintain build repeatability during container image construction.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Include developer SSH keys and API tokens in intermediate Docker build layers." },
-      { id: 'B', text: "Run all container build steps under root without creating a dedicated user." },
-      { id: 'C', text: "Execute curl piped directly to bash inside Dockerfile RUN instructions." },
-      { id: 'D', text: "Pin base image digests, avoid downloading unverified scripts via `curl | sh`, create an unprivileged user, and run multi-stage builds." }
+      { id: 'A', text: "Pin base digests, pass credentials with `ARG`, and keep the toolchain in the final image." },
+      { id: 'B', text: "Pin base digests, squash the layers on push, and set `USER root` for the runtime stage." },
+      { id: 'C', text: "Pin base tags, verify downloads against a checksum, and run the final stage as root." },
+      { id: 'D', text: "Pin base digests, drop `curl | sh` steps, add an unprivileged user, and build in stages." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent developers from deploying containers sourced from unvetted public registries (like personal Docker Hub accounts) to production clusters.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Rename public images to look like internal corporate repository names." },
-      { id: 'B', text: "Block internet access completely across all corporate workstations." },
-      { id: 'C', text: "Trust developers not to deploy images from unapproved registries." },
-      { id: 'D', text: "Deploy an admission policy (OPA Gatekeeper or Kyverno) that rejects any pod whose image does not originate from approved corporate registries." }
+      { id: 'A', text: "Apply an `AlwaysPullImages` admission plugin so unapproved registries fail the pull at admission." },
+      { id: 'B', text: "Apply an `ImagePolicyWebhook` configuration whose backend defaults to allow when unreachable." },
+      { id: 'C', text: "Apply a Kyverno mutate policy that rewrites every image reference to the internal mirror." },
+      { id: 'D', text: "Apply a Gatekeeper or Kyverno policy that rejects pods whose images are not from approved registries." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent developers from deploying containers sourced from unvetted public registries (like personal Docker Hub accounts) to production clusters.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Block internet access completely across all corporate workstations." },
-      { id: 'B', text: "Deploy an admission policy (OPA Gatekeeper or Kyverno) that rejects any pod whose image does not originate from approved corporate registries." },
-      { id: 'C', text: "Trust developers not to deploy images from unapproved registries." },
-      { id: 'D', text: "Rename public images to look like internal corporate repository names." }
+      { id: 'A', text: "Apply an `ImagePolicyWebhook` configuration whose backend defaults to allow when unreachable." },
+      { id: 'B', text: "Apply a Gatekeeper or Kyverno policy that rejects pods whose images are not from approved registries." },
+      { id: 'C', text: "Apply a Kyverno mutate policy that rewrites every image reference to the internal mirror." },
+      { id: 'D', text: "Apply an `AlwaysPullImages` admission plugin so unapproved registries fail the pull at admission." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent developers from deploying containers sourced from unvetted public registries (like personal Docker Hub accounts) to production clusters.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy an admission policy (OPA Gatekeeper or Kyverno) that rejects any pod whose image does not originate from approved corporate registries." },
-      { id: 'B', text: "Trust developers not to deploy images from unapproved registries." },
-      { id: 'C', text: "Block internet access completely across all corporate workstations." },
-      { id: 'D', text: "Rename public images to look like internal corporate repository names." }
+      { id: 'A', text: "Apply a Gatekeeper or Kyverno policy that rejects pods whose images are not from approved registries." },
+      { id: 'B', text: "Apply a Kyverno mutate policy that rewrites every image reference to the internal mirror." },
+      { id: 'C', text: "Apply an `ImagePolicyWebhook` configuration whose backend defaults to allow when unreachable." },
+      { id: 'D', text: "Apply an `AlwaysPullImages` admission plugin so unapproved registries fail the pull at admission." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent developers from deploying containers sourced from unvetted public registries (like personal Docker Hub accounts) to production clusters.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Deploy an admission policy (OPA Gatekeeper or Kyverno) that rejects any pod whose image does not originate from approved corporate registries." },
-      { id: 'B', text: "Trust developers not to deploy images from unapproved registries." },
-      { id: 'C', text: "Block internet access completely across all corporate workstations." },
-      { id: 'D', text: "Rename public images to look like internal corporate repository names." }
+      { id: 'A', text: "Apply a Gatekeeper or Kyverno policy that rejects pods whose images are not from approved registries." },
+      { id: 'B', text: "Apply a Kyverno mutate policy that rewrites every image reference to the internal mirror." },
+      { id: 'C', text: "Apply an `ImagePolicyWebhook` configuration whose backend defaults to allow when unreachable." },
+      { id: 'D', text: "Apply an `AlwaysPullImages` admission plugin so unapproved registries fail the pull at admission." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent developers from deploying containers sourced from unvetted public registries (like personal Docker Hub accounts) to production clusters.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Rename public images to look like internal corporate repository names." },
-      { id: 'B', text: "Deploy an admission policy (OPA Gatekeeper or Kyverno) that rejects any pod whose image does not originate from approved corporate registries." },
-      { id: 'C', text: "Block internet access completely across all corporate workstations." },
-      { id: 'D', text: "Trust developers not to deploy images from unapproved registries." }
+      { id: 'A', text: "Apply an `AlwaysPullImages` admission plugin so unapproved registries fail the pull at admission." },
+      { id: 'B', text: "Apply a Gatekeeper or Kyverno policy that rejects pods whose images are not from approved registries." },
+      { id: 'C', text: "Apply an `ImagePolicyWebhook` configuration whose backend defaults to allow when unreachable." },
+      { id: 'D', text: "Apply a Kyverno mutate policy that rewrites every image reference to the internal mirror." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to detect vulnerable third-party open-source dependencies in application code before containerization.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Assume open-source packages never contain security flaws." },
-      { id: 'B', text: "Disable automated dependency updates to prevent code changes." },
-      { id: 'C', text: "Run language-specific dependency auditors (e.g., `npm audit`, `govulncheck`, `pip-audit`, `snyk`) as mandatory steps in the CI build pipeline." },
-      { id: 'D', text: "Ignore all dependency vulnerability alerts until an exploit is reported in the news." }
+      { id: 'A', text: "Run the image scanner over the built artifact, which covers the language packages it bundles." },
+      { id: 'B', text: "Run a scheduled dependency update bot and merge its pull requests on the release branch." },
+      { id: 'C', text: "Run the language auditors — `npm audit`, `govulncheck`, `pip-audit` — as required CI steps." },
+      { id: 'D', text: "Run an SBOM generator in CI and file the output for the security team to review later." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to detect vulnerable third-party open-source dependencies in application code before containerization.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Disable automated dependency updates to prevent code changes." },
-      { id: 'B', text: "Ignore all dependency vulnerability alerts until an exploit is reported in the news." },
-      { id: 'C', text: "Run language-specific dependency auditors (e.g., `npm audit`, `govulncheck`, `pip-audit`, `snyk`) as mandatory steps in the CI build pipeline." },
-      { id: 'D', text: "Assume open-source packages never contain security flaws." }
+      { id: 'A', text: "Run a scheduled dependency update bot and merge its pull requests on the release branch." },
+      { id: 'B', text: "Run an SBOM generator in CI and file the output for the security team to review later." },
+      { id: 'C', text: "Run the language auditors — `npm audit`, `govulncheck`, `pip-audit` — as required CI steps." },
+      { id: 'D', text: "Run the image scanner over the built artifact, which covers the language packages it bundles." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to detect vulnerable third-party open-source dependencies in application code before containerization.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Assume open-source packages never contain security flaws." },
-      { id: 'B', text: "Ignore all dependency vulnerability alerts until an exploit is reported in the news." },
-      { id: 'C', text: "Disable automated dependency updates to prevent code changes." },
-      { id: 'D', text: "Run language-specific dependency auditors (e.g., `npm audit`, `govulncheck`, `pip-audit`, `snyk`) as mandatory steps in the CI build pipeline." }
+      { id: 'A', text: "Run the image scanner over the built artifact, which covers the language packages it bundles." },
+      { id: 'B', text: "Run an SBOM generator in CI and file the output for the security team to review later." },
+      { id: 'C', text: "Run a scheduled dependency update bot and merge its pull requests on the release branch." },
+      { id: 'D', text: "Run the language auditors — `npm audit`, `govulncheck`, `pip-audit` — as required CI steps." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to detect vulnerable third-party open-source dependencies in application code before containerization.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Run language-specific dependency auditors (e.g., `npm audit`, `govulncheck`, `pip-audit`, `snyk`) as mandatory steps in the CI build pipeline." },
-      { id: 'B', text: "Assume open-source packages never contain security flaws." },
-      { id: 'C', text: "Disable automated dependency updates to prevent code changes." },
-      { id: 'D', text: "Ignore all dependency vulnerability alerts until an exploit is reported in the news." }
+      { id: 'A', text: "Run the language auditors — `npm audit`, `govulncheck`, `pip-audit` — as required CI steps." },
+      { id: 'B', text: "Run the image scanner over the built artifact, which covers the language packages it bundles." },
+      { id: 'C', text: "Run a scheduled dependency update bot and merge its pull requests on the release branch." },
+      { id: 'D', text: "Run an SBOM generator in CI and file the output for the security team to review later." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to detect vulnerable third-party open-source dependencies in application code before containerization.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Assume open-source packages never contain security flaws." },
-      { id: 'B', text: "Run language-specific dependency auditors (e.g., `npm audit`, `govulncheck`, `pip-audit`, `snyk`) as mandatory steps in the CI build pipeline." },
-      { id: 'C', text: "Ignore all dependency vulnerability alerts until an exploit is reported in the news." },
-      { id: 'D', text: "Disable automated dependency updates to prevent code changes." }
+      { id: 'A', text: "Run the image scanner over the built artifact, which covers the language packages it bundles." },
+      { id: 'B', text: "Run the language auditors — `npm audit`, `govulncheck`, `pip-audit` — as required CI steps." },
+      { id: 'C', text: "Run an SBOM generator in CI and file the output for the security team to review later." },
+      { id: 'D', text: "Run a scheduled dependency update bot and merge its pull requests on the release branch." }
     ],
     correctAnswers: ['B'],
     type: "single",
