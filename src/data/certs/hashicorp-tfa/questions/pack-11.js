@@ -11,7 +11,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "A declarative tool that describes the end state and lets the engine work out the changes." },
       { id: 'B', text: "An imperative script making the provider's API calls in the required order." },
-      { id: 'C', text: "A configuration management tool converging each host towards its stated role." },
+      { id: 'C', text: "A configuration management tool that converges each host towards the role it has been given." },
       { id: 'D', text: "A procedural program that handles the retries and rollbacks for each call." }
     ],
     correctAnswers: ['A'],
@@ -32,7 +32,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "A declarative tool that describes the end state and lets the engine work out the changes." },
       { id: 'B', text: "An imperative script making the provider's API calls in the required order." },
-      { id: 'C', text: "A configuration management tool converging each host towards its stated role." },
+      { id: 'C', text: "A configuration management tool that converges each host towards the role it has been given." },
       { id: 'D', text: "A procedural program that handles the retries and rollbacks for each call." }
     ],
     correctAnswers: ['A'],
@@ -51,7 +51,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to choose an infrastructure management paradigm that automatically calculates resource dependencies and only executes necessary state mutations.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "A configuration management tool converging each host towards its stated role." },
+      { id: 'A', text: "A configuration management tool that converges each host towards the role it has been given." },
       { id: 'B', text: "A procedural program that handles the retries and rollbacks for each call." },
       { id: 'C', text: "A declarative tool that describes the end state and lets the engine work out the changes." },
       { id: 'D', text: "An imperative script making the provider's API calls in the required order." }
@@ -73,7 +73,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "A procedural program that handles the retries and rollbacks for each call." },
-      { id: 'B', text: "A configuration management tool converging each host towards its stated role." },
+      { id: 'B', text: "A configuration management tool that converges each host towards the role it has been given." },
       { id: 'C', text: "An imperative script making the provider's API calls in the required order." },
       { id: 'D', text: "A declarative tool that describes the end state and lets the engine work out the changes." }
     ],
@@ -95,7 +95,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "An imperative script making the provider's API calls in the required order." },
       { id: 'B', text: "A procedural program that handles the retries and rollbacks for each call." },
-      { id: 'C', text: "A configuration management tool converging each host towards its stated role." },
+      { id: 'C', text: "A configuration management tool that converges each host towards the role it has been given." },
       { id: 'D', text: "A declarative tool that describes the end state and lets the engine work out the changes." }
     ],
     correctAnswers: ['D'],
@@ -115,7 +115,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Use an idempotent tool, where applying an unchanged configuration makes no changes." },
-      { id: 'B', text: "Destroy and recreate the infrastructure on each run so the result is identical." },
+      { id: 'B', text: "Destroy and recreate the whole infrastructure on each run so that the result is identical." },
       { id: 'C', text: "Keep a register of what has been provisioned and check it before each run." },
       { id: 'D', text: "Write scripts that check for each resource's existence before creating it." }
     ],
@@ -137,7 +137,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Use an idempotent tool, where applying an unchanged configuration makes no changes." },
       { id: 'B', text: "Write scripts that check for each resource's existence before creating it." },
-      { id: 'C', text: "Destroy and recreate the infrastructure on each run so the result is identical." },
+      { id: 'C', text: "Destroy and recreate the whole infrastructure on each run so that the result is identical." },
       { id: 'D', text: "Keep a register of what has been provisioned and check it before each run." }
     ],
     correctAnswers: ['A'],
@@ -158,7 +158,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Use an idempotent tool, where applying an unchanged configuration makes no changes." },
       { id: 'B', text: "Write scripts that check for each resource's existence before creating it." },
-      { id: 'C', text: "Destroy and recreate the infrastructure on each run so the result is identical." },
+      { id: 'C', text: "Destroy and recreate the whole infrastructure on each run so that the result is identical." },
       { id: 'D', text: "Keep a register of what has been provisioned and check it before each run." }
     ],
     correctAnswers: ['A'],
@@ -178,7 +178,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Keep a register of what has been provisioned and check it before each run." },
-      { id: 'B', text: "Destroy and recreate the infrastructure on each run so the result is identical." },
+      { id: 'B', text: "Destroy and recreate the whole infrastructure on each run so that the result is identical." },
       { id: 'C', text: "Write scripts that check for each resource's existence before creating it." },
       { id: 'D', text: "Use an idempotent tool, where applying an unchanged configuration makes no changes." }
     ],
@@ -200,7 +200,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Use an idempotent tool, where applying an unchanged configuration makes no changes." },
       { id: 'B', text: "Write scripts that check for each resource's existence before creating it." },
-      { id: 'C', text: "Destroy and recreate the infrastructure on each run so the result is identical." },
+      { id: 'C', text: "Destroy and recreate the whole infrastructure on each run so that the result is identical." },
       { id: 'D', text: "Keep a register of what has been provisioned and check it before each run." }
     ],
     correctAnswers: ['A'],
@@ -222,7 +222,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
       { id: 'A', text: "Keep the configuration in version control, with pull request review and CI plan checks." },
       { id: 'B', text: "Keep the configuration on a shared drive with a change log alongside it." },
       { id: 'C', text: "Keep the configuration in the workspace and export it after each change." },
-      { id: 'D', text: "Keep the configuration in version control and apply from each engineer's laptop." }
+      { id: 'D', text: "Keep the configuration in version control and apply it from each of the engineers' laptops." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -242,7 +242,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Keep the configuration in the workspace and export it after each change." },
       { id: 'B', text: "Keep the configuration on a shared drive with a change log alongside it." },
-      { id: 'C', text: "Keep the configuration in version control and apply from each engineer's laptop." },
+      { id: 'C', text: "Keep the configuration in version control and apply it from each of the engineers' laptops." },
       { id: 'D', text: "Keep the configuration in version control, with pull request review and CI plan checks." }
     ],
     correctAnswers: ['D'],
@@ -261,7 +261,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to enable multiple infrastructure engineers to propose, review, test, and audit cloud architecture modifications before applying them to production.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Keep the configuration in version control and apply from each engineer's laptop." },
+      { id: 'A', text: "Keep the configuration in version control and apply it from each of the engineers' laptops." },
       { id: 'B', text: "Keep the configuration on a shared drive with a change log alongside it." },
       { id: 'C', text: "Keep the configuration in version control, with pull request review and CI plan checks." },
       { id: 'D', text: "Keep the configuration in the workspace and export it after each change." }
@@ -285,7 +285,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
       { id: 'A', text: "Keep the configuration in the workspace and export it after each change." },
       { id: 'B', text: "Keep the configuration in version control, with pull request review and CI plan checks." },
       { id: 'C', text: "Keep the configuration on a shared drive with a change log alongside it." },
-      { id: 'D', text: "Keep the configuration in version control and apply from each engineer's laptop." }
+      { id: 'D', text: "Keep the configuration in version control and apply it from each of the engineers' laptops." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -305,7 +305,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Keep the configuration in the workspace and export it after each change." },
       { id: 'B', text: "Keep the configuration on a shared drive with a change log alongside it." },
-      { id: 'C', text: "Keep the configuration in version control and apply from each engineer's laptop." },
+      { id: 'C', text: "Keep the configuration in version control and apply it from each of the engineers' laptops." },
       { id: 'D', text: "Keep the configuration in version control, with pull request review and CI plan checks." }
     ],
     correctAnswers: ['D'],
@@ -324,8 +324,8 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to detect when an engineer has manually modified a cloud firewall rule or instance size via the web console outside of approved Terraform configurations.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Run `terraform apply -auto-approve` on a schedule so drift is corrected at once." },
-      { id: 'B', text: "Run `terraform plan`, which compares the state and configuration with what exists." },
+      { id: 'A', text: "Run `terraform apply -auto-approve` on a schedule so that drift is corrected at once." },
+      { id: 'B', text: "Run `terraform plan`, which compares state and configuration with reality." },
       { id: 'C', text: "Review the cloud provider's own change history against the last applied plan." },
       { id: 'D', text: "Run `terraform state list` and check each resource against the console by hand." }
     ],
@@ -346,8 +346,8 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Review the cloud provider's own change history against the last applied plan." },
-      { id: 'B', text: "Run `terraform apply -auto-approve` on a schedule so drift is corrected at once." },
-      { id: 'C', text: "Run `terraform plan`, which compares the state and configuration with what exists." },
+      { id: 'B', text: "Run `terraform apply -auto-approve` on a schedule so that drift is corrected at once." },
+      { id: 'C', text: "Run `terraform plan`, which compares state and configuration with reality." },
       { id: 'D', text: "Run `terraform state list` and check each resource against the console by hand." }
     ],
     correctAnswers: ['C'],
@@ -366,9 +366,9 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to detect when an engineer has manually modified a cloud firewall rule or instance size via the web console outside of approved Terraform configurations.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Run `terraform plan`, which compares the state and configuration with what exists." },
+      { id: 'A', text: "Run `terraform plan`, which compares state and configuration with reality." },
       { id: 'B', text: "Review the cloud provider's own change history against the last applied plan." },
-      { id: 'C', text: "Run `terraform apply -auto-approve` on a schedule so drift is corrected at once." },
+      { id: 'C', text: "Run `terraform apply -auto-approve` on a schedule so that drift is corrected at once." },
       { id: 'D', text: "Run `terraform state list` and check each resource against the console by hand." }
     ],
     correctAnswers: ['A'],
@@ -387,8 +387,8 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to detect when an engineer has manually modified a cloud firewall rule or instance size via the web console outside of approved Terraform configurations.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Run `terraform apply -auto-approve` on a schedule so drift is corrected at once." },
-      { id: 'B', text: "Run `terraform plan`, which compares the state and configuration with what exists." },
+      { id: 'A', text: "Run `terraform apply -auto-approve` on a schedule so that drift is corrected at once." },
+      { id: 'B', text: "Run `terraform plan`, which compares state and configuration with reality." },
       { id: 'C', text: "Review the cloud provider's own change history against the last applied plan." },
       { id: 'D', text: "Run `terraform state list` and check each resource against the console by hand." }
     ],
@@ -409,9 +409,9 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Run `terraform state list` and check each resource against the console by hand." },
-      { id: 'B', text: "Run `terraform apply -auto-approve` on a schedule so drift is corrected at once." },
+      { id: 'B', text: "Run `terraform apply -auto-approve` on a schedule so that drift is corrected at once." },
       { id: 'C', text: "Review the cloud provider's own change history against the last applied plan." },
-      { id: 'D', text: "Run `terraform plan`, which compares the state and configuration with what exists." }
+      { id: 'D', text: "Run `terraform plan`, which compares state and configuration with reality." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -432,7 +432,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
       { id: 'A', text: "Adopt immutable infrastructure: build a new image and replace the instances with it." },
       { id: 'B', text: "Adopt a configuration management agent that converges each running instance." },
       { id: 'C', text: "Adopt a patching window in which each instance is updated over SSH in turn." },
-      { id: 'D', text: "Adopt a provisioner in the Terraform configuration that patches on creation." }
+      { id: 'D', text: "Adopt a provisioner in the Terraform configuration that patches the host as it is created." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -452,7 +452,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Adopt immutable infrastructure: build a new image and replace the instances with it." },
       { id: 'B', text: "Adopt a patching window in which each instance is updated over SSH in turn." },
-      { id: 'C', text: "Adopt a provisioner in the Terraform configuration that patches on creation." },
+      { id: 'C', text: "Adopt a provisioner in the Terraform configuration that patches the host as it is created." },
       { id: 'D', text: "Adopt a configuration management agent that converges each running instance." }
     ],
     correctAnswers: ['A'],
@@ -473,7 +473,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Adopt immutable infrastructure: build a new image and replace the instances with it." },
       { id: 'B', text: "Adopt a patching window in which each instance is updated over SSH in turn." },
-      { id: 'C', text: "Adopt a provisioner in the Terraform configuration that patches on creation." },
+      { id: 'C', text: "Adopt a provisioner in the Terraform configuration that patches the host as it is created." },
       { id: 'D', text: "Adopt a configuration management agent that converges each running instance." }
     ],
     correctAnswers: ['A'],
@@ -494,7 +494,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Adopt immutable infrastructure: build a new image and replace the instances with it." },
       { id: 'B', text: "Adopt a patching window in which each instance is updated over SSH in turn." },
-      { id: 'C', text: "Adopt a provisioner in the Terraform configuration that patches on creation." },
+      { id: 'C', text: "Adopt a provisioner in the Terraform configuration that patches the host as it is created." },
       { id: 'D', text: "Adopt a configuration management agent that converges each running instance." }
     ],
     correctAnswers: ['A'],
@@ -516,7 +516,7 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
       { id: 'A', text: "Adopt immutable infrastructure: build a new image and replace the instances with it." },
       { id: 'B', text: "Adopt a configuration management agent that converges each running instance." },
       { id: 'C', text: "Adopt a patching window in which each instance is updated over SSH in turn." },
-      { id: 'D', text: "Adopt a provisioner in the Terraform configuration that patches on creation." }
+      { id: 'D', text: "Adopt a provisioner in the Terraform configuration that patches the host as it is created." }
     ],
     correctAnswers: ['A'],
     type: "single",

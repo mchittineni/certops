@@ -117,7 +117,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
       { id: 'A', text: "Remove the sensitive resources from state once they have been created." },
       { id: 'B', text: "Mark the values `sensitive = true`, which keeps them out of the state file." },
       { id: 'C', text: "Restrict the backend with IAM, enforce encryption in transit and at rest, and log access." },
-      { id: 'D', text: "Encrypt the state file with a passphrase before it is written to the backend." }
+      { id: 'D', text: "Encrypt the state file with a passphrase of your own before it is written out to the backend." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -137,7 +137,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Restrict the backend with IAM, enforce encryption in transit and at rest, and log access." },
       { id: 'B', text: "Mark the values `sensitive = true`, which keeps them out of the state file." },
-      { id: 'C', text: "Encrypt the state file with a passphrase before it is written to the backend." },
+      { id: 'C', text: "Encrypt the state file with a passphrase of your own before it is written out to the backend." },
       { id: 'D', text: "Remove the sensitive resources from state once they have been created." }
     ],
     correctAnswers: ['A'],
@@ -158,7 +158,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Restrict the backend with IAM, enforce encryption in transit and at rest, and log access." },
       { id: 'B', text: "Mark the values `sensitive = true`, which keeps them out of the state file." },
-      { id: 'C', text: "Encrypt the state file with a passphrase before it is written to the backend." },
+      { id: 'C', text: "Encrypt the state file with a passphrase of your own before it is written out to the backend." },
       { id: 'D', text: "Remove the sensitive resources from state once they have been created." }
     ],
     correctAnswers: ['A'],
@@ -179,7 +179,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Remove the sensitive resources from state once they have been created." },
       { id: 'B', text: "Restrict the backend with IAM, enforce encryption in transit and at rest, and log access." },
-      { id: 'C', text: "Encrypt the state file with a passphrase before it is written to the backend." },
+      { id: 'C', text: "Encrypt the state file with a passphrase of your own before it is written out to the backend." },
       { id: 'D', text: "Mark the values `sensitive = true`, which keeps them out of the state file." }
     ],
     correctAnswers: ['B'],
@@ -200,7 +200,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Restrict the backend with IAM, enforce encryption in transit and at rest, and log access." },
       { id: 'B', text: "Mark the values `sensitive = true`, which keeps them out of the state file." },
-      { id: 'C', text: "Encrypt the state file with a passphrase before it is written to the backend." },
+      { id: 'C', text: "Encrypt the state file with a passphrase of your own before it is written out to the backend." },
       { id: 'D', text: "Remove the sensitive resources from state once they have been created." }
     ],
     correctAnswers: ['A'],
@@ -219,7 +219,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to refactor a standalone `aws_instance.web` resource into a module `module.web.aws_instance.server` without destroying and recreating the live VM.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Run `terraform state mv` to the new module address for that instance." },
+      { id: 'A', text: "Run `terraform state mv` to the new module address." },
       { id: 'B', text: "Apply the new configuration and let Terraform replace the instance." },
       { id: 'C', text: "Pull the state, edit the address in place, and push it back again." },
       { id: 'D', text: "Remove it from state with `state rm` and import it at the new address." }
@@ -241,7 +241,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Remove it from state with `state rm` and import it at the new address." },
-      { id: 'B', text: "Run `terraform state mv` to the new module address for that instance." },
+      { id: 'B', text: "Run `terraform state mv` to the new module address." },
       { id: 'C', text: "Pull the state, edit the address in place, and push it back again." },
       { id: 'D', text: "Apply the new configuration and let Terraform replace the instance." }
     ],
@@ -261,7 +261,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to refactor a standalone `aws_instance.web` resource into a module `module.web.aws_instance.server` without destroying and recreating the live VM.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Run `terraform state mv` to the new module address for that instance." },
+      { id: 'A', text: "Run `terraform state mv` to the new module address." },
       { id: 'B', text: "Pull the state, edit the address in place, and push it back again." },
       { id: 'C', text: "Remove it from state with `state rm` and import it at the new address." },
       { id: 'D', text: "Apply the new configuration and let Terraform replace the instance." }
@@ -284,7 +284,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Pull the state, edit the address in place, and push it back again." },
       { id: 'B', text: "Remove it from state with `state rm` and import it at the new address." },
-      { id: 'C', text: "Run `terraform state mv` to the new module address for that instance." },
+      { id: 'C', text: "Run `terraform state mv` to the new module address." },
       { id: 'D', text: "Apply the new configuration and let Terraform replace the instance." }
     ],
     correctAnswers: ['C'],
@@ -303,7 +303,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to refactor a standalone `aws_instance.web` resource into a module `module.web.aws_instance.server` without destroying and recreating the live VM.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Run `terraform state mv` to the new module address for that instance." },
+      { id: 'A', text: "Run `terraform state mv` to the new module address." },
       { id: 'B', text: "Apply the new configuration and let Terraform replace the instance." },
       { id: 'C', text: "Pull the state, edit the address in place, and push it back again." },
       { id: 'D', text: "Remove it from state with `state rm` and import it at the new address." }
@@ -325,7 +325,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Run `terraform state rm` for it and delete its block from the configuration." },
-      { id: 'B', text: "Run `terraform destroy -target` against that database resource." },
+      { id: 'B', text: "Run `terraform destroy -target` against that one database resource on its own." },
       { id: 'C', text: "Delete the database in the console and re-run the plan afterwards." },
       { id: 'D', text: "Add `ignore_changes = all` to the resource and leave it in state." }
     ],
@@ -346,7 +346,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Delete the database in the console and re-run the plan afterwards." },
-      { id: 'B', text: "Run `terraform destroy -target` against that database resource." },
+      { id: 'B', text: "Run `terraform destroy -target` against that one database resource on its own." },
       { id: 'C', text: "Add `ignore_changes = all` to the resource and leave it in state." },
       { id: 'D', text: "Run `terraform state rm` for it and delete its block from the configuration." }
     ],
@@ -369,7 +369,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
       { id: 'A', text: "Delete the database in the console and re-run the plan afterwards." },
       { id: 'B', text: "Add `ignore_changes = all` to the resource and leave it in state." },
       { id: 'C', text: "Run `terraform state rm` for it and delete its block from the configuration." },
-      { id: 'D', text: "Run `terraform destroy -target` against that database resource." }
+      { id: 'D', text: "Run `terraform destroy -target` against that one database resource on its own." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -390,7 +390,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
       { id: 'A', text: "Delete the database in the console and re-run the plan afterwards." },
       { id: 'B', text: "Add `ignore_changes = all` to the resource and leave it in state." },
       { id: 'C', text: "Run `terraform state rm` for it and delete its block from the configuration." },
-      { id: 'D', text: "Run `terraform destroy -target` against that database resource." }
+      { id: 'D', text: "Run `terraform destroy -target` against that one database resource on its own." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -409,7 +409,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Run `terraform state rm` for it and delete its block from the configuration." },
-      { id: 'B', text: "Run `terraform destroy -target` against that database resource." },
+      { id: 'B', text: "Run `terraform destroy -target` against that one database resource on its own." },
       { id: 'C', text: "Delete the database in the console and re-run the plan afterwards." },
       { id: 'D', text: "Add `ignore_changes = all` to the resource and leave it in state." }
     ],
@@ -430,7 +430,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Enable versioning on the state bucket and restore the previous object version." },
-      { id: 'B', text: "Accept the loss and rebuild the infrastructure from the configuration." },
+      { id: 'B', text: "Accept the loss and rebuild the whole infrastructure again from the configuration." },
       { id: 'C', text: "Run `terraform destroy` to clear the state and then apply it again." },
       { id: 'D', text: "Re-import each resource into a new state file at its own address." }
     ],
@@ -452,7 +452,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Re-import each resource into a new state file at its own address." },
       { id: 'B', text: "Run `terraform destroy` to clear the state and then apply it again." },
-      { id: 'C', text: "Accept the loss and rebuild the infrastructure from the configuration." },
+      { id: 'C', text: "Accept the loss and rebuild the whole infrastructure again from the configuration." },
       { id: 'D', text: "Enable versioning on the state bucket and restore the previous object version." }
     ],
     correctAnswers: ['D'],
@@ -474,7 +474,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
       { id: 'A', text: "Enable versioning on the state bucket and restore the previous object version." },
       { id: 'B', text: "Run `terraform destroy` to clear the state and then apply it again." },
       { id: 'C', text: "Re-import each resource into a new state file at its own address." },
-      { id: 'D', text: "Accept the loss and rebuild the infrastructure from the configuration." }
+      { id: 'D', text: "Accept the loss and rebuild the whole infrastructure again from the configuration." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -493,7 +493,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Re-import each resource into a new state file at its own address." },
-      { id: 'B', text: "Accept the loss and rebuild the infrastructure from the configuration." },
+      { id: 'B', text: "Accept the loss and rebuild the whole infrastructure again from the configuration." },
       { id: 'C', text: "Enable versioning on the state bucket and restore the previous object version." },
       { id: 'D', text: "Run `terraform destroy` to clear the state and then apply it again." }
     ],
@@ -514,7 +514,7 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Enable versioning on the state bucket and restore the previous object version." },
-      { id: 'B', text: "Accept the loss and rebuild the infrastructure from the configuration." },
+      { id: 'B', text: "Accept the loss and rebuild the whole infrastructure again from the configuration." },
       { id: 'C', text: "Run `terraform destroy` to clear the state and then apply it again." },
       { id: 'D', text: "Re-import each resource into a new state file at its own address." }
     ],

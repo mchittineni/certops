@@ -9,10 +9,10 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to retrieve the ID of the default VPC or the latest official Ubuntu AMI ID in an AWS account without hardcoding static IDs in Terraform code.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "A second `resource \"aws_vpc\"` block describing the existing network." },
+      { id: 'A', text: "A second `resource \"aws_vpc\"` block describing the existing network in full." },
       { id: 'B', text: "An input variable holding the identifier, supplied per environment." },
       { id: 'C', text: "An `external` data source running a script that returns the ids." },
-      { id: 'D', text: "A `data` block querying the VPC or AMI from the provider at plan time." }
+      { id: 'D', text: "A `data` block querying the VPC or AMI at plan time." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -31,9 +31,9 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "An `external` data source running a script that returns the ids." },
-      { id: 'B', text: "A second `resource \"aws_vpc\"` block describing the existing network." },
+      { id: 'B', text: "A second `resource \"aws_vpc\"` block describing the existing network in full." },
       { id: 'C', text: "An input variable holding the identifier, supplied per environment." },
-      { id: 'D', text: "A `data` block querying the VPC or AMI from the provider at plan time." }
+      { id: 'D', text: "A `data` block querying the VPC or AMI at plan time." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -51,9 +51,9 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to retrieve the ID of the default VPC or the latest official Ubuntu AMI ID in an AWS account without hardcoding static IDs in Terraform code.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "A second `resource \"aws_vpc\"` block describing the existing network." },
+      { id: 'A', text: "A second `resource \"aws_vpc\"` block describing the existing network in full." },
       { id: 'B', text: "An `external` data source running a script that returns the ids." },
-      { id: 'C', text: "A `data` block querying the VPC or AMI from the provider at plan time." },
+      { id: 'C', text: "A `data` block querying the VPC or AMI at plan time." },
       { id: 'D', text: "An input variable holding the identifier, supplied per environment." }
     ],
     correctAnswers: ['C'],
@@ -73,9 +73,9 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "An input variable holding the identifier, supplied per environment." },
-      { id: 'B', text: "A `data` block querying the VPC or AMI from the provider at plan time." },
+      { id: 'B', text: "A `data` block querying the VPC or AMI at plan time." },
       { id: 'C', text: "An `external` data source running a script that returns the ids." },
-      { id: 'D', text: "A second `resource \"aws_vpc\"` block describing the existing network." }
+      { id: 'D', text: "A second `resource \"aws_vpc\"` block describing the existing network in full." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,9 +93,9 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to retrieve the ID of the default VPC or the latest official Ubuntu AMI ID in an AWS account without hardcoding static IDs in Terraform code.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "A `data` block querying the VPC or AMI from the provider at plan time." },
+      { id: 'A', text: "A `data` block querying the VPC or AMI at plan time." },
       { id: 'B', text: "An input variable holding the identifier, supplied per environment." },
-      { id: 'C', text: "A second `resource \"aws_vpc\"` block describing the existing network." },
+      { id: 'C', text: "A second `resource \"aws_vpc\"` block describing the existing network in full." },
       { id: 'D', text: "An `external` data source running a script that returns the ids." }
     ],
     correctAnswers: ['A'],
@@ -116,7 +116,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "A `validation` block in the variable with a condition and error message." },
       { id: 'B', text: "A wrapper script that checks the values before Terraform is run." },
-      { id: 'C', text: "No constraint, letting the provider reject the value at apply time." },
+      { id: 'C', text: "No constraint at all, letting the provider reject the value at apply time." },
       { id: 'D', text: "A `locals` map keyed by environment, indexed by the variable." }
     ],
     correctAnswers: ['A'],
@@ -138,7 +138,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
       { id: 'A', text: "A wrapper script that checks the values before Terraform is run." },
       { id: 'B', text: "A `validation` block in the variable with a condition and error message." },
       { id: 'C', text: "A `locals` map keyed by environment, indexed by the variable." },
-      { id: 'D', text: "No constraint, letting the provider reject the value at apply time." }
+      { id: 'D', text: "No constraint at all, letting the provider reject the value at apply time." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -158,7 +158,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "A `validation` block in the variable with a condition and error message." },
       { id: 'B', text: "A wrapper script that checks the values before Terraform is run." },
-      { id: 'C', text: "No constraint, letting the provider reject the value at apply time." },
+      { id: 'C', text: "No constraint at all, letting the provider reject the value at apply time." },
       { id: 'D', text: "A `locals` map keyed by environment, indexed by the variable." }
     ],
     correctAnswers: ['A'],
@@ -179,7 +179,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "A `validation` block in the variable with a condition and error message." },
       { id: 'B', text: "A wrapper script that checks the values before Terraform is run." },
-      { id: 'C', text: "No constraint, letting the provider reject the value at apply time." },
+      { id: 'C', text: "No constraint at all, letting the provider reject the value at apply time." },
       { id: 'D', text: "A `locals` map keyed by environment, indexed by the variable." }
     ],
     correctAnswers: ['A'],
@@ -201,7 +201,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
       { id: 'A', text: "A wrapper script that checks the values before Terraform is run." },
       { id: 'B', text: "A `validation` block in the variable with a condition and error message." },
       { id: 'C', text: "A `locals` map keyed by environment, indexed by the variable." },
-      { id: 'D', text: "No constraint, letting the provider reject the value at apply time." }
+      { id: 'D', text: "No constraint at all, letting the provider reject the value at apply time." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -219,9 +219,9 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to expose an RDS database endpoint to child modules while preventing the database master password from printing in plaintext CLI stdout logs.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "A `local_file` resource writing the password out to disk." },
+      { id: 'A', text: "A `local_file` resource writing the password out to disk instead." },
       { id: 'B', text: "An `output` for the password with `ephemeral = true` set." },
-      { id: 'C', text: "An `output` for the password with `sensitive = true` on it." },
+      { id: 'C', text: "An `output` with `sensitive = true` on it." },
       { id: 'D', text: "No output at all; the value is read from state directly." }
     ],
     correctAnswers: ['C'],
@@ -240,9 +240,9 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to expose an RDS database endpoint to child modules while preventing the database master password from printing in plaintext CLI stdout logs.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "An `output` for the password with `sensitive = true` on it." },
+      { id: 'A', text: "An `output` with `sensitive = true` on it." },
       { id: 'B', text: "No output at all; the value is read from state directly." },
-      { id: 'C', text: "A `local_file` resource writing the password out to disk." },
+      { id: 'C', text: "A `local_file` resource writing the password out to disk instead." },
       { id: 'D', text: "An `output` for the password with `ephemeral = true` set." }
     ],
     correctAnswers: ['A'],
@@ -261,9 +261,9 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to expose an RDS database endpoint to child modules while preventing the database master password from printing in plaintext CLI stdout logs.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "A `local_file` resource writing the password out to disk." },
+      { id: 'A', text: "A `local_file` resource writing the password out to disk instead." },
       { id: 'B', text: "An `output` for the password with `ephemeral = true` set." },
-      { id: 'C', text: "An `output` for the password with `sensitive = true` on it." },
+      { id: 'C', text: "An `output` with `sensitive = true` on it." },
       { id: 'D', text: "No output at all; the value is read from state directly." }
     ],
     correctAnswers: ['C'],
@@ -282,9 +282,9 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to expose an RDS database endpoint to child modules while preventing the database master password from printing in plaintext CLI stdout logs.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "An `output` for the password with `sensitive = true` on it." },
+      { id: 'A', text: "An `output` with `sensitive = true` on it." },
       { id: 'B', text: "No output at all; the value is read from state directly." },
-      { id: 'C', text: "A `local_file` resource writing the password out to disk." },
+      { id: 'C', text: "A `local_file` resource writing the password out to disk instead." },
       { id: 'D', text: "An `output` for the password with `ephemeral = true` set." }
     ],
     correctAnswers: ['A'],
@@ -303,9 +303,9 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to expose an RDS database endpoint to child modules while preventing the database master password from printing in plaintext CLI stdout logs.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "A `local_file` resource writing the password out to disk." },
+      { id: 'A', text: "A `local_file` resource writing the password out to disk instead." },
       { id: 'B', text: "An `output` for the password with `ephemeral = true` set." },
-      { id: 'C', text: "An `output` for the password with `sensitive = true` on it." },
+      { id: 'C', text: "An `output` with `sensitive = true` on it." },
       { id: 'D', text: "No output at all; the value is read from state directly." }
     ],
     correctAnswers: ['C'],
@@ -326,7 +326,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Run `terraform plan` before initializing the directory." },
       { id: 'B', text: "Manually download provider zip files from the web browser." },
-      { id: 'C', text: "Run `terraform init` and commit the generated lock file." },
+      { id: 'C', text: "Run `terraform init` and commit the lock file." },
       { id: 'D', text: "Add `.terraform.lock.hcl` to `.gitignore` so every machine downloads random provider versions." }
     ],
     correctAnswers: ['C'],
@@ -348,7 +348,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
       { id: 'A', text: "Manually download provider zip files from the web browser." },
       { id: 'B', text: "Run `terraform plan` before initializing the directory." },
       { id: 'C', text: "Add `.terraform.lock.hcl` to `.gitignore` so every machine downloads random provider versions." },
-      { id: 'D', text: "Run `terraform init` and commit the generated lock file." }
+      { id: 'D', text: "Run `terraform init` and commit the lock file." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -366,7 +366,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to initialize a Terraform working directory and ensure all team members and CI runners use the exact same provider versions.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Run `terraform init` and commit the generated lock file." },
+      { id: 'A', text: "Run `terraform init` and commit the lock file." },
       { id: 'B', text: "Add `.terraform.lock.hcl` to `.gitignore` so every machine downloads random provider versions." },
       { id: 'C', text: "Run `terraform plan` before initializing the directory." },
       { id: 'D', text: "Manually download provider zip files from the web browser." }
@@ -387,7 +387,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to initialize a Terraform working directory and ensure all team members and CI runners use the exact same provider versions.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Run `terraform init` and commit the generated lock file." },
+      { id: 'A', text: "Run `terraform init` and commit the lock file." },
       { id: 'B', text: "Add `.terraform.lock.hcl` to `.gitignore` so every machine downloads random provider versions." },
       { id: 'C', text: "Run `terraform plan` before initializing the directory." },
       { id: 'D', text: "Manually download provider zip files from the web browser." }
@@ -408,7 +408,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to initialize a Terraform working directory and ensure all team members and CI runners use the exact same provider versions.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Run `terraform init` and commit the generated lock file." },
+      { id: 'A', text: "Run `terraform init` and commit the lock file." },
       { id: 'B', text: "Add `.terraform.lock.hcl` to `.gitignore` so every machine downloads random provider versions." },
       { id: 'C', text: "Run `terraform plan` before initializing the directory." },
       { id: 'D', text: "Manually download provider zip files from the web browser." }
@@ -430,7 +430,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Run `terraform plan` in validation and `terraform apply` again in deployment." },
-      { id: 'B', text: "Run `terraform plan -out=tfplan` in validation and apply that file in deployment." },
+      { id: 'B', text: "Run `terraform plan -out=tfplan` and apply that file in deployment." },
       { id: 'C', text: "Run `terraform plan` in validation and post the output for a reviewer to approve." },
       { id: 'D', text: "Run `terraform apply -auto-approve` in deployment and review the log afterwards." }
     ],
@@ -450,7 +450,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to generate a speculative execution plan in a CI pipeline and ensure that the exact previewed plan is applied in production without race conditions.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Run `terraform plan -out=tfplan` in validation and apply that file in deployment." },
+      { id: 'A', text: "Run `terraform plan -out=tfplan` and apply that file in deployment." },
       { id: 'B', text: "Run `terraform apply -auto-approve` in deployment and review the log afterwards." },
       { id: 'C', text: "Run `terraform plan` in validation and post the output for a reviewer to approve." },
       { id: 'D', text: "Run `terraform plan` in validation and `terraform apply` again in deployment." }
@@ -471,7 +471,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to generate a speculative execution plan in a CI pipeline and ensure that the exact previewed plan is applied in production without race conditions.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Run `terraform plan -out=tfplan` in validation and apply that file in deployment." },
+      { id: 'A', text: "Run `terraform plan -out=tfplan` and apply that file in deployment." },
       { id: 'B', text: "Run `terraform apply -auto-approve` in deployment and review the log afterwards." },
       { id: 'C', text: "Run `terraform plan` in validation and post the output for a reviewer to approve." },
       { id: 'D', text: "Run `terraform plan` in validation and `terraform apply` again in deployment." }
@@ -492,7 +492,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to generate a speculative execution plan in a CI pipeline and ensure that the exact previewed plan is applied in production without race conditions.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Run `terraform plan -out=tfplan` in validation and apply that file in deployment." },
+      { id: 'A', text: "Run `terraform plan -out=tfplan` and apply that file in deployment." },
       { id: 'B', text: "Run `terraform plan` in validation and `terraform apply` again in deployment." },
       { id: 'C', text: "Run `terraform apply -auto-approve` in deployment and review the log afterwards." },
       { id: 'D', text: "Run `terraform plan` in validation and post the output for a reviewer to approve." }
@@ -513,7 +513,7 @@ export const HASHICORP_TFA_QUESTIONS_13 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to generate a speculative execution plan in a CI pipeline and ensure that the exact previewed plan is applied in production without race conditions.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Run `terraform plan -out=tfplan` in validation and apply that file in deployment." },
+      { id: 'A', text: "Run `terraform plan -out=tfplan` and apply that file in deployment." },
       { id: 'B', text: "Run `terraform apply -auto-approve` in deployment and review the log afterwards." },
       { id: 'C', text: "Run `terraform plan` in validation and post the output for a reviewer to approve." },
       { id: 'D', text: "Run `terraform plan` in validation and `terraform apply` again in deployment." }

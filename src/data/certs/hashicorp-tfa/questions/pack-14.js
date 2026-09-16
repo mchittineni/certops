@@ -221,7 +221,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Run `terraform fmt -check` for the style and `terraform validate` for the syntax." },
       { id: 'B', text: "Run a JSON linter over the files, since HCL is a superset of JSON." },
-      { id: 'C', text: "Run `terraform plan` in the pull request, which reports any syntax error." },
+      { id: 'C', text: "Run `terraform plan` in each pull request, which reports any syntax errors it finds." },
       { id: 'D', text: "Run `terraform apply` against a scratch workspace to surface the errors." }
     ],
     correctAnswers: ['A'],
@@ -243,7 +243,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
       { id: 'A', text: "Run `terraform fmt -check` for the style and `terraform validate` for the syntax." },
       { id: 'B', text: "Run `terraform apply` against a scratch workspace to surface the errors." },
       { id: 'C', text: "Run a JSON linter over the files, since HCL is a superset of JSON." },
-      { id: 'D', text: "Run `terraform plan` in the pull request, which reports any syntax error." }
+      { id: 'D', text: "Run `terraform plan` in each pull request, which reports any syntax errors it finds." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -264,7 +264,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
       { id: 'A', text: "Run `terraform fmt -check` for the style and `terraform validate` for the syntax." },
       { id: 'B', text: "Run `terraform apply` against a scratch workspace to surface the errors." },
       { id: 'C', text: "Run a JSON linter over the files, since HCL is a superset of JSON." },
-      { id: 'D', text: "Run `terraform plan` in the pull request, which reports any syntax error." }
+      { id: 'D', text: "Run `terraform plan` in each pull request, which reports any syntax errors it finds." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -285,7 +285,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
       { id: 'A', text: "Run `terraform apply` against a scratch workspace to surface the errors." },
       { id: 'B', text: "Run a JSON linter over the files, since HCL is a superset of JSON." },
       { id: 'C', text: "Run `terraform fmt -check` for the style and `terraform validate` for the syntax." },
-      { id: 'D', text: "Run `terraform plan` in the pull request, which reports any syntax error." }
+      { id: 'D', text: "Run `terraform plan` in each pull request, which reports any syntax errors it finds." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,7 +303,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to enforce standardized HCL formatting and verify internal syntax and attribute consistency in a pre-commit hook or pull request pipeline.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Run `terraform plan` in the pull request, which reports any syntax error." },
+      { id: 'A', text: "Run `terraform plan` in each pull request, which reports any syntax errors it finds." },
       { id: 'B', text: "Run a JSON linter over the files, since HCL is a superset of JSON." },
       { id: 'C', text: "Run `terraform apply` against a scratch workspace to surface the errors." },
       { id: 'D', text: "Run `terraform fmt -check` for the style and `terraform validate` for the syntax." }
@@ -326,7 +326,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Log into the cloud console to find the instance IP by hand." },
       { id: 'B', text: "Execute `terraform output -raw instance_public_ip` to extract the raw string value." },
-      { id: 'C', text: "Run `terraform plan` and parse the address out of the terminal output with regex." },
+      { id: 'C', text: "Run `terraform plan` and parse the address out of the terminal output with a regex each time." },
       { id: 'D', text: "Read the address out of the state document with a JSON query." }
     ],
     correctAnswers: ['B'],
@@ -347,7 +347,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Execute `terraform output -raw instance_public_ip` to extract the raw string value." },
       { id: 'B', text: "Read the address out of the state document with a JSON query." },
-      { id: 'C', text: "Run `terraform plan` and parse the address out of the terminal output with regex." },
+      { id: 'C', text: "Run `terraform plan` and parse the address out of the terminal output with a regex each time." },
       { id: 'D', text: "Log into the cloud console to find the instance IP by hand." }
     ],
     correctAnswers: ['A'],
@@ -368,7 +368,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Log into the cloud console to find the instance IP by hand." },
       { id: 'B', text: "Execute `terraform output -raw instance_public_ip` to extract the raw string value." },
-      { id: 'C', text: "Run `terraform plan` and parse the address out of the terminal output with regex." },
+      { id: 'C', text: "Run `terraform plan` and parse the address out of the terminal output with a regex each time." },
       { id: 'D', text: "Read the address out of the state document with a JSON query." }
     ],
     correctAnswers: ['B'],
@@ -388,7 +388,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Execute `terraform output -raw instance_public_ip` to extract the raw string value." },
-      { id: 'B', text: "Run `terraform plan` and parse the address out of the terminal output with regex." },
+      { id: 'B', text: "Run `terraform plan` and parse the address out of the terminal output with a regex each time." },
       { id: 'C', text: "Log into the cloud console to find the instance IP by hand." },
       { id: 'D', text: "Read the address out of the state document with a JSON query." }
     ],
@@ -411,7 +411,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
       { id: 'A', text: "Log into the cloud console to find the instance IP by hand." },
       { id: 'B', text: "Read the address out of the state document with a JSON query." },
       { id: 'C', text: "Execute `terraform output -raw instance_public_ip` to extract the raw string value." },
-      { id: 'D', text: "Run `terraform plan` and parse the address out of the terminal output with regex." }
+      { id: 'D', text: "Run `terraform plan` and parse the address out of the terminal output with a regex each time." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,7 +429,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to view all resources currently tracked in the state file and inspect the detailed attributes of a specific security group.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Run `terraform show` and read the rendered state from the top of the output." },
+      { id: 'A', text: "Run `terraform show` and read the rendered state from the very top of the command's output." },
       { id: 'B', text: "Run `terraform state pull` and search the downloaded document by hand." },
       { id: 'C', text: "Run `terraform state list` for the addresses, then `state show` for the attributes." },
       { id: 'D', text: "Run `terraform plan` and read the resources it reports as unchanged." }
@@ -450,7 +450,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to view all resources currently tracked in the state file and inspect the detailed attributes of a specific security group.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Run `terraform show` and read the rendered state from the top of the output." },
+      { id: 'A', text: "Run `terraform show` and read the rendered state from the very top of the command's output." },
       { id: 'B', text: "Run `terraform plan` and read the resources it reports as unchanged." },
       { id: 'C', text: "Run `terraform state pull` and search the downloaded document by hand." },
       { id: 'D', text: "Run `terraform state list` for the addresses, then `state show` for the attributes." }
@@ -471,7 +471,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to view all resources currently tracked in the state file and inspect the detailed attributes of a specific security group.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Run `terraform show` and read the rendered state from the top of the output." },
+      { id: 'A', text: "Run `terraform show` and read the rendered state from the very top of the command's output." },
       { id: 'B', text: "Run `terraform state pull` and search the downloaded document by hand." },
       { id: 'C', text: "Run `terraform state list` for the addresses, then `state show` for the attributes." },
       { id: 'D', text: "Run `terraform plan` and read the resources it reports as unchanged." }
@@ -492,7 +492,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to view all resources currently tracked in the state file and inspect the detailed attributes of a specific security group.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Run `terraform show` and read the rendered state from the top of the output." },
+      { id: 'A', text: "Run `terraform show` and read the rendered state from the very top of the command's output." },
       { id: 'B', text: "Run `terraform plan` and read the resources it reports as unchanged." },
       { id: 'C', text: "Run `terraform state pull` and search the downloaded document by hand." },
       { id: 'D', text: "Run `terraform state list` for the addresses, then `state show` for the attributes." }
@@ -513,7 +513,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to view all resources currently tracked in the state file and inspect the detailed attributes of a specific security group.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Run `terraform show` and read the rendered state from the top of the output." },
+      { id: 'A', text: "Run `terraform show` and read the rendered state from the very top of the command's output." },
       { id: 'B', text: "Run `terraform plan` and read the resources it reports as unchanged." },
       { id: 'C', text: "Run `terraform state pull` and search the downloaded document by hand." },
       { id: 'D', text: "Run `terraform state list` for the addresses, then `state show` for the attributes." }

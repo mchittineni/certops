@@ -324,7 +324,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to prevent anyone from accidentally destroying a production database and ensure zero-downtime replacement for web server instances.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "`prevent_destroy` on the database and `create_before_destroy` on the web servers." },
+      { id: 'A', text: "`prevent_destroy` on the database, `create_before_destroy` on the web tier." },
       { id: 'B', text: "`ignore_changes` on the database and `create_before_destroy` on the web servers." },
       { id: 'C', text: "`prevent_destroy` on every resource in the configuration, including the web tier." },
       { id: 'D', text: "A `moved` block for the database so a destroy is treated as a rename instead." }
@@ -345,7 +345,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to prevent anyone from accidentally destroying a production database and ensure zero-downtime replacement for web server instances.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "`prevent_destroy` on the database and `create_before_destroy` on the web servers." },
+      { id: 'A', text: "`prevent_destroy` on the database, `create_before_destroy` on the web tier." },
       { id: 'B', text: "A `moved` block for the database so a destroy is treated as a rename instead." },
       { id: 'C', text: "`ignore_changes` on the database and `create_before_destroy` on the web servers." },
       { id: 'D', text: "`prevent_destroy` on every resource in the configuration, including the web tier." }
@@ -368,7 +368,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "A `moved` block for the database so a destroy is treated as a rename instead." },
       { id: 'B', text: "`ignore_changes` on the database and `create_before_destroy` on the web servers." },
-      { id: 'C', text: "`prevent_destroy` on the database and `create_before_destroy` on the web servers." },
+      { id: 'C', text: "`prevent_destroy` on the database, `create_before_destroy` on the web tier." },
       { id: 'D', text: "`prevent_destroy` on every resource in the configuration, including the web tier." }
     ],
     correctAnswers: ['C'],
@@ -387,7 +387,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to prevent anyone from accidentally destroying a production database and ensure zero-downtime replacement for web server instances.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "`prevent_destroy` on the database and `create_before_destroy` on the web servers." },
+      { id: 'A', text: "`prevent_destroy` on the database, `create_before_destroy` on the web tier." },
       { id: 'B', text: "`prevent_destroy` on every resource in the configuration, including the web tier." },
       { id: 'C', text: "A `moved` block for the database so a destroy is treated as a rename instead." },
       { id: 'D', text: "`ignore_changes` on the database and `create_before_destroy` on the web servers." }
@@ -409,7 +409,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "A `moved` block for the database so a destroy is treated as a rename instead." },
-      { id: 'B', text: "`prevent_destroy` on the database and `create_before_destroy` on the web servers." },
+      { id: 'B', text: "`prevent_destroy` on the database, `create_before_destroy` on the web tier." },
       { id: 'C', text: "`prevent_destroy` on every resource in the configuration, including the web tier." },
       { id: 'D', text: "`ignore_changes` on the database and `create_before_destroy` on the web servers." }
     ],

@@ -114,9 +114,9 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to ensure that a Terraform project always uses a specific, tested version of the AWS provider and avoids breaking changes from major provider updates.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Vendor the provider binary into the repository and reference it with a mirror." },
+      { id: 'A', text: "Vendor the provider binary into the repository and reference it with a local mirror." },
       { id: 'B', text: "Declare it in `required_providers` with a lower bound only, such as `>= 1.0`." },
-      { id: 'C', text: "Declare it in `required_providers` with its source and a pessimistic constraint." },
+      { id: 'C', text: "Declare it in `required_providers` with a pessimistic constraint." },
       { id: 'D', text: "Omit the declaration and let the lock file pin whatever `init` resolves first." }
     ],
     correctAnswers: ['C'],
@@ -135,10 +135,10 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to ensure that a Terraform project always uses a specific, tested version of the AWS provider and avoids breaking changes from major provider updates.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Vendor the provider binary into the repository and reference it with a mirror." },
+      { id: 'A', text: "Vendor the provider binary into the repository and reference it with a local mirror." },
       { id: 'B', text: "Omit the declaration and let the lock file pin whatever `init` resolves first." },
       { id: 'C', text: "Declare it in `required_providers` with a lower bound only, such as `>= 1.0`." },
-      { id: 'D', text: "Declare it in `required_providers` with its source and a pessimistic constraint." }
+      { id: 'D', text: "Declare it in `required_providers` with a pessimistic constraint." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -157,8 +157,8 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Declare it in `required_providers` with a lower bound only, such as `>= 1.0`." },
-      { id: 'B', text: "Declare it in `required_providers` with its source and a pessimistic constraint." },
-      { id: 'C', text: "Vendor the provider binary into the repository and reference it with a mirror." },
+      { id: 'B', text: "Declare it in `required_providers` with a pessimistic constraint." },
+      { id: 'C', text: "Vendor the provider binary into the repository and reference it with a local mirror." },
       { id: 'D', text: "Omit the declaration and let the lock file pin whatever `init` resolves first." }
     ],
     correctAnswers: ['B'],
@@ -178,9 +178,9 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Omit the declaration and let the lock file pin whatever `init` resolves first." },
-      { id: 'B', text: "Declare it in `required_providers` with its source and a pessimistic constraint." },
+      { id: 'B', text: "Declare it in `required_providers` with a pessimistic constraint." },
       { id: 'C', text: "Declare it in `required_providers` with a lower bound only, such as `>= 1.0`." },
-      { id: 'D', text: "Vendor the provider binary into the repository and reference it with a mirror." }
+      { id: 'D', text: "Vendor the provider binary into the repository and reference it with a local mirror." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -198,9 +198,9 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to ensure that a Terraform project always uses a specific, tested version of the AWS provider and avoids breaking changes from major provider updates.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Declare it in `required_providers` with its source and a pessimistic constraint." },
+      { id: 'A', text: "Declare it in `required_providers` with a pessimistic constraint." },
       { id: 'B', text: "Omit the declaration and let the lock file pin whatever `init` resolves first." },
-      { id: 'C', text: "Vendor the provider binary into the repository and reference it with a mirror." },
+      { id: 'C', text: "Vendor the provider binary into the repository and reference it with a local mirror." },
       { id: 'D', text: "Declare it in `required_providers` with a lower bound only, such as `>= 1.0`." }
     ],
     correctAnswers: ['A'],
@@ -219,7 +219,7 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to ensure that a security group is created before an EC2 instance that references its ID without writing explicit dependency directives.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Add `depends_on` on the instance naming the security group resource." },
+      { id: 'A', text: "Add `depends_on` on the instance, naming the security group resource explicitly." },
       { id: 'B', text: "Add `depends_on` to every resource in the configuration for safety." },
       { id: 'C', text: "Reference the group's attribute directly, as `vpc_security_group_ids = [...]`." },
       { id: 'D', text: "Move the security group into its own configuration and read it back." }
@@ -243,7 +243,7 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
       { id: 'A', text: "Reference the group's attribute directly, as `vpc_security_group_ids = [...]`." },
       { id: 'B', text: "Add `depends_on` to every resource in the configuration for safety." },
       { id: 'C', text: "Move the security group into its own configuration and read it back." },
-      { id: 'D', text: "Add `depends_on` on the instance naming the security group resource." }
+      { id: 'D', text: "Add `depends_on` on the instance, naming the security group resource explicitly." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -264,7 +264,7 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
       { id: 'A', text: "Reference the group's attribute directly, as `vpc_security_group_ids = [...]`." },
       { id: 'B', text: "Add `depends_on` to every resource in the configuration for safety." },
       { id: 'C', text: "Move the security group into its own configuration and read it back." },
-      { id: 'D', text: "Add `depends_on` on the instance naming the security group resource." }
+      { id: 'D', text: "Add `depends_on` on the instance, naming the security group resource explicitly." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -283,7 +283,7 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Add `depends_on` to every resource in the configuration for safety." },
-      { id: 'B', text: "Add `depends_on` on the instance naming the security group resource." },
+      { id: 'B', text: "Add `depends_on` on the instance, naming the security group resource explicitly." },
       { id: 'C', text: "Move the security group into its own configuration and read it back." },
       { id: 'D', text: "Reference the group's attribute directly, as `vpc_security_group_ids = [...]`." }
     ],
@@ -304,7 +304,7 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Add `depends_on` to every resource in the configuration for safety." },
-      { id: 'B', text: "Add `depends_on` on the instance naming the security group resource." },
+      { id: 'B', text: "Add `depends_on` on the instance, naming the security group resource explicitly." },
       { id: 'C', text: "Move the security group into its own configuration and read it back." },
       { id: 'D', text: "Reference the group's attribute directly, as `vpc_security_group_ids = [...]`." }
     ],
@@ -430,7 +430,7 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "It compares configuration, state and schema; a ForceNew attribute means destroy and recreate." },
-      { id: 'B', text: "It destroys and recreates every resource on each apply, which is why the plan is long." },
+      { id: 'B', text: "It destroys and recreates every one of the resources on each apply, which is why the plan is long." },
       { id: 'C', text: "It never destroys a resource, and issues only update calls to the provider's API." },
       { id: 'D', text: "It asks the provider which attributes can change in place and updates only those." }
     ],
@@ -450,7 +450,7 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to understand how Terraform determines whether an in-place update or a destructive replacement is required when modifying a resource property.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "It destroys and recreates every resource on each apply, which is why the plan is long." },
+      { id: 'A', text: "It destroys and recreates every one of the resources on each apply, which is why the plan is long." },
       { id: 'B', text: "It asks the provider which attributes can change in place and updates only those." },
       { id: 'C', text: "It never destroys a resource, and issues only update calls to the provider's API." },
       { id: 'D', text: "It compares configuration, state and schema; a ForceNew attribute means destroy and recreate." }
@@ -474,7 +474,7 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
       { id: 'A', text: "It asks the provider which attributes can change in place and updates only those." },
       { id: 'B', text: "It compares configuration, state and schema; a ForceNew attribute means destroy and recreate." },
       { id: 'C', text: "It never destroys a resource, and issues only update calls to the provider's API." },
-      { id: 'D', text: "It destroys and recreates every resource on each apply, which is why the plan is long." }
+      { id: 'D', text: "It destroys and recreates every one of the resources on each apply, which is why the plan is long." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -493,7 +493,7 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "It compares configuration, state and schema; a ForceNew attribute means destroy and recreate." },
-      { id: 'B', text: "It destroys and recreates every resource on each apply, which is why the plan is long." },
+      { id: 'B', text: "It destroys and recreates every one of the resources on each apply, which is why the plan is long." },
       { id: 'C', text: "It never destroys a resource, and issues only update calls to the provider's API." },
       { id: 'D', text: "It asks the provider which attributes can change in place and updates only those." }
     ],
@@ -513,7 +513,7 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to understand how Terraform determines whether an in-place update or a destructive replacement is required when modifying a resource property.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "It destroys and recreates every resource on each apply, which is why the plan is long." },
+      { id: 'A', text: "It destroys and recreates every one of the resources on each apply, which is why the plan is long." },
       { id: 'B', text: "It asks the provider which attributes can change in place and updates only those." },
       { id: 'C', text: "It never destroys a resource, and issues only update calls to the provider's API." },
       { id: 'D', text: "It compares configuration, state and schema; a ForceNew attribute means destroy and recreate." }
