@@ -10,7 +10,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Apply an egress NetworkPolicy allowing only cluster services and the payment API endpoints." },
-      { id: 'B', text: "Apply an ingress NetworkPolicy allowing only the cluster services that call the workload." },
+      { id: 'B', text: "Apply an ingress NetworkPolicy allowing only the cluster services that call into the workload." },
       { id: 'C', text: "Apply an egress NetworkPolicy whose `ipBlock` covers the whole VPC range on port 443." },
       { id: 'D', text: "Apply a `dnsPolicy: None` with a resolver that answers only for the payment API hostname." }
     ],
@@ -33,7 +33,7 @@ export const K8S_CKS_QUESTIONS_16 = [
       { id: 'A', text: "Apply an egress NetworkPolicy allowing only cluster services and the payment API endpoints." },
       { id: 'B', text: "Apply an egress NetworkPolicy whose `ipBlock` covers the whole VPC range on port 443." },
       { id: 'C', text: "Apply a `dnsPolicy: None` with a resolver that answers only for the payment API hostname." },
-      { id: 'D', text: "Apply an ingress NetworkPolicy allowing only the cluster services that call the workload." }
+      { id: 'D', text: "Apply an ingress NetworkPolicy allowing only the cluster services that call into the workload." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -53,7 +53,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Apply an egress NetworkPolicy whose `ipBlock` covers the whole VPC range on port 443." },
       { id: 'B', text: "Apply an egress NetworkPolicy allowing only cluster services and the payment API endpoints." },
-      { id: 'C', text: "Apply an ingress NetworkPolicy allowing only the cluster services that call the workload." },
+      { id: 'C', text: "Apply an ingress NetworkPolicy allowing only the cluster services that call into the workload." },
       { id: 'D', text: "Apply a `dnsPolicy: None` with a resolver that answers only for the payment API hostname." }
     ],
     correctAnswers: ['B'],
@@ -75,7 +75,7 @@ export const K8S_CKS_QUESTIONS_16 = [
       { id: 'A', text: "Apply a `dnsPolicy: None` with a resolver that answers only for the payment API hostname." },
       { id: 'B', text: "Apply an egress NetworkPolicy allowing only cluster services and the payment API endpoints." },
       { id: 'C', text: "Apply an egress NetworkPolicy whose `ipBlock` covers the whole VPC range on port 443." },
-      { id: 'D', text: "Apply an ingress NetworkPolicy allowing only the cluster services that call the workload." }
+      { id: 'D', text: "Apply an ingress NetworkPolicy allowing only the cluster services that call into the workload." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,7 +93,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent a compromised microservice from connecting to external command-and-control (C2) servers or exfiltrating stolen customer data.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Apply an ingress NetworkPolicy allowing only the cluster services that call the workload." },
+      { id: 'A', text: "Apply an ingress NetworkPolicy allowing only the cluster services that call into the workload." },
       { id: 'B', text: "Apply an egress NetworkPolicy whose `ipBlock` covers the whole VPC range on port 443." },
       { id: 'C', text: "Apply an egress NetworkPolicy allowing only cluster services and the payment API endpoints." },
       { id: 'D', text: "Apply a `dnsPolicy: None` with a resolver that answers only for the payment API hostname." }
@@ -116,7 +116,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Run Pod Security Admission in `warn` mode so insecure manifests are reported on apply." },
       { id: 'B', text: "Run Trivy's image scan in CI so the manifests are checked against the image's findings." },
-      { id: 'C', text: "Run a Kyverno mutate policy in the cluster that repairs the insecure fields on admission." },
+      { id: 'C', text: "Run a Kyverno mutate policy in the cluster that repairs each of the insecure fields on admission." },
       { id: 'D', text: "Run `kube-linter`, `checkov` or `conftest` in CI so insecure manifest patterns fail the build." }
     ],
     correctAnswers: ['D'],
@@ -135,7 +135,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to detect security misconfigurations (such as missing resource limits or running as root) in Kubernetes YAML manifests before merging pull requests.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Run a Kyverno mutate policy in the cluster that repairs the insecure fields on admission." },
+      { id: 'A', text: "Run a Kyverno mutate policy in the cluster that repairs each of the insecure fields on admission." },
       { id: 'B', text: "Run Trivy's image scan in CI so the manifests are checked against the image's findings." },
       { id: 'C', text: "Run `kube-linter`, `checkov` or `conftest` in CI so insecure manifest patterns fail the build." },
       { id: 'D', text: "Run Pod Security Admission in `warn` mode so insecure manifests are reported on apply." }
@@ -159,7 +159,7 @@ export const K8S_CKS_QUESTIONS_16 = [
       { id: 'A', text: "Run Trivy's image scan in CI so the manifests are checked against the image's findings." },
       { id: 'B', text: "Run Pod Security Admission in `warn` mode so insecure manifests are reported on apply." },
       { id: 'C', text: "Run `kube-linter`, `checkov` or `conftest` in CI so insecure manifest patterns fail the build." },
-      { id: 'D', text: "Run a Kyverno mutate policy in the cluster that repairs the insecure fields on admission." }
+      { id: 'D', text: "Run a Kyverno mutate policy in the cluster that repairs each of the insecure fields on admission." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -178,7 +178,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Run `kube-linter`, `checkov` or `conftest` in CI so insecure manifest patterns fail the build." },
-      { id: 'B', text: "Run a Kyverno mutate policy in the cluster that repairs the insecure fields on admission." },
+      { id: 'B', text: "Run a Kyverno mutate policy in the cluster that repairs each of the insecure fields on admission." },
       { id: 'C', text: "Run Trivy's image scan in CI so the manifests are checked against the image's findings." },
       { id: 'D', text: "Run Pod Security Admission in `warn` mode so insecure manifests are reported on apply." }
     ],
@@ -200,7 +200,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Run Pod Security Admission in `warn` mode so insecure manifests are reported on apply." },
       { id: 'B', text: "Run Trivy's image scan in CI so the manifests are checked against the image's findings." },
-      { id: 'C', text: "Run a Kyverno mutate policy in the cluster that repairs the insecure fields on admission." },
+      { id: 'C', text: "Run a Kyverno mutate policy in the cluster that repairs each of the insecure fields on admission." },
       { id: 'D', text: "Run `kube-linter`, `checkov` or `conftest` in CI so insecure manifest patterns fail the build." }
     ],
     correctAnswers: ['D'],
@@ -324,7 +324,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to guarantee that only container images built and signed by the authorized corporate CI pipeline can be executed in Kubernetes.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Sign images in CI with `cosign sign` and have the deploy job verify before it applies." },
+      { id: 'A', text: "Sign images in CI with `cosign sign` and have the deploy job verify them before it applies." },
       { id: 'B', text: "Enable registry content trust so the registry rejects any unsigned tag on push." },
       { id: 'C', text: "Pin every workload to an image digest so the tag cannot be moved after review." },
       { id: 'D', text: "Sign images in CI with `cosign sign` and verify the signature in an admission controller." }
@@ -348,7 +348,7 @@ export const K8S_CKS_QUESTIONS_16 = [
       { id: 'A', text: "Sign images in CI with `cosign sign` and verify the signature in an admission controller." },
       { id: 'B', text: "Pin every workload to an image digest so the tag cannot be moved after review." },
       { id: 'C', text: "Enable registry content trust so the registry rejects any unsigned tag on push." },
-      { id: 'D', text: "Sign images in CI with `cosign sign` and have the deploy job verify before it applies." }
+      { id: 'D', text: "Sign images in CI with `cosign sign` and have the deploy job verify them before it applies." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -369,7 +369,7 @@ export const K8S_CKS_QUESTIONS_16 = [
       { id: 'A', text: "Sign images in CI with `cosign sign` and verify the signature in an admission controller." },
       { id: 'B', text: "Pin every workload to an image digest so the tag cannot be moved after review." },
       { id: 'C', text: "Enable registry content trust so the registry rejects any unsigned tag on push." },
-      { id: 'D', text: "Sign images in CI with `cosign sign` and have the deploy job verify before it applies." }
+      { id: 'D', text: "Sign images in CI with `cosign sign` and have the deploy job verify them before it applies." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -389,7 +389,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Enable registry content trust so the registry rejects any unsigned tag on push." },
       { id: 'B', text: "Pin every workload to an image digest so the tag cannot be moved after review." },
-      { id: 'C', text: "Sign images in CI with `cosign sign` and have the deploy job verify before it applies." },
+      { id: 'C', text: "Sign images in CI with `cosign sign` and have the deploy job verify them before it applies." },
       { id: 'D', text: "Sign images in CI with `cosign sign` and verify the signature in an admission controller." }
     ],
     correctAnswers: ['D'],
@@ -409,7 +409,7 @@ export const K8S_CKS_QUESTIONS_16 = [
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Enable registry content trust so the registry rejects any unsigned tag on push." },
-      { id: 'B', text: "Sign images in CI with `cosign sign` and have the deploy job verify before it applies." },
+      { id: 'B', text: "Sign images in CI with `cosign sign` and have the deploy job verify them before it applies." },
       { id: 'C', text: "Sign images in CI with `cosign sign` and verify the signature in an admission controller." },
       { id: 'D', text: "Pin every workload to an image digest so the tag cannot be moved after review." }
     ],

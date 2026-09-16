@@ -114,7 +114,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent a pod from mounting the host `/etc/shadow` file or Docker/containerd socket and gaining root host takeover.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Allow `hostPath` volumes but set `readOnly: true` on each mount so the node cannot be written to." },
+      { id: 'A', text: "Allow `hostPath` volumes but set `readOnly: true` on every mount so that the node itself cannot be written to." },
       { id: 'B', text: "Allow `hostPath` volumes only under `/var/lib/app`, enforced by a Kyverno validate policy." },
       { id: 'C', text: "Reject `hostPath` volumes by admission — the restricted Pod Security level — and use PVCs or `emptyDir`." },
       { id: 'D', text: "Reject `hostPath` volumes with a LimitRange on the namespace that omits the volume type." }
@@ -137,7 +137,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Reject `hostPath` volumes with a LimitRange on the namespace that omits the volume type." },
       { id: 'B', text: "Allow `hostPath` volumes only under `/var/lib/app`, enforced by a Kyverno validate policy." },
-      { id: 'C', text: "Allow `hostPath` volumes but set `readOnly: true` on each mount so the node cannot be written to." },
+      { id: 'C', text: "Allow `hostPath` volumes but set `readOnly: true` on every mount so that the node itself cannot be written to." },
       { id: 'D', text: "Reject `hostPath` volumes by admission — the restricted Pod Security level — and use PVCs or `emptyDir`." }
     ],
     correctAnswers: ['D'],
@@ -157,7 +157,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Allow `hostPath` volumes only under `/var/lib/app`, enforced by a Kyverno validate policy." },
-      { id: 'B', text: "Allow `hostPath` volumes but set `readOnly: true` on each mount so the node cannot be written to." },
+      { id: 'B', text: "Allow `hostPath` volumes but set `readOnly: true` on every mount so that the node itself cannot be written to." },
       { id: 'C', text: "Reject `hostPath` volumes with a LimitRange on the namespace that omits the volume type." },
       { id: 'D', text: "Reject `hostPath` volumes by admission — the restricted Pod Security level — and use PVCs or `emptyDir`." }
     ],
@@ -178,7 +178,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Reject `hostPath` volumes by admission — the restricted Pod Security level — and use PVCs or `emptyDir`." },
-      { id: 'B', text: "Allow `hostPath` volumes but set `readOnly: true` on each mount so the node cannot be written to." },
+      { id: 'B', text: "Allow `hostPath` volumes but set `readOnly: true` on every mount so that the node itself cannot be written to." },
       { id: 'C', text: "Allow `hostPath` volumes only under `/var/lib/app`, enforced by a Kyverno validate policy." },
       { id: 'D', text: "Reject `hostPath` volumes with a LimitRange on the namespace that omits the volume type." }
     ],
@@ -199,7 +199,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Reject `hostPath` volumes by admission — the restricted Pod Security level — and use PVCs or `emptyDir`." },
-      { id: 'B', text: "Allow `hostPath` volumes but set `readOnly: true` on each mount so the node cannot be written to." },
+      { id: 'B', text: "Allow `hostPath` volumes but set `readOnly: true` on every mount so that the node itself cannot be written to." },
       { id: 'C', text: "Allow `hostPath` volumes only under `/var/lib/app`, enforced by a Kyverno validate policy." },
       { id: 'D', text: "Reject `hostPath` volumes with a LimitRange on the namespace that omits the volume type." }
     ],
@@ -220,7 +220,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Disable unused services, remove build toolchains, close ports with the host firewall, and patch the kernel." },
-      { id: 'B', text: "Disable unused services, keep the build toolchain for debugging, and patch on the quarterly cycle." },
+      { id: 'B', text: "Disable the unused services, keep the build toolchain for debugging, and patch only on the quarterly cycle." },
       { id: 'C', text: "Disable the host firewall so kube-proxy owns the rules, and patch the kernel on each reboot." },
       { id: 'D', text: "Disable password SSH in favour of keys, and leave the remaining packages for the image owner." }
     ],
@@ -241,7 +241,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Disable the host firewall so kube-proxy owns the rules, and patch the kernel on each reboot." },
-      { id: 'B', text: "Disable unused services, keep the build toolchain for debugging, and patch on the quarterly cycle." },
+      { id: 'B', text: "Disable the unused services, keep the build toolchain for debugging, and patch only on the quarterly cycle." },
       { id: 'C', text: "Disable password SSH in favour of keys, and leave the remaining packages for the image owner." },
       { id: 'D', text: "Disable unused services, remove build toolchains, close ports with the host firewall, and patch the kernel." }
     ],
@@ -264,7 +264,7 @@ export const K8S_CKS_QUESTIONS_13 = [
       { id: 'A', text: "Disable unused services, remove build toolchains, close ports with the host firewall, and patch the kernel." },
       { id: 'B', text: "Disable the host firewall so kube-proxy owns the rules, and patch the kernel on each reboot." },
       { id: 'C', text: "Disable password SSH in favour of keys, and leave the remaining packages for the image owner." },
-      { id: 'D', text: "Disable unused services, keep the build toolchain for debugging, and patch on the quarterly cycle." }
+      { id: 'D', text: "Disable the unused services, keep the build toolchain for debugging, and patch only on the quarterly cycle." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -283,7 +283,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Disable unused services, remove build toolchains, close ports with the host firewall, and patch the kernel." },
-      { id: 'B', text: "Disable unused services, keep the build toolchain for debugging, and patch on the quarterly cycle." },
+      { id: 'B', text: "Disable the unused services, keep the build toolchain for debugging, and patch only on the quarterly cycle." },
       { id: 'C', text: "Disable the host firewall so kube-proxy owns the rules, and patch the kernel on each reboot." },
       { id: 'D', text: "Disable password SSH in favour of keys, and leave the remaining packages for the image owner." }
     ],
@@ -304,7 +304,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Disable the host firewall so kube-proxy owns the rules, and patch the kernel on each reboot." },
-      { id: 'B', text: "Disable unused services, keep the build toolchain for debugging, and patch on the quarterly cycle." },
+      { id: 'B', text: "Disable the unused services, keep the build toolchain for debugging, and patch only on the quarterly cycle." },
       { id: 'C', text: "Disable password SSH in favour of keys, and leave the remaining packages for the image owner." },
       { id: 'D', text: "Disable unused services, remove build toolchains, close ports with the host firewall, and patch the kernel." }
     ],
@@ -325,7 +325,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Deny `CAP_SYS_ADMIN` and `CAP_NET_ADMIN` in the securityContext, per the restricted Pod Security Standard." },
-      { id: 'B', text: "Set `privileged: false` with `allowPrivilegeEscalation: true`, per the baseline Pod Security Standard." },
+      { id: 'B', text: "Set `privileged: false` with `allowPrivilegeEscalation: true`, per the baseline Pod Security Standard level." },
       { id: 'C', text: "Add `CAP_NET_ADMIN` back after dropping all, so the workload keeps its own network setup." },
       { id: 'D', text: "Set `procMount: Default` and `hostPID: false`, which removes the capabilities from the container." }
     ],
@@ -346,7 +346,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Deny `CAP_SYS_ADMIN` and `CAP_NET_ADMIN` in the securityContext, per the restricted Pod Security Standard." },
-      { id: 'B', text: "Set `privileged: false` with `allowPrivilegeEscalation: true`, per the baseline Pod Security Standard." },
+      { id: 'B', text: "Set `privileged: false` with `allowPrivilegeEscalation: true`, per the baseline Pod Security Standard level." },
       { id: 'C', text: "Add `CAP_NET_ADMIN` back after dropping all, so the workload keeps its own network setup." },
       { id: 'D', text: "Set `procMount: Default` and `hostPID: false`, which removes the capabilities from the container." }
     ],
@@ -368,7 +368,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Set `procMount: Default` and `hostPID: false`, which removes the capabilities from the container." },
       { id: 'B', text: "Add `CAP_NET_ADMIN` back after dropping all, so the workload keeps its own network setup." },
-      { id: 'C', text: "Set `privileged: false` with `allowPrivilegeEscalation: true`, per the baseline Pod Security Standard." },
+      { id: 'C', text: "Set `privileged: false` with `allowPrivilegeEscalation: true`, per the baseline Pod Security Standard level." },
       { id: 'D', text: "Deny `CAP_SYS_ADMIN` and `CAP_NET_ADMIN` in the securityContext, per the restricted Pod Security Standard." }
     ],
     correctAnswers: ['D'],
@@ -388,7 +388,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Deny `CAP_SYS_ADMIN` and `CAP_NET_ADMIN` in the securityContext, per the restricted Pod Security Standard." },
-      { id: 'B', text: "Set `privileged: false` with `allowPrivilegeEscalation: true`, per the baseline Pod Security Standard." },
+      { id: 'B', text: "Set `privileged: false` with `allowPrivilegeEscalation: true`, per the baseline Pod Security Standard level." },
       { id: 'C', text: "Add `CAP_NET_ADMIN` back after dropping all, so the workload keeps its own network setup." },
       { id: 'D', text: "Set `procMount: Default` and `hostPID: false`, which removes the capabilities from the container." }
     ],
@@ -409,7 +409,7 @@ export const K8S_CKS_QUESTIONS_13 = [
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Deny `CAP_SYS_ADMIN` and `CAP_NET_ADMIN` in the securityContext, per the restricted Pod Security Standard." },
-      { id: 'B', text: "Set `privileged: false` with `allowPrivilegeEscalation: true`, per the baseline Pod Security Standard." },
+      { id: 'B', text: "Set `privileged: false` with `allowPrivilegeEscalation: true`, per the baseline Pod Security Standard level." },
       { id: 'C', text: "Add `CAP_NET_ADMIN` back after dropping all, so the workload keeps its own network setup." },
       { id: 'D', text: "Set `procMount: Default` and `hostPID: false`, which removes the capabilities from the container." }
     ],

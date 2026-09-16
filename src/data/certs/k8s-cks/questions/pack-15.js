@@ -10,9 +10,9 @@ export const K8S_CKS_QUESTIONS_15 = [
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." },
-      { id: 'B', text: "Set `allowPrivilegeEscalation: true`." },
+      { id: 'B', text: "Set `allowPrivilegeEscalation: true` on the container." },
       { id: 'C', text: "Set `procMount: Default` in the container `securityContext` as well." },
-      { id: 'D', text: "Set `runAsUser: 0` with `privileged: false` on the container instead." }
+      { id: 'D', text: "Set `runAsUser: 0` together with `privileged: false` on the container instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,9 +30,9 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent child processes inside a container from gaining more privileges than their parent process via setuid or setgid binaries.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Set `runAsUser: 0` with `privileged: false` on the container instead." },
+      { id: 'A', text: "Set `runAsUser: 0` together with `privileged: false` on the container instead." },
       { id: 'B', text: "Set `procMount: Default` in the container `securityContext` as well." },
-      { id: 'C', text: "Set `allowPrivilegeEscalation: true`." },
+      { id: 'C', text: "Set `allowPrivilegeEscalation: true` on the container." },
       { id: 'D', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." }
     ],
     correctAnswers: ['D'],
@@ -51,9 +51,9 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent child processes inside a container from gaining more privileges than their parent process via setuid or setgid binaries.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Set `runAsUser: 0` with `privileged: false` on the container instead." },
+      { id: 'A', text: "Set `runAsUser: 0` together with `privileged: false` on the container instead." },
       { id: 'B', text: "Set `procMount: Default` in the container `securityContext` as well." },
-      { id: 'C', text: "Set `allowPrivilegeEscalation: true`." },
+      { id: 'C', text: "Set `allowPrivilegeEscalation: true` on the container." },
       { id: 'D', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." }
     ],
     correctAnswers: ['D'],
@@ -73,9 +73,9 @@ export const K8S_CKS_QUESTIONS_15 = [
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." },
-      { id: 'B', text: "Set `allowPrivilegeEscalation: true`." },
+      { id: 'B', text: "Set `allowPrivilegeEscalation: true` on the container." },
       { id: 'C', text: "Set `procMount: Default` in the container `securityContext` as well." },
-      { id: 'D', text: "Set `runAsUser: 0` with `privileged: false` on the container instead." }
+      { id: 'D', text: "Set `runAsUser: 0` together with `privileged: false` on the container instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -94,9 +94,9 @@ export const K8S_CKS_QUESTIONS_15 = [
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." },
-      { id: 'B', text: "Set `allowPrivilegeEscalation: true`." },
+      { id: 'B', text: "Set `allowPrivilegeEscalation: true` on the container." },
       { id: 'C', text: "Set `procMount: Default` in the container `securityContext` as well." },
-      { id: 'D', text: "Set `runAsUser: 0` with `privileged: false` on the container instead." }
+      { id: 'D', text: "Set `runAsUser: 0` together with `privileged: false` on the container instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -116,8 +116,8 @@ export const K8S_CKS_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount." },
       { id: 'B', text: "Allow all pods to mount the default ServiceAccount token automatically." },
-      { id: 'C', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." },
-      { id: 'D', text: "Hardcode the token into a public GitHub repository." }
+      { id: 'C', text: "Grant cluster-admin permissions to the default ServiceAccount in every one of the namespaces." },
+      { id: 'D', text: "Hardcode the token into a public GitHub repository's manifests." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to protect microservices that do not communicate with the Kubernetes API from having their ServiceAccount credentials stolen by an attacker.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Hardcode the token into a public GitHub repository." },
+      { id: 'A', text: "Hardcode the token into a public GitHub repository's manifests." },
       { id: 'B', text: "Allow all pods to mount the default ServiceAccount token automatically." },
       { id: 'C', text: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount." },
-      { id: 'D', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." }
+      { id: 'D', text: "Grant cluster-admin permissions to the default ServiceAccount in every one of the namespaces." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -158,8 +158,8 @@ export const K8S_CKS_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Allow all pods to mount the default ServiceAccount token automatically." },
       { id: 'B', text: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount." },
-      { id: 'C', text: "Hardcode the token into a public GitHub repository." },
-      { id: 'D', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." }
+      { id: 'C', text: "Hardcode the token into a public GitHub repository's manifests." },
+      { id: 'D', text: "Grant cluster-admin permissions to the default ServiceAccount in every one of the namespaces." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -178,9 +178,9 @@ export const K8S_CKS_QUESTIONS_15 = [
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Allow all pods to mount the default ServiceAccount token automatically." },
-      { id: 'B', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." },
+      { id: 'B', text: "Grant cluster-admin permissions to the default ServiceAccount in every one of the namespaces." },
       { id: 'C', text: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount." },
-      { id: 'D', text: "Hardcode the token into a public GitHub repository." }
+      { id: 'D', text: "Hardcode the token into a public GitHub repository's manifests." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -198,8 +198,8 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to protect microservices that do not communicate with the Kubernetes API from having their ServiceAccount credentials stolen by an attacker.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Grant cluster-admin permissions to the default ServiceAccount in all namespaces." },
-      { id: 'B', text: "Hardcode the token into a public GitHub repository." },
+      { id: 'A', text: "Grant cluster-admin permissions to the default ServiceAccount in every one of the namespaces." },
+      { id: 'B', text: "Hardcode the token into a public GitHub repository's manifests." },
       { id: 'C', text: "Set `automountServiceAccountToken: false` on the pod spec or the associated ServiceAccount." },
       { id: 'D', text: "Allow all pods to mount the default ServiceAccount token automatically." }
     ],

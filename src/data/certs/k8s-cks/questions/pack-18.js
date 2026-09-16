@@ -9,10 +9,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent private SSH keys or API tokens needed during build time from being baked into the intermediate layers of a published container image.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Hardcode the private SSH key in a file and delete it before committing." },
+      { id: 'A', text: "Hardcode the private SSH key in a file and delete it before committing the image." },
       { id: 'B', text: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions." },
-      { id: 'C', text: "Pass API tokens as Dockerfile `ARG` variables and delete them in a subsequent `RUN rm` command." },
-      { id: 'D', text: "Encode secrets in base64 within the Dockerfile." }
+      { id: 'C', text: "Pass the API tokens as Dockerfile `ARG` variables and then delete them in a subsequent `RUN rm` command." },
+      { id: 'D', text: "Encode the secrets in base64 within the Dockerfile." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent private SSH keys or API tokens needed during build time from being baked into the intermediate layers of a published container image.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Hardcode the private SSH key in a file and delete it before committing." },
-      { id: 'B', text: "Encode secrets in base64 within the Dockerfile." },
+      { id: 'A', text: "Hardcode the private SSH key in a file and delete it before committing the image." },
+      { id: 'B', text: "Encode the secrets in base64 within the Dockerfile." },
       { id: 'C', text: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions." },
-      { id: 'D', text: "Pass API tokens as Dockerfile `ARG` variables and delete them in a subsequent `RUN rm` command." }
+      { id: 'D', text: "Pass the API tokens as Dockerfile `ARG` variables and then delete them in a subsequent `RUN rm` command." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent private SSH keys or API tokens needed during build time from being baked into the intermediate layers of a published container image.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Pass API tokens as Dockerfile `ARG` variables and delete them in a subsequent `RUN rm` command." },
+      { id: 'A', text: "Pass the API tokens as Dockerfile `ARG` variables and then delete them in a subsequent `RUN rm` command." },
       { id: 'B', text: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions." },
-      { id: 'C', text: "Encode secrets in base64 within the Dockerfile." },
-      { id: 'D', text: "Hardcode the private SSH key in a file and delete it before committing." }
+      { id: 'C', text: "Encode the secrets in base64 within the Dockerfile." },
+      { id: 'D', text: "Hardcode the private SSH key in a file and delete it before committing the image." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,9 +72,9 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent private SSH keys or API tokens needed during build time from being baked into the intermediate layers of a published container image.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Pass API tokens as Dockerfile `ARG` variables and delete them in a subsequent `RUN rm` command." },
-      { id: 'B', text: "Encode secrets in base64 within the Dockerfile." },
-      { id: 'C', text: "Hardcode the private SSH key in a file and delete it before committing." },
+      { id: 'A', text: "Pass the API tokens as Dockerfile `ARG` variables and then delete them in a subsequent `RUN rm` command." },
+      { id: 'B', text: "Encode the secrets in base64 within the Dockerfile." },
+      { id: 'C', text: "Hardcode the private SSH key in a file and delete it before committing the image." },
       { id: 'D', text: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions." }
     ],
     correctAnswers: ['D'],
@@ -94,9 +94,9 @@ export const K8S_CKS_QUESTIONS_18 = [
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Use BuildKit secret mounts (`RUN --mount=type=secret,id=mysecret`) rather than ARG or ENV instructions." },
-      { id: 'B', text: "Pass API tokens as Dockerfile `ARG` variables and delete them in a subsequent `RUN rm` command." },
-      { id: 'C', text: "Hardcode the private SSH key in a file and delete it before committing." },
-      { id: 'D', text: "Encode secrets in base64 within the Dockerfile." }
+      { id: 'B', text: "Pass the API tokens as Dockerfile `ARG` variables and then delete them in a subsequent `RUN rm` command." },
+      { id: 'C', text: "Hardcode the private SSH key in a file and delete it before committing the image." },
+      { id: 'D', text: "Encode the secrets in base64 within the Dockerfile." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,7 +324,7 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to identify which compromised user account or ServiceAccount attempted to query all secrets across the cluster and received HTTP 403 Forbidden.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Search the API server audit log for `verb: get` on `secrets` at `RequestReceived` stage only." },
+      { id: 'A', text: "Search the API server audit log for `verb: get` on `secrets` at the `RequestReceived` stage only, by user." },
       { id: 'B', text: "Search the API server audit log for `verb: list` on `secrets` with a 403 response, and read the user and IP." },
       { id: 'C', text: "Search the kubelet log on each node for the denied secret mount and read the pod's identity." },
       { id: 'D', text: "Search the events API for `Forbidden` warnings on the namespace and read the involved object." }
@@ -348,7 +348,7 @@ export const K8S_CKS_QUESTIONS_18 = [
       { id: 'A', text: "Search the API server audit log for `verb: list` on `secrets` with a 403 response, and read the user and IP." },
       { id: 'B', text: "Search the events API for `Forbidden` warnings on the namespace and read the involved object." },
       { id: 'C', text: "Search the kubelet log on each node for the denied secret mount and read the pod's identity." },
-      { id: 'D', text: "Search the API server audit log for `verb: get` on `secrets` at `RequestReceived` stage only." }
+      { id: 'D', text: "Search the API server audit log for `verb: get` on `secrets` at the `RequestReceived` stage only, by user." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -369,7 +369,7 @@ export const K8S_CKS_QUESTIONS_18 = [
       { id: 'A', text: "Search the API server audit log for `verb: list` on `secrets` with a 403 response, and read the user and IP." },
       { id: 'B', text: "Search the events API for `Forbidden` warnings on the namespace and read the involved object." },
       { id: 'C', text: "Search the kubelet log on each node for the denied secret mount and read the pod's identity." },
-      { id: 'D', text: "Search the API server audit log for `verb: get` on `secrets` at `RequestReceived` stage only." }
+      { id: 'D', text: "Search the API server audit log for `verb: get` on `secrets` at the `RequestReceived` stage only, by user." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -390,7 +390,7 @@ export const K8S_CKS_QUESTIONS_18 = [
       { id: 'A', text: "Search the API server audit log for `verb: list` on `secrets` with a 403 response, and read the user and IP." },
       { id: 'B', text: "Search the events API for `Forbidden` warnings on the namespace and read the involved object." },
       { id: 'C', text: "Search the kubelet log on each node for the denied secret mount and read the pod's identity." },
-      { id: 'D', text: "Search the API server audit log for `verb: get` on `secrets` at `RequestReceived` stage only." }
+      { id: 'D', text: "Search the API server audit log for `verb: get` on `secrets` at the `RequestReceived` stage only, by user." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -411,7 +411,7 @@ export const K8S_CKS_QUESTIONS_18 = [
       { id: 'A', text: "Search the API server audit log for `verb: list` on `secrets` with a 403 response, and read the user and IP." },
       { id: 'B', text: "Search the events API for `Forbidden` warnings on the namespace and read the involved object." },
       { id: 'C', text: "Search the kubelet log on each node for the denied secret mount and read the pod's identity." },
-      { id: 'D', text: "Search the API server audit log for `verb: get` on `secrets` at `RequestReceived` stage only." }
+      { id: 'D', text: "Search the API server audit log for `verb: get` on `secrets` at the `RequestReceived` stage only, by user." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,7 +429,7 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to configure Falco to trigger alerts when any process attempts to read sensitive Kubernetes service account token files from `/var/run/secrets`.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Write a Falco rule on `execve` of shells inside containers that carry a mounted service account token." },
+      { id: 'A', text: "Write a Falco rule on `execve` of shells inside any container that carries a mounted service account token." },
       { id: 'B', text: "Write an audit policy rule at `RequestResponse` level for the `serviceaccounts/token` subresource." },
       { id: 'C', text: "Write a Falco rule on `open` of `/var/run/secrets/kubernetes.io/serviceaccount` by unexpected processes." },
       { id: 'D', text: "Write a Falco rule on outbound connections from containers to the API server's own cluster IP." }
@@ -452,7 +452,7 @@ export const K8S_CKS_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Write a Falco rule on outbound connections from containers to the API server's own cluster IP." },
       { id: 'B', text: "Write an audit policy rule at `RequestResponse` level for the `serviceaccounts/token` subresource." },
-      { id: 'C', text: "Write a Falco rule on `execve` of shells inside containers that carry a mounted service account token." },
+      { id: 'C', text: "Write a Falco rule on `execve` of shells inside any container that carries a mounted service account token." },
       { id: 'D', text: "Write a Falco rule on `open` of `/var/run/secrets/kubernetes.io/serviceaccount` by unexpected processes." }
     ],
     correctAnswers: ['D'],
@@ -473,7 +473,7 @@ export const K8S_CKS_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Write a Falco rule on `open` of `/var/run/secrets/kubernetes.io/serviceaccount` by unexpected processes." },
       { id: 'B', text: "Write a Falco rule on outbound connections from containers to the API server's own cluster IP." },
-      { id: 'C', text: "Write a Falco rule on `execve` of shells inside containers that carry a mounted service account token." },
+      { id: 'C', text: "Write a Falco rule on `execve` of shells inside any container that carries a mounted service account token." },
       { id: 'D', text: "Write an audit policy rule at `RequestResponse` level for the `serviceaccounts/token` subresource." }
     ],
     correctAnswers: ['A'],
@@ -495,7 +495,7 @@ export const K8S_CKS_QUESTIONS_18 = [
       { id: 'A', text: "Write a Falco rule on outbound connections from containers to the API server's own cluster IP." },
       { id: 'B', text: "Write a Falco rule on `open` of `/var/run/secrets/kubernetes.io/serviceaccount` by unexpected processes." },
       { id: 'C', text: "Write an audit policy rule at `RequestResponse` level for the `serviceaccounts/token` subresource." },
-      { id: 'D', text: "Write a Falco rule on `execve` of shells inside containers that carry a mounted service account token." }
+      { id: 'D', text: "Write a Falco rule on `execve` of shells inside any container that carries a mounted service account token." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -515,7 +515,7 @@ export const K8S_CKS_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Write a Falco rule on `open` of `/var/run/secrets/kubernetes.io/serviceaccount` by unexpected processes." },
       { id: 'B', text: "Write a Falco rule on outbound connections from containers to the API server's own cluster IP." },
-      { id: 'C', text: "Write a Falco rule on `execve` of shells inside containers that carry a mounted service account token." },
+      { id: 'C', text: "Write a Falco rule on `execve` of shells inside any container that carries a mounted service account token." },
       { id: 'D', text: "Write an audit policy rule at `RequestResponse` level for the `serviceaccounts/token` subresource." }
     ],
     correctAnswers: ['A'],
