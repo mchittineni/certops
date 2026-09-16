@@ -10,7 +10,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Set the enterprise Actions policy to local actions only, or to selected creators." },
-      { id: 'B', text: "Allow all Marketplace actions but require each to be pinned to a commit SHA." },
+      { id: 'B', text: "Allow all Marketplace actions but require each of them to be pinned to a commit SHA." },
       { id: 'C', text: "Disable Actions for the enterprise and run the pipelines on the old system." },
       { id: 'D', text: "Allow all actions and review the audit log for the ones that were used." }
     ],
@@ -31,7 +31,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Set the enterprise Actions policy to local actions only, or to selected creators." },
-      { id: 'B', text: "Allow all Marketplace actions but require each to be pinned to a commit SHA." },
+      { id: 'B', text: "Allow all Marketplace actions but require each of them to be pinned to a commit SHA." },
       { id: 'C', text: "Disable Actions for the enterprise and run the pipelines on the old system." },
       { id: 'D', text: "Allow all actions and review the audit log for the ones that were used." }
     ],
@@ -52,7 +52,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Disable Actions for the enterprise and run the pipelines on the old system." },
-      { id: 'B', text: "Allow all Marketplace actions but require each to be pinned to a commit SHA." },
+      { id: 'B', text: "Allow all Marketplace actions but require each of them to be pinned to a commit SHA." },
       { id: 'C', text: "Allow all actions and review the audit log for the ones that were used." },
       { id: 'D', text: "Set the enterprise Actions policy to local actions only, or to selected creators." }
     ],
@@ -75,7 +75,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
       { id: 'A', text: "Allow all actions and review the audit log for the ones that were used." },
       { id: 'B', text: "Set the enterprise Actions policy to local actions only, or to selected creators." },
       { id: 'C', text: "Disable Actions for the enterprise and run the pipelines on the old system." },
-      { id: 'D', text: "Allow all Marketplace actions but require each to be pinned to a commit SHA." }
+      { id: 'D', text: "Allow all Marketplace actions but require each of them to be pinned to a commit SHA." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -94,7 +94,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Set the enterprise Actions policy to local actions only, or to selected creators." },
-      { id: 'B', text: "Allow all Marketplace actions but require each to be pinned to a commit SHA." },
+      { id: 'B', text: "Allow all Marketplace actions but require each of them to be pinned to a commit SHA." },
       { id: 'C', text: "Disable Actions for the enterprise and run the pipelines on the old system." },
       { id: 'D', text: "Allow all actions and review the audit log for the ones that were used." }
     ],
@@ -114,7 +114,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to prevent an attacker from executing arbitrary bash commands via malicious pull request titles or issue comments in a workflow step.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Interpolate the value directly in the `run:` block and quote it in the shell." },
+      { id: 'A', text: "Interpolate the value directly into the `run:` block and quote it carefully in the shell script." },
       { id: 'B', text: "Pass the untrusted value through the step's `env:` rather than interpolating it inline." },
       { id: 'C', text: "Validate the value against a pattern in an earlier step before using it." },
       { id: 'D', text: "Restrict the trigger to `pull_request_target` so only trusted code runs." }
@@ -135,7 +135,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to prevent an attacker from executing arbitrary bash commands via malicious pull request titles or issue comments in a workflow step.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Interpolate the value directly in the `run:` block and quote it in the shell." },
+      { id: 'A', text: "Interpolate the value directly into the `run:` block and quote it carefully in the shell script." },
       { id: 'B', text: "Pass the untrusted value through the step's `env:` rather than interpolating it inline." },
       { id: 'C', text: "Validate the value against a pattern in an earlier step before using it." },
       { id: 'D', text: "Restrict the trigger to `pull_request_target` so only trusted code runs." }
@@ -157,7 +157,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Pass the untrusted value through the step's `env:` rather than interpolating it inline." },
-      { id: 'B', text: "Interpolate the value directly in the `run:` block and quote it in the shell." },
+      { id: 'B', text: "Interpolate the value directly into the `run:` block and quote it carefully in the shell script." },
       { id: 'C', text: "Restrict the trigger to `pull_request_target` so only trusted code runs." },
       { id: 'D', text: "Validate the value against a pattern in an earlier step before using it." }
     ],
@@ -180,7 +180,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
       { id: 'A', text: "Restrict the trigger to `pull_request_target` so only trusted code runs." },
       { id: 'B', text: "Validate the value against a pattern in an earlier step before using it." },
       { id: 'C', text: "Pass the untrusted value through the step's `env:` rather than interpolating it inline." },
-      { id: 'D', text: "Interpolate the value directly in the `run:` block and quote it in the shell." }
+      { id: 'D', text: "Interpolate the value directly into the `run:` block and quote it carefully in the shell script." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -198,7 +198,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to prevent an attacker from executing arbitrary bash commands via malicious pull request titles or issue comments in a workflow step.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Interpolate the value directly in the `run:` block and quote it in the shell." },
+      { id: 'A', text: "Interpolate the value directly into the `run:` block and quote it carefully in the shell script." },
       { id: 'B', text: "Validate the value against a pattern in an earlier step before using it." },
       { id: 'C', text: "Restrict the trigger to `pull_request_target` so only trusted code runs." },
       { id: 'D', text: "Pass the untrusted value through the step's `env:` rather than interpolating it inline." }
@@ -327,7 +327,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
       { id: 'A', text: "Create environment secrets on a shared environment each repository targets." },
       { id: 'B', text: "Create a repository secret in a central repo and pass it through as an input." },
       { id: 'C', text: "Create the same repository secret in each of the hundred repositories." },
-      { id: 'D', text: "Create organization secrets with a repository access policy on each one." }
+      { id: 'D', text: "Create organization secrets with a repository access policy." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -346,7 +346,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Create the same repository secret in each of the hundred repositories." },
-      { id: 'B', text: "Create organization secrets with a repository access policy on each one." },
+      { id: 'B', text: "Create organization secrets with a repository access policy." },
       { id: 'C', text: "Create environment secrets on a shared environment each repository targets." },
       { id: 'D', text: "Create a repository secret in a central repo and pass it through as an input." }
     ],
@@ -367,7 +367,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Create the same repository secret in each of the hundred repositories." },
-      { id: 'B', text: "Create organization secrets with a repository access policy on each one." },
+      { id: 'B', text: "Create organization secrets with a repository access policy." },
       { id: 'C', text: "Create environment secrets on a shared environment each repository targets." },
       { id: 'D', text: "Create a repository secret in a central repo and pass it through as an input." }
     ],
@@ -390,7 +390,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
       { id: 'A', text: "Create a repository secret in a central repo and pass it through as an input." },
       { id: 'B', text: "Create the same repository secret in each of the hundred repositories." },
       { id: 'C', text: "Create environment secrets on a shared environment each repository targets." },
-      { id: 'D', text: "Create organization secrets with a repository access policy on each one." }
+      { id: 'D', text: "Create organization secrets with a repository access policy." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -409,7 +409,7 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Create the same repository secret in each of the hundred repositories." },
-      { id: 'B', text: "Create organization secrets with a repository access policy on each one." },
+      { id: 'B', text: "Create organization secrets with a repository access policy." },
       { id: 'C', text: "Create environment secrets on a shared environment each repository targets." },
       { id: 'D', text: "Create a repository secret in a central repo and pass it through as an input." }
     ],

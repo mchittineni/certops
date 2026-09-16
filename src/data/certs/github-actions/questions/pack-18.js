@@ -12,7 +12,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
       { id: 'A', text: "Use `@actions/core` for inputs and outputs, and `@actions/github` for the API." },
       { id: 'B', text: "Read the inputs from `process.argv` and write the outputs to stdout." },
       { id: 'C', text: "Read the inputs from the environment and call the API with plain `curl`." },
-      { id: 'D', text: "Use `@actions/exec` to shell out to the `gh` CLI for both inputs and API." }
+      { id: 'D', text: "Use `@actions/exec` to shell out to the `gh` CLI for both the inputs and the API." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -33,7 +33,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
       { id: 'A', text: "Use `@actions/core` for inputs and outputs, and `@actions/github` for the API." },
       { id: 'B', text: "Read the inputs from `process.argv` and write the outputs to stdout." },
       { id: 'C', text: "Read the inputs from the environment and call the API with plain `curl`." },
-      { id: 'D', text: "Use `@actions/exec` to shell out to the `gh` CLI for both inputs and API." }
+      { id: 'D', text: "Use `@actions/exec` to shell out to the `gh` CLI for both the inputs and the API." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -54,7 +54,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
       { id: 'A', text: "Read the inputs from the environment and call the API with plain `curl`." },
       { id: 'B', text: "Use `@actions/core` for inputs and outputs, and `@actions/github` for the API." },
       { id: 'C', text: "Read the inputs from `process.argv` and write the outputs to stdout." },
-      { id: 'D', text: "Use `@actions/exec` to shell out to the `gh` CLI for both inputs and API." }
+      { id: 'D', text: "Use `@actions/exec` to shell out to the `gh` CLI for both the inputs and the API." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -75,7 +75,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
       { id: 'A', text: "Use `@actions/core` for inputs and outputs, and `@actions/github` for the API." },
       { id: 'B', text: "Read the inputs from `process.argv` and write the outputs to stdout." },
       { id: 'C', text: "Read the inputs from the environment and call the API with plain `curl`." },
-      { id: 'D', text: "Use `@actions/exec` to shell out to the `gh` CLI for both inputs and API." }
+      { id: 'D', text: "Use `@actions/exec` to shell out to the `gh` CLI for both the inputs and the API." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -96,7 +96,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
       { id: 'A', text: "Use `@actions/core` for inputs and outputs, and `@actions/github` for the API." },
       { id: 'B', text: "Read the inputs from `process.argv` and write the outputs to stdout." },
       { id: 'C', text: "Read the inputs from the environment and call the API with plain `curl`." },
-      { id: 'D', text: "Use `@actions/exec` to shell out to the `gh` CLI for both inputs and API." }
+      { id: 'D', text: "Use `@actions/exec` to shell out to the `gh` CLI for both the inputs and the API." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -115,7 +115,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Require the consuming workflow to run `npm install` before the action runs." },
-      { id: 'B', text: "Publish the package to a registry and install it in the action's first step." },
+      { id: 'B', text: "Publish the package to a registry and install it in the action's own first step." },
       { id: 'C', text: "Bundle the code and dependencies with `ncc` into `dist/index.js` and commit it." },
       { id: 'D', text: "Commit the whole `node_modules` directory alongside the action's source." }
     ],
@@ -137,7 +137,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Commit the whole `node_modules` directory alongside the action's source." },
       { id: 'B', text: "Bundle the code and dependencies with `ncc` into `dist/index.js` and commit it." },
-      { id: 'C', text: "Publish the package to a registry and install it in the action's first step." },
+      { id: 'C', text: "Publish the package to a registry and install it in the action's own first step." },
       { id: 'D', text: "Require the consuming workflow to run `npm install` before the action runs." }
     ],
     correctAnswers: ['B'],
@@ -158,7 +158,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Commit the whole `node_modules` directory alongside the action's source." },
       { id: 'B', text: "Bundle the code and dependencies with `ncc` into `dist/index.js` and commit it." },
-      { id: 'C', text: "Publish the package to a registry and install it in the action's first step." },
+      { id: 'C', text: "Publish the package to a registry and install it in the action's own first step." },
       { id: 'D', text: "Require the consuming workflow to run `npm install` before the action runs." }
     ],
     correctAnswers: ['B'],
@@ -178,7 +178,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Commit the whole `node_modules` directory alongside the action's source." },
-      { id: 'B', text: "Publish the package to a registry and install it in the action's first step." },
+      { id: 'B', text: "Publish the package to a registry and install it in the action's own first step." },
       { id: 'C', text: "Require the consuming workflow to run `npm install` before the action runs." },
       { id: 'D', text: "Bundle the code and dependencies with `ncc` into `dist/index.js` and commit it." }
     ],
@@ -199,7 +199,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Require the consuming workflow to run `npm install` before the action runs." },
-      { id: 'B', text: "Publish the package to a registry and install it in the action's first step." },
+      { id: 'B', text: "Publish the package to a registry and install it in the action's own first step." },
       { id: 'C', text: "Bundle the code and dependencies with `ncc` into `dist/index.js` and commit it." },
       { id: 'D', text: "Commit the whole `node_modules` directory alongside the action's source." }
     ],
@@ -220,7 +220,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Write a `Dockerfile` and entrypoint, with `runs: using: 'docker'` in `action.yml`." },
-      { id: 'B', text: "Write a composite action and install the native libraries in its first step." },
+      { id: 'B', text: "Write a composite action that installs the native libraries in its very first step." },
       { id: 'C', text: "Write a JavaScript action that shells out to the libraries on each runner." },
       { id: 'D', text: "Write a composite action and require consumers to use a container job." }
     ],
@@ -241,7 +241,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Write a `Dockerfile` and entrypoint, with `runs: using: 'docker'` in `action.yml`." },
-      { id: 'B', text: "Write a composite action and install the native libraries in its first step." },
+      { id: 'B', text: "Write a composite action that installs the native libraries in its very first step." },
       { id: 'C', text: "Write a JavaScript action that shells out to the libraries on each runner." },
       { id: 'D', text: "Write a composite action and require consumers to use a container job." }
     ],
@@ -262,7 +262,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Write a `Dockerfile` and entrypoint, with `runs: using: 'docker'` in `action.yml`." },
-      { id: 'B', text: "Write a composite action and install the native libraries in its first step." },
+      { id: 'B', text: "Write a composite action that installs the native libraries in its very first step." },
       { id: 'C', text: "Write a JavaScript action that shells out to the libraries on each runner." },
       { id: 'D', text: "Write a composite action and require consumers to use a container job." }
     ],
@@ -283,7 +283,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Write a JavaScript action that shells out to the libraries on each runner." },
-      { id: 'B', text: "Write a composite action and install the native libraries in its first step." },
+      { id: 'B', text: "Write a composite action that installs the native libraries in its very first step." },
       { id: 'C', text: "Write a composite action and require consumers to use a container job." },
       { id: 'D', text: "Write a `Dockerfile` and entrypoint, with `runs: using: 'docker'` in `action.yml`." }
     ],
@@ -306,7 +306,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
       { id: 'A', text: "Write a composite action and require consumers to use a container job." },
       { id: 'B', text: "Write a `Dockerfile` and entrypoint, with `runs: using: 'docker'` in `action.yml`." },
       { id: 'C', text: "Write a JavaScript action that shells out to the libraries on each runner." },
-      { id: 'D', text: "Write a composite action and install the native libraries in its first step." }
+      { id: 'D', text: "Write a composite action that installs the native libraries in its very first step." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,7 +429,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to publish a custom GitHub Action to GitHub Marketplace so the wider global developer community can discover and use it.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Publish from a public repository with `action.yml`, referenced by branch only." },
+      { id: 'A', text: "Publish from a public repository with an `action.yml`, referenced by branch name only." },
       { id: 'B', text: "Publish the built action as a release asset archive for consumers to fetch." },
       { id: 'C', text: "Publish from a public repository with `action.yml` and `branding:`, released by tag." },
       { id: 'D', text: "Publish from a private organization repository, shared through a runner group." }
@@ -453,7 +453,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
       { id: 'A', text: "Publish from a public repository with `action.yml` and `branding:`, released by tag." },
       { id: 'B', text: "Publish the built action as a release asset archive for consumers to fetch." },
       { id: 'C', text: "Publish from a private organization repository, shared through a runner group." },
-      { id: 'D', text: "Publish from a public repository with `action.yml`, referenced by branch only." }
+      { id: 'D', text: "Publish from a public repository with an `action.yml`, referenced by branch name only." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -473,7 +473,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Publish from a public repository with `action.yml` and `branding:`, released by tag." },
       { id: 'B', text: "Publish from a private organization repository, shared through a runner group." },
-      { id: 'C', text: "Publish from a public repository with `action.yml`, referenced by branch only." },
+      { id: 'C', text: "Publish from a public repository with an `action.yml`, referenced by branch name only." },
       { id: 'D', text: "Publish the built action as a release asset archive for consumers to fetch." }
     ],
     correctAnswers: ['A'],
@@ -494,7 +494,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Publish from a public repository with `action.yml` and `branding:`, released by tag." },
       { id: 'B', text: "Publish from a private organization repository, shared through a runner group." },
-      { id: 'C', text: "Publish from a public repository with `action.yml`, referenced by branch only." },
+      { id: 'C', text: "Publish from a public repository with an `action.yml`, referenced by branch name only." },
       { id: 'D', text: "Publish the built action as a release asset archive for consumers to fetch." }
     ],
     correctAnswers: ['A'],
@@ -513,7 +513,7 @@ export const GITHUB_ACTIONS_QUESTIONS_18 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to publish a custom GitHub Action to GitHub Marketplace so the wider global developer community can discover and use it.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Publish from a public repository with `action.yml`, referenced by branch only." },
+      { id: 'A', text: "Publish from a public repository with an `action.yml`, referenced by branch name only." },
       { id: 'B', text: "Publish from a private organization repository, shared through a runner group." },
       { id: 'C', text: "Publish the built action as a release asset archive for consumers to fetch." },
       { id: 'D', text: "Publish from a public repository with `action.yml` and `branding:`, released by tag." }

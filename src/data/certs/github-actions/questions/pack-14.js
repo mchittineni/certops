@@ -9,7 +9,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to run end-to-end integration tests requiring an active Redis cache and PostgreSQL database without installing them on the host runner.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Declare job-level `services:` for redis and postgres with their ports." },
+      { id: 'A', text: "Declare job-level `services:` for redis and postgres with ports." },
       { id: 'B', text: "Install redis and postgres on the runner from packages in a setup step." },
       { id: 'C', text: "Point the tests at a shared staging database reachable from the runner." },
       { id: 'D', text: "Replace both dependencies with in-memory fakes for the test job only." }
@@ -30,7 +30,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to run end-to-end integration tests requiring an active Redis cache and PostgreSQL database without installing them on the host runner.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Declare job-level `services:` for redis and postgres with their ports." },
+      { id: 'A', text: "Declare job-level `services:` for redis and postgres with ports." },
       { id: 'B', text: "Install redis and postgres on the runner from packages in a setup step." },
       { id: 'C', text: "Point the tests at a shared staging database reachable from the runner." },
       { id: 'D', text: "Replace both dependencies with in-memory fakes for the test job only." }
@@ -54,7 +54,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
       { id: 'A', text: "Replace both dependencies with in-memory fakes for the test job only." },
       { id: 'B', text: "Point the tests at a shared staging database reachable from the runner." },
       { id: 'C', text: "Install redis and postgres on the runner from packages in a setup step." },
-      { id: 'D', text: "Declare job-level `services:` for redis and postgres with their ports." }
+      { id: 'D', text: "Declare job-level `services:` for redis and postgres with ports." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -72,7 +72,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to run end-to-end integration tests requiring an active Redis cache and PostgreSQL database without installing them on the host runner.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Declare job-level `services:` for redis and postgres with their ports." },
+      { id: 'A', text: "Declare job-level `services:` for redis and postgres with ports." },
       { id: 'B', text: "Install redis and postgres on the runner from packages in a setup step." },
       { id: 'C', text: "Point the tests at a shared staging database reachable from the runner." },
       { id: 'D', text: "Replace both dependencies with in-memory fakes for the test job only." }
@@ -96,7 +96,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
       { id: 'A', text: "Replace both dependencies with in-memory fakes for the test job only." },
       { id: 'B', text: "Point the tests at a shared staging database reachable from the runner." },
       { id: 'C', text: "Install redis and postgres on the runner from packages in a setup step." },
-      { id: 'D', text: "Declare job-level `services:` for redis and postgres with their ports." }
+      { id: 'D', text: "Declare job-level `services:` for redis and postgres with ports." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -114,9 +114,9 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to allow an experimental code linting step or optional test suite to fail without causing the overall workflow build to fail.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Disable error checking across the entire workflow." },
-      { id: 'B', text: "Set exit code 0 manually in bash without reporting test results." },
-      { id: 'C', text: "Comment out the linting step completely." },
+      { id: 'A', text: "Disable error checking across the entire workflow file." },
+      { id: 'B', text: "Set exit code 0 manually in the bash step without reporting the test results." },
+      { id: 'C', text: "Comment the linting step out of the workflow completely." },
       { id: 'D', text: "Set `continue-on-error: true` on the specific step or matrix configuration." }
     ],
     correctAnswers: ['D'],
@@ -136,9 +136,9 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Set `continue-on-error: true` on the specific step or matrix configuration." },
-      { id: 'B', text: "Comment out the linting step completely." },
-      { id: 'C', text: "Set exit code 0 manually in bash without reporting test results." },
-      { id: 'D', text: "Disable error checking across the entire workflow." }
+      { id: 'B', text: "Comment the linting step out of the workflow completely." },
+      { id: 'C', text: "Set exit code 0 manually in the bash step without reporting the test results." },
+      { id: 'D', text: "Disable error checking across the entire workflow file." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,9 +156,9 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to allow an experimental code linting step or optional test suite to fail without causing the overall workflow build to fail.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Disable error checking across the entire workflow." },
-      { id: 'B', text: "Set exit code 0 manually in bash without reporting test results." },
-      { id: 'C', text: "Comment out the linting step completely." },
+      { id: 'A', text: "Disable error checking across the entire workflow file." },
+      { id: 'B', text: "Set exit code 0 manually in the bash step without reporting the test results." },
+      { id: 'C', text: "Comment the linting step out of the workflow completely." },
       { id: 'D', text: "Set `continue-on-error: true` on the specific step or matrix configuration." }
     ],
     correctAnswers: ['D'],
@@ -178,9 +178,9 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Set `continue-on-error: true` on the specific step or matrix configuration." },
-      { id: 'B', text: "Comment out the linting step completely." },
-      { id: 'C', text: "Set exit code 0 manually in bash without reporting test results." },
-      { id: 'D', text: "Disable error checking across the entire workflow." }
+      { id: 'B', text: "Comment the linting step out of the workflow completely." },
+      { id: 'C', text: "Set exit code 0 manually in the bash step without reporting the test results." },
+      { id: 'D', text: "Disable error checking across the entire workflow file." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to allow an experimental code linting step or optional test suite to fail without causing the overall workflow build to fail.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Comment out the linting step completely." },
+      { id: 'A', text: "Comment the linting step out of the workflow completely." },
       { id: 'B', text: "Set `continue-on-error: true` on the specific step or matrix configuration." },
-      { id: 'C', text: "Disable error checking across the entire workflow." },
-      { id: 'D', text: "Set exit code 0 manually in bash without reporting test results." }
+      { id: 'C', text: "Disable error checking across the entire workflow file." },
+      { id: 'D', text: "Set exit code 0 manually in the bash step without reporting the test results." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -220,8 +220,8 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Use `on: pull_request` and grant read-write tokens to untrusted fork PRs." },
-      { id: 'B', text: "Use `on: pull_request_target` while avoiding checking out or executing untrusted code from the fork PR." },
-      { id: 'C', text: "Hardcode secret tokens in pull request templates." },
+      { id: 'B', text: "Use `on: pull_request_target`, without checking out or running the fork's code." },
+      { id: 'C', text: "Hardcode the secret tokens in the pull request templates." },
       { id: 'D', text: "Check out the fork PR code and execute `npm run build` directly in `pull_request_target`." }
     ],
     correctAnswers: ['B'],
@@ -241,8 +241,8 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Use `on: pull_request` and grant read-write tokens to untrusted fork PRs." },
-      { id: 'B', text: "Use `on: pull_request_target` while avoiding checking out or executing untrusted code from the fork PR." },
-      { id: 'C', text: "Hardcode secret tokens in pull request templates." },
+      { id: 'B', text: "Use `on: pull_request_target`, without checking out or running the fork's code." },
+      { id: 'C', text: "Hardcode the secret tokens in the pull request templates." },
       { id: 'D', text: "Check out the fork PR code and execute `npm run build` directly in `pull_request_target`." }
     ],
     correctAnswers: ['B'],
@@ -261,8 +261,8 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to run automated labeling and comment workflows on pull requests from public repository forks with access to repository secrets.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Hardcode secret tokens in pull request templates." },
-      { id: 'B', text: "Use `on: pull_request_target` while avoiding checking out or executing untrusted code from the fork PR." },
+      { id: 'A', text: "Hardcode the secret tokens in the pull request templates." },
+      { id: 'B', text: "Use `on: pull_request_target`, without checking out or running the fork's code." },
       { id: 'C', text: "Check out the fork PR code and execute `npm run build` directly in `pull_request_target`." },
       { id: 'D', text: "Use `on: pull_request` and grant read-write tokens to untrusted fork PRs." }
     ],
@@ -282,10 +282,10 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to run automated labeling and comment workflows on pull requests from public repository forks with access to repository secrets.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use `on: pull_request_target` while avoiding checking out or executing untrusted code from the fork PR." },
+      { id: 'A', text: "Use `on: pull_request_target`, without checking out or running the fork's code." },
       { id: 'B', text: "Use `on: pull_request` and grant read-write tokens to untrusted fork PRs." },
       { id: 'C', text: "Check out the fork PR code and execute `npm run build` directly in `pull_request_target`." },
-      { id: 'D', text: "Hardcode secret tokens in pull request templates." }
+      { id: 'D', text: "Hardcode the secret tokens in the pull request templates." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -304,8 +304,8 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Check out the fork PR code and execute `npm run build` directly in `pull_request_target`." },
-      { id: 'B', text: "Hardcode secret tokens in pull request templates." },
-      { id: 'C', text: "Use `on: pull_request_target` while avoiding checking out or executing untrusted code from the fork PR." },
+      { id: 'B', text: "Hardcode the secret tokens in the pull request templates." },
+      { id: 'C', text: "Use `on: pull_request_target`, without checking out or running the fork's code." },
       { id: 'D', text: "Use `on: pull_request` and grant read-write tokens to untrusted fork PRs." }
     ],
     correctAnswers: ['C'],
@@ -326,7 +326,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Set `paths: ['docs/**']` on the trigger for that workflow." },
       { id: 'B', text: "Use a `[skip ci]` marker in the documentation commits." },
-      { id: 'C', text: "Set `paths-ignore: ['docs/**', '**.md']` on the trigger." },
+      { id: 'C', text: "Set `paths-ignore: ['docs/**', '**.md']` on it." },
       { id: 'D', text: "Add an `if:` on the job testing the changed file paths." }
     ],
     correctAnswers: ['C'],
@@ -345,7 +345,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to prevent CI workflows from triggering when developers only update Markdown documentation files in the `docs/` folder.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Set `paths-ignore: ['docs/**', '**.md']` on the trigger." },
+      { id: 'A', text: "Set `paths-ignore: ['docs/**', '**.md']` on it." },
       { id: 'B', text: "Add an `if:` on the job testing the changed file paths." },
       { id: 'C', text: "Set `paths: ['docs/**']` on the trigger for that workflow." },
       { id: 'D', text: "Use a `[skip ci]` marker in the documentation commits." }
@@ -369,7 +369,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
       { id: 'A', text: "Use a `[skip ci]` marker in the documentation commits." },
       { id: 'B', text: "Set `paths: ['docs/**']` on the trigger for that workflow." },
       { id: 'C', text: "Add an `if:` on the job testing the changed file paths." },
-      { id: 'D', text: "Set `paths-ignore: ['docs/**', '**.md']` on the trigger." }
+      { id: 'D', text: "Set `paths-ignore: ['docs/**', '**.md']` on it." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,7 +387,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to prevent CI workflows from triggering when developers only update Markdown documentation files in the `docs/` folder.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Set `paths-ignore: ['docs/**', '**.md']` on the trigger." },
+      { id: 'A', text: "Set `paths-ignore: ['docs/**', '**.md']` on it." },
       { id: 'B', text: "Add an `if:` on the job testing the changed file paths." },
       { id: 'C', text: "Set `paths: ['docs/**']` on the trigger for that workflow." },
       { id: 'D', text: "Use a `[skip ci]` marker in the documentation commits." }
@@ -411,7 +411,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
       { id: 'A', text: "Add an `if:` on the job testing the changed file paths." },
       { id: 'B', text: "Use a `[skip ci]` marker in the documentation commits." },
       { id: 'C', text: "Set `paths: ['docs/**']` on the trigger for that workflow." },
-      { id: 'D', text: "Set `paths-ignore: ['docs/**', '**.md']` on the trigger." }
+      { id: 'D', text: "Set `paths-ignore: ['docs/**', '**.md']` on it." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -431,7 +431,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Reference `${{ secrets.API_TOKEN }}` in the step's `env:`, which the runner masks in logs." },
       { id: 'B', text: "Reference the secret in a `run:` step and echo it once to confirm it is populated." },
-      { id: 'C', text: "Reference an organization variable holding the token, which is masked the same way." },
+      { id: 'C', text: "Reference an organization-level variable holding the token, which the runner masks the same way." },
       { id: 'D', text: "Reference the secret through `${{ vars.API_TOKEN }}`, which resolves at job start." }
     ],
     correctAnswers: ['A'],
@@ -452,7 +452,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Reference `${{ secrets.API_TOKEN }}` in the step's `env:`, which the runner masks in logs." },
       { id: 'B', text: "Reference the secret in a `run:` step and echo it once to confirm it is populated." },
-      { id: 'C', text: "Reference an organization variable holding the token, which is masked the same way." },
+      { id: 'C', text: "Reference an organization-level variable holding the token, which the runner masks the same way." },
       { id: 'D', text: "Reference the secret through `${{ vars.API_TOKEN }}`, which resolves at job start." }
     ],
     correctAnswers: ['A'],
@@ -473,7 +473,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Reference `${{ secrets.API_TOKEN }}` in the step's `env:`, which the runner masks in logs." },
       { id: 'B', text: "Reference the secret in a `run:` step and echo it once to confirm it is populated." },
-      { id: 'C', text: "Reference an organization variable holding the token, which is masked the same way." },
+      { id: 'C', text: "Reference an organization-level variable holding the token, which the runner masks the same way." },
       { id: 'D', text: "Reference the secret through `${{ vars.API_TOKEN }}`, which resolves at job start." }
     ],
     correctAnswers: ['A'],
@@ -494,7 +494,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Reference `${{ secrets.API_TOKEN }}` in the step's `env:`, which the runner masks in logs." },
       { id: 'B', text: "Reference the secret in a `run:` step and echo it once to confirm it is populated." },
-      { id: 'C', text: "Reference an organization variable holding the token, which is masked the same way." },
+      { id: 'C', text: "Reference an organization-level variable holding the token, which the runner masks the same way." },
       { id: 'D', text: "Reference the secret through `${{ vars.API_TOKEN }}`, which resolves at job start." }
     ],
     correctAnswers: ['A'],
@@ -516,7 +516,7 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
       { id: 'A', text: "Reference the secret through `${{ vars.API_TOKEN }}`, which resolves at job start." },
       { id: 'B', text: "Reference the secret in a `run:` step and echo it once to confirm it is populated." },
       { id: 'C', text: "Reference `${{ secrets.API_TOKEN }}` in the step's `env:`, which the runner masks in logs." },
-      { id: 'D', text: "Reference an organization variable holding the token, which is masked the same way." }
+      { id: 'D', text: "Reference an organization-level variable holding the token, which the runner masks the same way." }
     ],
     correctAnswers: ['C'],
     type: "single",

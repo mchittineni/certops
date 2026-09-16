@@ -9,7 +9,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to trigger an on-demand workflow run and stream its live console logs directly inside a developer terminal without opening a web browser.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Run `gh workflow view &lt;name&gt;` and refresh it until the run finishes." },
+      { id: 'A', text: "Run `gh workflow view &lt;name&gt;` and keep refreshing it until the run finishes." },
       { id: 'B', text: "Run `gh workflow run &lt;name&gt;`, then `gh run watch` to stream the logs." },
       { id: 'C', text: "Run `gh api` against the runs endpoint and poll it from a shell loop." },
       { id: 'D', text: "Run `gh run download` to fetch the artifacts once the run has ended." }
@@ -33,7 +33,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
       { id: 'A', text: "Run `gh api` against the runs endpoint and poll it from a shell loop." },
       { id: 'B', text: "Run `gh workflow run &lt;name&gt;`, then `gh run watch` to stream the logs." },
       { id: 'C', text: "Run `gh run download` to fetch the artifacts once the run has ended." },
-      { id: 'D', text: "Run `gh workflow view &lt;name&gt;` and refresh it until the run finishes." }
+      { id: 'D', text: "Run `gh workflow view &lt;name&gt;` and keep refreshing it until the run finishes." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -53,7 +53,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Run `gh workflow run &lt;name&gt;`, then `gh run watch` to stream the logs." },
       { id: 'B', text: "Run `gh api` against the runs endpoint and poll it from a shell loop." },
-      { id: 'C', text: "Run `gh workflow view &lt;name&gt;` and refresh it until the run finishes." },
+      { id: 'C', text: "Run `gh workflow view &lt;name&gt;` and keep refreshing it until the run finishes." },
       { id: 'D', text: "Run `gh run download` to fetch the artifacts once the run has ended." }
     ],
     correctAnswers: ['A'],
@@ -73,7 +73,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Run `gh run download` to fetch the artifacts once the run has ended." },
-      { id: 'B', text: "Run `gh workflow view &lt;name&gt;` and refresh it until the run finishes." },
+      { id: 'B', text: "Run `gh workflow view &lt;name&gt;` and keep refreshing it until the run finishes." },
       { id: 'C', text: "Run `gh api` against the runs endpoint and poll it from a shell loop." },
       { id: 'D', text: "Run `gh workflow run &lt;name&gt;`, then `gh run watch` to stream the logs." }
     ],
@@ -95,7 +95,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Run `gh workflow run &lt;name&gt;`, then `gh run watch` to stream the logs." },
       { id: 'B', text: "Run `gh api` against the runs endpoint and poll it from a shell loop." },
-      { id: 'C', text: "Run `gh workflow view &lt;name&gt;` and refresh it until the run finishes." },
+      { id: 'C', text: "Run `gh workflow view &lt;name&gt;` and keep refreshing it until the run finishes." },
       { id: 'D', text: "Run `gh run download` to fetch the artifacts once the run has ended." }
     ],
     correctAnswers: ['A'],
@@ -117,7 +117,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
       { id: 'A', text: "Add `.github/dependabot.yml` naming the ecosystems, directories and schedule." },
       { id: 'B', text: "Add a scheduled workflow that runs the package manager's update command." },
       { id: 'C', text: "Enable Dependabot security updates only, which need no configuration file." },
-      { id: 'D', text: "Add a scheduled workflow that opens an issue listing the outdated packages." }
+      { id: 'D', text: "Add a scheduled workflow that opens an issue listing all the outdated packages." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -138,7 +138,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
       { id: 'A', text: "Add a scheduled workflow that runs the package manager's update command." },
       { id: 'B', text: "Enable Dependabot security updates only, which need no configuration file." },
       { id: 'C', text: "Add `.github/dependabot.yml` naming the ecosystems, directories and schedule." },
-      { id: 'D', text: "Add a scheduled workflow that opens an issue listing the outdated packages." }
+      { id: 'D', text: "Add a scheduled workflow that opens an issue listing all the outdated packages." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,7 +156,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to automate the creation of weekly pull requests updating outdated npm and Docker dependencies across a repository.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Add a scheduled workflow that opens an issue listing the outdated packages." },
+      { id: 'A', text: "Add a scheduled workflow that opens an issue listing all the outdated packages." },
       { id: 'B', text: "Add `.github/dependabot.yml` naming the ecosystems, directories and schedule." },
       { id: 'C', text: "Enable Dependabot security updates only, which need no configuration file." },
       { id: 'D', text: "Add a scheduled workflow that runs the package manager's update command." }
@@ -180,7 +180,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
       { id: 'A', text: "Add `.github/dependabot.yml` naming the ecosystems, directories and schedule." },
       { id: 'B', text: "Add a scheduled workflow that runs the package manager's update command." },
       { id: 'C', text: "Enable Dependabot security updates only, which need no configuration file." },
-      { id: 'D', text: "Add a scheduled workflow that opens an issue listing the outdated packages." }
+      { id: 'D', text: "Add a scheduled workflow that opens an issue listing all the outdated packages." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -201,7 +201,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
       { id: 'A', text: "Enable Dependabot security updates only, which need no configuration file." },
       { id: 'B', text: "Add `.github/dependabot.yml` naming the ecosystems, directories and schedule." },
       { id: 'C', text: "Add a scheduled workflow that runs the package manager's update command." },
-      { id: 'D', text: "Add a scheduled workflow that opens an issue listing the outdated packages." }
+      { id: 'D', text: "Add a scheduled workflow that opens an issue listing all the outdated packages." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -325,7 +325,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Add the `.yml` and `.properties.json` files to `workflow-templates` in the `.github` repo." },
-      { id: 'B', text: "Add the workflow files to a template repository that new projects are created from." },
+      { id: 'B', text: "Add the workflow files to a template repository that each of the new projects is created from." },
       { id: 'C', text: "Add the workflow files to each repository through a scheduled sync workflow." },
       { id: 'D', text: "Add the workflows as a required workflow at the organization level instead." }
     ],
@@ -347,7 +347,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Add the workflows as a required workflow at the organization level instead." },
       { id: 'B', text: "Add the workflow files to each repository through a scheduled sync workflow." },
-      { id: 'C', text: "Add the workflow files to a template repository that new projects are created from." },
+      { id: 'C', text: "Add the workflow files to a template repository that each of the new projects is created from." },
       { id: 'D', text: "Add the `.yml` and `.properties.json` files to `workflow-templates` in the `.github` repo." }
     ],
     correctAnswers: ['D'],
@@ -367,7 +367,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
       { id: 'A', text: "Add the `.yml` and `.properties.json` files to `workflow-templates` in the `.github` repo." },
-      { id: 'B', text: "Add the workflow files to a template repository that new projects are created from." },
+      { id: 'B', text: "Add the workflow files to a template repository that each of the new projects is created from." },
       { id: 'C', text: "Add the workflow files to each repository through a scheduled sync workflow." },
       { id: 'D', text: "Add the workflows as a required workflow at the organization level instead." }
     ],
@@ -387,7 +387,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to provide standardized, pre-configured workflow templates that developers across an enterprise can select when creating new repositories.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Add the workflow files to a template repository that new projects are created from." },
+      { id: 'A', text: "Add the workflow files to a template repository that each of the new projects is created from." },
       { id: 'B', text: "Add the workflow files to each repository through a scheduled sync workflow." },
       { id: 'C', text: "Add the `.yml` and `.properties.json` files to `workflow-templates` in the `.github` repo." },
       { id: 'D', text: "Add the workflows as a required workflow at the organization level instead." }
@@ -409,7 +409,7 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Add the `.yml` and `.properties.json` files to `workflow-templates` in the `.github` repo." },
-      { id: 'B', text: "Add the workflow files to a template repository that new projects are created from." },
+      { id: 'B', text: "Add the workflow files to a template repository that each of the new projects is created from." },
       { id: 'C', text: "Add the workflow files to each repository through a scheduled sync workflow." },
       { id: 'D', text: "Add the workflows as a required workflow at the organization level instead." }
     ],

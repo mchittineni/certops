@@ -11,7 +11,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Declare `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']`." },
       { id: 'B', text: "Declare `on: [push, pull_request]` with no branch or path filters at all." },
-      { id: 'C', text: "Declare `on: schedule` at the shortest interval and check for new commits." },
+      { id: 'C', text: "Declare `on: schedule` at the shortest available interval and check for new commits." },
       { id: 'D', text: "Declare `on: workflow_dispatch` only, and have engineers start each run." }
     ],
     correctAnswers: ['A'],
@@ -33,7 +33,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
       { id: 'A', text: "Declare `on: [push, pull_request]` with no branch or path filters at all." },
       { id: 'B', text: "Declare `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']`." },
       { id: 'C', text: "Declare `on: workflow_dispatch` only, and have engineers start each run." },
-      { id: 'D', text: "Declare `on: schedule` at the shortest interval and check for new commits." }
+      { id: 'D', text: "Declare `on: schedule` at the shortest available interval and check for new commits." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,7 +51,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to configure a GitHub Actions CI workflow to run only when commits are pushed to the `main` branch or when pull requests modifying files in the `src/` directory are opened.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Declare `on: schedule` at the shortest interval and check for new commits." },
+      { id: 'A', text: "Declare `on: schedule` at the shortest available interval and check for new commits." },
       { id: 'B', text: "Declare `on: workflow_dispatch` only, and have engineers start each run." },
       { id: 'C', text: "Declare `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']`." },
       { id: 'D', text: "Declare `on: [push, pull_request]` with no branch or path filters at all." }
@@ -75,7 +75,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
       { id: 'A', text: "Declare `on: [push, pull_request]` with no branch or path filters at all." },
       { id: 'B', text: "Declare `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']`." },
       { id: 'C', text: "Declare `on: workflow_dispatch` only, and have engineers start each run." },
-      { id: 'D', text: "Declare `on: schedule` at the shortest interval and check for new commits." }
+      { id: 'D', text: "Declare `on: schedule` at the shortest available interval and check for new commits." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -95,7 +95,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Declare `on: workflow_dispatch` only, and have engineers start each run." },
       { id: 'B', text: "Declare `on: push: branches: [main]` and `on: pull_request: paths: ['src/**']`." },
-      { id: 'C', text: "Declare `on: schedule` at the shortest interval and check for new commits." },
+      { id: 'C', text: "Declare `on: schedule` at the shortest available interval and check for new commits." },
       { id: 'D', text: "Declare `on: [push, pull_request]` with no branch or path filters at all." }
     ],
     correctAnswers: ['B'],
@@ -115,7 +115,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Add a `concurrency` block keyed on workflow and ref with `cancel-in-progress: true`." },
-      { id: 'B', text: "Add `strategy: fail-fast: true` so the matrix stops on the first failing leg." },
+      { id: 'B', text: "Add `strategy: fail-fast: true` so that the whole matrix stops on the first failing leg." },
       { id: 'C', text: "Add `timeout-minutes: 5` to the build steps so a superseded run ends quickly." },
       { id: 'D', text: "Add a `workflow_dispatch` trigger so runs are started only when wanted." }
     ],
@@ -138,7 +138,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
       { id: 'A', text: "Add a `concurrency` block keyed on workflow and ref with `cancel-in-progress: true`." },
       { id: 'B', text: "Add `timeout-minutes: 5` to the build steps so a superseded run ends quickly." },
       { id: 'C', text: "Add a `workflow_dispatch` trigger so runs are started only when wanted." },
-      { id: 'D', text: "Add `strategy: fail-fast: true` so the matrix stops on the first failing leg." }
+      { id: 'D', text: "Add `strategy: fail-fast: true` so that the whole matrix stops on the first failing leg." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -159,7 +159,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
       { id: 'A', text: "Add `timeout-minutes: 5` to the build steps so a superseded run ends quickly." },
       { id: 'B', text: "Add a `workflow_dispatch` trigger so runs are started only when wanted." },
       { id: 'C', text: "Add a `concurrency` block keyed on workflow and ref with `cancel-in-progress: true`." },
-      { id: 'D', text: "Add `strategy: fail-fast: true` so the matrix stops on the first failing leg." }
+      { id: 'D', text: "Add `strategy: fail-fast: true` so that the whole matrix stops on the first failing leg." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -178,7 +178,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Add a `concurrency` block keyed on workflow and ref with `cancel-in-progress: true`." },
-      { id: 'B', text: "Add `strategy: fail-fast: true` so the matrix stops on the first failing leg." },
+      { id: 'B', text: "Add `strategy: fail-fast: true` so that the whole matrix stops on the first failing leg." },
       { id: 'C', text: "Add `timeout-minutes: 5` to the build steps so a superseded run ends quickly." },
       { id: 'D', text: "Add a `workflow_dispatch` trigger so runs are started only when wanted." }
     ],
@@ -200,7 +200,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Add a `workflow_dispatch` trigger so runs are started only when wanted." },
       { id: 'B', text: "Add `timeout-minutes: 5` to the build steps so a superseded run ends quickly." },
-      { id: 'C', text: "Add `strategy: fail-fast: true` so the matrix stops on the first failing leg." },
+      { id: 'C', text: "Add `strategy: fail-fast: true` so that the whole matrix stops on the first failing leg." },
       { id: 'D', text: "Add a `concurrency` block keyed on workflow and ref with `cancel-in-progress: true`." }
     ],
     correctAnswers: ['D'],
@@ -325,7 +325,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
       { id: 'A', text: "Use a sleep command in the deployment job to wait for the build." },
-      { id: 'B', text: "Rely on GitHub Actions alphabetical job sorting for execution order." },
+      { id: 'B', text: "Rely on GitHub Actions' alphabetical job sorting to fix the execution order." },
       { id: 'C', text: "Put all commands into a single monolithic job without separation." },
       { id: 'D', text: "Add `needs: [lint, build]` to the test and deployment job specifications." }
     ],
@@ -345,7 +345,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to ensure that an integration test job and a deployment job run only after a linting and build job have completed successfully.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Rely on GitHub Actions alphabetical job sorting for execution order." },
+      { id: 'A', text: "Rely on GitHub Actions' alphabetical job sorting to fix the execution order." },
       { id: 'B', text: "Use a sleep command in the deployment job to wait for the build." },
       { id: 'C', text: "Add `needs: [lint, build]` to the test and deployment job specifications." },
       { id: 'D', text: "Put all commands into a single monolithic job without separation." }
@@ -369,7 +369,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
       { id: 'A', text: "Use a sleep command in the deployment job to wait for the build." },
       { id: 'B', text: "Put all commands into a single monolithic job without separation." },
       { id: 'C', text: "Add `needs: [lint, build]` to the test and deployment job specifications." },
-      { id: 'D', text: "Rely on GitHub Actions alphabetical job sorting for execution order." }
+      { id: 'D', text: "Rely on GitHub Actions' alphabetical job sorting to fix the execution order." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,7 +387,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to ensure that an integration test job and a deployment job run only after a linting and build job have completed successfully.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Rely on GitHub Actions alphabetical job sorting for execution order." },
+      { id: 'A', text: "Rely on GitHub Actions' alphabetical job sorting to fix the execution order." },
       { id: 'B', text: "Add `needs: [lint, build]` to the test and deployment job specifications." },
       { id: 'C', text: "Put all commands into a single monolithic job without separation." },
       { id: 'D', text: "Use a sleep command in the deployment job to wait for the build." }
@@ -410,7 +410,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Add `needs: [lint, build]` to the test and deployment job specifications." },
       { id: 'B', text: "Put all commands into a single monolithic job without separation." },
-      { id: 'C', text: "Rely on GitHub Actions alphabetical job sorting for execution order." },
+      { id: 'C', text: "Rely on GitHub Actions' alphabetical job sorting to fix the execution order." },
       { id: 'D', text: "Use a sleep command in the deployment job to wait for the build." }
     ],
     correctAnswers: ['A'],
@@ -431,7 +431,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Add `if: always()` so the notification step runs whatever the outcome." },
       { id: 'B', text: "Add `if: success()` so the notification runs when the tests have passed." },
-      { id: 'C', text: "Add `continue-on-error: true` to the test step so the notification runs." },
+      { id: 'C', text: "Add `continue-on-error: true` to the test step so the notification still runs." },
       { id: 'D', text: "Add `if: failure()` to the notification step so it runs when a step fails." }
     ],
     correctAnswers: ['D'],
@@ -453,7 +453,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
       { id: 'A', text: "Add `if: success()` so the notification runs when the tests have passed." },
       { id: 'B', text: "Add `if: always()` so the notification step runs whatever the outcome." },
       { id: 'C', text: "Add `if: failure()` to the notification step so it runs when a step fails." },
-      { id: 'D', text: "Add `continue-on-error: true` to the test step so the notification runs." }
+      { id: 'D', text: "Add `continue-on-error: true` to the test step so the notification still runs." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -473,7 +473,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Add `if: always()` so the notification step runs whatever the outcome." },
       { id: 'B', text: "Add `if: success()` so the notification runs when the tests have passed." },
-      { id: 'C', text: "Add `continue-on-error: true` to the test step so the notification runs." },
+      { id: 'C', text: "Add `continue-on-error: true` to the test step so the notification still runs." },
       { id: 'D', text: "Add `if: failure()` to the notification step so it runs when a step fails." }
     ],
     correctAnswers: ['D'],
@@ -494,7 +494,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Add `if: success()` so the notification runs when the tests have passed." },
       { id: 'B', text: "Add `if: failure()` to the notification step so it runs when a step fails." },
-      { id: 'C', text: "Add `continue-on-error: true` to the test step so the notification runs." },
+      { id: 'C', text: "Add `continue-on-error: true` to the test step so the notification still runs." },
       { id: 'D', text: "Add `if: always()` so the notification step runs whatever the outcome." }
     ],
     correctAnswers: ['B'],
@@ -516,7 +516,7 @@ export const GITHUB_ACTIONS_QUESTIONS_11 = [
       { id: 'A', text: "Add `if: failure()` to the notification step so it runs when a step fails." },
       { id: 'B', text: "Add `if: success()` so the notification runs when the tests have passed." },
       { id: 'C', text: "Add `if: always()` so the notification step runs whatever the outcome." },
-      { id: 'D', text: "Add `continue-on-error: true` to the test step so the notification runs." }
+      { id: 'D', text: "Add `continue-on-error: true` to the test step so the notification still runs." }
     ],
     correctAnswers: ['A'],
     type: "single",
