@@ -114,10 +114,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to detect in real-time when a shell is spawned inside a production container or an unauthorized binary is executed in `/tmp`.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Review application standard output logs once every month." },
-      { id: 'B', text: "Periodically run `ps aux` manually on worker nodes." },
-      { id: 'C', text: "Deploy Falco as a DaemonSet to monitor Linux kernel system calls and alert on anomalous runtime activities matching behavioral rules." },
-      { id: 'D', text: "Disable container logging to reduce disk I/O." }
+      { id: 'A', text: "Run the audit webhook on the API server so every workload API call is recorded centrally." },
+      { id: 'B', text: "Run `kube-bench` as a scheduled Job so each node is re-checked against the CIS benchmark." },
+      { id: 'C', text: "Run Falco as a DaemonSet so kernel syscalls are matched against behavioural rules." },
+      { id: 'D', text: "Run Trivy as a scheduled Job so each running image is rescanned for new advisories." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to detect in real-time when a shell is spawned inside a production container or an unauthorized binary is executed in `/tmp`.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Deploy Falco as a DaemonSet to monitor Linux kernel system calls and alert on anomalous runtime activities matching behavioral rules." },
-      { id: 'B', text: "Periodically run `ps aux` manually on worker nodes." },
-      { id: 'C', text: "Disable container logging to reduce disk I/O." },
-      { id: 'D', text: "Review application standard output logs once every month." }
+      { id: 'A', text: "Run Falco as a DaemonSet so kernel syscalls are matched against behavioural rules." },
+      { id: 'B', text: "Run `kube-bench` as a scheduled Job so each node is re-checked against the CIS benchmark." },
+      { id: 'C', text: "Run Trivy as a scheduled Job so each running image is rescanned for new advisories." },
+      { id: 'D', text: "Run the audit webhook on the API server so every workload API call is recorded centrally." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to detect in real-time when a shell is spawned inside a production container or an unauthorized binary is executed in `/tmp`.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy Falco as a DaemonSet to monitor Linux kernel system calls and alert on anomalous runtime activities matching behavioral rules." },
-      { id: 'B', text: "Review application standard output logs once every month." },
-      { id: 'C', text: "Periodically run `ps aux` manually on worker nodes." },
-      { id: 'D', text: "Disable container logging to reduce disk I/O." }
+      { id: 'A', text: "Run Falco as a DaemonSet so kernel syscalls are matched against behavioural rules." },
+      { id: 'B', text: "Run the audit webhook on the API server so every workload API call is recorded centrally." },
+      { id: 'C', text: "Run `kube-bench` as a scheduled Job so each node is re-checked against the CIS benchmark." },
+      { id: 'D', text: "Run Trivy as a scheduled Job so each running image is rescanned for new advisories." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to detect in real-time when a shell is spawned inside a production container or an unauthorized binary is executed in `/tmp`.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Periodically run `ps aux` manually on worker nodes." },
-      { id: 'B', text: "Review application standard output logs once every month." },
-      { id: 'C', text: "Disable container logging to reduce disk I/O." },
-      { id: 'D', text: "Deploy Falco as a DaemonSet to monitor Linux kernel system calls and alert on anomalous runtime activities matching behavioral rules." }
+      { id: 'A', text: "Run `kube-bench` as a scheduled Job so each node is re-checked against the CIS benchmark." },
+      { id: 'B', text: "Run the audit webhook on the API server so every workload API call is recorded centrally." },
+      { id: 'C', text: "Run Trivy as a scheduled Job so each running image is rescanned for new advisories." },
+      { id: 'D', text: "Run Falco as a DaemonSet so kernel syscalls are matched against behavioural rules." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to detect in real-time when a shell is spawned inside a production container or an unauthorized binary is executed in `/tmp`.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Periodically run `ps aux` manually on worker nodes." },
-      { id: 'B', text: "Deploy Falco as a DaemonSet to monitor Linux kernel system calls and alert on anomalous runtime activities matching behavioral rules." },
-      { id: 'C', text: "Review application standard output logs once every month." },
-      { id: 'D', text: "Disable container logging to reduce disk I/O." }
+      { id: 'A', text: "Run `kube-bench` as a scheduled Job so each node is re-checked against the CIS benchmark." },
+      { id: 'B', text: "Run Falco as a DaemonSet so kernel syscalls are matched against behavioural rules." },
+      { id: 'C', text: "Run the audit webhook on the API server so every workload API call is recorded centrally." },
+      { id: 'D', text: "Run Trivy as a scheduled Job so each running image is rescanned for new advisories." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to record an immutable audit trail of every administrative request, secret retrieval, and resource alteration sent to the Kubernetes API server.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Configure an Audit Policy file (`--audit-policy-file`) and audit log backend (`--audit-log-path`) in the kube-apiserver manifest." },
-      { id: 'B', text: "Rely on worker node syslog files without configuring API server audit logging." },
-      { id: 'C', text: "Set audit log level to None across all resources." },
-      { id: 'D', text: "Store audit logs exclusively in temporary container memory." }
+      { id: 'A', text: "Set `--audit-policy-file` and `--audit-log-path` in the kube-apiserver manifest." },
+      { id: 'B', text: "Set `--audit-webhook-config-file` alone and let the backend decide what to record." },
+      { id: 'C', text: "Set the audit policy's default level to `None` and raise it per resource as needed." },
+      { id: 'D', text: "Set `--audit-log-path` to a path inside the API server container's own writable layer." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to record an immutable audit trail of every administrative request, secret retrieval, and resource alteration sent to the Kubernetes API server.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Configure an Audit Policy file (`--audit-policy-file`) and audit log backend (`--audit-log-path`) in the kube-apiserver manifest." },
-      { id: 'B', text: "Rely on worker node syslog files without configuring API server audit logging." },
-      { id: 'C', text: "Set audit log level to None across all resources." },
-      { id: 'D', text: "Store audit logs exclusively in temporary container memory." }
+      { id: 'A', text: "Set `--audit-policy-file` and `--audit-log-path` in the kube-apiserver manifest." },
+      { id: 'B', text: "Set `--audit-webhook-config-file` alone and let the backend decide what to record." },
+      { id: 'C', text: "Set the audit policy's default level to `None` and raise it per resource as needed." },
+      { id: 'D', text: "Set `--audit-log-path` to a path inside the API server container's own writable layer." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to record an immutable audit trail of every administrative request, secret retrieval, and resource alteration sent to the Kubernetes API server.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Configure an Audit Policy file (`--audit-policy-file`) and audit log backend (`--audit-log-path`) in the kube-apiserver manifest." },
-      { id: 'B', text: "Rely on worker node syslog files without configuring API server audit logging." },
-      { id: 'C', text: "Set audit log level to None across all resources." },
-      { id: 'D', text: "Store audit logs exclusively in temporary container memory." }
+      { id: 'A', text: "Set `--audit-policy-file` and `--audit-log-path` in the kube-apiserver manifest." },
+      { id: 'B', text: "Set `--audit-webhook-config-file` alone and let the backend decide what to record." },
+      { id: 'C', text: "Set the audit policy's default level to `None` and raise it per resource as needed." },
+      { id: 'D', text: "Set `--audit-log-path` to a path inside the API server container's own writable layer." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to record an immutable audit trail of every administrative request, secret retrieval, and resource alteration sent to the Kubernetes API server.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Configure an Audit Policy file (`--audit-policy-file`) and audit log backend (`--audit-log-path`) in the kube-apiserver manifest." },
-      { id: 'B', text: "Store audit logs exclusively in temporary container memory." },
-      { id: 'C', text: "Rely on worker node syslog files without configuring API server audit logging." },
-      { id: 'D', text: "Set audit log level to None across all resources." }
+      { id: 'A', text: "Set `--audit-policy-file` and `--audit-log-path` in the kube-apiserver manifest." },
+      { id: 'B', text: "Set `--audit-log-path` to a path inside the API server container's own writable layer." },
+      { id: 'C', text: "Set `--audit-webhook-config-file` alone and let the backend decide what to record." },
+      { id: 'D', text: "Set the audit policy's default level to `None` and raise it per resource as needed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to record an immutable audit trail of every administrative request, secret retrieval, and resource alteration sent to the Kubernetes API server.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Configure an Audit Policy file (`--audit-policy-file`) and audit log backend (`--audit-log-path`) in the kube-apiserver manifest." },
-      { id: 'B', text: "Rely on worker node syslog files without configuring API server audit logging." },
-      { id: 'C', text: "Set audit log level to None across all resources." },
-      { id: 'D', text: "Store audit logs exclusively in temporary container memory." }
+      { id: 'A', text: "Set `--audit-policy-file` and `--audit-log-path` in the kube-apiserver manifest." },
+      { id: 'B', text: "Set `--audit-webhook-config-file` alone and let the backend decide what to record." },
+      { id: 'C', text: "Set the audit policy's default level to `None` and raise it per resource as needed." },
+      { id: 'D', text: "Set `--audit-log-path` to a path inside the API server container's own writable layer." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to identify which compromised user account or ServiceAccount attempted to query all secrets across the cluster and received HTTP 403 Forbidden.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Inspect container standard output logs of backend application pods." },
-      { id: 'B', text: "Parse API server audit logs filtering for `verb: list`, `resource: secrets`, and `responseStatus.code: 403` to extract the user identity and source IP." },
-      { id: 'C', text: "Delete the audit log file to hide the failed requests." },
-      { id: 'D', text: "Assume the failed attempt was a normal system glitch." }
+      { id: 'A', text: "Search the API server audit log for `verb: get` on `secrets` at `RequestReceived` stage only." },
+      { id: 'B', text: "Search the API server audit log for `verb: list` on `secrets` with a 403 response, and read the user and IP." },
+      { id: 'C', text: "Search the kubelet log on each node for the denied secret mount and read the pod's identity." },
+      { id: 'D', text: "Search the events API for `Forbidden` warnings on the namespace and read the involved object." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to identify which compromised user account or ServiceAccount attempted to query all secrets across the cluster and received HTTP 403 Forbidden.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Parse API server audit logs filtering for `verb: list`, `resource: secrets`, and `responseStatus.code: 403` to extract the user identity and source IP." },
-      { id: 'B', text: "Assume the failed attempt was a normal system glitch." },
-      { id: 'C', text: "Delete the audit log file to hide the failed requests." },
-      { id: 'D', text: "Inspect container standard output logs of backend application pods." }
+      { id: 'A', text: "Search the API server audit log for `verb: list` on `secrets` with a 403 response, and read the user and IP." },
+      { id: 'B', text: "Search the events API for `Forbidden` warnings on the namespace and read the involved object." },
+      { id: 'C', text: "Search the kubelet log on each node for the denied secret mount and read the pod's identity." },
+      { id: 'D', text: "Search the API server audit log for `verb: get` on `secrets` at `RequestReceived` stage only." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to identify which compromised user account or ServiceAccount attempted to query all secrets across the cluster and received HTTP 403 Forbidden.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Parse API server audit logs filtering for `verb: list`, `resource: secrets`, and `responseStatus.code: 403` to extract the user identity and source IP." },
-      { id: 'B', text: "Assume the failed attempt was a normal system glitch." },
-      { id: 'C', text: "Delete the audit log file to hide the failed requests." },
-      { id: 'D', text: "Inspect container standard output logs of backend application pods." }
+      { id: 'A', text: "Search the API server audit log for `verb: list` on `secrets` with a 403 response, and read the user and IP." },
+      { id: 'B', text: "Search the events API for `Forbidden` warnings on the namespace and read the involved object." },
+      { id: 'C', text: "Search the kubelet log on each node for the denied secret mount and read the pod's identity." },
+      { id: 'D', text: "Search the API server audit log for `verb: get` on `secrets` at `RequestReceived` stage only." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to identify which compromised user account or ServiceAccount attempted to query all secrets across the cluster and received HTTP 403 Forbidden.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Parse API server audit logs filtering for `verb: list`, `resource: secrets`, and `responseStatus.code: 403` to extract the user identity and source IP." },
-      { id: 'B', text: "Assume the failed attempt was a normal system glitch." },
-      { id: 'C', text: "Delete the audit log file to hide the failed requests." },
-      { id: 'D', text: "Inspect container standard output logs of backend application pods." }
+      { id: 'A', text: "Search the API server audit log for `verb: list` on `secrets` with a 403 response, and read the user and IP." },
+      { id: 'B', text: "Search the events API for `Forbidden` warnings on the namespace and read the involved object." },
+      { id: 'C', text: "Search the kubelet log on each node for the denied secret mount and read the pod's identity." },
+      { id: 'D', text: "Search the API server audit log for `verb: get` on `secrets` at `RequestReceived` stage only." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to identify which compromised user account or ServiceAccount attempted to query all secrets across the cluster and received HTTP 403 Forbidden.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Parse API server audit logs filtering for `verb: list`, `resource: secrets`, and `responseStatus.code: 403` to extract the user identity and source IP." },
-      { id: 'B', text: "Assume the failed attempt was a normal system glitch." },
-      { id: 'C', text: "Delete the audit log file to hide the failed requests." },
-      { id: 'D', text: "Inspect container standard output logs of backend application pods." }
+      { id: 'A', text: "Search the API server audit log for `verb: list` on `secrets` with a 403 response, and read the user and IP." },
+      { id: 'B', text: "Search the events API for `Forbidden` warnings on the namespace and read the involved object." },
+      { id: 'C', text: "Search the kubelet log on each node for the denied secret mount and read the pod's identity." },
+      { id: 'D', text: "Search the API server audit log for `verb: get` on `secrets` at `RequestReceived` stage only." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to configure Falco to trigger alerts when any process attempts to read sensitive Kubernetes service account token files from `/var/run/secrets`.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Delete the service account tokens from the host operating system." },
-      { id: 'B', text: "Instruct developers to ignore Falco alert notifications." },
-      { id: 'C', text: "Write a custom Falco rule targeting `open` or `read` syscalls on `/var/run/secrets/kubernetes.io/serviceaccount` by unauthorized processes." },
-      { id: 'D', text: "Disable the default Falco rule set entirely." }
+      { id: 'A', text: "Write a Falco rule on `execve` of shells inside containers that carry a mounted service account token." },
+      { id: 'B', text: "Write an audit policy rule at `RequestResponse` level for the `serviceaccounts/token` subresource." },
+      { id: 'C', text: "Write a Falco rule on `open` of `/var/run/secrets/kubernetes.io/serviceaccount` by unexpected processes." },
+      { id: 'D', text: "Write a Falco rule on outbound connections from containers to the API server's own cluster IP." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to configure Falco to trigger alerts when any process attempts to read sensitive Kubernetes service account token files from `/var/run/secrets`.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Disable the default Falco rule set entirely." },
-      { id: 'B', text: "Instruct developers to ignore Falco alert notifications." },
-      { id: 'C', text: "Delete the service account tokens from the host operating system." },
-      { id: 'D', text: "Write a custom Falco rule targeting `open` or `read` syscalls on `/var/run/secrets/kubernetes.io/serviceaccount` by unauthorized processes." }
+      { id: 'A', text: "Write a Falco rule on outbound connections from containers to the API server's own cluster IP." },
+      { id: 'B', text: "Write an audit policy rule at `RequestResponse` level for the `serviceaccounts/token` subresource." },
+      { id: 'C', text: "Write a Falco rule on `execve` of shells inside containers that carry a mounted service account token." },
+      { id: 'D', text: "Write a Falco rule on `open` of `/var/run/secrets/kubernetes.io/serviceaccount` by unexpected processes." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to configure Falco to trigger alerts when any process attempts to read sensitive Kubernetes service account token files from `/var/run/secrets`.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Write a custom Falco rule targeting `open` or `read` syscalls on `/var/run/secrets/kubernetes.io/serviceaccount` by unauthorized processes." },
-      { id: 'B', text: "Disable the default Falco rule set entirely." },
-      { id: 'C', text: "Delete the service account tokens from the host operating system." },
-      { id: 'D', text: "Instruct developers to ignore Falco alert notifications." }
+      { id: 'A', text: "Write a Falco rule on `open` of `/var/run/secrets/kubernetes.io/serviceaccount` by unexpected processes." },
+      { id: 'B', text: "Write a Falco rule on outbound connections from containers to the API server's own cluster IP." },
+      { id: 'C', text: "Write a Falco rule on `execve` of shells inside containers that carry a mounted service account token." },
+      { id: 'D', text: "Write an audit policy rule at `RequestResponse` level for the `serviceaccounts/token` subresource." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to configure Falco to trigger alerts when any process attempts to read sensitive Kubernetes service account token files from `/var/run/secrets`.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Disable the default Falco rule set entirely." },
-      { id: 'B', text: "Write a custom Falco rule targeting `open` or `read` syscalls on `/var/run/secrets/kubernetes.io/serviceaccount` by unauthorized processes." },
-      { id: 'C', text: "Instruct developers to ignore Falco alert notifications." },
-      { id: 'D', text: "Delete the service account tokens from the host operating system." }
+      { id: 'A', text: "Write a Falco rule on outbound connections from containers to the API server's own cluster IP." },
+      { id: 'B', text: "Write a Falco rule on `open` of `/var/run/secrets/kubernetes.io/serviceaccount` by unexpected processes." },
+      { id: 'C', text: "Write an audit policy rule at `RequestResponse` level for the `serviceaccounts/token` subresource." },
+      { id: 'D', text: "Write a Falco rule on `execve` of shells inside containers that carry a mounted service account token." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKS_QUESTIONS_18 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to configure Falco to trigger alerts when any process attempts to read sensitive Kubernetes service account token files from `/var/run/secrets`.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Write a custom Falco rule targeting `open` or `read` syscalls on `/var/run/secrets/kubernetes.io/serviceaccount` by unauthorized processes." },
-      { id: 'B', text: "Disable the default Falco rule set entirely." },
-      { id: 'C', text: "Delete the service account tokens from the host operating system." },
-      { id: 'D', text: "Instruct developers to ignore Falco alert notifications." }
+      { id: 'A', text: "Write a Falco rule on `open` of `/var/run/secrets/kubernetes.io/serviceaccount` by unexpected processes." },
+      { id: 'B', text: "Write a Falco rule on outbound connections from containers to the API server's own cluster IP." },
+      { id: 'C', text: "Write a Falco rule on `execve` of shells inside containers that carry a mounted service account token." },
+      { id: 'D', text: "Write an audit policy rule at `RequestResponse` level for the `serviceaccounts/token` subresource." }
     ],
     correctAnswers: ['A'],
     type: "single",

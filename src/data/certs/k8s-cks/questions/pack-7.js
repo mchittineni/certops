@@ -9,10 +9,10 @@ export const K8S_CKS_QUESTIONS_7 = [
     scenario: "A company requires that all base images must be verified as official Chainguard or Distroless images signed by their respective GitHub Actions workflows.",
     question: "Which Cosign command verifies an image signed using keyless OIDC against a specific GitHub workflow issuer and identity?",
     options: [
-      { id: 'A', text: "Run <code>cosign verify --certificate-identity-regexp &lt;regex&gt; --certificate-oidc-issuer https://token.actions.githubusercontent.com &lt;image&gt;</code>" },
-      { id: 'B', text: "Run <code>cosign verify --key local-rsa.pub &lt;image&gt;</code>" },
-      { id: 'C', text: "Run <code>cosign sign --identity admin@enterprise.com &lt;image&gt;</code>" },
-      { id: 'D', text: "Run <code>cosign check-oidc --issuer github.com &lt;image&gt;</code>" }
+      { id: 'A', text: "Run <code>cosign verify</code> with the identity regexp and OIDC issuer flags" },
+      { id: 'B', text: "Run <code>cosign verify</code> with <code>--key</code> pointing at the workflow's published public key" },
+      { id: 'C', text: "Run <code>cosign verify-attestation</code> with <code>--certificate-oidc-issuer</code> for the workflow" },
+      { id: 'D', text: "Run <code>cosign verify</code> with <code>--certificate-github-workflow-repository</code> only" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKS_QUESTIONS_7 = [
     scenario: "A developer needs a GitHub private access token during <code>docker build</code> to pull proprietary internal libraries. If passed via <code>ARG GITHUB_TOKEN</code>, the token remains permanently visible in the image history (<code>docker history</code>).",
     question: "What is the secure method to provide build-time secrets using BuildKit without baking them into final container image layers?",
     options: [
-      { id: 'A', text: "Use BuildKit secret mounts: <code>RUN --mount=type=secret,id=github_token ...</code> during build and invoke with <code>docker build --secret id=github_token,src=token.txt .</code>" },
-      { id: 'B', text: "Define the secret in an <code>ENV</code> instruction and delete it with <code>RUN rm</code> in the next layer" },
-      { id: 'C', text: "Hardcode the token in a comment inside the Dockerfile" },
-      { id: 'D', text: "Store the token in <code>/tmp</code> and run <code>chmod 000 /tmp</code>" }
+      { id: 'A', text: "Use a BuildKit secret mount — <code>RUN --mount=type=secret,id=token</code> with <code>--secret</code> on the build" },
+      { id: 'B', text: "Pass the value as a build <code>ARG</code> and unset it in the following <code>RUN</code> instruction" },
+      { id: 'C', text: "Copy the token file in, use it, and remove it again in the same <code>RUN</code> instruction" },
+      { id: 'D', text: "Write the token to <code>/tmp</code> during build and squash the image layers on push" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -52,8 +52,8 @@ export const K8S_CKS_QUESTIONS_7 = [
     question: "What is the recommended remediation according to container security best practices?",
     options: [
       { id: 'A', text: "Configure <code>sudoers</code> with <code>NOPASSWD: ALL</code> for the unprivileged user" },
-      { id: 'B', text: "Set <code>securityContext.privileged: false</code> in the pod spec" },
-      { id: 'C', text: "Uninstall and completely remove the <code>sudo</code> package from the container image during the build process" },
+      { id: 'B', text: "Set <code>allowPrivilegeEscalation: false</code> on the container's securityContext" },
+      { id: 'C', text: "Remove the <code>sudo</code> package from the image at build time" },
       { id: 'D', text: "Change the password of the root account to a complex 64-character string" }
     ],
     correctAnswers: ['C'],
@@ -72,10 +72,10 @@ export const K8S_CKS_QUESTIONS_7 = [
     scenario: "A developer writes a multi-stage Dockerfile that copies a Go binary into an alpine final image. However, when the container runs in Kubernetes, it executes as root.",
     question: "Which Dockerfile instruction in the final stage guarantees that the application process executes as an unprivileged user?",
     options: [
-      { id: 'A', text: "Create an unprivileged user using <code>RUN addgroup -S appgroup && adduser -S appuser -G appgroup</code> and set <code>USER appuser</code> before the <code>ENTRYPOINT</code>" },
-      { id: 'B', text: "Specify <code>WORKDIR /home/nobody</code> without a USER directive" },
-      { id: 'C', text: "Set <code>ENV USER=appuser</code> in the builder stage" },
-      { id: 'D', text: "Add <code>RUN chmod 755 /app</code>" }
+      { id: 'A', text: "Add an unprivileged account with <code>adduser -S appuser</code> and set <code>USER appuser</code> before the entrypoint" },
+      { id: 'B', text: "Add an unprivileged account with <code>adduser -S appuser</code> and set <code>WORKDIR /home/appuser</code> after it" },
+      { id: 'C', text: "Add an unprivileged account in the builder stage and carry it forward with <code>ENV USER=appuser</code>" },
+      { id: 'D', text: "Add an unprivileged account and hand it the application directory with <code>RUN chmod 755 /app</code>" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKS_QUESTIONS_7 = [
     scenario: "A development team needs to suppress specific known non-exploitable CVE alerts in Trivy during CI/CD builds while continuing to fail on all other HIGH and CRITICAL vulnerabilities.",
     question: "Which file allows configuring vulnerability exceptions with documented justifications?",
     options: [
-      { id: 'A', text: "A Kubernetes ConfigMap named <code>trivy-exemptions</code>" },
-      { id: 'B', text: "A <code>#trivy:ignore</code> directive placed in the Dockerfile header" },
-      { id: 'C', text: "A <code>.trivyignore</code> file containing the CVE IDs and optional expiration dates/comments" },
-      { id: 'D', text: "A <code>.gitignore</code> file containing CVE numbers" }
+      { id: 'A', text: "A ConfigMap named <code>trivy-exemptions</code> in the namespace" },
+      { id: 'B', text: "A <code>#trivy:ignore</code> directive in the Dockerfile header" },
+      { id: 'C', text: "A <code>.trivyignore</code> file listing the CVE IDs with comments" },
+      { id: 'D', text: "A <code>.gitignore</code> entry naming each accepted CVE" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const K8S_CKS_QUESTIONS_7 = [
     scenario: "An enterprise requires that all pod deployments reference container images strictly by SHA-256 digest, rejecting any manifest that uses mutable tags like <code>latest</code> or semantic versions.",
     question: "Which Rego logic in a Gatekeeper ConstraintTemplate validates that an image contains a digest?",
     options: [
-      { id: 'A', text: "Check that <code>input.review.object.metadata.namespace == 'production'</code>" },
-      { id: 'B', text: "Verify that the image string starts with <code>https://</code>" },
-      { id: 'C', text: "Check that <code>contains(image, '@sha256:')</code> evaluates to true for every container image in <code>input.review.object.spec.containers</code>" },
-      { id: 'D', text: "Check that <code>endswith(image, ':latest')</code> evaluates to true" }
+      { id: 'A', text: "Check that <code>input.review.object.metadata.namespace == 'production'</code> before the rule applies" },
+      { id: 'B', text: "Check that <code>startswith(image, 'registry.internal/')</code> holds for every container image" },
+      { id: 'C', text: "Check that <code>contains(image, '@sha256:')</code> holds for every container image in the review object" },
+      { id: 'D', text: "Check that <code>endswith(image, ':latest')</code> is false for every container image in the pod" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKS_QUESTIONS_7 = [
     scenario: "An organization adopts the CNCF Notary Project (Notation) and OCI specification for container image signing across OCI registries.",
     question: "What is the primary benefit of OCI-native image signatures supported by Notation?",
     options: [
-      { id: 'A', text: "Signatures replace the container root filesystem with an encrypted archive" },
-      { id: 'B', text: "Notation executes within the Linux kernel to sign system calls" },
-      { id: 'C', text: "Signatures and attestations are stored as standard OCI artifacts directly in the container registry alongside the image manifest, enabling cross-registry replication without external signature databases" },
-      { id: 'D', text: "Notation eliminates the need for X.509 public key certificates" }
+      { id: 'A', text: "Signatures live in a transparency log the registry queries, so a revoked key invalidates every image at once" },
+      { id: 'B', text: "Signatures live in the image manifest's own annotations, so a re-tag carries the signature across registries" },
+      { id: 'C', text: "Signatures live in the registry as ordinary OCI artifacts beside the manifest, so they replicate with the image" },
+      { id: 'D', text: "Signatures are derived from the image digest itself, so no signing key has to be distributed to verifiers" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKS_QUESTIONS_7 = [
     scenario: "A legacy container image relies on an ancient version of GNU Bash vulnerable to Shellshock (CVE-2014-6271), allowing code execution via crafted environment variables.",
     question: "Which security measure best mitigates environment variable injection attacks in containerized applications?",
     options: [
-      { id: 'A', text: "Encrypt all environment variables using base64 before passing them to the pod" },
+      { id: 'A', text: "Pass the environment variables base64-encoded into the pod instead" },
       { id: 'B', text: "Configure <code>hostIPC: true</code> in the pod specification" },
       { id: 'C', text: "Run containers with <code>securityContext.privileged: true</code>" },
-      { id: 'D', text: "Migrate workloads to Distroless base images that eliminate Bash and shell interpreters entirely" }
+      { id: 'D', text: "Move the workloads to distroless images, which carry no shell" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKS_QUESTIONS_7 = [
     scenario: "A platform team manages 50 internal Helm charts. Before releasing charts to the enterprise catalog, charts must be tested for syntax errors and security policy adherence.",
     question: "Which toolchain automates Helm chart rendering and security validation?",
     options: [
-      { id: 'A', text: "Run <code>helm lint</code> followed by <code>helm template</code> piped into <code>kubesec scan</code> or <code>checkov</code>" },
-      { id: 'B', text: "Upload charts directly to Docker Hub without validation" },
-      { id: 'C', text: "Run <code>etcdctl check perf</code> on the Helm repository host" },
-      { id: 'D', text: "Run <code>helm install --dry-run</code> on the production cluster control plane" }
+      { id: 'A', text: "Run <code>helm lint</code>, then <code>helm template</code> piped into <code>kubesec scan</code>" },
+      { id: 'B', text: "Run <code>helm package</code>, then push the chart and scan it in the registry" },
+      { id: 'C', text: "Run <code>helm template</code>, then apply the output with <code>kubectl --dry-run</code>" },
+      { id: 'D', text: "Run <code>helm install --dry-run</code> against the production cluster and read the plan" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKS_QUESTIONS_7 = [
     scenario: "An enterprise registry contains both base infrastructure images and mission-critical payment services. Developers should be able to push to feature repositories, but only automated CI runners should be able to push to production repositories.",
     question: "Which access control practice prevents unauthorized developers from pushing modified images to production repositories?",
     options: [
-      { id: 'A', text: "Store registry passwords in a public GitHub repository" },
-      { id: 'B', text: "Disable authentication on the container registry and use IP whitelisting" },
-      { id: 'C', text: "Enforce granular registry RBAC with dedicated robot accounts for CI/CD pipelines granting write access only to verified build runners, with human developers restricted to read-only permissions on production repos" },
-      { id: 'D', text: "Share the registry administrator password with all senior developers" }
+      { id: 'A', text: "Give every developer a personal robot account with write access, and audit the pushes after the fact" },
+      { id: 'B', text: "Give the registry an IP allow-list for the build network, and leave repository permissions unchanged" },
+      { id: 'C', text: "Give the pipeline a robot account with write access to the production repositories, and humans read-only" },
+      { id: 'D', text: "Give the pipeline the registry administrator credential, held in a Secret the build namespace mounts" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKS_QUESTIONS_7 = [
     scenario: "A security audit using Hadolint reports violation DL3002: 'Last USER should not be root'.",
     question: "Why is ending a Dockerfile with <code>USER root</code> or omitting the <code>USER</code> instruction dangerous?",
     options: [
-      { id: 'A', text: "The image size increases by 500MB" },
-      { id: 'B', text: "Root containers cannot communicate across Kubernetes NetworkPolicies" },
-      { id: 'C', text: "The Docker build daemon refuses to produce an image artifact" },
-      { id: 'D', text: "The container runtime will execute the application process with root UID 0 by default, increasing the blast radius and potential for container escape if the application is compromised" }
+      { id: 'A', text: "The image then keeps its build-time layers, which adds several hundred megabytes to every pull" },
+      { id: 'B', text: "The pod is then rejected by NetworkPolicy, since policies cannot select containers running as root" },
+      { id: 'C', text: "The build then fails under a restricted namespace, since the daemon refuses to tag a root image" },
+      { id: 'D', text: "The process then runs as UID 0 inside the container, widening the blast radius of any compromise" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKS_QUESTIONS_7 = [
     scenario: "A malicious actor compromises an upstream package maintainer's account and publishes a poisoned patch release of an NPM library.",
     question: "How do package lockfiles (e.g., <code>package-lock.json</code>, <code>yarn.lock</code>) defend against unauthorized upstream package tampering?",
     options: [
-      { id: 'A', text: "They record the exact package version and cryptographic SHA-512 integrity hashes of downloaded packages; installing with <code>npm ci</code> verifies package hashes and rejects tampered artifacts" },
-      { id: 'B', text: "They encrypt application source code using AES-256" },
-      { id: 'C', text: "They automatically block all outbound container network traffic" },
-      { id: 'D', text: "They compile JavaScript source into C++ binaries before build" }
+      { id: 'A', text: "They pin the exact version and integrity hash of each package, and <code>npm ci</code> rejects anything that fails the hash" },
+      { id: 'B', text: "They pin the exact version of each package, so a republished version is installed only after a manual refresh" },
+      { id: 'C', text: "They record the registry each package came from, so a package served by a different host is refused on install" },
+      { id: 'D', text: "They record a signature from the publisher, which the package manager verifies against the registry's own key" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKS_QUESTIONS_7 = [
     scenario: "A team deploys Connaisseur as a Kubernetes admission controller to verify Cosign and Notary image signatures before pods are allowed to start.",
     question: "How does Connaisseur integrate into the Kubernetes control plane to enforce signing policies?",
     options: [
-      { id: 'A', text: "It runs as an external cron job that deletes running pods every hour" },
-      { id: 'B', text: "It runs as a kernel module on all worker nodes" },
-      { id: 'C', text: "It operates as a <code>ValidatingWebhookConfiguration</code> that intercepts Pod creation requests, validates image signatures against configured public keys, and admits or rejects the pod accordingly" },
-      { id: 'D', text: "It modifies the <code>kube-scheduler</code> algorithm to ignore unsigned pods" }
+      { id: 'A', text: "It registers a <code>MutatingWebhookConfiguration</code> that rewrites each image reference to its signed digest" },
+      { id: 'B', text: "It runs as a controller that watches running pods and evicts any whose image signature no longer verifies" },
+      { id: 'C', text: "It registers a <code>ValidatingWebhookConfiguration</code> that checks each new pod's image signatures before admission" },
+      { id: 'D', text: "It runs as a scheduler extender that filters out nodes unless the pod's image carries a valid signature" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKS_QUESTIONS_7 = [
     scenario: "An enterprise container registry integrates Clair to perform static vulnerability analysis of container image layers.",
     question: "How does Clair detect vulnerabilities across container image layers?",
     options: [
-      { id: 'A', text: "Clair intercepts network traffic between the container registry and worker nodes" },
-      { id: 'B', text: "Clair inspects the filesystem layers of the container image, extracts package metadata, and matches installed package versions against known vulnerability databases (such as CVE databases and vendor security advisories)" },
-      { id: 'C', text: "Clair decrypts container binaries using private hardware keys" },
-      { id: 'D', text: "Clair executes the container in a virtual sandbox and observes runtime system calls" }
+      { id: 'A', text: "Clair proxies the registry's pull traffic and matches each layer digest against a feed of known-bad layers" },
+      { id: 'B', text: "Clair extracts the package metadata from each image layer and matches the versions against vulnerability databases" },
+      { id: 'C', text: "Clair rebuilds the image from its Dockerfile and compares the resulting layers with the published manifest" },
+      { id: 'D', text: "Clair runs the image in a sandbox and matches the syscalls it makes against known exploitation patterns" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKS_QUESTIONS_7 = [
     scenario: "An attacker publishes a malicious package named <code>cross-envv</code> to a public registry, hoping developers will mistype the legitimate package name <code>cross-env</code> and install malware.",
     question: "Which supply chain security practice defends against dependency typosquatting and dependency confusion?",
     options: [
-      { id: 'A', text: "Run <code>npm install --force</code> in CI/CD pipelines" },
-      { id: 'B', text: "Permit developers to install packages directly from untrusted public git repositories" },
-      { id: 'C', text: "Use private enterprise package repository proxies (e.g., Nexus, Artifactory) with scoped package namespaces, strict allow-lists, and lockfile integrity verification" },
-      { id: 'D', text: "Disable network firewalls during dependency installation" }
+      { id: 'A', text: "Pin every dependency by version in the manifest and run the installer with the lockfile ignored" },
+      { id: 'B', text: "Mirror the public registry nightly and let developers install from the mirror or from git URLs" },
+      { id: 'C', text: "Proxy packages through a private repository with scoped namespaces, allow-lists and lockfile checks" },
+      { id: 'D', text: "Run the dependency audit on each build and fail it when a package changes publisher" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKS_QUESTIONS_7 = [
     scenario: "A container image built 18 months ago has not been rebuilt, and its base operating system has accumulated dozens of unpatched critical security flaws.",
     question: "Which CI/CD strategy prevents unmaintained container images from persisting in production?",
     options: [
-      { id: 'A', text: "Disable automated scanning to avoid alert fatigue" },
-      { id: 'B', text: "Deploy an admission controller that rejects pods older than 24 hours" },
-      { id: 'C', text: "Hardcode container images to <code>imagePullPolicy: Never</code>" },
-      { id: 'D', text: "Schedule automated daily or weekly CI/CD pipeline builds that pull latest patched base images, re-run vulnerability scans, and trigger rolling cluster deployments" }
+      { id: 'A', text: "Rescan the registry on a schedule and raise a ticket for each image that has aged out" },
+      { id: 'B', text: "Add an admission policy that rejects images whose build date is older than 30 days" },
+      { id: 'C', text: "Set <code>imagePullPolicy: Always</code> so the nodes refetch the tag on every pod start" },
+      { id: 'D', text: "Rebuild on a schedule so the patched base image is pulled, rescanned, and rolled out" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKS_QUESTIONS_7 = [
     scenario: "When building an enterprise Red Hat UBI (Universal Base Image) container, the build process must install packages as root but ensure the final container runs as an unprivileged user.",
     question: "Which Dockerfile pattern achieves this in Red Hat UBI minimal containers?",
     options: [
-      { id: 'A', text: "Delete <code>/etc/passwd</code> after installing packages" },
-      { id: 'B', text: "Run <code>microdnf install -y ... && microdnf clean all</code> as root, and then add <code>USER 1001</code> before the final command" },
-      { id: 'C', text: "Leave <code>USER root</code> active and set <code>chmod 777 /</code>" },
-      { id: 'D', text: "Run <code>microdnf install</code> as user 1001 without granting root access" }
+      { id: 'A', text: "Install with <code>microdnf install</code> as root, then remove <code>/etc/passwd</code> from the image" },
+      { id: 'B', text: "Install with <code>microdnf install && microdnf clean all</code> as root, then add <code>USER 1001</code>" },
+      { id: 'C', text: "Install with <code>microdnf install</code> as root and leave <code>USER root</code> for the runtime" },
+      { id: 'D', text: "Install with <code>microdnf install</code> after <code>USER 1001</code>, so nothing runs as root" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKS_QUESTIONS_7 = [
     scenario: "A security engineer runs <code>trivy config ./k8s-manifests/</code> against a directory of Kubernetes YAML files.",
     question: "What type of findings does Trivy config scanning identify in Kubernetes YAML files?",
     options: [
-      { id: 'A', text: "DNS latency between cluster pods" },
-      { id: 'B', text: "CVEs in operating system packages" },
-      { id: 'C', text: "Hardware failures on physical worker nodes" },
-      { id: 'D', text: "Security misconfigurations such as missing securityContexts, root execution, unconfined seccomp profiles, and permissive capabilities" }
+      { id: 'A', text: "Vulnerable OS packages and language dependencies in the images the manifests reference" },
+      { id: 'B', text: "Drift between the committed manifests and the objects currently live in the cluster" },
+      { id: 'C', text: "Secrets committed in plain text, matched against a set of credential patterns" },
+      { id: 'D', text: "Misconfigurations: missing security contexts, root execution, unconfined seccomp, broad capabilities" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKS_QUESTIONS_7 = [
     scenario: "An auditor wants to independently verify that a specific container image signature was recorded in Sigstore's Rekor transparency ledger at build time.",
     question: "Which CLI tool allows querying the Rekor public ledger by artifact digest or UUID?",
     options: [
-      { id: 'A', text: "<code>crictl inspect &lt;hash&gt;</code>" },
-      { id: 'B', text: "<code>openssl verify -rekor &lt;hash&gt;</code>" },
-      { id: 'C', text: "<code>rekor-cli get --log-index &lt;index&gt;</code> or <code>rekor-cli search --sha &lt;hash&gt;</code>" },
-      { id: 'D', text: "<code>kubectl get rekor &lt;hash&gt;</code>" }
+      { id: 'A', text: "<code>cosign verify --rekor-url &lt;url&gt; &lt;image&gt;</code> by digest" },
+      { id: 'B', text: "<code>openssl ts -verify -in &lt;hash&gt;</code> against the ledger" },
+      { id: 'C', text: "<code>rekor-cli search --sha &lt;hash&gt;</code>, or <code>get --log-index</code>" },
+      { id: 'D', text: "<code>kubectl get transparencylog &lt;hash&gt;</code> in-cluster" }
     ],
     correctAnswers: ['C'],
     type: "single",

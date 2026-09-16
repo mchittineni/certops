@@ -11,8 +11,8 @@ export const K8S_CKS_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." },
       { id: 'B', text: "Set `allowPrivilegeEscalation: true`." },
-      { id: 'C', text: "Run the container as root to bypass escalation checks." },
-      { id: 'D', text: "Grant full sudo capabilities to the container process." }
+      { id: 'C', text: "Set `procMount: Default` in the container `securityContext` as well." },
+      { id: 'D', text: "Set `runAsUser: 0` with `privileged: false` on the container instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,8 +30,8 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to prevent child processes inside a container from gaining more privileges than their parent process via setuid or setgid binaries.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Grant full sudo capabilities to the container process." },
-      { id: 'B', text: "Run the container as root to bypass escalation checks." },
+      { id: 'A', text: "Set `runAsUser: 0` with `privileged: false` on the container instead." },
+      { id: 'B', text: "Set `procMount: Default` in the container `securityContext` as well." },
       { id: 'C', text: "Set `allowPrivilegeEscalation: true`." },
       { id: 'D', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." }
     ],
@@ -51,8 +51,8 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to prevent child processes inside a container from gaining more privileges than their parent process via setuid or setgid binaries.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Grant full sudo capabilities to the container process." },
-      { id: 'B', text: "Run the container as root to bypass escalation checks." },
+      { id: 'A', text: "Set `runAsUser: 0` with `privileged: false` on the container instead." },
+      { id: 'B', text: "Set `procMount: Default` in the container `securityContext` as well." },
       { id: 'C', text: "Set `allowPrivilegeEscalation: true`." },
       { id: 'D', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." }
     ],
@@ -74,8 +74,8 @@ export const K8S_CKS_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." },
       { id: 'B', text: "Set `allowPrivilegeEscalation: true`." },
-      { id: 'C', text: "Run the container as root to bypass escalation checks." },
-      { id: 'D', text: "Grant full sudo capabilities to the container process." }
+      { id: 'C', text: "Set `procMount: Default` in the container `securityContext` as well." },
+      { id: 'D', text: "Set `runAsUser: 0` with `privileged: false` on the container instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -95,8 +95,8 @@ export const K8S_CKS_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Set `allowPrivilegeEscalation: false` in the container `securityContext`." },
       { id: 'B', text: "Set `allowPrivilegeEscalation: true`." },
-      { id: 'C', text: "Run the container as root to bypass escalation checks." },
-      { id: 'D', text: "Grant full sudo capabilities to the container process." }
+      { id: 'C', text: "Set `procMount: Default` in the container `securityContext` as well." },
+      { id: 'D', text: "Set `runAsUser: 0` with `privileged: false` on the container instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Transmit all traffic in plaintext HTTP over the internal cluster network." },
-      { id: 'B', text: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces." },
-      { id: 'C', text: "Disable network policies and rely on perimeter corporate firewalls." },
-      { id: 'D', text: "Implement custom SSL certificate management manually inside every microservice binary." }
+      { id: 'A', text: "Run a service mesh with `PERMISSIVE` mTLS so plaintext callers keep working during rollout." },
+      { id: 'B', text: "Run a service mesh — Istio or Linkerd — with `STRICT` mTLS across the namespaces." },
+      { id: 'C', text: "Run cert-manager and have each service present its own certificate on an HTTPS listener." },
+      { id: 'D', text: "Run a Cilium transparent encryption layer with IPsec between the nodes carrying the pods." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Transmit all traffic in plaintext HTTP over the internal cluster network." },
-      { id: 'B', text: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces." },
-      { id: 'C', text: "Disable network policies and rely on perimeter corporate firewalls." },
-      { id: 'D', text: "Implement custom SSL certificate management manually inside every microservice binary." }
+      { id: 'A', text: "Run a service mesh with `PERMISSIVE` mTLS so plaintext callers keep working during rollout." },
+      { id: 'B', text: "Run a service mesh — Istio or Linkerd — with `STRICT` mTLS across the namespaces." },
+      { id: 'C', text: "Run cert-manager and have each service present its own certificate on an HTTPS listener." },
+      { id: 'D', text: "Run a Cilium transparent encryption layer with IPsec between the nodes carrying the pods." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces." },
-      { id: 'B', text: "Transmit all traffic in plaintext HTTP over the internal cluster network." },
-      { id: 'C', text: "Implement custom SSL certificate management manually inside every microservice binary." },
-      { id: 'D', text: "Disable network policies and rely on perimeter corporate firewalls." }
+      { id: 'A', text: "Run a service mesh — Istio or Linkerd — with `STRICT` mTLS across the namespaces." },
+      { id: 'B', text: "Run a service mesh with `PERMISSIVE` mTLS so plaintext callers keep working during rollout." },
+      { id: 'C', text: "Run a Cilium transparent encryption layer with IPsec between the nodes carrying the pods." },
+      { id: 'D', text: "Run cert-manager and have each service present its own certificate on an HTTPS listener." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Disable network policies and rely on perimeter corporate firewalls." },
-      { id: 'B', text: "Implement custom SSL certificate management manually inside every microservice binary." },
-      { id: 'C', text: "Transmit all traffic in plaintext HTTP over the internal cluster network." },
-      { id: 'D', text: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces." }
+      { id: 'A', text: "Run cert-manager and have each service present its own certificate on an HTTPS listener." },
+      { id: 'B', text: "Run a Cilium transparent encryption layer with IPsec between the nodes carrying the pods." },
+      { id: 'C', text: "Run a service mesh with `PERMISSIVE` mTLS so plaintext callers keep working during rollout." },
+      { id: 'D', text: "Run a service mesh — Istio or Linkerd — with `STRICT` mTLS across the namespaces." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to ensure all inter-service network communications across microservices are encrypted and mutually authenticated without modifying application code.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Implement custom SSL certificate management manually inside every microservice binary." },
-      { id: 'B', text: "Disable network policies and rely on perimeter corporate firewalls." },
-      { id: 'C', text: "Deploy a service mesh (such as Istio or Linkerd) and configure strict mutual TLS (`STRICT` mTLS) policies across all namespaces." },
-      { id: 'D', text: "Transmit all traffic in plaintext HTTP over the internal cluster network." }
+      { id: 'A', text: "Run a Cilium transparent encryption layer with IPsec between the nodes carrying the pods." },
+      { id: 'B', text: "Run cert-manager and have each service present its own certificate on an HTTPS listener." },
+      { id: 'C', text: "Run a service mesh — Istio or Linkerd — with `STRICT` mTLS across the namespaces." },
+      { id: 'D', text: "Run a service mesh with `PERMISSIVE` mTLS so plaintext callers keep working during rollout." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Disable HTTPS to eliminate encryption overhead." },
-      { id: 'B', text: "Expose backend microservices directly on unencrypted NodePort services." },
-      { id: 'C', text: "Rely solely on application developers writing custom sanitization code for every endpoint." },
-      { id: 'D', text: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin." }
+      { id: 'A', text: "Terminate TLS at the ingress controller and put the rate limits in the application's own middleware." },
+      { id: 'B', text: "Terminate TLS at each backend pod and expose them through a NodePort per microservice." },
+      { id: 'C', text: "Terminate TLS at a service mesh sidecar with mTLS between services and no external filtering." },
+      { id: 'D', text: "Terminate TLS at the ingress controller with rate-limit annotations and a WAF or ModSecurity module." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Disable HTTPS to eliminate encryption overhead." },
-      { id: 'B', text: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin." },
-      { id: 'C', text: "Expose backend microservices directly on unencrypted NodePort services." },
-      { id: 'D', text: "Rely solely on application developers writing custom sanitization code for every endpoint." }
+      { id: 'A', text: "Terminate TLS at the ingress controller and put the rate limits in the application's own middleware." },
+      { id: 'B', text: "Terminate TLS at the ingress controller with rate-limit annotations and a WAF or ModSecurity module." },
+      { id: 'C', text: "Terminate TLS at each backend pod and expose them through a NodePort per microservice." },
+      { id: 'D', text: "Terminate TLS at a service mesh sidecar with mTLS between services and no external filtering." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin." },
-      { id: 'B', text: "Disable HTTPS to eliminate encryption overhead." },
-      { id: 'C', text: "Rely solely on application developers writing custom sanitization code for every endpoint." },
-      { id: 'D', text: "Expose backend microservices directly on unencrypted NodePort services." }
+      { id: 'A', text: "Terminate TLS at the ingress controller with rate-limit annotations and a WAF or ModSecurity module." },
+      { id: 'B', text: "Terminate TLS at the ingress controller and put the rate limits in the application's own middleware." },
+      { id: 'C', text: "Terminate TLS at a service mesh sidecar with mTLS between services and no external filtering." },
+      { id: 'D', text: "Terminate TLS at each backend pod and expose them through a NodePort per microservice." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin." },
-      { id: 'B', text: "Expose backend microservices directly on unencrypted NodePort services." },
-      { id: 'C', text: "Disable HTTPS to eliminate encryption overhead." },
-      { id: 'D', text: "Rely solely on application developers writing custom sanitization code for every endpoint." }
+      { id: 'A', text: "Terminate TLS at the ingress controller with rate-limit annotations and a WAF or ModSecurity module." },
+      { id: 'B', text: "Terminate TLS at each backend pod and expose them through a NodePort per microservice." },
+      { id: 'C', text: "Terminate TLS at the ingress controller and put the rate limits in the application's own middleware." },
+      { id: 'D', text: "Terminate TLS at a service mesh sidecar with mTLS between services and no external filtering." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to protect internet-facing microservices against SQL injection, cross-site scripting (XSS), and Layer 7 DDoS attacks.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Expose backend microservices directly on unencrypted NodePort services." },
-      { id: 'B', text: "Configure an Ingress controller with TLS termination, rate-limiting annotations, and an integrated Web Application Firewall (WAF) or ModSecurity plugin." },
-      { id: 'C', text: "Rely solely on application developers writing custom sanitization code for every endpoint." },
-      { id: 'D', text: "Disable HTTPS to eliminate encryption overhead." }
+      { id: 'A', text: "Terminate TLS at each backend pod and expose them through a NodePort per microservice." },
+      { id: 'B', text: "Terminate TLS at the ingress controller with rate-limit annotations and a WAF or ModSecurity module." },
+      { id: 'C', text: "Terminate TLS at a service mesh sidecar with mTLS between services and no external filtering." },
+      { id: 'D', text: "Terminate TLS at the ingress controller and put the rate limits in the application's own middleware." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Ignore the vulnerability until the next major annual application release." },
-      { id: 'B', text: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest." },
-      { id: 'C', text: "SSH into running production containers and execute apt-get upgrade manually." },
-      { id: 'D', text: "Change the container image tag to latest without rebuilding." }
+      { id: 'A', text: "Rebuild the image on the patched base in CI and retag the existing digest as current." },
+      { id: 'B', text: "Rebuild the image on the patched base in CI, re-scan it, and roll out the new digest." },
+      { id: 'C', text: "Run the distribution's package upgrade in a `postStart` hook on each running container." },
+      { id: 'D', text: "Set `imagePullPolicy: Always` so the nodes pick up the upstream base image's fix." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Change the container image tag to latest without rebuilding." },
-      { id: 'B', text: "Ignore the vulnerability until the next major annual application release." },
-      { id: 'C', text: "SSH into running production containers and execute apt-get upgrade manually." },
-      { id: 'D', text: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest." }
+      { id: 'A', text: "Set `imagePullPolicy: Always` so the nodes pick up the upstream base image's fix." },
+      { id: 'B', text: "Rebuild the image on the patched base in CI and retag the existing digest as current." },
+      { id: 'C', text: "Run the distribution's package upgrade in a `postStart` hook on each running container." },
+      { id: 'D', text: "Rebuild the image on the patched base in CI, re-scan it, and roll out the new digest." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Ignore the vulnerability until the next major annual application release." },
-      { id: 'B', text: "Change the container image tag to latest without rebuilding." },
-      { id: 'C', text: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest." },
-      { id: 'D', text: "SSH into running production containers and execute apt-get upgrade manually." }
+      { id: 'A', text: "Rebuild the image on the patched base in CI and retag the existing digest as current." },
+      { id: 'B', text: "Set `imagePullPolicy: Always` so the nodes pick up the upstream base image's fix." },
+      { id: 'C', text: "Rebuild the image on the patched base in CI, re-scan it, and roll out the new digest." },
+      { id: 'D', text: "Run the distribution's package upgrade in a `postStart` hook on each running container." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest." },
-      { id: 'B', text: "SSH into running production containers and execute apt-get upgrade manually." },
-      { id: 'C', text: "Ignore the vulnerability until the next major annual application release." },
-      { id: 'D', text: "Change the container image tag to latest without rebuilding." }
+      { id: 'A', text: "Rebuild the image on the patched base in CI, re-scan it, and roll out the new digest." },
+      { id: 'B', text: "Run the distribution's package upgrade in a `postStart` hook on each running container." },
+      { id: 'C', text: "Rebuild the image on the patched base in CI and retag the existing digest as current." },
+      { id: 'D', text: "Set `imagePullPolicy: Always` so the nodes pick up the upstream base image's fix." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKS_QUESTIONS_15 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to remediate critical vulnerabilities discovered in an operating system library bundled inside a production container image.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Change the container image tag to latest without rebuilding." },
-      { id: 'B', text: "Update the Dockerfile base image to the patched release, rebuild the image in CI, re-scan with vulnerability tooling, and deploy the new digest." },
-      { id: 'C', text: "Ignore the vulnerability until the next major annual application release." },
-      { id: 'D', text: "SSH into running production containers and execute apt-get upgrade manually." }
+      { id: 'A', text: "Set `imagePullPolicy: Always` so the nodes pick up the upstream base image's fix." },
+      { id: 'B', text: "Rebuild the image on the patched base in CI, re-scan it, and roll out the new digest." },
+      { id: 'C', text: "Rebuild the image on the patched base in CI and retag the existing digest as current." },
+      { id: 'D', text: "Run the distribution's package upgrade in a `postStart` hook on each running container." }
     ],
     correctAnswers: ['B'],
     type: "single",

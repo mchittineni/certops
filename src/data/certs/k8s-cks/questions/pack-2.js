@@ -9,10 +9,10 @@ export const K8S_CKS_QUESTIONS_2 = [
     scenario: "A CIS Benchmark audit warns that <code>kube-controller-manager</code> and <code>kube-scheduler</code> are binding to all network interfaces (<code>0.0.0.0</code>) rather than localhost.",
     question: "Which flag setting on both components restricts their HTTP/HTTPS serving endpoints to the local loopback interface?",
     options: [
-      { id: 'A', text: "Set <code>--listen-address=internal-dns</code> and disable TLS" },
-      { id: 'B', text: "Set <code>--secure-port=0</code> in <code>/etc/kubernetes/manifests/kube-scheduler.yaml</code>" },
-      { id: 'C', text: "Set <code>--bind-address=127.0.0.1</code> on both <code>kube-controller-manager</code> and <code>kube-scheduler</code> manifests" },
-      { id: 'D', text: "Set <code>--address=0.0.0.0</code> and configure <code>--port=0</code>" }
+      { id: 'A', text: "Set <code>--bind-address=0.0.0.0</code> on both, and firewall the ports on each node" },
+      { id: 'B', text: "Set <code>--secure-port=0</code> on both, which leaves only the loopback listener up" },
+      { id: 'C', text: "Set <code>--bind-address=127.0.0.1</code> on both the controller manager and scheduler" },
+      { id: 'D', text: "Set <code>--address=127.0.0.1</code> on both, the flag that replaced the bind address" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKS_QUESTIONS_2 = [
     scenario: "An e-commerce payment microservice must connect to external payment gateway APIs over HTTPS (TCP port 443) on public internet IPs, but must be prohibited from communicating with any internal private IPs or other ports.",
     question: "Which egress NetworkPolicy specification correctly permits outbound port 443 while excluding private subnets?",
     options: [
-      { id: 'A', text: "Specify an egress rule with <code>ports: [{ protocol: 'TCP', port: 443 }]</code> without an <code>ipBlock</code>" },
-      { id: 'B', text: "Specify an egress rule with <code>to: [{ ipBlock: { cidr: '0.0.0.0/0', except: ['10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16'] } }]</code> and <code>ports: [{ protocol: 'TCP', port: 443 }]</code>" },
-      { id: 'C', text: "Specify an egress rule with <code>to: [{ ipBlock: { cidr: '10.0.0.0/8' } }]</code> on all ports" },
-      { id: 'D', text: "Specify an ingress rule with <code>from: [{ ipBlock: { cidr: '0.0.0.0/0' } }]</code> on port 443" }
+      { id: 'A', text: "An egress rule with <code>ports: [{ protocol: 'TCP', port: 443 }]</code> and no <code>to</code> block at all" },
+      { id: 'B', text: "An egress rule whose <code>ipBlock</code> is <code>0.0.0.0/0</code> with the RFC1918 ranges excepted, on port 443" },
+      { id: 'C', text: "An egress rule whose <code>ipBlock</code> is <code>0.0.0.0/0</code>, with the private ranges in a second rule" },
+      { id: 'D', text: "An egress rule whose <code>ipBlock</code> lists each public address range explicitly, on port 443" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKS_QUESTIONS_2 = [
     scenario: "A developer has RBAC permissions to create pods and run <code>kubectl exec</code> in a namespace, but does not have RBAC access to read <code>secrets</code>. The developer mounts a sensitive Secret into a newly created debug pod and executes a shell to print the secret contents.",
     question: "Which security control effectively closes this RBAC bypass and prevents unauthorized secret extraction?",
     options: [
-      { id: 'A', text: "Delete all secrets in the namespace and hardcode credentials into environment variables" },
-      { id: 'B', text: "Set <code>readOnlyRootFilesystem: true</code> on the control plane <code>kube-apiserver</code> pod" },
-      { id: 'C', text: "Restrict <code>create</code> permissions on <code>pods/exec</code> and enforce admission policies (such as Kyverno or OPA Gatekeeper) preventing unauthorized pods from mounting sensitive secrets" },
-      { id: 'D', text: "Grant the developer read permissions on secrets so the bypass is no longer necessary" }
+      { id: 'A', text: "Withhold <code>get</code> on <code>secrets</code>, and move the credentials into the pods' own environment variables" },
+      { id: 'B', text: "Withhold <code>create</code> on <code>pods</code>, and let the pipeline's ServiceAccount own the deployments instead" },
+      { id: 'C', text: "Withhold <code>create</code> on <code>pods/exec</code>, and add an admission policy that blocks mounting those secrets" },
+      { id: 'D', text: "Withhold <code>create</code> on <code>pods/portforward</code>, which is the subresource the bypass depends on" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -73,7 +73,7 @@ export const K8S_CKS_QUESTIONS_2 = [
     question: "Which command fixes the ownership and permissions of the kubelet configuration file in compliance with CIS benchmarks?",
     options: [
       { id: 'A', text: "Run <code>chown kubelet:kubelet /var/lib/kubelet/config.yaml && chmod 755 /var/lib/kubelet/config.yaml</code>" },
-      { id: 'B', text: "Run <code>chown root:root /var/lib/kubelet/config.yaml && chmod 600 /var/lib/kubelet/config.yaml</code> (or <code>0644</code>)" },
+      { id: 'B', text: "Run <code>chown root:root</code> and <code>chmod 600</code> on <code>/var/lib/kubelet/config.yaml</code>" },
       { id: 'C', text: "Run <code>chown root:nobody /var/lib/kubelet/config.yaml && chmod 400 /var/lib/kubelet/config.yaml</code>" },
       { id: 'D', text: "Run <code>chmod 700 /var/lib/kubelet/config.yaml && chown etcd:etcd /var/lib/kubelet/config.yaml</code>" }
     ],
@@ -93,10 +93,10 @@ export const K8S_CKS_QUESTIONS_2 = [
     scenario: "A security scan flags that worker nodes expose TCP port 10255, allowing any pod running on the cluster to curl <code>http://&lt;node-ip&gt;:10255/pods</code> and dump full pod specs and environment variables.",
     question: "How should this exposure be completely eliminated across all worker nodes?",
     options: [
-      { id: 'A', text: "Configure <code>--authorization-mode=AlwaysAllow</code> on <code>kube-apiserver</code>" },
-      { id: 'B', text: "Set <code>authentication.anonymous.enabled: true</code> in the kube-scheduler manifest" },
-      { id: 'C', text: "Set <code>readOnlyPort: 0</code> in <code>/var/lib/kubelet/config.yaml</code> and restart the <code>kubelet</code> service with <code>systemctl restart kubelet</code>" },
-      { id: 'D', text: "Add an iptables rule on the master node dropping incoming traffic on port 10250" }
+      { id: 'A', text: "Set <code>--authorization-mode=Webhook</code> on each kubelet and restart the service" },
+      { id: 'B', text: "Set <code>authentication.anonymous.enabled: false</code> in the scheduler's own manifest" },
+      { id: 'C', text: "Set <code>readOnlyPort: 0</code> in the kubelet config on each node and restart the service" },
+      { id: 'D', text: "Add an iptables rule on each node dropping inbound traffic to port 10250" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKS_QUESTIONS_2 = [
     scenario: "A compromised worker node's kubelet attempts to delete a Pod residing on a different node in order to disrupt application availability.",
     question: "Why does the API server reject this deletion request when <code>NodeRestriction</code> is enabled?",
     options: [
-      { id: 'A', text: "Kubelets do not communicate with the API server directly; all operations are routed through kube-proxy" },
-      { id: 'B', text: "The <code>NodeRestriction</code> plugin disables all pod deletion requests across all worker nodes" },
-      { id: 'C', text: "The <code>NodeRestriction</code> admission controller verifies the requesting node's identity against the pod's <code>spec.nodeName</code> and rejects modifications to pods scheduled on other nodes" },
-      { id: 'D', text: "The <code>Node</code> authorization mode only permits kubelets to execute <code>create</code> actions" }
+      { id: 'A', text: "<code>NodeRestriction</code> routes kubelet writes through kube-proxy, which does not carry a delete verb" },
+      { id: 'B', text: "<code>NodeRestriction</code> withholds the delete verb from every kubelet, including for its own pods" },
+      { id: 'C', text: "<code>NodeRestriction</code> checks the node's identity against the pod's <code>spec.nodeName</code> and rejects the rest" },
+      { id: 'D', text: "<code>Node</code> authorization grants kubelets only <code>create</code>, so no kubelet may delete a pod object" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKS_QUESTIONS_2 = [
     scenario: "An administrator is establishing a high-availability 3-node etcd cluster. Communication between etcd peers must be mutually authenticated and encrypted over port 2380.",
     question: "Which flags in <code>etcd.yaml</code> configure peer-to-peer mutual TLS authentication?",
     options: [
-      { id: 'A', text: "Set <code>--client-cert-auth=true</code> and configure <code>--peer-auto-tls=true</code>" },
-      { id: 'B', text: "Set <code>--listen-peer-urls=http://0.0.0.0:2380</code> and enable <code>--peer-skip-tls-verify</code>" },
-      { id: 'C', text: "Configure <code>--initial-cluster-token</code> with a shared secret string and omit certificates" },
-      { id: 'D', text: "Set <code>--peer-client-cert-auth=true</code>, <code>--peer-trusted-ca-file</code>, <code>--peer-cert-file</code>, and <code>--peer-key-file</code>" }
+      { id: 'A', text: "Set <code>--client-cert-auth=true</code> with <code>--peer-auto-tls=true</code> for the peers" },
+      { id: 'B', text: "Set <code>--listen-peer-urls</code> to an HTTPS address and skip the peer CA file" },
+      { id: 'C', text: "Set <code>--initial-cluster-token</code> to a shared secret and omit the peer files" },
+      { id: 'D', text: "Set <code>--peer-client-cert-auth=true</code> with the peer CA, certificate and key files" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKS_QUESTIONS_2 = [
     scenario: "In a hardened cluster, developers frequently deploy pods without declaring a <code>serviceAccountName</code>, causing pods to automatically inherit the namespace's <code>default</code> ServiceAccount token.",
     question: "What is the recommended cluster hardening practice for the <code>default</code> ServiceAccount in each workload namespace?",
     options: [
-      { id: 'A', text: "Patch the <code>default</code> ServiceAccount to set <code>automountServiceAccountToken: false</code> and create dedicated, least-privilege ServiceAccounts for pods requiring API access" },
-      { id: 'B', text: "Disable the ServiceAccount admission controller in the <code>kube-apiserver</code> static manifest" },
-      { id: 'C', text: "Delete the <code>default</code> ServiceAccount permanently from the <code>kube-system</code> namespace" },
-      { id: 'D', text: "Bind the <code>default</code> ServiceAccount to the <code>view</code> ClusterRole in every namespace" }
+      { id: 'A', text: "Set <code>automountServiceAccountToken: false</code> on each <code>default</code> account, and give callers their own" },
+      { id: 'B', text: "Disable the ServiceAccount admission plugin on the API server, so no token is injected into any pod" },
+      { id: 'C', text: "Delete the <code>default</code> ServiceAccount from each namespace, so pods must name one explicitly" },
+      { id: 'D', text: "Bind the <code>default</code> ServiceAccount to the <code>view</code> ClusterRole in each workload namespace" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKS_QUESTIONS_2 = [
     scenario: "A CIS Benchmark report highlights a failure under section 2.1.2: 'Ensure that the --authorization-mode argument is not set to AlwaysAllow on the Kubelet'.",
     question: "What is the security risk of setting kubelet authorization mode to <code>AlwaysAllow</code>?",
     options: [
-      { id: 'A', text: "The API server disables audit logging for all operations initiated by that worker node" },
-      { id: 'B', text: "The node will fail to register with the control plane upon boot" },
-      { id: 'C', text: "Any authenticated request—including compromised pods possessing valid low-privilege tokens—can execute commands and read arbitrary files across the node without RBAC evaluation" },
-      { id: 'D', text: "The kubelet cannot pull container images from private registries" }
+      { id: 'A', text: "Any request to the kubelet bypasses the API server's audit log, so the node's activity goes unrecorded" },
+      { id: 'B', text: "The kubelet stops checking the API server's client CA, so the node will not complete its registration" },
+      { id: 'C', text: "Any authenticated caller — including a pod with a low-privilege token — can exec and read files on the node" },
+      { id: 'D', text: "The kubelet stops authorizing its own pulls, so images from private registries are refused on the node" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKS_QUESTIONS_2 = [
     scenario: "A front-end web tier in namespace <code>frontend</code> must communicate with a caching tier in namespace <code>cache</code> on TCP port 6379, but must be blocked from communicating with any other pods in <code>cache</code> or other namespaces.",
     question: "Which egress NetworkPolicy applied to the <code>frontend</code> pods satisfies this restriction?",
     options: [
-      { id: 'A', text: "Specify an egress rule with <code>to: [{ namespaceSelector: { matchLabels: { 'kubernetes.io/metadata.name': 'cache' } }, podSelector: { matchLabels: { role: 'redis' } } }]</code> and <code>ports: [{ protocol: 'TCP', port: 6379 }]</code>" },
-      { id: 'B', text: "Specify an ingress rule in the <code>cache</code> namespace allowing all traffic from any source IP on port 6379" },
-      { id: 'C', text: "Specify an egress rule with <code>to: [{ ipBlock: { cidr: '10.244.0.0/16' } }]</code> without port restrictions" },
-      { id: 'D', text: "Configure <code>spec.podSelector: { matchLabels: { role: 'redis' } }</code> inside the <code>frontend</code> namespace" }
+      { id: 'A', text: "An egress rule whose <code>to</code> names the <code>cache</code> namespace and the <code>role: redis</code> pods, with <code>port: 6379</code>" },
+      { id: 'B', text: "An egress rule whose <code>to</code> names the <code>cache</code> namespace alone, with <code>ports</code> left unset for the whole namespace" },
+      { id: 'C', text: "An egress rule whose <code>to</code> names an <code>ipBlock</code> of the pod CIDR, with <code>port: 6379</code> on TCP" },
+      { id: 'D', text: "An egress rule whose <code>to</code> names a <code>podSelector</code> of <code>role: redis</code>, applied in the <code>frontend</code> namespace" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKS_QUESTIONS_2 = [
     scenario: "A junior administrator attempts to grant read-only access to cluster configurations by binding a Role to the group <code>system:authenticated</code> instead of individual user service accounts.",
     question: "What is the security implication of binding permissions to the <code>system:authenticated</code> pseudo-group?",
     options: [
-      { id: 'A', text: "The permissions are only granted to external human identity providers authenticated via OIDC" },
-      { id: 'B', text: "Every single authenticated user, worker node kubelet, and application ServiceAccount in the entire cluster automatically receives those permissions" },
-      { id: 'C', text: "The binding applies exclusively to users holding cluster administrator certificates" },
-      { id: 'D', text: "The API server automatically drops the binding upon the next restart" }
+      { id: 'A', text: "Only identities from an external OIDC provider receive the permissions the binding grants" },
+      { id: 'B', text: "Every authenticated identity in the cluster receives the permissions the binding grants" },
+      { id: 'C', text: "Only identities holding a client certificate from the cluster CA receive those permissions" },
+      { id: 'D', text: "The binding is dropped by the API server at its next restart, since the group is virtual" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKS_QUESTIONS_2 = [
     scenario: "A financial containerized application must be restricted from accessing host hardware, opening raw network sockets, or writing to binary directories on Ubuntu worker nodes using an AppArmor profile named <code>k8s-apparmor-deny-write</code>.",
     question: "What are the required operational steps to load and apply this AppArmor profile to a Kubernetes pod container?",
     options: [
-      { id: 'A', text: "Upload the AppArmor profile as a ConfigMap in the target namespace and annotate the deployment with <code>apparmor.security.beta.kubernetes.io/load: 'immediate'</code>" },
-      { id: 'B', text: "Set <code>privileged: true</code> in the container securityContext and specify <code>apparmor: enforce</code> in the pod annotations" },
-      { id: 'C', text: "Load the profile on every worker node using <code>apparmor_parser -q /etc/apparmor.d/k8s-apparmor-deny-write</code>, and configure the container specification with <code>securityContext.appArmorProfile.type: Localhost</code> and <code>localhostProfile: k8s-apparmor-deny-write</code>" },
-      { id: 'D', text: "Pass the profile filename directly to the <code>kube-apiserver</code> via <code>--enable-apparmor-profile=k8s-apparmor-deny-write</code>" }
+      { id: 'A', text: "Ship the profile as a ConfigMap in the namespace, then annotate the deployment so the kubelet loads it on the node" },
+      { id: 'B', text: "Load the profile on each node with <code>apparmor_parser</code>, then set <code>privileged: true</code> so the profile is applied" },
+      { id: 'C', text: "Load it with <code>apparmor_parser</code> on each node, then set <code>appArmorProfile.type: Localhost</code>" },
+      { id: 'D', text: "Load the profile on each node with <code>apparmor_parser</code>, then pass its name to <code>kube-apiserver</code> as a flag" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKS_QUESTIONS_2 = [
     scenario: "A multi-tenant SaaS platform allows customers to execute untrusted user-submitted code in containerized functions. The platform must prevent container breakout exploits from compromising the host Linux kernel.",
     question: "Which architecture provides strong kernel-level sandboxing using gVisor for untrusted pods?",
     options: [
-      { id: 'A', text: "Add <code>securityContext.privileged: false</code> and mount <code>/dev/null</code> into the pod filesystem" },
-      { id: 'B', text: "Install <code>runsc</code> on worker nodes, register a <code>RuntimeClass</code> named <code>gvisor</code> with <code>handler: runsc</code>, and specify <code>runtimeClassName: gvisor</code> in the pod's <code>spec</code>" },
-      { id: 'C', text: "Set <code>hostPID: false</code> and configure an ingress NetworkPolicy blocking UDP traffic" },
-      { id: 'D', text: "Deploy an AppArmor profile in complain mode and enable <code>readOnlyRootFilesystem: true</code>" }
+      { id: 'A', text: "Install <code>runsc</code> on the nodes and set <code>privileged: false</code> with <code>procMount: Default</code> on the pod's containers" },
+      { id: 'B', text: "Install <code>runsc</code>, register a <code>RuntimeClass</code> for it, and set <code>runtimeClassName</code> on the pod" },
+      { id: 'C', text: "Set <code>hostUsers: false</code> on the pod so it runs in a user namespace, and drop every Linux capability" },
+      { id: 'D', text: "Apply an AppArmor profile in enforce mode and set <code>readOnlyRootFilesystem: true</code> on the containers" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKS_QUESTIONS_2 = [
     scenario: "An attacker attempts to exploit a setuid binary inside a container to gain root privileges and escape into the host node.",
     question: "Which pod security settings prevent setuid binaries from changing UID and guarantee that the container process cannot execute as root?",
     options: [
-      { id: 'A', text: "Set <code>securityContext.capabilities.add: ['CHOWN']</code> and configure <code>runAsGroup: 0</code>" },
-      { id: 'B', text: "Set <code>securityContext.privileged: false</code> and configure <code>hostIPC: true</code>" },
-      { id: 'C', text: "Set <code>securityContext.runAsUser: 0</code> with <code>readOnlyRootFilesystem: true</code>" },
-      { id: 'D', text: "Configure <code>securityContext.runAsNonRoot: true</code>, <code>securityContext.runAsUser: 10001</code>, and <code>securityContext.allowPrivilegeEscalation: false</code>" }
+      { id: 'A', text: "Set <code>runAsUser: 10001</code>, <code>runAsGroup: 0</code> and add the <code>CHOWN</code> capability back" },
+      { id: 'B', text: "Set <code>privileged: false</code>, <code>hostIPC: true</code> and <code>readOnlyRootFilesystem: true</code>" },
+      { id: 'C', text: "Set <code>runAsUser: 0</code>, <code>readOnlyRootFilesystem: true</code> and drop all capabilities" },
+      { id: 'D', text: "Set <code>runAsNonRoot: true</code>, <code>runAsUser: 10001</code> and <code>allowPrivilegeEscalation: false</code>" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKS_QUESTIONS_2 = [
     scenario: "A compromised web application allows remote command execution. The attacker attempts to download and write a crypto-miner script into <code>/tmp</code> or <code>/bin</code>.",
     question: "Which security configuration prevents writes to the container's root filesystem while still providing a writable temporary scratch space for the application?",
     options: [
-      { id: 'A', text: "Mount a ConfigMap into the root directory with <code>defaultMode: 0400</code>" },
-      { id: 'B', text: "Set <code>securityContext.readOnlyRootFilesystem: true</code> and mount an <code>emptyDir</code> volume to the specific required temporary path (e.g., <code>/tmp</code> or <code>/var/cache</code>)" },
-      { id: 'C', text: "Set <code>hostPath</code> with <code>readOnly: true</code> pointing to <code>/usr/bin</code> on the host node" },
-      { id: 'D', text: "Set file permissions on the Dockerfile root directory using <code>RUN chmod -R 555 /</code>" }
+      { id: 'A', text: "Set <code>readOnlyRootFilesystem: true</code> and mount a ConfigMap with <code>defaultMode: 0400</code> there" },
+      { id: 'B', text: "Set <code>readOnlyRootFilesystem: true</code> and mount an <code>emptyDir</code> at the path that needs writes" },
+      { id: 'C', text: "Set <code>readOnlyRootFilesystem: true</code> and mount a <code>hostPath</code> for the scratch directory" },
+      { id: 'D', text: "Leave the filesystem writable and set <code>RUN chmod -R 555 /</code> in the final build stage" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKS_QUESTIONS_2 = [
     scenario: "A security scan on a Linux worker node reveals active listening services for <code>rpcbind</code>, <code>cups</code>, and <code>avahi-daemon</code>, which are unnecessary for Kubernetes operations.",
     question: "Which Linux administrative commands disable and prevent these services from restarting upon system reboot?",
     options: [
-      { id: 'A', text: "Modify <code>/etc/hosts</code> to redirect service domain names to <code>127.0.0.1</code>" },
-      { id: 'B', text: "Delete the service binary files from <code>/usr/bin</code> while leaving systemd units active" },
-      { id: 'C', text: "Add iptables drop rules for port 22 and restart the kubelet daemon" },
-      { id: 'D', text: "Execute <code>systemctl stop rpcbind cups avahi-daemon && systemctl disable --now rpcbind cups avahi-daemon</code> (and optionally <code>systemctl mask</code>)" }
+      { id: 'A', text: "Run <code>systemctl stop rpcbind cups avahi-daemon</code> and leave the units enabled" },
+      { id: 'B', text: "Remove the service binaries from <code>/usr/sbin</code> and leave the units in place" },
+      { id: 'C', text: "Add iptables drop rules for each service's port and restart the kubelet" },
+      { id: 'D', text: "Run <code>systemctl disable --now rpcbind cups avahi-daemon</code>, and <code>mask</code> them" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -452,8 +452,8 @@ export const K8S_CKS_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "Execute <code>cat /etc/resolv.conf</code>" },
       { id: 'B', text: "Execute <code>kubectl get endpoints -A</code>" },
-      { id: 'C', text: "Execute <code>crictl pods --output table</code>" },
-      { id: 'D', text: "Execute <code>ss -tulpn</code> (or <code>netstat -tulpn</code>)" }
+      { id: 'C', text: "Execute <code>crictl pods -o table</code>" },
+      { id: 'D', text: "Execute <code>ss -tulpn</code> on the node" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKS_QUESTIONS_2 = [
     scenario: "A networking application requires modifying the <code>net.core.somaxconn</code> kernel parameter to handle high volume socket backlogs. However, the parameter is considered an unsafe sysctl in default Kubernetes configurations.",
     question: "What must be configured on both the worker node kubelet and the pod manifest to permit this sysctl modification safely?",
     options: [
-      { id: 'A', text: "Annotate the namespace with <code>sysctl.kubernetes.io/allow-all: 'true'</code>" },
-      { id: 'B', text: "Add <code>--allowed-unsafe-sysctls=net.core.somaxconn</code> to the worker node kubelet configuration, and declare <code>securityContext.sysctls: [{ name: 'net.core.somaxconn', value: '1024' }]</code> in the Pod specification" },
-      { id: 'C', text: "Add the sysctl directly to <code>/etc/sysctl.conf</code> on the control plane node and restart <code>kube-apiserver</code>" },
-      { id: 'D', text: "Set <code>securityContext.privileged: true</code> and modify <code>/proc/sys/net/core/somaxconn</code> in a startup script without kubelet flags" }
+      { id: 'A', text: "Add the sysctl to the pod's securityContext, and annotate the namespace to allow unsafe sysctls for it" },
+      { id: 'B', text: "Add <code>--allowed-unsafe-sysctls=net.core.somaxconn</code> to the kubelet, and declare it on the pod" },
+      { id: 'C', text: "Add the sysctl to <code>/etc/sysctl.conf</code> on the node, and declare it in the pod's securityContext too" },
+      { id: 'D', text: "Set <code>privileged: true</code> on the container, and write the value from its own startup script" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKS_QUESTIONS_2 = [
     scenario: "A monitoring alert indicates that a worker node's kubelet is disconnected, but containers are still running. An administrator needs to inspect running containers, view container logs, and identify container processes directly on the node without relying on <code>kubectl</code>.",
     question: "Which CRI command-line tool provides direct interaction with the container runtime on the node?",
     options: [
-      { id: 'A', text: "Use <code>crictl</code> commands such as <code>crictl ps</code>, <code>crictl pods</code>, <code>crictl logs</code>, and <code>crictl inspect</code>" },
-      { id: 'B', text: "Use <code>docker-compose ps</code> and <code>docker-compose logs</code>" },
-      { id: 'C', text: "Use <code>kubectl node-exec &lt;node-name&gt; -- crictl</code>" },
-      { id: 'D', text: "Use <code>systemctl status containerd-shim</code>" }
+      { id: 'A', text: "Use <code>crictl</code> — <code>crictl ps</code>, <code>crictl logs</code>, <code>crictl inspect</code> — on the node" },
+      { id: 'B', text: "Use <code>docker</code> — <code>docker ps</code>, <code>docker logs</code>, <code>docker inspect</code> — on the node" },
+      { id: 'C', text: "Use <code>kubectl debug node/&lt;node&gt;</code> and drive the runtime through its socket by hand" },
+      { id: 'D', text: "Use <code>ctr -n k8s.io</code> — the containerd client — to list and inspect the sandboxes" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKS_QUESTIONS_2 = [
     scenario: "A systems hardening team must configure Linux kernel settings on all Kubernetes worker nodes to prevent SYN flood attacks, restrict dmesg buffer inspection to root, and disable ICMP redirect acceptance.",
     question: "Which configuration entries in <code>/etc/sysctl.d/99-kubernetes-security.conf</code> enforce these kernel protections?",
     options: [
-      { id: 'A', text: "Set <code>vm.max_map_count = 65530</code> and <code>kernel.sysrq = 1</code>" },
-      { id: 'B', text: "Set <code>net.ipv4.tcp_syncookies = 1</code>, <code>kernel.dmesg_restrict = 1</code>, and <code>net.ipv4.conf.all.accept_redirects = 0</code>, followed by running <code>sysctl --system</code>" },
-      { id: 'C', text: "Set <code>net.ipv4.ip_forward = 0</code>, <code>kernel.kptr_restrict = 0</code>, and <code>net.ipv4.tcp_timestamps = 0</code>" },
-      { id: 'D', text: "Set <code>fs.file-max = 100000</code> and disable <code>net.bridge.bridge-nf-call-iptables</code>" }
+      { id: 'A', text: "Set <code>vm.max_map_count = 65530</code>, <code>kernel.sysrq = 1</code> and <code>tcp_syncookies = 1</code>, then <code>sysctl --system</code>" },
+      { id: 'B', text: "Set <code>tcp_syncookies = 1</code>, <code>kernel.dmesg_restrict = 1</code> and <code>accept_redirects = 0</code>, then <code>sysctl --system</code>" },
+      { id: 'C', text: "Set <code>net.ipv4.ip_forward = 0</code>, <code>kernel.kptr_restrict = 0</code> and <code>tcp_timestamps = 0</code>, then reboot" },
+      { id: 'D', text: "Set <code>fs.file-max = 100000</code> and clear <code>bridge-nf-call-iptables</code>, then <code>sysctl --system</code>" }
     ],
     correctAnswers: ['B'],
     type: "single",

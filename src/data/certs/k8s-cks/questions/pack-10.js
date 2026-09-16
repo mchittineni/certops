@@ -9,9 +9,9 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "An enterprise wants to enforce admission control rules (e.g., forbidding privileged pods and requiring resource limits) without the network latency, certificate management overhead, and availability failure modes of external webhook controllers.",
     question: "Which native Kubernetes feature evaluates admission rules directly in kube-apiserver using Common Expression Language (CEL)?",
     options: [
-      { id: 'A', text: "<code>MutatingWebhookConfiguration</code>" },
-      { id: 'B', text: "<code>LimitRange</code> admission controller" },
-      { id: 'C', text: "<code>ValidatingAdmissionPolicy</code> and <code>ValidatingAdmissionPolicyBinding</code>" },
+      { id: 'A', text: "<code>MutatingWebhookConfiguration</code>, with CEL rules" },
+      { id: 'B', text: "<code>LimitRange</code>, evaluated by its admission plugin" },
+      { id: 'C', text: "<code>ValidatingAdmissionPolicy</code>, with its binding" },
       { id: 'D', text: "<code>CustomResourceDefinition</code> validation schemas" }
     ],
     correctAnswers: ['C'],
@@ -51,10 +51,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "An administrator creates a generic <code>ValidatingAdmissionPolicy</code> that checks if an image comes from an allowed registry list. Different namespaces need different lists of allowed registries.",
     question: "How does <code>ValidatingAdmissionPolicyBinding</code> support parameterization across namespaces?",
     options: [
-      { id: 'A', text: "The binding passes secrets via HTTP GET parameters to the API server" },
-      { id: 'B', text: "The binding specifies a <code>paramRef</code> that references a custom configuration object or ConfigMap containing the environment-specific registry list via <code>params</code> in CEL" },
-      { id: 'C', text: "The binding executes an external shell script to read local environment variables" },
-      { id: 'D', text: "The policy must be duplicated with hardcoded strings into every namespace" }
+      { id: 'A', text: "The binding carries a <code>matchResources</code> selector, and each namespace supplies its own label values" },
+      { id: 'B', text: "The binding carries a <code>paramRef</code> to a config object whose values the policy's CEL reads as <code>params</code>" },
+      { id: 'C', text: "The binding carries a <code>validationActions</code> list, which selects the parameter set per namespace" },
+      { id: 'D', text: "The policy itself must be duplicated per namespace with the registry list written into each copy" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "When configuring a <code>ValidatingWebhookConfiguration</code>, the API server requires declaring the <code>sideEffects</code> field.",
     question: "What does setting <code>sideEffects: None</code> signify to the Kubernetes API server?",
     options: [
-      { id: 'A', text: "The webhook has no out-of-band side effects on external systems during dry-run evaluations, ensuring <code>kubectl apply --dry-run=server</code> executes safely without modifying external state" },
-      { id: 'B', text: "The webhook ignores non-root containers" },
-      { id: 'C', text: "The webhook does not log incoming requests to disk" },
-      { id: 'D', text: "The webhook allows requests even if TLS certificates are expired" }
+      { id: 'A', text: "That the webhook changes nothing outside the request, so a server-side dry run is safe to execute" },
+      { id: 'B', text: "That the webhook makes no changes to the object, so the API server may skip re-running it" },
+      { id: 'C', text: "That the webhook keeps no request log, so the API server need not redact the payload it sends" },
+      { id: 'D', text: "That the webhook has no failure mode, so the API server admits the request when it cannot be reached" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "A custom <code>ValidatingAdmissionWebhook</code> fails with the error: <code>x509: certificate signed by unknown authority</code>.",
     question: "How must the API server be configured to trust the TLS certificate presented by the webhook server?",
     options: [
-      { id: 'A', text: "Embed the base64-encoded root CA certificate that signed the webhook server's certificate into the <code>clientConfig.caBundle</code> field of the webhook configuration" },
-      { id: 'B', text: "Add the webhook certificate directly to the Linux host kernel keystore" },
-      { id: 'C', text: "Mount <code>/etc/kubernetes/pki</code> into the webhook pod" },
-      { id: 'D', text: "Disable TLS verification by setting <code>insecureSkipVerify: true</code> on the API server static pod" }
+      { id: 'A', text: "Put the base64 root CA that signed the webhook's certificate in <code>clientConfig.caBundle</code>" },
+      { id: 'B', text: "Put the webhook's own certificate in the node's trust store and restart the API server" },
+      { id: 'C', text: "Mount <code>/etc/kubernetes/pki</code> into the webhook pod so it serves the cluster CA's chain" },
+      { id: 'D', text: "Set <code>insecureSkipVerify: true</code> in the webhook's <code>clientConfig</code> block instead" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "An enterprise requires verifying that all master and worker nodes comply with the Center for Internet Security (CIS) Kubernetes Benchmark.",
     question: "Which tool runs automated CIS benchmark checks and provides remediation instructions for failing control plane and worker configurations?",
     options: [
-      { id: 'A', text: "<code>kube-bench</code> (run as a Job or binary on cluster nodes)" },
-      { id: 'B', text: "<code>falco</code>" },
-      { id: 'C', text: "<code>kubesec</code>" },
-      { id: 'D', text: "<code>kube-hunter</code>" }
+      { id: 'A', text: "<code>kube-bench</code>, run as a Job on the nodes" },
+      { id: 'B', text: "<code>kube-hunter</code>, run against the cluster" },
+      { id: 'C', text: "<code>kubesec</code>, run over the manifests" },
+      { id: 'D', text: "<code>falco</code>, as a DaemonSet" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,8 +135,8 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "A red team wants to hunt for security weaknesses, exposed etcd instances, open kubelet read-only ports, and unauthenticated proxy endpoints from both inside and outside the cluster network.",
     question: "Which tool actively hunts for vulnerabilities and simulates attacker penetration techniques against a running cluster?",
     options: [
-      { id: 'A', text: "<code>sonobuoy</code>" },
-      { id: 'B', text: "<code>kube-hunter</code>" },
+      { id: 'A', text: "<code>sonobuoy</code>, as a Job" },
+      { id: 'B', text: "<code>falco</code>, as a DaemonSet" },
       { id: 'C', text: "<code>kube-bench</code>" },
       { id: 'D', text: "<code>trivy</code>" }
     ],
@@ -156,10 +156,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "A platform team develops an OPA Gatekeeper policy requiring that all namespaces have an <code>owner</code> label.",
     question: "What are the two distinct custom resources required to define and enforce this policy in Gatekeeper?",
     options: [
-      { id: 'A', text: "A <code>ValidatingWebhookConfiguration</code> and a <code>ClusterRole</code>" },
-      { id: 'B', text: "A <code>ConstraintTemplate</code> (defining the Rego logic and CRD schema) and a corresponding <code>Constraint</code> CRD (instantiating the template with scope and parameters)" },
-      { id: 'C', text: "A <code>ConfigMap</code> and an <code>AdmissionPlugin</code>" },
-      { id: 'D', text: "A <code>PolicyRule</code> and a <code>PolicyBinding</code>" }
+      { id: 'A', text: "A <code>ValidatingWebhookConfiguration</code> for the admission hook, and a <code>ClusterRole</code> for its account" },
+      { id: 'B', text: "A <code>ConstraintTemplate</code> holding the Rego and CRD schema, and a <code>Constraint</code> that instantiates it" },
+      { id: 'C', text: "A <code>ConfigMap</code> holding the Rego source, and a <code>Constraint</code> that references it by name" },
+      { id: 'D', text: "A <code>ValidatingAdmissionPolicy</code> holding the CEL, and a binding that scopes it to namespaces" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "An organization requires that all new Pods in development namespaces must have an <code>environment</code> label.",
     question: "Which Kyverno <code>ClusterPolicy</code> rule pattern validates the presence of this label?",
     options: [
-      { id: 'A', text: "A <code>generate</code> rule that clones a label ConfigMap" },
-      { id: 'B', text: "A <code>mutate</code> rule with <code>patchStrategicMerge</code>" },
-      { id: 'C', text: "A <code>verifyImages</code> rule matching <code>environment</code>" },
-      { id: 'D', text: "A <code>validate</code> rule with a <code>pattern: { metadata: { labels: { environment: '?*' } } }</code>" }
+      { id: 'A', text: "A <code>generate</code> rule that clones the label from a ConfigMap into each namespace" },
+      { id: 'B', text: "A <code>mutate</code> rule with a <code>patchStrategicMerge</code> that adds the missing label" },
+      { id: 'C', text: "A <code>verifyImages</code> rule whose attestation carries the <code>environment</code> value" },
+      { id: 'D', text: "A <code>validate</code> rule with <code>pattern: { metadata: { labels: { environment: '?*' } } }</code>" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "An organization configures a mutating admission webhook that injects security sidecars. During high traffic spikes, the webhook pod crashes under load.",
     question: "What happens to new deployment requests if the webhook is configured with <code>failurePolicy: Fail</code>?",
     options: [
-      { id: 'A', text: "The API server automatically restarts the webhook pod" },
-      { id: 'B', text: "Requests are allowed to proceed without sidecar injection" },
-      { id: 'C', text: "All new pod creation requests fail immediately with an API error, ensuring uninspected pods never run at the expense of cluster deployment availability" },
-      { id: 'D', text: "The requests are converted into dry-run requests" }
+      { id: 'A', text: "Every new pod request is retried until the webhook answers, then admitted with the sidecar" },
+      { id: 'B', text: "Every new pod request is admitted without the sidecar, and the failure is only recorded" },
+      { id: 'C', text: "Every new pod request fails outright, so nothing runs uninspected — at the cost of availability" },
+      { id: 'D', text: "Every new pod request is converted to a dry run, so the object is validated but not stored" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "A mutating admission webhook modifies deployments. When the webhook patches a deployment, the resulting update triggers another admission review, causing an infinite loop.",
     question: "Which webhook configuration setting or filter prevents mutating webhooks from endlessly intercepting their own modifications?",
     options: [
-      { id: 'A', text: "Change the webhook to a ValidatingAdmissionWebhook" },
-      { id: 'B', text: "Configure <code>reinvocationPolicy: IfNeeded</code> and ensure the webhook logic is idempotent (producing no changes if the desired state is already present)" },
-      { id: 'C', text: "Set <code>timeoutSeconds: 0</code> in the webhook configuration" },
-      { id: 'D', text: "Disable admission control on the API server" }
+      { id: 'A', text: "Set <code>reinvocationPolicy: Never</code> and convert the hook to a validating one" },
+      { id: 'B', text: "Set <code>reinvocationPolicy: IfNeeded</code> and make the mutation idempotent" },
+      { id: 'C', text: "Set <code>matchPolicy: Exact</code> so the hook sees only the original request" },
+      { id: 'D', text: "Set <code>objectSelector</code> to exclude the label the webhook itself adds" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "A custom admission webhook must only inspect pods created in user application namespaces and must never intercept critical system pods in <code>kube-system</code> or <code>kube-node-lease</code>.",
     question: "Which configuration block in the webhook manifest excludes system namespaces from interception?",
     options: [
-      { id: 'A', text: "Set <code>failurePolicy: Ignore</code> across all namespaces" },
-      { id: 'B', text: "Set <code>rules: [{ apiGroups: ['*'], resources: ['nodes'] }]</code>" },
-      { id: 'C', text: "Configure <code>namespaceSelector.matchExpressions</code> to exclude namespaces with label <code>kubernetes.io/metadata.name: kube-system</code>" },
-      { id: 'D', text: "Delete the <code>kube-system</code> namespace" }
+      { id: 'A', text: "A <code>failurePolicy: Ignore</code> so the system namespaces are admitted when the hook errors" },
+      { id: 'B', text: "An <code>objectSelector</code> that matches only the workload pods the webhook should mutate" },
+      { id: 'C', text: "A <code>namespaceSelector.matchExpressions</code> that excludes the <code>kube-system</code> namespace label" },
+      { id: 'D', text: "A <code>rules</code> entry limited to the <code>apps</code> API group, which system pods do not use" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "A <code>kube-bench</code> scan reports failure on CIS check 4.2.1: 'Ensure that the --anonymous-auth argument is set to false'.",
     question: "How should this vulnerability be remediated in the worker node kubelet configuration?",
     options: [
-      { id: 'A', text: "Add an ingress rule blocking port 6443" },
-      { id: 'B', text: "Delete <code>/etc/kubernetes/kubelet.conf</code>" },
-      { id: 'C', text: "Add <code>--anonymous-auth=true</code> to <code>/etc/kubernetes/manifests/kube-apiserver.yaml</code>" },
-      { id: 'D', text: "In <code>/var/lib/kubelet/config.yaml</code>, set <code>authentication.anonymous.enabled: false</code> and restart the kubelet daemon" }
+      { id: 'A', text: "In the kubelet config, set <code>authorization.mode: AlwaysAllow</code> and restart it" },
+      { id: 'B', text: "Remove <code>/etc/kubernetes/kubelet.conf</code> and let the node re-bootstrap itself" },
+      { id: 'C', text: "In the API server manifest, set <code>--anonymous-auth=false</code> and restart it" },
+      { id: 'D', text: "In the kubelet config, set <code>authentication.anonymous.enabled: false</code> and restart it" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "A <code>kube-bench</code> report flags check 4.2.3: 'Ensure that the --client-ca-file argument is set as appropriate'.",
     question: "Why is configuring <code>client-ca-file</code> on the kubelet critical for node security?",
     options: [
-      { id: 'A', text: "It instructs the kubelet to authenticate incoming requests to its HTTPS API (port 10250) using X.509 client certificate verification, preventing unauthenticated callers from executing commands or reading logs" },
-      { id: 'B', text: "It encrypts the host root filesystem using client certificates" },
-      { id: 'C', text: "It allows the kubelet to issue TLS certificates to pods" },
-      { id: 'D', text: "It automatically updates Docker daemon configurations" }
+      { id: 'A', text: "It makes the kubelet verify X.509 client certificates on its HTTPS API, so unauthenticated callers cannot exec or read logs" },
+      { id: 'B', text: "It makes the kubelet present that CA's certificate on port 10250, so callers can verify the node they are talking to" },
+      { id: 'C', text: "It makes the kubelet sign certificates for the pods it runs, so each workload gets an identity from the node's CA" },
+      { id: 'D', text: "It makes the kubelet trust that CA when it dials the API server, which is how the node bootstraps its own credentials" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "A CEL-based <code>ValidatingAdmissionPolicy</code> should only apply to pods that have the label <code>tier: frontend</code>.",
     question: "How can policy evaluation be conditionally filtered in modern Kubernetes admission policies?",
     options: [
-      { id: 'A', text: "Add a <code>matchCondition</code> with expression <code>object.metadata.labels['tier'] == 'frontend'</code>" },
-      { id: 'B', text: "Create a separate webhook server for frontend pods" },
-      { id: 'C', text: "Add an emptyDir volume to the frontend pod" },
-      { id: 'D', text: "Deploy an egress NetworkPolicy targeting port 80" }
+      { id: 'A', text: "Add a <code>matchCondition</code> whose CEL tests the object's own <code>tier</code> label" },
+      { id: 'B', text: "Add a second webhook server that handles only the frontend namespace's pods" },
+      { id: 'C', text: "Add an <code>objectSelector</code> that matches on the pod's container image name" },
+      { id: 'D', text: "Add a <code>failurePolicy: Ignore</code> so non-frontend pods skip the evaluation" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "A <code>kube-bench</code> scan flags CIS check 2.1: 'Ensure that the --client-cert-auth argument is set to true for etcd'.",
     question: "Where and how must this parameter be configured?",
     options: [
-      { id: 'A', text: "In <code>/etc/kubernetes/manifests/etcd.yaml</code>, ensure <code>--client-cert-auth=true</code> is present in the etcd command flags" },
-      { id: 'B', text: "In <code>/var/lib/kubelet/config.yaml</code>, set <code>etcd.auth: client</code>" },
-      { id: 'C', text: "In <code>/etc/kubernetes/manifests/kube-apiserver.yaml</code>, add <code>--etcd-client-cert-auth=true</code>" },
-      { id: 'D', text: "In the etcd CoreDNS configuration file" }
+      { id: 'A', text: "In <code>/etc/kubernetes/manifests/etcd.yaml</code>, as <code>--client-cert-auth=true</code>" },
+      { id: 'B', text: "In <code>/var/lib/kubelet/config.yaml</code>, as <code>etcd.auth: client</code>" },
+      { id: 'C', text: "In the API server manifest, as <code>--etcd-client-cert-auth=true</code>" },
+      { id: 'D', text: "In <code>/etc/etcd/etcd.conf.yml</code>, as <code>client-cert-auth: true</code>" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "A CEL admission policy rejects pods exceeding 4 CPU cores. The administrator wants the rejection error message returned to the developer to dynamically state the exact CPU request that was rejected.",
     question: "Which field in <code>ValidatingAdmissionPolicy</code> generates dynamic, formatted rejection messages?",
     options: [
-      { id: 'A', text: "<code>errorMessage</code>" },
-      { id: 'B', text: "<code>messageExpression</code> using string concatenation or formatting in CEL (e.g., <code>'CPU request ' + object.spec.containers[0].resources.requests.cpu + ' exceeds maximum limit 4'</code>)" },
-      { id: 'C', text: "<code>alertTemplate</code>" },
-      { id: 'D', text: "<code>rejectionText</code>" }
+      { id: 'A', text: "<code>validations[].message</code>, which holds the fixed text for a failed rule" },
+      { id: 'B', text: "<code>messageExpression</code>, which builds the text from the object with a CEL expression" },
+      { id: 'C', text: "<code>auditAnnotations[].valueExpression</code>, evaluated for each rejected request" },
+      { id: 'D', text: "<code>failurePolicy</code>, which selects the text returned when a rule cannot run" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "An attacker with compromised namespace administrative credentials attempts to delete the cluster's <code>ValidatingWebhookConfiguration</code> to bypass admission security checks.",
     question: "Which RBAC rule prevents namespace-level administrators from tampering with admission webhooks?",
     options: [
-      { id: 'A', text: "Set <code>readOnlyRootFilesystem: true</code> on the API server pod" },
-      { id: 'B', text: "Ensure that permissions to <code>create, update, patch, delete</code> on resources <code>validatingwebhookconfigurations</code> and <code>mutatingwebhookconfigurations</code> in API group <code>admissionregistration.k8s.io</code> are strictly restricted to <code>cluster-admin</code>" },
-      { id: 'C', text: "Mount <code>/etc/kubernetes/admin.conf</code> as read-only" },
-      { id: 'D', text: "Annotate the webhook with <code>immutable: true</code>" }
+      { id: 'A', text: "Restrict <code>get, list, watch</code> on <code>admissionregistration.k8s.io</code> resources to cluster-admin, leaving writes to namespace admins" },
+      { id: 'B', text: "Restrict <code>create, update, patch, delete</code> on the webhook configuration kinds to cluster-admin" },
+      { id: 'C', text: "Restrict the namespace admin Role to the <code>apps</code> and <code>core</code> API groups, so webhook objects fall outside its rules" },
+      { id: 'D', text: "Restrict writes to webhook objects with a mutating webhook that rejects edits from non-cluster-admin users" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "A CIS Benchmark audit reveals check 4.2.2 is failing: 'Ensure that the --authorization-mode argument is not set to AlwaysAllow'.",
     question: "What is the secure authorization mode for Kubelet that delegates permission checks to the API server via RBAC?",
     options: [
-      { id: 'A', text: "Set <code>authorization.mode: Node</code>" },
-      { id: 'B', text: "Set <code>authorization.mode: AlwaysAllow</code>" },
-      { id: 'C', text: "Set <code>authorization.mode: ABAC</code>" },
-      { id: 'D', text: "Set <code>authorization.mode: Webhook</code> in <code>/var/lib/kubelet/config.yaml</code>" }
+      { id: 'A', text: "Set <code>authorization.mode: Node</code> in the kubelet config" },
+      { id: 'B', text: "Set <code>authorization.mode: AlwaysAllow</code> in that config" },
+      { id: 'C', text: "Set <code>authorization.mode: ABAC</code> in the kubelet config" },
+      { id: 'D', text: "Set <code>authorization.mode: Webhook</code> in the kubelet config" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "An enterprise requires that container images must have both a cryptographic signature and an attached vulnerability scan attestation with zero critical CVEs before being scheduled.",
     question: "How does Kyverno verify signed in-toto attestations during admission?",
     options: [
-      { id: 'A', text: "Run <code>trivy image</code> inside a Kubernetes init container" },
-      { id: 'B', text: "In the <code>verifyImages</code> rule, declare an <code>attestations</code> block specifying the predicate type (e.g., <code>https://cosign.sigstore.dev/attestation/vuln/v1</code>) and conditions inspecting CVE counts" },
-      { id: 'C', text: "Pass the Cosign public key to the Linux kernel via <code>sysctl</code>" },
-      { id: 'D', text: "Mount the vulnerability scan report as a ConfigMap in the target namespace" }
+      { id: 'A', text: "In the <code>verifyImages</code> rule, add the Cosign public key and let the signature check cover the attestation too" },
+      { id: 'B', text: "In the <code>verifyImages</code> rule, add an <code>attestations</code> block naming the predicate type and the conditions over it" },
+      { id: 'C', text: "In a <code>validate</code> rule, compare the image's digest against a ConfigMap the scanner updates after each run" },
+      { id: 'D', text: "In a <code>generate</code> rule, materialise the scan report into the namespace so the admission check can read it" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "A <code>kube-bench</code> report flags check 4.1.1: 'Ensure that the kubelet service file permissions are set to 600 or more restrictive' and check 4.1.2: 'Ensure that the kubelet service file ownership is set to root:root'.",
     question: "Which commands remediate file ownership and permissions for the kubelet systemd service unit?",
     options: [
-      { id: 'A', text: "Execute <code>chmod 777 /etc/systemd/system/kubelet.service.d/10-kubeadm.conf</code>" },
-      { id: 'B', text: "Execute <code>chown kubelet:kubelet /var/lib/kubelet/config.yaml</code>" },
-      { id: 'C', text: "Execute <code>chown root:root /etc/systemd/system/kubelet.service.d/10-kubeadm.conf && chmod 600 /etc/systemd/system/kubelet.service.d/10-kubeadm.conf</code>" },
-      { id: 'D', text: "Execute <code>systemctl mask kubelet</code>" }
+      { id: 'A', text: "<code>chown root:root</code> the kubelet drop-in and <code>chmod 777</code> it" },
+      { id: 'B', text: "<code>chown kubelet:kubelet</code> the drop-in and <code>chmod 640</code> it" },
+      { id: 'C', text: "<code>chown root:root</code> the kubelet drop-in and <code>chmod 600</code> it" },
+      { id: 'D', text: "<code>systemctl mask kubelet</code> and move the drop-in out of the path" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKS_QUESTIONS_10 = [
     scenario: "A security engineer creates a single, self-contained <code>ValidatingAdmissionPolicy</code> to enforce the CIS benchmark recommendation that containers must not run in privileged mode.",
     question: "Which CEL expression evaluates whether any container in a pod has <code>privileged: true</code>?",
     options: [
-      { id: 'A', text: "<code>object.spec.privileged == false</code>" },
-      { id: 'B', text: "<code>!object.spec.containers.exists(c, has(c.securityContext) && has(c.securityContext.privileged) && c.securityContext.privileged == true)</code>" },
-      { id: 'C', text: "<code>object.containers.filter(c =&gt; c.privileged).length() == 0</code>" },
-      { id: 'D', text: "<code>spec.securityContext.privileged != true</code>" }
+      { id: 'A', text: "<code>object.spec.containers.all(c, c.securityContext.privileged == false)</code>" },
+      { id: 'B', text: "<code>!object.spec.containers.exists(c, c.securityContext.privileged == true)</code>" },
+      { id: 'C', text: "<code>object.spec.containers.filter(c, c.privileged).size() == 0</code>" },
+      { id: 'D', text: "<code>object.spec.securityContext.privileged != true</code>" }
     ],
     correctAnswers: ['B'],
     type: "single",

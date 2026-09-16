@@ -9,10 +9,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "A containerized workload in a high-security cluster must be prevented from querying external public DNS resolvers or falling back to node host DNS configurations.",
     question: "Which <code>dnsPolicy</code> setting ensures that all DNS resolution is handled strictly by the internal cluster CoreDNS without inheriting host search paths?",
     options: [
-      { id: 'A', text: "Set <code>dnsPolicy: 'Default'</code>" },
-      { id: 'B', text: "Delete <code>/etc/resolv.conf</code> in an init container" },
-      { id: 'C', text: "Set <code>dnsPolicy: 'ClusterFirstWithHostNet'</code>" },
-      { id: 'D', text: "Set <code>dnsPolicy: 'ClusterFirst'</code> (or <code>None</code> with explicit internal <code>dnsConfig.nameservers</code>)" }
+      { id: 'A', text: "Set <code>dnsPolicy: Default</code>, which inherits the node's own resolver configuration" },
+      { id: 'B', text: "Set <code>dnsPolicy: None</code> and have an init container write <code>/etc/resolv.conf</code>" },
+      { id: 'C', text: "Set <code>dnsPolicy: ClusterFirstWithHostNet</code>, which keeps the host's search paths" },
+      { id: 'D', text: "Set <code>dnsPolicy: ClusterFirst</code>, or <code>None</code> with explicit nameservers" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "A security engineer notices that an insecure web API allows attackers to trigger expensive multi-threaded image processing jobs, exhausting CPU resources across the cluster.",
     question: "How should container CPU requests and limits be configured to guarantee predictable scheduling and prevent CPU starvation?",
     options: [
-      { id: 'A', text: "Rely exclusively on Horizontal Pod Autoscaling based on memory metrics" },
-      { id: 'B', text: "Define equal CPU requests and limits (<code>Guaranteed</code> QoS class) so the container is allocated dedicated CFS bandwidth shares and cannot starve adjacent workloads" },
-      { id: 'C', text: "Set CPU limits to zero and CPU requests to 1000m" },
-      { id: 'D', text: "Configure <code>securityContext.runAsUser: 1000</code> without resource limits" }
+      { id: 'A', text: "Set CPU requests well below limits, so the scheduler packs the node and bursting is allowed" },
+      { id: 'B', text: "Set CPU requests equal to limits, giving the pod Guaranteed QoS and its own CFS share" },
+      { id: 'C', text: "Set CPU requests only, leaving limits unset so the container may use any idle capacity" },
+      { id: 'D', text: "Set CPU limits only, letting the requests default, and add a high-priority PriorityClass" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "An enterprise migrates storage volumes to modern CSI plugins. What security advantage does CSI volume handling offer over legacy in-tree volume plugins?",
     question: "How do CSI volume drivers improve cluster security boundaries?",
     options: [
-      { id: 'A', text: "CSI drivers automatically convert all block storage devices into in-memory tmpfs" },
-      { id: 'B', text: "CSI drivers run directly inside the Linux kernel without requiring user-space drivers" },
-      { id: 'C', text: "CSI plugins eliminate the need for persistent volume claims" },
-      { id: 'D', text: "CSI storage drivers run as decoupled, least-privilege containerized plugins outside control plane core binaries and support fine-grained credential injection and RBAC scoping" }
+      { id: 'A', text: "CSI drivers present every volume as memory-backed tmpfs, so nothing is written to node disks" },
+      { id: 'B', text: "CSI drivers run in the kernel, which removes the user-space daemon an attacker could target" },
+      { id: 'C', text: "CSI drivers bind volumes directly to pods, which removes the claim object from the trust path" },
+      { id: 'D', text: "CSI drivers run as least-privilege plugins outside the core binaries, with scoped credentials and RBAC" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "A pod consists of a web application container and a local caching proxy container. The containers need to communicate over localhost.",
     question: "What network security boundary exists between containers residing within the same Pod?",
     options: [
-      { id: 'A', text: "NetworkPolicies apply between containers in the same pod based on container name" },
-      { id: 'B', text: "Containers in the same pod are isolated by default unless an AppArmor profile links them" },
-      { id: 'C', text: "Istio proxies must be injected between containers inside the same pod" },
-      { id: 'D', text: "Containers in the same pod share the same network namespace and can communicate freely over localhost (<code>127.0.0.1</code>); NetworkPolicies cannot isolate communication between containers in the same pod" }
+      { id: 'A', text: "NetworkPolicy applies between them once the pod's containers are named in the policy's own `podSelector`" },
+      { id: 'B', text: "They are isolated by default, and traffic between them is allowed only once an AppArmor profile permits it" },
+      { id: 'C', text: "A service mesh sidecar mediates the traffic, so mTLS applies between containers inside the same pod" },
+      { id: 'D', text: "None: containers in a pod share a network namespace and reach each other on localhost, beyond NetworkPolicy's reach" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "A development team stores application manifests in a public Git repository. A developer accidentally commits a Kubernetes Secret containing base64-encoded production database credentials.",
     question: "Why is base64 encoding in Kubernetes Secrets not equivalent to encryption?",
     options: [
-      { id: 'A', text: "Base64 is an encoding scheme for data serialization and can be decoded instantly by anyone using <code>base64 -d</code>; it offers zero confidentiality or cryptographic protection" },
-      { id: 'B', text: "Base64 is only secure if the secret name starts with <code>private-</code>" },
-      { id: 'C', text: "Base64 is an obsolete symmetric encryption algorithm with known weak keys" },
-      { id: 'D', text: "Base64 passwords are automatically rotated by the API server every 24 hours" }
+      { id: 'A', text: "Base64 is a serialisation encoding that anyone can reverse with <code>base64 -d</code> — it provides no confidentiality" },
+      { id: 'B', text: "Base64 is applied per field, so a secret with several keys is only as protected as its shortest value" },
+      { id: 'C', text: "Base64 is a symmetric cipher whose key is derived from the secret's name, which makes it trivial to break" },
+      { id: 'D', text: "Base64 output is stored in etcd unchanged, so it is only protected while the etcd disk itself is encrypted" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "A platform team adopts GitOps (ArgoCD/Flux) and must commit all Kubernetes manifests to a public Git repository without exposing secret values.",
     question: "How does Bitnami Sealed Secrets enable secure storage of sensitive credentials in public Git repositories?",
     options: [
-      { id: 'A', text: "Sealed Secrets requires storing the cluster private key inside the Git repository" },
-      { id: 'B', text: "The Sealed Secrets controller replaces all secret values with random hashes during git pull" },
-      { id: 'C', text: "Developers store secrets in plaintext and configure GitHub to deny read access to secret manifests" },
-      { id: 'D', text: "Developers encrypt secrets using the controller's public asymmetric key to create a <code>SealedSecret</code> CRD that only the in-cluster Sealed Secrets controller can decrypt using its private key" }
+      { id: 'A', text: "Developers encrypt with a shared symmetric key, committed beside the manifests so the controller can decrypt" },
+      { id: 'B', text: "The controller replaces each value with a hash on pull, and resolves the hash from its own store at apply time" },
+      { id: 'C', text: "The controller reads plaintext manifests over a restricted deploy key that only it is permitted to use" },
+      { id: 'D', text: "Developers encrypt with the controller's public key into a <code>SealedSecret</code>, which only its private key can open" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "A cluster administrator configures <code>pod-security.kubernetes.io/warn: restricted</code> on the <code>default</code> namespace. A developer runs <code>kubectl apply -f deployment.yaml</code> containing a container running as root.",
     question: "What happens when the developer executes this command?",
     options: [
-      { id: 'A', text: "The deployment creation is blocked with a 403 Forbidden error" },
-      { id: 'B', text: "The worker node logs an AppArmor violation in /var/log/syslog" },
-      { id: 'C', text: "The deployment is created successfully, but the developer receives an interactive terminal warning message detailing the specific restricted security violations" },
-      { id: 'D', text: "The container is automatically patched to run as UID 10001" }
+      { id: 'A', text: "It is rejected with a 403, naming the restricted fields it violates" },
+      { id: 'B', text: "It is created, and the kubelet records an AppArmor violation for the pod" },
+      { id: 'C', text: "It is created, and the client prints a warning naming the restricted fields it violates" },
+      { id: 'D', text: "It is created, with the pod mutated to run as an unprivileged UID" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "A Python web application runs under <code>readOnlyRootFilesystem: true</code>, but crashes because Python attempts to write compiled bytecode (<code>.pyc</code>) to its application directory.",
     question: "How can the deployment be remediated without disabling <code>readOnlyRootFilesystem</code>?",
     options: [
-      { id: 'A', text: "Set <code>allowPrivilegeEscalation: true</code>" },
-      { id: 'B', text: "Mount <code>/</code> as a hostPath volume with read-write permissions" },
-      { id: 'C', text: "Set the environment variable <code>PYTHONDONTWRITEBYTECODE=1</code> and mount an <code>emptyDir</code> volume to any legitimate cache directories" },
-      { id: 'D', text: "Remove the container memory limit" }
+      { id: 'A', text: "Set <code>allowPrivilegeEscalation: true</code> so the interpreter may write its bytecode cache" },
+      { id: 'B', text: "Mount the image's own <code>/</code> as a writable <code>hostPath</code> volume on the node instead" },
+      { id: 'C', text: "Set <code>PYTHONDONTWRITEBYTECODE=1</code> and mount an <code>emptyDir</code> at the cache directory" },
+      { id: 'D', text: "Set <code>fsGroup</code> on the pod so the interpreter owns the directories it writes into" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "A backend database pod exposes metrics on port 9100 and database queries on port 5432. Applications must only reach port 5432; port 9100 should only be reachable by Prometheus scraper pods.",
     question: "Which NetworkPolicy configuration enforces this port-level traffic separation?",
     options: [
-      { id: 'A', text: "Set <code>policyTypes: ['Ingress']</code> and specify <code>ingress: [{}]</code>" },
-      { id: 'B', text: "Configure an egress rule blocking port 9100 on the Prometheus server" },
-      { id: 'C', text: "Define two separate ingress rules: one matching application pods on port 5432, and a second matching Prometheus pods on port 9100" },
-      { id: 'D', text: "Define a single ingress rule without port specifications matching both application and Prometheus pods" }
+      { id: 'A', text: "One ingress rule with <code>ingress: [{}]</code> and <code>policyTypes: ['Ingress']</code>" },
+      { id: 'B', text: "One egress rule on the Prometheus pods restricting them to port 9100" },
+      { id: 'C', text: "Two ingress rules: the application pods on 5432, and Prometheus on 9100" },
+      { id: 'D', text: "One ingress rule matching both pod sets, with no ports specified at all" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "An enterprise web application mounts an SSL certificate from a Kubernetes Secret. The certificate expires after 90 days, causing downtime when it lapses unexpectedly.",
     question: "Which cloud-native tool automates the issuance, renewal, and rotation of TLS certificates stored as Kubernetes Secrets?",
     options: [
-      { id: 'A', text: "CoreDNS stub domain manager" },
-      { id: 'B', text: "kube-bench compliance auditor" },
-      { id: 'C', text: "cert-manager (using ACME, Let's Encrypt, or internal Vault issuers)" },
-      { id: 'D', text: "Trivy vulnerability scanner" }
+      { id: 'A', text: "kube-bench, with a CIS certificate check" },
+      { id: 'B', text: "Trivy, with its TLS misconfig scanner" },
+      { id: 'C', text: "cert-manager, with ACME or an internal issuer" },
+      { id: 'D', text: "CoreDNS, with its stub domain manager" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "In a development namespace, a rogue test script creates 100 pods without setting memory limits. The worker node becomes unresponsive and locks up.",
     question: "Which configuration in a <code>LimitRange</code> resource would have prevented these pods from running without memory limits?",
     options: [
-      { id: 'A', text: "A PodDisruptionBudget with <code>maxUnavailable: 0</code>" },
-      { id: 'B', text: "A <code>ResourceQuota</code> specifying <code>hard: { memory: '100Gi' }</code>" },
-      { id: 'C', text: "A <code>LimitRange</code> with <code>limits: [{ type: 'Container', default: { memory: '512Mi' }, defaultRequest: { memory: '256Mi' } }]</code>" },
-      { id: 'D', text: "A NetworkPolicy restricting pod egress to internal DNS" }
+      { id: 'A', text: "A <code>ResourceQuota</code> with a hard cap on the namespace's total memory" },
+      { id: 'B', text: "A <code>LimitRange</code> of type <code>Pod</code> carrying a <code>max</code> memory value" },
+      { id: 'C', text: "A <code>LimitRange</code> of type <code>Container</code> carrying a <code>default</code> memory limit" },
+      { id: 'D', text: "A <code>ResourceQuota</code> with a hard cap on the namespace's pod count" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "An ingress controller terminates TLS for public web traffic. The security team must disable obsolete TLS 1.0 and 1.1 protocols to comply with PCI-DSS 4.0 requirements.",
     question: "Where should the minimum TLS protocol version be configured for an NGINX Ingress Controller?",
     options: [
-      { id: 'A', text: "In each individual Pod's <code>securityContext</code>" },
-      { id: 'B', text: "In the <code>ingress-nginx-controller</code> ConfigMap setting <code>ssl-protocols: 'TLSv1.2 TLSv1.3'</code>" },
-      { id: 'C', text: "In the CoreDNS ConfigMap under <code>plugins</code>" },
-      { id: 'D', text: "In the <code>/etc/kubernetes/admin.conf</code> file on the control plane" }
+      { id: 'A', text: "In each backend pod's own <code>securityContext</code> block for the workload" },
+      { id: 'B', text: "In the controller's ConfigMap, as <code>ssl-protocols: 'TLSv1.2 TLSv1.3'</code>" },
+      { id: 'C', text: "In the Ingress object's annotations, per host that terminates TLS" },
+      { id: 'D', text: "In <code>/etc/kubernetes/admin.conf</code> on each control plane node" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "A Kubernetes cluster spans multiple namespaces and uses Calico CNI. The security architect wants a single cluster-wide policy blocking all pods from accessing the cloud metadata IP <code>169.254.169.254</code> without creating individual NetworkPolicies in every namespace.",
     question: "Which Calico custom resource implements cluster-wide egress blocking for cloud metadata?",
     options: [
-      { id: 'A', text: "A sysctl rule in <code>/etc/sysctl.d/calico.conf</code>" },
-      { id: 'B', text: "A <code>GlobalNetworkPolicy</code> defining an egress rule that drops destination CIDR <code>169.254.169.254/32</code>" },
-      { id: 'C', text: "A standard Kubernetes NetworkPolicy in the <code>default</code> namespace" },
-      { id: 'D', text: "A <code>ClusterRole</code> denying access to <code>services/proxy</code>" }
+      { id: 'A', text: "A Calico <code>HostEndpoint</code> with a failsafe outbound port list on each node" },
+      { id: 'B', text: "A Calico <code>GlobalNetworkPolicy</code> with an egress deny for <code>169.254.169.254/32</code>" },
+      { id: 'C', text: "A Kubernetes NetworkPolicy in each namespace denying that destination address" },
+      { id: 'D', text: "A Calico <code>NetworkSet</code> holding the metadata address, referenced by an allow rule" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "A custom Validating Admission Webhook requires a valid TLS certificate and CA bundle to communicate securely with <code>kube-apiserver</code>.",
     question: "How can cert-manager automatically inject the CA certificate bundle into the <code>ValidatingWebhookConfiguration</code>?",
     options: [
-      { id: 'A', text: "Annotate the <code>ValidatingWebhookConfiguration</code> with <code>cert-manager.io/inject-ca-from: &lt;namespace&gt;/&lt;certificate-name&gt;</code>" },
-      { id: 'B', text: "Set <code>insecureSkipTLSVerify: true</code> in the webhook client configuration" },
-      { id: 'C', text: "Mount the API server root certificate into the webhook pod" },
-      { id: 'D', text: "Manually copy the base64-encoded root CA into the <code>caBundle</code> field using an administrative bash script" }
+      { id: 'A', text: "Annotate it with <code>cert-manager.io/inject-ca-from: &lt;namespace&gt;/&lt;certificate&gt;</code>" },
+      { id: 'B', text: "Annotate it with <code>cert-manager.io/issuer</code> and leave the <code>caBundle</code> empty" },
+      { id: 'C', text: "Mount the cluster's own CA into the webhook pod so it serves that chain" },
+      { id: 'D', text: "Copy the base64 CA into the <code>caBundle</code> field from a bootstrap script" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "A public-facing blogging platform allows users to install untrusted third-party plugins in containerized pods. These pods must be strictly prohibited from accessing the Kubernetes API server.",
     question: "What combination of controls ensures that untrusted pods cannot communicate with or authenticate to the API server?",
     options: [
-      { id: 'A', text: "Set <code>automountServiceAccountToken: false</code> on the pod, and apply an egress NetworkPolicy blocking traffic to the Kubernetes API service IP (port 443/6443)" },
-      { id: 'B', text: "Enable anonymous authentication on the API server" },
-      { id: 'C', text: "Delete the <code>kubernetes</code> service in the <code>default</code> namespace" },
-      { id: 'D', text: "Set <code>securityContext.privileged: false</code> and mount an emptyDir volume to <code>/etc/kubernetes</code>" }
+      { id: 'A', text: "Set <code>automountServiceAccountToken: false</code> and block egress to the API service IP on 443" },
+      { id: 'B', text: "Set <code>automountServiceAccountToken: false</code> and disable anonymous auth on the API server" },
+      { id: 'C', text: "Remove the <code>kubernetes</code> Service from the pod's namespace so the endpoint cannot resolve" },
+      { id: 'D', text: "Set <code>privileged: false</code> and mount an <code>emptyDir</code> over <code>/var/run/secrets</code>" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "A deployment submitted to a namespace labeled with <code>pod-security.kubernetes.io/enforce: restricted</code> is rejected with error: 'seccompProfile: must be RuntimeDefault or Localhost'.",
     question: "Which entry in the deployment manifest satisfies this Pod Security Standard requirement?",
     options: [
-      { id: 'A', text: "Add <code>securityContext: { seccompProfile: { type: 'Unconfined' } }</code>" },
-      { id: 'B', text: "Annotate the deployment with <code>seccomp: 'disabled'</code>" },
-      { id: 'C', text: "Set <code>securityContext.privileged: false</code> without a seccomp block" },
-      { id: 'D', text: "Add <code>securityContext: { seccompProfile: { type: 'RuntimeDefault' } }</code> to the Pod or container spec" }
+      { id: 'A', text: "Add <code>seccompProfile: { type: 'Unconfined' }</code> to the pod's securityContext" },
+      { id: 'B', text: "Add <code>appArmorProfile: { type: 'RuntimeDefault' }</code> to each container instead" },
+      { id: 'C', text: "Add <code>privileged: false</code> to each container and omit the seccomp block" },
+      { id: 'D', text: "Add <code>seccompProfile: { type: 'RuntimeDefault' }</code> to the pod's securityContext" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "An Istio Ingress Gateway is exposed to the internet. To defend against slowloris and HTTP flood attacks, connection timeouts and request size limits must be enforced.",
     question: "Which Istio or Envoy configuration applies client connection timeouts and header limits on ingress traffic?",
     options: [
-      { id: 'A', text: "Set <code>automountServiceAccountToken: false</code> on the gateway ServiceAccount" },
-      { id: 'B', text: "Set <code>readOnlyRootFilesystem: true</code> on the ingress gateway deployment" },
-      { id: 'C', text: "Deploy an egress NetworkPolicy in the <code>istio-system</code> namespace" },
-      { id: 'D', text: "Configure connection limits and timeouts in the Istio <code>EnvoyFilter</code> or <code>DestinationRule</code> traffic policies" }
+      { id: 'A', text: "Connection limits in the gateway's own <code>Sidecar</code> resource for the namespace" },
+      { id: 'B', text: "Request limits in an Istio <code>AuthorizationPolicy</code> attached to the gateway" },
+      { id: 'C', text: "Rate limits in a Kubernetes <code>Ingress</code> annotation on the gateway's route" },
+      { id: 'D', text: "Connection limits and timeouts in an Istio <code>EnvoyFilter</code> or <code>DestinationRule</code>" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "An attacker breaks into an application container. The container process has default Linux capabilities, including <code>CAP_KILL</code>. What action can the attacker perform inside the container?",
     question: "What does <code>CAP_KILL</code> allow a process to do?",
     options: [
-      { id: 'A', text: "Reboot the host worker node" },
-      { id: 'B', text: "Disable iptables firewall rules on the node" },
-      { id: 'C', text: "Delete persistent volume claims in the namespace" },
-      { id: 'D', text: "Send arbitrary signals (such as <code>SIGKILL</code> or <code>SIGTERM</code>) to any process belonging to other users within the same PID namespace" }
+      { id: 'A', text: "Send a reboot request to the host through the kernel's own interface" },
+      { id: 'B', text: "Send netlink messages that flush the node's iptables firewall rules" },
+      { id: 'C', text: "Send delete requests for the persistent volume claims in its namespace" },
+      { id: 'D', text: "Send any signal to processes owned by other users in the same PID namespace" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "Worker nodes must be drained and rebooted to apply critical Linux kernel security patches. The team must ensure that at least 80% of payment service pods remain operational during rolling node drains.",
     question: "Which Kubernetes resource protects application availability during automated node maintenance?",
     options: [
-      { id: 'A', text: "A <code>ResourceQuota</code> specifying <code>pods: '10'</code>" },
-      { id: 'B', text: "A <code>PodDisruptionBudget</code> (PDB) specifying <code>minAvailable: '80%'</code> matching the payment service selector" },
-      { id: 'C', text: "A NetworkPolicy with <code>policyTypes: ['Ingress']</code>" },
-      { id: 'D', text: "A <code>LimitRange</code> with <code>maxUnavailable: 20%</code>" }
+      { id: 'A', text: "A <code>ResourceQuota</code> with a hard pod count over the service's own namespace" },
+      { id: 'B', text: "A <code>PodDisruptionBudget</code> with <code>minAvailable: 80%</code> over the service's selector" },
+      { id: 'C', text: "A <code>PriorityClass</code> with preemption disabled, named by the service's pods" },
+      { id: 'D', text: "A <code>LimitRange</code> with <code>maxUnavailable: 20%</code> over the service's pods" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "A cluster includes specialized bare-metal nodes with hardware encryption modules dedicated to processing PCI-DSS financial transactions. Standard web frontend pods must never be scheduled onto these secure nodes.",
     question: "Which Kubernetes feature ensures that only financial transaction pods with matching tolerations can be scheduled on these nodes?",
     options: [
-      { id: 'A', text: "Configure a <code>LimitRange</code> on the secure nodes" },
-      { id: 'B', text: "Apply an AppArmor profile to the frontend pods" },
-      { id: 'C', text: "Apply a <code>taint</code> to the secure nodes with <code>key=dedicated,value=pci,effect=NoSchedule</code>, and declare matching <code>tolerations</code> only in the financial transaction pod manifests" },
-      { id: 'D', text: "Configure an ingress NetworkPolicy blocking port 443" }
+      { id: 'A', text: "Label the secure nodes <code>dedicated=pci</code> and give only the transaction pods a matching <code>nodeSelector</code>" },
+      { id: 'B', text: "Taint the secure nodes <code>dedicated=pci:PreferNoSchedule</code> and give every pod in the namespace the toleration" },
+      { id: 'C', text: "Taint the secure nodes <code>dedicated=pci:NoSchedule</code> and give only the transaction pods the matching toleration" },
+      { id: 'D', text: "Set node affinity on the transaction pods for the secure nodes, and a pod anti-affinity against the others" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "A security team deploys a custom Validating Admission Webhook that checks for mandatory security labels. What is the impact of configuring <code>failurePolicy: Fail</code> vs <code>failurePolicy: Ignore</code>?",
     question: "What occurs when the webhook endpoint is unreachable if <code>failurePolicy: Fail</code> is configured?",
     options: [
-      { id: 'A', text: "The API server allows all requests to pass through without validation" },
-      { id: 'B', text: "The API server automatically disables the webhook rule" },
-      { id: 'C', text: "The API server rejects all incoming requests that match the webhook rules, prioritizing security over availability" },
-      { id: 'D', text: "The API server retries indefinitely until the webhook comes back online" }
+      { id: 'A', text: "Every request matching the webhook's rules is admitted unvalidated and the error recorded" },
+      { id: 'B', text: "The API server disables the webhook rule until the endpoint answers a health probe again" },
+      { id: 'C', text: "Every request matching the webhook's rules is rejected, favouring security over availability" },
+      { id: 'D', text: "The API server retries the call until the endpoint returns, holding the request open" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "A developer specifies <code>hostPort: 8080</code> in a container's port definition to expose the service directly on the worker node's IP address.",
     question: "Why does the Pod Security Standard restricted profile forbid specifying <code>hostPort</code>?",
     options: [
-      { id: 'A', text: "<code>hostPort</code> automatically mounts host /etc into the container" },
-      { id: 'B', text: "<code>hostPort</code> binds the container directly to the host node's network port, potentially clashing with node services, bypassing NetworkPolicies, and limiting pod scheduling to one replica per node" },
-      { id: 'C', text: "<code>hostPort</code> causes kubelet to disable TLS certificate verification" },
-      { id: 'D', text: "<code>hostPort</code> forces the container to run as root UID 0" }
+      { id: 'A', text: "It places the container in the host network namespace, which exposes every other port the node is listening on" },
+      { id: 'B', text: "It binds the container to the node's own port, clashing with node services, bypassing policy and pinning one replica per node" },
+      { id: 'C', text: "It requires the <code>CAP_NET_BIND_SERVICE</code> capability, which the restricted profile drops from every container" },
+      { id: 'D', text: "It requires the kubelet to run the container as root, since only root may bind a port below 1024 on the host" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "A machine learning container crashes due to insufficient shared memory in <code>/dev/shm</code>, which defaults to 64MB in Docker/Kubernetes.",
     question: "How should an administrator safely expand <code>/dev/shm</code> without granting <code>hostIPC: true</code>?",
     options: [
-      { id: 'A', text: "Set <code>securityContext.privileged: true</code>" },
-      { id: 'B', text: "Mount <code>/dev/shm</code> from the host using a hostPath volume" },
-      { id: 'C', text: "Set <code>hostIPC: true</code> in the Pod specification" },
-      { id: 'D', text: "Mount an <code>emptyDir</code> volume with <code>medium: Memory</code> and a <code>sizeLimit</code> directly to <code>/dev/shm</code>" }
+      { id: 'A', text: "Mount an <code>emptyDir</code> at <code>/dev/shm</code> and set <code>privileged: true</code> on the container" },
+      { id: 'B', text: "Mount the node's own <code>/dev/shm</code> as a <code>hostPath</code> volume into the container" },
+      { id: 'C', text: "Set <code>hostIPC: true</code> and raise the node's own <code>/dev/shm</code> size limit instead" },
+      { id: 'D', text: "Mount an <code>emptyDir</code> with <code>medium: Memory</code> and a <code>sizeLimit</code> at <code>/dev/shm</code>" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKS_QUESTIONS_5 = [
     scenario: "A compliance standard mandates that no container within the multi-tenant cluster may execute with root privileges under any circumstances.",
     question: "Which combination of fields in <code>pod.spec.securityContext</code> guarantees non-root execution across all containers in the pod?",
     options: [
-      { id: 'A', text: "Set <code>runAsNonRoot: true</code>, specify an unprivileged UID under <code>runAsUser: 10001</code>, and set <code>allowPrivilegeEscalation: false</code>" },
-      { id: 'B', text: "Set <code>privileged: false</code> and configure <code>hostPID: false</code>" },
-      { id: 'C', text: "Set <code>capabilities.drop: ['SETUID']</code> and omit runAsUser" },
-      { id: 'D', text: "Set <code>runAsUser: 0</code> and configure <code>readOnlyRootFilesystem: false</code>" }
+      { id: 'A', text: "Set <code>runAsNonRoot: true</code> with <code>runAsUser: 10001</code> at the pod level" },
+      { id: 'B', text: "Set <code>privileged: false</code> with <code>hostPID: false</code> at the pod level" },
+      { id: 'C', text: "Set <code>capabilities.drop: ['SETUID', 'SETGID']</code> on each container" },
+      { id: 'D', text: "Set <code>runAsUser: 0</code> with <code>readOnlyRootFilesystem: true</code> per container" }
     ],
     correctAnswers: ['A'],
     type: "single",

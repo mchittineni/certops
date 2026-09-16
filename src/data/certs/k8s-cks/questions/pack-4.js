@@ -9,10 +9,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "A company must enforce the most stringent Kubernetes Pod Security Standards on the <code>payments</code> namespace. Any pod attempting to run with privileged settings, root user, or host namespaces must be rejected at admission time.",
     question: "Which namespace labels enforce the Pod Security Standard restricted profile while warning developers in staging?",
     options: [
-      { id: 'A', text: "Set <code>pod-security.kubernetes.io/enforce: privileged</code> and <code>pod-security.kubernetes.io/audit: baseline</code>" },
-      { id: 'B', text: "Set <code>pod-security.kubernetes.io/enforce: restricted</code> and <code>pod-security.kubernetes.io/warn: restricted</code> on the namespace metadata labels" },
-      { id: 'C', text: "Annotate the namespace with <code>admission.k8s.io/pod-security: 'strict'</code>" },
-      { id: 'D', text: "Set <code>security.openshift.io/scc: restricted</code> on the pod template" }
+      { id: 'A', text: "Set <code>pod-security.kubernetes.io/enforce: privileged</code> with <code>audit: baseline</code>" },
+      { id: 'B', text: "Set <code>pod-security.kubernetes.io/enforce: restricted</code> with <code>warn: restricted</code>" },
+      { id: 'C', text: "Set <code>pod-security.kubernetes.io/warn: restricted</code> and leave enforce unset" },
+      { id: 'D', text: "Set <code>pod-security.kubernetes.io/enforce-version: latest</code> on its own" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "A security audit identifies that database credentials are being injected into application containers using <code>envFrom.secretRef</code>. What is the primary security vulnerability associated with injecting secrets as environment variables?",
     question: "Why is mounting Secrets as files in a tmpfs volume considered safer than environment variables?",
     options: [
-      { id: 'A', text: "Secrets mounted as volumes are automatically encrypted using asymmetric RSA keys inside the container" },
-      { id: 'B', text: "Environment variables are exposed in crash dumps, child processes, container inspect outputs (<code>crictl inspect</code>), and readable via <code>/proc/&lt;pid&gt;/environ</code>, whereas mounted secret volumes reside exclusively in memory-backed tmpfs and are not leaked into process tables" },
-      { id: 'C', text: "Environment variables can only contain 64 bytes of plaintext data" },
-      { id: 'D', text: "Mounted volumes automatically notify external certificate authorities when secrets expire" }
+      { id: 'A', text: "Secret volumes are encrypted with the node's own key material, whereas environment variables are written to etcd in the clear" },
+      { id: 'B', text: "Environment variables leak via crash dumps, child processes and <code>/proc/&lt;pid&gt;/environ</code>; a secret volume stays in tmpfs" },
+      { id: 'C', text: "Secret volumes are refreshed by the kubelet when the Secret changes, whereas environment variables are fixed for the container's life" },
+      { id: 'D', text: "Secret volumes are readable only by the <code>fsGroup</code> that owns them, whereas environment variables are readable by every user in the container" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "An enterprise requires that database passwords and API keys stored in HashiCorp Vault or AWS Secrets Manager be synchronized directly into pods without persisting sensitive credentials in Kubernetes etcd.",
     question: "Which cloud-native architecture mounts external secrets directly into pod filesystems using an ephemeral CSI volume?",
     options: [
-      { id: 'A', text: "Create a CronJob that runs <code>kubectl create secret</code> every 10 minutes from external vault API queries" },
-      { id: 'B', text: "Configure <code>--encryption-provider-config</code> with a plaintext token pointing to the vault address" },
-      { id: 'C', text: "Mount <code>/etc/vault</code> as a hostPath volume on all worker nodes" },
-      { id: 'D', text: "Deploy the Kubernetes Secrets Store CSI Driver and configure a <code>SecretProviderClass</code> referencing the external secret vault provider" }
+      { id: 'A', text: "Run a CronJob that queries the vault and rewrites the Secret every few minutes" },
+      { id: 'B', text: "Point <code>--encryption-provider-config</code> at a KMS plugin backed by the vault" },
+      { id: 'C', text: "Mount the vault's agent socket from the node with a <code>hostPath</code> volume" },
+      { id: 'D', text: "Install the Secrets Store CSI Driver and a <code>SecretProviderClass</code> for the vault" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "To achieve Zero Trust architecture, all service-to-service communication within the <code>banking</code> namespace must be cryptographically encrypted and authenticated using mutual TLS. Any unencrypted plaintext TCP requests must be rejected immediately.",
     question: "Which Istio <code>PeerAuthentication</code> configuration enforces strict mTLS across the namespace?",
     options: [
-      { id: 'A', text: "Create a <code>PeerAuthentication</code> with <code>spec.mtls.mode: PERMISSIVE</code>" },
-      { id: 'B', text: "Configure a <code>DestinationRule</code> with <code>tls.mode: DISABLE</code>" },
-      { id: 'C', text: "Annotate the namespace with <code>istio.io/tls: 'enabled'</code>" },
-      { id: 'D', text: "Create a <code>PeerAuthentication</code> in namespace <code>banking</code> with <code>spec.mtls.mode: STRICT</code>" }
+      { id: 'A', text: "A <code>PeerAuthentication</code> in the namespace with <code>spec.mtls.mode: PERMISSIVE</code>" },
+      { id: 'B', text: "A <code>DestinationRule</code> for the namespace's hosts with <code>tls.mode: ISTIO_MUTUAL</code>" },
+      { id: 'C', text: "An <code>AuthorizationPolicy</code> in the namespace requiring a principal on every request" },
+      { id: 'D', text: "A <code>PeerAuthentication</code> in the namespace with <code>spec.mtls.mode: STRICT</code>" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -114,10 +114,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "An organization wants to encrypt all node-to-node and pod-to-pod network traffic across a multi-node Kubernetes cluster at the networking layer without installing sidecar proxies or modifying application code.",
     question: "Which CNI capability provides kernel-level transparent encryption across all pod endpoints?",
     options: [
-      { id: 'A', text: "Enable <code>serverTLSBootstrap: true</code> in the worker node kubelet configuration" },
-      { id: 'B', text: "Deploy an Envoy sidecar proxy into every application pod manually" },
-      { id: 'C', text: "Create an ingress NetworkPolicy requiring HTTPS on port 443" },
-      { id: 'D', text: "Enable transparent encryption in Cilium using WireGuard (<code>encryption.type: wireguard</code>) or IPsec" }
+      { id: 'A', text: "Enable <code>serverTLSBootstrap: true</code> on each node's kubelet" },
+      { id: 'B', text: "Inject an Envoy sidecar into every pod and require mTLS" },
+      { id: 'C', text: "Add an ingress NetworkPolicy that permits only port 443" },
+      { id: 'D', text: "Enable Cilium's transparent encryption with WireGuard" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "Developers frequently forget to define CPU and memory requests and limits on their containers, allowing individual rogue containers to consume all worker node memory and trigger OOM killer panics.",
     question: "Which Kubernetes resource automatically assigns default requests/limits to newly created containers and restricts maximum allowable resources per pod in a namespace?",
     options: [
-      { id: 'A', text: "A NetworkPolicy specifying bandwidth rate limits" },
-      { id: 'B', text: "A PodDisruptionBudget specifying <code>minAvailable: 1</code>" },
-      { id: 'C', text: "A <code>ResourceQuota</code> resource specifying <code>requests.cpu</code> and <code>limits.memory</code>" },
-      { id: 'D', text: "A <code>LimitRange</code> resource defining <code>default</code>, <code>defaultRequest</code>, <code>max</code>, and <code>min</code> resource constraints" }
+      { id: 'A', text: "A <code>ResourceQuota</code> carrying <code>requests.cpu</code> and <code>limits.memory</code> totals" },
+      { id: 'B', text: "A <code>PriorityClass</code> whose preemption policy bounds each pod's resources" },
+      { id: 'C', text: "A mutating webhook that writes the defaults into each pod as it is admitted" },
+      { id: 'D', text: "A <code>LimitRange</code> carrying <code>default</code>, <code>max</code> and <code>min</code>" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "A multi-tenant cluster must prevent any single tenant namespace from consuming more than 16 CPU cores, 64 GiB of RAM, or creating more than 50 total Pods.",
     question: "Which resource enforces aggregate capacity boundaries across a namespace?",
     options: [
-      { id: 'A', text: "A <code>LimitRange</code> specifying <code>max.cpu: '16'</code> and <code>max.memory: 64Gi</code>" },
-      { id: 'B', text: "A <code>ResourceQuota</code> specifying <code>limits.cpu: '16'</code>, <code>limits.memory: 64Gi</code>, and <code>pods: '50'</code>" },
-      { id: 'C', text: "A NodeAffinity rule targeting nodes labeled with <code>quota=true</code>" },
-      { id: 'D', text: "A PriorityClass with <code>value: 1000</code> and <code>preemptionPolicy: Never</code>" }
+      { id: 'A', text: "A <code>LimitRange</code> with <code>max.cpu</code> and <code>max.memory</code> per container" },
+      { id: 'B', text: "A <code>ResourceQuota</code> with <code>limits.cpu</code>, <code>limits.memory</code> and a pod count" },
+      { id: 'C', text: "A node affinity rule that pins the namespace's pods to a labelled node pool" },
+      { id: 'D', text: "A <code>PriorityClass</code> with <code>preemptionPolicy: Never</code> for the namespace" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "An organization is evaluating the trade-offs between Pod Security Standards Baseline and Restricted profiles for general microservices.",
     question: "What is a mandatory requirement enforced by the <code>restricted</code> profile that is permitted under the <code>baseline</code> profile?",
     options: [
-      { id: 'A', text: "Containers are prohibited from mounting persistent volumes" },
-      { id: 'B', text: "Pods are forbidden from communicating with CoreDNS" },
-      { id: 'C', text: "Pods must have at least three replicas in every deployment" },
-      { id: 'D', text: "Containers must run as a non-root user (<code>runAsNonRoot: true</code>), drop all Linux capabilities (except possibly <code>NET_BIND_SERVICE</code>), and set <code>allowPrivilegeEscalation: false</code>" }
+      { id: 'A', text: "Containers must set a seccomp profile and may not use <code>hostPath</code> volumes of any kind" },
+      { id: 'B', text: "Containers must set <code>readOnlyRootFilesystem: true</code> and may not mount persistent volumes" },
+      { id: 'C', text: "Containers must declare resource limits and may not share the host's PID or IPC namespaces" },
+      { id: 'D', text: "Containers must run as non-root, drop all capabilities, and set <code>allowPrivilegeEscalation: false</code>" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "To pull container images from a private enterprise registry requiring authentication, developers currently paste registry credentials into every individual pod manifest.",
     question: "What is the recommended best practice to automatically supply image pull credentials to all pods created by a specific ServiceAccount?",
     options: [
-      { id: 'A', text: "Create a secret of type <code>kubernetes.io/dockerconfigjson</code> and link it to the ServiceAccount under <code>imagePullSecrets</code>" },
-      { id: 'B', text: "Store the registry credentials in plaintext inside the <code>kubelet.conf</code> file on every worker node" },
-      { id: 'C', text: "Mount the <code>.docker/config.json</code> file into <code>/etc/kubernetes/</code> using a hostPath volume" },
-      { id: 'D', text: "Add the registry password to the pod's environment variables under <code>REGISTRY_PASSWORD</code>" }
+      { id: 'A', text: "Create a <code>dockerconfigjson</code> Secret and list it under the ServiceAccount's <code>imagePullSecrets</code>" },
+      { id: 'B', text: "Write the credentials into each node's <code>/var/lib/kubelet/config.json</code> so every pull is covered" },
+      { id: 'C', text: "Mount the <code>.docker/config.json</code> file into the pods from a <code>hostPath</code> volume" },
+      { id: 'D', text: "Pass the registry credentials to the pods as environment variables from a Secret" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "Under the Pod Security Standard <code>restricted</code> profile, which volume types are permitted for pod definitions?",
     question: "Which list reflects volume types allowed under the restricted PSS profile?",
     options: [
-      { id: 'A', text: "<code>gitRepo</code>, <code>iscsi</code>, <code>cephfs</code>, and <code>awsElasticBlockStore</code>" },
-      { id: 'B', text: "<code>configMap</code>, <code>emptyDir</code>, <code>projected</code>, <code>secret</code>, <code>downwardAPI</code>, <code>persistentVolumeClaim</code>, and <code>csi</code>" },
-      { id: 'C', text: "<code>hostPath</code>, <code>nfs</code>, <code>glusterfs</code>, and <code>local</code>" },
-      { id: 'D', text: "Only <code>emptyDir</code> volumes; all other volume types are forbidden" }
+      { id: 'A', text: "<code>configMap</code>, <code>emptyDir</code>, <code>secret</code>, <code>gitRepo</code>, <code>iscsi</code>, <code>cephfs</code>, <code>awsElasticBlockStore</code>" },
+      { id: 'B', text: "<code>configMap</code>, <code>emptyDir</code>, <code>projected</code>, <code>secret</code>, <code>downwardAPI</code>, <code>persistentVolumeClaim</code>, <code>csi</code>" },
+      { id: 'C', text: "<code>configMap</code>, <code>emptyDir</code>, <code>secret</code>, <code>hostPath</code>, <code>nfs</code>, <code>glusterfs</code>, <code>local</code>" },
+      { id: 'D', text: "<code>emptyDir</code> alone; every other volume type is forbidden under the restricted profile" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "A database-driven application requires short-lived, dynamically generated database credentials that are rotated every 4 hours automatically.",
     question: "Which architecture pattern facilitates dynamic credential generation and injection into application pods?",
     options: [
-      { id: 'A', text: "Grant the application pod the <code>cluster-admin</code> ClusterRole to generate secrets directly" },
-      { id: 'B', text: "Deploy a Vault Agent sidecar container using Vault Agent Injector annotations to authenticate to Vault via the Pod's ServiceAccount token, fetch dynamic lease credentials, and render them to a shared in-memory volume" },
-      { id: 'C', text: "Store dynamic credentials in a Kubernetes ConfigMap updated via an external bash script" },
-      { id: 'D', text: "Embed Vault root administrative tokens inside application container environment variables" }
+      { id: 'A', text: "Inject a Vault Agent sidecar that logs in with a static AppRole secret ID baked into the pod's own environment" },
+      { id: 'B', text: "Inject a Vault Agent sidecar that logs in with the pod's ServiceAccount token and renders leased credentials to a tmpfs volume" },
+      { id: 'C', text: "Run a controller that mints credentials on a schedule and writes them into a ConfigMap the pods read at startup" },
+      { id: 'D', text: "Run the Vault CSI provider and mount the credential as a volume using the node's own Vault root token" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "A security requirement on high-security Kubernetes worker nodes dictates that application memory pages—including decrypted TLS keys and secrets—must never be written to unencrypted disk swap space.",
     question: "What is the standard Kubernetes node configuration regarding host memory swap?",
     options: [
-      { id: 'A', text: "Set container memory limits equal to zero in all pod manifests" },
-      { id: 'B', text: "Enable swap on an encrypted NFS mount with <code>failSwapOn: false</code>" },
-      { id: 'C', text: "Disable host swap entirely using <code>swapoff -a</code> and remove swap entries from <code>/etc/fstab</code> (or configure kubelet <code>failSwapOn: true</code>)" },
-      { id: 'D', text: "Deploy an admission controller that encrypts host swap sectors" }
+      { id: 'A', text: "Leave swap enabled and set <code>failSwapOn: false</code>, relying on container memory limits to bound usage" },
+      { id: 'B', text: "Leave swap enabled on an encrypted device and set the kubelet's swap behaviour to <code>LimitedSwap</code>" },
+      { id: 'C', text: "Disable swap with <code>swapoff -a</code>, clear <code>/etc/fstab</code>, keep <code>failSwapOn: true</code>" },
+      { id: 'D', text: "Disable swap on the worker nodes only, leaving the control plane nodes with swap for burst headroom" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "By default, unprivileged containers in Kubernetes retain the <code>CAP_NET_RAW</code> Linux capability. What network attack does this capability permit if a container is compromised?",
     question: "Which attack vector is enabled by granting <code>CAP_NET_RAW</code> to an application container?",
     options: [
-      { id: 'A', text: "The compromised container can craft raw IP and ICMP packets, forge ARP responses, and execute ARP spoofing or DNS spoofing attacks against other pods sharing the same virtual bridge network" },
-      { id: 'B', text: "The container can capture all HTTPS traffic across external internet gateways" },
-      { id: 'C', text: "The container can modify routing tables on the control plane node" },
-      { id: 'D', text: "The container can force worker nodes into kernel panic using raw sockets" }
+      { id: 'A', text: "It can craft raw packets, forge ARP replies, and spoof ARP or DNS for the pods on its own bridge" },
+      { id: 'B', text: "It can read the node's TLS session keys, which exposes HTTPS traffic leaving through the gateway" },
+      { id: 'C', text: "It can alter the node's routing table, which redirects traffic bound for the control plane" },
+      { id: 'D', text: "It can exhaust the kernel's socket buffers, which panics the node under sustained raw traffic" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "An application pod uses the Downward API to expose pod metadata (labels, IP, annotations) to containers as files. What security precaution must be taken when using the Downward API?",
     question: "What is the primary risk of exposing pod annotations via the Downward API?",
     options: [
-      { id: 'A', text: "The Downward API requires the container to execute with <code>privileged: true</code>" },
-      { id: 'B', text: "Downward API files are permanently stored on worker node disks" },
-      { id: 'C', text: "Sensitive credentials or configuration tokens placed in annotations could be accidentally exposed to unprivileged container processes" },
-      { id: 'D', text: "Downward API volumes disable container memory limits" }
+      { id: 'A', text: "The Downward API requires <code>privileged: true</code>, which widens the container's own rights" },
+      { id: 'B', text: "The projected files are written to the node's disk, where they survive the pod's deletion" },
+      { id: 'C', text: "A credential put in an annotation becomes readable by every unprivileged process in the container" },
+      { id: 'D', text: "The projected volume counts against the pod's memory limit, which can trigger eviction" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,9 +387,9 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "A sensitive SSL private key is mounted into a pod from a Secret. The application requires that the key file have permissions <code>0400</code> (read-only by owner) to satisfy internal security policies.",
     question: "How can the file permissions of the mounted secret be declaratively defined in the Pod specification?",
     options: [
-      { id: 'A', text: "Set <code>defaultMode: 0400</code> under the Secret volume specification in <code>spec.volumes</code>" },
-      { id: 'B', text: "Set <code>readOnlyRootFilesystem: true</code> in the container securityContext" },
-      { id: 'C', text: "Run <code>chmod 400</code> inside the application container entrypoint script" },
+      { id: 'A', text: "Set <code>defaultMode: 0400</code> on the Secret volume in <code>spec.volumes</code>" },
+      { id: 'B', text: "Set <code>readOnlyRootFilesystem: true</code> on the mounting container" },
+      { id: 'C', text: "Run <code>chmod 400</code> on the mount from the container's entrypoint" },
       { id: 'D', text: "Annotate the Secret with <code>kubernetes.io/file-mode: '0400'</code>" }
     ],
     correctAnswers: ['A'],
@@ -408,10 +408,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "When a Secret is updated in Kubernetes, pods mounting the secret as environment variables do not automatically receive the new values without a restart.",
     question: "Why do pods mounting secrets as volume files receive updates while environment-variable based pods do not?",
     options: [
-      { id: 'A', text: "Environment variables are encrypted at the OS kernel level and locked upon execution" },
-      { id: 'B', text: "Volume mounts communicate directly with etcd via WebSockets" },
-      { id: 'C', text: "The Linux kernel drops processes that attempt to change environment variables" },
-      { id: 'D', text: "Kubelet periodically polls and updates mounted secret volume projection files using symlink atomic swaps, whereas environment variables are injected only at container process initiation and cannot be modified dynamically" }
+      { id: 'A', text: "The kubelet watches the Secret and restarts the container when it changes, which environment variables cannot trigger" },
+      { id: 'B', text: "The volume is backed by a watch against etcd, while environment variables are resolved by the API server at admission" },
+      { id: 'C', text: "The volume is re-read by the application on each open, while environment variables are cached by the C library" },
+      { id: 'D', text: "The kubelet refreshes the projected volume with an atomic symlink swap, while environment variables are set once at process start" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "An engineering team deploys Linkerd to automatically provide zero-config mutual TLS across all microservice communications in a cluster.",
     question: "How does Linkerd validate pod identities during mutual TLS negotiation?",
     options: [
-      { id: 'A', text: "Linkerd compares the source and destination container IP addresses against an internal DNS table" },
-      { id: 'B', text: "Linkerd checks shared static passwords stored in the <code>linkerd-config</code> ConfigMap" },
-      { id: 'C', text: "Linkerd forces all pods to authenticate using the master node admin.conf credentials" },
-      { id: 'D', text: "Linkerd sidecar proxies validate each workload's identity using X.509 certificates derived from and cryptographically bound to the pod's Kubernetes ServiceAccount identity" }
+      { id: 'A', text: "Its proxies compare the peer's source address against the endpoints the control plane published" },
+      { id: 'B', text: "Its proxies share a key held in the <code>linkerd-config</code> ConfigMap and derive session keys from it" },
+      { id: 'C', text: "Its proxies authenticate to the control plane with the node's kubelet client certificate" },
+      { id: 'D', text: "Its proxies present X.509 certificates bound to each workload's Kubernetes ServiceAccount identity" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "A compliance mandate requires that critical cryptographic signing service pods must never be scheduled onto the same physical worker node as public-facing web tier pods.",
     question: "Which Kubernetes scheduling mechanism prevents co-locating these pods on the same host?",
     options: [
-      { id: 'A', text: "Set <code>automountServiceAccountToken: false</code> on the web tier pods" },
-      { id: 'B', text: "Configure a <code>LimitRange</code> on the signing namespace" },
-      { id: 'C', text: "Configure <code>podAntiAffinity</code> with <code>topologyKey: 'kubernetes.io/hostname'</code> matching the public web tier labels" },
-      { id: 'D', text: "Deploy a <code>ValidatingAdmissionWebhook</code> with <code>failurePolicy: Ignore</code>" }
+      { id: 'A', text: "A <code>podAffinity</code> on <code>topologyKey: topology.kubernetes.io/zone</code> for the signing pods" },
+      { id: 'B', text: "A node taint on the signing nodes with a toleration on the signing pods alone" },
+      { id: 'C', text: "A <code>podAntiAffinity</code> on <code>topologyKey: kubernetes.io/hostname</code> matching the web tier" },
+      { id: 'D', text: "A <code>topologySpreadConstraint</code> with <code>maxSkew: 1</code> over the node hostname" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "A misconfigured logging process writes unbounded debug logs to the container's writable layer, filling the host root partition and causing node disk pressure (NodeHasDiskPressure).",
     question: "Which resource constraint prevents individual pods from exhausting host ephemeral storage?",
     options: [
-      { id: 'A', text: "Mount <code>/var/log</code> as a hostPath volume with <code>readOnly: false</code>" },
-      { id: 'B', text: "Configure <code>resources.limits.ephemeral-storage</code> and <code>resources.requests.ephemeral-storage</code> in the container specification" },
-      { id: 'C', text: "Configure <code>maxReplicas: 1</code> in the HorizontalPodAutoscaler" },
-      { id: 'D', text: "Set <code>securityContext.runAsNonRoot: true</code>" }
+      { id: 'A', text: "Mount an <code>emptyDir</code> with a <code>sizeLimit</code> at the container's write path" },
+      { id: 'B', text: "Set <code>requests</code> and <code>limits</code> for <code>ephemeral-storage</code> on the container" },
+      { id: 'C', text: "Set a <code>ResourceQuota</code> on the namespace's total ephemeral storage claim" },
+      { id: 'D', text: "Set the kubelet's own eviction threshold for node filesystem usage instead" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "With PodSecurityPolicy permanently removed in modern Kubernetes, an operations team must migrate security policies to native Pod Security Admission.",
     question: "What is the primary difference in how Pod Security Admission is applied compared to legacy PSP?",
     options: [
-      { id: 'A', text: "Pod Security Admission must be configured directly inside <code>/etc/kubernetes/admin.conf</code>" },
-      { id: 'B', text: "Pod Security Admission requires deploying an external OPA Gatekeeper cluster" },
-      { id: 'C', text: "Pod Security Admission is applied declaratively using labels on <strong>namespaces</strong> rather than complex RBAC bindings and PSP resources" },
-      { id: 'D', text: "Pod Security Admission only inspects pods running in the <code>kube-system</code> namespace" }
+      { id: 'A', text: "It is configured in the API server's own admission configuration file, not in the cluster's objects" },
+      { id: 'B', text: "It is enforced by an external admission controller that has to be installed alongside the cluster" },
+      { id: 'C', text: "It is applied with labels on <strong>namespaces</strong>, rather than through RBAC bindings to policy objects" },
+      { id: 'D', text: "It is evaluated only for pods in the system namespaces, leaving workload namespaces to RBAC" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKS_QUESTIONS_4 = [
     scenario: "An application deployment references a secret using <code>valueFrom.secretKeyRef</code>. What happens if the referenced Secret or key does not exist when the pod starts?",
     question: "How does Kubernetes handle a missing secret key reference by default?",
     options: [
-      { id: 'A', text: "The API server automatically creates an empty Secret with a random 32-byte value" },
-      { id: 'B', text: "The Pod starts successfully with the environment variable set to an empty string" },
-      { id: 'C', text: "The Pod creation succeeds at the API level, but the pod fails to start and enters <code>CreateContainerConfigError</code> state until the secret and key exist" },
-      { id: 'D', text: "The worker node crashes and reboots to clear container runtime cache" }
+      { id: 'A', text: "The pod object is rejected at admission, since the ServiceAccount plugin resolves the reference" },
+      { id: 'B', text: "The pod starts normally, with the environment variable present but set to an empty string" },
+      { id: 'C', text: "The pod object is created, then fails to start and sits in <code>CreateContainerConfigError</code>" },
+      { id: 'D', text: "The pod starts normally, and the kubelet retries the mount until the key appears in the Secret" }
     ],
     correctAnswers: ['C'],
     type: "single",
