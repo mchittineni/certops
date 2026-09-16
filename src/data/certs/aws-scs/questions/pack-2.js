@@ -9,8 +9,8 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #24?",
     options: [
-      { id: 'A', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
-      { id: 'B', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'A', text: "Aggregating findings in Security Hub and triaging them from each member account's own console" },
+      { id: 'B', text: "Aggregating in Security Hub, investigating in Detective, and containing through EventBridge" },
       { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
       { id: 'D', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" }
     ],
@@ -30,9 +30,9 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #25?",
     options: [
-      { id: 'A', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'A', text: "Aggregating findings in Security Hub and triaging them from each member account's own console" },
       { id: 'B', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
-      { id: 'C', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'C', text: "Aggregating in Security Hub, investigating in Detective, and containing through EventBridge" },
       { id: 'D', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" }
     ],
     correctAnswers: ['C'],
@@ -53,8 +53,8 @@ export const AWS_SCS_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
       { id: 'B', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
-      { id: 'C', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
-      { id: 'D', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" }
+      { id: 'C', text: "Aggregating findings in Security Hub and triaging them from each member account's own console" },
+      { id: 'D', text: "Aggregating in Security Hub, investigating in Detective, and containing through EventBridge" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -73,9 +73,9 @@ export const AWS_SCS_QUESTIONS_2 = [
     question: "Which threat detection architecture best satisfies objective #27?",
     options: [
       { id: 'A', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
-      { id: 'B', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'B', text: "Aggregating in Security Hub, investigating in Detective, and containing through EventBridge" },
       { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
-      { id: 'D', text: "Aggregating findings in Security Hub and triaging them from each account's own console" }
+      { id: 'D', text: "Aggregating findings in Security Hub and triaging them from each member account's own console" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -94,8 +94,8 @@ export const AWS_SCS_QUESTIONS_2 = [
     question: "Which threat detection architecture best satisfies objective #28?",
     options: [
       { id: 'A', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
-      { id: 'B', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
-      { id: 'C', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'B', text: "Aggregating findings in Security Hub and triaging them from each member account's own console" },
+      { id: 'C', text: "Aggregating in Security Hub, investigating in Detective, and containing through EventBridge" },
       { id: 'D', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" }
     ],
     correctAnswers: ['C'],
@@ -114,8 +114,8 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #29?",
     options: [
-      { id: 'A', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
-      { id: 'B', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'A', text: "Aggregating findings in Security Hub and triaging them from each member account's own console" },
+      { id: 'B', text: "Aggregating in Security Hub, investigating in Detective, and containing through EventBridge" },
       { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
       { id: 'D', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" }
     ],
@@ -135,8 +135,8 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #30?",
     options: [
-      { id: 'A', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
-      { id: 'B', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'A', text: "Aggregating in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'B', text: "Aggregating findings in Security Hub and triaging them from each member account's own console" },
       { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
       { id: 'D', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" }
     ],
@@ -157,9 +157,9 @@ export const AWS_SCS_QUESTIONS_2 = [
     question: "Which threat detection architecture best satisfies objective #31?",
     options: [
       { id: 'A', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
-      { id: 'B', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'B', text: "Aggregating findings in Security Hub and triaging them from each member account's own console" },
       { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
-      { id: 'D', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" }
+      { id: 'D', text: "Aggregating in Security Hub, investigating in Detective, and containing through EventBridge" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -178,9 +178,9 @@ export const AWS_SCS_QUESTIONS_2 = [
     question: "Which threat detection architecture best satisfies objective #32?",
     options: [
       { id: 'A', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
-      { id: 'B', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'B', text: "Aggregating in Security Hub, investigating in Detective, and containing through EventBridge" },
       { id: 'C', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
-      { id: 'D', text: "Aggregating findings in Security Hub and triaging them from each account's own console" }
+      { id: 'D', text: "Aggregating findings in Security Hub and triaging them from each member account's own console" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -198,9 +198,9 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #33?",
     options: [
-      { id: 'A', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'A', text: "Aggregating in Security Hub, investigating in Detective, and containing through EventBridge" },
       { id: 'B', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
-      { id: 'C', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'C', text: "Aggregating findings in Security Hub and triaging them from each member account's own console" },
       { id: 'D', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" }
     ],
     correctAnswers: ['A'],

@@ -219,7 +219,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to rotate production Amazon RDS PostgreSQL master database credentials every 30 days automatically without disconnecting active applications.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Secrets Manager rotation on the multi-user strategy, with an administrative secret" },
+      { id: 'A', text: "Secrets Manager rotation on the multi-user strategy, with an admin secret" },
       { id: 'B', text: "Rotate the credentials from a scheduled job that writes them into the database." },
       { id: 'C', text: "Rotate the credentials with the single-user strategy during a maintenance window." },
       { id: 'D', text: "Hold the credentials in Parameter Store and redeploy the service on each change." }
@@ -240,7 +240,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to rotate production Amazon RDS PostgreSQL master database credentials every 30 days automatically without disconnecting active applications.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Secrets Manager rotation on the multi-user strategy, with an administrative secret" },
+      { id: 'A', text: "Secrets Manager rotation on the multi-user strategy, with an admin secret" },
       { id: 'B', text: "Rotate the credentials from a scheduled job that writes them into the database." },
       { id: 'C', text: "Rotate the credentials with the single-user strategy during a maintenance window." },
       { id: 'D', text: "Hold the credentials in Parameter Store and redeploy the service on each change." }
@@ -261,7 +261,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to rotate production Amazon RDS PostgreSQL master database credentials every 30 days automatically without disconnecting active applications.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Secrets Manager rotation on the multi-user strategy, with an administrative secret" },
+      { id: 'A', text: "Secrets Manager rotation on the multi-user strategy, with an admin secret" },
       { id: 'B', text: "Rotate the credentials from a scheduled job that writes them into the database." },
       { id: 'C', text: "Rotate the credentials with the single-user strategy during a maintenance window." },
       { id: 'D', text: "Hold the credentials in Parameter Store and redeploy the service on each change." }
@@ -284,7 +284,7 @@ export const AWS_SCS_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Rotate the credentials with the single-user strategy during a maintenance window." },
       { id: 'B', text: "Hold the credentials in Parameter Store and redeploy the service on each change." },
-      { id: 'C', text: "Secrets Manager rotation on the multi-user strategy, with an administrative secret" },
+      { id: 'C', text: "Secrets Manager rotation on the multi-user strategy, with an admin secret" },
       { id: 'D', text: "Rotate the credentials from a scheduled job that writes them into the database." }
     ],
     correctAnswers: ['C'],
@@ -306,7 +306,7 @@ export const AWS_SCS_QUESTIONS_18 = [
       { id: 'A', text: "Hold the credentials in Parameter Store and redeploy the service on each change." },
       { id: 'B', text: "Rotate the credentials with the single-user strategy during a maintenance window." },
       { id: 'C', text: "Rotate the credentials from a scheduled job that writes them into the database." },
-      { id: 'D', text: "Secrets Manager rotation on the multi-user strategy, with an administrative secret" }
+      { id: 'D', text: "Secrets Manager rotation on the multi-user strategy, with an admin secret" }
     ],
     correctAnswers: ['D'],
     type: "single",

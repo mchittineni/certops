@@ -431,7 +431,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "A Security Hub standard enabled in each account by its own administrator." },
       { id: 'B', text: "An Audit Manager assessment scoped to the accounts within the regulated unit." },
-      { id: 'C', text: "The CIS foundations conformance pack, deployed from the management account." },
+      { id: 'C', text: "The CIS foundations conformance pack from the management account" },
       { id: 'D', text: "Individual Config rules created in each of the accounts by a deployment script." }
     ],
     correctAnswers: ['C'],
@@ -452,7 +452,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "An Audit Manager assessment scoped to the accounts within the regulated unit." },
       { id: 'B', text: "Individual Config rules created in each of the accounts by a deployment script." },
-      { id: 'C', text: "The CIS foundations conformance pack, deployed from the management account." },
+      { id: 'C', text: "The CIS foundations conformance pack from the management account" },
       { id: 'D', text: "A Security Hub standard enabled in each account by its own administrator." }
     ],
     correctAnswers: ['C'],
@@ -474,7 +474,7 @@ export const AWS_SCS_QUESTIONS_19 = [
       { id: 'A', text: "A Security Hub standard enabled in each account by its own administrator." },
       { id: 'B', text: "Individual Config rules created in each of the accounts by a deployment script." },
       { id: 'C', text: "An Audit Manager assessment scoped to the accounts within the regulated unit." },
-      { id: 'D', text: "The CIS foundations conformance pack, deployed from the management account." }
+      { id: 'D', text: "The CIS foundations conformance pack from the management account" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -495,7 +495,7 @@ export const AWS_SCS_QUESTIONS_19 = [
       { id: 'A', text: "A Security Hub standard enabled in each account by its own administrator." },
       { id: 'B', text: "Individual Config rules created in each of the accounts by a deployment script." },
       { id: 'C', text: "An Audit Manager assessment scoped to the accounts within the regulated unit." },
-      { id: 'D', text: "The CIS foundations conformance pack, deployed from the management account." }
+      { id: 'D', text: "The CIS foundations conformance pack from the management account" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -514,7 +514,7 @@ export const AWS_SCS_QUESTIONS_19 = [
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Individual Config rules created in each of the accounts by a deployment script." },
-      { id: 'B', text: "The CIS foundations conformance pack, deployed from the management account." },
+      { id: 'B', text: "The CIS foundations conformance pack from the management account" },
       { id: 'C', text: "An Audit Manager assessment scoped to the accounts within the regulated unit." },
       { id: 'D', text: "A Security Hub standard enabled in each account by its own administrator." }
     ],

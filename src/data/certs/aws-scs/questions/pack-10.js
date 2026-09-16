@@ -12,7 +12,7 @@ export const AWS_SCS_QUESTIONS_10 = [
       { id: 'A', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'B', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
       { id: 'C', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
-      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken" }
+      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -32,7 +32,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'B', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
-      { id: 'C', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'C', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'D', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" }
     ],
     correctAnswers: ['D'],
@@ -52,7 +52,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     question: "Which governance architecture best fulfills objective #12?",
     options: [
       { id: 'A', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
-      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'C', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'D', text: "Control Tower with the elective guardrails only, and evidence gathered per account" }
     ],
@@ -73,7 +73,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     question: "Which governance architecture best fulfills objective #13?",
     options: [
       { id: 'A', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
-      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'C', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'D', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" }
     ],
@@ -95,7 +95,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
       { id: 'B', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
-      { id: 'C', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'C', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'D', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" }
     ],
     correctAnswers: ['A'],
@@ -116,7 +116,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
       { id: 'B', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
-      { id: 'C', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'C', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'D', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" }
     ],
     correctAnswers: ['D'],
@@ -136,7 +136,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     question: "Which governance architecture best fulfills objective #16?",
     options: [
       { id: 'A', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
-      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'C', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
       { id: 'D', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" }
     ],
@@ -157,7 +157,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     question: "Which governance architecture best fulfills objective #17?",
     options: [
       { id: 'A', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
-      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'C', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'D', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" }
     ],
@@ -177,7 +177,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     scenario: "An enterprise governance committee is establishing landing zones, compliance conformance packs, and audit readiness across hundreds of AWS accounts.",
     question: "Which governance architecture best fulfills objective #18?",
     options: [
-      { id: 'A', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'A', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'B', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
       { id: 'C', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
       { id: 'D', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" }
@@ -200,7 +200,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'B', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
-      { id: 'C', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'C', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'D', text: "Control Tower with the elective guardrails only, and evidence gathered per account" }
     ],
     correctAnswers: ['B'],
@@ -221,7 +221,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
       { id: 'B', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
-      { id: 'C', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'C', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'D', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" }
     ],
     correctAnswers: ['A'],
@@ -241,7 +241,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     question: "Which governance architecture best fulfills objective #21?",
     options: [
       { id: 'A', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
-      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'C', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
       { id: 'D', text: "Control Tower with the elective guardrails only, and evidence gathered per account" }
     ],
@@ -264,7 +264,7 @@ export const AWS_SCS_QUESTIONS_10 = [
       { id: 'A', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
       { id: 'B', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
       { id: 'C', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
-      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken" }
+      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,7 +282,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     scenario: "An enterprise governance committee is establishing landing zones, compliance conformance packs, and audit readiness across hundreds of AWS accounts.",
     question: "Which governance architecture best fulfills objective #23?",
     options: [
-      { id: 'A', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'A', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'B', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
       { id: 'C', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'D', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" }
@@ -303,7 +303,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     scenario: "An enterprise governance committee is establishing landing zones, compliance conformance packs, and audit readiness across hundreds of AWS accounts.",
     question: "Which governance architecture best fulfills objective #24?",
     options: [
-      { id: 'A', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'A', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'B', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
       { id: 'C', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
       { id: 'D', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" }
@@ -325,7 +325,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     question: "Which governance architecture best fulfills objective #25?",
     options: [
       { id: 'A', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
-      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'C', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'D', text: "Control Tower with the elective guardrails only, and evidence gathered per account" }
     ],
@@ -348,7 +348,7 @@ export const AWS_SCS_QUESTIONS_10 = [
       { id: 'A', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'B', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
       { id: 'C', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
-      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken" }
+      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,7 +366,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     scenario: "An enterprise governance committee is establishing landing zones, compliance conformance packs, and audit readiness across hundreds of AWS accounts.",
     question: "Which governance architecture best fulfills objective #27?",
     options: [
-      { id: 'A', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'A', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'B', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'C', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
       { id: 'D', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" }
@@ -390,7 +390,7 @@ export const AWS_SCS_QUESTIONS_10 = [
       { id: 'A', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
       { id: 'B', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'C', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
-      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken" }
+      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,7 +408,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     scenario: "An enterprise governance committee is establishing landing zones, compliance conformance packs, and audit readiness across hundreds of AWS accounts.",
     question: "Which governance architecture best fulfills objective #29?",
     options: [
-      { id: 'A', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'A', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'B', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
       { id: 'C', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
       { id: 'D', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" }
@@ -429,7 +429,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     scenario: "An enterprise governance committee is establishing landing zones, compliance conformance packs, and audit readiness across hundreds of AWS accounts.",
     question: "Which governance architecture best fulfills objective #30?",
     options: [
-      { id: 'A', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'A', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'B', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
       { id: 'C', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'D', text: "Control Tower with the elective guardrails only, and evidence gathered per account" }
@@ -450,7 +450,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     scenario: "An enterprise governance committee is establishing landing zones, compliance conformance packs, and audit readiness across hundreds of AWS accounts.",
     question: "Which governance architecture best fulfills objective #31?",
     options: [
-      { id: 'A', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'A', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'B', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
       { id: 'C', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'D', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" }
@@ -474,7 +474,7 @@ export const AWS_SCS_QUESTIONS_10 = [
       { id: 'A', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
       { id: 'B', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'C', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
-      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken" }
+      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -495,7 +495,7 @@ export const AWS_SCS_QUESTIONS_10 = [
       { id: 'A', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'B', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
       { id: 'C', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
-      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken" }
+      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -513,7 +513,7 @@ export const AWS_SCS_QUESTIONS_10 = [
     scenario: "An enterprise governance committee is establishing landing zones, compliance conformance packs, and audit readiness across hundreds of AWS accounts.",
     question: "Which governance architecture best fulfills objective #34?",
     options: [
-      { id: 'A', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'A', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'B', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'C', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
       { id: 'D', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" }

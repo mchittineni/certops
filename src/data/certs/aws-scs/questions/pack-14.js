@@ -117,7 +117,7 @@ export const AWS_SCS_QUESTIONS_14 = [
       { id: 'A', text: "Deploy individual NAT Gateways and third-party firewall instances in every private subnet with no central management." },
       { id: 'B', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." },
       { id: 'C', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." },
-      { id: 'D', text: "Network Firewall in a central inspection VPC, with Transit Gateway routes through it" }
+      { id: 'D', text: "Network Firewall in a central inspection VPC, with Transit Gateway routes to it" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -138,7 +138,7 @@ export const AWS_SCS_QUESTIONS_14 = [
       { id: 'A', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." },
       { id: 'B', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." },
       { id: 'C', text: "Deploy individual NAT Gateways and third-party firewall instances in every private subnet with no central management." },
-      { id: 'D', text: "Network Firewall in a central inspection VPC, with Transit Gateway routes through it" }
+      { id: 'D', text: "Network Firewall in a central inspection VPC, with Transit Gateway routes to it" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -157,7 +157,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Deploy individual NAT Gateways and third-party firewall instances in every private subnet with no central management." },
-      { id: 'B', text: "Network Firewall in a central inspection VPC, with Transit Gateway routes through it" },
+      { id: 'B', text: "Network Firewall in a central inspection VPC, with Transit Gateway routes to it" },
       { id: 'C', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." },
       { id: 'D', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." }
     ],
@@ -177,7 +177,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to inspect and filter all north-south internet egress and east-west VPC traffic centrally across an entire AWS Organization.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Network Firewall in a central inspection VPC, with Transit Gateway routes through it" },
+      { id: 'A', text: "Network Firewall in a central inspection VPC, with Transit Gateway routes to it" },
       { id: 'B', text: "Deploy individual NAT Gateways and third-party firewall instances in every private subnet with no central management." },
       { id: 'C', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." },
       { id: 'D', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." }
@@ -198,7 +198,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to inspect and filter all north-south internet egress and east-west VPC traffic centrally across an entire AWS Organization.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Network Firewall in a central inspection VPC, with Transit Gateway routes through it" },
+      { id: 'A', text: "Network Firewall in a central inspection VPC, with Transit Gateway routes to it" },
       { id: 'B', text: "Deploy individual NAT Gateways and third-party firewall instances in every private subnet with no central management." },
       { id: 'C', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." },
       { id: 'D', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." }
@@ -219,7 +219,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to protect an e-commerce login API from distributed credential stuffing attacks originating from thousands of rotating IP addresses.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "A WAF web ACL with a rate-based rule on `/login` and Bot Control enabled." },
+      { id: 'A', text: "A WAF web ACL with a rate-based rule on `/login`, plus Bot Control" },
       { id: 'B', text: "Increase EC2 instance sizes to absorb the massive volume of fraudulent login attempts." },
       { id: 'C', text: "Disable rate limiting to prevent blocking legitimate customers who forget their passwords." },
       { id: 'D', text: "Rely on client-side JavaScript popups to deter automated attack scripts." }
@@ -240,7 +240,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to protect an e-commerce login API from distributed credential stuffing attacks originating from thousands of rotating IP addresses.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "A WAF web ACL with a rate-based rule on `/login` and Bot Control enabled." },
+      { id: 'A', text: "A WAF web ACL with a rate-based rule on `/login`, plus Bot Control" },
       { id: 'B', text: "Increase EC2 instance sizes to absorb the massive volume of fraudulent login attempts." },
       { id: 'C', text: "Disable rate limiting to prevent blocking legitimate customers who forget their passwords." },
       { id: 'D', text: "Rely on client-side JavaScript popups to deter automated attack scripts." }
@@ -261,7 +261,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to protect an e-commerce login API from distributed credential stuffing attacks originating from thousands of rotating IP addresses.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "A WAF web ACL with a rate-based rule on `/login` and Bot Control enabled." },
+      { id: 'A', text: "A WAF web ACL with a rate-based rule on `/login`, plus Bot Control" },
       { id: 'B', text: "Increase EC2 instance sizes to absorb the massive volume of fraudulent login attempts." },
       { id: 'C', text: "Disable rate limiting to prevent blocking legitimate customers who forget their passwords." },
       { id: 'D', text: "Rely on client-side JavaScript popups to deter automated attack scripts." }
@@ -285,7 +285,7 @@ export const AWS_SCS_QUESTIONS_14 = [
       { id: 'A', text: "Increase EC2 instance sizes to absorb the massive volume of fraudulent login attempts." },
       { id: 'B', text: "Rely on client-side JavaScript popups to deter automated attack scripts." },
       { id: 'C', text: "Disable rate limiting to prevent blocking legitimate customers who forget their passwords." },
-      { id: 'D', text: "A WAF web ACL with a rate-based rule on `/login` and Bot Control enabled." }
+      { id: 'D', text: "A WAF web ACL with a rate-based rule on `/login`, plus Bot Control" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -305,7 +305,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Increase EC2 instance sizes to absorb the massive volume of fraudulent login attempts." },
       { id: 'B', text: "Disable rate limiting to prevent blocking legitimate customers who forget their passwords." },
-      { id: 'C', text: "A WAF web ACL with a rate-based rule on `/login` and Bot Control enabled." },
+      { id: 'C', text: "A WAF web ACL with a rate-based rule on `/login`, plus Bot Control" },
       { id: 'D', text: "Rely on client-side JavaScript popups to deter automated attack scripts." }
     ],
     correctAnswers: ['C'],
