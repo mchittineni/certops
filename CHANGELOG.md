@@ -10,6 +10,20 @@ progress is tracked by `npm run stats` and in
 
 ## [Unreleased]
 
+### Quality
+- Closed the **answer-length tell** across all 10 remaining hand-authored question banks — `k8s-ckad`, `azure-az400`, `k8s-cka`, `k8s-cks`, `hashicorp-tfa`, `hashicorp-tfp`, `github-actions`, `github-ghas`, `aws-dop`, `aws-scs` — so the correct option is no longer identifiable by being the longest one. **24 of 32 certifications now pass every distractor target**, up from 14:
+  - Corpus `longest%` 62.7% → **46.6%**, `strawman%` 4.6% → **2.2%**, `leak%` 22.3% → **19.0%**, mean key-minus-distractor gap +31 → **+15 chars**. Each repaired bank sits inside the 12-40% band on both `longest%` and `shortest%`.
+  - Two passes per bank: length parity first (no key more than 15 characters longer than every distractor), then band tightening, because parity alone still left the key the single longest option in 60-70% of items — enough for "pick the longest" to score ~2.6× chance.
+  - Distractors were rewritten to the key's own specificity with real, blueprint-accurate mechanisms that fail for a stated reason; invented anti-patterns and joke options were replaced rather than padded. Over-long keys were trimmed only where the removed clause already appeared in the explanation.
+  - `correctAnswers` was never modified; only option text and explanation prose changed. `npm run validate` reports 0 errors across all 32,000 items.
+  - The 8 remaining banks (`gcp-pcdoe`, `isc2-ccsp`, `cncf-cnpe`, `cncf-cgoa`, `cncf-otca`, `gcp-pmle`, `cncf-cnpa`, `cncf-cba`) are content-free filler and need real questions authored; rewriting their boilerplate options would move the metric without making the items answerable.
+
+### Added
+- `npm run audit:length` (`scripts/list-length-tells.mjs`) — worklist of the option sets whose key is longer than every distractor, grouped by option set and ordered by how many questions one rewrite moves.
+- `npm run fix:options` (`scripts/apply-option-rewrites.mjs`) — applies authored option and explanation rewrites from a JSON patch keyed by an 8-character content hash, so long YAML and CLI keys never have to be retyped and a re-applied patch fails loudly instead of double-editing.
+- `scripts/lib/pack-io.mjs` — shared pack reader/writer extracted from `scripts/shuffle-options.mjs`, so the two writers cannot drift in formatting.
+- `npm run audit:distractors -- --min-passing <n>` — ratchet mode that fails when fewer than `n` banks pass every target. Wired into the CI `content` job at `--min-passing 24` to block a regression in the repaired banks while the filler banks are still outstanding.
+
 ### Content
 - Activated **5 additional certifications** to complete **500 questions** and **500 flashcards** each (2,500 questions and 2,500 flashcards across 200 packs), scaling the platform to **32 live certifications** with **16,000 questions** and **16,000 flashcards** (**32,000 items repo-wide**) across 1,282 packs with 0 validation errors:
   - `hashicorp-vault` (HashiCorp Certified: Vault Associate, VAULT-003): 500 questions, 500 flashcards across 3 domains (Auth & policies, Secrets engines & transit, Tokens & cluster operations).

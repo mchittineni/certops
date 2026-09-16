@@ -30,6 +30,16 @@ and specific to the concept being tested. The validator rejects non-HTTPS.
 *and* why each wrong option is wrong. A question that only reveals the answer letter
 teaches recall, not architecture, and will be sent back in review.
 
+**Keep the four options the same length.** If the correct answer is the wordiest one,
+the item can be answered without reading it — and `npm run audit:distractors` measures
+exactly that, with CI failing on a regression. Write distractors at the key's own level
+of specificity rather than padding them: each one should be a real service, setting or
+command from the exam blueprint that is wrong for a reason the scenario states. Invented
+anti-patterns ("hardcode the root token") make a 4-way item a 1-way one whatever their
+length. Watch the short end too — trimming a key past its distractors just swaps "always
+pick the longest" for "always eliminate the shortest".
+See [docs/DISTRACTOR-REMEDIATION.md](docs/DISTRACTOR-REMEDIATION.md) for the full rules.
+
 **Never name an option letter in an explanation.** Write "a NodePort Service maps ports
 rather than paths", not "option B is wrong". `npm run shuffle` re-orders options and
 re-keys answers from option text, so a letter reference becomes false the next time it
