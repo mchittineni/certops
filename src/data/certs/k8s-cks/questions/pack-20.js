@@ -9,12 +9,12 @@ export const K8S_CKS_QUESTIONS_20 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to preserve volatile memory and filesystem evidence from a compromised container for forensic analysis while containing ongoing network threats.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Delete the pod and its worker node immediately, destroying all in-memory malware artifacts." },
-      { id: 'B', text: "Restart the container process to see if the malware disappears." },
-      { id: 'C', text: "Log into the container and execute `rm -rf /`." },
-      { id: 'D', text: "Isolate the pod using an aggressive zero-traffic NetworkPolicy, take a memory dump via `gcore` or live snapshot, and avoid terminating the container immediately." }
+      { id: 'A', text: "Restart the container process to see if the malware disappears." },
+      { id: 'B', text: "Log into the container and execute `rm -rf /`." },
+      { id: 'C', text: "Isolate the pod using an aggressive zero-traffic NetworkPolicy, take a memory dump via `gcore` or live snapshot, and avoid terminating the container immediately." },
+      { id: 'D', text: "Delete the pod and its worker node immediately, destroying all in-memory malware artifacts." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Isolate the pod using an aggressive zero-traffic NetworkPolicy, take a memory dump via `gcore` or live snapshot, and avoid terminating the container immediately. Incident response requires preserving evidence. When a container is compromised, terminating the pod erases all volatile RAM and ephemeral storage. Containing the pod via NetworkPolicies or cordon while extracting memory dumps (`gcore`) and container diffs preserves vital forensic artifacts.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/",
@@ -30,12 +30,12 @@ export const K8S_CKS_QUESTIONS_20 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to preserve volatile memory and filesystem evidence from a compromised container for forensic analysis while containing ongoing network threats.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Restart the container process to see if the malware disappears." },
-      { id: 'B', text: "Log into the container and execute `rm -rf /`." },
-      { id: 'C', text: "Isolate the pod using an aggressive zero-traffic NetworkPolicy, take a memory dump via `gcore` or live snapshot, and avoid terminating the container immediately." },
-      { id: 'D', text: "Delete the pod and its worker node immediately, destroying all in-memory malware artifacts." }
+      { id: 'A', text: "Isolate the pod using an aggressive zero-traffic NetworkPolicy, take a memory dump via `gcore` or live snapshot, and avoid terminating the container immediately." },
+      { id: 'B', text: "Delete the pod and its worker node immediately, destroying all in-memory malware artifacts." },
+      { id: 'C', text: "Restart the container process to see if the malware disappears." },
+      { id: 'D', text: "Log into the container and execute `rm -rf /`." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Isolate the pod using an aggressive zero-traffic NetworkPolicy, take a memory dump via `gcore` or live snapshot, and avoid terminating the container immediately. Incident response requires preserving evidence. When a container is compromised, terminating the pod erases all volatile RAM and ephemeral storage. Containing the pod via NetworkPolicies or cordon while extracting memory dumps (`gcore`) and container diffs preserves vital forensic artifacts.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/",
@@ -52,8 +52,8 @@ export const K8S_CKS_QUESTIONS_20 = [
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Isolate the pod using an aggressive zero-traffic NetworkPolicy, take a memory dump via `gcore` or live snapshot, and avoid terminating the container immediately." },
-      { id: 'B', text: "Restart the container process to see if the malware disappears." },
-      { id: 'C', text: "Delete the pod and its worker node immediately, destroying all in-memory malware artifacts." },
+      { id: 'B', text: "Delete the pod and its worker node immediately, destroying all in-memory malware artifacts." },
+      { id: 'C', text: "Restart the container process to see if the malware disappears." },
       { id: 'D', text: "Log into the container and execute `rm -rf /`." }
     ],
     correctAnswers: ['A'],
@@ -72,12 +72,12 @@ export const K8S_CKS_QUESTIONS_20 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to preserve volatile memory and filesystem evidence from a compromised container for forensic analysis while containing ongoing network threats.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Restart the container process to see if the malware disappears." },
+      { id: 'A', text: "Log into the container and execute `rm -rf /`." },
       { id: 'B', text: "Delete the pod and its worker node immediately, destroying all in-memory malware artifacts." },
-      { id: 'C', text: "Log into the container and execute `rm -rf /`." },
-      { id: 'D', text: "Isolate the pod using an aggressive zero-traffic NetworkPolicy, take a memory dump via `gcore` or live snapshot, and avoid terminating the container immediately." }
+      { id: 'C', text: "Isolate the pod using an aggressive zero-traffic NetworkPolicy, take a memory dump via `gcore` or live snapshot, and avoid terminating the container immediately." },
+      { id: 'D', text: "Restart the container process to see if the malware disappears." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Isolate the pod using an aggressive zero-traffic NetworkPolicy, take a memory dump via `gcore` or live snapshot, and avoid terminating the container immediately. Incident response requires preserving evidence. When a container is compromised, terminating the pod erases all volatile RAM and ephemeral storage. Containing the pod via NetworkPolicies or cordon while extracting memory dumps (`gcore`) and container diffs preserves vital forensic artifacts.",
     referenceUrl: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/",
@@ -94,9 +94,9 @@ export const K8S_CKS_QUESTIONS_20 = [
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Isolate the pod using an aggressive zero-traffic NetworkPolicy, take a memory dump via `gcore` or live snapshot, and avoid terminating the container immediately." },
-      { id: 'B', text: "Log into the container and execute `rm -rf /`." },
-      { id: 'C', text: "Delete the pod and its worker node immediately, destroying all in-memory malware artifacts." },
-      { id: 'D', text: "Restart the container process to see if the malware disappears." }
+      { id: 'B', text: "Restart the container process to see if the malware disappears." },
+      { id: 'C', text: "Log into the container and execute `rm -rf /`." },
+      { id: 'D', text: "Delete the pod and its worker node immediately, destroying all in-memory malware artifacts." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -116,8 +116,8 @@ export const K8S_CKS_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Deploy OPA Gatekeeper, define a `ConstraintTemplate` with Rego logic, and apply a `Constraint` targeting pod specifications." },
       { id: 'B', text: "Instruct developers to memorize security guidelines and follow them voluntarily." },
-      { id: 'C', text: "Write a custom bash script that edits the kube-apiserver binary." },
-      { id: 'D', text: "Deploy a cron job that kills violating pods five minutes after they start running." }
+      { id: 'C', text: "Deploy a cron job that kills violating pods five minutes after they start running." },
+      { id: 'D', text: "Write a custom bash script that edits the kube-apiserver binary." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const K8S_CKS_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to enforce a policy that forbids any pod deployment from specifying hostPort or hostNetwork across all non-system namespaces.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Write a custom bash script that edits the kube-apiserver binary." },
-      { id: 'B', text: "Deploy OPA Gatekeeper, define a `ConstraintTemplate` with Rego logic, and apply a `Constraint` targeting pod specifications." },
+      { id: 'A', text: "Instruct developers to memorize security guidelines and follow them voluntarily." },
+      { id: 'B', text: "Write a custom bash script that edits the kube-apiserver binary." },
       { id: 'C', text: "Deploy a cron job that kills violating pods five minutes after they start running." },
-      { id: 'D', text: "Instruct developers to memorize security guidelines and follow them voluntarily." }
+      { id: 'D', text: "Deploy OPA Gatekeeper, define a `ConstraintTemplate` with Rego logic, and apply a `Constraint` targeting pod specifications." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy OPA Gatekeeper, define a `ConstraintTemplate` with Rego logic, and apply a `Constraint` targeting pod specifications. Open Policy Agent (OPA) Gatekeeper is an admission controller that enforces declarative policies written in Rego. By defining `ConstraintTemplates` and associated `Constraints`, Gatekeeper intercepts API creation requests and rejects non-compliant resources before they are persisted in etcd.",
     referenceUrl: "https://open-policy-agent.github.io/gatekeeper/website/docs/howto/",
@@ -177,12 +177,12 @@ export const K8S_CKS_QUESTIONS_20 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to enforce a policy that forbids any pod deployment from specifying hostPort or hostNetwork across all non-system namespaces.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Instruct developers to memorize security guidelines and follow them voluntarily." },
-      { id: 'B', text: "Deploy a cron job that kills violating pods five minutes after they start running." },
-      { id: 'C', text: "Deploy OPA Gatekeeper, define a `ConstraintTemplate` with Rego logic, and apply a `Constraint` targeting pod specifications." },
+      { id: 'A', text: "Deploy a cron job that kills violating pods five minutes after they start running." },
+      { id: 'B', text: "Deploy OPA Gatekeeper, define a `ConstraintTemplate` with Rego logic, and apply a `Constraint` targeting pod specifications." },
+      { id: 'C', text: "Instruct developers to memorize security guidelines and follow them voluntarily." },
       { id: 'D', text: "Write a custom bash script that edits the kube-apiserver binary." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy OPA Gatekeeper, define a `ConstraintTemplate` with Rego logic, and apply a `Constraint` targeting pod specifications. Open Policy Agent (OPA) Gatekeeper is an admission controller that enforces declarative policies written in Rego. By defining `ConstraintTemplates` and associated `Constraints`, Gatekeeper intercepts API creation requests and rejects non-compliant resources before they are persisted in etcd.",
     referenceUrl: "https://open-policy-agent.github.io/gatekeeper/website/docs/howto/",
@@ -199,9 +199,9 @@ export const K8S_CKS_QUESTIONS_20 = [
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Deploy OPA Gatekeeper, define a `ConstraintTemplate` with Rego logic, and apply a `Constraint` targeting pod specifications." },
-      { id: 'B', text: "Deploy a cron job that kills violating pods five minutes after they start running." },
-      { id: 'C', text: "Write a custom bash script that edits the kube-apiserver binary." },
-      { id: 'D', text: "Instruct developers to memorize security guidelines and follow them voluntarily." }
+      { id: 'B', text: "Write a custom bash script that edits the kube-apiserver binary." },
+      { id: 'C', text: "Instruct developers to memorize security guidelines and follow them voluntarily." },
+      { id: 'D', text: "Deploy a cron job that kills violating pods five minutes after they start running." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,12 +219,12 @@ export const K8S_CKS_QUESTIONS_20 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to enforce security policies and automatically mutate incoming pod specs to add default security contexts without learning complex programming languages.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Write complex custom C++ admission plugins and recompile the Kubernetes API server." },
-      { id: 'B', text: "Deploy `Kyverno` and author declarative `ClusterPolicy` resources using standard Kubernetes YAML syntax for validation and mutation." },
-      { id: 'C', text: "Disable admission controllers to speed up API server response times." },
-      { id: 'D', text: "Require manual approval tickets for every single container deployment." }
+      { id: 'A', text: "Deploy `Kyverno` and author declarative `ClusterPolicy` resources using standard Kubernetes YAML syntax for validation and mutation." },
+      { id: 'B', text: "Write complex custom C++ admission plugins and recompile the Kubernetes API server." },
+      { id: 'C', text: "Require manual approval tickets for every single container deployment." },
+      { id: 'D', text: "Disable admission controllers to speed up API server response times." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy `Kyverno` and author declarative `ClusterPolicy` resources using standard Kubernetes YAML syntax for validation and mutation. Kyverno is a Kubernetes-native policy engine that uses standard YAML rather than specialized languages like Rego. It can validate (block non-compliant pods), mutate (automatically inject securityContext defaults), and generate resources in response to cluster events.",
     referenceUrl: "https://kyverno.io/docs/introduction/",
@@ -241,9 +241,9 @@ export const K8S_CKS_QUESTIONS_20 = [
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Deploy `Kyverno` and author declarative `ClusterPolicy` resources using standard Kubernetes YAML syntax for validation and mutation." },
-      { id: 'B', text: "Require manual approval tickets for every single container deployment." },
-      { id: 'C', text: "Disable admission controllers to speed up API server response times." },
-      { id: 'D', text: "Write complex custom C++ admission plugins and recompile the Kubernetes API server." }
+      { id: 'B', text: "Disable admission controllers to speed up API server response times." },
+      { id: 'C', text: "Write complex custom C++ admission plugins and recompile the Kubernetes API server." },
+      { id: 'D', text: "Require manual approval tickets for every single container deployment." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,12 +261,12 @@ export const K8S_CKS_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, mandatory kernel sandboxing, and immutable audit trails across all namespaces. The Kubernetes security engineer needs to enforce security policies and automatically mutate incoming pod specs to add default security contexts without learning complex programming languages.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Require manual approval tickets for every single container deployment." },
+      { id: 'A', text: "Disable admission controllers to speed up API server response times." },
       { id: 'B', text: "Write complex custom C++ admission plugins and recompile the Kubernetes API server." },
-      { id: 'C', text: "Disable admission controllers to speed up API server response times." },
-      { id: 'D', text: "Deploy `Kyverno` and author declarative `ClusterPolicy` resources using standard Kubernetes YAML syntax for validation and mutation." }
+      { id: 'C', text: "Deploy `Kyverno` and author declarative `ClusterPolicy` resources using standard Kubernetes YAML syntax for validation and mutation." },
+      { id: 'D', text: "Require manual approval tickets for every single container deployment." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy `Kyverno` and author declarative `ClusterPolicy` resources using standard Kubernetes YAML syntax for validation and mutation. Kyverno is a Kubernetes-native policy engine that uses standard YAML rather than specialized languages like Rego. It can validate (block non-compliant pods), mutate (automatically inject securityContext defaults), and generate resources in response to cluster events.",
     referenceUrl: "https://kyverno.io/docs/introduction/",
@@ -283,9 +283,9 @@ export const K8S_CKS_QUESTIONS_20 = [
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Deploy `Kyverno` and author declarative `ClusterPolicy` resources using standard Kubernetes YAML syntax for validation and mutation." },
-      { id: 'B', text: "Disable admission controllers to speed up API server response times." },
-      { id: 'C', text: "Write complex custom C++ admission plugins and recompile the Kubernetes API server." },
-      { id: 'D', text: "Require manual approval tickets for every single container deployment." }
+      { id: 'B', text: "Require manual approval tickets for every single container deployment." },
+      { id: 'C', text: "Disable admission controllers to speed up API server response times." },
+      { id: 'D', text: "Write complex custom C++ admission plugins and recompile the Kubernetes API server." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -304,9 +304,9 @@ export const K8S_CKS_QUESTIONS_20 = [
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Deploy `Kyverno` and author declarative `ClusterPolicy` resources using standard Kubernetes YAML syntax for validation and mutation." },
-      { id: 'B', text: "Disable admission controllers to speed up API server response times." },
-      { id: 'C', text: "Write complex custom C++ admission plugins and recompile the Kubernetes API server." },
-      { id: 'D', text: "Require manual approval tickets for every single container deployment." }
+      { id: 'B', text: "Require manual approval tickets for every single container deployment." },
+      { id: 'C', text: "Disable admission controllers to speed up API server response times." },
+      { id: 'D', text: "Write complex custom C++ admission plugins and recompile the Kubernetes API server." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -346,9 +346,9 @@ export const K8S_CKS_QUESTIONS_20 = [
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Configure `failurePolicy: Fail` (fail-closed) on the `ValidatingWebhookConfiguration` resource." },
-      { id: 'B', text: "Set webhook timeoutSeconds to zero." },
-      { id: 'C', text: "Configure `failurePolicy: Ignore` (fail-open) so security checks are bypassed when the service is down." },
-      { id: 'D', text: "Delete the webhook configuration file completely." }
+      { id: 'B', text: "Delete the webhook configuration file completely." },
+      { id: 'C', text: "Set webhook timeoutSeconds to zero." },
+      { id: 'D', text: "Configure `failurePolicy: Ignore` (fail-open) so security checks are bypassed when the service is down." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -388,9 +388,9 @@ export const K8S_CKS_QUESTIONS_20 = [
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Configure `failurePolicy: Fail` (fail-closed) on the `ValidatingWebhookConfiguration` resource." },
-      { id: 'B', text: "Delete the webhook configuration file completely." },
-      { id: 'C', text: "Set webhook timeoutSeconds to zero." },
-      { id: 'D', text: "Configure `failurePolicy: Ignore` (fail-open) so security checks are bypassed when the service is down." }
+      { id: 'B', text: "Set webhook timeoutSeconds to zero." },
+      { id: 'C', text: "Configure `failurePolicy: Ignore` (fail-open) so security checks are bypassed when the service is down." },
+      { id: 'D', text: "Delete the webhook configuration file completely." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const K8S_CKS_QUESTIONS_20 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to ensure that an enterprise security admission webhook cannot be bypassed if the webhook backend service experiences temporary downtime.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Configure `failurePolicy: Ignore` (fail-open) so security checks are bypassed when the service is down." },
-      { id: 'B', text: "Set webhook timeoutSeconds to zero." },
+      { id: 'A', text: "Set webhook timeoutSeconds to zero." },
+      { id: 'B', text: "Configure `failurePolicy: Fail` (fail-closed) on the `ValidatingWebhookConfiguration` resource." },
       { id: 'C', text: "Delete the webhook configuration file completely." },
-      { id: 'D', text: "Configure `failurePolicy: Fail` (fail-closed) on the `ValidatingWebhookConfiguration` resource." }
+      { id: 'D', text: "Configure `failurePolicy: Ignore` (fail-open) so security checks are bypassed when the service is down." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `failurePolicy: Fail` (fail-closed) on the `ValidatingWebhookConfiguration` resource. The `failurePolicy` of an admission webhook specifies how the API server handles unreachability or errors from the webhook service. Setting `Fail` (fail-closed) guarantees that if the security webhook cannot be contacted, the incoming resource is rejected, preserving cluster security integrity.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#failure-policy",
@@ -429,12 +429,12 @@ export const K8S_CKS_QUESTIONS_20 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to delegate container image admission decisions to an external security verification service using the native API server plugin.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Disable admission plugins in the control plane manifest." },
+      { id: 'A', text: "Manually approve image SHA hashes in the terminal." },
       { id: 'B', text: "Allow all images to be pulled without validation." },
-      { id: 'C', text: "Enable the `ImagePolicyWebhook` admission plugin on kube-apiserver and configure an admission configuration file pointing to the external validator." },
-      { id: 'D', text: "Manually approve image SHA hashes in the terminal." }
+      { id: 'C', text: "Disable admission plugins in the control plane manifest." },
+      { id: 'D', text: "Enable the `ImagePolicyWebhook` admission plugin on kube-apiserver and configure an admission configuration file pointing to the external validator." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable the `ImagePolicyWebhook` admission plugin on kube-apiserver and configure an admission configuration file pointing to the external validator. The `ImagePolicyWebhook` is a built-in admission controller plugin that intercepts image creation requests and sends a webhook to an external service. The external service evaluates the image attributes (digest, tag, registry) and approves or rejects admission according to external security criteria.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#imagepolicywebhook",
@@ -450,12 +450,12 @@ export const K8S_CKS_QUESTIONS_20 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to delegate container image admission decisions to an external security verification service using the native API server plugin.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Allow all images to be pulled without validation." },
-      { id: 'B', text: "Manually approve image SHA hashes in the terminal." },
-      { id: 'C', text: "Enable the `ImagePolicyWebhook` admission plugin on kube-apiserver and configure an admission configuration file pointing to the external validator." },
+      { id: 'A', text: "Manually approve image SHA hashes in the terminal." },
+      { id: 'B', text: "Enable the `ImagePolicyWebhook` admission plugin on kube-apiserver and configure an admission configuration file pointing to the external validator." },
+      { id: 'C', text: "Allow all images to be pulled without validation." },
       { id: 'D', text: "Disable admission plugins in the control plane manifest." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable the `ImagePolicyWebhook` admission plugin on kube-apiserver and configure an admission configuration file pointing to the external validator. The `ImagePolicyWebhook` is a built-in admission controller plugin that intercepts image creation requests and sends a webhook to an external service. The external service evaluates the image attributes (digest, tag, registry) and approves or rejects admission according to external security criteria.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#imagepolicywebhook",
@@ -472,9 +472,9 @@ export const K8S_CKS_QUESTIONS_20 = [
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Enable the `ImagePolicyWebhook` admission plugin on kube-apiserver and configure an admission configuration file pointing to the external validator." },
-      { id: 'B', text: "Disable admission plugins in the control plane manifest." },
-      { id: 'C', text: "Allow all images to be pulled without validation." },
-      { id: 'D', text: "Manually approve image SHA hashes in the terminal." }
+      { id: 'B', text: "Manually approve image SHA hashes in the terminal." },
+      { id: 'C', text: "Disable admission plugins in the control plane manifest." },
+      { id: 'D', text: "Allow all images to be pulled without validation." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,12 +513,12 @@ export const K8S_CKS_QUESTIONS_20 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to delegate container image admission decisions to an external security verification service using the native API server plugin.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Allow all images to be pulled without validation." },
-      { id: 'B', text: "Disable admission plugins in the control plane manifest." },
+      { id: 'A', text: "Disable admission plugins in the control plane manifest." },
+      { id: 'B', text: "Enable the `ImagePolicyWebhook` admission plugin on kube-apiserver and configure an admission configuration file pointing to the external validator." },
       { id: 'C', text: "Manually approve image SHA hashes in the terminal." },
-      { id: 'D', text: "Enable the `ImagePolicyWebhook` admission plugin on kube-apiserver and configure an admission configuration file pointing to the external validator." }
+      { id: 'D', text: "Allow all images to be pulled without validation." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable the `ImagePolicyWebhook` admission plugin on kube-apiserver and configure an admission configuration file pointing to the external validator. The `ImagePolicyWebhook` is a built-in admission controller plugin that intercepts image creation requests and sends a webhook to an external service. The external service evaluates the image attributes (digest, tag, registry) and approves or rejects admission according to external security criteria.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#imagepolicywebhook",

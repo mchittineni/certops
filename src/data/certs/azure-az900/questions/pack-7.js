@@ -9,12 +9,12 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "An enterprise is planning to migrate 500 VMware virtual machines and 50 SQL databases from an on-premises datacenter to Azure.",
     question: "Which unified service should the IT department use to discover, assess, and migrate on-premises workloads to Azure?",
     options: [
-      { id: 'A', text: "Azure Migrate" },
-      { id: 'B', text: "Azure Arc" },
-      { id: 'C', text: "Azure File Sync" },
-      { id: 'D', text: "Azure Data Box" }
+      { id: 'A', text: "Azure File Sync" },
+      { id: 'B', text: "Azure Data Box" },
+      { id: 'C', text: "Azure Arc" },
+      { id: 'D', text: "Azure Migrate" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Migrate provides a centralized hub to assess, discover, size, and execute migrations of on-premises servers, databases, and web applications to Microsoft Azure with cost estimation tools.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/migrate/migrate-services-overview",
@@ -51,12 +51,12 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "Every time a user creates, updates, or deletes a resource via the Azure portal, Azure CLI, or REST API, which central service processes the request?",
     options: [
-      { id: 'A', text: "Azure Resource Manager (ARM)" },
-      { id: 'B', text: "Azure ExpressRoute" },
+      { id: 'A', text: "Azure ExpressRoute" },
+      { id: 'B', text: "Azure DNS" },
       { id: 'C', text: "Azure Key Vault" },
-      { id: 'D', text: "Azure DNS" }
+      { id: 'D', text: "Azure Resource Manager (ARM)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Resource Manager (ARM) is the central deployment and management service for Azure. It provides a consistent management layer that authenticates and processes requests received from the Azure Portal, CLI, PowerShell, and SDKs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
@@ -72,12 +72,12 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "A cloud engineer wants to define Azure infrastructure as code using a clean, concise, domain-specific syntax instead of complex nested JSON templates.",
     question: "Which native Microsoft declarative language should the engineer use?",
     options: [
-      { id: 'A', text: "Bicep" },
-      { id: 'B', text: "PowerShell procedural scripts" },
-      { id: 'C', text: "Bash scripts" },
-      { id: 'D', text: "Python boto3" }
+      { id: 'A', text: "Bash scripts" },
+      { id: 'B', text: "Python boto3" },
+      { id: 'C', text: "Bicep" },
+      { id: 'D', text: "PowerShell procedural scripts" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It transparently compiles down to standard ARM template JSON while providing cleaner syntax, better modularity, and automatic dependency management.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview",
@@ -94,9 +94,9 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     question: "Which built-in browser-based terminal environment does Azure provide directly inside the portal?",
     options: [
       { id: 'A', text: "Azure Cloud Shell" },
-      { id: 'B', text: "Visual Studio Code desktop" },
-      { id: 'C', text: "Windows Command Prompt" },
-      { id: 'D', text: "Azure Bastion" }
+      { id: 'B', text: "Windows Command Prompt" },
+      { id: 'C', text: "Azure Bastion" },
+      { id: 'D', text: "Visual Studio Code desktop" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "Which statement correctly compares Azure PowerShell and the Azure CLI?",
     options: [
-      { id: 'A', text: "Azure PowerShell cannot manage virtual machines" },
+      { id: 'A', text: "Azure CLI requires a separate paid license" },
       { id: 'B', text: "Both are cross-platform; CLI uses bash syntax, PowerShell cmdlets" },
-      { id: 'C', text: "Azure CLI requires a separate paid license" },
-      { id: 'D', text: "Azure CLI runs only on Windows; Azure PowerShell runs only on macOS" }
+      { id: 'C', text: "Azure CLI runs only on Windows; Azure PowerShell runs only on macOS" },
+      { id: 'D', text: "Azure PowerShell cannot manage virtual machines" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -135,12 +135,12 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "An on-call engineer needs to monitor resource health, check active alert notifications, and restart a stopped virtual machine from an iPhone while commuting.",
     question: "Which application should the engineer use?",
     options: [
-      { id: 'A', text: "Azure Storage Explorer" },
-      { id: 'B', text: "Azure Data Box" },
-      { id: 'C', text: "Azure DevOps desktop client" },
-      { id: 'D', text: "Azure Mobile App (iOS and Android)" }
+      { id: 'A', text: "Azure Data Box" },
+      { id: 'B', text: "Azure Mobile App (iOS and Android)" },
+      { id: 'C', text: "Azure Storage Explorer" },
+      { id: 'D', text: "Azure DevOps desktop client" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The Azure Mobile App allows administrators to monitor resource status, triage alerts, inspect metrics, run Cloud Shell commands, and execute management operations (like restarting VMs) directly from iOS and Android devices.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/mobile-app-overview",
@@ -177,12 +177,12 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "What is the primary operational benefit of applying metadata tags (key-value pairs) to Azure resources?",
     options: [
-      { id: 'A', text: "Tags guarantee 100% SLA uptime" },
-      { id: 'B', text: "Tags increase network bandwidth on virtual machines" },
-      { id: 'C', text: "Tags encrypt the underlying storage hard drives" },
-      { id: 'D', text: "Tags categorize resources for cost allocation" }
+      { id: 'A', text: "Tags encrypt the underlying storage hard drives" },
+      { id: 'B', text: "Tags guarantee 100% SLA uptime" },
+      { id: 'C', text: "Tags categorize resources for cost allocation" },
+      { id: 'D', text: "Tags increase network bandwidth on virtual machines" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Tags are key-value pairs applied to resources, resource groups, and subscriptions. They allow organizations to categorize assets for cost center tracking, department chargeback, operational monitoring, and automated lifecycle policies.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources",
@@ -219,12 +219,12 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "Which three distinct components make up Azure Service Health?",
     options: [
-      { id: 'A', text: "Azure Firewall, DDoS, and WAF" },
-      { id: 'B', text: "Azure Backup, Site Recovery, and Archive" },
-      { id: 'C', text: "Azure Monitor, Application Insights, and Log Analytics" },
-      { id: 'D', text: "Azure Status, Service health, and Resource health" }
+      { id: 'A', text: "Azure Monitor, Application Insights, and Log Analytics" },
+      { id: 'B', text: "Azure Status, Service health, and Resource health" },
+      { id: 'C', text: "Azure Firewall, DDoS, and WAF" },
+      { id: 'D', text: "Azure Backup, Site Recovery, and Archive" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure Service Health comprises: 1. Azure Status (global public status of all services), 2. Service Health (personalized view of active outages impacting your services), and 3. Resource Health (health status of individual specific resources, like a specific VM).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-health/overview",
@@ -240,12 +240,12 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "An organization wants a continuous security dashboard that analyzes misconfigured Azure resources and calculates an overall 'Secure Score' with step-by-step remediation advice.",
     question: "Which Microsoft service provides this security posture management?",
     options: [
-      { id: 'A', text: "Azure Key Vault" },
-      { id: 'B', text: "Azure Application Gateway" },
-      { id: 'C', text: "Azure DDoS Protection" },
-      { id: 'D', text: "Microsoft Defender for Cloud" }
+      { id: 'A', text: "Azure DDoS Protection" },
+      { id: 'B', text: "Azure Key Vault" },
+      { id: 'C', text: "Microsoft Defender for Cloud" },
+      { id: 'D', text: "Azure Application Gateway" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Microsoft Defender for Cloud provides unified Cloud Security Posture Management (CSPM) and Cloud Workload Protection (CWP). It continuously benchmarks resources against security baselines and generates a numerical Secure Score.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction",
@@ -261,12 +261,12 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "An enterprise security operations center (SOC) needs an intelligent cloud service to ingest logs across all servers, firewalls, and cloud accounts, detect cyberattacks using AI, and automate threat responses.",
     question: "Which Azure service functions as a cloud-native SIEM and SOAR platform?",
     options: [
-      { id: 'A', text: "Microsoft Sentinel" },
-      { id: 'B', text: "Microsoft Defender for Cloud" },
+      { id: 'A', text: "Microsoft Defender for Cloud" },
+      { id: 'B', text: "Azure Bastion" },
       { id: 'C', text: "Azure Monitor" },
-      { id: 'D', text: "Azure Bastion" }
+      { id: 'D', text: "Microsoft Sentinel" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Microsoft Sentinel is a cloud-native Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) solution that delivers intelligent security analytics across the enterprise.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/sentinel/overview",
@@ -282,12 +282,12 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "Which Azure service collects, analyzes, and correlates operational telemetry—including metrics, activity logs, and application diagnostics—from cloud and on-premises environments?",
     options: [
-      { id: 'A', text: "Azure Advisor" },
-      { id: 'B', text: "Azure Policy" },
-      { id: 'C', text: "Azure Blueprint" },
-      { id: 'D', text: "Azure Monitor" }
+      { id: 'A', text: "Azure Monitor" },
+      { id: 'B', text: "Azure Advisor" },
+      { id: 'C', text: "Azure Policy" },
+      { id: 'D', text: "Azure Blueprint" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Monitor is the comprehensive observability platform in Azure. It collects and routes metrics and log data from Azure infrastructure and applications into Log Analytics and Application Insights to power dashboards and automated alert rules.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/overview",
@@ -303,12 +303,12 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "What is the difference between Azure Monitor Metrics and Azure Monitor Logs?",
     options: [
-      { id: 'A', text: "Metrics are numerical time series; Logs are records queried with KQL" },
-      { id: 'B', text: "Metrics cannot trigger alarms" },
-      { id: 'C', text: "Metrics are stored on local hard drives; Logs are stored in the cloud" },
-      { id: 'D', text: "Metrics only apply to networking; Logs only apply to virtual machines" }
+      { id: 'A', text: "Metrics cannot trigger alarms" },
+      { id: 'B', text: "Metrics are numerical time series; Logs are records queried with KQL" },
+      { id: 'C', text: "Metrics only apply to networking; Logs only apply to virtual machines" },
+      { id: 'D', text: "Metrics are stored on local hard drives; Logs are stored in the cloud" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Metrics are lightweight numerical values recorded at regular intervals that describe resource performance (like CPU percentage). Logs contain structured event and performance records stored in Log Analytics workspaces, queried using Kusto Query Language (KQL).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/data-platform",
@@ -324,12 +324,12 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "A software developer notices slow page loads in a production web app and needs to trace live user requests, database query execution times, and unhandled exception stack traces.",
     question: "Which feature of Azure Monitor provides application performance monitoring (APM)?",
     options: [
-      { id: 'A', text: "Application Insights" },
-      { id: 'B', text: "Azure Sentinel" },
-      { id: 'C', text: "Azure Network Watcher" },
-      { id: 'D', text: "Azure Advisor" }
+      { id: 'A', text: "Azure Advisor" },
+      { id: 'B', text: "Azure Network Watcher" },
+      { id: 'C', text: "Azure Sentinel" },
+      { id: 'D', text: "Application Insights" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Application Insights is an extension of Azure Monitor that provides Application Performance Monitoring (APM) for live web applications, diagnosing performance bottlenecks, tracking exceptions, and visualizing application dependency maps.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview",
@@ -345,12 +345,12 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "Which five pillars of cloud excellence does Azure Advisor evaluate to provide personalized optimization recommendations?",
     options: [
-      { id: 'A', text: "Storage, Compute, Networking, Databases, and AI" },
-      { id: 'B', text: "Windows, Linux, iOS, Android, and macOS" },
-      { id: 'C', text: "Cost, Security, Reliability, Operational Excellence, and Performance" },
-      { id: 'D', text: "Development, Testing, Staging, Production, and DR" }
+      { id: 'A', text: "Windows, Linux, iOS, Android, and macOS" },
+      { id: 'B', text: "Storage, Compute, Networking, Databases, and AI" },
+      { id: 'C', text: "Development, Testing, Staging, Production, and DR" },
+      { id: 'D', text: "Cost, Security, Reliability, Operational Excellence, and Performance" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Advisor evaluates running configurations against Microsoft Well-Architected best practices across five core categories: Cost (rightsizing), Security (vulnerabilities), Reliability (high availability), Operational Excellence, and Performance.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/advisor/advisor-overview",
@@ -366,8 +366,8 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "What does an Azure Service Level Agreement (SLA) define?",
     question: "Which statement accurately describes an Azure SLA?",
     options: [
-      { id: 'A', text: "It sets the price of electricity in Microsoft datacenters" },
-      { id: 'B', text: "It prohibits customers from cancelling subscriptions" },
+      { id: 'A', text: "It prohibits customers from cancelling subscriptions" },
+      { id: 'B', text: "It sets the price of electricity in Microsoft datacenters" },
       { id: 'C', text: "It guarantees that software will have zero security vulnerabilities" },
       { id: 'D', text: "A formal uptime commitment backed by financial service credits" }
     ],
@@ -387,12 +387,12 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "An application relies on an Azure App Service with an SLA of 99.95% and an Azure SQL Database with an SLA of 99.99%.",
     question: "How is the composite SLA for the combined application calculated?",
     options: [
-      { id: 'A', text: "By taking the lowest number (99.95%)" },
-      { id: 'B', text: "By multiplying the two SLAs together" },
-      { id: 'C', text: "By averaging the two numbers (99.97%)" },
-      { id: 'D', text: "By adding them together (199.94%)" }
+      { id: 'A', text: "By averaging the two numbers (99.97%)" },
+      { id: 'B', text: "By taking the lowest number (99.95%)" },
+      { id: 'C', text: "By adding them together (199.94%)" },
+      { id: 'D', text: "By multiplying the two SLAs together" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "When services depend sequentially on each other, the composite SLA is calculated by multiplying the individual SLAs: 0.9995 × 0.9999 = 0.9994 (99.94%). Adding redundant fallback paths raises the composite availability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/well-architected/reliability/metrics#composite-sla",
@@ -408,12 +408,12 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "What is the primary difference between an Azure service in 'Public Preview' and a service that has reached 'General Availability' (GA)?",
     options: [
-      { id: 'A', text: "Public Preview features have full SLA support; GA features have no SLA" },
-      { id: 'B', text: "Public Preview services are hosted on third-party clouds" },
-      { id: 'C', text: "GA services are free of charge" },
-      { id: 'D', text: "Public Preview carries no formal SLA; GA is supported and covered" }
+      { id: 'A', text: "Public Preview services are hosted on third-party clouds" },
+      { id: 'B', text: "Public Preview carries no formal SLA; GA is supported and covered" },
+      { id: 'C', text: "Public Preview features have full SLA support; GA features have no SLA" },
+      { id: 'D', text: "GA services are free of charge" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Public Preview features are released for customer evaluation and feedback without formal SLAs, and are not recommended for production. General Availability (GA) indicates the service is production-ready, supported 24/7, and covered by formal SLAs.",
     referenceUrl: "https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/",
@@ -429,12 +429,12 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "A finance team wants to estimate the expected monthly Azure bill for a proposed architecture of 10 VMs, 2 SQL databases, and 5 TB of storage.",
     question: "Which tool should the team use to model these cloud operational costs?",
     options: [
-      { id: 'A', text: "Azure Pricing Calculator" },
+      { id: 'A', text: "Azure Cost Management exports" },
       { id: 'B', text: "Azure Service Health" },
       { id: 'C', text: "Azure Total Cost of Ownership (TCO) Calculator" },
-      { id: 'D', text: "Azure Cost Management exports" }
+      { id: 'D', text: "Azure Pricing Calculator" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The Azure Pricing Calculator estimates expected monthly spending for specific combinations of Azure products and configurations. The TCO Calculator compares the cost of running existing on-premises datacenters against migrating to Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/plan-manage-costs",
@@ -450,9 +450,9 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "An IT director wants to receive an automated email notification whenever departmental cloud spending reaches 80% of its monthly $20,000 threshold.",
     question: "Which Azure capability should be configured?",
     options: [
-      { id: 'A', text: "Azure Key Vault expiration" },
+      { id: 'A', text: "Azure Policy deny assignment" },
       { id: 'B', text: "Azure Budgets with cost alert notifications" },
-      { id: 'C', text: "Azure Policy deny assignment" },
+      { id: 'C', text: "Azure Key Vault expiration" },
       { id: 'D', text: "Azure Blueprint lock" }
     ],
     correctAnswers: ['B'],
@@ -471,12 +471,12 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "A company has 50 virtual machines that run 24/7 all year. They are willing to commit to consistent usage for 3 years in exchange for significant discounts.",
     question: "Which purchasing model offers up to 72% cost savings compared to pay-as-you-go rates?",
     options: [
-      { id: 'A', text: "Pay-as-you-go pricing" },
-      { id: 'B', text: "Spot Virtual Machines" },
-      { id: 'C', text: "Azure Reservations" },
-      { id: 'D', text: "Azure Free Tier" }
+      { id: 'A', text: "Spot Virtual Machines" },
+      { id: 'B', text: "Pay-as-you-go pricing" },
+      { id: 'C', text: "Azure Free Tier" },
+      { id: 'D', text: "Azure Reservations" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Reservations provide up to 72% discounts off pay-as-you-go rates by committing to a one-year or three-year plan for predictable, steady-state compute workloads.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations",
@@ -492,12 +492,12 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "An enterprise IT organization is designing cloud architectures, governance standards, and operational policies on Microsoft Azure.",
     question: "An enterprise owns on-premises Windows Server and SQL Server licenses with active Software Assurance. How can they reduce Azure VM costs?",
     options: [
-      { id: 'A', text: "By using free tier accounts exclusively" },
-      { id: 'B', text: "By requesting free compute from Microsoft support" },
-      { id: 'C', text: "By applying Azure Hybrid Benefit to those VMs" },
-      { id: 'D', text: "By deleting the on-premises licenses" }
+      { id: 'A', text: "By requesting free compute from Microsoft support" },
+      { id: 'B', text: "By deleting the on-premises licenses" },
+      { id: 'C', text: "By using free tier accounts exclusively" },
+      { id: 'D', text: "By applying Azure Hybrid Benefit to those VMs" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Hybrid Benefit (AHB) allows customers to apply existing on-premises Windows Server and SQL Server licenses with active Software Assurance to Azure VMs, paying only base Linux compute rates and saving up to 85% when combined with Reservations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/hybrid-benefit",
@@ -513,12 +513,12 @@ export const AZURE_AZ900_QUESTIONS_7 = [
     scenario: "A university runs batch machine learning training jobs that can be interrupted and restarted at any time without financial consequence.",
     question: "Which compute purchasing option offers up to 90% discounts by utilizing spare, unallocated Azure compute capacity?",
     options: [
-      { id: 'A', text: "Standard On-Demand Virtual Machines" },
-      { id: 'B', text: "Reserved Virtual Machines" },
-      { id: 'C', text: "Spot Virtual Machines" },
-      { id: 'D', text: "Dedicated Host instances" }
+      { id: 'A', text: "Dedicated Host instances" },
+      { id: 'B', text: "Standard On-Demand Virtual Machines" },
+      { id: 'C', text: "Reserved Virtual Machines" },
+      { id: 'D', text: "Spot Virtual Machines" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Spot Virtual Machines let customers access unused Azure compute capacity at discounts of up to 90% compared to pay-as-you-go rates, with the trade-off that Microsoft can evict the VM with 30 seconds notice when capacity is needed.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/spot-vms",

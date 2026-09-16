@@ -9,12 +9,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to prevent a deep neural network from severely overfitting to training data when validation loss starts increasing after epoch 15.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Continue training for 200 additional epochs until training loss drops to zero." },
-      { id: 'B', text: "Add Dropout layers, apply L2 weight decay, and configure an EarlyStopping callback monitoring validation loss." },
-      { id: 'C', text: "Remove all validation splits and train exclusively on 100% of available data." },
-      { id: 'D', text: "Increase model capacity by adding 10 additional dense layers with 1,024 units each." }
+      { id: 'A', text: "Remove all validation splits and train exclusively on 100% of available data." },
+      { id: 'B', text: "Continue training for 200 additional epochs until training loss drops to zero." },
+      { id: 'C', text: "Increase model capacity by adding 10 additional dense layers with 1,024 units each." },
+      { id: 'D', text: "Add Dropout layers, apply L2 weight decay, and configure an EarlyStopping callback monitoring validation loss." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Add Dropout layers, apply L2 weight decay, and configure an EarlyStopping callback monitoring validation loss. Overfitting occurs when a model memorizes training noise instead of generalizing. Techniques like Dropout (randomly deactivating units), L2 regularization (penalizing large weights), and Early Stopping (halting training when validation loss stops improving) enforce model generalization.",
     referenceUrl: "https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/l2-regularization",
@@ -31,9 +31,9 @@ export const GCP_PMLE_QUESTIONS_16 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Add Dropout layers, apply L2 weight decay, and configure an EarlyStopping callback monitoring validation loss." },
-      { id: 'B', text: "Continue training for 200 additional epochs until training loss drops to zero." },
-      { id: 'C', text: "Remove all validation splits and train exclusively on 100% of available data." },
-      { id: 'D', text: "Increase model capacity by adding 10 additional dense layers with 1,024 units each." }
+      { id: 'B', text: "Remove all validation splits and train exclusively on 100% of available data." },
+      { id: 'C', text: "Increase model capacity by adding 10 additional dense layers with 1,024 units each." },
+      { id: 'D', text: "Continue training for 200 additional epochs until training loss drops to zero." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to prevent a deep neural network from severely overfitting to training data when validation loss starts increasing after epoch 15.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Continue training for 200 additional epochs until training loss drops to zero." },
-      { id: 'B', text: "Remove all validation splits and train exclusively on 100% of available data." },
-      { id: 'C', text: "Add Dropout layers, apply L2 weight decay, and configure an EarlyStopping callback monitoring validation loss." },
-      { id: 'D', text: "Increase model capacity by adding 10 additional dense layers with 1,024 units each." }
+      { id: 'A', text: "Add Dropout layers, apply L2 weight decay, and configure an EarlyStopping callback monitoring validation loss." },
+      { id: 'B', text: "Increase model capacity by adding 10 additional dense layers with 1,024 units each." },
+      { id: 'C', text: "Continue training for 200 additional epochs until training loss drops to zero." },
+      { id: 'D', text: "Remove all validation splits and train exclusively on 100% of available data." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Add Dropout layers, apply L2 weight decay, and configure an EarlyStopping callback monitoring validation loss. Overfitting occurs when a model memorizes training noise instead of generalizing. Techniques like Dropout (randomly deactivating units), L2 regularization (penalizing large weights), and Early Stopping (halting training when validation loss stops improving) enforce model generalization.",
     referenceUrl: "https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/l2-regularization",
@@ -72,12 +72,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to prevent a deep neural network from severely overfitting to training data when validation loss starts increasing after epoch 15.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Increase model capacity by adding 10 additional dense layers with 1,024 units each." },
-      { id: 'B', text: "Remove all validation splits and train exclusively on 100% of available data." },
+      { id: 'A', text: "Remove all validation splits and train exclusively on 100% of available data." },
+      { id: 'B', text: "Add Dropout layers, apply L2 weight decay, and configure an EarlyStopping callback monitoring validation loss." },
       { id: 'C', text: "Continue training for 200 additional epochs until training loss drops to zero." },
-      { id: 'D', text: "Add Dropout layers, apply L2 weight decay, and configure an EarlyStopping callback monitoring validation loss." }
+      { id: 'D', text: "Increase model capacity by adding 10 additional dense layers with 1,024 units each." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Add Dropout layers, apply L2 weight decay, and configure an EarlyStopping callback monitoring validation loss. Overfitting occurs when a model memorizes training noise instead of generalizing. Techniques like Dropout (randomly deactivating units), L2 regularization (penalizing large weights), and Early Stopping (halting training when validation loss stops improving) enforce model generalization.",
     referenceUrl: "https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/l2-regularization",
@@ -93,12 +93,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to prevent a deep neural network from severely overfitting to training data when validation loss starts increasing after epoch 15.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Remove all validation splits and train exclusively on 100% of available data." },
+      { id: 'A', text: "Continue training for 200 additional epochs until training loss drops to zero." },
       { id: 'B', text: "Increase model capacity by adding 10 additional dense layers with 1,024 units each." },
-      { id: 'C', text: "Add Dropout layers, apply L2 weight decay, and configure an EarlyStopping callback monitoring validation loss." },
-      { id: 'D', text: "Continue training for 200 additional epochs until training loss drops to zero." }
+      { id: 'C', text: "Remove all validation splits and train exclusively on 100% of available data." },
+      { id: 'D', text: "Add Dropout layers, apply L2 weight decay, and configure an EarlyStopping callback monitoring validation loss." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Add Dropout layers, apply L2 weight decay, and configure an EarlyStopping callback monitoring validation loss. Overfitting occurs when a model memorizes training noise instead of generalizing. Techniques like Dropout (randomly deactivating units), L2 regularization (penalizing large weights), and Early Stopping (halting training when validation loss stops improving) enforce model generalization.",
     referenceUrl: "https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/l2-regularization",
@@ -114,12 +114,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to evaluate the performance of an email spam classification model where the cost of falsely classifying an important email as spam (false positive) is extremely high.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Rely on overall classification accuracy without reviewing the confusion matrix." },
-      { id: 'B', text: "Prioritize Precision and examine the Precision-Recall curve (PR-AUC) at high precision thresholds." },
-      { id: 'C', text: "Optimize strictly for Recall, allowing any suspicious email to be flagged." },
-      { id: 'D', text: "Evaluate Root Mean Squared Error (RMSE) on categorical labels." }
+      { id: 'A', text: "Evaluate Root Mean Squared Error (RMSE) on categorical labels." },
+      { id: 'B', text: "Rely on overall classification accuracy without reviewing the confusion matrix." },
+      { id: 'C', text: "Prioritize Precision and examine the Precision-Recall curve (PR-AUC) at high precision thresholds." },
+      { id: 'D', text: "Optimize strictly for Recall, allowing any suspicious email to be flagged." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Prioritize Precision and examine the Precision-Recall curve (PR-AUC) at high precision thresholds. When false positives carry severe business penalties (such as flagging an important client email as spam), the model must optimize for Precision (True Positives / (True Positives + False Positives)). The Precision-Recall curve illustrates trade-offs across decision thresholds.",
     referenceUrl: "https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall",
@@ -135,12 +135,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to evaluate the performance of an email spam classification model where the cost of falsely classifying an important email as spam (false positive) is extremely high.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Evaluate Root Mean Squared Error (RMSE) on categorical labels." },
+      { id: 'A', text: "Rely on overall classification accuracy without reviewing the confusion matrix." },
       { id: 'B', text: "Optimize strictly for Recall, allowing any suspicious email to be flagged." },
-      { id: 'C', text: "Rely on overall classification accuracy without reviewing the confusion matrix." },
-      { id: 'D', text: "Prioritize Precision and examine the Precision-Recall curve (PR-AUC) at high precision thresholds." }
+      { id: 'C', text: "Prioritize Precision and examine the Precision-Recall curve (PR-AUC) at high precision thresholds." },
+      { id: 'D', text: "Evaluate Root Mean Squared Error (RMSE) on categorical labels." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Prioritize Precision and examine the Precision-Recall curve (PR-AUC) at high precision thresholds. When false positives carry severe business penalties (such as flagging an important client email as spam), the model must optimize for Precision (True Positives / (True Positives + False Positives)). The Precision-Recall curve illustrates trade-offs across decision thresholds.",
     referenceUrl: "https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall",
@@ -156,12 +156,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to evaluate the performance of an email spam classification model where the cost of falsely classifying an important email as spam (false positive) is extremely high.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Rely on overall classification accuracy without reviewing the confusion matrix." },
+      { id: 'A', text: "Prioritize Precision and examine the Precision-Recall curve (PR-AUC) at high precision thresholds." },
       { id: 'B', text: "Optimize strictly for Recall, allowing any suspicious email to be flagged." },
       { id: 'C', text: "Evaluate Root Mean Squared Error (RMSE) on categorical labels." },
-      { id: 'D', text: "Prioritize Precision and examine the Precision-Recall curve (PR-AUC) at high precision thresholds." }
+      { id: 'D', text: "Rely on overall classification accuracy without reviewing the confusion matrix." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Prioritize Precision and examine the Precision-Recall curve (PR-AUC) at high precision thresholds. When false positives carry severe business penalties (such as flagging an important client email as spam), the model must optimize for Precision (True Positives / (True Positives + False Positives)). The Precision-Recall curve illustrates trade-offs across decision thresholds.",
     referenceUrl: "https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall",
@@ -177,12 +177,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to evaluate the performance of an email spam classification model where the cost of falsely classifying an important email as spam (false positive) is extremely high.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Evaluate Root Mean Squared Error (RMSE) on categorical labels." },
-      { id: 'B', text: "Rely on overall classification accuracy without reviewing the confusion matrix." },
-      { id: 'C', text: "Prioritize Precision and examine the Precision-Recall curve (PR-AUC) at high precision thresholds." },
-      { id: 'D', text: "Optimize strictly for Recall, allowing any suspicious email to be flagged." }
+      { id: 'A', text: "Prioritize Precision and examine the Precision-Recall curve (PR-AUC) at high precision thresholds." },
+      { id: 'B', text: "Optimize strictly for Recall, allowing any suspicious email to be flagged." },
+      { id: 'C', text: "Evaluate Root Mean Squared Error (RMSE) on categorical labels." },
+      { id: 'D', text: "Rely on overall classification accuracy without reviewing the confusion matrix." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Prioritize Precision and examine the Precision-Recall curve (PR-AUC) at high precision thresholds. When false positives carry severe business penalties (such as flagging an important client email as spam), the model must optimize for Precision (True Positives / (True Positives + False Positives)). The Precision-Recall curve illustrates trade-offs across decision thresholds.",
     referenceUrl: "https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall",
@@ -219,12 +219,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to train a high-accuracy medical dermatology image classifier using a dataset of only 1,000 labeled biopsy images.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Use an unsupervised K-means clustering algorithm without feature representations." },
-      { id: 'B', text: "Apply Transfer Learning using a pre-trained Vision Transformer or ResNet backbone, freezing base weights and fine-tuning classification heads." },
+      { id: 'A', text: "Train an 80-layer convolutional neural network completely from scratch with random weight initialization." },
+      { id: 'B', text: "Use an unsupervised K-means clustering algorithm without feature representations." },
       { id: 'C', text: "Generate 500,000 synthetic biopsy images using random noise generators." },
-      { id: 'D', text: "Train an 80-layer convolutional neural network completely from scratch with random weight initialization." }
+      { id: 'D', text: "Apply Transfer Learning using a pre-trained Vision Transformer or ResNet backbone, freezing base weights and fine-tuning classification heads." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Apply Transfer Learning using a pre-trained Vision Transformer or ResNet backbone, freezing base weights and fine-tuning classification heads. Training deep computer vision models from scratch requires hundreds of thousands of images. Transfer learning leverages representations learned by deep models trained on massive general datasets (ImageNet), freezing lower-level feature extractors and fine-tuning only upper task-specific layers on small datasets.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/training/transfer-learning",
@@ -240,12 +240,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to train a high-accuracy medical dermatology image classifier using a dataset of only 1,000 labeled biopsy images.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Use an unsupervised K-means clustering algorithm without feature representations." },
-      { id: 'B', text: "Generate 500,000 synthetic biopsy images using random noise generators." },
-      { id: 'C', text: "Train an 80-layer convolutional neural network completely from scratch with random weight initialization." },
-      { id: 'D', text: "Apply Transfer Learning using a pre-trained Vision Transformer or ResNet backbone, freezing base weights and fine-tuning classification heads." }
+      { id: 'A', text: "Apply Transfer Learning using a pre-trained Vision Transformer or ResNet backbone, freezing base weights and fine-tuning classification heads." },
+      { id: 'B', text: "Train an 80-layer convolutional neural network completely from scratch with random weight initialization." },
+      { id: 'C', text: "Generate 500,000 synthetic biopsy images using random noise generators." },
+      { id: 'D', text: "Use an unsupervised K-means clustering algorithm without feature representations." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Apply Transfer Learning using a pre-trained Vision Transformer or ResNet backbone, freezing base weights and fine-tuning classification heads. Training deep computer vision models from scratch requires hundreds of thousands of images. Transfer learning leverages representations learned by deep models trained on massive general datasets (ImageNet), freezing lower-level feature extractors and fine-tuning only upper task-specific layers on small datasets.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/training/transfer-learning",
@@ -261,12 +261,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to train a high-accuracy medical dermatology image classifier using a dataset of only 1,000 labeled biopsy images.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Generate 500,000 synthetic biopsy images using random noise generators." },
-      { id: 'B', text: "Apply Transfer Learning using a pre-trained Vision Transformer or ResNet backbone, freezing base weights and fine-tuning classification heads." },
-      { id: 'C', text: "Train an 80-layer convolutional neural network completely from scratch with random weight initialization." },
+      { id: 'A', text: "Train an 80-layer convolutional neural network completely from scratch with random weight initialization." },
+      { id: 'B', text: "Generate 500,000 synthetic biopsy images using random noise generators." },
+      { id: 'C', text: "Apply Transfer Learning using a pre-trained Vision Transformer or ResNet backbone, freezing base weights and fine-tuning classification heads." },
       { id: 'D', text: "Use an unsupervised K-means clustering algorithm without feature representations." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Apply Transfer Learning using a pre-trained Vision Transformer or ResNet backbone, freezing base weights and fine-tuning classification heads. Training deep computer vision models from scratch requires hundreds of thousands of images. Transfer learning leverages representations learned by deep models trained on massive general datasets (ImageNet), freezing lower-level feature extractors and fine-tuning only upper task-specific layers on small datasets.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/training/transfer-learning",
@@ -282,12 +282,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to train a high-accuracy medical dermatology image classifier using a dataset of only 1,000 labeled biopsy images.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Use an unsupervised K-means clustering algorithm without feature representations." },
+      { id: 'A', text: "Apply Transfer Learning using a pre-trained Vision Transformer or ResNet backbone, freezing base weights and fine-tuning classification heads." },
       { id: 'B', text: "Train an 80-layer convolutional neural network completely from scratch with random weight initialization." },
       { id: 'C', text: "Generate 500,000 synthetic biopsy images using random noise generators." },
-      { id: 'D', text: "Apply Transfer Learning using a pre-trained Vision Transformer or ResNet backbone, freezing base weights and fine-tuning classification heads." }
+      { id: 'D', text: "Use an unsupervised K-means clustering algorithm without feature representations." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Apply Transfer Learning using a pre-trained Vision Transformer or ResNet backbone, freezing base weights and fine-tuning classification heads. Training deep computer vision models from scratch requires hundreds of thousands of images. Transfer learning leverages representations learned by deep models trained on massive general datasets (ImageNet), freezing lower-level feature extractors and fine-tuning only upper task-specific layers on small datasets.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/training/transfer-learning",
@@ -303,12 +303,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to train a high-accuracy medical dermatology image classifier using a dataset of only 1,000 labeled biopsy images.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Train an 80-layer convolutional neural network completely from scratch with random weight initialization." },
-      { id: 'B', text: "Use an unsupervised K-means clustering algorithm without feature representations." },
-      { id: 'C', text: "Apply Transfer Learning using a pre-trained Vision Transformer or ResNet backbone, freezing base weights and fine-tuning classification heads." },
-      { id: 'D', text: "Generate 500,000 synthetic biopsy images using random noise generators." }
+      { id: 'A', text: "Use an unsupervised K-means clustering algorithm without feature representations." },
+      { id: 'B', text: "Generate 500,000 synthetic biopsy images using random noise generators." },
+      { id: 'C', text: "Train an 80-layer convolutional neural network completely from scratch with random weight initialization." },
+      { id: 'D', text: "Apply Transfer Learning using a pre-trained Vision Transformer or ResNet backbone, freezing base weights and fine-tuning classification heads." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Apply Transfer Learning using a pre-trained Vision Transformer or ResNet backbone, freezing base weights and fine-tuning classification heads. Training deep computer vision models from scratch requires hundreds of thousands of images. Transfer learning leverages representations learned by deep models trained on massive general datasets (ImageNet), freezing lower-level feature extractors and fine-tuning only upper task-specific layers on small datasets.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/training/transfer-learning",
@@ -324,12 +324,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to track, compare, and visualize training loss curves, validation metrics, and hardware profiling graphs across 50 deep learning model training runs in a centralized dashboard.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Save training logs to local desktop text files without visualization." },
-      { id: 'B', text: "Integrate Vertex AI TensorBoard with the training scripts and compare experiment runs in the console." },
-      { id: 'C', text: "Print metrics to local terminal outputs and copy numbers manually into a shared text document." },
+      { id: 'A', text: "Print metrics to local terminal outputs and copy numbers manually into a shared text document." },
+      { id: 'B', text: "Save training logs to local desktop text files without visualization." },
+      { id: 'C', text: "Integrate Vertex AI TensorBoard with the training scripts and compare experiment runs in the console." },
       { id: 'D', text: "Inspect virtual machine memory utilization graphs in Cloud Monitoring alone." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Integrate Vertex AI TensorBoard with the training scripts and compare experiment runs in the console. Vertex AI TensorBoard is an enterprise-ready, managed service based on open-source TensorBoard. It allows data scientists to track experiments, visualize loss curves and metrics across multiple training runs, inspect model computational graphs, and analyze GPU/TPU profiling traces seamlessly.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/experiments/tensorboard-overview",
@@ -345,12 +345,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to track, compare, and visualize training loss curves, validation metrics, and hardware profiling graphs across 50 deep learning model training runs in a centralized dashboard.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Print metrics to local terminal outputs and copy numbers manually into a shared text document." },
-      { id: 'B', text: "Integrate Vertex AI TensorBoard with the training scripts and compare experiment runs in the console." },
-      { id: 'C', text: "Inspect virtual machine memory utilization graphs in Cloud Monitoring alone." },
-      { id: 'D', text: "Save training logs to local desktop text files without visualization." }
+      { id: 'A', text: "Integrate Vertex AI TensorBoard with the training scripts and compare experiment runs in the console." },
+      { id: 'B', text: "Print metrics to local terminal outputs and copy numbers manually into a shared text document." },
+      { id: 'C', text: "Save training logs to local desktop text files without visualization." },
+      { id: 'D', text: "Inspect virtual machine memory utilization graphs in Cloud Monitoring alone." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Integrate Vertex AI TensorBoard with the training scripts and compare experiment runs in the console. Vertex AI TensorBoard is an enterprise-ready, managed service based on open-source TensorBoard. It allows data scientists to track experiments, visualize loss curves and metrics across multiple training runs, inspect model computational graphs, and analyze GPU/TPU profiling traces seamlessly.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/experiments/tensorboard-overview",
@@ -366,12 +366,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to track, compare, and visualize training loss curves, validation metrics, and hardware profiling graphs across 50 deep learning model training runs in a centralized dashboard.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Save training logs to local desktop text files without visualization." },
-      { id: 'B', text: "Inspect virtual machine memory utilization graphs in Cloud Monitoring alone." },
-      { id: 'C', text: "Print metrics to local terminal outputs and copy numbers manually into a shared text document." },
-      { id: 'D', text: "Integrate Vertex AI TensorBoard with the training scripts and compare experiment runs in the console." }
+      { id: 'A', text: "Print metrics to local terminal outputs and copy numbers manually into a shared text document." },
+      { id: 'B', text: "Integrate Vertex AI TensorBoard with the training scripts and compare experiment runs in the console." },
+      { id: 'C', text: "Inspect virtual machine memory utilization graphs in Cloud Monitoring alone." },
+      { id: 'D', text: "Save training logs to local desktop text files without visualization." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Integrate Vertex AI TensorBoard with the training scripts and compare experiment runs in the console. Vertex AI TensorBoard is an enterprise-ready, managed service based on open-source TensorBoard. It allows data scientists to track experiments, visualize loss curves and metrics across multiple training runs, inspect model computational graphs, and analyze GPU/TPU profiling traces seamlessly.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/experiments/tensorboard-overview",
@@ -389,8 +389,8 @@ export const GCP_PMLE_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Integrate Vertex AI TensorBoard with the training scripts and compare experiment runs in the console." },
       { id: 'B', text: "Print metrics to local terminal outputs and copy numbers manually into a shared text document." },
-      { id: 'C', text: "Inspect virtual machine memory utilization graphs in Cloud Monitoring alone." },
-      { id: 'D', text: "Save training logs to local desktop text files without visualization." }
+      { id: 'C', text: "Save training logs to local desktop text files without visualization." },
+      { id: 'D', text: "Inspect virtual machine memory utilization graphs in Cloud Monitoring alone." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to track, compare, and visualize training loss curves, validation metrics, and hardware profiling graphs across 50 deep learning model training runs in a centralized dashboard.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Print metrics to local terminal outputs and copy numbers manually into a shared text document." },
-      { id: 'B', text: "Save training logs to local desktop text files without visualization." },
-      { id: 'C', text: "Inspect virtual machine memory utilization graphs in Cloud Monitoring alone." },
-      { id: 'D', text: "Integrate Vertex AI TensorBoard with the training scripts and compare experiment runs in the console." }
+      { id: 'A', text: "Save training logs to local desktop text files without visualization." },
+      { id: 'B', text: "Inspect virtual machine memory utilization graphs in Cloud Monitoring alone." },
+      { id: 'C', text: "Integrate Vertex AI TensorBoard with the training scripts and compare experiment runs in the console." },
+      { id: 'D', text: "Print metrics to local terminal outputs and copy numbers manually into a shared text document." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Integrate Vertex AI TensorBoard with the training scripts and compare experiment runs in the console. Vertex AI TensorBoard is an enterprise-ready, managed service based on open-source TensorBoard. It allows data scientists to track experiments, visualize loss curves and metrics across multiple training runs, inspect model computational graphs, and analyze GPU/TPU profiling traces seamlessly.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/experiments/tensorboard-overview",
@@ -429,12 +429,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to customize a pre-trained open-source foundational LLM (such as Llama or Gemma) on proprietary internal legal contracts without modifying the base model weights.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Hardcode legal contract answers in a local dictionary file." },
-      { id: 'B', text: "Apply Parameter-Efficient Fine-Tuning (PEFT) using Low-Rank Adaptation (LoRA) via Vertex AI Model Garden." },
+      { id: 'A', text: "Retrain the entire 70B foundational model from scratch on raw text files." },
+      { id: 'B', text: "Hardcode legal contract answers in a local dictionary file." },
       { id: 'C', text: "Manually rewrite the model source code in C++." },
-      { id: 'D', text: "Retrain the entire 70B foundational model from scratch on raw text files." }
+      { id: 'D', text: "Apply Parameter-Efficient Fine-Tuning (PEFT) using Low-Rank Adaptation (LoRA) via Vertex AI Model Garden." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Apply Parameter-Efficient Fine-Tuning (PEFT) using Low-Rank Adaptation (LoRA) via Vertex AI Model Garden. Vertex AI Model Garden provides enterprise access to foundational models (Google, open-source, and third-party). Parameter-Efficient Fine-Tuning (PEFT), such as LoRA, freezes the foundational weights and trains lightweight rank-decomposition adapter matrices, cutting compute costs and memory requirements by 90%.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/model-garden/explore-models",
@@ -450,12 +450,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to customize a pre-trained open-source foundational LLM (such as Llama or Gemma) on proprietary internal legal contracts without modifying the base model weights.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Retrain the entire 70B foundational model from scratch on raw text files." },
-      { id: 'B', text: "Manually rewrite the model source code in C++." },
-      { id: 'C', text: "Hardcode legal contract answers in a local dictionary file." },
-      { id: 'D', text: "Apply Parameter-Efficient Fine-Tuning (PEFT) using Low-Rank Adaptation (LoRA) via Vertex AI Model Garden." }
+      { id: 'A', text: "Manually rewrite the model source code in C++." },
+      { id: 'B', text: "Hardcode legal contract answers in a local dictionary file." },
+      { id: 'C', text: "Apply Parameter-Efficient Fine-Tuning (PEFT) using Low-Rank Adaptation (LoRA) via Vertex AI Model Garden." },
+      { id: 'D', text: "Retrain the entire 70B foundational model from scratch on raw text files." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Apply Parameter-Efficient Fine-Tuning (PEFT) using Low-Rank Adaptation (LoRA) via Vertex AI Model Garden. Vertex AI Model Garden provides enterprise access to foundational models (Google, open-source, and third-party). Parameter-Efficient Fine-Tuning (PEFT), such as LoRA, freezes the foundational weights and trains lightweight rank-decomposition adapter matrices, cutting compute costs and memory requirements by 90%.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/model-garden/explore-models",
@@ -471,12 +471,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to customize a pre-trained open-source foundational LLM (such as Llama or Gemma) on proprietary internal legal contracts without modifying the base model weights.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Manually rewrite the model source code in C++." },
-      { id: 'B', text: "Apply Parameter-Efficient Fine-Tuning (PEFT) using Low-Rank Adaptation (LoRA) via Vertex AI Model Garden." },
-      { id: 'C', text: "Retrain the entire 70B foundational model from scratch on raw text files." },
+      { id: 'A', text: "Retrain the entire 70B foundational model from scratch on raw text files." },
+      { id: 'B', text: "Manually rewrite the model source code in C++." },
+      { id: 'C', text: "Apply Parameter-Efficient Fine-Tuning (PEFT) using Low-Rank Adaptation (LoRA) via Vertex AI Model Garden." },
       { id: 'D', text: "Hardcode legal contract answers in a local dictionary file." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Apply Parameter-Efficient Fine-Tuning (PEFT) using Low-Rank Adaptation (LoRA) via Vertex AI Model Garden. Vertex AI Model Garden provides enterprise access to foundational models (Google, open-source, and third-party). Parameter-Efficient Fine-Tuning (PEFT), such as LoRA, freezes the foundational weights and trains lightweight rank-decomposition adapter matrices, cutting compute costs and memory requirements by 90%.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/model-garden/explore-models",
@@ -492,12 +492,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to customize a pre-trained open-source foundational LLM (such as Llama or Gemma) on proprietary internal legal contracts without modifying the base model weights.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Retrain the entire 70B foundational model from scratch on raw text files." },
-      { id: 'B', text: "Apply Parameter-Efficient Fine-Tuning (PEFT) using Low-Rank Adaptation (LoRA) via Vertex AI Model Garden." },
+      { id: 'A', text: "Apply Parameter-Efficient Fine-Tuning (PEFT) using Low-Rank Adaptation (LoRA) via Vertex AI Model Garden." },
+      { id: 'B', text: "Retrain the entire 70B foundational model from scratch on raw text files." },
       { id: 'C', text: "Manually rewrite the model source code in C++." },
       { id: 'D', text: "Hardcode legal contract answers in a local dictionary file." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Apply Parameter-Efficient Fine-Tuning (PEFT) using Low-Rank Adaptation (LoRA) via Vertex AI Model Garden. Vertex AI Model Garden provides enterprise access to foundational models (Google, open-source, and third-party). Parameter-Efficient Fine-Tuning (PEFT), such as LoRA, freezes the foundational weights and trains lightweight rank-decomposition adapter matrices, cutting compute costs and memory requirements by 90%.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/model-garden/explore-models",
@@ -513,12 +513,12 @@ export const GCP_PMLE_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to customize a pre-trained open-source foundational LLM (such as Llama or Gemma) on proprietary internal legal contracts without modifying the base model weights.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Retrain the entire 70B foundational model from scratch on raw text files." },
-      { id: 'B', text: "Apply Parameter-Efficient Fine-Tuning (PEFT) using Low-Rank Adaptation (LoRA) via Vertex AI Model Garden." },
-      { id: 'C', text: "Hardcode legal contract answers in a local dictionary file." },
-      { id: 'D', text: "Manually rewrite the model source code in C++." }
+      { id: 'A', text: "Apply Parameter-Efficient Fine-Tuning (PEFT) using Low-Rank Adaptation (LoRA) via Vertex AI Model Garden." },
+      { id: 'B', text: "Retrain the entire 70B foundational model from scratch on raw text files." },
+      { id: 'C', text: "Manually rewrite the model source code in C++." },
+      { id: 'D', text: "Hardcode legal contract answers in a local dictionary file." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Apply Parameter-Efficient Fine-Tuning (PEFT) using Low-Rank Adaptation (LoRA) via Vertex AI Model Garden. Vertex AI Model Garden provides enterprise access to foundational models (Google, open-source, and third-party). Parameter-Efficient Fine-Tuning (PEFT), such as LoRA, freezes the foundational weights and trains lightweight rank-decomposition adapter matrices, cutting compute costs and memory requirements by 90%.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/model-garden/explore-models",

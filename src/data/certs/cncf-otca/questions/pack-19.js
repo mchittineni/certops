@@ -9,12 +9,12 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to expose OpenTelemetry metrics so an existing Prometheus server can scrape them via a standard `/metrics` HTTP endpoint.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
-      { id: 'A', text: "Push OTLP metrics to the Prometheus scraping port 9090 directly." },
-      { id: 'B', text: "Convert Prometheus metrics to flat text files." },
-      { id: 'C', text: "Prometheus does not integrate with OpenTelemetry." },
-      { id: 'D', text: "Configure the `prometheus` exporter in the Collector on port 8889, creating a pull-based Prometheus scraping target." }
+      { id: 'A', text: "Convert Prometheus metrics to flat text files." },
+      { id: 'B', text: "Prometheus does not integrate with OpenTelemetry." },
+      { id: 'C', text: "Configure the `prometheus` exporter in the Collector on port 8889, creating a pull-based Prometheus scraping target." },
+      { id: 'D', text: "Push OTLP metrics to the Prometheus scraping port 9090 directly." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the `prometheus` exporter in the Collector on port 8889, creating a pull-based Prometheus scraping target. The `prometheus` exporter in the OpenTelemetry Collector exposes a Prometheus pull endpoint (default port 8889). Existing Prometheus servers can scrape this endpoint as a standard target, translating OpenTelemetry metrics into Prometheus format seamlessly.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/prometheusexporter",
@@ -31,9 +31,9 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Configure the `prometheus` exporter in the Collector on port 8889, creating a pull-based Prometheus scraping target." },
-      { id: 'B', text: "Convert Prometheus metrics to flat text files." },
-      { id: 'C', text: "Prometheus does not integrate with OpenTelemetry." },
-      { id: 'D', text: "Push OTLP metrics to the Prometheus scraping port 9090 directly." }
+      { id: 'B', text: "Prometheus does not integrate with OpenTelemetry." },
+      { id: 'C', text: "Push OTLP metrics to the Prometheus scraping port 9090 directly." },
+      { id: 'D', text: "Convert Prometheus metrics to flat text files." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to expose OpenTelemetry metrics so an existing Prometheus server can scrape them via a standard `/metrics` HTTP endpoint.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
-      { id: 'A', text: "Push OTLP metrics to the Prometheus scraping port 9090 directly." },
-      { id: 'B', text: "Prometheus does not integrate with OpenTelemetry." },
+      { id: 'A', text: "Prometheus does not integrate with OpenTelemetry." },
+      { id: 'B', text: "Configure the `prometheus` exporter in the Collector on port 8889, creating a pull-based Prometheus scraping target." },
       { id: 'C', text: "Convert Prometheus metrics to flat text files." },
-      { id: 'D', text: "Configure the `prometheus` exporter in the Collector on port 8889, creating a pull-based Prometheus scraping target." }
+      { id: 'D', text: "Push OTLP metrics to the Prometheus scraping port 9090 directly." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure the `prometheus` exporter in the Collector on port 8889, creating a pull-based Prometheus scraping target. The `prometheus` exporter in the OpenTelemetry Collector exposes a Prometheus pull endpoint (default port 8889). Existing Prometheus servers can scrape this endpoint as a standard target, translating OpenTelemetry metrics into Prometheus format seamlessly.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/prometheusexporter",
@@ -73,9 +73,9 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Configure the `prometheus` exporter in the Collector on port 8889, creating a pull-based Prometheus scraping target." },
-      { id: 'B', text: "Prometheus does not integrate with OpenTelemetry." },
-      { id: 'C', text: "Push OTLP metrics to the Prometheus scraping port 9090 directly." },
-      { id: 'D', text: "Convert Prometheus metrics to flat text files." }
+      { id: 'B', text: "Convert Prometheus metrics to flat text files." },
+      { id: 'C', text: "Prometheus does not integrate with OpenTelemetry." },
+      { id: 'D', text: "Push OTLP metrics to the Prometheus scraping port 9090 directly." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to expose OpenTelemetry metrics so an existing Prometheus server can scrape them via a standard `/metrics` HTTP endpoint.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
-      { id: 'A', text: "Prometheus does not integrate with OpenTelemetry." },
-      { id: 'B', text: "Convert Prometheus metrics to flat text files." },
-      { id: 'C', text: "Push OTLP metrics to the Prometheus scraping port 9090 directly." },
-      { id: 'D', text: "Configure the `prometheus` exporter in the Collector on port 8889, creating a pull-based Prometheus scraping target." }
+      { id: 'A', text: "Configure the `prometheus` exporter in the Collector on port 8889, creating a pull-based Prometheus scraping target." },
+      { id: 'B', text: "Push OTLP metrics to the Prometheus scraping port 9090 directly." },
+      { id: 'C', text: "Convert Prometheus metrics to flat text files." },
+      { id: 'D', text: "Prometheus does not integrate with OpenTelemetry." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure the `prometheus` exporter in the Collector on port 8889, creating a pull-based Prometheus scraping target. The `prometheus` exporter in the OpenTelemetry Collector exposes a Prometheus pull endpoint (default port 8889). Existing Prometheus servers can scrape this endpoint as a standard target, translating OpenTelemetry metrics into Prometheus format seamlessly.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/prometheusexporter",
@@ -114,12 +114,12 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to transition a microservice fleet from Jaeger and Zipkin to OpenTelemetry without re-instrumenting all applications simultaneously.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
-      { id: 'A', text: "Drop all historical telemetry." },
+      { id: 'A', text: "Run separate parallel clusters of Jaeger and Zipkin servers indefinitely." },
       { id: 'B', text: "Shut down the existing applications until all code is rewritten with OpenTelemetry SDKs." },
-      { id: 'C', text: "Run separate parallel clusters of Jaeger and Zipkin servers indefinitely." },
-      { id: 'D', text: "Enable `jaeger` and `zipkin` receivers in the OpenTelemetry Collector, allowing existing applications to send legacy formats." }
+      { id: 'C', text: "Enable `jaeger` and `zipkin` receivers in the OpenTelemetry Collector, allowing existing applications to send legacy formats." },
+      { id: 'D', text: "Drop all historical telemetry." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable `jaeger` and `zipkin` receivers in the OpenTelemetry Collector, allowing existing applications to send legacy formats. The OpenTelemetry Collector facilitates incremental migration. By enabling legacy receivers (`jaeger` on ports 14250/14268, `zipkin` on port 9411), the Collector accepts legacy payloads, converts them to internal OpenTelemetry format, and exports them to modern backends.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/jaegerreceiver",
@@ -137,8 +137,8 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Enable `jaeger` and `zipkin` receivers in the OpenTelemetry Collector, allowing existing applications to send legacy formats." },
       { id: 'B', text: "Shut down the existing applications until all code is rewritten with OpenTelemetry SDKs." },
-      { id: 'C', text: "Run separate parallel clusters of Jaeger and Zipkin servers indefinitely." },
-      { id: 'D', text: "Drop all historical telemetry." }
+      { id: 'C', text: "Drop all historical telemetry." },
+      { id: 'D', text: "Run separate parallel clusters of Jaeger and Zipkin servers indefinitely." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -178,9 +178,9 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Enable `jaeger` and `zipkin` receivers in the OpenTelemetry Collector, allowing existing applications to send legacy formats." },
-      { id: 'B', text: "Drop all historical telemetry." },
-      { id: 'C', text: "Run separate parallel clusters of Jaeger and Zipkin servers indefinitely." },
-      { id: 'D', text: "Shut down the existing applications until all code is rewritten with OpenTelemetry SDKs." }
+      { id: 'B', text: "Run separate parallel clusters of Jaeger and Zipkin servers indefinitely." },
+      { id: 'C', text: "Shut down the existing applications until all code is rewritten with OpenTelemetry SDKs." },
+      { id: 'D', text: "Drop all historical telemetry." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -200,8 +200,8 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Enable `jaeger` and `zipkin` receivers in the OpenTelemetry Collector, allowing existing applications to send legacy formats." },
       { id: 'B', text: "Shut down the existing applications until all code is rewritten with OpenTelemetry SDKs." },
-      { id: 'C', text: "Run separate parallel clusters of Jaeger and Zipkin servers indefinitely." },
-      { id: 'D', text: "Drop all historical telemetry." }
+      { id: 'C', text: "Drop all historical telemetry." },
+      { id: 'D', text: "Run separate parallel clusters of Jaeger and Zipkin servers indefinitely." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,12 +219,12 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to decouple OpenTelemetry collectors from downstream analytics backends to withstand prolonged backend outages without dropping telemetry.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
-      { id: 'A', text: "Buffer billions of spans in RAM memory inside collector pods." },
-      { id: 'B', text: "Configure an OpenTelemetry Collector pipeline exporting telemetry to an Apache Kafka topic, and consumer collectors reading via Kafka receiver." },
-      { id: 'C', text: "Write telemetry to local node ephemeral disk files." },
-      { id: 'D', text: "Drop telemetry immediately whenever backends experience temporary latency spikes." }
+      { id: 'A', text: "Configure an OpenTelemetry Collector pipeline exporting telemetry to an Apache Kafka topic, and consumer collectors reading via Kafka receiver." },
+      { id: 'B', text: "Buffer billions of spans in RAM memory inside collector pods." },
+      { id: 'C', text: "Drop telemetry immediately whenever backends experience temporary latency spikes." },
+      { id: 'D', text: "Write telemetry to local node ephemeral disk files." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure an OpenTelemetry Collector pipeline exporting telemetry to an Apache Kafka topic, and consumer collectors reading via Kafka receiver. For high-volume, mission-critical environments, Apache Kafka acts as a durable shock absorber. Agent collectors export telemetry to Kafka topics; downstream gateway collectors consume from Kafka, ensuring zero telemetry loss during backend maintenance or surges.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/kafkaexporter",
@@ -240,12 +240,12 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to decouple OpenTelemetry collectors from downstream analytics backends to withstand prolonged backend outages without dropping telemetry.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
-      { id: 'A', text: "Write telemetry to local node ephemeral disk files." },
-      { id: 'B', text: "Drop telemetry immediately whenever backends experience temporary latency spikes." },
-      { id: 'C', text: "Configure an OpenTelemetry Collector pipeline exporting telemetry to an Apache Kafka topic, and consumer collectors reading via Kafka receiver." },
-      { id: 'D', text: "Buffer billions of spans in RAM memory inside collector pods." }
+      { id: 'A', text: "Buffer billions of spans in RAM memory inside collector pods." },
+      { id: 'B', text: "Configure an OpenTelemetry Collector pipeline exporting telemetry to an Apache Kafka topic, and consumer collectors reading via Kafka receiver." },
+      { id: 'C', text: "Write telemetry to local node ephemeral disk files." },
+      { id: 'D', text: "Drop telemetry immediately whenever backends experience temporary latency spikes." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure an OpenTelemetry Collector pipeline exporting telemetry to an Apache Kafka topic, and consumer collectors reading via Kafka receiver. For high-volume, mission-critical environments, Apache Kafka acts as a durable shock absorber. Agent collectors export telemetry to Kafka topics; downstream gateway collectors consume from Kafka, ensuring zero telemetry loss during backend maintenance or surges.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/kafkaexporter",
@@ -261,12 +261,12 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to decouple OpenTelemetry collectors from downstream analytics backends to withstand prolonged backend outages without dropping telemetry.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
-      { id: 'A', text: "Buffer billions of spans in RAM memory inside collector pods." },
-      { id: 'B', text: "Drop telemetry immediately whenever backends experience temporary latency spikes." },
-      { id: 'C', text: "Write telemetry to local node ephemeral disk files." },
-      { id: 'D', text: "Configure an OpenTelemetry Collector pipeline exporting telemetry to an Apache Kafka topic, and consumer collectors reading via Kafka receiver." }
+      { id: 'A', text: "Drop telemetry immediately whenever backends experience temporary latency spikes." },
+      { id: 'B', text: "Write telemetry to local node ephemeral disk files." },
+      { id: 'C', text: "Configure an OpenTelemetry Collector pipeline exporting telemetry to an Apache Kafka topic, and consumer collectors reading via Kafka receiver." },
+      { id: 'D', text: "Buffer billions of spans in RAM memory inside collector pods." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure an OpenTelemetry Collector pipeline exporting telemetry to an Apache Kafka topic, and consumer collectors reading via Kafka receiver. For high-volume, mission-critical environments, Apache Kafka acts as a durable shock absorber. Agent collectors export telemetry to Kafka topics; downstream gateway collectors consume from Kafka, ensuring zero telemetry loss during backend maintenance or surges.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/kafkaexporter",
@@ -282,12 +282,12 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to decouple OpenTelemetry collectors from downstream analytics backends to withstand prolonged backend outages without dropping telemetry.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
-      { id: 'A', text: "Buffer billions of spans in RAM memory inside collector pods." },
-      { id: 'B', text: "Configure an OpenTelemetry Collector pipeline exporting telemetry to an Apache Kafka topic, and consumer collectors reading via Kafka receiver." },
+      { id: 'A', text: "Configure an OpenTelemetry Collector pipeline exporting telemetry to an Apache Kafka topic, and consumer collectors reading via Kafka receiver." },
+      { id: 'B', text: "Buffer billions of spans in RAM memory inside collector pods." },
       { id: 'C', text: "Drop telemetry immediately whenever backends experience temporary latency spikes." },
       { id: 'D', text: "Write telemetry to local node ephemeral disk files." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure an OpenTelemetry Collector pipeline exporting telemetry to an Apache Kafka topic, and consumer collectors reading via Kafka receiver. For high-volume, mission-critical environments, Apache Kafka acts as a durable shock absorber. Agent collectors export telemetry to Kafka topics; downstream gateway collectors consume from Kafka, ensuring zero telemetry loss during backend maintenance or surges.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/kafkaexporter",
@@ -303,12 +303,12 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to decouple OpenTelemetry collectors from downstream analytics backends to withstand prolonged backend outages without dropping telemetry.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
-      { id: 'A', text: "Write telemetry to local node ephemeral disk files." },
+      { id: 'A', text: "Configure an OpenTelemetry Collector pipeline exporting telemetry to an Apache Kafka topic, and consumer collectors reading via Kafka receiver." },
       { id: 'B', text: "Buffer billions of spans in RAM memory inside collector pods." },
       { id: 'C', text: "Drop telemetry immediately whenever backends experience temporary latency spikes." },
-      { id: 'D', text: "Configure an OpenTelemetry Collector pipeline exporting telemetry to an Apache Kafka topic, and consumer collectors reading via Kafka receiver." }
+      { id: 'D', text: "Write telemetry to local node ephemeral disk files." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure an OpenTelemetry Collector pipeline exporting telemetry to an Apache Kafka topic, and consumer collectors reading via Kafka receiver. For high-volume, mission-critical environments, Apache Kafka acts as a durable shock absorber. Agent collectors export telemetry to Kafka topics; downstream gateway collectors consume from Kafka, ensuring zero telemetry loss during backend maintenance or surges.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/kafkaexporter",
@@ -324,12 +324,12 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to verify whether an application is sending expected span attributes and metric dimensions to the OpenTelemetry Collector during development.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
-      { id: 'A', text: "Attach an interactive debugger to live production servers." },
-      { id: 'B', text: "Disable all exporters." },
+      { id: 'A', text: "Disable all exporters." },
+      { id: 'B', text: "Add the `debug` (formerly `logging`) exporter with `verbosity: detailed` to the collector pipeline and inspect stdout logs." },
       { id: 'C', text: "Guess attributes by inspecting client-side source code." },
-      { id: 'D', text: "Add the `debug` (formerly `logging`) exporter with `verbosity: detailed` to the collector pipeline and inspect stdout logs." }
+      { id: 'D', text: "Attach an interactive debugger to live production servers." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Add the `debug` (formerly `logging`) exporter with `verbosity: detailed` to the collector pipeline and inspect stdout logs. The `debug` exporter (replacing the deprecated `logging` exporter) prints telemetry records directly to the Collector's standard output. Setting `verbosity: detailed` prints full attributes, resource metadata, events, and timestamps, making it the primary tool for testing pipelines.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector/blob/main/exporter/debugexporter/README.md",
@@ -345,12 +345,12 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to verify whether an application is sending expected span attributes and metric dimensions to the OpenTelemetry Collector during development.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
-      { id: 'A', text: "Disable all exporters." },
+      { id: 'A', text: "Add the `debug` (formerly `logging`) exporter with `verbosity: detailed` to the collector pipeline and inspect stdout logs." },
       { id: 'B', text: "Attach an interactive debugger to live production servers." },
       { id: 'C', text: "Guess attributes by inspecting client-side source code." },
-      { id: 'D', text: "Add the `debug` (formerly `logging`) exporter with `verbosity: detailed` to the collector pipeline and inspect stdout logs." }
+      { id: 'D', text: "Disable all exporters." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Add the `debug` (formerly `logging`) exporter with `verbosity: detailed` to the collector pipeline and inspect stdout logs. The `debug` exporter (replacing the deprecated `logging` exporter) prints telemetry records directly to the Collector's standard output. Setting `verbosity: detailed` prints full attributes, resource metadata, events, and timestamps, making it the primary tool for testing pipelines.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector/blob/main/exporter/debugexporter/README.md",
@@ -366,12 +366,12 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to verify whether an application is sending expected span attributes and metric dimensions to the OpenTelemetry Collector during development.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
-      { id: 'A', text: "Disable all exporters." },
-      { id: 'B', text: "Add the `debug` (formerly `logging`) exporter with `verbosity: detailed` to the collector pipeline and inspect stdout logs." },
+      { id: 'A', text: "Attach an interactive debugger to live production servers." },
+      { id: 'B', text: "Disable all exporters." },
       { id: 'C', text: "Guess attributes by inspecting client-side source code." },
-      { id: 'D', text: "Attach an interactive debugger to live production servers." }
+      { id: 'D', text: "Add the `debug` (formerly `logging`) exporter with `verbosity: detailed` to the collector pipeline and inspect stdout logs." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Add the `debug` (formerly `logging`) exporter with `verbosity: detailed` to the collector pipeline and inspect stdout logs. The `debug` exporter (replacing the deprecated `logging` exporter) prints telemetry records directly to the Collector's standard output. Setting `verbosity: detailed` prints full attributes, resource metadata, events, and timestamps, making it the primary tool for testing pipelines.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector/blob/main/exporter/debugexporter/README.md",
@@ -387,12 +387,12 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to verify whether an application is sending expected span attributes and metric dimensions to the OpenTelemetry Collector during development.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
-      { id: 'A', text: "Disable all exporters." },
-      { id: 'B', text: "Add the `debug` (formerly `logging`) exporter with `verbosity: detailed` to the collector pipeline and inspect stdout logs." },
+      { id: 'A', text: "Attach an interactive debugger to live production servers." },
+      { id: 'B', text: "Disable all exporters." },
       { id: 'C', text: "Guess attributes by inspecting client-side source code." },
-      { id: 'D', text: "Attach an interactive debugger to live production servers." }
+      { id: 'D', text: "Add the `debug` (formerly `logging`) exporter with `verbosity: detailed` to the collector pipeline and inspect stdout logs." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Add the `debug` (formerly `logging`) exporter with `verbosity: detailed` to the collector pipeline and inspect stdout logs. The `debug` exporter (replacing the deprecated `logging` exporter) prints telemetry records directly to the Collector's standard output. Setting `verbosity: detailed` prints full attributes, resource metadata, events, and timestamps, making it the primary tool for testing pipelines.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector/blob/main/exporter/debugexporter/README.md",
@@ -408,12 +408,12 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to verify whether an application is sending expected span attributes and metric dimensions to the OpenTelemetry Collector during development.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
-      { id: 'A', text: "Disable all exporters." },
-      { id: 'B', text: "Add the `debug` (formerly `logging`) exporter with `verbosity: detailed` to the collector pipeline and inspect stdout logs." },
-      { id: 'C', text: "Attach an interactive debugger to live production servers." },
-      { id: 'D', text: "Guess attributes by inspecting client-side source code." }
+      { id: 'A', text: "Guess attributes by inspecting client-side source code." },
+      { id: 'B', text: "Disable all exporters." },
+      { id: 'C', text: "Add the `debug` (formerly `logging`) exporter with `verbosity: detailed` to the collector pipeline and inspect stdout logs." },
+      { id: 'D', text: "Attach an interactive debugger to live production servers." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Add the `debug` (formerly `logging`) exporter with `verbosity: detailed` to the collector pipeline and inspect stdout logs. The `debug` exporter (replacing the deprecated `logging` exporter) prints telemetry records directly to the Collector's standard output. Setting `verbosity: detailed` prints full attributes, resource metadata, events, and timestamps, making it the primary tool for testing pipelines.",
     referenceUrl: "https://github.com/open-telemetry/opentelemetry-collector/blob/main/exporter/debugexporter/README.md",
@@ -429,12 +429,12 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to ensure that temporary network blips or short backend timeouts do not cause the OpenTelemetry Collector to drop exported telemetry.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
-      { id: 'A', text: "Drop failed requests immediately without retrying." },
-      { id: 'B', text: "Disable all network error handling in the collector." },
-      { id: 'C', text: "Set timeout to 0 so requests fail immediately." },
-      { id: 'D', text: "Configure `retry_on_failure` with exponential backoff and enable `sending_queue` with persistent or memory storage in the exporter." }
+      { id: 'A', text: "Set timeout to 0 so requests fail immediately." },
+      { id: 'B', text: "Configure `retry_on_failure` with exponential backoff and enable `sending_queue` with persistent or memory storage in the exporter." },
+      { id: 'C', text: "Disable all network error handling in the collector." },
+      { id: 'D', text: "Drop failed requests immediately without retrying." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `retry_on_failure` with exponential backoff and enable `sending_queue` with persistent or memory storage in the exporter. All standard OpenTelemetry Collector exporters support `sending_queue` (in-memory or persistent disk queue) and `retry_on_failure`. If an export request fails due to network partitions or backend 503 errors, the exporter retries with exponential backoff, preventing data loss.",
     referenceUrl: "https://opentelemetry.io/docs/collector/configuration/#exporters",
@@ -451,9 +451,9 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Configure `retry_on_failure` with exponential backoff and enable `sending_queue` with persistent or memory storage in the exporter." },
-      { id: 'B', text: "Disable all network error handling in the collector." },
-      { id: 'C', text: "Set timeout to 0 so requests fail immediately." },
-      { id: 'D', text: "Drop failed requests immediately without retrying." }
+      { id: 'B', text: "Drop failed requests immediately without retrying." },
+      { id: 'C', text: "Disable all network error handling in the collector." },
+      { id: 'D', text: "Set timeout to 0 so requests fail immediately." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,12 +471,12 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to ensure that temporary network blips or short backend timeouts do not cause the OpenTelemetry Collector to drop exported telemetry.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
-      { id: 'A', text: "Drop failed requests immediately without retrying." },
+      { id: 'A', text: "Disable all network error handling in the collector." },
       { id: 'B', text: "Set timeout to 0 so requests fail immediately." },
-      { id: 'C', text: "Disable all network error handling in the collector." },
-      { id: 'D', text: "Configure `retry_on_failure` with exponential backoff and enable `sending_queue` with persistent or memory storage in the exporter." }
+      { id: 'C', text: "Configure `retry_on_failure` with exponential backoff and enable `sending_queue` with persistent or memory storage in the exporter." },
+      { id: 'D', text: "Drop failed requests immediately without retrying." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure `retry_on_failure` with exponential backoff and enable `sending_queue` with persistent or memory storage in the exporter. All standard OpenTelemetry Collector exporters support `sending_queue` (in-memory or persistent disk queue) and `retry_on_failure`. If an export request fails due to network partitions or backend 503 errors, the exporter retries with exponential backoff, preventing data loss.",
     referenceUrl: "https://opentelemetry.io/docs/collector/configuration/#exporters",
@@ -492,12 +492,12 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to ensure that temporary network blips or short backend timeouts do not cause the OpenTelemetry Collector to drop exported telemetry.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
-      { id: 'A', text: "Drop failed requests immediately without retrying." },
-      { id: 'B', text: "Configure `retry_on_failure` with exponential backoff and enable `sending_queue` with persistent or memory storage in the exporter." },
-      { id: 'C', text: "Disable all network error handling in the collector." },
-      { id: 'D', text: "Set timeout to 0 so requests fail immediately." }
+      { id: 'A', text: "Disable all network error handling in the collector." },
+      { id: 'B', text: "Drop failed requests immediately without retrying." },
+      { id: 'C', text: "Set timeout to 0 so requests fail immediately." },
+      { id: 'D', text: "Configure `retry_on_failure` with exponential backoff and enable `sending_queue` with persistent or memory storage in the exporter." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure `retry_on_failure` with exponential backoff and enable `sending_queue` with persistent or memory storage in the exporter. All standard OpenTelemetry Collector exporters support `sending_queue` (in-memory or persistent disk queue) and `retry_on_failure`. If an export request fails due to network partitions or backend 503 errors, the exporter retries with exponential backoff, preventing data loss.",
     referenceUrl: "https://opentelemetry.io/docs/collector/configuration/#exporters",
@@ -513,12 +513,12 @@ export const CNCF_OTCA_QUESTIONS_19 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to ensure that temporary network blips or short backend timeouts do not cause the OpenTelemetry Collector to drop exported telemetry.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
-      { id: 'A', text: "Disable all network error handling in the collector." },
-      { id: 'B', text: "Drop failed requests immediately without retrying." },
-      { id: 'C', text: "Configure `retry_on_failure` with exponential backoff and enable `sending_queue` with persistent or memory storage in the exporter." },
-      { id: 'D', text: "Set timeout to 0 so requests fail immediately." }
+      { id: 'A', text: "Set timeout to 0 so requests fail immediately." },
+      { id: 'B', text: "Configure `retry_on_failure` with exponential backoff and enable `sending_queue` with persistent or memory storage in the exporter." },
+      { id: 'C', text: "Disable all network error handling in the collector." },
+      { id: 'D', text: "Drop failed requests immediately without retrying." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `retry_on_failure` with exponential backoff and enable `sending_queue` with persistent or memory storage in the exporter. All standard OpenTelemetry Collector exporters support `sending_queue` (in-memory or persistent disk queue) and `retry_on_failure`. If an export request fails due to network partitions or backend 503 errors, the exporter retries with exponential backoff, preventing data loss.",
     referenceUrl: "https://opentelemetry.io/docs/collector/configuration/#exporters",

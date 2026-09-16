@@ -30,12 +30,12 @@ export const GCP_ACE_QUESTIONS_10 = [
     scenario: "A rapidly expanding cloud engineering department has 60 developers across 5 scrum teams. New developers join every week, and roles change frequently. The security team currently assigns IAM roles directly to individual developer email addresses on each project.",
     question: "What is the recommended enterprise best practice to streamline IAM administration?",
     options: [
-      { id: 'A', text: "Write a weekly Python script that iterates through projects and syncs permissions" },
-      { id: 'B', text: "Grant the primitive Owner role to all developers" },
-      { id: 'C', text: "Assign IAM roles to job-function groups and manage membership." },
-      { id: 'D', text: "Share a single corporate service account JSON key among all developers" }
+      { id: 'A', text: "Grant the primitive Owner role to all developers" },
+      { id: 'B', text: "Assign IAM roles to job-function groups and manage membership." },
+      { id: 'C', text: "Share a single corporate service account JSON key among all developers" },
+      { id: 'D', text: "Write a weekly Python script that iterates through projects and syncs permissions" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Google Cloud strongly recommends assigning IAM roles to Google Groups (e.g. 'dev-team@company.com') rather than individual user accounts. Group membership is managed centrally in Google Workspace, Cloud Identity, or synchronized from Active Directory, automatically granting or revoking cloud permissions as personnel changes occur.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -72,10 +72,10 @@ export const GCP_ACE_QUESTIONS_10 = [
     scenario: "A financial institution requires that only container images that have passed automated vulnerability scans, unit testing, and compliance checks in the CI/CD pipeline can be deployed to production GKE clusters. Manually pushed or unsigned images must be rejected.",
     question: "Which Google Cloud security service enforces this deployment verification?",
     options: [
-      { id: 'A', text: "Artifact Registry vulnerability scanning alone" },
+      { id: 'A', text: "Cloud Security Command Center" },
       { id: 'B', text: "Binary Authorization" },
-      { id: 'C', text: "Cloud Security Command Center" },
-      { id: 'D', text: "Container Analysis" }
+      { id: 'C', text: "Container Analysis" },
+      { id: 'D', text: "Artifact Registry vulnerability scanning alone" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,12 +93,12 @@ export const GCP_ACE_QUESTIONS_10 = [
     scenario: "A cloud engineer needs to execute a production Terraform deployment script from their local terminal that requires elevated privileges held by 'terraform-deployer@project.iam.gserviceaccount.com'. The engineer must not download a static JSON key.",
     question: "Which gcloud flag allows the engineer to assume the service account's identity directly?",
     options: [
-      { id: 'A', text: "--impersonate-service-account=terraform-deployer@project.iam.gserviceaccount.com" },
-      { id: 'B', text: "--assume-role=terraform-deployer" },
-      { id: 'C', text: "--auth-as=terraform-deployer" },
-      { id: 'D', text: "--service-account=terraform-deployer" }
+      { id: 'A', text: "--auth-as=terraform-deployer" },
+      { id: 'B', text: "--impersonate-service-account=terraform-deployer@project.iam.gserviceaccount.com" },
+      { id: 'C', text: "--service-account=terraform-deployer" },
+      { id: 'D', text: "--assume-role=terraform-deployer" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The '--impersonate-service-account' flag instructs the gcloud CLI to request short-lived credentials for the designated service account. Provided the engineer possesses the 'roles/iam.serviceAccountTokenCreator' role on that service account, commands execute with the service account's permissions without any persistent keys on disk.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -114,12 +114,12 @@ export const GCP_ACE_QUESTIONS_10 = [
     scenario: "A highly regulated bank must maintain complete audit visibility into all administrative actions performed on their cloud environment, including any instances where Google Cloud Support engineers or Site Reliability Engineers access customer data during troubleshooting.",
     question: "Which Google Cloud feature provides audit logs of Google personnel access?",
     options: [
-      { id: 'A', text: "Access Transparency" },
-      { id: 'B', text: "Security Command Center Premium" },
-      { id: 'C', text: "Cloud Audit Logs - Admin Activity" },
-      { id: 'D', text: "VPC Service Controls" }
+      { id: 'A', text: "Cloud Audit Logs - Admin Activity" },
+      { id: 'B', text: "Access Transparency" },
+      { id: 'C', text: "VPC Service Controls" },
+      { id: 'D', text: "Security Command Center Premium" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Access Transparency captures near-real-time audit logs whenever Google personnel (support technicians, engineering staff) access customer content to resolve support tickets or address system outages. Logs include the engineer's office location, the accessed resource, and the specific business justification.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -135,12 +135,12 @@ export const GCP_ACE_QUESTIONS_10 = [
     scenario: "A credit card processor stores petabytes of customer transaction records in BigQuery and Cloud Storage. Regulatory compliance requires scanning these data stores to discover unencrypted primary account numbers (PAN) and automatically mask them before sharing with business analysts.",
     question: "Which Google Cloud service specializes in sensitive data discovery and de-identification?",
     options: [
-      { id: 'A', text: "Cloud KMS" },
-      { id: 'B', text: "Sensitive Data Protection (formerly Cloud DLP)" },
+      { id: 'A', text: "Secret Manager" },
+      { id: 'B', text: "Cloud KMS" },
       { id: 'C', text: "Cloud Armor" },
-      { id: 'D', text: "Secret Manager" }
+      { id: 'D', text: "Sensitive Data Protection (formerly Cloud DLP)" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Sensitive Data Protection (Cloud DLP) is a managed service for discovering, classifying, and protecting sensitive data (PII, payment card numbers, SSNs). It provides inspection templates to detect sensitive infoTypes across Cloud Storage, BigQuery, and Datastore, and provides de-identification transformations (masking, tokenization, redaction).",
     referenceUrl: "https://cloud.google.com/docs",
@@ -157,9 +157,9 @@ export const GCP_ACE_QUESTIONS_10 = [
     question: "Which Organization Policy constraint enforces this restriction across all projects?",
     options: [
       { id: 'A', text: "Enforce compute.vmExternalIpAccess as deny all" },
-      { id: 'B', text: "Remove the default route to the internet gateway" },
+      { id: 'B', text: "Disable the default VPC network in each region" },
       { id: 'C', text: "Create an egress firewall rule blocking 0.0.0.0/0" },
-      { id: 'D', text: "Disable the default VPC network in each region" }
+      { id: 'D', text: "Remove the default route to the internet gateway" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const GCP_ACE_QUESTIONS_10 = [
     scenario: "An analytics table in BigQuery contains customer demographics, including an 'ssn' (Social Security Number) column. Most business analysts require access to query demographic trends, but only authorized HR compliance officers should be allowed to view the plaintext SSN column.",
     question: "How should column-level access control be implemented in BigQuery?",
     options: [
-      { id: 'A', text: "Grant the 'roles/bigquery.dataViewer' role to analysts and create an IAM deny policy on the column" },
+      { id: 'A', text: "Encrypt the entire table using Customer-Supplied Encryption Keys (CSEK)" },
       { id: 'B', text: "Create two separate datasets in different regions" },
-      { id: 'C', text: "Encrypt the entire table using Customer-Supplied Encryption Keys (CSEK)" },
-      { id: 'D', text: "A policy tag on the ssn column, with Fine-Grained Reader granted to HR." }
+      { id: 'C', text: "A policy tag on the ssn column, with Fine-Grained Reader granted to HR." },
+      { id: 'D', text: "Grant the 'roles/bigquery.dataViewer' role to analysts and create an IAM deny policy on the column" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "BigQuery supports column-level security using Policy Tags managed in Dataplex (Data Catalog). By attaching a policy tag to the sensitive column ('ssn'), only principals granted the 'Fine-Grained Reader' role on that policy tag can query and view data in that column; unauthorized users attempting to query the table receive an access error or masked values.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -199,9 +199,9 @@ export const GCP_ACE_QUESTIONS_10 = [
     question: "Which log query in Logs Explorer retrieves this information from Cloud Audit Logs?",
     options: [
       { id: 'A', text: "logName=\"projects/[PROJECT]/logs/syslog\" AND message=~\"halt\"" },
-      { id: 'B', text: "SELECT caller FROM compute.instances WHERE action='stop'" },
+      { id: 'B', text: "resource.type=\"gce_instance\" AND severity=ERROR AND textPayload=~\"stopped\"" },
       { id: 'C', text: "logName=\"projects/[PROJECT]/logs/cloudaudit.googleapis.com%2Factivity\" AND protoPayload.methodName=\"v1.compute.instances.stop\"" },
-      { id: 'D', text: "resource.type=\"gce_instance\" AND severity=ERROR AND textPayload=~\"stopped\"" }
+      { id: 'D', text: "SELECT caller FROM compute.instances WHERE action='stop'" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -219,12 +219,12 @@ export const GCP_ACE_QUESTIONS_10 = [
     scenario: "A financial firm requires that cloud resources, storage buckets, and IAM roles must only be shared with authenticated users belonging to the corporate Google Workspace domain ('company.com'). Sharing with external Gmail accounts must be strictly blocked.",
     question: "Which Organization Policy constraint enforces this domain restriction?",
     options: [
-      { id: 'A', text: "Remove the primitive Owner role from all administrators" },
-      { id: 'B', text: "Enforce allowedPolicyMemberDomains with the customer ID" },
+      { id: 'A', text: "Enforce allowedPolicyMemberDomains with the customer ID" },
+      { id: 'B', text: "Disable public internet access on all VPC networks" },
       { id: 'C', text: "Create a Cloud DNS private zone with the same records" },
-      { id: 'D', text: "Disable public internet access on all VPC networks" }
+      { id: 'D', text: "Remove the primitive Owner role from all administrators" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The 'constraints/iam.allowedPolicyMemberDomains' organization policy constraint restricts IAM policy bindings so that roles can only be granted to principals from designated Google Workspace or Cloud Identity customer accounts. Any attempt to grant a role to a personal '@gmail.com' account or external third-party domain is immediately blocked.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -240,12 +240,12 @@ export const GCP_ACE_QUESTIONS_10 = [
     scenario: "An enterprise wants to eliminate static database passwords for MySQL and PostgreSQL on Cloud SQL. Developers and microservices should authenticate to the database using their existing Google Cloud IAM credentials and OAuth tokens.",
     question: "Which Cloud SQL feature supports passwordless IAM database logins?",
     options: [
-      { id: 'A', text: "Identity-Aware Proxy TCP forwarding" },
-      { id: 'B', text: "Cloud SQL IAM database authentication" },
-      { id: 'C', text: "Compute Engine OS Login" },
-      { id: 'D', text: "Cloud SQL Auth Proxy with static RSA keys" }
+      { id: 'A', text: "Cloud SQL IAM database authentication" },
+      { id: 'B', text: "Compute Engine OS Login" },
+      { id: 'C', text: "Cloud SQL Auth Proxy with static RSA keys" },
+      { id: 'D', text: "Identity-Aware Proxy TCP forwarding" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Cloud SQL IAM database authentication allows users and service accounts to authenticate directly to MySQL and PostgreSQL instances using short-lived Google Cloud IAM OAuth2 access tokens instead of traditional database passwords, integrating database security with corporate identity lifecycles.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -261,12 +261,12 @@ export const GCP_ACE_QUESTIONS_10 = [
     scenario: "A company employs an external vendor to maintain a legacy billing VM named 'billing-server' in zone 'us-central1-a'. The vendor must have full administrative control over this single VM, but must not be able to view, modify, or delete any other VM instances in the project.",
     question: "How should the IAM permissions be assigned?",
     options: [
-      { id: 'A', text: "Create a separate VPC network for the vendor" },
-      { id: 'B', text: "Grant compute.instanceAdmin.v1 on that VM instance resource" },
+      { id: 'A', text: "Grant compute.instanceAdmin.v1 on that VM instance resource" },
+      { id: 'B', text: "Grant 'roles/viewer' on the project and make the vendor a sudoer on the VM OS" },
       { id: 'C', text: "Grant 'roles/compute.instanceAdmin.v1' at the project level with an IAM condition on zone" },
-      { id: 'D', text: "Grant 'roles/viewer' on the project and make the vendor a sudoer on the VM OS" }
+      { id: 'D', text: "Create a separate VPC network for the vendor" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Google Cloud Compute Engine supports resource-level IAM policies. Instead of granting instance administrative permissions across the entire project, permissions can be granted directly on an individual VM resource ('gcloud compute instances add-iam-policy-binding &lt;VM&gt;'), restricting the vendor's administrative authority strictly to that target machine.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -282,12 +282,12 @@ export const GCP_ACE_QUESTIONS_10 = [
     scenario: "An enterprise cryptographic policy mandates that all customer-managed encryption keys (CMEK) must be rotated every 90 days. When a key is rotated, existing data encrypted with the older key must remain decryptable without requiring an immediate, massive re-encryption batch job.",
     question: "How does Cloud KMS manage automated key rotation and past version decryption?",
     options: [
-      { id: 'A', text: "A 90-day rotation period; older versions stay to decrypt existing data." },
+      { id: 'A', text: "Cloud KMS deletes the old key and triggers a batch re-encryption of all Cloud Storage objects" },
       { id: 'B', text: "Cloud KMS creates a new Key Ring and updates project IAM policies automatically" },
-      { id: 'C', text: "The administrator must export the raw key material and re-import it every 90 days" },
-      { id: 'D', text: "Cloud KMS deletes the old key and triggers a batch re-encryption of all Cloud Storage objects" }
+      { id: 'C', text: "A 90-day rotation period; older versions stay to decrypt existing data." },
+      { id: 'D', text: "The administrator must export the raw key material and re-import it every 90 days" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Cloud KMS supports automated key rotation schedules (e.g. '--rotation-period=90d'). When rotation occurs, Cloud KMS generates a new active key version used for all new encryption operations, while all past key versions remain stored and enabled to automatically decrypt historical data without manual re-encryption.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -303,12 +303,12 @@ export const GCP_ACE_QUESTIONS_10 = [
     scenario: "A private GKE cluster's Kubernetes API endpoint is accessible over HTTPS. A security auditor mandates that the cluster control plane must reject all connections originating from public or untrusted IP addresses, allowing access only from corporate office public CIDRs.",
     question: "Which GKE feature restricts API access to specific external CIDR blocks?",
     options: [
-      { id: 'A', text: "Apply a Kubernetes NetworkPolicy to the kube-system namespace" },
-      { id: 'B', text: "Deploy Cloud Armor on the Kubernetes cluster nodes" },
-      { id: 'C', text: "Configure a VPC firewall rule with target tag 'k8s-master'" },
-      { id: 'D', text: "Enable master authorized networks with the corporate CIDRs" }
+      { id: 'A', text: "Enable master authorized networks with the corporate CIDRs" },
+      { id: 'B', text: "Configure a VPC firewall rule with target tag 'k8s-master'" },
+      { id: 'C', text: "Deploy Cloud Armor on the Kubernetes cluster nodes" },
+      { id: 'D', text: "Apply a Kubernetes NetworkPolicy to the kube-system namespace" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "GKE Master Authorized Networks allows administrators to specify an allowlist of trusted CIDR blocks (such as corporate office egress IPs or bastion CIDRs) permitted to reach the Kubernetes API master endpoint, blocking unauthorized connection attempts even if credentials are compromised.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -324,12 +324,12 @@ export const GCP_ACE_QUESTIONS_10 = [
     scenario: "A chief risk officer requires that all newly created Cloud Storage buckets across every project in the company must use Uniform Bucket-Level Access (disabling legacy object ACLs) to guarantee consistent IAM auditing.",
     question: "Which Organization Policy constraint guarantees compliance with this rule?",
     options: [
-      { id: 'A', text: "Remove all object viewer permissions in IAM" },
+      { id: 'A', text: "Enable Bucket Lock on all existing buckets" },
       { id: 'B', text: "Apply the 'roles/storage.admin' role to the Organization Administrator only" },
-      { id: 'C', text: "Enforce constraint 'constraints/storage.uniformBucketLevelAccess' across the organization" },
-      { id: 'D', text: "Enable Bucket Lock on all existing buckets" }
+      { id: 'C', text: "Remove all object viewer permissions in IAM" },
+      { id: 'D', text: "Enforce constraint 'constraints/storage.uniformBucketLevelAccess' across the organization" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The organization policy constraint 'constraints/storage.uniformBucketLevelAccess' enforces that all newly created Cloud Storage buckets in the organization must have Uniform Bucket-Level Access enabled, permanently disabling legacy object-level ACLs across the fleet.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -366,12 +366,12 @@ export const GCP_ACE_QUESTIONS_10 = [
     scenario: "A corporation publishes an internal web application through Identity-Aware Proxy. The company wants to restrict access so that employees can only log in if they are located within the United States, connecting from an enterprise-managed corporate laptop with disk encryption enabled.",
     question: "Which Google Cloud service integrates with IAP to enforce these device and location context rules?",
     options: [
-      { id: 'A', text: "Cloud Armor standard policy" },
+      { id: 'A', text: "Access Context Manager" },
       { id: 'B', text: "VPC Flow Logs" },
-      { id: 'C', text: "Cloud NAT" },
-      { id: 'D', text: "Access Context Manager" }
+      { id: 'C', text: "Cloud Armor standard policy" },
+      { id: 'D', text: "Cloud NAT" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Access Context Manager allows administrators to define fine-grained, context-aware access levels based on user identity, device security status (managed device, disk encryption), IP subnet, and geographic location. These access levels are attached to Identity-Aware Proxy to enforce zero-trust security.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -387,12 +387,12 @@ export const GCP_ACE_QUESTIONS_10 = [
     scenario: "A security team notices that developers have been assigned broad primitive roles like 'roles/editor' during early development. The team wants to reduce privileges to the minimum required permissions based on actual observed usage over the last 90 days.",
     question: "Which native Google Cloud tool generates automated least-privilege role recommendations?",
     options: [
-      { id: 'A', text: "Cloud Audit Logs Explorer" },
+      { id: 'A', text: "Cloud Security Command Center Asset Inventory" },
       { id: 'B', text: "Policy Simulator" },
-      { id: 'C', text: "IAM Recommender (Role Recommendations)" },
-      { id: 'D', text: "Cloud Security Command Center Asset Inventory" }
+      { id: 'C', text: "Cloud Audit Logs Explorer" },
+      { id: 'D', text: "IAM Recommender (Role Recommendations)" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Google Cloud IAM Recommender uses machine learning and historical audit log analysis over the preceding 90 days to identify permissions granted to users and service accounts that were never exercised. It automatically recommends narrower, least-privilege predefined or custom roles to eliminate excess privileges.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -409,9 +409,9 @@ export const GCP_ACE_QUESTIONS_10 = [
     question: "Which two Shielded VM features fulfill these security requirements?",
     options: [
       { id: 'A', text: "OS Login and Identity-Aware Proxy" },
-      { id: 'B', text: "Binary Authorization and Container Analysis" },
+      { id: 'B', text: "Confidential Computing AMD SEV and Cloud KMS" },
       { id: 'C', text: "Secure Boot and Virtual Trusted Platform Module (vTPM)" },
-      { id: 'D', text: "Confidential Computing AMD SEV and Cloud KMS" }
+      { id: 'D', text: "Binary Authorization and Container Analysis" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,12 +429,12 @@ export const GCP_ACE_QUESTIONS_10 = [
     scenario: "An enterprise deploys two distinct VPC Service Controls perimeters: 'Finance-Perimeter' and 'Analytics-Perimeter'. An automated pipeline in the Analytics perimeter needs to read specific data from a Cloud Storage bucket inside the Finance perimeter without dismantling perimeter protection.",
     question: "How should the security architect configure cross-perimeter communication?",
     options: [
-      { id: 'A', text: "Complementary ingress and egress rules on both perimeters" },
-      { id: 'B', text: "Deploy an unmanaged Squid proxy between the perimeters" },
-      { id: 'C', text: "Delete both perimeters and rely on VPC firewall rules" },
-      { id: 'D', text: "Assign the primitive Owner role to the pipeline service account" }
+      { id: 'A', text: "Deploy an unmanaged Squid proxy between the perimeters" },
+      { id: 'B', text: "Assign the primitive Owner role to the pipeline service account" },
+      { id: 'C', text: "Complementary ingress and egress rules on both perimeters" },
+      { id: 'D', text: "Delete both perimeters and rely on VPC firewall rules" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "VPC Service Controls supports secure cross-perimeter data sharing via Ingress and Egress rules (or perimeter bridges). By defining explicit Ingress and Egress rules specifying the exact identity (service account), target project, and storage API methods, authorized communication is permitted while maintaining perimeter isolation.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -451,11 +451,11 @@ export const GCP_ACE_QUESTIONS_10 = [
     question: "Which encryption model satisfies this requirement, and what is the primary operational risk?",
     options: [
       { id: 'A', text: "Cloud HSM; keys are stored in FIPS 140-2 Level 3 hardware modules" },
-      { id: 'B', text: "Customer-supplied keys; if the key is lost the data is unrecoverable." },
-      { id: 'C', text: "Google-Default Encryption; Google rotates keys without user involvement" },
-      { id: 'D', text: "Customer-Managed Encryption Keys (CMEK); keys are automatically backed up to Google Workspace" }
+      { id: 'B', text: "Google-Default Encryption; Google rotates keys without user involvement" },
+      { id: 'C', text: "Customer-Managed Encryption Keys (CMEK); keys are automatically backed up to Google Workspace" },
+      { id: 'D', text: "Customer-supplied keys; if the key is lost the data is unrecoverable." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Customer-Supplied Encryption Keys (CSEK) allow clients to provide raw 256-bit AES keys in API request headers. Google Cloud uses the key in memory to encrypt or decrypt objects and immediately purges it. Google never stores CSEK keys; if the customer loses the key, the data is permanently lost with zero possibility of recovery.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -472,8 +472,8 @@ export const GCP_ACE_QUESTIONS_10 = [
     question: "Which Google Cloud tool allows testing the impact of IAM changes against historical access logs before applying them?",
     options: [
       { id: 'A', text: "Policy Simulator" },
-      { id: 'B', text: "IAM Recommender" },
-      { id: 'C', text: "Security Command Center" },
+      { id: 'B', text: "Security Command Center" },
+      { id: 'C', text: "IAM Recommender" },
       { id: 'D', text: "Policy Analyzer" }
     ],
     correctAnswers: ['A'],
@@ -492,12 +492,12 @@ export const GCP_ACE_QUESTIONS_10 = [
     scenario: "A developer attempts to access a production BigQuery dataset protected by a VPC Service Controls perimeter from an unauthorized home IP address. The request is immediately rejected with HTTP 403 Forbidden.",
     question: "Which specific log stream records the detailed perimeter violation telemetry for security forensics?",
     options: [
-      { id: 'A', text: "Compute Engine serial port logs" },
-      { id: 'B', text: "Policy Denied audit logs in Cloud Logging" },
-      { id: 'C', text: "VPC Flow Logs" },
-      { id: 'D', text: "Cloud Storage access logs" }
+      { id: 'A', text: "Policy Denied audit logs in Cloud Logging" },
+      { id: 'B', text: "Cloud Storage access logs" },
+      { id: 'C', text: "Compute Engine serial port logs" },
+      { id: 'D', text: "VPC Flow Logs" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Policy Denied audit logs are automatically emitted to Cloud Logging whenever a security policy—such as a VPC Service Controls perimeter or an IAM Deny rule—rejects an access request. The log entry contains forensic telemetry including caller identity, requested API, source IP, and the specific perimeter violated.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -513,12 +513,12 @@ export const GCP_ACE_QUESTIONS_10 = [
     scenario: "A microservice running on Compute Engine generates Cloud Storage V4 Signed URLs so mobile users can upload images directly to a private bucket without routing through the application server. When invoking the signing method via the Google Cloud client library, the service receives a 403 Forbidden error with 'iam.serviceAccounts.signBlob' access denied.",
     question: "Which IAM role must be granted to the microservice's service account to permit blob signing for signed URLs?",
     options: [
-      { id: 'A', text: "serviceAccountTokenCreator on the target account" },
-      { id: 'B', text: "roles/iam.serviceAccountUser on the project" },
-      { id: 'C', text: "roles/compute.instanceAdmin.v1 on the VM instance" },
+      { id: 'A', text: "roles/compute.instanceAdmin.v1 on the VM instance" },
+      { id: 'B', text: "serviceAccountTokenCreator on the target account" },
+      { id: 'C', text: "roles/iam.serviceAccountUser on the project" },
       { id: 'D', text: "roles/storage.admin on the target storage bucket" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "To generate V4 Signed URLs programmatically using IAM credentials (without local private key files), the calling principal or attached service account must call the IAM signBlob API ('iam.serviceAccounts.signBlob'). This requires the 'roles/iam.serviceAccountTokenCreator' role on the service account identity whose credentials are used to sign the URL.",
     referenceUrl: "https://cloud.google.com/docs",

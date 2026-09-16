@@ -9,12 +9,12 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to prevent developers from being overwhelmed by 30 individual Dependabot pull requests opening on Monday morning.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Disable Dependabot updates entirely to eliminate pull request notifications." },
-      { id: 'B', text: "Configure `groups` in `.github/dependabot.yml` to combine minor and patch updates for specific packages into a single pull request." },
-      { id: 'C', text: "Merge all pull requests automatically without running automated test suites." },
-      { id: 'D', text: "Require developers to approve and merge 30 separate pull requests manually every week." }
+      { id: 'A', text: "Configure `groups` in `.github/dependabot.yml` to combine minor and patch updates for specific packages into a single pull request." },
+      { id: 'B', text: "Disable Dependabot updates entirely to eliminate pull request notifications." },
+      { id: 'C', text: "Require developers to approve and merge 30 separate pull requests manually every week." },
+      { id: 'D', text: "Merge all pull requests automatically without running automated test suites." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure `groups` in `.github/dependabot.yml` to combine minor and patch updates for specific packages into a single pull request. Grouped Dependabot Updates allow platform teams to bundle related dependency updates into a single PR. In `.github/dependabot.yml`, defining `groups` with patterns (e.g., grouping all `@angular/*` packages or all minor/patch updates) drastically cuts review noise while maintaining currency.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#grouping-dependabot-updates",
@@ -32,8 +32,8 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Configure `groups` in `.github/dependabot.yml` to combine minor and patch updates for specific packages into a single pull request." },
       { id: 'B', text: "Disable Dependabot updates entirely to eliminate pull request notifications." },
-      { id: 'C', text: "Merge all pull requests automatically without running automated test suites." },
-      { id: 'D', text: "Require developers to approve and merge 30 separate pull requests manually every week." }
+      { id: 'C', text: "Require developers to approve and merge 30 separate pull requests manually every week." },
+      { id: 'D', text: "Merge all pull requests automatically without running automated test suites." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to prevent developers from being overwhelmed by 30 individual Dependabot pull requests opening on Monday morning.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Merge all pull requests automatically without running automated test suites." },
-      { id: 'B', text: "Require developers to approve and merge 30 separate pull requests manually every week." },
-      { id: 'C', text: "Disable Dependabot updates entirely to eliminate pull request notifications." },
-      { id: 'D', text: "Configure `groups` in `.github/dependabot.yml` to combine minor and patch updates for specific packages into a single pull request." }
+      { id: 'A', text: "Configure `groups` in `.github/dependabot.yml` to combine minor and patch updates for specific packages into a single pull request." },
+      { id: 'B', text: "Disable Dependabot updates entirely to eliminate pull request notifications." },
+      { id: 'C', text: "Require developers to approve and merge 30 separate pull requests manually every week." },
+      { id: 'D', text: "Merge all pull requests automatically without running automated test suites." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure `groups` in `.github/dependabot.yml` to combine minor and patch updates for specific packages into a single pull request. Grouped Dependabot Updates allow platform teams to bundle related dependency updates into a single PR. In `.github/dependabot.yml`, defining `groups` with patterns (e.g., grouping all `@angular/*` packages or all minor/patch updates) drastically cuts review noise while maintaining currency.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#grouping-dependabot-updates",
@@ -72,12 +72,12 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to prevent developers from being overwhelmed by 30 individual Dependabot pull requests opening on Monday morning.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Require developers to approve and merge 30 separate pull requests manually every week." },
-      { id: 'B', text: "Configure `groups` in `.github/dependabot.yml` to combine minor and patch updates for specific packages into a single pull request." },
-      { id: 'C', text: "Merge all pull requests automatically without running automated test suites." },
-      { id: 'D', text: "Disable Dependabot updates entirely to eliminate pull request notifications." }
+      { id: 'A', text: "Merge all pull requests automatically without running automated test suites." },
+      { id: 'B', text: "Require developers to approve and merge 30 separate pull requests manually every week." },
+      { id: 'C', text: "Disable Dependabot updates entirely to eliminate pull request notifications." },
+      { id: 'D', text: "Configure `groups` in `.github/dependabot.yml` to combine minor and patch updates for specific packages into a single pull request." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure `groups` in `.github/dependabot.yml` to combine minor and patch updates for specific packages into a single pull request. Grouped Dependabot Updates allow platform teams to bundle related dependency updates into a single PR. In `.github/dependabot.yml`, defining `groups` with patterns (e.g., grouping all `@angular/*` packages or all minor/patch updates) drastically cuts review noise while maintaining currency.",
     referenceUrl: "https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#grouping-dependabot-updates",
@@ -94,9 +94,9 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Configure `groups` in `.github/dependabot.yml` to combine minor and patch updates for specific packages into a single pull request." },
-      { id: 'B', text: "Require developers to approve and merge 30 separate pull requests manually every week." },
-      { id: 'C', text: "Merge all pull requests automatically without running automated test suites." },
-      { id: 'D', text: "Disable Dependabot updates entirely to eliminate pull request notifications." }
+      { id: 'B', text: "Merge all pull requests automatically without running automated test suites." },
+      { id: 'C', text: "Disable Dependabot updates entirely to eliminate pull request notifications." },
+      { id: 'D', text: "Require developers to approve and merge 30 separate pull requests manually every week." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to prevent commercial software products from incorporating libraries with restrictive copyleft licenses like GNU Affero GPL (AGPL).",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Assume all packages on npm and PyPI are released under the public domain." },
-      { id: 'B', text: "Use Dependency Review with configured license policies in GitHub Actions to block PRs introducing unapproved licenses." },
-      { id: 'C', text: "Scan licenses manually by searching copyright text files after shipping production releases." },
-      { id: 'D', text: "Allow developers to import arbitrary software without checking open-source license requirements." }
+      { id: 'A', text: "Scan licenses manually by searching copyright text files after shipping production releases." },
+      { id: 'B', text: "Assume all packages on npm and PyPI are released under the public domain." },
+      { id: 'C', text: "Allow developers to import arbitrary software without checking open-source license requirements." },
+      { id: 'D', text: "Use Dependency Review with configured license policies in GitHub Actions to block PRs introducing unapproved licenses." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use Dependency Review with configured license policies in GitHub Actions to block PRs introducing unapproved licenses. License compliance scanning analyzes the declared licenses of direct and transitive dependencies. Using the Dependency Review action, organizations configure allowlists (e.g., MIT, Apache-2.0, BSD) and denylists (e.g., AGPL-3.0), failing CI checks when non-compliant licenses are detected.",
     referenceUrl: "https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#license-review",
@@ -135,12 +135,12 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to prevent commercial software products from incorporating libraries with restrictive copyleft licenses like GNU Affero GPL (AGPL).",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Assume all packages on npm and PyPI are released under the public domain." },
-      { id: 'B', text: "Scan licenses manually by searching copyright text files after shipping production releases." },
-      { id: 'C', text: "Allow developers to import arbitrary software without checking open-source license requirements." },
-      { id: 'D', text: "Use Dependency Review with configured license policies in GitHub Actions to block PRs introducing unapproved licenses." }
+      { id: 'A', text: "Allow developers to import arbitrary software without checking open-source license requirements." },
+      { id: 'B', text: "Use Dependency Review with configured license policies in GitHub Actions to block PRs introducing unapproved licenses." },
+      { id: 'C', text: "Scan licenses manually by searching copyright text files after shipping production releases." },
+      { id: 'D', text: "Assume all packages on npm and PyPI are released under the public domain." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use Dependency Review with configured license policies in GitHub Actions to block PRs introducing unapproved licenses. License compliance scanning analyzes the declared licenses of direct and transitive dependencies. Using the Dependency Review action, organizations configure allowlists (e.g., MIT, Apache-2.0, BSD) and denylists (e.g., AGPL-3.0), failing CI checks when non-compliant licenses are detected.",
     referenceUrl: "https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#license-review",
@@ -156,12 +156,12 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to prevent commercial software products from incorporating libraries with restrictive copyleft licenses like GNU Affero GPL (AGPL).",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Allow developers to import arbitrary software without checking open-source license requirements." },
-      { id: 'B', text: "Scan licenses manually by searching copyright text files after shipping production releases." },
+      { id: 'A', text: "Scan licenses manually by searching copyright text files after shipping production releases." },
+      { id: 'B', text: "Use Dependency Review with configured license policies in GitHub Actions to block PRs introducing unapproved licenses." },
       { id: 'C', text: "Assume all packages on npm and PyPI are released under the public domain." },
-      { id: 'D', text: "Use Dependency Review with configured license policies in GitHub Actions to block PRs introducing unapproved licenses." }
+      { id: 'D', text: "Allow developers to import arbitrary software without checking open-source license requirements." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use Dependency Review with configured license policies in GitHub Actions to block PRs introducing unapproved licenses. License compliance scanning analyzes the declared licenses of direct and transitive dependencies. Using the Dependency Review action, organizations configure allowlists (e.g., MIT, Apache-2.0, BSD) and denylists (e.g., AGPL-3.0), failing CI checks when non-compliant licenses are detected.",
     referenceUrl: "https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#license-review",
@@ -178,9 +178,9 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Use Dependency Review with configured license policies in GitHub Actions to block PRs introducing unapproved licenses." },
-      { id: 'B', text: "Scan licenses manually by searching copyright text files after shipping production releases." },
-      { id: 'C', text: "Allow developers to import arbitrary software without checking open-source license requirements." },
-      { id: 'D', text: "Assume all packages on npm and PyPI are released under the public domain." }
+      { id: 'B', text: "Assume all packages on npm and PyPI are released under the public domain." },
+      { id: 'C', text: "Scan licenses manually by searching copyright text files after shipping production releases." },
+      { id: 'D', text: "Allow developers to import arbitrary software without checking open-source license requirements." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to prevent commercial software products from incorporating libraries with restrictive copyleft licenses like GNU Affero GPL (AGPL).",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Assume all packages on npm and PyPI are released under the public domain." },
+      { id: 'A', text: "Use Dependency Review with configured license policies in GitHub Actions to block PRs introducing unapproved licenses." },
       { id: 'B', text: "Allow developers to import arbitrary software without checking open-source license requirements." },
-      { id: 'C', text: "Use Dependency Review with configured license policies in GitHub Actions to block PRs introducing unapproved licenses." },
+      { id: 'C', text: "Assume all packages on npm and PyPI are released under the public domain." },
       { id: 'D', text: "Scan licenses manually by searching copyright text files after shipping production releases." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Use Dependency Review with configured license policies in GitHub Actions to block PRs introducing unapproved licenses. License compliance scanning analyzes the declared licenses of direct and transitive dependencies. Using the Dependency Review action, organizations configure allowlists (e.g., MIT, Apache-2.0, BSD) and denylists (e.g., AGPL-3.0), failing CI checks when non-compliant licenses are detected.",
     referenceUrl: "https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#license-review",
@@ -219,12 +219,12 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to understand how GitHub curates vulnerability data and how security researchers can submit zero-day fixes directly to GitHub.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Assume vulnerability data is static and never updated after publication." },
+      { id: 'A', text: "Keep all discovered security vulnerabilities secret to prevent software vendors from patching them." },
       { id: 'B', text: "Rely on unverified security blog posts on social media for vulnerability intelligence." },
-      { id: 'C', text: "Keep all discovered security vulnerabilities secret to prevent software vendors from patching them." },
-      { id: 'D', text: "Leverage the GitHub Advisory Database, which combines National Vulnerability Database (NVD) data with community-reviewed GHSA advisories." }
+      { id: 'C', text: "Leverage the GitHub Advisory Database, which combines National Vulnerability Database (NVD) data with community-reviewed GHSA advisories." },
+      { id: 'D', text: "Assume vulnerability data is static and never updated after publication." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Leverage the GitHub Advisory Database, which combines National Vulnerability Database (NVD) data with community-reviewed GHSA advisories. The GitHub Advisory Database is an open, community-curated database linking CVEs to GitHub Security Advisories (GHSA). It aggregates feeds from the NVD, package registry advisories, and direct community submissions reviewed by a dedicated security team, powering Dependabot alerts.",
     referenceUrl: "https://github.com/advisories",
@@ -240,12 +240,12 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to understand how GitHub curates vulnerability data and how security researchers can submit zero-day fixes directly to GitHub.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Rely on unverified security blog posts on social media for vulnerability intelligence." },
-      { id: 'B', text: "Assume vulnerability data is static and never updated after publication." },
-      { id: 'C', text: "Leverage the GitHub Advisory Database, which combines National Vulnerability Database (NVD) data with community-reviewed GHSA advisories." },
+      { id: 'A', text: "Assume vulnerability data is static and never updated after publication." },
+      { id: 'B', text: "Leverage the GitHub Advisory Database, which combines National Vulnerability Database (NVD) data with community-reviewed GHSA advisories." },
+      { id: 'C', text: "Rely on unverified security blog posts on social media for vulnerability intelligence." },
       { id: 'D', text: "Keep all discovered security vulnerabilities secret to prevent software vendors from patching them." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Leverage the GitHub Advisory Database, which combines National Vulnerability Database (NVD) data with community-reviewed GHSA advisories. The GitHub Advisory Database is an open, community-curated database linking CVEs to GitHub Security Advisories (GHSA). It aggregates feeds from the NVD, package registry advisories, and direct community submissions reviewed by a dedicated security team, powering Dependabot alerts.",
     referenceUrl: "https://github.com/advisories",
@@ -261,12 +261,12 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to understand how GitHub curates vulnerability data and how security researchers can submit zero-day fixes directly to GitHub.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Rely on unverified security blog posts on social media for vulnerability intelligence." },
-      { id: 'B', text: "Assume vulnerability data is static and never updated after publication." },
-      { id: 'C', text: "Leverage the GitHub Advisory Database, which combines National Vulnerability Database (NVD) data with community-reviewed GHSA advisories." },
+      { id: 'A', text: "Assume vulnerability data is static and never updated after publication." },
+      { id: 'B', text: "Leverage the GitHub Advisory Database, which combines National Vulnerability Database (NVD) data with community-reviewed GHSA advisories." },
+      { id: 'C', text: "Rely on unverified security blog posts on social media for vulnerability intelligence." },
       { id: 'D', text: "Keep all discovered security vulnerabilities secret to prevent software vendors from patching them." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Leverage the GitHub Advisory Database, which combines National Vulnerability Database (NVD) data with community-reviewed GHSA advisories. The GitHub Advisory Database is an open, community-curated database linking CVEs to GitHub Security Advisories (GHSA). It aggregates feeds from the NVD, package registry advisories, and direct community submissions reviewed by a dedicated security team, powering Dependabot alerts.",
     referenceUrl: "https://github.com/advisories",
@@ -303,12 +303,12 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to understand how GitHub curates vulnerability data and how security researchers can submit zero-day fixes directly to GitHub.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Keep all discovered security vulnerabilities secret to prevent software vendors from patching them." },
-      { id: 'B', text: "Assume vulnerability data is static and never updated after publication." },
-      { id: 'C', text: "Leverage the GitHub Advisory Database, which combines National Vulnerability Database (NVD) data with community-reviewed GHSA advisories." },
-      { id: 'D', text: "Rely on unverified security blog posts on social media for vulnerability intelligence." }
+      { id: 'A', text: "Rely on unverified security blog posts on social media for vulnerability intelligence." },
+      { id: 'B', text: "Leverage the GitHub Advisory Database, which combines National Vulnerability Database (NVD) data with community-reviewed GHSA advisories." },
+      { id: 'C', text: "Keep all discovered security vulnerabilities secret to prevent software vendors from patching them." },
+      { id: 'D', text: "Assume vulnerability data is static and never updated after publication." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Leverage the GitHub Advisory Database, which combines National Vulnerability Database (NVD) data with community-reviewed GHSA advisories. The GitHub Advisory Database is an open, community-curated database linking CVEs to GitHub Security Advisories (GHSA). It aggregates feeds from the NVD, package registry advisories, and direct community submissions reviewed by a dedicated security team, powering Dependabot alerts.",
     referenceUrl: "https://github.com/advisories",
@@ -346,8 +346,8 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Use the `actions/attest-build-provenance` action to generate cryptographically signed build provenance attestations backed by Sigstore." },
-      { id: 'B', text: "Rely on filenames and MD5 checksums stored in unencrypted text files." },
-      { id: 'C', text: "Allow developers to build production binaries on personal laptops and upload them manually over FTP." },
+      { id: 'B', text: "Allow developers to build production binaries on personal laptops and upload them manually over FTP." },
+      { id: 'C', text: "Rely on filenames and MD5 checksums stored in unencrypted text files." },
       { id: 'D', text: "Disable build authentication to improve pipeline throughput." }
     ],
     correctAnswers: ['A'],
@@ -366,12 +366,12 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to guarantee that binary container images and release artifacts were compiled directly by authorized GitHub Actions workflows.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Rely on filenames and MD5 checksums stored in unencrypted text files." },
-      { id: 'B', text: "Disable build authentication to improve pipeline throughput." },
-      { id: 'C', text: "Allow developers to build production binaries on personal laptops and upload them manually over FTP." },
-      { id: 'D', text: "Use the `actions/attest-build-provenance` action to generate cryptographically signed build provenance attestations backed by Sigstore." }
+      { id: 'A', text: "Allow developers to build production binaries on personal laptops and upload them manually over FTP." },
+      { id: 'B', text: "Use the `actions/attest-build-provenance` action to generate cryptographically signed build provenance attestations backed by Sigstore." },
+      { id: 'C', text: "Disable build authentication to improve pipeline throughput." },
+      { id: 'D', text: "Rely on filenames and MD5 checksums stored in unencrypted text files." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use the `actions/attest-build-provenance` action to generate cryptographically signed build provenance attestations backed by Sigstore. Artifact Attestation in GitHub Actions signs build outputs (containers, binaries) using Sigstore public key infrastructure. It establishes verifiable build provenance conforming to the SLSA (Supply-chain Levels for Software Artifacts) framework, proving code origin without managing private keys.",
     referenceUrl: "https://docs.github.com/en/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds",
@@ -388,8 +388,8 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
       { id: 'A', text: "Use the `actions/attest-build-provenance` action to generate cryptographically signed build provenance attestations backed by Sigstore." },
-      { id: 'B', text: "Rely on filenames and MD5 checksums stored in unencrypted text files." },
-      { id: 'C', text: "Allow developers to build production binaries on personal laptops and upload them manually over FTP." },
+      { id: 'B', text: "Allow developers to build production binaries on personal laptops and upload them manually over FTP." },
+      { id: 'C', text: "Rely on filenames and MD5 checksums stored in unencrypted text files." },
       { id: 'D', text: "Disable build authentication to improve pipeline throughput." }
     ],
     correctAnswers: ['A'],
@@ -408,12 +408,12 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to guarantee that binary container images and release artifacts were compiled directly by authorized GitHub Actions workflows.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Disable build authentication to improve pipeline throughput." },
-      { id: 'B', text: "Rely on filenames and MD5 checksums stored in unencrypted text files." },
-      { id: 'C', text: "Use the `actions/attest-build-provenance` action to generate cryptographically signed build provenance attestations backed by Sigstore." },
-      { id: 'D', text: "Allow developers to build production binaries on personal laptops and upload them manually over FTP." }
+      { id: 'A', text: "Allow developers to build production binaries on personal laptops and upload them manually over FTP." },
+      { id: 'B', text: "Use the `actions/attest-build-provenance` action to generate cryptographically signed build provenance attestations backed by Sigstore." },
+      { id: 'C', text: "Disable build authentication to improve pipeline throughput." },
+      { id: 'D', text: "Rely on filenames and MD5 checksums stored in unencrypted text files." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use the `actions/attest-build-provenance` action to generate cryptographically signed build provenance attestations backed by Sigstore. Artifact Attestation in GitHub Actions signs build outputs (containers, binaries) using Sigstore public key infrastructure. It establishes verifiable build provenance conforming to the SLSA (Supply-chain Levels for Software Artifacts) framework, proving code origin without managing private keys.",
     referenceUrl: "https://docs.github.com/en/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds",
@@ -429,12 +429,12 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to understand how CodeQL transforms source code into a queryable relational database for semantic vulnerability analysis.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Run compiled binaries in a sandbox and inspect memory dumps for runtime errors." },
-      { id: 'B', text: "Use CodeQL extractors to parse source code, building an Abstract Syntax Tree (AST) and dataflow graph stored in a relational database." },
-      { id: 'C', text: "Decompile binaries and guess vulnerability locations based on function names." },
-      { id: 'D', text: "Execute simple regular expression searches on raw text files without compiling or parsing code syntax." }
+      { id: 'A', text: "Decompile binaries and guess vulnerability locations based on function names." },
+      { id: 'B', text: "Run compiled binaries in a sandbox and inspect memory dumps for runtime errors." },
+      { id: 'C', text: "Execute simple regular expression searches on raw text files without compiling or parsing code syntax." },
+      { id: 'D', text: "Use CodeQL extractors to parse source code, building an Abstract Syntax Tree (AST) and dataflow graph stored in a relational database." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use CodeQL extractors to parse source code, building an Abstract Syntax Tree (AST) and dataflow graph stored in a relational database. CodeQL treats code like data. Language extractors compile or parse source code, creating an Abstract Syntax Tree (AST), Control Flow Graph (CFG), and Data Flow Graph. These relational representations are packed into a CodeQL database that QL queries evaluate declaratively.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql",
@@ -450,12 +450,12 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to understand how CodeQL transforms source code into a queryable relational database for semantic vulnerability analysis.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Decompile binaries and guess vulnerability locations based on function names." },
-      { id: 'B', text: "Use CodeQL extractors to parse source code, building an Abstract Syntax Tree (AST) and dataflow graph stored in a relational database." },
+      { id: 'A', text: "Execute simple regular expression searches on raw text files without compiling or parsing code syntax." },
+      { id: 'B', text: "Decompile binaries and guess vulnerability locations based on function names." },
       { id: 'C', text: "Run compiled binaries in a sandbox and inspect memory dumps for runtime errors." },
-      { id: 'D', text: "Execute simple regular expression searches on raw text files without compiling or parsing code syntax." }
+      { id: 'D', text: "Use CodeQL extractors to parse source code, building an Abstract Syntax Tree (AST) and dataflow graph stored in a relational database." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use CodeQL extractors to parse source code, building an Abstract Syntax Tree (AST) and dataflow graph stored in a relational database. CodeQL treats code like data. Language extractors compile or parse source code, creating an Abstract Syntax Tree (AST), Control Flow Graph (CFG), and Data Flow Graph. These relational representations are packed into a CodeQL database that QL queries evaluate declaratively.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql",
@@ -471,12 +471,12 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to understand how CodeQL transforms source code into a queryable relational database for semantic vulnerability analysis.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Execute simple regular expression searches on raw text files without compiling or parsing code syntax." },
-      { id: 'B', text: "Use CodeQL extractors to parse source code, building an Abstract Syntax Tree (AST) and dataflow graph stored in a relational database." },
-      { id: 'C', text: "Decompile binaries and guess vulnerability locations based on function names." },
-      { id: 'D', text: "Run compiled binaries in a sandbox and inspect memory dumps for runtime errors." }
+      { id: 'A', text: "Use CodeQL extractors to parse source code, building an Abstract Syntax Tree (AST) and dataflow graph stored in a relational database." },
+      { id: 'B', text: "Execute simple regular expression searches on raw text files without compiling or parsing code syntax." },
+      { id: 'C', text: "Run compiled binaries in a sandbox and inspect memory dumps for runtime errors." },
+      { id: 'D', text: "Decompile binaries and guess vulnerability locations based on function names." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Use CodeQL extractors to parse source code, building an Abstract Syntax Tree (AST) and dataflow graph stored in a relational database. CodeQL treats code like data. Language extractors compile or parse source code, creating an Abstract Syntax Tree (AST), Control Flow Graph (CFG), and Data Flow Graph. These relational representations are packed into a CodeQL database that QL queries evaluate declaratively.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql",
@@ -513,12 +513,12 @@ export const GITHUB_GHAS_QUESTIONS_15 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to understand how CodeQL transforms source code into a queryable relational database for semantic vulnerability analysis.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Execute simple regular expression searches on raw text files without compiling or parsing code syntax." },
-      { id: 'B', text: "Run compiled binaries in a sandbox and inspect memory dumps for runtime errors." },
-      { id: 'C', text: "Use CodeQL extractors to parse source code, building an Abstract Syntax Tree (AST) and dataflow graph stored in a relational database." },
+      { id: 'A', text: "Run compiled binaries in a sandbox and inspect memory dumps for runtime errors." },
+      { id: 'B', text: "Use CodeQL extractors to parse source code, building an Abstract Syntax Tree (AST) and dataflow graph stored in a relational database." },
+      { id: 'C', text: "Execute simple regular expression searches on raw text files without compiling or parsing code syntax." },
       { id: 'D', text: "Decompile binaries and guess vulnerability locations based on function names." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use CodeQL extractors to parse source code, building an Abstract Syntax Tree (AST) and dataflow graph stored in a relational database. CodeQL treats code like data. Language extractors compile or parse source code, creating an Abstract Syntax Tree (AST), Control Flow Graph (CFG), and Data Flow Graph. These relational representations are packed into a CodeQL database that QL queries evaluate declaratively.",
     referenceUrl: "https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql",

@@ -9,12 +9,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to architect a globally distributed financial transaction ledger that requires multi-region synchronous write scaling, ACID guarantees, and 99.999% availability.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy a single-zone Firestore instance in Datastore mode." },
-      { id: 'B', text: "Store financial ledgers in flat CSV files inside a regional Cloud Storage bucket." },
-      { id: 'C', text: "Use a multi-region Cloud Spanner configuration." },
-      { id: 'D', text: "Deploy Cloud SQL for PostgreSQL with cross-region asynchronous read replicas." }
+      { id: 'A', text: "Use a multi-region Cloud Spanner configuration." },
+      { id: 'B', text: "Deploy Cloud SQL for PostgreSQL with cross-region asynchronous read replicas." },
+      { id: 'C', text: "Deploy a single-zone Firestore instance in Datastore mode." },
+      { id: 'D', text: "Store financial ledgers in flat CSV files inside a regional Cloud Storage bucket." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy Cloud Spanner using a multi-region instance configuration with read-write and witness replicas. Cloud Spanner is Google Cloud's fully managed, horizontally scalable relational database service providing external consistency across multi-region configurations, automatic sharding, and 99.999% availability backed by TrueTime atomic clocks.",
     referenceUrl: "https://cloud.google.com/spanner/docs/instance-configurations#multi-region-configurations",
@@ -30,12 +30,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to architect a globally distributed financial transaction ledger that requires multi-region synchronous write scaling, ACID guarantees, and 99.999% availability.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Deploy a single-zone Firestore instance in Datastore mode." },
-      { id: 'B', text: "Store financial ledgers in flat CSV files inside a regional Cloud Storage bucket." },
-      { id: 'C', text: "Use a multi-region Cloud Spanner configuration." },
-      { id: 'D', text: "Deploy Cloud SQL for PostgreSQL with cross-region asynchronous read replicas." }
+      { id: 'A', text: "Use a multi-region Cloud Spanner configuration." },
+      { id: 'B', text: "Deploy Cloud SQL for PostgreSQL with cross-region asynchronous read replicas." },
+      { id: 'C', text: "Deploy a single-zone Firestore instance in Datastore mode." },
+      { id: 'D', text: "Store financial ledgers in flat CSV files inside a regional Cloud Storage bucket." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy Cloud Spanner using a multi-region instance configuration with read-write and witness replicas. Cloud Spanner is Google Cloud's fully managed, horizontally scalable relational database service providing external consistency across multi-region configurations, automatic sharding, and 99.999% availability backed by TrueTime atomic clocks.",
     referenceUrl: "https://cloud.google.com/spanner/docs/instance-configurations#multi-region-configurations",
@@ -51,12 +51,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to architect a globally distributed financial transaction ledger that requires multi-region synchronous write scaling, ACID guarantees, and 99.999% availability.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy a single-zone Firestore instance in Datastore mode." },
-      { id: 'B', text: "Use a multi-region Cloud Spanner configuration." },
-      { id: 'C', text: "Store financial ledgers in flat CSV files inside a regional Cloud Storage bucket." },
-      { id: 'D', text: "Deploy Cloud SQL for PostgreSQL with cross-region asynchronous read replicas." }
+      { id: 'A', text: "Store financial ledgers in flat CSV files inside a regional Cloud Storage bucket." },
+      { id: 'B', text: "Deploy a single-zone Firestore instance in Datastore mode." },
+      { id: 'C', text: "Deploy Cloud SQL for PostgreSQL with cross-region asynchronous read replicas." },
+      { id: 'D', text: "Use a multi-region Cloud Spanner configuration." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Cloud Spanner using a multi-region instance configuration with read-write and witness replicas. Cloud Spanner is Google Cloud's fully managed, horizontally scalable relational database service providing external consistency across multi-region configurations, automatic sharding, and 99.999% availability backed by TrueTime atomic clocks.",
     referenceUrl: "https://cloud.google.com/spanner/docs/instance-configurations#multi-region-configurations",
@@ -72,12 +72,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to architect a globally distributed financial transaction ledger that requires multi-region synchronous write scaling, ACID guarantees, and 99.999% availability.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Store financial ledgers in flat CSV files inside a regional Cloud Storage bucket." },
+      { id: 'A', text: "Deploy a single-zone Firestore instance in Datastore mode." },
       { id: 'B', text: "Deploy Cloud SQL for PostgreSQL with cross-region asynchronous read replicas." },
-      { id: 'C', text: "Use a multi-region Cloud Spanner configuration." },
-      { id: 'D', text: "Deploy a single-zone Firestore instance in Datastore mode." }
+      { id: 'C', text: "Store financial ledgers in flat CSV files inside a regional Cloud Storage bucket." },
+      { id: 'D', text: "Use a multi-region Cloud Spanner configuration." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Cloud Spanner using a multi-region instance configuration with read-write and witness replicas. Cloud Spanner is Google Cloud's fully managed, horizontally scalable relational database service providing external consistency across multi-region configurations, automatic sharding, and 99.999% availability backed by TrueTime atomic clocks.",
     referenceUrl: "https://cloud.google.com/spanner/docs/instance-configurations#multi-region-configurations",
@@ -93,12 +93,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to architect a globally distributed financial transaction ledger that requires multi-region synchronous write scaling, ACID guarantees, and 99.999% availability.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Deploy Cloud SQL for PostgreSQL with cross-region asynchronous read replicas." },
-      { id: 'B', text: "Deploy a single-zone Firestore instance in Datastore mode." },
-      { id: 'C', text: "Use a multi-region Cloud Spanner configuration." },
+      { id: 'A', text: "Deploy a single-zone Firestore instance in Datastore mode." },
+      { id: 'B', text: "Use a multi-region Cloud Spanner configuration." },
+      { id: 'C', text: "Deploy Cloud SQL for PostgreSQL with cross-region asynchronous read replicas." },
       { id: 'D', text: "Store financial ledgers in flat CSV files inside a regional Cloud Storage bucket." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Cloud Spanner using a multi-region instance configuration with read-write and witness replicas. Cloud Spanner is Google Cloud's fully managed, horizontally scalable relational database service providing external consistency across multi-region configurations, automatic sharding, and 99.999% availability backed by TrueTime atomic clocks.",
     referenceUrl: "https://cloud.google.com/spanner/docs/instance-configurations#multi-region-configurations",
@@ -114,12 +114,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to ingest 1,000,000 telemetry sensor updates per second into Cloud Bigtable while preventing write hotspotting on tablet servers.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Use a raw Unix timestamp as the sole row key attribute." },
-      { id: 'B', text: "Use a high-cardinality prefix with a reversed timestamp." },
-      { id: 'C', text: "Store all sensor telemetry in a single row with 10 million columns." },
-      { id: 'D', text: "Use a sequential auto-incrementing integer as the row key." }
+      { id: 'A', text: "Store all sensor telemetry in a single row with 10 million columns." },
+      { id: 'B', text: "Use a raw Unix timestamp as the sole row key attribute." },
+      { id: 'C', text: "Use a sequential auto-incrementing integer as the row key." },
+      { id: 'D', text: "Use a high-cardinality prefix with a reversed timestamp." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Design composite row keys using a high-cardinality prefix combined with reversed timestamps (e.g. deviceId#reversedTimestamp). In Cloud Bigtable, sequential row keys (such as timestamps) direct all consecutive writes to a single tablet server, causing severe write hotspots. Using a hashed or non-sequential prefix like `deviceId#reversedTimestamp` distributes writes across multiple nodes.",
     referenceUrl: "https://cloud.google.com/bigtable/docs/schema-design-time-series",
@@ -135,12 +135,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to ingest 1,000,000 telemetry sensor updates per second into Cloud Bigtable while preventing write hotspotting on tablet servers.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Use a raw Unix timestamp as the sole row key attribute." },
-      { id: 'B', text: "Use a high-cardinality prefix with a reversed timestamp." },
-      { id: 'C', text: "Use a sequential auto-incrementing integer as the row key." },
+      { id: 'A', text: "Use a sequential auto-incrementing integer as the row key." },
+      { id: 'B', text: "Use a raw Unix timestamp as the sole row key attribute." },
+      { id: 'C', text: "Use a high-cardinality prefix with a reversed timestamp." },
       { id: 'D', text: "Store all sensor telemetry in a single row with 10 million columns." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Design composite row keys using a high-cardinality prefix combined with reversed timestamps (e.g. deviceId#reversedTimestamp). In Cloud Bigtable, sequential row keys (such as timestamps) direct all consecutive writes to a single tablet server, causing severe write hotspots. Using a hashed or non-sequential prefix like `deviceId#reversedTimestamp` distributes writes across multiple nodes.",
     referenceUrl: "https://cloud.google.com/bigtable/docs/schema-design-time-series",
@@ -156,12 +156,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to ingest 1,000,000 telemetry sensor updates per second into Cloud Bigtable while preventing write hotspotting on tablet servers.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Use a sequential auto-incrementing integer as the row key." },
-      { id: 'B', text: "Store all sensor telemetry in a single row with 10 million columns." },
-      { id: 'C', text: "Use a high-cardinality prefix with a reversed timestamp." },
-      { id: 'D', text: "Use a raw Unix timestamp as the sole row key attribute." }
+      { id: 'A', text: "Store all sensor telemetry in a single row with 10 million columns." },
+      { id: 'B', text: "Use a raw Unix timestamp as the sole row key attribute." },
+      { id: 'C', text: "Use a sequential auto-incrementing integer as the row key." },
+      { id: 'D', text: "Use a high-cardinality prefix with a reversed timestamp." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Design composite row keys using a high-cardinality prefix combined with reversed timestamps (e.g. deviceId#reversedTimestamp). In Cloud Bigtable, sequential row keys (such as timestamps) direct all consecutive writes to a single tablet server, causing severe write hotspots. Using a hashed or non-sequential prefix like `deviceId#reversedTimestamp` distributes writes across multiple nodes.",
     referenceUrl: "https://cloud.google.com/bigtable/docs/schema-design-time-series",
@@ -177,12 +177,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to ingest 1,000,000 telemetry sensor updates per second into Cloud Bigtable while preventing write hotspotting on tablet servers.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Use a raw Unix timestamp as the sole row key attribute." },
+      { id: 'A', text: "Use a high-cardinality prefix with a reversed timestamp." },
       { id: 'B', text: "Use a sequential auto-incrementing integer as the row key." },
-      { id: 'C', text: "Use a high-cardinality prefix with a reversed timestamp." },
+      { id: 'C', text: "Use a raw Unix timestamp as the sole row key attribute." },
       { id: 'D', text: "Store all sensor telemetry in a single row with 10 million columns." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Design composite row keys using a high-cardinality prefix combined with reversed timestamps (e.g. deviceId#reversedTimestamp). In Cloud Bigtable, sequential row keys (such as timestamps) direct all consecutive writes to a single tablet server, causing severe write hotspots. Using a hashed or non-sequential prefix like `deviceId#reversedTimestamp` distributes writes across multiple nodes.",
     referenceUrl: "https://cloud.google.com/bigtable/docs/schema-design-time-series",
@@ -198,12 +198,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to ingest 1,000,000 telemetry sensor updates per second into Cloud Bigtable while preventing write hotspotting on tablet servers.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Use a raw Unix timestamp as the sole row key attribute." },
+      { id: 'A', text: "Store all sensor telemetry in a single row with 10 million columns." },
       { id: 'B', text: "Use a sequential auto-incrementing integer as the row key." },
-      { id: 'C', text: "Store all sensor telemetry in a single row with 10 million columns." },
-      { id: 'D', text: "Use a high-cardinality prefix with a reversed timestamp." }
+      { id: 'C', text: "Use a high-cardinality prefix with a reversed timestamp." },
+      { id: 'D', text: "Use a raw Unix timestamp as the sole row key attribute." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Design composite row keys using a high-cardinality prefix combined with reversed timestamps (e.g. deviceId#reversedTimestamp). In Cloud Bigtable, sequential row keys (such as timestamps) direct all consecutive writes to a single tablet server, causing severe write hotspots. Using a hashed or non-sequential prefix like `deviceId#reversedTimestamp` distributes writes across multiple nodes.",
     referenceUrl: "https://cloud.google.com/bigtable/docs/schema-design-time-series",
@@ -219,12 +219,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to minimize operational overhead by offloading node provisioning, OS patching, cluster hardening, and auto-repair entirely to Google Cloud.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy applications into unmanaged Compute Engine VMs using docker-compose." },
+      { id: 'A', text: "Deploy on GKE Autopilot so Google manages the nodes." },
       { id: 'B', text: "Deploy GKE Standard with manual node pool provisioning and unmanaged OS updates." },
       { id: 'C', text: "Manage a self-hosted Kubernetes cluster on bare-metal Compute Engine instances." },
-      { id: 'D', text: "Deploy on GKE Autopilot so Google manages the nodes." }
+      { id: 'D', text: "Deploy applications into unmanaged Compute Engine VMs using docker-compose." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy workloads on GKE Autopilot, allowing Google to manage all underlying node infrastructure and cluster hardening. GKE Autopilot is a hands-off, production-ready operational mode where Google provisions, manages, and hardens cluster infrastructure according to Kubernetes best practices, charging only for resources requested by running pods.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview",
@@ -240,12 +240,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to minimize operational overhead by offloading node provisioning, OS patching, cluster hardening, and auto-repair entirely to Google Cloud.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Manage a self-hosted Kubernetes cluster on bare-metal Compute Engine instances." },
-      { id: 'B', text: "Deploy on GKE Autopilot so Google manages the nodes." },
-      { id: 'C', text: "Deploy GKE Standard with manual node pool provisioning and unmanaged OS updates." },
+      { id: 'A', text: "Deploy GKE Standard with manual node pool provisioning and unmanaged OS updates." },
+      { id: 'B', text: "Manage a self-hosted Kubernetes cluster on bare-metal Compute Engine instances." },
+      { id: 'C', text: "Deploy on GKE Autopilot so Google manages the nodes." },
       { id: 'D', text: "Deploy applications into unmanaged Compute Engine VMs using docker-compose." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy workloads on GKE Autopilot, allowing Google to manage all underlying node infrastructure and cluster hardening. GKE Autopilot is a hands-off, production-ready operational mode where Google provisions, manages, and hardens cluster infrastructure according to Kubernetes best practices, charging only for resources requested by running pods.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview",
@@ -261,12 +261,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to minimize operational overhead by offloading node provisioning, OS patching, cluster hardening, and auto-repair entirely to Google Cloud.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy applications into unmanaged Compute Engine VMs using docker-compose." },
+      { id: 'A', text: "Deploy on GKE Autopilot so Google manages the nodes." },
       { id: 'B', text: "Deploy GKE Standard with manual node pool provisioning and unmanaged OS updates." },
       { id: 'C', text: "Manage a self-hosted Kubernetes cluster on bare-metal Compute Engine instances." },
-      { id: 'D', text: "Deploy on GKE Autopilot so Google manages the nodes." }
+      { id: 'D', text: "Deploy applications into unmanaged Compute Engine VMs using docker-compose." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy workloads on GKE Autopilot, allowing Google to manage all underlying node infrastructure and cluster hardening. GKE Autopilot is a hands-off, production-ready operational mode where Google provisions, manages, and hardens cluster infrastructure according to Kubernetes best practices, charging only for resources requested by running pods.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview",
@@ -282,12 +282,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to minimize operational overhead by offloading node provisioning, OS patching, cluster hardening, and auto-repair entirely to Google Cloud.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Deploy GKE Standard with manual node pool provisioning and unmanaged OS updates." },
-      { id: 'B', text: "Deploy on GKE Autopilot so Google manages the nodes." },
-      { id: 'C', text: "Deploy applications into unmanaged Compute Engine VMs using docker-compose." },
-      { id: 'D', text: "Manage a self-hosted Kubernetes cluster on bare-metal Compute Engine instances." }
+      { id: 'A', text: "Deploy on GKE Autopilot so Google manages the nodes." },
+      { id: 'B', text: "Deploy GKE Standard with manual node pool provisioning and unmanaged OS updates." },
+      { id: 'C', text: "Manage a self-hosted Kubernetes cluster on bare-metal Compute Engine instances." },
+      { id: 'D', text: "Deploy applications into unmanaged Compute Engine VMs using docker-compose." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy workloads on GKE Autopilot, allowing Google to manage all underlying node infrastructure and cluster hardening. GKE Autopilot is a hands-off, production-ready operational mode where Google provisions, manages, and hardens cluster infrastructure according to Kubernetes best practices, charging only for resources requested by running pods.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview",
@@ -303,12 +303,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to minimize operational overhead by offloading node provisioning, OS patching, cluster hardening, and auto-repair entirely to Google Cloud.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Manage a self-hosted Kubernetes cluster on bare-metal Compute Engine instances." },
+      { id: 'A', text: "Deploy applications into unmanaged Compute Engine VMs using docker-compose." },
       { id: 'B', text: "Deploy GKE Standard with manual node pool provisioning and unmanaged OS updates." },
-      { id: 'C', text: "Deploy applications into unmanaged Compute Engine VMs using docker-compose." },
-      { id: 'D', text: "Deploy on GKE Autopilot so Google manages the nodes." }
+      { id: 'C', text: "Deploy on GKE Autopilot so Google manages the nodes." },
+      { id: 'D', text: "Manage a self-hosted Kubernetes cluster on bare-metal Compute Engine instances." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy workloads on GKE Autopilot, allowing Google to manage all underlying node infrastructure and cluster hardening. GKE Autopilot is a hands-off, production-ready operational mode where Google provisions, manages, and hardens cluster infrastructure according to Kubernetes best practices, charging only for resources requested by running pods.",
     referenceUrl: "https://cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview",
@@ -324,12 +324,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to provide a single Anycast IP address to serve global web traffic, routing users to the nearest regional GKE cluster over Google's private backbone network.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy an on-premises physical load balancing appliance." },
-      { id: 'B', text: "Deploy a Global External Application Load Balancer with backends distributed across regional GKE clusters." },
+      { id: 'A', text: "Configure regional external passthrough Network Load Balancers in each region with separate public IPs." },
+      { id: 'B', text: "Deploy an on-premises physical load balancing appliance." },
       { id: 'C', text: "Rely on external DNS round-robin routing across individual regional virtual machines." },
-      { id: 'D', text: "Configure regional external passthrough Network Load Balancers in each region with separate public IPs." }
+      { id: 'D', text: "Deploy a Global External Application Load Balancer with backends distributed across regional GKE clusters." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy a Global External Application Load Balancer with backends distributed across regional GKE clusters. The Global External Application Load Balancer uses Google's global Anycast IP infrastructure to terminate client TLS connections at the nearest Point of Presence (PoP) edge, routing traffic over Google's low-latency private fiber network to backend instances.",
     referenceUrl: "https://cloud.google.com/load-balancing/docs/https",
@@ -345,12 +345,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to provide a single Anycast IP address to serve global web traffic, routing users to the nearest regional GKE cluster over Google's private backbone network.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Rely on external DNS round-robin routing across individual regional virtual machines." },
+      { id: 'A', text: "Deploy an on-premises physical load balancing appliance." },
       { id: 'B', text: "Configure regional external passthrough Network Load Balancers in each region with separate public IPs." },
-      { id: 'C', text: "Deploy an on-premises physical load balancing appliance." },
-      { id: 'D', text: "Deploy a Global External Application Load Balancer with backends distributed across regional GKE clusters." }
+      { id: 'C', text: "Deploy a Global External Application Load Balancer with backends distributed across regional GKE clusters." },
+      { id: 'D', text: "Rely on external DNS round-robin routing across individual regional virtual machines." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy a Global External Application Load Balancer with backends distributed across regional GKE clusters. The Global External Application Load Balancer uses Google's global Anycast IP infrastructure to terminate client TLS connections at the nearest Point of Presence (PoP) edge, routing traffic over Google's low-latency private fiber network to backend instances.",
     referenceUrl: "https://cloud.google.com/load-balancing/docs/https",
@@ -366,12 +366,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to provide a single Anycast IP address to serve global web traffic, routing users to the nearest regional GKE cluster over Google's private backbone network.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy an on-premises physical load balancing appliance." },
+      { id: 'A', text: "Deploy a Global External Application Load Balancer with backends distributed across regional GKE clusters." },
       { id: 'B', text: "Configure regional external passthrough Network Load Balancers in each region with separate public IPs." },
       { id: 'C', text: "Rely on external DNS round-robin routing across individual regional virtual machines." },
-      { id: 'D', text: "Deploy a Global External Application Load Balancer with backends distributed across regional GKE clusters." }
+      { id: 'D', text: "Deploy an on-premises physical load balancing appliance." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy a Global External Application Load Balancer with backends distributed across regional GKE clusters. The Global External Application Load Balancer uses Google's global Anycast IP infrastructure to terminate client TLS connections at the nearest Point of Presence (PoP) edge, routing traffic over Google's low-latency private fiber network to backend instances.",
     referenceUrl: "https://cloud.google.com/load-balancing/docs/https",
@@ -387,12 +387,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to provide a single Anycast IP address to serve global web traffic, routing users to the nearest regional GKE cluster over Google's private backbone network.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Rely on external DNS round-robin routing across individual regional virtual machines." },
+      { id: 'A', text: "Deploy a Global External Application Load Balancer with backends distributed across regional GKE clusters." },
       { id: 'B', text: "Configure regional external passthrough Network Load Balancers in each region with separate public IPs." },
-      { id: 'C', text: "Deploy a Global External Application Load Balancer with backends distributed across regional GKE clusters." },
+      { id: 'C', text: "Rely on external DNS round-robin routing across individual regional virtual machines." },
       { id: 'D', text: "Deploy an on-premises physical load balancing appliance." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy a Global External Application Load Balancer with backends distributed across regional GKE clusters. The Global External Application Load Balancer uses Google's global Anycast IP infrastructure to terminate client TLS connections at the nearest Point of Presence (PoP) edge, routing traffic over Google's low-latency private fiber network to backend instances.",
     referenceUrl: "https://cloud.google.com/load-balancing/docs/https",
@@ -408,12 +408,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to provide a single Anycast IP address to serve global web traffic, routing users to the nearest regional GKE cluster over Google's private backbone network.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Rely on external DNS round-robin routing across individual regional virtual machines." },
-      { id: 'B', text: "Deploy an on-premises physical load balancing appliance." },
-      { id: 'C', text: "Configure regional external passthrough Network Load Balancers in each region with separate public IPs." },
-      { id: 'D', text: "Deploy a Global External Application Load Balancer with backends distributed across regional GKE clusters." }
+      { id: 'A', text: "Configure regional external passthrough Network Load Balancers in each region with separate public IPs." },
+      { id: 'B', text: "Deploy a Global External Application Load Balancer with backends distributed across regional GKE clusters." },
+      { id: 'C', text: "Deploy an on-premises physical load balancing appliance." },
+      { id: 'D', text: "Rely on external DNS round-robin routing across individual regional virtual machines." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy a Global External Application Load Balancer with backends distributed across regional GKE clusters. The Global External Application Load Balancer uses Google's global Anycast IP infrastructure to terminate client TLS connections at the nearest Point of Presence (PoP) edge, routing traffic over Google's low-latency private fiber network to backend instances.",
     referenceUrl: "https://cloud.google.com/load-balancing/docs/https",
@@ -429,12 +429,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to establish a private, high-capacity 100 Gbps connection between an enterprise data center and Google Cloud that does not traverse the public internet.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Use standard public internet routing with dynamic DNS." },
+      { id: 'A', text: "Provision an unencrypted FTP connection over public broadband." },
       { id: 'B', text: "Establish an HA Cloud VPN tunnel over the public internet." },
-      { id: 'C', text: "Provision an unencrypted FTP connection over public broadband." },
-      { id: 'D', text: "Provision Dedicated Interconnect at a colocation facility." }
+      { id: 'C', text: "Provision Dedicated Interconnect at a colocation facility." },
+      { id: 'D', text: "Use standard public internet routing with dynamic DNS." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Provision Google Cloud Dedicated Interconnect with 100 Gbps circuits at a designated colocation facility. Dedicated Interconnect provides direct physical cross-connects between an on-premises network and Google Cloud at designated colocation facilities with 10 Gbps or 100 Gbps circuits, delivering high throughput and enterprise SLA guarantees.",
     referenceUrl: "https://cloud.google.com/network-connectivity/docs/interconnect/concepts/dedicated-overview",
@@ -472,9 +472,9 @@ export const GCP_PCA_QUESTIONS_11 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Provision Dedicated Interconnect at a colocation facility." },
-      { id: 'B', text: "Provision an unencrypted FTP connection over public broadband." },
-      { id: 'C', text: "Establish an HA Cloud VPN tunnel over the public internet." },
-      { id: 'D', text: "Use standard public internet routing with dynamic DNS." }
+      { id: 'B', text: "Use standard public internet routing with dynamic DNS." },
+      { id: 'C', text: "Provision an unencrypted FTP connection over public broadband." },
+      { id: 'D', text: "Establish an HA Cloud VPN tunnel over the public internet." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to establish a private, high-capacity 100 Gbps connection between an enterprise data center and Google Cloud that does not traverse the public internet.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Use standard public internet routing with dynamic DNS." },
-      { id: 'B', text: "Provision an unencrypted FTP connection over public broadband." },
-      { id: 'C', text: "Provision Dedicated Interconnect at a colocation facility." },
-      { id: 'D', text: "Establish an HA Cloud VPN tunnel over the public internet." }
+      { id: 'A', text: "Provision Dedicated Interconnect at a colocation facility." },
+      { id: 'B', text: "Establish an HA Cloud VPN tunnel over the public internet." },
+      { id: 'C', text: "Use standard public internet routing with dynamic DNS." },
+      { id: 'D', text: "Provision an unencrypted FTP connection over public broadband." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Provision Google Cloud Dedicated Interconnect with 100 Gbps circuits at a designated colocation facility. Dedicated Interconnect provides direct physical cross-connects between an on-premises network and Google Cloud at designated colocation facilities with 10 Gbps or 100 Gbps circuits, delivering high throughput and enterprise SLA guarantees.",
     referenceUrl: "https://cloud.google.com/network-connectivity/docs/interconnect/concepts/dedicated-overview",
@@ -513,12 +513,12 @@ export const GCP_PCA_QUESTIONS_11 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to establish a private, high-capacity 100 Gbps connection between an enterprise data center and Google Cloud that does not traverse the public internet.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Establish an HA Cloud VPN tunnel over the public internet." },
-      { id: 'B', text: "Provision an unencrypted FTP connection over public broadband." },
-      { id: 'C', text: "Provision Dedicated Interconnect at a colocation facility." },
-      { id: 'D', text: "Use standard public internet routing with dynamic DNS." }
+      { id: 'A', text: "Provision an unencrypted FTP connection over public broadband." },
+      { id: 'B', text: "Use standard public internet routing with dynamic DNS." },
+      { id: 'C', text: "Establish an HA Cloud VPN tunnel over the public internet." },
+      { id: 'D', text: "Provision Dedicated Interconnect at a colocation facility." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Provision Google Cloud Dedicated Interconnect with 100 Gbps circuits at a designated colocation facility. Dedicated Interconnect provides direct physical cross-connects between an on-premises network and Google Cloud at designated colocation facilities with 10 Gbps or 100 Gbps circuits, delivering high throughput and enterprise SLA guarantees.",
     referenceUrl: "https://cloud.google.com/network-connectivity/docs/interconnect/concepts/dedicated-overview",

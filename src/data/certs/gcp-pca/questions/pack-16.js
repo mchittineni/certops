@@ -9,12 +9,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to automatically scan petabytes of customer feedback text in BigQuery, redact social security numbers (SSNs), and replace credit card numbers with format-preserving tokens.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Manually read through millions of customer feedback records using desktop text editors." },
-      { id: 'B', text: "Rely on client web browsers to strip sensitive data before submitting forms." },
+      { id: 'A', text: "Rely on client web browsers to strip sensitive data before submitting forms." },
+      { id: 'B', text: "Run Sensitive Data Protection inspection and de-identification jobs." },
       { id: 'C', text: "Apply BigQuery column-level access control with policy tags on the text columns." },
-      { id: 'D', text: "Run Sensitive Data Protection inspection and de-identification jobs." }
+      { id: 'D', text: "Manually read through millions of customer feedback records using desktop text editors." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Cloud Data Loss Prevention (Cloud DLP / Sensitive Data Protection) inspection and de-identification jobs. Cloud Data Loss Prevention (part of Sensitive Data Protection) is a fully managed service that discovers, inspects, and masks sensitive data (PII, financial data, health identifiers) at scale in BigQuery, Cloud Storage, and Datastore using built-in classifiers, redaction, and format-preserving tokenization.",
     referenceUrl: "https://cloud.google.com/sensitive-data-protection/docs/overview",
@@ -31,9 +31,9 @@ export const GCP_PCA_QUESTIONS_16 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Run Sensitive Data Protection inspection and de-identification jobs." },
-      { id: 'B', text: "Rely on client web browsers to strip sensitive data before submitting forms." },
-      { id: 'C', text: "Manually read through millions of customer feedback records using desktop text editors." },
-      { id: 'D', text: "Apply BigQuery column-level access control with policy tags on the text columns." }
+      { id: 'B', text: "Apply BigQuery column-level access control with policy tags on the text columns." },
+      { id: 'C', text: "Rely on client web browsers to strip sensitive data before submitting forms." },
+      { id: 'D', text: "Manually read through millions of customer feedback records using desktop text editors." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to automatically scan petabytes of customer feedback text in BigQuery, redact social security numbers (SSNs), and replace credit card numbers with format-preserving tokens.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Rely on client web browsers to strip sensitive data before submitting forms." },
-      { id: 'B', text: "Run Sensitive Data Protection inspection and de-identification jobs." },
-      { id: 'C', text: "Manually read through millions of customer feedback records using desktop text editors." },
-      { id: 'D', text: "Apply BigQuery column-level access control with policy tags on the text columns." }
+      { id: 'A', text: "Apply BigQuery column-level access control with policy tags on the text columns." },
+      { id: 'B', text: "Rely on client web browsers to strip sensitive data before submitting forms." },
+      { id: 'C', text: "Run Sensitive Data Protection inspection and de-identification jobs." },
+      { id: 'D', text: "Manually read through millions of customer feedback records using desktop text editors." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Cloud Data Loss Prevention (Cloud DLP / Sensitive Data Protection) inspection and de-identification jobs. Cloud Data Loss Prevention (part of Sensitive Data Protection) is a fully managed service that discovers, inspects, and masks sensitive data (PII, financial data, health identifiers) at scale in BigQuery, Cloud Storage, and Datastore using built-in classifiers, redaction, and format-preserving tokenization.",
     referenceUrl: "https://cloud.google.com/sensitive-data-protection/docs/overview",
@@ -73,9 +73,9 @@ export const GCP_PCA_QUESTIONS_16 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Run Sensitive Data Protection inspection and de-identification jobs." },
-      { id: 'B', text: "Apply BigQuery column-level access control with policy tags on the text columns." },
-      { id: 'C', text: "Rely on client web browsers to strip sensitive data before submitting forms." },
-      { id: 'D', text: "Manually read through millions of customer feedback records using desktop text editors." }
+      { id: 'B', text: "Rely on client web browsers to strip sensitive data before submitting forms." },
+      { id: 'C', text: "Manually read through millions of customer feedback records using desktop text editors." },
+      { id: 'D', text: "Apply BigQuery column-level access control with policy tags on the text columns." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to automatically scan petabytes of customer feedback text in BigQuery, redact social security numbers (SSNs), and replace credit card numbers with format-preserving tokens.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Manually read through millions of customer feedback records using desktop text editors." },
-      { id: 'B', text: "Rely on client web browsers to strip sensitive data before submitting forms." },
-      { id: 'C', text: "Run Sensitive Data Protection inspection and de-identification jobs." },
-      { id: 'D', text: "Apply BigQuery column-level access control with policy tags on the text columns." }
+      { id: 'A', text: "Rely on client web browsers to strip sensitive data before submitting forms." },
+      { id: 'B', text: "Apply BigQuery column-level access control with policy tags on the text columns." },
+      { id: 'C', text: "Manually read through millions of customer feedback records using desktop text editors." },
+      { id: 'D', text: "Run Sensitive Data Protection inspection and de-identification jobs." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Cloud Data Loss Prevention (Cloud DLP / Sensitive Data Protection) inspection and de-identification jobs. Cloud Data Loss Prevention (part of Sensitive Data Protection) is a fully managed service that discovers, inspects, and masks sensitive data (PII, financial data, health identifiers) at scale in BigQuery, Cloud Storage, and Datastore using built-in classifiers, redaction, and format-preserving tokenization.",
     referenceUrl: "https://cloud.google.com/sensitive-data-protection/docs/overview",
@@ -114,12 +114,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to ensure that only container images that have passed automated vulnerability scanning and have been cryptographically signed by a trusted CI/CD pipeline can be deployed to GKE.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Rely on verbal confirmation from development leads before deploying pods." },
-      { id: 'B', text: "Disable container image scanning in Artifact Registry." },
-      { id: 'C', text: "Enable Binary Authorization on the GKE cluster and configure an attestor policy requiring signatures." },
-      { id: 'D', text: "Allow developers to deploy arbitrary container images from personal Docker Hub repositories." }
+      { id: 'A', text: "Allow developers to deploy arbitrary container images from personal Docker Hub repositories." },
+      { id: 'B', text: "Enable Binary Authorization on the GKE cluster and configure an attestor policy requiring signatures." },
+      { id: 'C', text: "Rely on verbal confirmation from development leads before deploying pods." },
+      { id: 'D', text: "Disable container image scanning in Artifact Registry." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Binary Authorization on the GKE cluster and configure an attestor policy requiring signatures. Binary Authorization is a deploy-time security control that ensures only trusted container images are deployed to GKE. It enforces signature-based attestations from build systems and vulnerability scanners, rejecting unauthorized or unsigned images before pod creation.",
     referenceUrl: "https://cloud.google.com/binary-authorization/docs/overview",
@@ -135,12 +135,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to ensure that only container images that have passed automated vulnerability scanning and have been cryptographically signed by a trusted CI/CD pipeline can be deployed to GKE.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Rely on verbal confirmation from development leads before deploying pods." },
-      { id: 'B', text: "Enable Binary Authorization on the GKE cluster and configure an attestor policy requiring signatures." },
-      { id: 'C', text: "Allow developers to deploy arbitrary container images from personal Docker Hub repositories." },
-      { id: 'D', text: "Disable container image scanning in Artifact Registry." }
+      { id: 'A', text: "Disable container image scanning in Artifact Registry." },
+      { id: 'B', text: "Rely on verbal confirmation from development leads before deploying pods." },
+      { id: 'C', text: "Enable Binary Authorization on the GKE cluster and configure an attestor policy requiring signatures." },
+      { id: 'D', text: "Allow developers to deploy arbitrary container images from personal Docker Hub repositories." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Binary Authorization on the GKE cluster and configure an attestor policy requiring signatures. Binary Authorization is a deploy-time security control that ensures only trusted container images are deployed to GKE. It enforces signature-based attestations from build systems and vulnerability scanners, rejecting unauthorized or unsigned images before pod creation.",
     referenceUrl: "https://cloud.google.com/binary-authorization/docs/overview",
@@ -156,12 +156,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to ensure that only container images that have passed automated vulnerability scanning and have been cryptographically signed by a trusted CI/CD pipeline can be deployed to GKE.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Allow developers to deploy arbitrary container images from personal Docker Hub repositories." },
-      { id: 'B', text: "Disable container image scanning in Artifact Registry." },
-      { id: 'C', text: "Enable Binary Authorization on the GKE cluster and configure an attestor policy requiring signatures." },
+      { id: 'A', text: "Disable container image scanning in Artifact Registry." },
+      { id: 'B', text: "Enable Binary Authorization on the GKE cluster and configure an attestor policy requiring signatures." },
+      { id: 'C', text: "Allow developers to deploy arbitrary container images from personal Docker Hub repositories." },
       { id: 'D', text: "Rely on verbal confirmation from development leads before deploying pods." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Binary Authorization on the GKE cluster and configure an attestor policy requiring signatures. Binary Authorization is a deploy-time security control that ensures only trusted container images are deployed to GKE. It enforces signature-based attestations from build systems and vulnerability scanners, rejecting unauthorized or unsigned images before pod creation.",
     referenceUrl: "https://cloud.google.com/binary-authorization/docs/overview",
@@ -177,12 +177,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to ensure that only container images that have passed automated vulnerability scanning and have been cryptographically signed by a trusted CI/CD pipeline can be deployed to GKE.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Disable container image scanning in Artifact Registry." },
+      { id: 'A', text: "Enable Binary Authorization on the GKE cluster and configure an attestor policy requiring signatures." },
       { id: 'B', text: "Allow developers to deploy arbitrary container images from personal Docker Hub repositories." },
-      { id: 'C', text: "Enable Binary Authorization on the GKE cluster and configure an attestor policy requiring signatures." },
+      { id: 'C', text: "Disable container image scanning in Artifact Registry." },
       { id: 'D', text: "Rely on verbal confirmation from development leads before deploying pods." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Enable Binary Authorization on the GKE cluster and configure an attestor policy requiring signatures. Binary Authorization is a deploy-time security control that ensures only trusted container images are deployed to GKE. It enforces signature-based attestations from build systems and vulnerability scanners, rejecting unauthorized or unsigned images before pod creation.",
     referenceUrl: "https://cloud.google.com/binary-authorization/docs/overview",
@@ -198,12 +198,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to ensure that only container images that have passed automated vulnerability scanning and have been cryptographically signed by a trusted CI/CD pipeline can be deployed to GKE.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Allow developers to deploy arbitrary container images from personal Docker Hub repositories." },
-      { id: 'B', text: "Disable container image scanning in Artifact Registry." },
-      { id: 'C', text: "Rely on verbal confirmation from development leads before deploying pods." },
-      { id: 'D', text: "Enable Binary Authorization on the GKE cluster and configure an attestor policy requiring signatures." }
+      { id: 'A', text: "Disable container image scanning in Artifact Registry." },
+      { id: 'B', text: "Rely on verbal confirmation from development leads before deploying pods." },
+      { id: 'C', text: "Enable Binary Authorization on the GKE cluster and configure an attestor policy requiring signatures." },
+      { id: 'D', text: "Allow developers to deploy arbitrary container images from personal Docker Hub repositories." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Binary Authorization on the GKE cluster and configure an attestor policy requiring signatures. Binary Authorization is a deploy-time security control that ensures only trusted container images are deployed to GKE. It enforces signature-based attestations from build systems and vulnerability scanners, rejecting unauthorized or unsigned images before pod creation.",
     referenceUrl: "https://cloud.google.com/binary-authorization/docs/overview",
@@ -219,12 +219,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to automatically detect Layer 7 application-layer DDoS attacks and volumetric traffic anomalies on an e-commerce platform and generate suggested mitigation rules.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Write custom regex rules manually during an active distributed denial-of-service attack." },
-      { id: 'B', text: "Shut down all web servers whenever traffic exceeds normal baselines." },
-      { id: 'C', text: "Enable Cloud Armor Adaptive Protection on the security policy." },
+      { id: 'A', text: "Shut down all web servers whenever traffic exceeds normal baselines." },
+      { id: 'B', text: "Enable Cloud Armor Adaptive Protection on the security policy." },
+      { id: 'C', text: "Write custom regex rules manually during an active distributed denial-of-service attack." },
       { id: 'D', text: "Install desktop intrusion detection software on client laptops." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Cloud Armor Adaptive Protection on the security policy. Cloud Armor Adaptive Protection uses machine learning models trained on Google's traffic telemetry to detect application-layer DDoS attacks, identify traffic anomalies, and provide real-time alerts with pre-calculated, tailored WAF mitigation rules that can be deployed with one click.",
     referenceUrl: "https://cloud.google.com/armor/docs/adaptive-protection-overview",
@@ -261,12 +261,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to automatically detect Layer 7 application-layer DDoS attacks and volumetric traffic anomalies on an e-commerce platform and generate suggested mitigation rules.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Write custom regex rules manually during an active distributed denial-of-service attack." },
-      { id: 'B', text: "Shut down all web servers whenever traffic exceeds normal baselines." },
-      { id: 'C', text: "Install desktop intrusion detection software on client laptops." },
-      { id: 'D', text: "Enable Cloud Armor Adaptive Protection on the security policy." }
+      { id: 'A', text: "Shut down all web servers whenever traffic exceeds normal baselines." },
+      { id: 'B', text: "Install desktop intrusion detection software on client laptops." },
+      { id: 'C', text: "Enable Cloud Armor Adaptive Protection on the security policy." },
+      { id: 'D', text: "Write custom regex rules manually during an active distributed denial-of-service attack." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Cloud Armor Adaptive Protection on the security policy. Cloud Armor Adaptive Protection uses machine learning models trained on Google's traffic telemetry to detect application-layer DDoS attacks, identify traffic anomalies, and provide real-time alerts with pre-calculated, tailored WAF mitigation rules that can be deployed with one click.",
     referenceUrl: "https://cloud.google.com/armor/docs/adaptive-protection-overview",
@@ -282,12 +282,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to automatically detect Layer 7 application-layer DDoS attacks and volumetric traffic anomalies on an e-commerce platform and generate suggested mitigation rules.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Install desktop intrusion detection software on client laptops." },
-      { id: 'B', text: "Enable Cloud Armor Adaptive Protection on the security policy." },
+      { id: 'A', text: "Write custom regex rules manually during an active distributed denial-of-service attack." },
+      { id: 'B', text: "Install desktop intrusion detection software on client laptops." },
       { id: 'C', text: "Shut down all web servers whenever traffic exceeds normal baselines." },
-      { id: 'D', text: "Write custom regex rules manually during an active distributed denial-of-service attack." }
+      { id: 'D', text: "Enable Cloud Armor Adaptive Protection on the security policy." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable Cloud Armor Adaptive Protection on the security policy. Cloud Armor Adaptive Protection uses machine learning models trained on Google's traffic telemetry to detect application-layer DDoS attacks, identify traffic anomalies, and provide real-time alerts with pre-calculated, tailored WAF mitigation rules that can be deployed with one click.",
     referenceUrl: "https://cloud.google.com/armor/docs/adaptive-protection-overview",
@@ -303,12 +303,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to automatically detect Layer 7 application-layer DDoS attacks and volumetric traffic anomalies on an e-commerce platform and generate suggested mitigation rules.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Install desktop intrusion detection software on client laptops." },
+      { id: 'A', text: "Shut down all web servers whenever traffic exceeds normal baselines." },
       { id: 'B', text: "Write custom regex rules manually during an active distributed denial-of-service attack." },
-      { id: 'C', text: "Enable Cloud Armor Adaptive Protection on the security policy." },
-      { id: 'D', text: "Shut down all web servers whenever traffic exceeds normal baselines." }
+      { id: 'C', text: "Install desktop intrusion detection software on client laptops." },
+      { id: 'D', text: "Enable Cloud Armor Adaptive Protection on the security policy." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable Cloud Armor Adaptive Protection on the security policy. Cloud Armor Adaptive Protection uses machine learning models trained on Google's traffic telemetry to detect application-layer DDoS attacks, identify traffic anomalies, and provide real-time alerts with pre-calculated, tailored WAF mitigation rules that can be deployed with one click.",
     referenceUrl: "https://cloud.google.com/armor/docs/adaptive-protection-overview",
@@ -366,12 +366,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to protect Compute Engine virtual machines against kernel rootkits, boot-level malware, and unauthorized hypervisor modifications.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Run unverified custom operating system kernels downloaded from public forums." },
-      { id: 'B', text: "Disable operating system signature checks to maximize boot speed." },
-      { id: 'C', text: "Deploy standard legacy virtual machines without hardware integrity monitoring." },
-      { id: 'D', text: "Deploy Compute Engine instances as Shielded VMs with Secure Boot and vTPM enabled." }
+      { id: 'A', text: "Deploy standard legacy virtual machines without hardware integrity monitoring." },
+      { id: 'B', text: "Deploy Compute Engine instances as Shielded VMs with Secure Boot and vTPM enabled." },
+      { id: 'C', text: "Disable operating system signature checks to maximize boot speed." },
+      { id: 'D', text: "Run unverified custom operating system kernels downloaded from public forums." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Compute Engine instances as Shielded VMs with Secure Boot and vTPM enabled. Shielded VMs offer verifiable integrity of your Compute Engine instances to prevent boot-level and kernel-level rootkits. Features include Secure Boot (verifies digital signatures of boot software), virtual Trusted Platform Module (vTPM), and integrity monitoring against baseline measurements.",
     referenceUrl: "https://cloud.google.com/compute/docs/instances/shielded-vm",
@@ -387,12 +387,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to protect Compute Engine virtual machines against kernel rootkits, boot-level malware, and unauthorized hypervisor modifications.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Deploy standard legacy virtual machines without hardware integrity monitoring." },
-      { id: 'B', text: "Disable operating system signature checks to maximize boot speed." },
+      { id: 'A', text: "Disable operating system signature checks to maximize boot speed." },
+      { id: 'B', text: "Deploy Compute Engine instances as Shielded VMs with Secure Boot and vTPM enabled." },
       { id: 'C', text: "Run unverified custom operating system kernels downloaded from public forums." },
-      { id: 'D', text: "Deploy Compute Engine instances as Shielded VMs with Secure Boot and vTPM enabled." }
+      { id: 'D', text: "Deploy standard legacy virtual machines without hardware integrity monitoring." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Compute Engine instances as Shielded VMs with Secure Boot and vTPM enabled. Shielded VMs offer verifiable integrity of your Compute Engine instances to prevent boot-level and kernel-level rootkits. Features include Secure Boot (verifies digital signatures of boot software), virtual Trusted Platform Module (vTPM), and integrity monitoring against baseline measurements.",
     referenceUrl: "https://cloud.google.com/compute/docs/instances/shielded-vm",
@@ -408,12 +408,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to protect Compute Engine virtual machines against kernel rootkits, boot-level malware, and unauthorized hypervisor modifications.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Deploy standard legacy virtual machines without hardware integrity monitoring." },
-      { id: 'B', text: "Run unverified custom operating system kernels downloaded from public forums." },
-      { id: 'C', text: "Deploy Compute Engine instances as Shielded VMs with Secure Boot and vTPM enabled." },
+      { id: 'A', text: "Run unverified custom operating system kernels downloaded from public forums." },
+      { id: 'B', text: "Deploy Compute Engine instances as Shielded VMs with Secure Boot and vTPM enabled." },
+      { id: 'C', text: "Deploy standard legacy virtual machines without hardware integrity monitoring." },
       { id: 'D', text: "Disable operating system signature checks to maximize boot speed." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Compute Engine instances as Shielded VMs with Secure Boot and vTPM enabled. Shielded VMs offer verifiable integrity of your Compute Engine instances to prevent boot-level and kernel-level rootkits. Features include Secure Boot (verifies digital signatures of boot software), virtual Trusted Platform Module (vTPM), and integrity monitoring against baseline measurements.",
     referenceUrl: "https://cloud.google.com/compute/docs/instances/shielded-vm",
@@ -429,12 +429,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to automatically detect credential leakage, cryptocurrency mining, and unauthorized IAM role grants by analyzing cloud audit and network logs in real time.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Manually read millions of lines of syslog output every Friday afternoon." },
-      { id: 'B', text: "Disable security logging to hide security alerts from compliance auditors." },
+      { id: 'A', text: "Disable security logging to hide security alerts from compliance auditors." },
+      { id: 'B', text: "Enable Event Threat Detection within Security Command Center (SCC)." },
       { id: 'C', text: "Rely on external security researchers to report compromises on public social media." },
-      { id: 'D', text: "Enable Event Threat Detection within Security Command Center (SCC)." }
+      { id: 'D', text: "Manually read millions of lines of syslog output every Friday afternoon." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Event Threat Detection within Security Command Center (SCC). Event Threat Detection in Security Command Center automatically scans Cloud Logging streams in real time using Google threat intelligence, detecting malicious activities such as compromised credentials, malware, crypto mining, and unauthorized administrative access.",
     referenceUrl: "https://cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview",
@@ -450,12 +450,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to automatically detect credential leakage, cryptocurrency mining, and unauthorized IAM role grants by analyzing cloud audit and network logs in real time.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Rely on external security researchers to report compromises on public social media." },
-      { id: 'B', text: "Disable security logging to hide security alerts from compliance auditors." },
-      { id: 'C', text: "Manually read millions of lines of syslog output every Friday afternoon." },
-      { id: 'D', text: "Enable Event Threat Detection within Security Command Center (SCC)." }
+      { id: 'A', text: "Manually read millions of lines of syslog output every Friday afternoon." },
+      { id: 'B', text: "Enable Event Threat Detection within Security Command Center (SCC)." },
+      { id: 'C', text: "Disable security logging to hide security alerts from compliance auditors." },
+      { id: 'D', text: "Rely on external security researchers to report compromises on public social media." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Event Threat Detection within Security Command Center (SCC). Event Threat Detection in Security Command Center automatically scans Cloud Logging streams in real time using Google threat intelligence, detecting malicious activities such as compromised credentials, malware, crypto mining, and unauthorized administrative access.",
     referenceUrl: "https://cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview",
@@ -471,12 +471,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to automatically detect credential leakage, cryptocurrency mining, and unauthorized IAM role grants by analyzing cloud audit and network logs in real time.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Manually read millions of lines of syslog output every Friday afternoon." },
-      { id: 'B', text: "Enable Event Threat Detection within Security Command Center (SCC)." },
-      { id: 'C', text: "Disable security logging to hide security alerts from compliance auditors." },
-      { id: 'D', text: "Rely on external security researchers to report compromises on public social media." }
+      { id: 'A', text: "Enable Event Threat Detection within Security Command Center (SCC)." },
+      { id: 'B', text: "Manually read millions of lines of syslog output every Friday afternoon." },
+      { id: 'C', text: "Rely on external security researchers to report compromises on public social media." },
+      { id: 'D', text: "Disable security logging to hide security alerts from compliance auditors." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Enable Event Threat Detection within Security Command Center (SCC). Event Threat Detection in Security Command Center automatically scans Cloud Logging streams in real time using Google threat intelligence, detecting malicious activities such as compromised credentials, malware, crypto mining, and unauthorized administrative access.",
     referenceUrl: "https://cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview",
@@ -492,12 +492,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to automatically detect credential leakage, cryptocurrency mining, and unauthorized IAM role grants by analyzing cloud audit and network logs in real time.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Disable security logging to hide security alerts from compliance auditors." },
+      { id: 'A', text: "Rely on external security researchers to report compromises on public social media." },
       { id: 'B', text: "Manually read millions of lines of syslog output every Friday afternoon." },
-      { id: 'C', text: "Enable Event Threat Detection within Security Command Center (SCC)." },
-      { id: 'D', text: "Rely on external security researchers to report compromises on public social media." }
+      { id: 'C', text: "Disable security logging to hide security alerts from compliance auditors." },
+      { id: 'D', text: "Enable Event Threat Detection within Security Command Center (SCC)." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable Event Threat Detection within Security Command Center (SCC). Event Threat Detection in Security Command Center automatically scans Cloud Logging streams in real time using Google threat intelligence, detecting malicious activities such as compromised credentials, malware, crypto mining, and unauthorized administrative access.",
     referenceUrl: "https://cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview",
@@ -513,12 +513,12 @@ export const GCP_PCA_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to automatically detect credential leakage, cryptocurrency mining, and unauthorized IAM role grants by analyzing cloud audit and network logs in real time.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Rely on external security researchers to report compromises on public social media." },
+      { id: 'A', text: "Enable Event Threat Detection within Security Command Center (SCC)." },
       { id: 'B', text: "Manually read millions of lines of syslog output every Friday afternoon." },
-      { id: 'C', text: "Enable Event Threat Detection within Security Command Center (SCC)." },
+      { id: 'C', text: "Rely on external security researchers to report compromises on public social media." },
       { id: 'D', text: "Disable security logging to hide security alerts from compliance auditors." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Enable Event Threat Detection within Security Command Center (SCC). Event Threat Detection in Security Command Center automatically scans Cloud Logging streams in real time using Google threat intelligence, detecting malicious activities such as compromised credentials, malware, crypto mining, and unauthorized administrative access.",
     referenceUrl: "https://cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview",

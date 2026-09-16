@@ -9,12 +9,12 @@ export const GCP_ACE_QUESTIONS_2 = [
     scenario: "A security audit reports that Compute Engine instances are running under the default Compute Engine service account ('123456789-compute@developer.gserviceaccount.com'), which has the primitive Editor role on the project. The application running on the instances only needs to read objects from a single Cloud Storage bucket.",
     question: "What is the recommended remediation to achieve least privilege?",
     options: [
-      { id: 'A', text: "Enable Cloud Storage Object Versioning on the bucket" },
+      { id: 'A', text: "A user-managed service account with objectViewer on that bucket" },
       { id: 'B', text: "Edit the default service account's role at the project level to Viewer" },
       { id: 'C', text: "Disable the default service account in the Cloud Console" },
-      { id: 'D', text: "A user-managed service account with objectViewer on that bucket" }
+      { id: 'D', text: "Enable Cloud Storage Object Versioning on the bucket" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The Compute Engine default service account is historically granted the broad Editor role. The security best practice is to create a custom user-managed service account (e.g., 'app-reader@...'), grant it only the exact required role ('roles/storage.objectViewer') on the specific target bucket, and assign that custom service account to the VMs.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -30,12 +30,12 @@ export const GCP_ACE_QUESTIONS_2 = [
     scenario: "A machine learning team needs to provision 16 NVIDIA A100 GPUs across multiple Compute Engine instances in region us-central1. When attempting to launch the instances, the deployment fails with a 'Quota exceeded: GPUS_ALL_REGIONS' error.",
     question: "How should the team resolve this capacity limitation?",
     options: [
-      { id: 'A', text: "Upgrade the Cloud Billing account from credit card billing to invoiced billing" },
-      { id: 'B', text: "Run 'gcloud compute instances create' repeatedly with exponential backoff until capacity becomes available" },
-      { id: 'C', text: "Request a GPU quota increase in the Quotas console with justification" },
-      { id: 'D', text: "Switch machine types from a2-highgpu-1g to e2-standard-4" }
+      { id: 'A', text: "Request a GPU quota increase in the Quotas console with justification" },
+      { id: 'B', text: "Upgrade the Cloud Billing account from credit card billing to invoiced billing" },
+      { id: 'C', text: "Switch machine types from a2-highgpu-1g to e2-standard-4" },
+      { id: 'D', text: "Run 'gcloud compute instances create' repeatedly with exponential backoff until capacity becomes available" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "GPU allocation limits are physical resource allocation quotas set by Google Cloud to protect customers from unexpected billing and manage physical hardware availability. To increase physical resource limits (such as CPUs, GPUs, or static IPs), administrators must submit a Quota Increase Request via the Google Cloud Console, which is reviewed by Google Cloud support.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -51,12 +51,12 @@ export const GCP_ACE_QUESTIONS_2 = [
     scenario: "The lead architect wants developers in the 'Frontend Development' team to be able to create their own Google Cloud projects within the 'Frontend' folder, while preventing them from creating projects in the 'Backend' folder or at the organization root.",
     question: "Which IAM role should be assigned to the Frontend team, and at what level?",
     options: [
-      { id: 'A', text: "roles/resourcemanager.folderAdmin bound at the organization root" },
-      { id: 'B', text: "roles/resourcemanager.organizationAdmin bound at the organization root" },
+      { id: 'A', text: "roles/resourcemanager.organizationAdmin bound at the organization root" },
+      { id: 'B', text: "roles/resourcemanager.projectCreator bound directly to the 'Frontend' folder" },
       { id: 'C', text: "roles/owner bound to each existing project in the Frontend folder" },
-      { id: 'D', text: "roles/resourcemanager.projectCreator bound directly to the 'Frontend' folder" }
+      { id: 'D', text: "roles/resourcemanager.folderAdmin bound at the organization root" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The 'roles/resourcemanager.projectCreator' role grants permission to create new projects. Binding this role directly on the 'Frontend' folder ensures that developers can only create projects nested inside that folder, without granting rights to create projects elsewhere in the organization.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -72,12 +72,12 @@ export const GCP_ACE_QUESTIONS_2 = [
     scenario: "A financial auditor needs to review existing Cloud Billing budgets, spending thresholds, and alert configurations for compliance purposes. The auditor must not have permission to alter budget amounts or add new alert channels.",
     question: "Which Cloud IAM role should be assigned to the auditor?",
     options: [
-      { id: 'A', text: "roles/viewer on all projects" },
-      { id: 'B', text: "roles/billing.admin on the billing account" },
-      { id: 'C', text: "roles/billing.viewer on the billing account" },
-      { id: 'D', text: "roles/billing.user on the billing account" }
+      { id: 'A', text: "roles/billing.admin on the billing account" },
+      { id: 'B', text: "roles/viewer on all projects" },
+      { id: 'C', text: "roles/billing.user on the billing account" },
+      { id: 'D', text: "roles/billing.viewer on the billing account" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The 'roles/billing.viewer' role (Billing Account Viewer) provides read-only access to account financial information, including existing budgets, transactions, payment history, and invoices, without permitting any modifications to budgets or billing settings.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -93,12 +93,12 @@ export const GCP_ACE_QUESTIONS_2 = [
     scenario: "A systems administrator uses Cloud Shell daily to run administrative scripts and maintains a custom ~/.bashrc configuration and several deployment scripts in the home directory. The administrator is concerned that restarting the Cloud Shell session will wipe these files.",
     question: "How does Google Cloud handle data persistence across Cloud Shell sessions?",
     options: [
-      { id: 'A', text: "Persistent storage requires attaching a dedicated Cloud SQL instance to the Cloud Shell VM" },
-      { id: 'B', text: "Files must be manually committed to Google Cloud Source Repositories before closing the browser" },
-      { id: 'C', text: "Cloud Shell keeps a persistent 5 GB $HOME; the container filesystem is ephemeral." },
-      { id: 'D', text: "Cloud Shell is completely stateless; all files in $HOME are deleted when the session disconnects" }
+      { id: 'A', text: "Cloud Shell keeps a persistent 5 GB $HOME; the container filesystem is ephemeral." },
+      { id: 'B', text: "Cloud Shell is completely stateless; all files in $HOME are deleted when the session disconnects" },
+      { id: 'C', text: "Persistent storage requires attaching a dedicated Cloud SQL instance to the Cloud Shell VM" },
+      { id: 'D', text: "Files must be manually committed to Google Cloud Source Repositories before closing the browser" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Google Cloud Shell provides a persistent 5 GB home directory ($HOME) that is mounted to the container each time a session starts and is preserved between sessions. However, files outside $HOME (in the root OS filesystem) and running processes are ephemeral and reset when the container terminates.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -114,12 +114,12 @@ export const GCP_ACE_QUESTIONS_2 = [
     scenario: "Security standards dictate that every project must use a custom mode VPC designed by the network team. Whenever a new project is created, Google Cloud automatically generates a default auto-mode VPC with pre-opened firewall rules (e.g., default-allow-internal, default-allow-ssh), violating policy.",
     question: "Which Organization Policy constraint prevents the automatic creation of the default network in new projects?",
     options: [
-      { id: 'A', text: "Enforce the constraint 'constraints/compute.skipDefaultNetworkCreation' at the organization root" },
-      { id: 'B', text: "Block port 22 in all subnet firewall rules" },
-      { id: 'C', text: "Deploy a Cloud Function that executes 'gcloud compute networks delete default' every hour" },
-      { id: 'D', text: "Revoke Compute Network Admin from project creators" }
+      { id: 'A', text: "Revoke Compute Network Admin from project creators" },
+      { id: 'B', text: "Deploy a Cloud Function that executes 'gcloud compute networks delete default' every hour" },
+      { id: 'C', text: "Block port 22 in all subnet firewall rules" },
+      { id: 'D', text: "Enforce the constraint 'constraints/compute.skipDefaultNetworkCreation' at the organization root" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The boolean Organization Policy constraint 'constraints/compute.skipDefaultNetworkCreation' prevents the automatic creation of the 'default' auto-mode VPC network when new projects are instantiated, ensuring projects start with zero networks until custom VPCs are intentionally configured.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -135,9 +135,9 @@ export const GCP_ACE_QUESTIONS_2 = [
     scenario: "A developer primarily deploys Compute Engine instances and GKE clusters into region us-east1 and zone us-east1-b. The developer is tired of passing '--region=us-east1' and '--zone=us-east1-b' on every command.",
     question: "Which pair of gcloud config commands sets these defaults globally for the active configuration?",
     options: [
-      { id: 'A', text: "gcloud default set region=us-east1 zone=us-east1-b" },
+      { id: 'A', text: "gcloud compute set-default --region=us-east1 --zone=us-east1-b" },
       { id: 'B', text: "export GOOGLE_COMPUTE_REGION=us-east1 GOOGLE_COMPUTE_ZONE=us-east1-b" },
-      { id: 'C', text: "gcloud compute set-default --region=us-east1 --zone=us-east1-b" },
+      { id: 'C', text: "gcloud default set region=us-east1 zone=us-east1-b" },
       { id: 'D', text: "gcloud config set compute/region us-east1 && gcloud config set compute/zone us-east1-b" }
     ],
     correctAnswers: ['D'],
@@ -157,11 +157,11 @@ export const GCP_ACE_QUESTIONS_2 = [
     question: "What is the recommended approach to fulfill this request?",
     options: [
       { id: 'A', text: "Grant the vendor the primitive Viewer role and instruct them not to click on network settings" },
-      { id: 'B', text: "Download an administrative service account JSON key and provide it to the vendor" },
-      { id: 'C', text: "Add the vendor to the default Compute Engine service account" },
-      { id: 'D', text: "A custom IAM role holding only the required permissions, granted to the vendor." }
+      { id: 'B', text: "Add the vendor to the default Compute Engine service account" },
+      { id: 'C', text: "A custom IAM role holding only the required permissions, granted to the vendor." },
+      { id: 'D', text: "Download an administrative service account JSON key and provide it to the vendor" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "When predefined roles grant broader access than necessary, Google Cloud allows creating Custom IAM Roles. An administrator can select the precise set of permissions (e.g., 'compute.instances.get', 'compute.instances.list') and bundle them into a tailored role, satisfying strict compliance requirements.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -177,12 +177,12 @@ export const GCP_ACE_QUESTIONS_2 = [
     scenario: "A production database in project 'db-prod' was abruptly stopped at 03:00 UTC. The operations team needs to determine who stopped the database instance, the exact timestamp of the API request, and the caller's IP address.",
     question: "Which log type in Cloud Logging records this operational event by default?",
     options: [
-      { id: 'A', text: "Compute Engine serial port console logs" },
-      { id: 'B', text: "VPC Flow Logs" },
-      { id: 'C', text: "Cloud Audit Logs - Admin Activity audit logs" },
-      { id: 'D', text: "Cloud Audit Logs - Data Access audit logs" }
+      { id: 'A', text: "Cloud Audit Logs - Admin Activity audit logs" },
+      { id: 'B', text: "Compute Engine serial port console logs" },
+      { id: 'C', text: "Cloud Audit Logs - Data Access audit logs" },
+      { id: 'D', text: "VPC Flow Logs" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Cloud Audit Logs include Admin Activity logs, which record configuration changes, API calls that modify resource metadata (e.g., stopping a VM, deleting a table, modifying IAM). Admin Activity logs are enabled by default across all Google Cloud services, are retained for 400 days, and cannot be disabled.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -199,11 +199,11 @@ export const GCP_ACE_QUESTIONS_2 = [
     question: "How should the access control be configured?",
     options: [
       { id: 'A', text: "Export the BigQuery dataset to CSV files in a public Cloud Storage bucket" },
-      { id: 'B', text: "Grant 'roles/bigquery.dataViewer' and 'roles/bigquery.jobUser' at the project level" },
-      { id: 'C', text: "bigquery.dataViewer on the dataset and bigquery.jobUser on the project." },
+      { id: 'B', text: "bigquery.dataViewer on the dataset and bigquery.jobUser on the project." },
+      { id: 'C', text: "Grant 'roles/bigquery.dataViewer' and 'roles/bigquery.jobUser' at the project level" },
       { id: 'D', text: "Assign the primitive Viewer role at the project level" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "BigQuery supports fine-grained, dataset-level IAM access control. To restrict access to a single dataset, the 'roles/bigquery.dataViewer' role is granted directly on the dataset object. To execute queries that process data, the user also requires 'roles/bigquery.jobUser' at the project level, which allows running query jobs without granting read access to any project data.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -219,12 +219,12 @@ export const GCP_ACE_QUESTIONS_2 = [
     scenario: "A cloud architecture team manages infrastructure as code (IaC) and wants to automate the creation of Cloud Billing budgets and Pub/Sub alert channels whenever new Google Cloud projects are provisioned.",
     question: "Which API and resource manages billing budgets programmatically?",
     options: [
-      { id: 'A', text: "Cloud Resource Manager API" },
+      { id: 'A', text: "The Cloud Billing Budget API" },
       { id: 'B', text: "Cloud Monitoring Metric Alert API" },
       { id: 'C', text: "Service Usage API" },
-      { id: 'D', text: "The Cloud Billing Budget API" }
+      { id: 'D', text: "Cloud Resource Manager API" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Google Cloud provides the Cloud Billing Budget API ('billingbudgets.googleapis.com') specifically for creating, updating, and automating billing budgets and notification channels. In Terraform, the 'google_billing_budget' resource defines budget amounts, threshold rules, and Pub/Sub alert destinations programmatically.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -240,12 +240,12 @@ export const GCP_ACE_QUESTIONS_2 = [
     scenario: "An enterprise wants to allow team leads in the 'Data Engineering' folder to create and manage service accounts for their ETL pipelines, while preventing them from modifying IAM policies on the folder or project itself.",
     question: "Which IAM role provides service account lifecycle management without project IAM administration rights?",
     options: [
-      { id: 'A', text: "roles/iam.serviceAccountAdmin on the folder" },
-      { id: 'B', text: "roles/resourcemanager.organizationAdmin on the organization" },
-      { id: 'C', text: "roles/owner on the project" },
-      { id: 'D', text: "roles/iam.securityAdmin on the folder" }
+      { id: 'A', text: "roles/owner on the project" },
+      { id: 'B', text: "roles/iam.securityAdmin on the folder" },
+      { id: 'C', text: "roles/resourcemanager.organizationAdmin on the organization" },
+      { id: 'D', text: "roles/iam.serviceAccountAdmin on the folder" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The 'roles/iam.serviceAccountAdmin' role grants permissions to create, update, delete, and list service accounts. Assigning this role on the target folder gives team leads control over service account lifecycles within their child projects without granting the ability to alter broader project IAM policies or resource access.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -262,11 +262,11 @@ export const GCP_ACE_QUESTIONS_2 = [
     question: "What is the key functional difference between Project Name and Project ID?",
     options: [
       { id: 'A', text: "Project Number is chosen by the user; Project ID is generated randomly by Google" },
-      { id: 'B', text: "The ID is globally unique and immutable; the name is a mutable display string." },
-      { id: 'C', text: "Project ID and Project Name are interchangeable in all gcloud CLI commands" },
-      { id: 'D', text: "Project Name is globally unique and cannot be changed; Project ID can be updated at any time in the console" }
+      { id: 'B', text: "Project ID and Project Name are interchangeable in all gcloud CLI commands" },
+      { id: 'C', text: "Project Name is globally unique and cannot be changed; Project ID can be updated at any time in the console" },
+      { id: 'D', text: "The ID is globally unique and immutable; the name is a mutable display string." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In Google Cloud: 1) Project Name is a non-unique, editable display label; 2) Project ID is a globally unique, permanent alphanumeric string chosen by the user during creation, used across the CLI and APIs; 3) Project Number is an immutable system-assigned numerical identifier used internally by Google services.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -282,12 +282,12 @@ export const GCP_ACE_QUESTIONS_2 = [
     scenario: "Developers across multiple departments frequently create Cloud Storage buckets with multi-region or US-based locations, violating corporate data sovereignty requirements that mandate all data remain stored in the 'australia-southeast1' region.",
     question: "How should the enterprise enforce that storage buckets can only be created in Australia?",
     options: [
-      { id: 'A', text: "Set the bucket default storage class to Coldline at creation" },
+      { id: 'A', text: "Apply gcp.resourceLocations restricted to australia-southeast1" },
       { id: 'B', text: "Assign 'roles/storage.admin' with an IAM condition checking IP subnet" },
-      { id: 'C', text: "Apply gcp.resourceLocations restricted to australia-southeast1" },
+      { id: 'C', text: "Set the bucket default storage class to Coldline at creation" },
       { id: 'D', text: "Configure a Cloud Storage lifecycle policy to delete non-compliant buckets" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The Organization Policy constraint 'constraints/gcp.resourceLocations' governs the geographical placement of all supported resources, including Cloud Storage buckets, Compute Engine disks, and Cloud SQL instances. Setting this policy to allow only 'australia-southeast1' blocks bucket creation in any other location.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -303,12 +303,12 @@ export const GCP_ACE_QUESTIONS_2 = [
     scenario: "A contractor logs into the gcloud CLI and needs to verify which Cloud Billing Accounts they have permission to access before linking a new project.",
     question: "Which gcloud command lists all available billing accounts?",
     options: [
-      { id: 'A', text: "gcloud compute billing list" },
-      { id: 'B', text: "gcloud billing accounts list" },
-      { id: 'C', text: "gcloud organizations list-billing" },
-      { id: 'D', text: "gcloud projects billing get" }
+      { id: 'A', text: "gcloud organizations list-billing" },
+      { id: 'B', text: "gcloud projects billing get" },
+      { id: 'C', text: "gcloud billing accounts list" },
+      { id: 'D', text: "gcloud compute billing list" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The command 'gcloud billing accounts list' displays all Cloud Billing Accounts to which the authenticated user has access, showing the Billing Account ID, Display Name, and account status (OPEN or CLOSED).",
     referenceUrl: "https://cloud.google.com/docs",
@@ -325,11 +325,11 @@ export const GCP_ACE_QUESTIONS_2 = [
     question: "Which Google Cloud service enables secure, browser-based and CLI SSH connectivity to private VMs?",
     options: [
       { id: 'A', text: "Cloud Interconnect with Direct Peering" },
-      { id: 'B', text: "VPC Network Peering with on-premises routers" },
-      { id: 'C', text: "IAP TCP forwarding with --tunnel-through-iap" },
+      { id: 'B', text: "IAP TCP forwarding with --tunnel-through-iap" },
+      { id: 'C', text: "VPC Network Peering with on-premises routers" },
       { id: 'D', text: "Cloud NAT with port forwarding rules" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Cloud Identity-Aware Proxy (IAP) TCP forwarding allows authorized users to connect to administrative ports (SSH, RDP) on private VMs that lack public IP addresses. By creating an ingress firewall rule allowing traffic from Google's IAP IP range (35.235.240.0/20) and running 'gcloud compute ssh --tunnel-through-iap', traffic is encrypted and authenticated through Google's proxy.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -346,9 +346,9 @@ export const GCP_ACE_QUESTIONS_2 = [
     question: "How can the engineer ensure gcloud commands proceed automatically in headless CI/CD environments?",
     options: [
       { id: 'A', text: "Pass the '--quiet' (or '-q') flag to the gcloud command" },
-      { id: 'B', text: "Set the environment variable INTERACTIVE=FALSE" },
-      { id: 'C', text: "Configure gcloud with 'gcloud config set interactive/enabled false'" },
-      { id: 'D', text: "Append '| echo yes' to the shell command" }
+      { id: 'B', text: "Append '| echo yes' to the shell command" },
+      { id: 'C', text: "Set the environment variable INTERACTIVE=FALSE" },
+      { id: 'D', text: "Configure gcloud with 'gcloud config set interactive/enabled false'" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const GCP_ACE_QUESTIONS_2 = [
     scenario: "A security architect wants to enable Data Access audit logs for Cloud Storage (Data Read and Data Write) across all projects in the organization to record every object download and upload for forensic auditing.",
     question: "What cost and volume consideration must the architect evaluate before enabling Data Access logs?",
     options: [
-      { id: 'A', text: "Enabling Data Access logs automatically slows down Cloud Storage read and write latency by 50%" },
-      { id: 'B', text: "Data Access logs can only be retained for a maximum of 7 days" },
+      { id: 'A', text: "Data Access logs are high volume and incur ingestion and storage charges." },
+      { id: 'B', text: "Enabling Data Access logs automatically slows down Cloud Storage read and write latency by 50%" },
       { id: 'C', text: "Data Access audit logs are free of charge across all services in Google Cloud" },
-      { id: 'D', text: "Data Access logs are high volume and incur ingestion and storage charges." }
+      { id: 'D', text: "Data Access logs can only be retained for a maximum of 7 days" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "While Admin Activity audit logs are enabled by default and free of charge, Data Access audit logs (which track API calls that read or write user-provided data) are disabled by default (except for BigQuery) because they generate immense log volume and are subject to standard Cloud Logging ingestion and storage pricing.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -388,11 +388,11 @@ export const GCP_ACE_QUESTIONS_2 = [
     question: "How should the finance manager configure the budget in Cloud Billing?",
     options: [
       { id: 'A', text: "Deploy a custom BigQuery view that deletes credit line items" },
-      { id: 'B', text: "Set the budget to $8,000 and uncheck Include credits" },
+      { id: 'B', text: "Create an IAM policy that restricts spending to promotional SKUs" },
       { id: 'C', text: "Enable credit auto-renewal in the billing console" },
-      { id: 'D', text: "Create an IAM policy that restricts spending to promotional SKUs" }
+      { id: 'D', text: "Set the budget to $8,000 and uncheck Include credits" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Google Cloud Billing Budgets include a 'Credit' filter option. By default, budgets track net cost (cost after credits). Unchecking 'Include credits' causes the budget to evaluate gross usage costs before credit discounts are applied, ensuring alerts trigger accurately based on total consumption.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -408,12 +408,12 @@ export const GCP_ACE_QUESTIONS_2 = [
     scenario: "A systems engineer installs the Google Cloud SDK on a local developer workstation via a standard Linux package manager (apt-get). When attempting to run 'gcloud components install kubectl', the command returns an error stating that component manager is disabled for this installation.",
     question: "Why did the component install command fail, and how should kubectl be installed?",
     options: [
-      { id: 'A', text: "A package install disables the component manager; use the package manager." },
-      { id: 'B', text: "The engineer must execute the command using 'sudo gcloud components install kubectl --force'" },
-      { id: 'C', text: "The engineer must first authenticate using 'gcloud auth login --admin'" },
-      { id: 'D', text: "The Cloud SDK requires a paid license to install additional components" }
+      { id: 'A', text: "The engineer must execute the command using 'sudo gcloud components install kubectl --force'" },
+      { id: 'B', text: "The engineer must first authenticate using 'gcloud auth login --admin'" },
+      { id: 'C', text: "The Cloud SDK requires a paid license to install additional components" },
+      { id: 'D', text: "A package install disables the component manager; use the package manager." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "When the Google Cloud CLI is installed using a system package manager (such as apt on Debian/Ubuntu or yum on RHEL/CentOS), the self-updating component manager is disabled to prevent conflicts with the OS package manager. Additional components must be installed via the OS repository (e.g., 'sudo apt-get install google-cloud-cli-kubectl').",
     referenceUrl: "https://cloud.google.com/docs",
@@ -430,11 +430,11 @@ export const GCP_ACE_QUESTIONS_2 = [
     question: "Which metadata mechanism should be used for cost tracking versus firewall targeting?",
     options: [
       { id: 'A', text: "Use Cloud Identity groups for both cost tracking and network routing" },
-      { id: 'B', text: "Labels for cost allocation, network tags for firewall targets" },
-      { id: 'C', text: "Use Resource Labels for both cost tracking and firewall rules" },
-      { id: 'D', text: "Use Network Tags for cost tracking and Resource Labels for firewalls" }
+      { id: 'B', text: "Use Network Tags for cost tracking and Resource Labels for firewalls" },
+      { id: 'C', text: "Labels for cost allocation, network tags for firewall targets" },
+      { id: 'D', text: "Use Resource Labels for both cost tracking and firewall rules" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Resource Labels are key-value pairs attached to resources (VMs, disks, buckets) that are exported to Cloud Billing and BigQuery for financial filtering and departmental chargeback. Network Tags are simple string attributes attached to VM instances used exclusively by VPC firewall rules and routes to target network traffic.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -450,10 +450,10 @@ export const GCP_ACE_QUESTIONS_2 = [
     scenario: "A developer needs to build a large multi-stage Docker container image inside Google Cloud Shell. The build process is stalling due to CPU and memory constraints on the default 1 vCPU, 2 GB RAM Cloud Shell virtual machine.",
     question: "What feature can the developer enable to temporarily increase Cloud Shell VM resources?",
     options: [
-      { id: 'A', text: "Modify the Cloud Shell machine type in the Compute Engine console to n2-standard-8" },
-      { id: 'B', text: "Attach a Local SSD to the Cloud Shell instance" },
+      { id: 'A', text: "Purchase a Cloud Shell Premium subscription in the billing console" },
+      { id: 'B', text: "Modify the Cloud Shell machine type in the Compute Engine console to n2-standard-8" },
       { id: 'C', text: "Enable Boost Mode to get 4 vCPUs and 16 GB for 24 hours" },
-      { id: 'D', text: "Purchase a Cloud Shell Premium subscription in the billing console" }
+      { id: 'D', text: "Attach a Local SSD to the Cloud Shell instance" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -471,12 +471,12 @@ export const GCP_ACE_QUESTIONS_2 = [
     scenario: "An external auditing firm requires temporary read-only access to inspect all resource configurations, IAM policies, and billing reports across a company's Google Cloud Organization. The firm's auditors possess corporate Google accounts (@auditfirm.com).",
     question: "How should the security team grant access under least privilege?",
     options: [
-      { id: 'A', text: "Grant viewer and billing.viewer to an auditors group at the org root." },
+      { id: 'A', text: "Export all project configurations to public S3 buckets" },
       { id: 'B', text: "Grant the primitive Owner role to each auditor on individual projects" },
-      { id: 'C', text: "Export all project configurations to public S3 buckets" },
-      { id: 'D', text: "Create individual service accounts for each auditor and email them the JSON private keys" }
+      { id: 'C', text: "Create individual service accounts for each auditor and email them the JSON private keys" },
+      { id: 'D', text: "Grant viewer and billing.viewer to an auditors group at the org root." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "To grant cross-organization access cleanly and adhere to least privilege: 1) Group the external auditor identities into a centralized group; 2) Grant predefined read-only roles ('roles/viewer' for resources and 'roles/billing.viewer' for financial telemetry) at the Organization level; 3) Once the audit concludes, remove the group binding or empty the group membership.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -492,12 +492,12 @@ export const GCP_ACE_QUESTIONS_2 = [
     scenario: "An enterprise network team manages centralized VPC subnets, firewall rules, and interconnects in a dedicated 'networking-prod' project. Application teams need to deploy GKE clusters and Compute Engine instances in their own distinct projects while attaching them to the centralized subnets.",
     question: "Which Google Cloud architectural pattern fulfills this requirement?",
     options: [
-      { id: 'A', text: "Configure VPC Network Peering between every application project and the networking-prod project" },
-      { id: 'B', text: "Deploy all application workloads directly inside the networking-prod project" },
-      { id: 'C', text: "Deploy an IPSec Cloud VPN tunnel between each application VPC and the central VPC" },
-      { id: 'D', text: "Make it the Shared VPC host and grant compute.networkUser on its subnets." }
+      { id: 'A', text: "Deploy an IPSec Cloud VPN tunnel between each application VPC and the central VPC" },
+      { id: 'B', text: "Configure VPC Network Peering between every application project and the networking-prod project" },
+      { id: 'C', text: "Make it the Shared VPC host and grant compute.networkUser on its subnets." },
+      { id: 'D', text: "Deploy all application workloads directly inside the networking-prod project" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Google Cloud Shared VPC allows an organization to connect resources from multiple projects to a common Virtual Private Cloud (VPC) network. A designated Host Project contains the shared network and subnets. Service Projects are attached to the host project. By granting 'roles/compute.networkUser' on specific subnets to developers or service accounts in service projects, workloads can communicate securely on private internal IPs.",
     referenceUrl: "https://cloud.google.com/docs",
@@ -513,12 +513,12 @@ export const GCP_ACE_QUESTIONS_2 = [
     scenario: "A cloud engineer frequently alternates between administering development, staging, and production environments across three different Google Cloud projects and two distinct corporate identities. Manually overriding project IDs and accounts with 'gcloud config set' risks executing destructive commands against the wrong environment.",
     question: "What is the recommended gcloud CLI feature for cleanly managing and switching between multiple operational contexts?",
     options: [
-      { id: 'A', text: "Run 'gcloud auth login' and 'gcloud config set project' each time an environment switch occurs" },
-      { id: 'B', text: "Install three separate instances of the Google Cloud SDK into distinct local directories" },
-      { id: 'C', text: "Create named CLI configurations with gcloud config configurations create." },
+      { id: 'A', text: "Install three separate instances of the Google Cloud SDK into distinct local directories" },
+      { id: 'B', text: "Create named CLI configurations with gcloud config configurations create." },
+      { id: 'C', text: "Run 'gcloud auth login' and 'gcloud config set project' each time an environment switch occurs" },
       { id: 'D', text: "Export the GOOGLE_APPLICATION_CREDENTIALS environment variable before running each CLI command" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Named CLI configurations allow engineers to define, store, and seamlessly switch between isolated collections of gcloud settings (including active account, default project, default compute zone, and proxy settings). Creating configurations with 'gcloud config configurations create &lt;NAME&gt;' and activating them with 'gcloud config configurations activate &lt;NAME&gt;' ensures environment isolation without credential pollution or manual re-entry.",
     referenceUrl: "https://cloud.google.com/docs",

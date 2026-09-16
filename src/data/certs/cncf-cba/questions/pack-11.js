@@ -9,12 +9,12 @@ export const CNCF_CBA_QUESTIONS_11 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to structure an enterprise internal developer portal separating UI rendering from server-side database and catalog processing.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Split the frontend and backend into two separate repositories, each pinning its own range of `@backstage/*` package versions." },
-      { id: 'B', text: "Organize the portal into a monorepo featuring `packages/app` for the React frontend and `packages/backend` for the Node.js service." },
-      { id: 'C', text: "Keep a single `packages/app` workspace and import the backend routers straight into the React application at build time." },
-      { id: 'D', text: "Publish every plugin as its own npm package and install them into an otherwise empty app at deploy time." }
+      { id: 'A', text: "Publish every plugin as its own npm package and install them into an otherwise empty app at deploy time." },
+      { id: 'B', text: "Split the frontend and backend into two separate repositories, each pinning its own range of `@backstage/*` package versions." },
+      { id: 'C', text: "Organize the portal into a monorepo featuring `packages/app` for the React frontend and `packages/backend` for the Node.js service." },
+      { id: 'D', text: "Keep a single `packages/app` workspace and import the backend routers straight into the React application at build time." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Organize the portal into a monorepo featuring `packages/app` for the React frontend and `packages/backend` for the Node.js service. Backstage uses a Yarn monorepo architecture separating the frontend client (`packages/app` built with React and TypeScript) from the backend server (`packages/backend` built with Node.js and Express), coordinating plugins across both layers. Separate repositories let the two halves drift onto different `@backstage/*` versions, which the shared core packages do not tolerate; importing the backend into the React build would ship server credentials to the browser; and publishing every plugin separately turns a version bump into a release train.",
     referenceUrl: "https://backstage.io/docs/overview/architecture-overview",
@@ -30,12 +30,12 @@ export const CNCF_CBA_QUESTIONS_11 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer needs to structure an enterprise internal developer portal separating UI rendering from server-side database and catalog processing.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention?",
     options: [
-      { id: 'A', text: "Publish every plugin as its own npm package and install them into an otherwise empty app at deploy time." },
-      { id: 'B', text: "Split the frontend and backend into two separate repositories, each pinning its own range of `@backstage/*` package versions." },
-      { id: 'C', text: "Keep a single `packages/app` workspace and import the backend routers straight into the React application at build time." },
-      { id: 'D', text: "Organize the portal into a monorepo featuring `packages/app` for the React frontend and `packages/backend` for the Node.js service." }
+      { id: 'A', text: "Keep a single `packages/app` workspace and import the backend routers straight into the React application at build time." },
+      { id: 'B', text: "Organize the portal into a monorepo featuring `packages/app` for the React frontend and `packages/backend` for the Node.js service." },
+      { id: 'C', text: "Split the frontend and backend into two separate repositories, each pinning its own range of `@backstage/*` package versions." },
+      { id: 'D', text: "Publish every plugin as its own npm package and install them into an otherwise empty app at deploy time." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Organize the portal into a monorepo featuring `packages/app` for the React frontend and `packages/backend` for the Node.js service. Backstage uses a Yarn monorepo architecture separating the frontend client (`packages/app` built with React and TypeScript) from the backend server (`packages/backend` built with Node.js and Express), coordinating plugins across both layers. Separate repositories let the two halves drift onto different `@backstage/*` versions, which the shared core packages do not tolerate; importing the backend into the React build would ship server credentials to the browser; and publishing every plugin separately turns a version bump into a release train.",
     referenceUrl: "https://backstage.io/docs/overview/architecture-overview",
@@ -73,9 +73,9 @@ export const CNCF_CBA_QUESTIONS_11 = [
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
       { id: 'A', text: "Organize the portal into a monorepo featuring `packages/app` for the React frontend and `packages/backend` for the Node.js service." },
-      { id: 'B', text: "Publish every plugin as its own npm package and install them into an otherwise empty app at deploy time." },
-      { id: 'C', text: "Split the frontend and backend into two separate repositories, each pinning its own range of `@backstage/*` package versions." },
-      { id: 'D', text: "Keep a single `packages/app` workspace and import the backend routers straight into the React application at build time." }
+      { id: 'B', text: "Split the frontend and backend into two separate repositories, each pinning its own range of `@backstage/*` package versions." },
+      { id: 'C', text: "Keep a single `packages/app` workspace and import the backend routers straight into the React application at build time." },
+      { id: 'D', text: "Publish every plugin as its own npm package and install them into an otherwise empty app at deploy time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const CNCF_CBA_QUESTIONS_11 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer needs to structure an enterprise internal developer portal separating UI rendering from server-side database and catalog processing.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
-      { id: 'A', text: "Keep a single `packages/app` workspace and import the backend routers straight into the React application at build time." },
-      { id: 'B', text: "Split the frontend and backend into two separate repositories, each pinning its own range of `@backstage/*` package versions." },
+      { id: 'A', text: "Split the frontend and backend into two separate repositories, each pinning its own range of `@backstage/*` package versions." },
+      { id: 'B', text: "Organize the portal into a monorepo featuring `packages/app` for the React frontend and `packages/backend` for the Node.js service." },
       { id: 'C', text: "Publish every plugin as its own npm package and install them into an otherwise empty app at deploy time." },
-      { id: 'D', text: "Organize the portal into a monorepo featuring `packages/app` for the React frontend and `packages/backend` for the Node.js service." }
+      { id: 'D', text: "Keep a single `packages/app` workspace and import the backend routers straight into the React application at build time." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Organize the portal into a monorepo featuring `packages/app` for the React frontend and `packages/backend` for the Node.js service. Backstage uses a Yarn monorepo architecture separating the frontend client (`packages/app` built with React and TypeScript) from the backend server (`packages/backend` built with Node.js and Express), coordinating plugins across both layers. Separate repositories let the two halves drift onto different `@backstage/*` versions, which the shared core packages do not tolerate; importing the backend into the React build would ship server credentials to the browser; and publishing every plugin separately turns a version bump into a release train.",
     referenceUrl: "https://backstage.io/docs/overview/architecture-overview",
@@ -114,12 +114,12 @@ export const CNCF_CBA_QUESTIONS_11 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to compose user interface features from independent engineering teams into a unified Backstage developer portal shell.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Register each plugin's page component directly with the React Router `Routes` element, outside of `createApp` entirely, declaring each path as a string literal." },
-      { id: 'B', text: "Import each plugin's `plugin.ts` and call `plugin.provide(...)` for every extension inside a `useEffect` hook." },
-      { id: 'C', text: "Import modular frontend plugin packages and register their routable extension components inside `createApp` and `FlatRoutes` in `App.tsx`." },
-      { id: 'D', text: "List the plugins under a `frontend.plugins` key in `app-config.yaml` so the app mounts them at runtime." }
+      { id: 'A', text: "Import each plugin's `plugin.ts` and call `plugin.provide(...)` for every extension inside a `useEffect` hook." },
+      { id: 'B', text: "List the plugins under a `frontend.plugins` key in `app-config.yaml` so the app mounts them at runtime." },
+      { id: 'C', text: "Register each plugin's page component directly with the React Router `Routes` element, outside of `createApp` entirely, declaring each path as a string literal." },
+      { id: 'D', text: "Import modular frontend plugin packages and register their routable extension components inside `createApp` and `FlatRoutes` in `App.tsx`." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Import modular frontend plugin packages and register their routable extension components inside `createApp` and `FlatRoutes` in `App.tsx`. Backstage frontends are assembled using `createApp` where plugins export routable extension components (e.g., `CatalogIndexPage`, `ScaffolderPage`). These extensions are mounted declaratively within `FlatRoutes` inside `App.tsx`. Bypassing `createApp` with plain React Router loses the route refs that let plugins link to one another without knowing each other's paths; calling `provide` from an effect registers extensions after the first render, so the routes are missing on load; and the frontend has no runtime plugin loader reading `app-config.yaml`, since plugins are resolved at build time.",
     referenceUrl: "https://backstage.io/docs/plugins/composability",
@@ -135,12 +135,12 @@ export const CNCF_CBA_QUESTIONS_11 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer needs to compose user interface features from independent engineering teams into a unified Backstage developer portal shell.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention?",
     options: [
-      { id: 'A', text: "Import each plugin's `plugin.ts` and call `plugin.provide(...)` for every extension inside a `useEffect` hook." },
-      { id: 'B', text: "List the plugins under a `frontend.plugins` key in `app-config.yaml` so the app mounts them at runtime." },
-      { id: 'C', text: "Import modular frontend plugin packages and register their routable extension components inside `createApp` and `FlatRoutes` in `App.tsx`." },
-      { id: 'D', text: "Register each plugin's page component directly with the React Router `Routes` element, outside of `createApp` entirely, declaring each path as a string literal." }
+      { id: 'A', text: "Register each plugin's page component directly with the React Router `Routes` element, outside of `createApp` entirely, declaring each path as a string literal." },
+      { id: 'B', text: "Import modular frontend plugin packages and register their routable extension components inside `createApp` and `FlatRoutes` in `App.tsx`." },
+      { id: 'C', text: "Import each plugin's `plugin.ts` and call `plugin.provide(...)` for every extension inside a `useEffect` hook." },
+      { id: 'D', text: "List the plugins under a `frontend.plugins` key in `app-config.yaml` so the app mounts them at runtime." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Import modular frontend plugin packages and register their routable extension components inside `createApp` and `FlatRoutes` in `App.tsx`. Backstage frontends are assembled using `createApp` where plugins export routable extension components (e.g., `CatalogIndexPage`, `ScaffolderPage`). These extensions are mounted declaratively within `FlatRoutes` inside `App.tsx`. Bypassing `createApp` with plain React Router loses the route refs that let plugins link to one another without knowing each other's paths; calling `provide` from an effect registers extensions after the first render, so the routes are missing on load; and the frontend has no runtime plugin loader reading `app-config.yaml`, since plugins are resolved at build time.",
     referenceUrl: "https://backstage.io/docs/plugins/composability",
@@ -157,9 +157,9 @@ export const CNCF_CBA_QUESTIONS_11 = [
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls?",
     options: [
       { id: 'A', text: "Import modular frontend plugin packages and register their routable extension components inside `createApp` and `FlatRoutes` in `App.tsx`." },
-      { id: 'B', text: "List the plugins under a `frontend.plugins` key in `app-config.yaml` so the app mounts them at runtime." },
-      { id: 'C', text: "Import each plugin's `plugin.ts` and call `plugin.provide(...)` for every extension inside a `useEffect` hook." },
-      { id: 'D', text: "Register each plugin's page component directly with the React Router `Routes` element, outside of `createApp` entirely, declaring each path as a string literal." }
+      { id: 'B', text: "Import each plugin's `plugin.ts` and call `plugin.provide(...)` for every extension inside a `useEffect` hook." },
+      { id: 'C', text: "Register each plugin's page component directly with the React Router `Routes` element, outside of `createApp` entirely, declaring each path as a string literal." },
+      { id: 'D', text: "List the plugins under a `frontend.plugins` key in `app-config.yaml` so the app mounts them at runtime." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const CNCF_CBA_QUESTIONS_11 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer needs to compose user interface features from independent engineering teams into a unified Backstage developer portal shell.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
-      { id: 'A', text: "List the plugins under a `frontend.plugins` key in `app-config.yaml` so the app mounts them at runtime." },
-      { id: 'B', text: "Import modular frontend plugin packages and register their routable extension components inside `createApp` and `FlatRoutes` in `App.tsx`." },
-      { id: 'C', text: "Import each plugin's `plugin.ts` and call `plugin.provide(...)` for every extension inside a `useEffect` hook." },
-      { id: 'D', text: "Register each plugin's page component directly with the React Router `Routes` element, outside of `createApp` entirely, declaring each path as a string literal." }
+      { id: 'A', text: "Import each plugin's `plugin.ts` and call `plugin.provide(...)` for every extension inside a `useEffect` hook." },
+      { id: 'B', text: "List the plugins under a `frontend.plugins` key in `app-config.yaml` so the app mounts them at runtime." },
+      { id: 'C', text: "Register each plugin's page component directly with the React Router `Routes` element, outside of `createApp` entirely, declaring each path as a string literal." },
+      { id: 'D', text: "Import modular frontend plugin packages and register their routable extension components inside `createApp` and `FlatRoutes` in `App.tsx`." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Import modular frontend plugin packages and register their routable extension components inside `createApp` and `FlatRoutes` in `App.tsx`. Backstage frontends are assembled using `createApp` where plugins export routable extension components (e.g., `CatalogIndexPage`, `ScaffolderPage`). These extensions are mounted declaratively within `FlatRoutes` inside `App.tsx`. Bypassing `createApp` with plain React Router loses the route refs that let plugins link to one another without knowing each other's paths; calling `provide` from an effect registers extensions after the first render, so the routes are missing on load; and the frontend has no runtime plugin loader reading `app-config.yaml`, since plugins are resolved at build time.",
     referenceUrl: "https://backstage.io/docs/plugins/composability",
@@ -199,9 +199,9 @@ export const CNCF_CBA_QUESTIONS_11 = [
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
       { id: 'A', text: "Import modular frontend plugin packages and register their routable extension components inside `createApp` and `FlatRoutes` in `App.tsx`." },
-      { id: 'B', text: "Import each plugin's `plugin.ts` and call `plugin.provide(...)` for every extension inside a `useEffect` hook." },
-      { id: 'C', text: "Register each plugin's page component directly with the React Router `Routes` element, outside of `createApp` entirely, declaring each path as a string literal." },
-      { id: 'D', text: "List the plugins under a `frontend.plugins` key in `app-config.yaml` so the app mounts them at runtime." }
+      { id: 'B', text: "List the plugins under a `frontend.plugins` key in `app-config.yaml` so the app mounts them at runtime." },
+      { id: 'C', text: "Import each plugin's `plugin.ts` and call `plugin.provide(...)` for every extension inside a `useEffect` hook." },
+      { id: 'D', text: "Register each plugin's page component directly with the React Router `Routes` element, outside of `createApp` entirely, declaring each path as a string literal." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,12 +219,12 @@ export const CNCF_CBA_QUESTIONS_11 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to modernize backend plugin registration to eliminate boilerplate Express wiring and enable automated dependency injection.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Keep the legacy `index.ts` wiring, calling each plugin's `createRouter()` factory and mounting the result on an Express app." },
-      { id: 'B', text: "Register the plugins by listing their package names in `app-config.yaml` so the backend resolves them during startup." },
-      { id: 'C', text: "Run each backend plugin as its own Node.js process and route between them with an API gateway." },
-      { id: 'D', text: "Initialize the server using `createBackend()` and register plugins and services declaratively using `backend.add(import(...))`." }
+      { id: 'A', text: "Register the plugins by listing their package names in `app-config.yaml` so the backend resolves them during startup." },
+      { id: 'B', text: "Run each backend plugin as its own Node.js process and route between them with an API gateway." },
+      { id: 'C', text: "Initialize the server using `createBackend()` and register plugins and services declaratively using `backend.add(import(...))`." },
+      { id: 'D', text: "Keep the legacy `index.ts` wiring, calling each plugin's `createRouter()` factory and mounting the result on an Express app." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Initialize the server using `createBackend()` and register plugins and services declaratively using `backend.add(import(...))`. The Backstage New Backend System replaces legacy `index.ts` wiring with `createBackend()`. Plugins and core services export modular backend feature definitions that are registered via `backend.add(...)`, automatically resolving dependencies via the service container. The legacy wiring works but every plugin's dependencies have to be constructed and threaded through by hand, which is exactly what the service container removes; the backend takes its plugin set from code rather than configuration; and splitting plugins across processes forfeits the shared database and discovery wiring for an operational burden the service container already handles in one process.",
     referenceUrl: "https://backstage.io/docs/backend-system/",
@@ -240,12 +240,12 @@ export const CNCF_CBA_QUESTIONS_11 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer needs to modernize backend plugin registration to eliminate boilerplate Express wiring and enable automated dependency injection.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention?",
     options: [
-      { id: 'A', text: "Register the plugins by listing their package names in `app-config.yaml` so the backend resolves them during startup." },
-      { id: 'B', text: "Run each backend plugin as its own Node.js process and route between them with an API gateway." },
-      { id: 'C', text: "Keep the legacy `index.ts` wiring, calling each plugin's `createRouter()` factory and mounting the result on an Express app." },
-      { id: 'D', text: "Initialize the server using `createBackend()` and register plugins and services declaratively using `backend.add(import(...))`." }
+      { id: 'A', text: "Keep the legacy `index.ts` wiring, calling each plugin's `createRouter()` factory and mounting the result on an Express app." },
+      { id: 'B', text: "Initialize the server using `createBackend()` and register plugins and services declaratively using `backend.add(import(...))`." },
+      { id: 'C', text: "Run each backend plugin as its own Node.js process and route between them with an API gateway." },
+      { id: 'D', text: "Register the plugins by listing their package names in `app-config.yaml` so the backend resolves them during startup." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Initialize the server using `createBackend()` and register plugins and services declaratively using `backend.add(import(...))`. The Backstage New Backend System replaces legacy `index.ts` wiring with `createBackend()`. Plugins and core services export modular backend feature definitions that are registered via `backend.add(...)`, automatically resolving dependencies via the service container. The legacy wiring works but every plugin's dependencies have to be constructed and threaded through by hand, which is exactly what the service container removes; the backend takes its plugin set from code rather than configuration; and splitting plugins across processes forfeits the shared database and discovery wiring for an operational burden the service container already handles in one process.",
     referenceUrl: "https://backstage.io/docs/backend-system/",
@@ -262,9 +262,9 @@ export const CNCF_CBA_QUESTIONS_11 = [
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls?",
     options: [
       { id: 'A', text: "Initialize the server using `createBackend()` and register plugins and services declaratively using `backend.add(import(...))`." },
-      { id: 'B', text: "Register the plugins by listing their package names in `app-config.yaml` so the backend resolves them during startup." },
-      { id: 'C', text: "Run each backend plugin as its own Node.js process and route between them with an API gateway." },
-      { id: 'D', text: "Keep the legacy `index.ts` wiring, calling each plugin's `createRouter()` factory and mounting the result on an Express app." }
+      { id: 'B', text: "Run each backend plugin as its own Node.js process and route between them with an API gateway." },
+      { id: 'C', text: "Keep the legacy `index.ts` wiring, calling each plugin's `createRouter()` factory and mounting the result on an Express app." },
+      { id: 'D', text: "Register the plugins by listing their package names in `app-config.yaml` so the backend resolves them during startup." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -283,9 +283,9 @@ export const CNCF_CBA_QUESTIONS_11 = [
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
       { id: 'A', text: "Initialize the server using `createBackend()` and register plugins and services declaratively using `backend.add(import(...))`." },
-      { id: 'B', text: "Run each backend plugin as its own Node.js process and route between them with an API gateway." },
-      { id: 'C', text: "Keep the legacy `index.ts` wiring, calling each plugin's `createRouter()` factory and mounting the result on an Express app." },
-      { id: 'D', text: "Register the plugins by listing their package names in `app-config.yaml` so the backend resolves them during startup." }
+      { id: 'B', text: "Register the plugins by listing their package names in `app-config.yaml` so the backend resolves them during startup." },
+      { id: 'C', text: "Run each backend plugin as its own Node.js process and route between them with an API gateway." },
+      { id: 'D', text: "Keep the legacy `index.ts` wiring, calling each plugin's `createRouter()` factory and mounting the result on an Express app." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -304,9 +304,9 @@ export const CNCF_CBA_QUESTIONS_11 = [
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
       { id: 'A', text: "Initialize the server using `createBackend()` and register plugins and services declaratively using `backend.add(import(...))`." },
-      { id: 'B', text: "Run each backend plugin as its own Node.js process and route between them with an API gateway." },
+      { id: 'B', text: "Keep the legacy `index.ts` wiring, calling each plugin's `createRouter()` factory and mounting the result on an Express app." },
       { id: 'C', text: "Register the plugins by listing their package names in `app-config.yaml` so the backend resolves them during startup." },
-      { id: 'D', text: "Keep the legacy `index.ts` wiring, calling each plugin's `createRouter()` factory and mounting the result on an Express app." }
+      { id: 'D', text: "Run each backend plugin as its own Node.js process and route between them with an API gateway." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const CNCF_CBA_QUESTIONS_11 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to define environment-specific database credentials and base URLs across development, staging, and production clusters safely.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Maintain one complete `app-config.yaml` per environment and pass only that file to `--config`, repeating the shared keys in each of the environment files." },
-      { id: 'B', text: "Layer `app-config.yaml` with environment files like `app-config.production.yaml` and resolve sensitive credentials via `${SECRET_ENV_VAR}`." },
-      { id: 'C', text: "Read the credentials at runtime with `process.env` inside plugin code rather than through the configuration schema." },
+      { id: 'A', text: "Read the credentials at runtime with `process.env` inside plugin code rather than through the configuration schema." },
+      { id: 'B', text: "Maintain one complete `app-config.yaml` per environment and pass only that file to `--config`, repeating the shared keys in each of the environment files." },
+      { id: 'C', text: "Layer `app-config.yaml` with environment files like `app-config.production.yaml` and resolve sensitive credentials via `${SECRET_ENV_VAR}`." },
       { id: 'D', text: "Keep the production values in the committed config and override them after startup by calling `configApi.set()`." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Layer `app-config.yaml` with environment files like `app-config.production.yaml` and resolve sensitive credentials via `${SECRET_ENV_VAR}`. Backstage employs `@backstage/config` to merge hierarchical YAML configuration files (e.g., `app-config.yaml` overridden by `app-config.production.yaml`). Secrets are securely injected using environment variable syntax `${SECRET_NAME}` at runtime. A complete file per environment duplicates every shared key, so a change has to be made in each one and they drift; reading `process.env` directly skips the config schema, so the value is never validated and never appears in the frontend's filtered config; and the config is read-only once loaded, so there is no post-startup override to apply.",
     referenceUrl: "https://backstage.io/docs/conf/",
@@ -345,12 +345,12 @@ export const CNCF_CBA_QUESTIONS_11 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer needs to define environment-specific database credentials and base URLs across development, staging, and production clusters safely.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention?",
     options: [
-      { id: 'A', text: "Keep the production values in the committed config and override them after startup by calling `configApi.set()`." },
-      { id: 'B', text: "Maintain one complete `app-config.yaml` per environment and pass only that file to `--config`, repeating the shared keys in each of the environment files." },
-      { id: 'C', text: "Layer `app-config.yaml` with environment files like `app-config.production.yaml` and resolve sensitive credentials via `${SECRET_ENV_VAR}`." },
-      { id: 'D', text: "Read the credentials at runtime with `process.env` inside plugin code rather than through the configuration schema." }
+      { id: 'A', text: "Read the credentials at runtime with `process.env` inside plugin code rather than through the configuration schema." },
+      { id: 'B', text: "Layer `app-config.yaml` with environment files like `app-config.production.yaml` and resolve sensitive credentials via `${SECRET_ENV_VAR}`." },
+      { id: 'C', text: "Keep the production values in the committed config and override them after startup by calling `configApi.set()`." },
+      { id: 'D', text: "Maintain one complete `app-config.yaml` per environment and pass only that file to `--config`, repeating the shared keys in each of the environment files." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Layer `app-config.yaml` with environment files like `app-config.production.yaml` and resolve sensitive credentials via `${SECRET_ENV_VAR}`. Backstage employs `@backstage/config` to merge hierarchical YAML configuration files (e.g., `app-config.yaml` overridden by `app-config.production.yaml`). Secrets are securely injected using environment variable syntax `${SECRET_NAME}` at runtime. A complete file per environment duplicates every shared key, so a change has to be made in each one and they drift; reading `process.env` directly skips the config schema, so the value is never validated and never appears in the frontend's filtered config; and the config is read-only once loaded, so there is no post-startup override to apply.",
     referenceUrl: "https://backstage.io/docs/conf/",
@@ -366,12 +366,12 @@ export const CNCF_CBA_QUESTIONS_11 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer needs to define environment-specific database credentials and base URLs across development, staging, and production clusters safely.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls?",
     options: [
-      { id: 'A', text: "Maintain one complete `app-config.yaml` per environment and pass only that file to `--config`, repeating the shared keys in each of the environment files." },
-      { id: 'B', text: "Layer `app-config.yaml` with environment files like `app-config.production.yaml` and resolve sensitive credentials via `${SECRET_ENV_VAR}`." },
-      { id: 'C', text: "Keep the production values in the committed config and override them after startup by calling `configApi.set()`." },
-      { id: 'D', text: "Read the credentials at runtime with `process.env` inside plugin code rather than through the configuration schema." }
+      { id: 'A', text: "Keep the production values in the committed config and override them after startup by calling `configApi.set()`." },
+      { id: 'B', text: "Maintain one complete `app-config.yaml` per environment and pass only that file to `--config`, repeating the shared keys in each of the environment files." },
+      { id: 'C', text: "Read the credentials at runtime with `process.env` inside plugin code rather than through the configuration schema." },
+      { id: 'D', text: "Layer `app-config.yaml` with environment files like `app-config.production.yaml` and resolve sensitive credentials via `${SECRET_ENV_VAR}`." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Layer `app-config.yaml` with environment files like `app-config.production.yaml` and resolve sensitive credentials via `${SECRET_ENV_VAR}`. Backstage employs `@backstage/config` to merge hierarchical YAML configuration files (e.g., `app-config.yaml` overridden by `app-config.production.yaml`). Secrets are securely injected using environment variable syntax `${SECRET_NAME}` at runtime. A complete file per environment duplicates every shared key, so a change has to be made in each one and they drift; reading `process.env` directly skips the config schema, so the value is never validated and never appears in the frontend's filtered config; and the config is read-only once loaded, so there is no post-startup override to apply.",
     referenceUrl: "https://backstage.io/docs/conf/",
@@ -387,12 +387,12 @@ export const CNCF_CBA_QUESTIONS_11 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer needs to define environment-specific database credentials and base URLs across development, staging, and production clusters safely.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
-      { id: 'A', text: "Maintain one complete `app-config.yaml` per environment and pass only that file to `--config`, repeating the shared keys in each of the environment files." },
+      { id: 'A', text: "Layer `app-config.yaml` with environment files like `app-config.production.yaml` and resolve sensitive credentials via `${SECRET_ENV_VAR}`." },
       { id: 'B', text: "Read the credentials at runtime with `process.env` inside plugin code rather than through the configuration schema." },
-      { id: 'C', text: "Layer `app-config.yaml` with environment files like `app-config.production.yaml` and resolve sensitive credentials via `${SECRET_ENV_VAR}`." },
+      { id: 'C', text: "Maintain one complete `app-config.yaml` per environment and pass only that file to `--config`, repeating the shared keys in each of the environment files." },
       { id: 'D', text: "Keep the production values in the committed config and override them after startup by calling `configApi.set()`." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Layer `app-config.yaml` with environment files like `app-config.production.yaml` and resolve sensitive credentials via `${SECRET_ENV_VAR}`. Backstage employs `@backstage/config` to merge hierarchical YAML configuration files (e.g., `app-config.yaml` overridden by `app-config.production.yaml`). Secrets are securely injected using environment variable syntax `${SECRET_NAME}` at runtime. A complete file per environment duplicates every shared key, so a change has to be made in each one and they drift; reading `process.env` directly skips the config schema, so the value is never validated and never appears in the frontend's filtered config; and the config is read-only once loaded, so there is no post-startup override to apply.",
     referenceUrl: "https://backstage.io/docs/conf/",
@@ -408,12 +408,12 @@ export const CNCF_CBA_QUESTIONS_11 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer needs to define environment-specific database credentials and base URLs across development, staging, and production clusters safely.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
-      { id: 'A', text: "Maintain one complete `app-config.yaml` per environment and pass only that file to `--config`, repeating the shared keys in each of the environment files." },
+      { id: 'A', text: "Keep the production values in the committed config and override them after startup by calling `configApi.set()`." },
       { id: 'B', text: "Read the credentials at runtime with `process.env` inside plugin code rather than through the configuration schema." },
-      { id: 'C', text: "Keep the production values in the committed config and override them after startup by calling `configApi.set()`." },
-      { id: 'D', text: "Layer `app-config.yaml` with environment files like `app-config.production.yaml` and resolve sensitive credentials via `${SECRET_ENV_VAR}`." }
+      { id: 'C', text: "Layer `app-config.yaml` with environment files like `app-config.production.yaml` and resolve sensitive credentials via `${SECRET_ENV_VAR}`." },
+      { id: 'D', text: "Maintain one complete `app-config.yaml` per environment and pass only that file to `--config`, repeating the shared keys in each of the environment files." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Layer `app-config.yaml` with environment files like `app-config.production.yaml` and resolve sensitive credentials via `${SECRET_ENV_VAR}`. Backstage employs `@backstage/config` to merge hierarchical YAML configuration files (e.g., `app-config.yaml` overridden by `app-config.production.yaml`). Secrets are securely injected using environment variable syntax `${SECRET_NAME}` at runtime. A complete file per environment duplicates every shared key, so a change has to be made in each one and they drift; reading `process.env` directly skips the config schema, so the value is never validated and never appears in the frontend's filtered config; and the config is read-only once loaded, so there is no post-startup override to apply.",
     referenceUrl: "https://backstage.io/docs/conf/",
@@ -429,12 +429,12 @@ export const CNCF_CBA_QUESTIONS_11 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to authenticate enterprise developers securely using corporate Okta or GitHub SSO while establishing a portal identity.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Put an OAuth2 proxy in front of the portal and trust its forwarded identity header without a Backstage sign-in resolver, mapping that header onto a username in each plugin." },
-      { id: 'B', text: "Configure an auth provider (e.g., `github` or `okta`) in `app-config.yaml` and implement a `SignInPage` that maps external tokens to Backstage User entities." },
-      { id: 'C', text: "Enable the `guest` auth provider in production, mapping every visitor onto one shared Backstage user entity that owns nothing." },
-      { id: 'D', text: "Configure the GitHub or Okta provider but resolve users by comparing email strings rather than by catalog `User` entity ref." }
+      { id: 'A', text: "Enable the `guest` auth provider in production, mapping every visitor onto one shared Backstage user entity that owns nothing." },
+      { id: 'B', text: "Put an OAuth2 proxy in front of the portal and trust its forwarded identity header without a Backstage sign-in resolver, mapping that header onto a username in each plugin." },
+      { id: 'C', text: "Configure the GitHub or Okta provider but resolve users by comparing email strings rather than by catalog `User` entity ref." },
+      { id: 'D', text: "Configure an auth provider (e.g., `github` or `okta`) in `app-config.yaml` and implement a `SignInPage` that maps external tokens to Backstage User entities." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure an auth provider (e.g., `github` or `okta`) in `app-config.yaml` and implement a `SignInPage` that maps external tokens to Backstage User entities. Backstage supports federated authentication providers (GitHub, Okta, Google, Microsoft, OIDC). During login, the auth provider verifies the external identity and a sign-in resolver maps the identity to an internal Backstage Catalog `User` entity ref. A proxy authenticates the request but issues no Backstage identity token, so the permission framework and ownership relations have no user to reason about; the guest provider collapses every visitor into one identity, which makes ownership and audit meaningless; and resolving on an email string skips the catalog, so group membership is unavailable to policies.",
     referenceUrl: "https://backstage.io/docs/auth/",
@@ -450,12 +450,12 @@ export const CNCF_CBA_QUESTIONS_11 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer needs to authenticate enterprise developers securely using corporate Okta or GitHub SSO while establishing a portal identity.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention?",
     options: [
-      { id: 'A', text: "Configure the GitHub or Okta provider but resolve users by comparing email strings rather than by catalog `User` entity ref." },
-      { id: 'B', text: "Put an OAuth2 proxy in front of the portal and trust its forwarded identity header without a Backstage sign-in resolver, mapping that header onto a username in each plugin." },
-      { id: 'C', text: "Configure an auth provider (e.g., `github` or `okta`) in `app-config.yaml` and implement a `SignInPage` that maps external tokens to Backstage User entities." },
+      { id: 'A', text: "Put an OAuth2 proxy in front of the portal and trust its forwarded identity header without a Backstage sign-in resolver, mapping that header onto a username in each plugin." },
+      { id: 'B', text: "Configure an auth provider (e.g., `github` or `okta`) in `app-config.yaml` and implement a `SignInPage` that maps external tokens to Backstage User entities." },
+      { id: 'C', text: "Configure the GitHub or Okta provider but resolve users by comparing email strings rather than by catalog `User` entity ref." },
       { id: 'D', text: "Enable the `guest` auth provider in production, mapping every visitor onto one shared Backstage user entity that owns nothing." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure an auth provider (e.g., `github` or `okta`) in `app-config.yaml` and implement a `SignInPage` that maps external tokens to Backstage User entities. Backstage supports federated authentication providers (GitHub, Okta, Google, Microsoft, OIDC). During login, the auth provider verifies the external identity and a sign-in resolver maps the identity to an internal Backstage Catalog `User` entity ref. A proxy authenticates the request but issues no Backstage identity token, so the permission framework and ownership relations have no user to reason about; the guest provider collapses every visitor into one identity, which makes ownership and audit meaningless; and resolving on an email string skips the catalog, so group membership is unavailable to policies.",
     referenceUrl: "https://backstage.io/docs/auth/",
@@ -471,12 +471,12 @@ export const CNCF_CBA_QUESTIONS_11 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer needs to authenticate enterprise developers securely using corporate Okta or GitHub SSO while establishing a portal identity.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls?",
     options: [
-      { id: 'A', text: "Configure the GitHub or Okta provider but resolve users by comparing email strings rather than by catalog `User` entity ref." },
-      { id: 'B', text: "Put an OAuth2 proxy in front of the portal and trust its forwarded identity header without a Backstage sign-in resolver, mapping that header onto a username in each plugin." },
-      { id: 'C', text: "Configure an auth provider (e.g., `github` or `okta`) in `app-config.yaml` and implement a `SignInPage` that maps external tokens to Backstage User entities." },
+      { id: 'A', text: "Put an OAuth2 proxy in front of the portal and trust its forwarded identity header without a Backstage sign-in resolver, mapping that header onto a username in each plugin." },
+      { id: 'B', text: "Configure an auth provider (e.g., `github` or `okta`) in `app-config.yaml` and implement a `SignInPage` that maps external tokens to Backstage User entities." },
+      { id: 'C', text: "Configure the GitHub or Okta provider but resolve users by comparing email strings rather than by catalog `User` entity ref." },
       { id: 'D', text: "Enable the `guest` auth provider in production, mapping every visitor onto one shared Backstage user entity that owns nothing." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure an auth provider (e.g., `github` or `okta`) in `app-config.yaml` and implement a `SignInPage` that maps external tokens to Backstage User entities. Backstage supports federated authentication providers (GitHub, Okta, Google, Microsoft, OIDC). During login, the auth provider verifies the external identity and a sign-in resolver maps the identity to an internal Backstage Catalog `User` entity ref. A proxy authenticates the request but issues no Backstage identity token, so the permission framework and ownership relations have no user to reason about; the guest provider collapses every visitor into one identity, which makes ownership and audit meaningless; and resolving on an email string skips the catalog, so group membership is unavailable to policies.",
     referenceUrl: "https://backstage.io/docs/auth/",
@@ -492,12 +492,12 @@ export const CNCF_CBA_QUESTIONS_11 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer needs to authenticate enterprise developers securely using corporate Okta or GitHub SSO while establishing a portal identity.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
-      { id: 'A', text: "Put an OAuth2 proxy in front of the portal and trust its forwarded identity header without a Backstage sign-in resolver, mapping that header onto a username in each plugin." },
-      { id: 'B', text: "Enable the `guest` auth provider in production, mapping every visitor onto one shared Backstage user entity that owns nothing." },
-      { id: 'C', text: "Configure the GitHub or Okta provider but resolve users by comparing email strings rather than by catalog `User` entity ref." },
-      { id: 'D', text: "Configure an auth provider (e.g., `github` or `okta`) in `app-config.yaml` and implement a `SignInPage` that maps external tokens to Backstage User entities." }
+      { id: 'A', text: "Configure the GitHub or Okta provider but resolve users by comparing email strings rather than by catalog `User` entity ref." },
+      { id: 'B', text: "Configure an auth provider (e.g., `github` or `okta`) in `app-config.yaml` and implement a `SignInPage` that maps external tokens to Backstage User entities." },
+      { id: 'C', text: "Enable the `guest` auth provider in production, mapping every visitor onto one shared Backstage user entity that owns nothing." },
+      { id: 'D', text: "Put an OAuth2 proxy in front of the portal and trust its forwarded identity header without a Backstage sign-in resolver, mapping that header onto a username in each plugin." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure an auth provider (e.g., `github` or `okta`) in `app-config.yaml` and implement a `SignInPage` that maps external tokens to Backstage User entities. Backstage supports federated authentication providers (GitHub, Okta, Google, Microsoft, OIDC). During login, the auth provider verifies the external identity and a sign-in resolver maps the identity to an internal Backstage Catalog `User` entity ref. A proxy authenticates the request but issues no Backstage identity token, so the permission framework and ownership relations have no user to reason about; the guest provider collapses every visitor into one identity, which makes ownership and audit meaningless; and resolving on an email string skips the catalog, so group membership is unavailable to policies.",
     referenceUrl: "https://backstage.io/docs/auth/",
@@ -513,12 +513,12 @@ export const CNCF_CBA_QUESTIONS_11 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer needs to authenticate enterprise developers securely using corporate Okta or GitHub SSO while establishing a portal identity.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
-      { id: 'A', text: "Configure the GitHub or Okta provider but resolve users by comparing email strings rather than by catalog `User` entity ref." },
-      { id: 'B', text: "Configure an auth provider (e.g., `github` or `okta`) in `app-config.yaml` and implement a `SignInPage` that maps external tokens to Backstage User entities." },
+      { id: 'A', text: "Configure an auth provider (e.g., `github` or `okta`) in `app-config.yaml` and implement a `SignInPage` that maps external tokens to Backstage User entities." },
+      { id: 'B', text: "Configure the GitHub or Okta provider but resolve users by comparing email strings rather than by catalog `User` entity ref." },
       { id: 'C', text: "Put an OAuth2 proxy in front of the portal and trust its forwarded identity header without a Backstage sign-in resolver, mapping that header onto a username in each plugin." },
       { id: 'D', text: "Enable the `guest` auth provider in production, mapping every visitor onto one shared Backstage user entity that owns nothing." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure an auth provider (e.g., `github` or `okta`) in `app-config.yaml` and implement a `SignInPage` that maps external tokens to Backstage User entities. Backstage supports federated authentication providers (GitHub, Okta, Google, Microsoft, OIDC). During login, the auth provider verifies the external identity and a sign-in resolver maps the identity to an internal Backstage Catalog `User` entity ref. A proxy authenticates the request but issues no Backstage identity token, so the permission framework and ownership relations have no user to reason about; the guest provider collapses every visitor into one identity, which makes ownership and audit meaningless; and resolving on an email string skips the catalog, so group membership is unavailable to policies.",
     referenceUrl: "https://backstage.io/docs/auth/",

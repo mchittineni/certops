@@ -9,10 +9,10 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates CronJob Management to prevent scheduled report generation CronJobs from queueing up and launching dozens of simultaneous executions after a cluster control plane outage.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Set `concurrencyPolicy: Forbid` and define a reasonable `startingDeadlineSeconds` (e.g., 60) on the CronJob spec." },
-      { id: 'B', text: "Set `concurrencyPolicy: Allow` and remove all execution deadlines." },
-      { id: 'C', text: "Set the schedule string to run once every ten seconds." },
-      { id: 'D', text: "Disable the CronJob controller permanently." }
+      { id: 'A', text: "Set `concurrencyPolicy: Forbid` with a short `startingDeadlineSeconds` on the CronJob spec." },
+      { id: 'B', text: "Set `concurrencyPolicy: Replace` so each missed run supersedes the run before it." },
+      { id: 'C', text: "Set `suspend: true` for the duration of the outage and clear it once the cluster recovers." },
+      { id: 'D', text: "Set `failedJobsHistoryLimit: 1` so the backlog of missed runs is pruned as it drains." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates CronJob Management to prevent scheduled report generation CronJobs from queueing up and launching dozens of simultaneous executions after a cluster control plane outage.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Set `concurrencyPolicy: Forbid` and define a reasonable `startingDeadlineSeconds` (e.g., 60) on the CronJob spec." },
-      { id: 'B', text: "Set `concurrencyPolicy: Allow` and remove all execution deadlines." },
-      { id: 'C', text: "Set the schedule string to run once every ten seconds." },
-      { id: 'D', text: "Disable the CronJob controller permanently." }
+      { id: 'A', text: "Set `concurrencyPolicy: Forbid` with a short `startingDeadlineSeconds` on the CronJob spec." },
+      { id: 'B', text: "Set `concurrencyPolicy: Replace` so each missed run supersedes the run before it." },
+      { id: 'C', text: "Set `suspend: true` for the duration of the outage and clear it once the cluster recovers." },
+      { id: 'D', text: "Set `failedJobsHistoryLimit: 1` so the backlog of missed runs is pruned as it drains." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates CronJob Management to prevent scheduled report generation CronJobs from queueing up and launching dozens of simultaneous executions after a cluster control plane outage.",
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
-      { id: 'A', text: "Set `concurrencyPolicy: Allow` and remove all execution deadlines." },
-      { id: 'B', text: "Set the schedule string to run once every ten seconds." },
-      { id: 'C', text: "Disable the CronJob controller permanently." },
-      { id: 'D', text: "Set `concurrencyPolicy: Forbid` and define a reasonable `startingDeadlineSeconds` (e.g., 60) on the CronJob spec." }
+      { id: 'A', text: "Set `failedJobsHistoryLimit: 1` so the backlog of missed runs is pruned as it drains." },
+      { id: 'B', text: "Set `concurrencyPolicy: Forbid` with a short `startingDeadlineSeconds` on the CronJob spec." },
+      { id: 'C', text: "Set `suspend: true` for the duration of the outage and clear it once the cluster recovers." },
+      { id: 'D', text: "Set `concurrencyPolicy: Replace` so each missed run supersedes the run before it." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Set `concurrencyPolicy: Forbid` and define a reasonable `startingDeadlineSeconds` (e.g., 60) on the CronJob spec. If a CronJob fails to start at its scheduled time (e.g., during controller downtime), `startingDeadlineSeconds` sets a cutoff after which missed jobs are counted as missed rather than queued. `concurrencyPolicy: Forbid` ensures that if a run takes longer than usual, subsequent jobs do not run concurrently.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#cron-job-limitations",
@@ -72,12 +72,12 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates CronJob Management to prevent scheduled report generation CronJobs from queueing up and launching dozens of simultaneous executions after a cluster control plane outage.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
-      { id: 'A', text: "Disable the CronJob controller permanently." },
-      { id: 'B', text: "Set `concurrencyPolicy: Forbid` and define a reasonable `startingDeadlineSeconds` (e.g., 60) on the CronJob spec." },
-      { id: 'C', text: "Set the schedule string to run once every ten seconds." },
-      { id: 'D', text: "Set `concurrencyPolicy: Allow` and remove all execution deadlines." }
+      { id: 'A', text: "Set `failedJobsHistoryLimit: 1` so the backlog of missed runs is pruned as it drains." },
+      { id: 'B', text: "Set `suspend: true` for the duration of the outage and clear it once the cluster recovers." },
+      { id: 'C', text: "Set `concurrencyPolicy: Replace` so each missed run supersedes the run before it." },
+      { id: 'D', text: "Set `concurrencyPolicy: Forbid` with a short `startingDeadlineSeconds` on the CronJob spec." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set `concurrencyPolicy: Forbid` and define a reasonable `startingDeadlineSeconds` (e.g., 60) on the CronJob spec. If a CronJob fails to start at its scheduled time (e.g., during controller downtime), `startingDeadlineSeconds` sets a cutoff after which missed jobs are counted as missed rather than queued. `concurrencyPolicy: Forbid` ensures that if a run takes longer than usual, subsequent jobs do not run concurrently.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#cron-job-limitations",
@@ -93,10 +93,10 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates CronJob Management to prevent scheduled report generation CronJobs from queueing up and launching dozens of simultaneous executions after a cluster control plane outage.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
-      { id: 'A', text: "Set `concurrencyPolicy: Forbid` and define a reasonable `startingDeadlineSeconds` (e.g., 60) on the CronJob spec." },
-      { id: 'B', text: "Disable the CronJob controller permanently." },
-      { id: 'C', text: "Set `concurrencyPolicy: Allow` and remove all execution deadlines." },
-      { id: 'D', text: "Set the schedule string to run once every ten seconds." }
+      { id: 'A', text: "Set `concurrencyPolicy: Forbid` with a short `startingDeadlineSeconds` on the CronJob spec." },
+      { id: 'B', text: "Set `concurrencyPolicy: Replace` so each missed run supersedes the run before it." },
+      { id: 'C', text: "Set `suspend: true` for the duration of the outage and clear it once the cluster recovers." },
+      { id: 'D', text: "Set `failedJobsHistoryLimit: 1` so the backlog of missed runs is pruned as it drains." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates StatefulSet Policies to speed up scaling of a distributed cache StatefulSet where replicas do not depend on strict sequential ordering for startup or shutdown.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Convert the StatefulSet into a DaemonSet." },
-      { id: 'B', text: "Set `spec.podManagementPolicy: OrderedReady`." },
-      { id: 'C', text: "Manually create 50 standalone unmanaged Pods." },
-      { id: 'D', text: "Set `spec.podManagementPolicy: Parallel` on the StatefulSet manifest." }
+      { id: 'A', text: "Set `spec.podManagementPolicy: OrderedReady` on the StatefulSet." },
+      { id: 'B', text: "Set `spec.updateStrategy.type: OnDelete` on the StatefulSet." },
+      { id: 'C', text: "Set `spec.podManagementPolicy: Parallel` on the StatefulSet." },
+      { id: 'D', text: "Set `spec.minReadySeconds: 0` on the StatefulSet." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Set `spec.podManagementPolicy: Parallel` on the StatefulSet manifest. By default, StatefulSets use `podManagementPolicy: OrderedReady`, creating and terminating pods one by one in strict ordinal order. For stateful workloads that do not require strict ordering (such as read replicas or cache nodes), setting `Parallel` launches or terminates all pods simultaneously.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#pod-management-policies",
@@ -135,12 +135,12 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates StatefulSet Policies to speed up scaling of a distributed cache StatefulSet where replicas do not depend on strict sequential ordering for startup or shutdown.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Set `spec.podManagementPolicy: OrderedReady`." },
-      { id: 'B', text: "Manually create 50 standalone unmanaged Pods." },
-      { id: 'C', text: "Convert the StatefulSet into a DaemonSet." },
-      { id: 'D', text: "Set `spec.podManagementPolicy: Parallel` on the StatefulSet manifest." }
+      { id: 'A', text: "Set `spec.podManagementPolicy: OrderedReady` on the StatefulSet." },
+      { id: 'B', text: "Set `spec.podManagementPolicy: Parallel` on the StatefulSet." },
+      { id: 'C', text: "Set `spec.minReadySeconds: 0` on the StatefulSet." },
+      { id: 'D', text: "Set `spec.updateStrategy.type: OnDelete` on the StatefulSet." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Set `spec.podManagementPolicy: Parallel` on the StatefulSet manifest. By default, StatefulSets use `podManagementPolicy: OrderedReady`, creating and terminating pods one by one in strict ordinal order. For stateful workloads that do not require strict ordering (such as read replicas or cache nodes), setting `Parallel` launches or terminates all pods simultaneously.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#pod-management-policies",
@@ -156,12 +156,12 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates StatefulSet Policies to speed up scaling of a distributed cache StatefulSet where replicas do not depend on strict sequential ordering for startup or shutdown.",
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
-      { id: 'A', text: "Manually create 50 standalone unmanaged Pods." },
-      { id: 'B', text: "Set `spec.podManagementPolicy: OrderedReady`." },
-      { id: 'C', text: "Set `spec.podManagementPolicy: Parallel` on the StatefulSet manifest." },
-      { id: 'D', text: "Convert the StatefulSet into a DaemonSet." }
+      { id: 'A', text: "Set `spec.minReadySeconds: 0` on the StatefulSet." },
+      { id: 'B', text: "Set `spec.updateStrategy.type: OnDelete` on the StatefulSet." },
+      { id: 'C', text: "Set `spec.podManagementPolicy: OrderedReady` on the StatefulSet." },
+      { id: 'D', text: "Set `spec.podManagementPolicy: Parallel` on the StatefulSet." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set `spec.podManagementPolicy: Parallel` on the StatefulSet manifest. By default, StatefulSets use `podManagementPolicy: OrderedReady`, creating and terminating pods one by one in strict ordinal order. For stateful workloads that do not require strict ordering (such as read replicas or cache nodes), setting `Parallel` launches or terminates all pods simultaneously.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#pod-management-policies",
@@ -177,12 +177,12 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates StatefulSet Policies to speed up scaling of a distributed cache StatefulSet where replicas do not depend on strict sequential ordering for startup or shutdown.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
-      { id: 'A', text: "Convert the StatefulSet into a DaemonSet." },
-      { id: 'B', text: "Set `spec.podManagementPolicy: Parallel` on the StatefulSet manifest." },
-      { id: 'C', text: "Manually create 50 standalone unmanaged Pods." },
-      { id: 'D', text: "Set `spec.podManagementPolicy: OrderedReady`." }
+      { id: 'A', text: "Set `spec.podManagementPolicy: OrderedReady` on the StatefulSet." },
+      { id: 'B', text: "Set `spec.minReadySeconds: 0` on the StatefulSet." },
+      { id: 'C', text: "Set `spec.updateStrategy.type: OnDelete` on the StatefulSet." },
+      { id: 'D', text: "Set `spec.podManagementPolicy: Parallel` on the StatefulSet." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set `spec.podManagementPolicy: Parallel` on the StatefulSet manifest. By default, StatefulSets use `podManagementPolicy: OrderedReady`, creating and terminating pods one by one in strict ordinal order. For stateful workloads that do not require strict ordering (such as read replicas or cache nodes), setting `Parallel` launches or terminates all pods simultaneously.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#pod-management-policies",
@@ -198,12 +198,12 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates StatefulSet Policies to speed up scaling of a distributed cache StatefulSet where replicas do not depend on strict sequential ordering for startup or shutdown.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
-      { id: 'A', text: "Convert the StatefulSet into a DaemonSet." },
-      { id: 'B', text: "Set `spec.podManagementPolicy: Parallel` on the StatefulSet manifest." },
-      { id: 'C', text: "Manually create 50 standalone unmanaged Pods." },
-      { id: 'D', text: "Set `spec.podManagementPolicy: OrderedReady`." }
+      { id: 'A', text: "Set `spec.podManagementPolicy: OrderedReady` on the StatefulSet." },
+      { id: 'B', text: "Set `spec.minReadySeconds: 0` on the StatefulSet." },
+      { id: 'C', text: "Set `spec.updateStrategy.type: OnDelete` on the StatefulSet." },
+      { id: 'D', text: "Set `spec.podManagementPolicy: Parallel` on the StatefulSet." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set `spec.podManagementPolicy: Parallel` on the StatefulSet manifest. By default, StatefulSets use `podManagementPolicy: OrderedReady`, creating and terminating pods one by one in strict ordinal order. For stateful workloads that do not require strict ordering (such as read replicas or cache nodes), setting `Parallel` launches or terminates all pods simultaneously.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#pod-management-policies",
@@ -219,12 +219,12 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Resource Hygiene to prevent thousands of obsolete ReplicaSets and associated deployment metadata from cluttering the Kubernetes API server over months of CI/CD releases.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Set revisionHistoryLimit to 0 so no rollbacks are ever possible." },
-      { id: 'B', text: "Manually delete old ReplicaSets using a custom bash loop script every morning." },
-      { id: 'C', text: "Configure `revisionHistoryLimit: 10` (or another appropriate number) in the Deployment specification." },
-      { id: 'D', text: "Disable Deployment controllers and deploy bare Pods exclusively." }
+      { id: 'A', text: "Set `revisionHistoryLimit: 0` on the Deployment so no ReplicaSet history is retained." },
+      { id: 'B', text: "Set an `ownerReferences` TTL on the ReplicaSets so the collector removes them in turn." },
+      { id: 'C', text: "Set `ttlSecondsAfterFinished` on the Deployment so completed rollouts are collected." },
+      { id: 'D', text: "Set `revisionHistoryLimit` on the Deployment to the number of rollbacks worth keeping." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure `revisionHistoryLimit: 10` (or another appropriate number) in the Deployment specification. `revisionHistoryLimit` specifies the number of old ReplicaSets to retain to enable rollback. If unspecified, Kubernetes defaults to retaining 10 old ReplicaSets. Explicitly tuning this limit prevents resource bloat and excessive API server memory usage across high-frequency CI/CD pipelines.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#clean-up-policy",
@@ -240,12 +240,12 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Resource Hygiene to prevent thousands of obsolete ReplicaSets and associated deployment metadata from cluttering the Kubernetes API server over months of CI/CD releases.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Manually delete old ReplicaSets using a custom bash loop script every morning." },
-      { id: 'B', text: "Configure `revisionHistoryLimit: 10` (or another appropriate number) in the Deployment specification." },
-      { id: 'C', text: "Disable Deployment controllers and deploy bare Pods exclusively." },
-      { id: 'D', text: "Set revisionHistoryLimit to 0 so no rollbacks are ever possible." }
+      { id: 'A', text: "Set `revisionHistoryLimit` on the Deployment to the number of rollbacks worth keeping." },
+      { id: 'B', text: "Set an `ownerReferences` TTL on the ReplicaSets so the collector removes them in turn." },
+      { id: 'C', text: "Set `revisionHistoryLimit: 0` on the Deployment so no ReplicaSet history is retained." },
+      { id: 'D', text: "Set `ttlSecondsAfterFinished` on the Deployment so completed rollouts are collected." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure `revisionHistoryLimit: 10` (or another appropriate number) in the Deployment specification. `revisionHistoryLimit` specifies the number of old ReplicaSets to retain to enable rollback. If unspecified, Kubernetes defaults to retaining 10 old ReplicaSets. Explicitly tuning this limit prevents resource bloat and excessive API server memory usage across high-frequency CI/CD pipelines.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#clean-up-policy",
@@ -261,10 +261,10 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Resource Hygiene to prevent thousands of obsolete ReplicaSets and associated deployment metadata from cluttering the Kubernetes API server over months of CI/CD releases.",
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
-      { id: 'A', text: "Configure `revisionHistoryLimit: 10` (or another appropriate number) in the Deployment specification." },
-      { id: 'B', text: "Disable Deployment controllers and deploy bare Pods exclusively." },
-      { id: 'C', text: "Manually delete old ReplicaSets using a custom bash loop script every morning." },
-      { id: 'D', text: "Set revisionHistoryLimit to 0 so no rollbacks are ever possible." }
+      { id: 'A', text: "Set `revisionHistoryLimit` on the Deployment to the number of rollbacks worth keeping." },
+      { id: 'B', text: "Set an `ownerReferences` TTL on the ReplicaSets so the collector removes them in turn." },
+      { id: 'C', text: "Set `revisionHistoryLimit: 0` on the Deployment so no ReplicaSet history is retained." },
+      { id: 'D', text: "Set `ttlSecondsAfterFinished` on the Deployment so completed rollouts are collected." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,12 +282,12 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Resource Hygiene to prevent thousands of obsolete ReplicaSets and associated deployment metadata from cluttering the Kubernetes API server over months of CI/CD releases.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
-      { id: 'A', text: "Set revisionHistoryLimit to 0 so no rollbacks are ever possible." },
-      { id: 'B', text: "Disable Deployment controllers and deploy bare Pods exclusively." },
-      { id: 'C', text: "Manually delete old ReplicaSets using a custom bash loop script every morning." },
-      { id: 'D', text: "Configure `revisionHistoryLimit: 10` (or another appropriate number) in the Deployment specification." }
+      { id: 'A', text: "Set `revisionHistoryLimit` on the Deployment to the number of rollbacks worth keeping." },
+      { id: 'B', text: "Set an `ownerReferences` TTL on the ReplicaSets so the collector removes them in turn." },
+      { id: 'C', text: "Set `revisionHistoryLimit: 0` on the Deployment so no ReplicaSet history is retained." },
+      { id: 'D', text: "Set `ttlSecondsAfterFinished` on the Deployment so completed rollouts are collected." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure `revisionHistoryLimit: 10` (or another appropriate number) in the Deployment specification. `revisionHistoryLimit` specifies the number of old ReplicaSets to retain to enable rollback. If unspecified, Kubernetes defaults to retaining 10 old ReplicaSets. Explicitly tuning this limit prevents resource bloat and excessive API server memory usage across high-frequency CI/CD pipelines.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#clean-up-policy",
@@ -303,12 +303,12 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Resource Hygiene to prevent thousands of obsolete ReplicaSets and associated deployment metadata from cluttering the Kubernetes API server over months of CI/CD releases.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
-      { id: 'A', text: "Disable Deployment controllers and deploy bare Pods exclusively." },
-      { id: 'B', text: "Set revisionHistoryLimit to 0 so no rollbacks are ever possible." },
-      { id: 'C', text: "Manually delete old ReplicaSets using a custom bash loop script every morning." },
-      { id: 'D', text: "Configure `revisionHistoryLimit: 10` (or another appropriate number) in the Deployment specification." }
+      { id: 'A', text: "Set an `ownerReferences` TTL on the ReplicaSets so the collector removes them in turn." },
+      { id: 'B', text: "Set `revisionHistoryLimit` on the Deployment to the number of rollbacks worth keeping." },
+      { id: 'C', text: "Set `ttlSecondsAfterFinished` on the Deployment so completed rollouts are collected." },
+      { id: 'D', text: "Set `revisionHistoryLimit: 0` on the Deployment so no ReplicaSet history is retained." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `revisionHistoryLimit: 10` (or another appropriate number) in the Deployment specification. `revisionHistoryLimit` specifies the number of old ReplicaSets to retain to enable rollback. If unspecified, Kubernetes defaults to retaining 10 old ReplicaSets. Explicitly tuning this limit prevents resource bloat and excessive API server memory usage across high-frequency CI/CD pipelines.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#clean-up-policy",
@@ -324,12 +324,12 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Package Management to deploy a complex multi-tier microservice stack consistently across dev, test, and prod environments with environment-specific configuration parameters.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Keep a separate full manifest per environment and edit it before deploying." },
-      { id: 'B', text: "Keep one template per environment with the values written into each." },
-      { id: 'C', text: "Package the application manifests into a Helm chart and deploy using `helm install` or `helm upgrade --install` with environment-specific values files (`-f values-prod.yaml`)." },
-      { id: 'D', text: "Maintain completely separate sets of raw duplicate YAML files across dozens of repository branches." }
+      { id: 'A', text: "Package the manifests as a Helm chart and release each environment with `helm upgrade --install -f values-prod.yaml`." },
+      { id: 'B', text: "Render the manifests in the pipeline with `envsubst` and apply the output, holding the variables in the CI settings." },
+      { id: 'C', text: "Keep one Kustomize base and copy it into each environment's repository, editing the copy before it is applied." },
+      { id: 'D', text: "Keep a full manifest set per environment and hold them in sync with a scheduled job that diffs them nightly." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Package the application manifests into a Helm chart and deploy using `helm install` or `helm upgrade --install` with environment-specific values files (`-f values-prod.yaml`). Helm is the standard package manager for Kubernetes. Helm charts parameterize Kubernetes manifests using templates, allowing operators to deploy consistent application architectures across disparate environments simply by supplying environment-specific `values.yaml` configuration overrides.",
     referenceUrl: "https://helm.sh/docs/chart_template_guide/",
@@ -345,12 +345,12 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Package Management to deploy a complex multi-tier microservice stack consistently across dev, test, and prod environments with environment-specific configuration parameters.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Maintain completely separate sets of raw duplicate YAML files across dozens of repository branches." },
-      { id: 'B', text: "Keep a separate full manifest per environment and edit it before deploying." },
-      { id: 'C', text: "Keep one template per environment with the values written into each." },
-      { id: 'D', text: "Package the application manifests into a Helm chart and deploy using `helm install` or `helm upgrade --install` with environment-specific values files (`-f values-prod.yaml`)." }
+      { id: 'A', text: "Keep one Kustomize base and copy it into each environment's repository, editing the copy before it is applied." },
+      { id: 'B', text: "Keep a full manifest set per environment and hold them in sync with a scheduled job that diffs them nightly." },
+      { id: 'C', text: "Package the manifests as a Helm chart and release each environment with `helm upgrade --install -f values-prod.yaml`." },
+      { id: 'D', text: "Render the manifests in the pipeline with `envsubst` and apply the output, holding the variables in the CI settings." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Package the application manifests into a Helm chart and deploy using `helm install` or `helm upgrade --install` with environment-specific values files (`-f values-prod.yaml`). Helm is the standard package manager for Kubernetes. Helm charts parameterize Kubernetes manifests using templates, allowing operators to deploy consistent application architectures across disparate environments simply by supplying environment-specific `values.yaml` configuration overrides.",
     referenceUrl: "https://helm.sh/docs/chart_template_guide/",
@@ -366,10 +366,10 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Package Management to deploy a complex multi-tier microservice stack consistently across dev, test, and prod environments with environment-specific configuration parameters.",
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
-      { id: 'A', text: "Package the application manifests into a Helm chart and deploy using `helm install` or `helm upgrade --install` with environment-specific values files (`-f values-prod.yaml`)." },
-      { id: 'B', text: "Keep one template per environment with the values written into each." },
-      { id: 'C', text: "Keep a separate full manifest per environment and edit it before deploying." },
-      { id: 'D', text: "Maintain completely separate sets of raw duplicate YAML files across dozens of repository branches." }
+      { id: 'A', text: "Package the manifests as a Helm chart and release each environment with `helm upgrade --install -f values-prod.yaml`." },
+      { id: 'B', text: "Render the manifests in the pipeline with `envsubst` and apply the output, holding the variables in the CI settings." },
+      { id: 'C', text: "Keep one Kustomize base and copy it into each environment's repository, editing the copy before it is applied." },
+      { id: 'D', text: "Keep a full manifest set per environment and hold them in sync with a scheduled job that diffs them nightly." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Package Management to deploy a complex multi-tier microservice stack consistently across dev, test, and prod environments with environment-specific configuration parameters.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
-      { id: 'A', text: "Keep a separate full manifest per environment and edit it before deploying." },
-      { id: 'B', text: "Keep one template per environment with the values written into each." },
-      { id: 'C', text: "Package the application manifests into a Helm chart and deploy using `helm install` or `helm upgrade --install` with environment-specific values files (`-f values-prod.yaml`)." },
-      { id: 'D', text: "Maintain completely separate sets of raw duplicate YAML files across dozens of repository branches." }
+      { id: 'A', text: "Package the manifests as a Helm chart and release each environment with `helm upgrade --install -f values-prod.yaml`." },
+      { id: 'B', text: "Render the manifests in the pipeline with `envsubst` and apply the output, holding the variables in the CI settings." },
+      { id: 'C', text: "Keep one Kustomize base and copy it into each environment's repository, editing the copy before it is applied." },
+      { id: 'D', text: "Keep a full manifest set per environment and hold them in sync with a scheduled job that diffs them nightly." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Package the application manifests into a Helm chart and deploy using `helm install` or `helm upgrade --install` with environment-specific values files (`-f values-prod.yaml`). Helm is the standard package manager for Kubernetes. Helm charts parameterize Kubernetes manifests using templates, allowing operators to deploy consistent application architectures across disparate environments simply by supplying environment-specific `values.yaml` configuration overrides.",
     referenceUrl: "https://helm.sh/docs/chart_template_guide/",
@@ -408,10 +408,10 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Package Management to deploy a complex multi-tier microservice stack consistently across dev, test, and prod environments with environment-specific configuration parameters.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
-      { id: 'A', text: "Package the application manifests into a Helm chart and deploy using `helm install` or `helm upgrade --install` with environment-specific values files (`-f values-prod.yaml`)." },
-      { id: 'B', text: "Keep a separate full manifest per environment and edit it before deploying." },
-      { id: 'C', text: "Keep one template per environment with the values written into each." },
-      { id: 'D', text: "Maintain completely separate sets of raw duplicate YAML files across dozens of repository branches." }
+      { id: 'A', text: "Package the manifests as a Helm chart and release each environment with `helm upgrade --install -f values-prod.yaml`." },
+      { id: 'B', text: "Keep a full manifest set per environment and hold them in sync with a scheduled job that diffs them nightly." },
+      { id: 'C', text: "Render the manifests in the pipeline with `envsubst` and apply the output, holding the variables in the CI settings." },
+      { id: 'D', text: "Keep one Kustomize base and copy it into each environment's repository, editing the copy before it is applied." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Manifest Customization to customize container images, namespace targets, and replica counts for development and production environments without using complex templating engines.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Write custom python scripts that parse and re-serialize YAML manifests on developer workstations." },
-      { id: 'B', text: "Run sed and awk text replacement scripts against raw YAML files in CI/CD pipelines." },
-      { id: 'C', text: "Structure manifests with a Kustomize `base` directory and environment-specific `overlay` directories containing `kustomization.yaml` files." },
-      { id: 'D', text: "Deploy the exact same configuration to production as development without changes." }
+      { id: 'A', text: "Structure the manifests as a Kustomize `base` with one `overlay` directory per environment." },
+      { id: 'B', text: "Structure the manifests as a Helm chart with one templated `values.yaml` per environment." },
+      { id: 'C', text: "Keep one manifest set and apply the per-environment differences with `kubectl patch` in CI." },
+      { id: 'D', text: "Keep one manifest set and override the fields at apply time with `kubectl set image` calls." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Structure manifests with a Kustomize `base` directory and environment-specific `overlay` directories containing `kustomization.yaml` files. Kustomize provides template-free customization of Kubernetes manifests natively integrated into `kubectl` (`kubectl apply -k`). By defining a common `base` and composing environment-specific `overlays` (patches, name prefixes, replicas, image tags), teams maintain DRY declarative configurations.",
     referenceUrl: "https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/",
@@ -450,10 +450,10 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Manifest Customization to customize container images, namespace targets, and replica counts for development and production environments without using complex templating engines.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Structure manifests with a Kustomize `base` directory and environment-specific `overlay` directories containing `kustomization.yaml` files." },
-      { id: 'B', text: "Run sed and awk text replacement scripts against raw YAML files in CI/CD pipelines." },
-      { id: 'C', text: "Write custom python scripts that parse and re-serialize YAML manifests on developer workstations." },
-      { id: 'D', text: "Deploy the exact same configuration to production as development without changes." }
+      { id: 'A', text: "Structure the manifests as a Kustomize `base` with one `overlay` directory per environment." },
+      { id: 'B', text: "Structure the manifests as a Helm chart with one templated `values.yaml` per environment." },
+      { id: 'C', text: "Keep one manifest set and apply the per-environment differences with `kubectl patch` in CI." },
+      { id: 'D', text: "Keep one manifest set and override the fields at apply time with `kubectl set image` calls." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,12 +471,12 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Manifest Customization to customize container images, namespace targets, and replica counts for development and production environments without using complex templating engines.",
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
-      { id: 'A', text: "Write custom python scripts that parse and re-serialize YAML manifests on developer workstations." },
-      { id: 'B', text: "Structure manifests with a Kustomize `base` directory and environment-specific `overlay` directories containing `kustomization.yaml` files." },
-      { id: 'C', text: "Deploy the exact same configuration to production as development without changes." },
-      { id: 'D', text: "Run sed and awk text replacement scripts against raw YAML files in CI/CD pipelines." }
+      { id: 'A', text: "Keep one manifest set and override the fields at apply time with `kubectl set image` calls." },
+      { id: 'B', text: "Keep one manifest set and apply the per-environment differences with `kubectl patch` in CI." },
+      { id: 'C', text: "Structure the manifests as a Helm chart with one templated `values.yaml` per environment." },
+      { id: 'D', text: "Structure the manifests as a Kustomize `base` with one `overlay` directory per environment." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Structure manifests with a Kustomize `base` directory and environment-specific `overlay` directories containing `kustomization.yaml` files. Kustomize provides template-free customization of Kubernetes manifests natively integrated into `kubectl` (`kubectl apply -k`). By defining a common `base` and composing environment-specific `overlays` (patches, name prefixes, replicas, image tags), teams maintain DRY declarative configurations.",
     referenceUrl: "https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/",
@@ -492,12 +492,12 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Manifest Customization to customize container images, namespace targets, and replica counts for development and production environments without using complex templating engines.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
-      { id: 'A', text: "Deploy the exact same configuration to production as development without changes." },
-      { id: 'B', text: "Structure manifests with a Kustomize `base` directory and environment-specific `overlay` directories containing `kustomization.yaml` files." },
-      { id: 'C', text: "Write custom python scripts that parse and re-serialize YAML manifests on developer workstations." },
-      { id: 'D', text: "Run sed and awk text replacement scripts against raw YAML files in CI/CD pipelines." }
+      { id: 'A', text: "Structure the manifests as a Helm chart with one templated `values.yaml` per environment." },
+      { id: 'B', text: "Keep one manifest set and override the fields at apply time with `kubectl set image` calls." },
+      { id: 'C', text: "Keep one manifest set and apply the per-environment differences with `kubectl patch` in CI." },
+      { id: 'D', text: "Structure the manifests as a Kustomize `base` with one `overlay` directory per environment." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Structure manifests with a Kustomize `base` directory and environment-specific `overlay` directories containing `kustomization.yaml` files. Kustomize provides template-free customization of Kubernetes manifests natively integrated into `kubectl` (`kubectl apply -k`). By defining a common `base` and composing environment-specific `overlays` (patches, name prefixes, replicas, image tags), teams maintain DRY declarative configurations.",
     referenceUrl: "https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/",
@@ -513,12 +513,12 @@ export const K8S_CKAD_QUESTIONS_14 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Manifest Customization to customize container images, namespace targets, and replica counts for development and production environments without using complex templating engines.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
-      { id: 'A', text: "Run sed and awk text replacement scripts against raw YAML files in CI/CD pipelines." },
-      { id: 'B', text: "Write custom python scripts that parse and re-serialize YAML manifests on developer workstations." },
-      { id: 'C', text: "Structure manifests with a Kustomize `base` directory and environment-specific `overlay` directories containing `kustomization.yaml` files." },
-      { id: 'D', text: "Deploy the exact same configuration to production as development without changes." }
+      { id: 'A', text: "Keep one manifest set and apply the per-environment differences with `kubectl patch` in CI." },
+      { id: 'B', text: "Structure the manifests as a Kustomize `base` with one `overlay` directory per environment." },
+      { id: 'C', text: "Structure the manifests as a Helm chart with one templated `values.yaml` per environment." },
+      { id: 'D', text: "Keep one manifest set and override the fields at apply time with `kubectl set image` calls." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Structure manifests with a Kustomize `base` directory and environment-specific `overlay` directories containing `kustomization.yaml` files. Kustomize provides template-free customization of Kubernetes manifests natively integrated into `kubectl` (`kubectl apply -k`). By defining a common `base` and composing environment-specific `overlays` (patches, name prefixes, replicas, image tags), teams maintain DRY declarative configurations.",
     referenceUrl: "https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/",

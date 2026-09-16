@@ -10,8 +10,8 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "A rate-limit-by-key inbound policy keyed on the subscription ID." },
-      { id: 'B', text: "Manually block client IP addresses in the Azure portal after an outage occurs." },
-      { id: 'C', text: "Deploy a hardware firewall appliance in an on-premises datacenter." },
+      { id: 'B', text: "Deploy a hardware firewall appliance in an on-premises datacenter." },
+      { id: 'C', text: "Manually block client IP addresses in the Azure portal after an outage occurs." },
       { id: 'D', text: "Increase backend virtual machine sizes to absorb unlimited incoming traffic." }
     ],
     correctAnswers: ['A'],
@@ -30,12 +30,12 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Azure API Management to restrict client API consumption to a maximum of 100 requests per minute per subscription key to prevent denial-of-service and abusive traffic.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Manually block client IP addresses in the Azure portal after an outage occurs." },
+      { id: 'A', text: "Increase backend virtual machine sizes to absorb unlimited incoming traffic." },
       { id: 'B', text: "Deploy a hardware firewall appliance in an on-premises datacenter." },
-      { id: 'C', text: "Increase backend virtual machine sizes to absorb unlimited incoming traffic." },
-      { id: 'D', text: "A rate-limit-by-key inbound policy keyed on the subscription ID." }
+      { id: 'C', text: "A rate-limit-by-key inbound policy keyed on the subscription ID." },
+      { id: 'D', text: "Manually block client IP addresses in the Azure portal after an outage occurs." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Add a rate-limit-by-key policy in the inbound section using the client subscription ID or IP as the key. The `rate-limit-by-key` policy in Azure API Management prevents API usage spikes on a per-key basis (such as caller IP address or subscription key). When the specified request count is exceeded within the time window, the gateway returns HTTP 429 Too Many Requests.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/rate-limit-by-key-policy",
@@ -52,9 +52,9 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "A rate-limit-by-key inbound policy keyed on the subscription ID." },
-      { id: 'B', text: "Increase backend virtual machine sizes to absorb unlimited incoming traffic." },
-      { id: 'C', text: "Deploy a hardware firewall appliance in an on-premises datacenter." },
-      { id: 'D', text: "Manually block client IP addresses in the Azure portal after an outage occurs." }
+      { id: 'B', text: "Manually block client IP addresses in the Azure portal after an outage occurs." },
+      { id: 'C', text: "Increase backend virtual machine sizes to absorb unlimited incoming traffic." },
+      { id: 'D', text: "Deploy a hardware firewall appliance in an on-premises datacenter." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,12 +72,12 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure API Management to restrict client API consumption to a maximum of 100 requests per minute per subscription key to prevent denial-of-service and abusive traffic.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Increase backend virtual machine sizes to absorb unlimited incoming traffic." },
-      { id: 'B', text: "Manually block client IP addresses in the Azure portal after an outage occurs." },
-      { id: 'C', text: "Deploy a hardware firewall appliance in an on-premises datacenter." },
-      { id: 'D', text: "A rate-limit-by-key inbound policy keyed on the subscription ID." }
+      { id: 'A', text: "A rate-limit-by-key inbound policy keyed on the subscription ID." },
+      { id: 'B', text: "Deploy a hardware firewall appliance in an on-premises datacenter." },
+      { id: 'C', text: "Manually block client IP addresses in the Azure portal after an outage occurs." },
+      { id: 'D', text: "Increase backend virtual machine sizes to absorb unlimited incoming traffic." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Add a rate-limit-by-key policy in the inbound section using the client subscription ID or IP as the key. The `rate-limit-by-key` policy in Azure API Management prevents API usage spikes on a per-key basis (such as caller IP address or subscription key). When the specified request count is exceeded within the time window, the gateway returns HTTP 429 Too Many Requests.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/rate-limit-by-key-policy",
@@ -93,12 +93,12 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The developer evaluates Azure API Management to restrict client API consumption to a maximum of 100 requests per minute per subscription key to prevent denial-of-service and abusive traffic.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Increase backend virtual machine sizes to absorb unlimited incoming traffic." },
+      { id: 'A', text: "Manually block client IP addresses in the Azure portal after an outage occurs." },
       { id: 'B', text: "Deploy a hardware firewall appliance in an on-premises datacenter." },
-      { id: 'C', text: "A rate-limit-by-key inbound policy keyed on the subscription ID." },
-      { id: 'D', text: "Manually block client IP addresses in the Azure portal after an outage occurs." }
+      { id: 'C', text: "Increase backend virtual machine sizes to absorb unlimited incoming traffic." },
+      { id: 'D', text: "A rate-limit-by-key inbound policy keyed on the subscription ID." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Add a rate-limit-by-key policy in the inbound section using the client subscription ID or IP as the key. The `rate-limit-by-key` policy in Azure API Management prevents API usage spikes on a per-key basis (such as caller IP address or subscription key). When the specified request count is exceeded within the time window, the gateway returns HTTP 429 Too Many Requests.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/rate-limit-by-key-policy",
@@ -114,12 +114,12 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure API Management to dynamically route incoming API requests to different backend service URLs based on the value of a custom HTTP header named 'X-Region'.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy separate API Management gateway instances for every geographical region." },
-      { id: 'B', text: "Use a set-backend-service policy with a C# policy expression evaluating context.Request.Headers.GetValueOrDefault." },
+      { id: 'A', text: "Use a set-backend-service policy with a C# policy expression evaluating context.Request.Headers.GetValueOrDefault." },
+      { id: 'B', text: "Deploy separate API Management gateway instances for every geographical region." },
       { id: 'C', text: "Use a backend pool with round-robin load balancing across the regional backends." },
       { id: 'D', text: "Modify client browser DNS settings to resolve regional backend servers directly." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Use a set-backend-service policy with a C# policy expression evaluating context.Request.Headers.GetValueOrDefault. Azure API Management policy expressions allow embedding single-statement C# code snippets inside policy definitions. Expressions have access to the `context` variable, enabling dynamic runtime decisions such as inspecting headers, modifying payloads, and changing backend routing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-policy-expressions",
@@ -135,12 +135,12 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Azure API Management to dynamically route incoming API requests to different backend service URLs based on the value of a custom HTTP header named 'X-Region'.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Deploy separate API Management gateway instances for every geographical region." },
-      { id: 'B', text: "Use a set-backend-service policy with a C# policy expression evaluating context.Request.Headers.GetValueOrDefault." },
+      { id: 'A', text: "Use a set-backend-service policy with a C# policy expression evaluating context.Request.Headers.GetValueOrDefault." },
+      { id: 'B', text: "Deploy separate API Management gateway instances for every geographical region." },
       { id: 'C', text: "Use a backend pool with round-robin load balancing across the regional backends." },
       { id: 'D', text: "Modify client browser DNS settings to resolve regional backend servers directly." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Use a set-backend-service policy with a C# policy expression evaluating context.Request.Headers.GetValueOrDefault. Azure API Management policy expressions allow embedding single-statement C# code snippets inside policy definitions. Expressions have access to the `context` variable, enabling dynamic runtime decisions such as inspecting headers, modifying payloads, and changing backend routing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-policy-expressions",
@@ -158,8 +158,8 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Use a set-backend-service policy with a C# policy expression evaluating context.Request.Headers.GetValueOrDefault." },
       { id: 'B', text: "Deploy separate API Management gateway instances for every geographical region." },
-      { id: 'C', text: "Modify client browser DNS settings to resolve regional backend servers directly." },
-      { id: 'D', text: "Use a backend pool with round-robin load balancing across the regional backends." }
+      { id: 'C', text: "Use a backend pool with round-robin load balancing across the regional backends." },
+      { id: 'D', text: "Modify client browser DNS settings to resolve regional backend servers directly." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure API Management to dynamically route incoming API requests to different backend service URLs based on the value of a custom HTTP header named 'X-Region'.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Use a backend pool with round-robin load balancing across the regional backends." },
+      { id: 'A', text: "Modify client browser DNS settings to resolve regional backend servers directly." },
       { id: 'B', text: "Deploy separate API Management gateway instances for every geographical region." },
-      { id: 'C', text: "Modify client browser DNS settings to resolve regional backend servers directly." },
-      { id: 'D', text: "Use a set-backend-service policy with a C# policy expression evaluating context.Request.Headers.GetValueOrDefault." }
+      { id: 'C', text: "Use a set-backend-service policy with a C# policy expression evaluating context.Request.Headers.GetValueOrDefault." },
+      { id: 'D', text: "Use a backend pool with round-robin load balancing across the regional backends." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use a set-backend-service policy with a C# policy expression evaluating context.Request.Headers.GetValueOrDefault. Azure API Management policy expressions allow embedding single-statement C# code snippets inside policy definitions. Expressions have access to the `context` variable, enabling dynamic runtime decisions such as inspecting headers, modifying payloads, and changing backend routing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-policy-expressions",
@@ -198,12 +198,12 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The developer evaluates Azure API Management to dynamically route incoming API requests to different backend service URLs based on the value of a custom HTTP header named 'X-Region'.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Deploy separate API Management gateway instances for every geographical region." },
-      { id: 'B', text: "Modify client browser DNS settings to resolve regional backend servers directly." },
-      { id: 'C', text: "Use a set-backend-service policy with a C# policy expression evaluating context.Request.Headers.GetValueOrDefault." },
-      { id: 'D', text: "Use a backend pool with round-robin load balancing across the regional backends." }
+      { id: 'A', text: "Modify client browser DNS settings to resolve regional backend servers directly." },
+      { id: 'B', text: "Use a backend pool with round-robin load balancing across the regional backends." },
+      { id: 'C', text: "Deploy separate API Management gateway instances for every geographical region." },
+      { id: 'D', text: "Use a set-backend-service policy with a C# policy expression evaluating context.Request.Headers.GetValueOrDefault." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use a set-backend-service policy with a C# policy expression evaluating context.Request.Headers.GetValueOrDefault. Azure API Management policy expressions allow embedding single-statement C# code snippets inside policy definitions. Expressions have access to the `context` variable, enabling dynamic runtime decisions such as inspecting headers, modifying payloads, and changing backend routing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-policy-expressions",
@@ -219,12 +219,12 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure API Management to package several related APIs together, apply unified rate-limit quotas, and require administrative approval before granting developer access keys.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy each API into a separate Azure subscription." },
-      { id: 'B', text: "Distribute root Azure subscription management credentials to third-party developers." },
-      { id: 'C', text: "Create an API Management Product containing the APIs, require subscription approval, and publish it." },
-      { id: 'D', text: "Publish all APIs with open, unauthenticated access on the public internet." }
+      { id: 'A', text: "Publish all APIs with open, unauthenticated access on the public internet." },
+      { id: 'B', text: "Create an API Management Product containing the APIs, require subscription approval, and publish it." },
+      { id: 'C', text: "Deploy each API into a separate Azure subscription." },
+      { id: 'D', text: "Distribute root Azure subscription management credentials to third-party developers." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create an API Management Product containing the APIs, require subscription approval, and publish it. In Azure API Management, Products are associations of one or more APIs. Products can be Open (usable without a subscription) or Protected (requiring a subscription key). Products allow administrators to bundle APIs, assign terms of use, configure usage quotas, and manage developer access.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-add-products",
@@ -240,12 +240,12 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Azure API Management to package several related APIs together, apply unified rate-limit quotas, and require administrative approval before granting developer access keys.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Distribute root Azure subscription management credentials to third-party developers." },
+      { id: 'A', text: "Create an API Management Product containing the APIs, require subscription approval, and publish it." },
       { id: 'B', text: "Publish all APIs with open, unauthenticated access on the public internet." },
-      { id: 'C', text: "Create an API Management Product containing the APIs, require subscription approval, and publish it." },
+      { id: 'C', text: "Distribute root Azure subscription management credentials to third-party developers." },
       { id: 'D', text: "Deploy each API into a separate Azure subscription." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create an API Management Product containing the APIs, require subscription approval, and publish it. In Azure API Management, Products are associations of one or more APIs. Products can be Open (usable without a subscription) or Protected (requiring a subscription key). Products allow administrators to bundle APIs, assign terms of use, configure usage quotas, and manage developer access.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-add-products",
@@ -261,12 +261,12 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The developer evaluates Azure API Management to package several related APIs together, apply unified rate-limit quotas, and require administrative approval before granting developer access keys.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy each API into a separate Azure subscription." },
+      { id: 'A', text: "Create an API Management Product containing the APIs, require subscription approval, and publish it." },
       { id: 'B', text: "Publish all APIs with open, unauthenticated access on the public internet." },
       { id: 'C', text: "Distribute root Azure subscription management credentials to third-party developers." },
-      { id: 'D', text: "Create an API Management Product containing the APIs, require subscription approval, and publish it." }
+      { id: 'D', text: "Deploy each API into a separate Azure subscription." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create an API Management Product containing the APIs, require subscription approval, and publish it. In Azure API Management, Products are associations of one or more APIs. Products can be Open (usable without a subscription) or Protected (requiring a subscription key). Products allow administrators to bundle APIs, assign terms of use, configure usage quotas, and manage developer access.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-add-products",
@@ -282,12 +282,12 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure API Management to package several related APIs together, apply unified rate-limit quotas, and require administrative approval before granting developer access keys.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Deploy each API into a separate Azure subscription." },
-      { id: 'B', text: "Distribute root Azure subscription management credentials to third-party developers." },
-      { id: 'C', text: "Publish all APIs with open, unauthenticated access on the public internet." },
-      { id: 'D', text: "Create an API Management Product containing the APIs, require subscription approval, and publish it." }
+      { id: 'A', text: "Create an API Management Product containing the APIs, require subscription approval, and publish it." },
+      { id: 'B', text: "Publish all APIs with open, unauthenticated access on the public internet." },
+      { id: 'C', text: "Distribute root Azure subscription management credentials to third-party developers." },
+      { id: 'D', text: "Deploy each API into a separate Azure subscription." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create an API Management Product containing the APIs, require subscription approval, and publish it. In Azure API Management, Products are associations of one or more APIs. Products can be Open (usable without a subscription) or Protected (requiring a subscription key). Products allow administrators to bundle APIs, assign terms of use, configure usage quotas, and manage developer access.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-add-products",
@@ -303,12 +303,12 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The developer evaluates Azure API Management to package several related APIs together, apply unified rate-limit quotas, and require administrative approval before granting developer access keys.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Distribute root Azure subscription management credentials to third-party developers." },
-      { id: 'B', text: "Create an API Management Product containing the APIs, require subscription approval, and publish it." },
-      { id: 'C', text: "Deploy each API into a separate Azure subscription." },
-      { id: 'D', text: "Publish all APIs with open, unauthenticated access on the public internet." }
+      { id: 'A', text: "Deploy each API into a separate Azure subscription." },
+      { id: 'B', text: "Distribute root Azure subscription management credentials to third-party developers." },
+      { id: 'C', text: "Publish all APIs with open, unauthenticated access on the public internet." },
+      { id: 'D', text: "Create an API Management Product containing the APIs, require subscription approval, and publish it." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create an API Management Product containing the APIs, require subscription approval, and publish it. In Azure API Management, Products are associations of one or more APIs. Products can be Open (usable without a subscription) or Protected (requiring a subscription key). Products allow administrators to bundle APIs, assign terms of use, configure usage quotas, and manage developer access.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-add-products",
@@ -324,12 +324,12 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure Event Grid to trigger an Azure Function only when an Amazon S3-compatible blob created event contains a subject ending with '.jpg' and an eventType of 'BlobCreated'.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy an Azure Logic App that parses all storage account activity logs every 10 minutes." },
-      { id: 'B', text: "Configure an Azure Queue Storage queue and download all events to inspect filenames." },
-      { id: 'C', text: "Write custom filtering logic inside a constantly running polling thread on an Azure VM." },
-      { id: 'D', text: "Create an Event Grid Event Subscription with Subject Begins/Ends With and Event Type filters." }
+      { id: 'A', text: "Create an Event Grid Event Subscription with Subject Begins/Ends With and Event Type filters." },
+      { id: 'B', text: "Write custom filtering logic inside a constantly running polling thread on an Azure VM." },
+      { id: 'C', text: "Configure an Azure Queue Storage queue and download all events to inspect filenames." },
+      { id: 'D', text: "Deploy an Azure Logic App that parses all storage account activity logs every 10 minutes." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create an Event Grid Event Subscription with Subject Begins/Ends With and Event Type filters. Azure Event Grid is a highly scalable, fully managed event routing service. Event Subscriptions define which events are delivered to which handler. Advanced filtering on event types, subject prefixes/suffixes, and data payload properties ensures handlers receive only relevant events.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/event-grid/event-filtering",
@@ -346,8 +346,8 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Create an Event Grid Event Subscription with Subject Begins/Ends With and Event Type filters." },
-      { id: 'B', text: "Configure an Azure Queue Storage queue and download all events to inspect filenames." },
-      { id: 'C', text: "Write custom filtering logic inside a constantly running polling thread on an Azure VM." },
+      { id: 'B', text: "Write custom filtering logic inside a constantly running polling thread on an Azure VM." },
+      { id: 'C', text: "Configure an Azure Queue Storage queue and download all events to inspect filenames." },
       { id: 'D', text: "Deploy an Azure Logic App that parses all storage account activity logs every 10 minutes." }
     ],
     correctAnswers: ['A'],
@@ -366,12 +366,12 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The developer evaluates Azure Event Grid to trigger an Azure Function only when an Amazon S3-compatible blob created event contains a subject ending with '.jpg' and an eventType of 'BlobCreated'.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy an Azure Logic App that parses all storage account activity logs every 10 minutes." },
-      { id: 'B', text: "Create an Event Grid Event Subscription with Subject Begins/Ends With and Event Type filters." },
-      { id: 'C', text: "Write custom filtering logic inside a constantly running polling thread on an Azure VM." },
-      { id: 'D', text: "Configure an Azure Queue Storage queue and download all events to inspect filenames." }
+      { id: 'A', text: "Configure an Azure Queue Storage queue and download all events to inspect filenames." },
+      { id: 'B', text: "Deploy an Azure Logic App that parses all storage account activity logs every 10 minutes." },
+      { id: 'C', text: "Create an Event Grid Event Subscription with Subject Begins/Ends With and Event Type filters." },
+      { id: 'D', text: "Write custom filtering logic inside a constantly running polling thread on an Azure VM." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create an Event Grid Event Subscription with Subject Begins/Ends With and Event Type filters. Azure Event Grid is a highly scalable, fully managed event routing service. Event Subscriptions define which events are delivered to which handler. Advanced filtering on event types, subject prefixes/suffixes, and data payload properties ensures handlers receive only relevant events.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/event-grid/event-filtering",
@@ -388,9 +388,9 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Create an Event Grid Event Subscription with Subject Begins/Ends With and Event Type filters." },
-      { id: 'B', text: "Deploy an Azure Logic App that parses all storage account activity logs every 10 minutes." },
-      { id: 'C', text: "Write custom filtering logic inside a constantly running polling thread on an Azure VM." },
-      { id: 'D', text: "Configure an Azure Queue Storage queue and download all events to inspect filenames." }
+      { id: 'B', text: "Configure an Azure Queue Storage queue and download all events to inspect filenames." },
+      { id: 'C', text: "Deploy an Azure Logic App that parses all storage account activity logs every 10 minutes." },
+      { id: 'D', text: "Write custom filtering logic inside a constantly running polling thread on an Azure VM." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -409,9 +409,9 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Create an Event Grid Event Subscription with Subject Begins/Ends With and Event Type filters." },
-      { id: 'B', text: "Configure an Azure Queue Storage queue and download all events to inspect filenames." },
-      { id: 'C', text: "Deploy an Azure Logic App that parses all storage account activity logs every 10 minutes." },
-      { id: 'D', text: "Write custom filtering logic inside a constantly running polling thread on an Azure VM." }
+      { id: 'B', text: "Deploy an Azure Logic App that parses all storage account activity logs every 10 minutes." },
+      { id: 'C', text: "Write custom filtering logic inside a constantly running polling thread on an Azure VM." },
+      { id: 'D', text: "Configure an Azure Queue Storage queue and download all events to inspect filenames." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure Event Grid to ensure that webhook delivery failures in Event Grid are retried with exponential backoff and undeliverable events are safely captured for auditing.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Discard failed events immediately to prevent event backlog accumulation." },
-      { id: 'B', text: "Set a dead-letter destination blob container on the subscription." },
+      { id: 'A', text: "Set a dead-letter destination blob container on the subscription." },
+      { id: 'B', text: "Discard failed events immediately to prevent event backlog accumulation." },
       { id: 'C', text: "Write failed events to the Windows Event Viewer on client laptops." },
       { id: 'D', text: "Rely on client web browsers to resend failed events." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure a Dead-Letter destination targeting an Azure Blob Storage container in the Event Subscription. When Event Grid cannot deliver an event within a specified time (or after a configured number of retries, default 30 attempts or 24 hours), it can send the undelivered event to a storage account. This process is known as dead-lettering, ensuring zero data loss during endpoint outages.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/event-grid/manage-event-delivery",
@@ -450,12 +450,12 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Azure Event Grid to ensure that webhook delivery failures in Event Grid are retried with exponential backoff and undeliverable events are safely captured for auditing.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Discard failed events immediately to prevent event backlog accumulation." },
-      { id: 'B', text: "Rely on client web browsers to resend failed events." },
-      { id: 'C', text: "Set a dead-letter destination blob container on the subscription." },
-      { id: 'D', text: "Write failed events to the Windows Event Viewer on client laptops." }
+      { id: 'A', text: "Rely on client web browsers to resend failed events." },
+      { id: 'B', text: "Write failed events to the Windows Event Viewer on client laptops." },
+      { id: 'C', text: "Discard failed events immediately to prevent event backlog accumulation." },
+      { id: 'D', text: "Set a dead-letter destination blob container on the subscription." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure a Dead-Letter destination targeting an Azure Blob Storage container in the Event Subscription. When Event Grid cannot deliver an event within a specified time (or after a configured number of retries, default 30 attempts or 24 hours), it can send the undelivered event to a storage account. This process is known as dead-lettering, ensuring zero data loss during endpoint outages.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/event-grid/manage-event-delivery",
@@ -471,12 +471,12 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The developer evaluates Azure Event Grid to ensure that webhook delivery failures in Event Grid are retried with exponential backoff and undeliverable events are safely captured for auditing.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Write failed events to the Windows Event Viewer on client laptops." },
-      { id: 'B', text: "Set a dead-letter destination blob container on the subscription." },
-      { id: 'C', text: "Discard failed events immediately to prevent event backlog accumulation." },
+      { id: 'A', text: "Discard failed events immediately to prevent event backlog accumulation." },
+      { id: 'B', text: "Write failed events to the Windows Event Viewer on client laptops." },
+      { id: 'C', text: "Set a dead-letter destination blob container on the subscription." },
       { id: 'D', text: "Rely on client web browsers to resend failed events." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a Dead-Letter destination targeting an Azure Blob Storage container in the Event Subscription. When Event Grid cannot deliver an event within a specified time (or after a configured number of retries, default 30 attempts or 24 hours), it can send the undelivered event to a storage account. This process is known as dead-lettering, ensuring zero data loss during endpoint outages.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/event-grid/manage-event-delivery",
@@ -492,12 +492,12 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure Event Grid to ensure that webhook delivery failures in Event Grid are retried with exponential backoff and undeliverable events are safely captured for auditing.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Write failed events to the Windows Event Viewer on client laptops." },
-      { id: 'B', text: "Set a dead-letter destination blob container on the subscription." },
-      { id: 'C', text: "Rely on client web browsers to resend failed events." },
-      { id: 'D', text: "Discard failed events immediately to prevent event backlog accumulation." }
+      { id: 'A', text: "Rely on client web browsers to resend failed events." },
+      { id: 'B', text: "Write failed events to the Windows Event Viewer on client laptops." },
+      { id: 'C', text: "Discard failed events immediately to prevent event backlog accumulation." },
+      { id: 'D', text: "Set a dead-letter destination blob container on the subscription." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure a Dead-Letter destination targeting an Azure Blob Storage container in the Event Subscription. When Event Grid cannot deliver an event within a specified time (or after a configured number of retries, default 30 attempts or 24 hours), it can send the undelivered event to a storage account. This process is known as dead-lettering, ensuring zero data loss during endpoint outages.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/event-grid/manage-event-delivery",
@@ -515,8 +515,8 @@ export const AZURE_AZ204_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Set a dead-letter destination blob container on the subscription." },
       { id: 'B', text: "Discard failed events immediately to prevent event backlog accumulation." },
-      { id: 'C', text: "Rely on client web browsers to resend failed events." },
-      { id: 'D', text: "Write failed events to the Windows Event Viewer on client laptops." }
+      { id: 'C', text: "Write failed events to the Windows Event Viewer on client laptops." },
+      { id: 'D', text: "Rely on client web browsers to resend failed events." }
     ],
     correctAnswers: ['A'],
     type: "single",

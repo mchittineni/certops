@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { pathToFileURL } from 'url';
+import { writePack } from './lib/pack-io.mjs';
 
 function getFiles(dir, match) {
   let results = [];
@@ -58,35 +59,6 @@ function shuffleArray(arr, seed) {
   return a;
 }
 
-function formatQuestion(q, indent = '  ') {
-  const innerIndent = indent + '  ';
-  const optIndent = innerIndent + '  ';
-  
-  const optionsStr = '[\n' + q.options.map(opt => {
-    return `${optIndent}{ id: '${opt.id}', text: ${JSON.stringify(opt.text)} }`;
-  }).join(',\n') + `\n${innerIndent}]`;
-
-  const answersStr = '[' + q.correctAnswers.map(a => `'${a}'`).join(', ') + ']';
-  const tagsStr = q.tags && q.tags.length ? '[' + q.tags.map(t => JSON.stringify(t)).join(', ') + ']' : '[]';
-
-  return `${indent}{\n` +
-    `${innerIndent}id: ${JSON.stringify(q.id)},\n` +
-    `${innerIndent}difficulty: ${JSON.stringify(q.difficulty)},\n` +
-    `${innerIndent}certId: ${JSON.stringify(q.certId)},\n` +
-    `${innerIndent}domainId: ${JSON.stringify(q.domainId)},\n` +
-    `${innerIndent}domainName: ${JSON.stringify(q.domainName)},\n` +
-    `${innerIndent}title: ${JSON.stringify(q.title)},\n` +
-    `${innerIndent}scenario: ${JSON.stringify(q.scenario)},\n` +
-    `${innerIndent}question: ${JSON.stringify(q.question)},\n` +
-    `${innerIndent}options: ${optionsStr},\n` +
-    `${innerIndent}correctAnswers: ${answersStr},\n` +
-    `${innerIndent}type: ${JSON.stringify(q.type)},\n` +
-    `${innerIndent}explanation: ${JSON.stringify(q.explanation)},\n` +
-    (q.referenceUrl ? `${innerIndent}referenceUrl: ${JSON.stringify(q.referenceUrl)},\n` : '') +
-    `${innerIndent}tags: ${tagsStr}\n` +
-    `${indent}}`;
-}
-
 let totalShuffled = 0;
 let dist = { A: 0, B: 0, C: 0, D: 0, multi: 0 };
 
@@ -128,10 +100,7 @@ for (const file of files) {
     };
   });
 
-  const formattedQuestions = shuffledItems.map(q => formatQuestion(q, '  ')).join(',\n');
-  const fileContent = `export const ${arrayExportKey} = [\n${formattedQuestions}\n];\n\nexport default ${arrayExportKey};\n`;
-
-  fs.writeFileSync(file, fileContent, 'utf8');
+  writePack(file, arrayExportKey, shuffledItems);
 }
 
 console.log(`Successfully shuffled ${totalShuffled} questions across ${files.length} packs.`);

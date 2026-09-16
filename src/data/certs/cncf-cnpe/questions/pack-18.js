@@ -9,12 +9,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to prevent high-scale multi-tenant service meshes from exhausting pod memory due to global service endpoint discovery overhead.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
-      { id: 'A', text: "Disable service mesh sidecars to avoid memory tuning." },
-      { id: 'B', text: "Open all service-to-service communication to unauthenticated plaintext traffic." },
-      { id: 'C', text: "Allow every sidecar proxy to receive configuration for all 10,000 services across the entire enterprise cluster." },
-      { id: 'D', text: "Deploy Istio `Sidecar` resources scoping service discovery strictly to local and permitted namespaces, and apply `AuthorizationPolicy` rules." }
+      { id: 'A', text: "Allow every sidecar proxy to receive configuration for all 10,000 services across the entire enterprise cluster." },
+      { id: 'B', text: "Deploy Istio `Sidecar` resources scoping service discovery strictly to local and permitted namespaces, and apply `AuthorizationPolicy` rules." },
+      { id: 'C', text: "Open all service-to-service communication to unauthenticated plaintext traffic." },
+      { id: 'D', text: "Disable service mesh sidecars to avoid memory tuning." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Istio `Sidecar` resources scoping service discovery strictly to local and permitted namespaces, and apply `AuthorizationPolicy` rules. In large clusters, service mesh proxies (Envoy) consume massive amounts of memory by maintaining endpoints for every service. Platform engineers use Istio `Sidecar` resources to scope proxy egress strictly to required namespaces and enforce strict `AuthorizationPolicy` boundaries.",
     referenceUrl: "https://istio.io/latest/docs/reference/config/networking/sidecar/",
@@ -30,12 +30,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to prevent high-scale multi-tenant service meshes from exhausting pod memory due to global service endpoint discovery overhead.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
-      { id: 'A', text: "Open all service-to-service communication to unauthenticated plaintext traffic." },
-      { id: 'B', text: "Disable service mesh sidecars to avoid memory tuning." },
-      { id: 'C', text: "Allow every sidecar proxy to receive configuration for all 10,000 services across the entire enterprise cluster." },
-      { id: 'D', text: "Deploy Istio `Sidecar` resources scoping service discovery strictly to local and permitted namespaces, and apply `AuthorizationPolicy` rules." }
+      { id: 'A', text: "Deploy Istio `Sidecar` resources scoping service discovery strictly to local and permitted namespaces, and apply `AuthorizationPolicy` rules." },
+      { id: 'B', text: "Allow every sidecar proxy to receive configuration for all 10,000 services across the entire enterprise cluster." },
+      { id: 'C', text: "Disable service mesh sidecars to avoid memory tuning." },
+      { id: 'D', text: "Open all service-to-service communication to unauthenticated plaintext traffic." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy Istio `Sidecar` resources scoping service discovery strictly to local and permitted namespaces, and apply `AuthorizationPolicy` rules. In large clusters, service mesh proxies (Envoy) consume massive amounts of memory by maintaining endpoints for every service. Platform engineers use Istio `Sidecar` resources to scope proxy egress strictly to required namespaces and enforce strict `AuthorizationPolicy` boundaries.",
     referenceUrl: "https://istio.io/latest/docs/reference/config/networking/sidecar/",
@@ -51,12 +51,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to prevent high-scale multi-tenant service meshes from exhausting pod memory due to global service endpoint discovery overhead.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
-      { id: 'A', text: "Disable service mesh sidecars to avoid memory tuning." },
-      { id: 'B', text: "Deploy Istio `Sidecar` resources scoping service discovery strictly to local and permitted namespaces, and apply `AuthorizationPolicy` rules." },
-      { id: 'C', text: "Open all service-to-service communication to unauthenticated plaintext traffic." },
-      { id: 'D', text: "Allow every sidecar proxy to receive configuration for all 10,000 services across the entire enterprise cluster." }
+      { id: 'A', text: "Open all service-to-service communication to unauthenticated plaintext traffic." },
+      { id: 'B', text: "Disable service mesh sidecars to avoid memory tuning." },
+      { id: 'C', text: "Allow every sidecar proxy to receive configuration for all 10,000 services across the entire enterprise cluster." },
+      { id: 'D', text: "Deploy Istio `Sidecar` resources scoping service discovery strictly to local and permitted namespaces, and apply `AuthorizationPolicy` rules." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Istio `Sidecar` resources scoping service discovery strictly to local and permitted namespaces, and apply `AuthorizationPolicy` rules. In large clusters, service mesh proxies (Envoy) consume massive amounts of memory by maintaining endpoints for every service. Platform engineers use Istio `Sidecar` resources to scope proxy egress strictly to required namespaces and enforce strict `AuthorizationPolicy` boundaries.",
     referenceUrl: "https://istio.io/latest/docs/reference/config/networking/sidecar/",
@@ -73,9 +73,9 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Deploy Istio `Sidecar` resources scoping service discovery strictly to local and permitted namespaces, and apply `AuthorizationPolicy` rules." },
-      { id: 'B', text: "Open all service-to-service communication to unauthenticated plaintext traffic." },
+      { id: 'B', text: "Allow every sidecar proxy to receive configuration for all 10,000 services across the entire enterprise cluster." },
       { id: 'C', text: "Disable service mesh sidecars to avoid memory tuning." },
-      { id: 'D', text: "Allow every sidecar proxy to receive configuration for all 10,000 services across the entire enterprise cluster." }
+      { id: 'D', text: "Open all service-to-service communication to unauthenticated plaintext traffic." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to enable a frontend service in Cluster A to discover and communicate with a private backend service in Cluster B securely.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
-      { id: 'A', text: "Hardcode static private node IP addresses inside application source code." },
-      { id: 'B', text: "Force all cross-cluster traffic to route through public internet ingress controllers with hairpin latency." },
-      { id: 'C', text: "Implement the Kubernetes Multi-Cluster Services (MCS) API using `ServiceExport` and `ServiceImport` primitives backed by Submariner or Cilium ClusterMesh." },
-      { id: 'D', text: "Expose backend database ports directly to the public internet using LoadBalancer services without authentication." }
+      { id: 'A', text: "Implement the Kubernetes Multi-Cluster Services (MCS) API using `ServiceExport` and `ServiceImport` primitives backed by Submariner or Cilium ClusterMesh." },
+      { id: 'B', text: "Expose backend database ports directly to the public internet using LoadBalancer services without authentication." },
+      { id: 'C', text: "Hardcode static private node IP addresses inside application source code." },
+      { id: 'D', text: "Force all cross-cluster traffic to route through public internet ingress controllers with hairpin latency." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implement the Kubernetes Multi-Cluster Services (MCS) API using `ServiceExport` and `ServiceImport` primitives backed by Submariner or Cilium ClusterMesh. The Kubernetes Multi-Cluster Services (MCS) API standardizes cross-cluster service discovery. By declaring `ServiceExport` in the providing cluster, an engine (like Cilium or Submariner) creates a corresponding `ServiceImport` and cluster-independent DNS record in the consuming cluster.",
     referenceUrl: "https://github.com/kubernetes-sigs/mcs-api",
@@ -135,12 +135,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to enable a frontend service in Cluster A to discover and communicate with a private backend service in Cluster B securely.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
-      { id: 'A', text: "Force all cross-cluster traffic to route through public internet ingress controllers with hairpin latency." },
-      { id: 'B', text: "Hardcode static private node IP addresses inside application source code." },
-      { id: 'C', text: "Expose backend database ports directly to the public internet using LoadBalancer services without authentication." },
-      { id: 'D', text: "Implement the Kubernetes Multi-Cluster Services (MCS) API using `ServiceExport` and `ServiceImport` primitives backed by Submariner or Cilium ClusterMesh." }
+      { id: 'A', text: "Implement the Kubernetes Multi-Cluster Services (MCS) API using `ServiceExport` and `ServiceImport` primitives backed by Submariner or Cilium ClusterMesh." },
+      { id: 'B', text: "Expose backend database ports directly to the public internet using LoadBalancer services without authentication." },
+      { id: 'C', text: "Hardcode static private node IP addresses inside application source code." },
+      { id: 'D', text: "Force all cross-cluster traffic to route through public internet ingress controllers with hairpin latency." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implement the Kubernetes Multi-Cluster Services (MCS) API using `ServiceExport` and `ServiceImport` primitives backed by Submariner or Cilium ClusterMesh. The Kubernetes Multi-Cluster Services (MCS) API standardizes cross-cluster service discovery. By declaring `ServiceExport` in the providing cluster, an engine (like Cilium or Submariner) creates a corresponding `ServiceImport` and cluster-independent DNS record in the consuming cluster.",
     referenceUrl: "https://github.com/kubernetes-sigs/mcs-api",
@@ -156,12 +156,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to enable a frontend service in Cluster A to discover and communicate with a private backend service in Cluster B securely.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
-      { id: 'A', text: "Hardcode static private node IP addresses inside application source code." },
-      { id: 'B', text: "Implement the Kubernetes Multi-Cluster Services (MCS) API using `ServiceExport` and `ServiceImport` primitives backed by Submariner or Cilium ClusterMesh." },
-      { id: 'C', text: "Force all cross-cluster traffic to route through public internet ingress controllers with hairpin latency." },
-      { id: 'D', text: "Expose backend database ports directly to the public internet using LoadBalancer services without authentication." }
+      { id: 'A', text: "Force all cross-cluster traffic to route through public internet ingress controllers with hairpin latency." },
+      { id: 'B', text: "Hardcode static private node IP addresses inside application source code." },
+      { id: 'C', text: "Expose backend database ports directly to the public internet using LoadBalancer services without authentication." },
+      { id: 'D', text: "Implement the Kubernetes Multi-Cluster Services (MCS) API using `ServiceExport` and `ServiceImport` primitives backed by Submariner or Cilium ClusterMesh." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement the Kubernetes Multi-Cluster Services (MCS) API using `ServiceExport` and `ServiceImport` primitives backed by Submariner or Cilium ClusterMesh. The Kubernetes Multi-Cluster Services (MCS) API standardizes cross-cluster service discovery. By declaring `ServiceExport` in the providing cluster, an engine (like Cilium or Submariner) creates a corresponding `ServiceImport` and cluster-independent DNS record in the consuming cluster.",
     referenceUrl: "https://github.com/kubernetes-sigs/mcs-api",
@@ -178,9 +178,9 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Implement the Kubernetes Multi-Cluster Services (MCS) API using `ServiceExport` and `ServiceImport` primitives backed by Submariner or Cilium ClusterMesh." },
-      { id: 'B', text: "Force all cross-cluster traffic to route through public internet ingress controllers with hairpin latency." },
+      { id: 'B', text: "Expose backend database ports directly to the public internet using LoadBalancer services without authentication." },
       { id: 'C', text: "Hardcode static private node IP addresses inside application source code." },
-      { id: 'D', text: "Expose backend database ports directly to the public internet using LoadBalancer services without authentication." }
+      { id: 'D', text: "Force all cross-cluster traffic to route through public internet ingress controllers with hairpin latency." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to enable a frontend service in Cluster A to discover and communicate with a private backend service in Cluster B securely.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
-      { id: 'A', text: "Hardcode static private node IP addresses inside application source code." },
-      { id: 'B', text: "Implement the Kubernetes Multi-Cluster Services (MCS) API using `ServiceExport` and `ServiceImport` primitives backed by Submariner or Cilium ClusterMesh." },
-      { id: 'C', text: "Force all cross-cluster traffic to route through public internet ingress controllers with hairpin latency." },
-      { id: 'D', text: "Expose backend database ports directly to the public internet using LoadBalancer services without authentication." }
+      { id: 'A', text: "Force all cross-cluster traffic to route through public internet ingress controllers with hairpin latency." },
+      { id: 'B', text: "Hardcode static private node IP addresses inside application source code." },
+      { id: 'C', text: "Expose backend database ports directly to the public internet using LoadBalancer services without authentication." },
+      { id: 'D', text: "Implement the Kubernetes Multi-Cluster Services (MCS) API using `ServiceExport` and `ServiceImport` primitives backed by Submariner or Cilium ClusterMesh." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement the Kubernetes Multi-Cluster Services (MCS) API using `ServiceExport` and `ServiceImport` primitives backed by Submariner or Cilium ClusterMesh. The Kubernetes Multi-Cluster Services (MCS) API standardizes cross-cluster service discovery. By declaring `ServiceExport` in the providing cluster, an engine (like Cilium or Submariner) creates a corresponding `ServiceImport` and cluster-independent DNS record in the consuming cluster.",
     referenceUrl: "https://github.com/kubernetes-sigs/mcs-api",
@@ -219,12 +219,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to reduce enterprise cloud compute spend by 40% while ensuring batch workloads handle spot instance terminations gracefully.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
-      { id: 'A', text: "Ignore spot instance termination notices, allowing batch workloads to crash abruptly with data corruption." },
+      { id: 'A', text: "Deploy Karpenter with automated node consolidation enabled and dynamic spot instance interruption handling via AWS SQS / event bridge." },
       { id: 'B', text: "Deploy static, fixed-size node groups with overprovisioned instance types that sit idle 80% of the day." },
-      { id: 'C', text: "Deploy Karpenter with automated node consolidation enabled and dynamic spot instance interruption handling via AWS SQS / event bridge." },
+      { id: 'C', text: "Ignore spot instance termination notices, allowing batch workloads to crash abruptly with data corruption." },
       { id: 'D', text: "Require human platform operators to manually spin up cloud VMs during customer traffic spikes." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy Karpenter with automated node consolidation enabled and dynamic spot instance interruption handling via AWS SQS / event bridge. Karpenter is an intelligent Kubernetes node autoscaler. It bypasses node groups, selecting the optimal combination of instance types based on pending pod requirements. Its consolidation engine continuously packs workloads, terminating unnecessary nodes and handling spot interruptions gracefully.",
     referenceUrl: "https://karpenter.sh/docs/concepts/deprovisioning/",
@@ -240,12 +240,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to reduce enterprise cloud compute spend by 40% while ensuring batch workloads handle spot instance terminations gracefully.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
-      { id: 'A', text: "Ignore spot instance termination notices, allowing batch workloads to crash abruptly with data corruption." },
+      { id: 'A', text: "Require human platform operators to manually spin up cloud VMs during customer traffic spikes." },
       { id: 'B', text: "Deploy static, fixed-size node groups with overprovisioned instance types that sit idle 80% of the day." },
-      { id: 'C', text: "Require human platform operators to manually spin up cloud VMs during customer traffic spikes." },
-      { id: 'D', text: "Deploy Karpenter with automated node consolidation enabled and dynamic spot instance interruption handling via AWS SQS / event bridge." }
+      { id: 'C', text: "Deploy Karpenter with automated node consolidation enabled and dynamic spot instance interruption handling via AWS SQS / event bridge." },
+      { id: 'D', text: "Ignore spot instance termination notices, allowing batch workloads to crash abruptly with data corruption." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Karpenter with automated node consolidation enabled and dynamic spot instance interruption handling via AWS SQS / event bridge. Karpenter is an intelligent Kubernetes node autoscaler. It bypasses node groups, selecting the optimal combination of instance types based on pending pod requirements. Its consolidation engine continuously packs workloads, terminating unnecessary nodes and handling spot interruptions gracefully.",
     referenceUrl: "https://karpenter.sh/docs/concepts/deprovisioning/",
@@ -261,12 +261,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to reduce enterprise cloud compute spend by 40% while ensuring batch workloads handle spot instance terminations gracefully.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
-      { id: 'A', text: "Require human platform operators to manually spin up cloud VMs during customer traffic spikes." },
-      { id: 'B', text: "Ignore spot instance termination notices, allowing batch workloads to crash abruptly with data corruption." },
-      { id: 'C', text: "Deploy static, fixed-size node groups with overprovisioned instance types that sit idle 80% of the day." },
-      { id: 'D', text: "Deploy Karpenter with automated node consolidation enabled and dynamic spot instance interruption handling via AWS SQS / event bridge." }
+      { id: 'A', text: "Deploy Karpenter with automated node consolidation enabled and dynamic spot instance interruption handling via AWS SQS / event bridge." },
+      { id: 'B', text: "Deploy static, fixed-size node groups with overprovisioned instance types that sit idle 80% of the day." },
+      { id: 'C', text: "Ignore spot instance termination notices, allowing batch workloads to crash abruptly with data corruption." },
+      { id: 'D', text: "Require human platform operators to manually spin up cloud VMs during customer traffic spikes." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy Karpenter with automated node consolidation enabled and dynamic spot instance interruption handling via AWS SQS / event bridge. Karpenter is an intelligent Kubernetes node autoscaler. It bypasses node groups, selecting the optimal combination of instance types based on pending pod requirements. Its consolidation engine continuously packs workloads, terminating unnecessary nodes and handling spot interruptions gracefully.",
     referenceUrl: "https://karpenter.sh/docs/concepts/deprovisioning/",
@@ -282,12 +282,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to reduce enterprise cloud compute spend by 40% while ensuring batch workloads handle spot instance terminations gracefully.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Deploy static, fixed-size node groups with overprovisioned instance types that sit idle 80% of the day." },
-      { id: 'B', text: "Require human platform operators to manually spin up cloud VMs during customer traffic spikes." },
-      { id: 'C', text: "Deploy Karpenter with automated node consolidation enabled and dynamic spot instance interruption handling via AWS SQS / event bridge." },
-      { id: 'D', text: "Ignore spot instance termination notices, allowing batch workloads to crash abruptly with data corruption." }
+      { id: 'A', text: "Require human platform operators to manually spin up cloud VMs during customer traffic spikes." },
+      { id: 'B', text: "Ignore spot instance termination notices, allowing batch workloads to crash abruptly with data corruption." },
+      { id: 'C', text: "Deploy static, fixed-size node groups with overprovisioned instance types that sit idle 80% of the day." },
+      { id: 'D', text: "Deploy Karpenter with automated node consolidation enabled and dynamic spot instance interruption handling via AWS SQS / event bridge." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Karpenter with automated node consolidation enabled and dynamic spot instance interruption handling via AWS SQS / event bridge. Karpenter is an intelligent Kubernetes node autoscaler. It bypasses node groups, selecting the optimal combination of instance types based on pending pod requirements. Its consolidation engine continuously packs workloads, terminating unnecessary nodes and handling spot interruptions gracefully.",
     referenceUrl: "https://karpenter.sh/docs/concepts/deprovisioning/",
@@ -303,12 +303,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to reduce enterprise cloud compute spend by 40% while ensuring batch workloads handle spot instance terminations gracefully.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
-      { id: 'A', text: "Deploy static, fixed-size node groups with overprovisioned instance types that sit idle 80% of the day." },
-      { id: 'B', text: "Deploy Karpenter with automated node consolidation enabled and dynamic spot instance interruption handling via AWS SQS / event bridge." },
-      { id: 'C', text: "Require human platform operators to manually spin up cloud VMs during customer traffic spikes." },
-      { id: 'D', text: "Ignore spot instance termination notices, allowing batch workloads to crash abruptly with data corruption." }
+      { id: 'A', text: "Deploy Karpenter with automated node consolidation enabled and dynamic spot instance interruption handling via AWS SQS / event bridge." },
+      { id: 'B', text: "Deploy static, fixed-size node groups with overprovisioned instance types that sit idle 80% of the day." },
+      { id: 'C', text: "Ignore spot instance termination notices, allowing batch workloads to crash abruptly with data corruption." },
+      { id: 'D', text: "Require human platform operators to manually spin up cloud VMs during customer traffic spikes." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy Karpenter with automated node consolidation enabled and dynamic spot instance interruption handling via AWS SQS / event bridge. Karpenter is an intelligent Kubernetes node autoscaler. It bypasses node groups, selecting the optimal combination of instance types based on pending pod requirements. Its consolidation engine continuously packs workloads, terminating unnecessary nodes and handling spot interruptions gracefully.",
     referenceUrl: "https://karpenter.sh/docs/concepts/deprovisioning/",
@@ -325,8 +325,8 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Implement Velero with CSI volume snapshot plugins to automate scheduled cluster manifest and storage backups to remote object storage." },
-      { id: 'B', text: "Store cluster backups exclusively on the local disks of the servers that are at risk of failing." },
-      { id: 'C', text: "Rely on manual handwritten documentation to reconstruct Kubernetes clusters from memory during an outage." },
+      { id: 'B', text: "Rely on manual handwritten documentation to reconstruct Kubernetes clusters from memory during an outage." },
+      { id: 'C', text: "Store cluster backups exclusively on the local disks of the servers that are at risk of failing." },
       { id: 'D', text: "Avoid backing up persistent volumes to save backup storage costs." }
     ],
     correctAnswers: ['A'],
@@ -345,12 +345,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to recover mission-critical stateful microservices rapidly in an alternate cloud region following a catastrophic regional data center outage.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
-      { id: 'A', text: "Rely on manual handwritten documentation to reconstruct Kubernetes clusters from memory during an outage." },
-      { id: 'B', text: "Implement Velero with CSI volume snapshot plugins to automate scheduled cluster manifest and storage backups to remote object storage." },
-      { id: 'C', text: "Avoid backing up persistent volumes to save backup storage costs." },
-      { id: 'D', text: "Store cluster backups exclusively on the local disks of the servers that are at risk of failing." }
+      { id: 'A', text: "Implement Velero with CSI volume snapshot plugins to automate scheduled cluster manifest and storage backups to remote object storage." },
+      { id: 'B', text: "Rely on manual handwritten documentation to reconstruct Kubernetes clusters from memory during an outage." },
+      { id: 'C', text: "Store cluster backups exclusively on the local disks of the servers that are at risk of failing." },
+      { id: 'D', text: "Avoid backing up persistent volumes to save backup storage costs." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implement Velero with CSI volume snapshot plugins to automate scheduled cluster manifest and storage backups to remote object storage. Disaster recovery in Kubernetes requires capturing both declarative cluster resources and stateful persistent storage. Velero backs up Kubernetes metadata to object storage and leverages CSI volume snapshots to replicate block storage across cloud regions for rapid recovery.",
     referenceUrl: "https://velero.io/docs/main/csi/",
@@ -366,12 +366,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to recover mission-critical stateful microservices rapidly in an alternate cloud region following a catastrophic regional data center outage.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
-      { id: 'A', text: "Avoid backing up persistent volumes to save backup storage costs." },
-      { id: 'B', text: "Store cluster backups exclusively on the local disks of the servers that are at risk of failing." },
-      { id: 'C', text: "Rely on manual handwritten documentation to reconstruct Kubernetes clusters from memory during an outage." },
-      { id: 'D', text: "Implement Velero with CSI volume snapshot plugins to automate scheduled cluster manifest and storage backups to remote object storage." }
+      { id: 'A', text: "Implement Velero with CSI volume snapshot plugins to automate scheduled cluster manifest and storage backups to remote object storage." },
+      { id: 'B', text: "Rely on manual handwritten documentation to reconstruct Kubernetes clusters from memory during an outage." },
+      { id: 'C', text: "Store cluster backups exclusively on the local disks of the servers that are at risk of failing." },
+      { id: 'D', text: "Avoid backing up persistent volumes to save backup storage costs." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implement Velero with CSI volume snapshot plugins to automate scheduled cluster manifest and storage backups to remote object storage. Disaster recovery in Kubernetes requires capturing both declarative cluster resources and stateful persistent storage. Velero backs up Kubernetes metadata to object storage and leverages CSI volume snapshots to replicate block storage across cloud regions for rapid recovery.",
     referenceUrl: "https://velero.io/docs/main/csi/",
@@ -388,8 +388,8 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Implement Velero with CSI volume snapshot plugins to automate scheduled cluster manifest and storage backups to remote object storage." },
-      { id: 'B', text: "Store cluster backups exclusively on the local disks of the servers that are at risk of failing." },
-      { id: 'C', text: "Rely on manual handwritten documentation to reconstruct Kubernetes clusters from memory during an outage." },
+      { id: 'B', text: "Rely on manual handwritten documentation to reconstruct Kubernetes clusters from memory during an outage." },
+      { id: 'C', text: "Store cluster backups exclusively on the local disks of the servers that are at risk of failing." },
       { id: 'D', text: "Avoid backing up persistent volumes to save backup storage costs." }
     ],
     correctAnswers: ['A'],
@@ -408,12 +408,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to recover mission-critical stateful microservices rapidly in an alternate cloud region following a catastrophic regional data center outage.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
-      { id: 'A', text: "Rely on manual handwritten documentation to reconstruct Kubernetes clusters from memory during an outage." },
-      { id: 'B', text: "Avoid backing up persistent volumes to save backup storage costs." },
+      { id: 'A', text: "Avoid backing up persistent volumes to save backup storage costs." },
+      { id: 'B', text: "Implement Velero with CSI volume snapshot plugins to automate scheduled cluster manifest and storage backups to remote object storage." },
       { id: 'C', text: "Store cluster backups exclusively on the local disks of the servers that are at risk of failing." },
-      { id: 'D', text: "Implement Velero with CSI volume snapshot plugins to automate scheduled cluster manifest and storage backups to remote object storage." }
+      { id: 'D', text: "Rely on manual handwritten documentation to reconstruct Kubernetes clusters from memory during an outage." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement Velero with CSI volume snapshot plugins to automate scheduled cluster manifest and storage backups to remote object storage. Disaster recovery in Kubernetes requires capturing both declarative cluster resources and stateful persistent storage. Velero backs up Kubernetes metadata to object storage and leverages CSI volume snapshots to replicate block storage across cloud regions for rapid recovery.",
     referenceUrl: "https://velero.io/docs/main/csi/",
@@ -430,8 +430,8 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Execute automated chaos experiments using Chaos Mesh or LitmusChaos to simulate pod crashes, network latency, and DNS failures in staging." },
-      { id: 'B', text: "Assume software systems never experience network partitions or hardware failures." },
-      { id: 'C', text: "Test disaster recovery procedures by randomly pulling power cables in live production data centers during business hours." },
+      { id: 'B', text: "Test disaster recovery procedures by randomly pulling power cables in live production data centers during business hours." },
+      { id: 'C', text: "Assume software systems never experience network partitions or hardware failures." },
       { id: 'D', text: "Prohibit fault injection testing to avoid discovering defects in application resilience." }
     ],
     correctAnswers: ['A'],
@@ -450,12 +450,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to verify that automated failover, circuit breakers, and pod rescheduling operate reliably before deploying critical systems to production.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
-      { id: 'A', text: "Prohibit fault injection testing to avoid discovering defects in application resilience." },
-      { id: 'B', text: "Assume software systems never experience network partitions or hardware failures." },
-      { id: 'C', text: "Test disaster recovery procedures by randomly pulling power cables in live production data centers during business hours." },
-      { id: 'D', text: "Execute automated chaos experiments using Chaos Mesh or LitmusChaos to simulate pod crashes, network latency, and DNS failures in staging." }
+      { id: 'A', text: "Execute automated chaos experiments using Chaos Mesh or LitmusChaos to simulate pod crashes, network latency, and DNS failures in staging." },
+      { id: 'B', text: "Test disaster recovery procedures by randomly pulling power cables in live production data centers during business hours." },
+      { id: 'C', text: "Assume software systems never experience network partitions or hardware failures." },
+      { id: 'D', text: "Prohibit fault injection testing to avoid discovering defects in application resilience." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Execute automated chaos experiments using Chaos Mesh or LitmusChaos to simulate pod crashes, network latency, and DNS failures in staging. Chaos engineering validates system resilience under stress. Using cloud-native operators like Chaos Mesh, platform engineers define chaos experiments (e.g., `NetworkChaos`, `PodChaos`) as Custom Resources, proving that services survive infrastructure disruptions before production launch.",
     referenceUrl: "https://chaos-mesh.org/",
@@ -471,12 +471,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to verify that automated failover, circuit breakers, and pod rescheduling operate reliably before deploying critical systems to production.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
-      { id: 'A', text: "Assume software systems never experience network partitions or hardware failures." },
+      { id: 'A', text: "Prohibit fault injection testing to avoid discovering defects in application resilience." },
       { id: 'B', text: "Test disaster recovery procedures by randomly pulling power cables in live production data centers during business hours." },
-      { id: 'C', text: "Prohibit fault injection testing to avoid discovering defects in application resilience." },
-      { id: 'D', text: "Execute automated chaos experiments using Chaos Mesh or LitmusChaos to simulate pod crashes, network latency, and DNS failures in staging." }
+      { id: 'C', text: "Execute automated chaos experiments using Chaos Mesh or LitmusChaos to simulate pod crashes, network latency, and DNS failures in staging." },
+      { id: 'D', text: "Assume software systems never experience network partitions or hardware failures." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Execute automated chaos experiments using Chaos Mesh or LitmusChaos to simulate pod crashes, network latency, and DNS failures in staging. Chaos engineering validates system resilience under stress. Using cloud-native operators like Chaos Mesh, platform engineers define chaos experiments (e.g., `NetworkChaos`, `PodChaos`) as Custom Resources, proving that services survive infrastructure disruptions before production launch.",
     referenceUrl: "https://chaos-mesh.org/",
@@ -492,12 +492,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to verify that automated failover, circuit breakers, and pod rescheduling operate reliably before deploying critical systems to production.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Prohibit fault injection testing to avoid discovering defects in application resilience." },
-      { id: 'B', text: "Execute automated chaos experiments using Chaos Mesh or LitmusChaos to simulate pod crashes, network latency, and DNS failures in staging." },
-      { id: 'C', text: "Test disaster recovery procedures by randomly pulling power cables in live production data centers during business hours." },
-      { id: 'D', text: "Assume software systems never experience network partitions or hardware failures." }
+      { id: 'A', text: "Assume software systems never experience network partitions or hardware failures." },
+      { id: 'B', text: "Prohibit fault injection testing to avoid discovering defects in application resilience." },
+      { id: 'C', text: "Execute automated chaos experiments using Chaos Mesh or LitmusChaos to simulate pod crashes, network latency, and DNS failures in staging." },
+      { id: 'D', text: "Test disaster recovery procedures by randomly pulling power cables in live production data centers during business hours." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Execute automated chaos experiments using Chaos Mesh or LitmusChaos to simulate pod crashes, network latency, and DNS failures in staging. Chaos engineering validates system resilience under stress. Using cloud-native operators like Chaos Mesh, platform engineers define chaos experiments (e.g., `NetworkChaos`, `PodChaos`) as Custom Resources, proving that services survive infrastructure disruptions before production launch.",
     referenceUrl: "https://chaos-mesh.org/",
@@ -513,12 +513,12 @@ export const CNCF_CNPE_QUESTIONS_18 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to verify that automated failover, circuit breakers, and pod rescheduling operate reliably before deploying critical systems to production.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
-      { id: 'A', text: "Prohibit fault injection testing to avoid discovering defects in application resilience." },
+      { id: 'A', text: "Assume software systems never experience network partitions or hardware failures." },
       { id: 'B', text: "Test disaster recovery procedures by randomly pulling power cables in live production data centers during business hours." },
-      { id: 'C', text: "Execute automated chaos experiments using Chaos Mesh or LitmusChaos to simulate pod crashes, network latency, and DNS failures in staging." },
-      { id: 'D', text: "Assume software systems never experience network partitions or hardware failures." }
+      { id: 'C', text: "Prohibit fault injection testing to avoid discovering defects in application resilience." },
+      { id: 'D', text: "Execute automated chaos experiments using Chaos Mesh or LitmusChaos to simulate pod crashes, network latency, and DNS failures in staging." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Execute automated chaos experiments using Chaos Mesh or LitmusChaos to simulate pod crashes, network latency, and DNS failures in staging. Chaos engineering validates system resilience under stress. Using cloud-native operators like Chaos Mesh, platform engineers define chaos experiments (e.g., `NetworkChaos`, `PodChaos`) as Custom Resources, proving that services survive infrastructure disruptions before production launch.",
     referenceUrl: "https://chaos-mesh.org/",

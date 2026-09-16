@@ -9,12 +9,12 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to select a runner architecture for workloads requiring specialized GPU hardware and direct connectivity to internal private on-premises networks.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Use GitHub-hosted Ubuntu runners which run in public cloud environments without private network peering." },
-      { id: 'B', text: "Run all workflows on public shared web servers." },
-      { id: 'C', text: "Disable workflows and execute builds manually on developer workstations." },
-      { id: 'D', text: "Deploy Self-Hosted Runners on customer-managed virtual machines inside the private network." }
+      { id: 'A', text: "Run all workflows on public shared web servers." },
+      { id: 'B', text: "Disable workflows and execute builds manually on developer workstations." },
+      { id: 'C', text: "Deploy Self-Hosted Runners on customer-managed virtual machines inside the private network." },
+      { id: 'D', text: "Use GitHub-hosted Ubuntu runners which run in public cloud environments without private network peering." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Self-Hosted Runners on customer-managed virtual machines inside the private network. GitHub-hosted runners provide clean, ephemeral virtual machines managed by GitHub with pre-installed software. Self-hosted runners run on customer infrastructure, offering custom hardware (GPUs, ARM), persistent caching, direct private network connectivity, and zero per-minute billing fees.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners",
@@ -30,12 +30,12 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to select a runner architecture for workloads requiring specialized GPU hardware and direct connectivity to internal private on-premises networks.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Disable workflows and execute builds manually on developer workstations." },
-      { id: 'B', text: "Deploy Self-Hosted Runners on customer-managed virtual machines inside the private network." },
+      { id: 'A', text: "Use GitHub-hosted Ubuntu runners which run in public cloud environments without private network peering." },
+      { id: 'B', text: "Disable workflows and execute builds manually on developer workstations." },
       { id: 'C', text: "Run all workflows on public shared web servers." },
-      { id: 'D', text: "Use GitHub-hosted Ubuntu runners which run in public cloud environments without private network peering." }
+      { id: 'D', text: "Deploy Self-Hosted Runners on customer-managed virtual machines inside the private network." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Self-Hosted Runners on customer-managed virtual machines inside the private network. GitHub-hosted runners provide clean, ephemeral virtual machines managed by GitHub with pre-installed software. Self-hosted runners run on customer infrastructure, offering custom hardware (GPUs, ARM), persistent caching, direct private network connectivity, and zero per-minute billing fees.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners",
@@ -51,12 +51,12 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to select a runner architecture for workloads requiring specialized GPU hardware and direct connectivity to internal private on-premises networks.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Run all workflows on public shared web servers." },
-      { id: 'B', text: "Deploy Self-Hosted Runners on customer-managed virtual machines inside the private network." },
-      { id: 'C', text: "Disable workflows and execute builds manually on developer workstations." },
-      { id: 'D', text: "Use GitHub-hosted Ubuntu runners which run in public cloud environments without private network peering." }
+      { id: 'A', text: "Disable workflows and execute builds manually on developer workstations." },
+      { id: 'B', text: "Run all workflows on public shared web servers." },
+      { id: 'C', text: "Use GitHub-hosted Ubuntu runners which run in public cloud environments without private network peering." },
+      { id: 'D', text: "Deploy Self-Hosted Runners on customer-managed virtual machines inside the private network." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Self-Hosted Runners on customer-managed virtual machines inside the private network. GitHub-hosted runners provide clean, ephemeral virtual machines managed by GitHub with pre-installed software. Self-hosted runners run on customer infrastructure, offering custom hardware (GPUs, ARM), persistent caching, direct private network connectivity, and zero per-minute billing fees.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners",
@@ -72,12 +72,12 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to select a runner architecture for workloads requiring specialized GPU hardware and direct connectivity to internal private on-premises networks.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use GitHub-hosted Ubuntu runners which run in public cloud environments without private network peering." },
-      { id: 'B', text: "Deploy Self-Hosted Runners on customer-managed virtual machines inside the private network." },
-      { id: 'C', text: "Disable workflows and execute builds manually on developer workstations." },
-      { id: 'D', text: "Run all workflows on public shared web servers." }
+      { id: 'A', text: "Deploy Self-Hosted Runners on customer-managed virtual machines inside the private network." },
+      { id: 'B', text: "Use GitHub-hosted Ubuntu runners which run in public cloud environments without private network peering." },
+      { id: 'C', text: "Run all workflows on public shared web servers." },
+      { id: 'D', text: "Disable workflows and execute builds manually on developer workstations." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy Self-Hosted Runners on customer-managed virtual machines inside the private network. GitHub-hosted runners provide clean, ephemeral virtual machines managed by GitHub with pre-installed software. Self-hosted runners run on customer infrastructure, offering custom hardware (GPUs, ARM), persistent caching, direct private network connectivity, and zero per-minute billing fees.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners",
@@ -95,8 +95,8 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Deploy Self-Hosted Runners on customer-managed virtual machines inside the private network." },
       { id: 'B', text: "Use GitHub-hosted Ubuntu runners which run in public cloud environments without private network peering." },
-      { id: 'C', text: "Disable workflows and execute builds manually on developer workstations." },
-      { id: 'D', text: "Run all workflows on public shared web servers." }
+      { id: 'C', text: "Run all workflows on public shared web servers." },
+      { id: 'D', text: "Disable workflows and execute builds manually on developer workstations." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Manually boot and configure new VMs whenever build queues back up." },
-      { id: 'B', text: "Disable self-hosted runners and use public runners exclusively." },
-      { id: 'C', text: "Maintain a static pool of 10 persistent virtual machines with shared state." },
-      { id: 'D', text: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods." }
+      { id: 'A', text: "Maintain a static pool of 10 persistent virtual machines with shared state." },
+      { id: 'B', text: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods." },
+      { id: 'C', text: "Disable self-hosted runners and use public runners exclusively." },
+      { id: 'D', text: "Manually boot and configure new VMs whenever build queues back up." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods. Actions Runner Controller (ARC) is a Kubernetes operator that orchestrates self-hosted runners. It monitors GitHub Actions workflow queues and spins up ephemeral runner pods on-demand, terminating each pod immediately after a single job completes to prevent cross-job contamination.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller",
@@ -135,12 +135,12 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Manually boot and configure new VMs whenever build queues back up." },
-      { id: 'B', text: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods." },
-      { id: 'C', text: "Disable self-hosted runners and use public runners exclusively." },
-      { id: 'D', text: "Maintain a static pool of 10 persistent virtual machines with shared state." }
+      { id: 'A', text: "Disable self-hosted runners and use public runners exclusively." },
+      { id: 'B', text: "Manually boot and configure new VMs whenever build queues back up." },
+      { id: 'C', text: "Maintain a static pool of 10 persistent virtual machines with shared state." },
+      { id: 'D', text: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods. Actions Runner Controller (ARC) is a Kubernetes operator that orchestrates self-hosted runners. It monitors GitHub Actions workflow queues and spins up ephemeral runner pods on-demand, terminating each pod immediately after a single job completes to prevent cross-job contamination.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller",
@@ -156,12 +156,12 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Disable self-hosted runners and use public runners exclusively." },
+      { id: 'A', text: "Manually boot and configure new VMs whenever build queues back up." },
       { id: 'B', text: "Maintain a static pool of 10 persistent virtual machines with shared state." },
-      { id: 'C', text: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods." },
-      { id: 'D', text: "Manually boot and configure new VMs whenever build queues back up." }
+      { id: 'C', text: "Disable self-hosted runners and use public runners exclusively." },
+      { id: 'D', text: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods. Actions Runner Controller (ARC) is a Kubernetes operator that orchestrates self-hosted runners. It monitors GitHub Actions workflow queues and spins up ephemeral runner pods on-demand, terminating each pod immediately after a single job completes to prevent cross-job contamination.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller",
@@ -177,12 +177,12 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Manually boot and configure new VMs whenever build queues back up." },
-      { id: 'B', text: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods." },
-      { id: 'C', text: "Disable self-hosted runners and use public runners exclusively." },
-      { id: 'D', text: "Maintain a static pool of 10 persistent virtual machines with shared state." }
+      { id: 'A', text: "Disable self-hosted runners and use public runners exclusively." },
+      { id: 'B', text: "Manually boot and configure new VMs whenever build queues back up." },
+      { id: 'C', text: "Maintain a static pool of 10 persistent virtual machines with shared state." },
+      { id: 'D', text: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods. Actions Runner Controller (ARC) is a Kubernetes operator that orchestrates self-hosted runners. It monitors GitHub Actions workflow queues and spins up ephemeral runner pods on-demand, terminating each pod immediately after a single job completes to prevent cross-job contamination.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller",
@@ -199,9 +199,9 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods." },
-      { id: 'B', text: "Disable self-hosted runners and use public runners exclusively." },
+      { id: 'B', text: "Maintain a static pool of 10 persistent virtual machines with shared state." },
       { id: 'C', text: "Manually boot and configure new VMs whenever build queues back up." },
-      { id: 'D', text: "Maintain a static pool of 10 persistent virtual machines with shared state." }
+      { id: 'D', text: "Disable self-hosted runners and use public runners exclusively." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -221,8 +221,8 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories." },
       { id: 'B', text: "Make self-hosted runners available to all public repositories in the enterprise." },
-      { id: 'C', text: "Allow any repository to use any runner without authorization." },
-      { id: 'D', text: "Share the runner registration token on public wikis." }
+      { id: 'C', text: "Share the runner registration token on public wikis." },
+      { id: 'D', text: "Allow any repository to use any runner without authorization." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,12 +240,12 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Allow any repository to use any runner without authorization." },
-      { id: 'B', text: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories." },
-      { id: 'C', text: "Make self-hosted runners available to all public repositories in the enterprise." },
-      { id: 'D', text: "Share the runner registration token on public wikis." }
+      { id: 'A', text: "Share the runner registration token on public wikis." },
+      { id: 'B', text: "Allow any repository to use any runner without authorization." },
+      { id: 'C', text: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories." },
+      { id: 'D', text: "Make self-hosted runners available to all public repositories in the enterprise." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories. Runner Groups govern access to self-hosted runners. Organization administrators organize runners into groups and grant access only to designated private repositories, preventing untrusted code (such as pull requests on public repositories) from running on internal infrastructure.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups",
@@ -261,12 +261,12 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Share the runner registration token on public wikis." },
+      { id: 'A', text: "Allow any repository to use any runner without authorization." },
       { id: 'B', text: "Make self-hosted runners available to all public repositories in the enterprise." },
-      { id: 'C', text: "Allow any repository to use any runner without authorization." },
-      { id: 'D', text: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories." }
+      { id: 'C', text: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories." },
+      { id: 'D', text: "Share the runner registration token on public wikis." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories. Runner Groups govern access to self-hosted runners. Organization administrators organize runners into groups and grant access only to designated private repositories, preventing untrusted code (such as pull requests on public repositories) from running on internal infrastructure.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups",
@@ -282,12 +282,12 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Allow any repository to use any runner without authorization." },
+      { id: 'A', text: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories." },
       { id: 'B', text: "Make self-hosted runners available to all public repositories in the enterprise." },
       { id: 'C', text: "Share the runner registration token on public wikis." },
-      { id: 'D', text: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories." }
+      { id: 'D', text: "Allow any repository to use any runner without authorization." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories. Runner Groups govern access to self-hosted runners. Organization administrators organize runners into groups and grant access only to designated private repositories, preventing untrusted code (such as pull requests on public repositories) from running on internal infrastructure.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups",
@@ -303,12 +303,12 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Allow any repository to use any runner without authorization." },
-      { id: 'B', text: "Share the runner registration token on public wikis." },
-      { id: 'C', text: "Make self-hosted runners available to all public repositories in the enterprise." },
-      { id: 'D', text: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories." }
+      { id: 'A', text: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories." },
+      { id: 'B', text: "Make self-hosted runners available to all public repositories in the enterprise." },
+      { id: 'C', text: "Share the runner registration token on public wikis." },
+      { id: 'D', text: "Allow any repository to use any runner without authorization." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories. Runner Groups govern access to self-hosted runners. Organization administrators organize runners into groups and grant access only to designated private repositories, preventing untrusted code (such as pull requests on public repositories) from running on internal infrastructure.",
     referenceUrl: "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups",
@@ -324,12 +324,12 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Create a permanent IAM user with AdministratorAccess and paste access keys in repository secrets." },
-      { id: 'B', text: "Commit AWS access key IDs directly to the workflow YAML file." },
-      { id: 'C', text: "Disable authentication on AWS APIs." },
-      { id: 'D', text: "Configure an OpenID Connect (OIDC) identity provider in AWS IAM trust policy and use `aws-actions/configure-aws-credentials` with `role-to-assume`." }
+      { id: 'A', text: "Commit AWS access key IDs directly to the workflow YAML file." },
+      { id: 'B', text: "Disable authentication on AWS APIs." },
+      { id: 'C', text: "Configure an OpenID Connect (OIDC) identity provider in AWS IAM trust policy and use `aws-actions/configure-aws-credentials` with `role-to-assume`." },
+      { id: 'D', text: "Create a permanent IAM user with AdministratorAccess and paste access keys in repository secrets." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure an OpenID Connect (OIDC) identity provider in AWS IAM trust policy and use `aws-actions/configure-aws-credentials` with `role-to-assume`. GitHub Actions OIDC allows workflows to exchange short-lived OIDC tokens for temporary cloud credentials (AWS IAM roles, Azure Managed Identities, GCP service accounts). This eliminates the need to create, rotate, and manage risky permanent secret access keys.",
     referenceUrl: "https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect",
@@ -346,9 +346,9 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Configure an OpenID Connect (OIDC) identity provider in AWS IAM trust policy and use `aws-actions/configure-aws-credentials` with `role-to-assume`." },
-      { id: 'B', text: "Disable authentication on AWS APIs." },
-      { id: 'C', text: "Create a permanent IAM user with AdministratorAccess and paste access keys in repository secrets." },
-      { id: 'D', text: "Commit AWS access key IDs directly to the workflow YAML file." }
+      { id: 'B', text: "Commit AWS access key IDs directly to the workflow YAML file." },
+      { id: 'C', text: "Disable authentication on AWS APIs." },
+      { id: 'D', text: "Create a permanent IAM user with AdministratorAccess and paste access keys in repository secrets." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Create a permanent IAM user with AdministratorAccess and paste access keys in repository secrets." },
-      { id: 'B', text: "Disable authentication on AWS APIs." },
-      { id: 'C', text: "Configure an OpenID Connect (OIDC) identity provider in AWS IAM trust policy and use `aws-actions/configure-aws-credentials` with `role-to-assume`." },
-      { id: 'D', text: "Commit AWS access key IDs directly to the workflow YAML file." }
+      { id: 'A', text: "Disable authentication on AWS APIs." },
+      { id: 'B', text: "Commit AWS access key IDs directly to the workflow YAML file." },
+      { id: 'C', text: "Create a permanent IAM user with AdministratorAccess and paste access keys in repository secrets." },
+      { id: 'D', text: "Configure an OpenID Connect (OIDC) identity provider in AWS IAM trust policy and use `aws-actions/configure-aws-credentials` with `role-to-assume`." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure an OpenID Connect (OIDC) identity provider in AWS IAM trust policy and use `aws-actions/configure-aws-credentials` with `role-to-assume`. GitHub Actions OIDC allows workflows to exchange short-lived OIDC tokens for temporary cloud credentials (AWS IAM roles, Azure Managed Identities, GCP service accounts). This eliminates the need to create, rotate, and manage risky permanent secret access keys.",
     referenceUrl: "https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect",
@@ -387,12 +387,12 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Create a permanent IAM user with AdministratorAccess and paste access keys in repository secrets." },
-      { id: 'B', text: "Configure an OpenID Connect (OIDC) identity provider in AWS IAM trust policy and use `aws-actions/configure-aws-credentials` with `role-to-assume`." },
-      { id: 'C', text: "Disable authentication on AWS APIs." },
-      { id: 'D', text: "Commit AWS access key IDs directly to the workflow YAML file." }
+      { id: 'A', text: "Configure an OpenID Connect (OIDC) identity provider in AWS IAM trust policy and use `aws-actions/configure-aws-credentials` with `role-to-assume`." },
+      { id: 'B', text: "Create a permanent IAM user with AdministratorAccess and paste access keys in repository secrets." },
+      { id: 'C', text: "Commit AWS access key IDs directly to the workflow YAML file." },
+      { id: 'D', text: "Disable authentication on AWS APIs." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure an OpenID Connect (OIDC) identity provider in AWS IAM trust policy and use `aws-actions/configure-aws-credentials` with `role-to-assume`. GitHub Actions OIDC allows workflows to exchange short-lived OIDC tokens for temporary cloud credentials (AWS IAM roles, Azure Managed Identities, GCP service accounts). This eliminates the need to create, rotate, and manage risky permanent secret access keys.",
     referenceUrl: "https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect",
@@ -409,8 +409,8 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
       { id: 'A', text: "Configure an OpenID Connect (OIDC) identity provider in AWS IAM trust policy and use `aws-actions/configure-aws-credentials` with `role-to-assume`." },
-      { id: 'B', text: "Commit AWS access key IDs directly to the workflow YAML file." },
-      { id: 'C', text: "Create a permanent IAM user with AdministratorAccess and paste access keys in repository secrets." },
+      { id: 'B', text: "Create a permanent IAM user with AdministratorAccess and paste access keys in repository secrets." },
+      { id: 'C', text: "Commit AWS access key IDs directly to the workflow YAML file." },
       { id: 'D', text: "Disable authentication on AWS APIs." }
     ],
     correctAnswers: ['A'],
@@ -431,8 +431,8 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Specify `permissions: contents: read, id-token: write` at the workflow or job level." },
       { id: 'B', text: "Grant full `write-all` permissions to the GITHUB_TOKEN across all workflows." },
-      { id: 'C', text: "Disable permissions entirely in repository settings." },
-      { id: 'D', text: "Use a personal access token with admin privileges instead of GITHUB_TOKEN." }
+      { id: 'C', text: "Use a personal access token with admin privileges instead of GITHUB_TOKEN." },
+      { id: 'D', text: "Disable permissions entirely in repository settings." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -451,9 +451,9 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
       { id: 'A', text: "Specify `permissions: contents: read, id-token: write` at the workflow or job level." },
-      { id: 'B', text: "Disable permissions entirely in repository settings." },
-      { id: 'C', text: "Grant full `write-all` permissions to the GITHUB_TOKEN across all workflows." },
-      { id: 'D', text: "Use a personal access token with admin privileges instead of GITHUB_TOKEN." }
+      { id: 'B', text: "Use a personal access token with admin privileges instead of GITHUB_TOKEN." },
+      { id: 'C', text: "Disable permissions entirely in repository settings." },
+      { id: 'D', text: "Grant full `write-all` permissions to the GITHUB_TOKEN across all workflows." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,12 +471,12 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to enforce the principle of least privilege on the automatic `GITHUB_TOKEN` so a workflow can only read repository contents and request OIDC tokens.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Disable permissions entirely in repository settings." },
-      { id: 'B', text: "Specify `permissions: contents: read, id-token: write` at the workflow or job level." },
-      { id: 'C', text: "Grant full `write-all` permissions to the GITHUB_TOKEN across all workflows." },
-      { id: 'D', text: "Use a personal access token with admin privileges instead of GITHUB_TOKEN." }
+      { id: 'A', text: "Use a personal access token with admin privileges instead of GITHUB_TOKEN." },
+      { id: 'B', text: "Disable permissions entirely in repository settings." },
+      { id: 'C', text: "Specify `permissions: contents: read, id-token: write` at the workflow or job level." },
+      { id: 'D', text: "Grant full `write-all` permissions to the GITHUB_TOKEN across all workflows." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Specify `permissions: contents: read, id-token: write` at the workflow or job level. The `permissions:` block controls the API privileges granted to the automatic `GITHUB_TOKEN`. By setting strict granular permissions (e.g., `contents: read`, `pull-requests: write`, `id-token: write`), an attacker who exploits a compromised build step cannot alter repository settings or write to unauthorized branches.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs",
@@ -494,8 +494,8 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Specify `permissions: contents: read, id-token: write` at the workflow or job level." },
       { id: 'B', text: "Grant full `write-all` permissions to the GITHUB_TOKEN across all workflows." },
-      { id: 'C', text: "Disable permissions entirely in repository settings." },
-      { id: 'D', text: "Use a personal access token with admin privileges instead of GITHUB_TOKEN." }
+      { id: 'C', text: "Use a personal access token with admin privileges instead of GITHUB_TOKEN." },
+      { id: 'D', text: "Disable permissions entirely in repository settings." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,12 +513,12 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to enforce the principle of least privilege on the automatic `GITHUB_TOKEN` so a workflow can only read repository contents and request OIDC tokens.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Use a personal access token with admin privileges instead of GITHUB_TOKEN." },
-      { id: 'B', text: "Specify `permissions: contents: read, id-token: write` at the workflow or job level." },
-      { id: 'C', text: "Disable permissions entirely in repository settings." },
-      { id: 'D', text: "Grant full `write-all` permissions to the GITHUB_TOKEN across all workflows." }
+      { id: 'A', text: "Disable permissions entirely in repository settings." },
+      { id: 'B', text: "Use a personal access token with admin privileges instead of GITHUB_TOKEN." },
+      { id: 'C', text: "Grant full `write-all` permissions to the GITHUB_TOKEN across all workflows." },
+      { id: 'D', text: "Specify `permissions: contents: read, id-token: write` at the workflow or job level." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Specify `permissions: contents: read, id-token: write` at the workflow or job level. The `permissions:` block controls the API privileges granted to the automatic `GITHUB_TOKEN`. By setting strict granular permissions (e.g., `contents: read`, `pull-requests: write`, `id-token: write`), an attacker who exploits a compromised build step cannot alter repository settings or write to unauthorized branches.",
     referenceUrl: "https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs",

@@ -9,12 +9,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to protect regulatory financial records from deletion by anyone including AWS account root, while allowing test logs to be deleted by administrators.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Use Compliance Mode for test logs, resulting in storage costs for data that can never be deleted before the timer expires." },
-      { id: 'B', text: "Use standard S3 bucket versioning alone without Object Lock protection." },
-      { id: 'C', text: "Disable S3 versioning and permit unrestricted permanent deletion of objects." },
-      { id: 'D', text: "Use S3 Object Lock in Compliance Mode for financial records, and Governance Mode with `s3:BypassGovernanceRetention` for operational test logs." }
+      { id: 'A', text: "Use standard S3 bucket versioning alone without Object Lock protection." },
+      { id: 'B', text: "Disable S3 versioning and permit unrestricted permanent deletion of objects." },
+      { id: 'C', text: "Use S3 Object Lock in Compliance Mode for financial records, and Governance Mode with `s3:BypassGovernanceRetention` for operational test logs." },
+      { id: 'D', text: "Use Compliance Mode for test logs, resulting in storage costs for data that can never be deleted before the timer expires." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use S3 Object Lock in Compliance Mode for financial records, and Governance Mode with `s3:BypassGovernanceRetention` for operational test logs. S3 Object Lock provides two retention modes: `Compliance Mode` (no user, including root, can delete objects or alter retention until it expires) and `Governance Mode` (protects objects from accidental deletion, but users with `s3:BypassGovernanceRetention` can delete them when necessary).",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html",
@@ -32,8 +32,8 @@ export const AWS_SCS_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Use S3 Object Lock in Compliance Mode for financial records, and Governance Mode with `s3:BypassGovernanceRetention` for operational test logs." },
       { id: 'B', text: "Use Compliance Mode for test logs, resulting in storage costs for data that can never be deleted before the timer expires." },
-      { id: 'C', text: "Disable S3 versioning and permit unrestricted permanent deletion of objects." },
-      { id: 'D', text: "Use standard S3 bucket versioning alone without Object Lock protection." }
+      { id: 'C', text: "Use standard S3 bucket versioning alone without Object Lock protection." },
+      { id: 'D', text: "Disable S3 versioning and permit unrestricted permanent deletion of objects." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to protect regulatory financial records from deletion by anyone including AWS account root, while allowing test logs to be deleted by administrators.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Use Compliance Mode for test logs, resulting in storage costs for data that can never be deleted before the timer expires." },
-      { id: 'B', text: "Disable S3 versioning and permit unrestricted permanent deletion of objects." },
+      { id: 'A', text: "Disable S3 versioning and permit unrestricted permanent deletion of objects." },
+      { id: 'B', text: "Use S3 Object Lock in Compliance Mode for financial records, and Governance Mode with `s3:BypassGovernanceRetention` for operational test logs." },
       { id: 'C', text: "Use standard S3 bucket versioning alone without Object Lock protection." },
-      { id: 'D', text: "Use S3 Object Lock in Compliance Mode for financial records, and Governance Mode with `s3:BypassGovernanceRetention` for operational test logs." }
+      { id: 'D', text: "Use Compliance Mode for test logs, resulting in storage costs for data that can never be deleted before the timer expires." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use S3 Object Lock in Compliance Mode for financial records, and Governance Mode with `s3:BypassGovernanceRetention` for operational test logs. S3 Object Lock provides two retention modes: `Compliance Mode` (no user, including root, can delete objects or alter retention until it expires) and `Governance Mode` (protects objects from accidental deletion, but users with `s3:BypassGovernanceRetention` can delete them when necessary).",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html",
@@ -74,8 +74,8 @@ export const AWS_SCS_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Use S3 Object Lock in Compliance Mode for financial records, and Governance Mode with `s3:BypassGovernanceRetention` for operational test logs." },
       { id: 'B', text: "Use Compliance Mode for test logs, resulting in storage costs for data that can never be deleted before the timer expires." },
-      { id: 'C', text: "Disable S3 versioning and permit unrestricted permanent deletion of objects." },
-      { id: 'D', text: "Use standard S3 bucket versioning alone without Object Lock protection." }
+      { id: 'C', text: "Use standard S3 bucket versioning alone without Object Lock protection." },
+      { id: 'D', text: "Disable S3 versioning and permit unrestricted permanent deletion of objects." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to protect regulatory financial records from deletion by anyone including AWS account root, while allowing test logs to be deleted by administrators.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Use Compliance Mode for test logs, resulting in storage costs for data that can never be deleted before the timer expires." },
-      { id: 'B', text: "Disable S3 versioning and permit unrestricted permanent deletion of objects." },
-      { id: 'C', text: "Use S3 Object Lock in Compliance Mode for financial records, and Governance Mode with `s3:BypassGovernanceRetention` for operational test logs." },
-      { id: 'D', text: "Use standard S3 bucket versioning alone without Object Lock protection." }
+      { id: 'A', text: "Disable S3 versioning and permit unrestricted permanent deletion of objects." },
+      { id: 'B', text: "Use standard S3 bucket versioning alone without Object Lock protection." },
+      { id: 'C', text: "Use Compliance Mode for test logs, resulting in storage costs for data that can never be deleted before the timer expires." },
+      { id: 'D', text: "Use S3 Object Lock in Compliance Mode for financial records, and Governance Mode with `s3:BypassGovernanceRetention` for operational test logs." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use S3 Object Lock in Compliance Mode for financial records, and Governance Mode with `s3:BypassGovernanceRetention` for operational test logs. S3 Object Lock provides two retention modes: `Compliance Mode` (no user, including root, can delete objects or alter retention until it expires) and `Governance Mode` (protects objects from accidental deletion, but users with `s3:BypassGovernanceRetention` can delete them when necessary).",
     referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html",
@@ -114,12 +114,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to guarantee that no unencrypted Amazon EBS volume or snapshot can ever be created in an enterprise AWS account.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Store unencrypted EBS snapshots in public S3 buckets for backup purposes." },
+      { id: 'A', text: "Disable volume encryption to increase disk I/O performance." },
       { id: 'B', text: "Rely on developers to manually check the 'Encrypt' checkbox when launching every EC2 instance." },
-      { id: 'C', text: "Enable EBS Encryption by Default at the region/account level, specifying a customer-managed KMS key." },
-      { id: 'D', text: "Disable volume encryption to increase disk I/O performance." }
+      { id: 'C', text: "Store unencrypted EBS snapshots in public S3 buckets for backup purposes." },
+      { id: 'D', text: "Enable EBS Encryption by Default at the region/account level, specifying a customer-managed KMS key." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable EBS Encryption by Default at the region/account level, specifying a customer-managed KMS key. Enabling EBS Encryption by Default ensures that all new EBS volumes and snapshot copies created in that region are encrypted using the specified KMS key. Any attempt to create an unencrypted volume is automatically converted to an encrypted volume, guaranteeing compliance.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default",
@@ -135,12 +135,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to guarantee that no unencrypted Amazon EBS volume or snapshot can ever be created in an enterprise AWS account.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Rely on developers to manually check the 'Encrypt' checkbox when launching every EC2 instance." },
-      { id: 'B', text: "Store unencrypted EBS snapshots in public S3 buckets for backup purposes." },
-      { id: 'C', text: "Enable EBS Encryption by Default at the region/account level, specifying a customer-managed KMS key." },
-      { id: 'D', text: "Disable volume encryption to increase disk I/O performance." }
+      { id: 'A', text: "Store unencrypted EBS snapshots in public S3 buckets for backup purposes." },
+      { id: 'B', text: "Disable volume encryption to increase disk I/O performance." },
+      { id: 'C', text: "Rely on developers to manually check the 'Encrypt' checkbox when launching every EC2 instance." },
+      { id: 'D', text: "Enable EBS Encryption by Default at the region/account level, specifying a customer-managed KMS key." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable EBS Encryption by Default at the region/account level, specifying a customer-managed KMS key. Enabling EBS Encryption by Default ensures that all new EBS volumes and snapshot copies created in that region are encrypted using the specified KMS key. Any attempt to create an unencrypted volume is automatically converted to an encrypted volume, guaranteeing compliance.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default",
@@ -178,9 +178,9 @@ export const AWS_SCS_QUESTIONS_19 = [
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Enable EBS Encryption by Default at the region/account level, specifying a customer-managed KMS key." },
-      { id: 'B', text: "Store unencrypted EBS snapshots in public S3 buckets for backup purposes." },
-      { id: 'C', text: "Rely on developers to manually check the 'Encrypt' checkbox when launching every EC2 instance." },
-      { id: 'D', text: "Disable volume encryption to increase disk I/O performance." }
+      { id: 'B', text: "Disable volume encryption to increase disk I/O performance." },
+      { id: 'C', text: "Store unencrypted EBS snapshots in public S3 buckets for backup purposes." },
+      { id: 'D', text: "Rely on developers to manually check the 'Encrypt' checkbox when launching every EC2 instance." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to guarantee that no unencrypted Amazon EBS volume or snapshot can ever be created in an enterprise AWS account.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Store unencrypted EBS snapshots in public S3 buckets for backup purposes." },
-      { id: 'B', text: "Enable EBS Encryption by Default at the region/account level, specifying a customer-managed KMS key." },
-      { id: 'C', text: "Rely on developers to manually check the 'Encrypt' checkbox when launching every EC2 instance." },
-      { id: 'D', text: "Disable volume encryption to increase disk I/O performance." }
+      { id: 'A', text: "Disable volume encryption to increase disk I/O performance." },
+      { id: 'B', text: "Store unencrypted EBS snapshots in public S3 buckets for backup purposes." },
+      { id: 'C', text: "Enable EBS Encryption by Default at the region/account level, specifying a customer-managed KMS key." },
+      { id: 'D', text: "Rely on developers to manually check the 'Encrypt' checkbox when launching every EC2 instance." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable EBS Encryption by Default at the region/account level, specifying a customer-managed KMS key. Enabling EBS Encryption by Default ensures that all new EBS volumes and snapshot copies created in that region are encrypted using the specified KMS key. Any attempt to create an unencrypted volume is automatically converted to an encrypted volume, guaranteeing compliance.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default",
@@ -219,12 +219,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to encrypt an existing unencrypted Amazon Aurora PostgreSQL cluster in production with zero data loss.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Export all database tables to unencrypted CSV files on developer laptops and re-import them." },
+      { id: 'A', text: "It is impossible to encrypt an existing RDS database without writing custom application-layer encryption." },
       { id: 'B', text: "Run an in-place `ALTER DATABASE ENCRYPT` SQL query on the live production cluster." },
-      { id: 'C', text: "It is impossible to encrypt an existing RDS database without writing custom application-layer encryption." },
-      { id: 'D', text: "Take a snapshot of the unencrypted cluster, copy the snapshot while specifying a KMS CMK to encrypt it, and restore a new cluster from the encrypted snapshot." }
+      { id: 'C', text: "Take a snapshot of the unencrypted cluster, copy the snapshot while specifying a KMS CMK to encrypt it, and restore a new cluster from the encrypted snapshot." },
+      { id: 'D', text: "Export all database tables to unencrypted CSV files on developer laptops and re-import them." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Take a snapshot of the unencrypted cluster, copy the snapshot while specifying a KMS CMK to encrypt it, and restore a new cluster from the encrypted snapshot. Amazon RDS and Aurora storage cannot be encrypted after creation in-place. The official migration workflow requires: 1) creating a manual snapshot of the unencrypted database, 2) copying the snapshot while specifying a KMS encryption key, and 3) restoring a new encrypted cluster from the encrypted snapshot.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html#Overview.Encryption.Enabling",
@@ -240,12 +240,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to encrypt an existing unencrypted Amazon Aurora PostgreSQL cluster in production with zero data loss.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "It is impossible to encrypt an existing RDS database without writing custom application-layer encryption." },
-      { id: 'B', text: "Take a snapshot of the unencrypted cluster, copy the snapshot while specifying a KMS CMK to encrypt it, and restore a new cluster from the encrypted snapshot." },
+      { id: 'A', text: "Run an in-place `ALTER DATABASE ENCRYPT` SQL query on the live production cluster." },
+      { id: 'B', text: "It is impossible to encrypt an existing RDS database without writing custom application-layer encryption." },
       { id: 'C', text: "Export all database tables to unencrypted CSV files on developer laptops and re-import them." },
-      { id: 'D', text: "Run an in-place `ALTER DATABASE ENCRYPT` SQL query on the live production cluster." }
+      { id: 'D', text: "Take a snapshot of the unencrypted cluster, copy the snapshot while specifying a KMS CMK to encrypt it, and restore a new cluster from the encrypted snapshot." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Take a snapshot of the unencrypted cluster, copy the snapshot while specifying a KMS CMK to encrypt it, and restore a new cluster from the encrypted snapshot. Amazon RDS and Aurora storage cannot be encrypted after creation in-place. The official migration workflow requires: 1) creating a manual snapshot of the unencrypted database, 2) copying the snapshot while specifying a KMS encryption key, and 3) restoring a new encrypted cluster from the encrypted snapshot.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html#Overview.Encryption.Enabling",
@@ -261,12 +261,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to encrypt an existing unencrypted Amazon Aurora PostgreSQL cluster in production with zero data loss.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "It is impossible to encrypt an existing RDS database without writing custom application-layer encryption." },
-      { id: 'B', text: "Take a snapshot of the unencrypted cluster, copy the snapshot while specifying a KMS CMK to encrypt it, and restore a new cluster from the encrypted snapshot." },
+      { id: 'A', text: "Run an in-place `ALTER DATABASE ENCRYPT` SQL query on the live production cluster." },
+      { id: 'B', text: "It is impossible to encrypt an existing RDS database without writing custom application-layer encryption." },
       { id: 'C', text: "Export all database tables to unencrypted CSV files on developer laptops and re-import them." },
-      { id: 'D', text: "Run an in-place `ALTER DATABASE ENCRYPT` SQL query on the live production cluster." }
+      { id: 'D', text: "Take a snapshot of the unencrypted cluster, copy the snapshot while specifying a KMS CMK to encrypt it, and restore a new cluster from the encrypted snapshot." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Take a snapshot of the unencrypted cluster, copy the snapshot while specifying a KMS CMK to encrypt it, and restore a new cluster from the encrypted snapshot. Amazon RDS and Aurora storage cannot be encrypted after creation in-place. The official migration workflow requires: 1) creating a manual snapshot of the unencrypted database, 2) copying the snapshot while specifying a KMS encryption key, and 3) restoring a new encrypted cluster from the encrypted snapshot.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html#Overview.Encryption.Enabling",
@@ -282,12 +282,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to encrypt an existing unencrypted Amazon Aurora PostgreSQL cluster in production with zero data loss.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Run an in-place `ALTER DATABASE ENCRYPT` SQL query on the live production cluster." },
-      { id: 'B', text: "Export all database tables to unencrypted CSV files on developer laptops and re-import them." },
-      { id: 'C', text: "Take a snapshot of the unencrypted cluster, copy the snapshot while specifying a KMS CMK to encrypt it, and restore a new cluster from the encrypted snapshot." },
+      { id: 'A', text: "Export all database tables to unencrypted CSV files on developer laptops and re-import them." },
+      { id: 'B', text: "Take a snapshot of the unencrypted cluster, copy the snapshot while specifying a KMS CMK to encrypt it, and restore a new cluster from the encrypted snapshot." },
+      { id: 'C', text: "Run an in-place `ALTER DATABASE ENCRYPT` SQL query on the live production cluster." },
       { id: 'D', text: "It is impossible to encrypt an existing RDS database without writing custom application-layer encryption." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Take a snapshot of the unencrypted cluster, copy the snapshot while specifying a KMS CMK to encrypt it, and restore a new cluster from the encrypted snapshot. Amazon RDS and Aurora storage cannot be encrypted after creation in-place. The official migration workflow requires: 1) creating a manual snapshot of the unencrypted database, 2) copying the snapshot while specifying a KMS encryption key, and 3) restoring a new encrypted cluster from the encrypted snapshot.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html#Overview.Encryption.Enabling",
@@ -303,12 +303,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to encrypt an existing unencrypted Amazon Aurora PostgreSQL cluster in production with zero data loss.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Export all database tables to unencrypted CSV files on developer laptops and re-import them." },
-      { id: 'B', text: "It is impossible to encrypt an existing RDS database without writing custom application-layer encryption." },
-      { id: 'C', text: "Run an in-place `ALTER DATABASE ENCRYPT` SQL query on the live production cluster." },
-      { id: 'D', text: "Take a snapshot of the unencrypted cluster, copy the snapshot while specifying a KMS CMK to encrypt it, and restore a new cluster from the encrypted snapshot." }
+      { id: 'A', text: "Run an in-place `ALTER DATABASE ENCRYPT` SQL query on the live production cluster." },
+      { id: 'B', text: "Take a snapshot of the unencrypted cluster, copy the snapshot while specifying a KMS CMK to encrypt it, and restore a new cluster from the encrypted snapshot." },
+      { id: 'C', text: "It is impossible to encrypt an existing RDS database without writing custom application-layer encryption." },
+      { id: 'D', text: "Export all database tables to unencrypted CSV files on developer laptops and re-import them." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Take a snapshot of the unencrypted cluster, copy the snapshot while specifying a KMS CMK to encrypt it, and restore a new cluster from the encrypted snapshot. Amazon RDS and Aurora storage cannot be encrypted after creation in-place. The official migration workflow requires: 1) creating a manual snapshot of the unencrypted database, 2) copying the snapshot while specifying a KMS encryption key, and 3) restoring a new encrypted cluster from the encrypted snapshot.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html#Overview.Encryption.Enabling",
@@ -324,12 +324,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to enforce mandatory organizational security baselines automatically whenever a new AWS account is vended to a development team.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Disable organizational landing zones to minimize AWS management fees." },
-      { id: 'B', text: "Allow developers to create standalone personal AWS accounts with corporate credit cards." },
-      { id: 'C', text: "Deploy AWS Control Tower, establishing a multi-account Landing Zone with mandatory preventive SCPs and detective Config guardrails." },
-      { id: 'D', text: "Manually configure security settings, IAM roles, and logging on each new account using interactive console clicks." }
+      { id: 'A', text: "Manually configure security settings, IAM roles, and logging on each new account using interactive console clicks." },
+      { id: 'B', text: "Deploy AWS Control Tower, establishing a multi-account Landing Zone with mandatory preventive SCPs and detective Config guardrails." },
+      { id: 'C', text: "Disable organizational landing zones to minimize AWS management fees." },
+      { id: 'D', text: "Allow developers to create standalone personal AWS accounts with corporate credit cards." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy AWS Control Tower, establishing a multi-account Landing Zone with mandatory preventive SCPs and detective Config guardrails. AWS Control Tower automates multi-account governance. It provisions an Account Factory to vend standardized accounts with baseline security: preventive guardrails (enforced by Service Control Policies) and detective guardrails (monitored by AWS Config rules) ensure continuous compliance.",
     referenceUrl: "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
@@ -345,12 +345,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to enforce mandatory organizational security baselines automatically whenever a new AWS account is vended to a development team.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Manually configure security settings, IAM roles, and logging on each new account using interactive console clicks." },
-      { id: 'B', text: "Deploy AWS Control Tower, establishing a multi-account Landing Zone with mandatory preventive SCPs and detective Config guardrails." },
+      { id: 'A', text: "Deploy AWS Control Tower, establishing a multi-account Landing Zone with mandatory preventive SCPs and detective Config guardrails." },
+      { id: 'B', text: "Manually configure security settings, IAM roles, and logging on each new account using interactive console clicks." },
       { id: 'C', text: "Allow developers to create standalone personal AWS accounts with corporate credit cards." },
       { id: 'D', text: "Disable organizational landing zones to minimize AWS management fees." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy AWS Control Tower, establishing a multi-account Landing Zone with mandatory preventive SCPs and detective Config guardrails. AWS Control Tower automates multi-account governance. It provisions an Account Factory to vend standardized accounts with baseline security: preventive guardrails (enforced by Service Control Policies) and detective guardrails (monitored by AWS Config rules) ensure continuous compliance.",
     referenceUrl: "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
@@ -366,12 +366,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to enforce mandatory organizational security baselines automatically whenever a new AWS account is vended to a development team.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Manually configure security settings, IAM roles, and logging on each new account using interactive console clicks." },
-      { id: 'B', text: "Deploy AWS Control Tower, establishing a multi-account Landing Zone with mandatory preventive SCPs and detective Config guardrails." },
+      { id: 'A', text: "Deploy AWS Control Tower, establishing a multi-account Landing Zone with mandatory preventive SCPs and detective Config guardrails." },
+      { id: 'B', text: "Manually configure security settings, IAM roles, and logging on each new account using interactive console clicks." },
       { id: 'C', text: "Allow developers to create standalone personal AWS accounts with corporate credit cards." },
       { id: 'D', text: "Disable organizational landing zones to minimize AWS management fees." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy AWS Control Tower, establishing a multi-account Landing Zone with mandatory preventive SCPs and detective Config guardrails. AWS Control Tower automates multi-account governance. It provisions an Account Factory to vend standardized accounts with baseline security: preventive guardrails (enforced by Service Control Policies) and detective guardrails (monitored by AWS Config rules) ensure continuous compliance.",
     referenceUrl: "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
@@ -387,12 +387,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to enforce mandatory organizational security baselines automatically whenever a new AWS account is vended to a development team.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Manually configure security settings, IAM roles, and logging on each new account using interactive console clicks." },
-      { id: 'B', text: "Disable organizational landing zones to minimize AWS management fees." },
-      { id: 'C', text: "Deploy AWS Control Tower, establishing a multi-account Landing Zone with mandatory preventive SCPs and detective Config guardrails." },
-      { id: 'D', text: "Allow developers to create standalone personal AWS accounts with corporate credit cards." }
+      { id: 'A', text: "Disable organizational landing zones to minimize AWS management fees." },
+      { id: 'B', text: "Allow developers to create standalone personal AWS accounts with corporate credit cards." },
+      { id: 'C', text: "Manually configure security settings, IAM roles, and logging on each new account using interactive console clicks." },
+      { id: 'D', text: "Deploy AWS Control Tower, establishing a multi-account Landing Zone with mandatory preventive SCPs and detective Config guardrails." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy AWS Control Tower, establishing a multi-account Landing Zone with mandatory preventive SCPs and detective Config guardrails. AWS Control Tower automates multi-account governance. It provisions an Account Factory to vend standardized accounts with baseline security: preventive guardrails (enforced by Service Control Policies) and detective guardrails (monitored by AWS Config rules) ensure continuous compliance.",
     referenceUrl: "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
@@ -408,12 +408,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to enforce mandatory organizational security baselines automatically whenever a new AWS account is vended to a development team.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Allow developers to create standalone personal AWS accounts with corporate credit cards." },
-      { id: 'B', text: "Deploy AWS Control Tower, establishing a multi-account Landing Zone with mandatory preventive SCPs and detective Config guardrails." },
-      { id: 'C', text: "Manually configure security settings, IAM roles, and logging on each new account using interactive console clicks." },
+      { id: 'A', text: "Manually configure security settings, IAM roles, and logging on each new account using interactive console clicks." },
+      { id: 'B', text: "Allow developers to create standalone personal AWS accounts with corporate credit cards." },
+      { id: 'C', text: "Deploy AWS Control Tower, establishing a multi-account Landing Zone with mandatory preventive SCPs and detective Config guardrails." },
       { id: 'D', text: "Disable organizational landing zones to minimize AWS management fees." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy AWS Control Tower, establishing a multi-account Landing Zone with mandatory preventive SCPs and detective Config guardrails. AWS Control Tower automates multi-account governance. It provisions an Account Factory to vend standardized accounts with baseline security: preventive guardrails (enforced by Service Control Policies) and detective guardrails (monitored by AWS Config rules) ensure continuous compliance.",
     referenceUrl: "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
@@ -429,12 +429,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to demonstrate compliance with the CIS AWS Foundations Benchmark across 150 enterprise accounts using automated conformance packs.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Disable compliance monitoring to prevent generating non-compliance alerts." },
-      { id: 'B', text: "Deploy the CIS AWS Foundations Conformance Pack across the organization using the Organizations management account." },
-      { id: 'C', text: "Manually create 50 individual Config rules in each of the 150 accounts." },
-      { id: 'D', text: "Falsify regulatory compliance reports and submit them to external auditors." }
+      { id: 'A', text: "Falsify regulatory compliance reports and submit them to external auditors." },
+      { id: 'B', text: "Disable compliance monitoring to prevent generating non-compliance alerts." },
+      { id: 'C', text: "Deploy the CIS AWS Foundations Conformance Pack across the organization using the Organizations management account." },
+      { id: 'D', text: "Manually create 50 individual Config rules in each of the 150 accounts." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy the CIS AWS Foundations Conformance Pack across the organization using the Organizations management account. AWS Config Conformance Packs are collections of AWS Config rules and remediation documents packaged into a single YAML template. Security teams deploy organization conformance packs from the management account, automatically enforcing regulatory frameworks (CIS, PCI-DSS, HIPAA) across all member accounts.",
     referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html",
@@ -450,12 +450,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to demonstrate compliance with the CIS AWS Foundations Benchmark across 150 enterprise accounts using automated conformance packs.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Falsify regulatory compliance reports and submit them to external auditors." },
+      { id: 'A', text: "Disable compliance monitoring to prevent generating non-compliance alerts." },
       { id: 'B', text: "Manually create 50 individual Config rules in each of the 150 accounts." },
-      { id: 'C', text: "Disable compliance monitoring to prevent generating non-compliance alerts." },
-      { id: 'D', text: "Deploy the CIS AWS Foundations Conformance Pack across the organization using the Organizations management account." }
+      { id: 'C', text: "Deploy the CIS AWS Foundations Conformance Pack across the organization using the Organizations management account." },
+      { id: 'D', text: "Falsify regulatory compliance reports and submit them to external auditors." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy the CIS AWS Foundations Conformance Pack across the organization using the Organizations management account. AWS Config Conformance Packs are collections of AWS Config rules and remediation documents packaged into a single YAML template. Security teams deploy organization conformance packs from the management account, automatically enforcing regulatory frameworks (CIS, PCI-DSS, HIPAA) across all member accounts.",
     referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html",
@@ -471,12 +471,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to demonstrate compliance with the CIS AWS Foundations Benchmark across 150 enterprise accounts using automated conformance packs.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Disable compliance monitoring to prevent generating non-compliance alerts." },
+      { id: 'A', text: "Falsify regulatory compliance reports and submit them to external auditors." },
       { id: 'B', text: "Manually create 50 individual Config rules in each of the 150 accounts." },
-      { id: 'C', text: "Deploy the CIS AWS Foundations Conformance Pack across the organization using the Organizations management account." },
-      { id: 'D', text: "Falsify regulatory compliance reports and submit them to external auditors." }
+      { id: 'C', text: "Disable compliance monitoring to prevent generating non-compliance alerts." },
+      { id: 'D', text: "Deploy the CIS AWS Foundations Conformance Pack across the organization using the Organizations management account." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy the CIS AWS Foundations Conformance Pack across the organization using the Organizations management account. AWS Config Conformance Packs are collections of AWS Config rules and remediation documents packaged into a single YAML template. Security teams deploy organization conformance packs from the management account, automatically enforcing regulatory frameworks (CIS, PCI-DSS, HIPAA) across all member accounts.",
     referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html",
@@ -492,12 +492,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to demonstrate compliance with the CIS AWS Foundations Benchmark across 150 enterprise accounts using automated conformance packs.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Disable compliance monitoring to prevent generating non-compliance alerts." },
+      { id: 'A', text: "Falsify regulatory compliance reports and submit them to external auditors." },
       { id: 'B', text: "Manually create 50 individual Config rules in each of the 150 accounts." },
-      { id: 'C', text: "Deploy the CIS AWS Foundations Conformance Pack across the organization using the Organizations management account." },
-      { id: 'D', text: "Falsify regulatory compliance reports and submit them to external auditors." }
+      { id: 'C', text: "Disable compliance monitoring to prevent generating non-compliance alerts." },
+      { id: 'D', text: "Deploy the CIS AWS Foundations Conformance Pack across the organization using the Organizations management account." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy the CIS AWS Foundations Conformance Pack across the organization using the Organizations management account. AWS Config Conformance Packs are collections of AWS Config rules and remediation documents packaged into a single YAML template. Security teams deploy organization conformance packs from the management account, automatically enforcing regulatory frameworks (CIS, PCI-DSS, HIPAA) across all member accounts.",
     referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html",
@@ -513,12 +513,12 @@ export const AWS_SCS_QUESTIONS_19 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to demonstrate compliance with the CIS AWS Foundations Benchmark across 150 enterprise accounts using automated conformance packs.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Disable compliance monitoring to prevent generating non-compliance alerts." },
-      { id: 'B', text: "Falsify regulatory compliance reports and submit them to external auditors." },
-      { id: 'C', text: "Deploy the CIS AWS Foundations Conformance Pack across the organization using the Organizations management account." },
-      { id: 'D', text: "Manually create 50 individual Config rules in each of the 150 accounts." }
+      { id: 'A', text: "Manually create 50 individual Config rules in each of the 150 accounts." },
+      { id: 'B', text: "Deploy the CIS AWS Foundations Conformance Pack across the organization using the Organizations management account." },
+      { id: 'C', text: "Disable compliance monitoring to prevent generating non-compliance alerts." },
+      { id: 'D', text: "Falsify regulatory compliance reports and submit them to external auditors." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy the CIS AWS Foundations Conformance Pack across the organization using the Organizations management account. AWS Config Conformance Packs are collections of AWS Config rules and remediation documents packaged into a single YAML template. Security teams deploy organization conformance packs from the management account, automatically enforcing regulatory frameworks (CIS, PCI-DSS, HIPAA) across all member accounts.",
     referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html",

@@ -9,12 +9,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to understand how Terraform communicates with diverse cloud APIs (AWS, Azure, GCP, GitHub, Datadog) through a unified workflow.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Terraform Core has hardcoded API integration code for all cloud providers inside a single monolithic binary." },
-      { id: 'B', text: "Terraform Core evaluates HCL configurations and dependency graphs, communicating with external Provider plugins over gRPC." },
-      { id: 'C', text: "Terraform executes raw bash scripts to talk to cloud APIs." },
-      { id: 'D', text: "Providers run as web services in the cloud, while Terraform Core runs locally without plugins." }
+      { id: 'A', text: "Terraform Core evaluates HCL configurations and dependency graphs, communicating with external Provider plugins over gRPC." },
+      { id: 'B', text: "Terraform Core has hardcoded API integration code for all cloud providers inside a single monolithic binary." },
+      { id: 'C', text: "Providers run as web services in the cloud, while Terraform Core runs locally without plugins." },
+      { id: 'D', text: "Terraform executes raw bash scripts to talk to cloud APIs." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Terraform Core evaluates HCL configurations and dependency graphs, communicating with external Provider plugins over gRPC. Terraform uses a plugin-based architecture. Terraform Core manages the configuration parser, dependency graph, and state management, while standalone Provider binaries (plugins) translate Terraform resource CRUD requests into actual vendor API calls over gRPC.",
     referenceUrl: "https://developer.hashicorp.com/terraform/plugin/how-terraform-works",
@@ -30,12 +30,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to understand how Terraform communicates with diverse cloud APIs (AWS, Azure, GCP, GitHub, Datadog) through a unified workflow.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Terraform executes raw bash scripts to talk to cloud APIs." },
-      { id: 'B', text: "Terraform Core evaluates HCL configurations and dependency graphs, communicating with external Provider plugins over gRPC." },
-      { id: 'C', text: "Terraform Core has hardcoded API integration code for all cloud providers inside a single monolithic binary." },
-      { id: 'D', text: "Providers run as web services in the cloud, while Terraform Core runs locally without plugins." }
+      { id: 'A', text: "Providers run as web services in the cloud, while Terraform Core runs locally without plugins." },
+      { id: 'B', text: "Terraform executes raw bash scripts to talk to cloud APIs." },
+      { id: 'C', text: "Terraform Core evaluates HCL configurations and dependency graphs, communicating with external Provider plugins over gRPC." },
+      { id: 'D', text: "Terraform Core has hardcoded API integration code for all cloud providers inside a single monolithic binary." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Terraform Core evaluates HCL configurations and dependency graphs, communicating with external Provider plugins over gRPC. Terraform uses a plugin-based architecture. Terraform Core manages the configuration parser, dependency graph, and state management, while standalone Provider binaries (plugins) translate Terraform resource CRUD requests into actual vendor API calls over gRPC.",
     referenceUrl: "https://developer.hashicorp.com/terraform/plugin/how-terraform-works",
@@ -52,9 +52,9 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Terraform Core evaluates HCL configurations and dependency graphs, communicating with external Provider plugins over gRPC." },
-      { id: 'B', text: "Terraform executes raw bash scripts to talk to cloud APIs." },
-      { id: 'C', text: "Terraform Core has hardcoded API integration code for all cloud providers inside a single monolithic binary." },
-      { id: 'D', text: "Providers run as web services in the cloud, while Terraform Core runs locally without plugins." }
+      { id: 'B', text: "Providers run as web services in the cloud, while Terraform Core runs locally without plugins." },
+      { id: 'C', text: "Terraform executes raw bash scripts to talk to cloud APIs." },
+      { id: 'D', text: "Terraform Core has hardcoded API integration code for all cloud providers inside a single monolithic binary." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,12 +72,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to understand how Terraform communicates with diverse cloud APIs (AWS, Azure, GCP, GitHub, Datadog) through a unified workflow.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Providers run as web services in the cloud, while Terraform Core runs locally without plugins." },
+      { id: 'A', text: "Terraform executes raw bash scripts to talk to cloud APIs." },
       { id: 'B', text: "Terraform Core has hardcoded API integration code for all cloud providers inside a single monolithic binary." },
-      { id: 'C', text: "Terraform executes raw bash scripts to talk to cloud APIs." },
-      { id: 'D', text: "Terraform Core evaluates HCL configurations and dependency graphs, communicating with external Provider plugins over gRPC." }
+      { id: 'C', text: "Terraform Core evaluates HCL configurations and dependency graphs, communicating with external Provider plugins over gRPC." },
+      { id: 'D', text: "Providers run as web services in the cloud, while Terraform Core runs locally without plugins." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Terraform Core evaluates HCL configurations and dependency graphs, communicating with external Provider plugins over gRPC. Terraform uses a plugin-based architecture. Terraform Core manages the configuration parser, dependency graph, and state management, while standalone Provider binaries (plugins) translate Terraform resource CRUD requests into actual vendor API calls over gRPC.",
     referenceUrl: "https://developer.hashicorp.com/terraform/plugin/how-terraform-works",
@@ -93,12 +93,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to understand how Terraform communicates with diverse cloud APIs (AWS, Azure, GCP, GitHub, Datadog) through a unified workflow.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Terraform executes raw bash scripts to talk to cloud APIs." },
+      { id: 'A', text: "Providers run as web services in the cloud, while Terraform Core runs locally without plugins." },
       { id: 'B', text: "Terraform Core has hardcoded API integration code for all cloud providers inside a single monolithic binary." },
-      { id: 'C', text: "Terraform Core evaluates HCL configurations and dependency graphs, communicating with external Provider plugins over gRPC." },
-      { id: 'D', text: "Providers run as web services in the cloud, while Terraform Core runs locally without plugins." }
+      { id: 'C', text: "Terraform executes raw bash scripts to talk to cloud APIs." },
+      { id: 'D', text: "Terraform Core evaluates HCL configurations and dependency graphs, communicating with external Provider plugins over gRPC." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Terraform Core evaluates HCL configurations and dependency graphs, communicating with external Provider plugins over gRPC. Terraform uses a plugin-based architecture. Terraform Core manages the configuration parser, dependency graph, and state management, while standalone Provider binaries (plugins) translate Terraform resource CRUD requests into actual vendor API calls over gRPC.",
     referenceUrl: "https://developer.hashicorp.com/terraform/plugin/how-terraform-works",
@@ -114,12 +114,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to ensure that a Terraform project always uses a specific, tested version of the AWS provider and avoids breaking changes from major provider updates.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Omit provider declarations and let Terraform download random versions on every run." },
-      { id: 'B', text: "Hardcode the provider binary file inside the Git repository." },
-      { id: 'C', text: "Use version constraint `&gt;= 1.0` allowing all future major breaking changes." },
-      { id: 'D', text: "Declare the provider in `terraform.required_providers` with source address (`hashicorp/aws`) and pessimistic version constraint (e.g., `~&gt; 5.0`)." }
+      { id: 'A', text: "Hardcode the provider binary file inside the Git repository." },
+      { id: 'B', text: "Use version constraint `&gt;= 1.0` allowing all future major breaking changes." },
+      { id: 'C', text: "Declare the provider in `terraform.required_providers` with source address (`hashicorp/aws`) and pessimistic version constraint (e.g., `~&gt; 5.0`)." },
+      { id: 'D', text: "Omit provider declarations and let Terraform download random versions on every run." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Declare the provider in `terraform.required_providers` with source address (`hashicorp/aws`) and pessimistic version constraint (e.g., `~&gt; 5.0`). The `required_providers` block inside `terraform {}` specifies the global source address (e.g., `hashicorp/aws`) and version constraints for each provider. Using the pessimistic operator (`~&gt; 5.0`) allows backward-compatible minor/patch updates while preventing breaking major version upgrades.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/providers/requirements",
@@ -135,12 +135,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to ensure that a Terraform project always uses a specific, tested version of the AWS provider and avoids breaking changes from major provider updates.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Use version constraint `&gt;= 1.0` allowing all future major breaking changes." },
+      { id: 'A', text: "Hardcode the provider binary file inside the Git repository." },
       { id: 'B', text: "Omit provider declarations and let Terraform download random versions on every run." },
-      { id: 'C', text: "Declare the provider in `terraform.required_providers` with source address (`hashicorp/aws`) and pessimistic version constraint (e.g., `~&gt; 5.0`)." },
-      { id: 'D', text: "Hardcode the provider binary file inside the Git repository." }
+      { id: 'C', text: "Use version constraint `&gt;= 1.0` allowing all future major breaking changes." },
+      { id: 'D', text: "Declare the provider in `terraform.required_providers` with source address (`hashicorp/aws`) and pessimistic version constraint (e.g., `~&gt; 5.0`)." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Declare the provider in `terraform.required_providers` with source address (`hashicorp/aws`) and pessimistic version constraint (e.g., `~&gt; 5.0`). The `required_providers` block inside `terraform {}` specifies the global source address (e.g., `hashicorp/aws`) and version constraints for each provider. Using the pessimistic operator (`~&gt; 5.0`) allows backward-compatible minor/patch updates while preventing breaking major version upgrades.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/providers/requirements",
@@ -156,12 +156,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to ensure that a Terraform project always uses a specific, tested version of the AWS provider and avoids breaking changes from major provider updates.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Omit provider declarations and let Terraform download random versions on every run." },
-      { id: 'B', text: "Use version constraint `&gt;= 1.0` allowing all future major breaking changes." },
+      { id: 'A', text: "Use version constraint `&gt;= 1.0` allowing all future major breaking changes." },
+      { id: 'B', text: "Declare the provider in `terraform.required_providers` with source address (`hashicorp/aws`) and pessimistic version constraint (e.g., `~&gt; 5.0`)." },
       { id: 'C', text: "Hardcode the provider binary file inside the Git repository." },
-      { id: 'D', text: "Declare the provider in `terraform.required_providers` with source address (`hashicorp/aws`) and pessimistic version constraint (e.g., `~&gt; 5.0`)." }
+      { id: 'D', text: "Omit provider declarations and let Terraform download random versions on every run." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Declare the provider in `terraform.required_providers` with source address (`hashicorp/aws`) and pessimistic version constraint (e.g., `~&gt; 5.0`). The `required_providers` block inside `terraform {}` specifies the global source address (e.g., `hashicorp/aws`) and version constraints for each provider. Using the pessimistic operator (`~&gt; 5.0`) allows backward-compatible minor/patch updates while preventing breaking major version upgrades.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/providers/requirements",
@@ -177,12 +177,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to ensure that a Terraform project always uses a specific, tested version of the AWS provider and avoids breaking changes from major provider updates.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use version constraint `&gt;= 1.0` allowing all future major breaking changes." },
-      { id: 'B', text: "Hardcode the provider binary file inside the Git repository." },
-      { id: 'C', text: "Declare the provider in `terraform.required_providers` with source address (`hashicorp/aws`) and pessimistic version constraint (e.g., `~&gt; 5.0`)." },
-      { id: 'D', text: "Omit provider declarations and let Terraform download random versions on every run." }
+      { id: 'A', text: "Omit provider declarations and let Terraform download random versions on every run." },
+      { id: 'B', text: "Declare the provider in `terraform.required_providers` with source address (`hashicorp/aws`) and pessimistic version constraint (e.g., `~&gt; 5.0`)." },
+      { id: 'C', text: "Use version constraint `&gt;= 1.0` allowing all future major breaking changes." },
+      { id: 'D', text: "Hardcode the provider binary file inside the Git repository." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Declare the provider in `terraform.required_providers` with source address (`hashicorp/aws`) and pessimistic version constraint (e.g., `~&gt; 5.0`). The `required_providers` block inside `terraform {}` specifies the global source address (e.g., `hashicorp/aws`) and version constraints for each provider. Using the pessimistic operator (`~&gt; 5.0`) allows backward-compatible minor/patch updates while preventing breaking major version upgrades.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/providers/requirements",
@@ -198,12 +198,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to ensure that a Terraform project always uses a specific, tested version of the AWS provider and avoids breaking changes from major provider updates.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Omit provider declarations and let Terraform download random versions on every run." },
-      { id: 'B', text: "Declare the provider in `terraform.required_providers` with source address (`hashicorp/aws`) and pessimistic version constraint (e.g., `~&gt; 5.0`)." },
-      { id: 'C', text: "Use version constraint `&gt;= 1.0` allowing all future major breaking changes." },
-      { id: 'D', text: "Hardcode the provider binary file inside the Git repository." }
+      { id: 'A', text: "Declare the provider in `terraform.required_providers` with source address (`hashicorp/aws`) and pessimistic version constraint (e.g., `~&gt; 5.0`)." },
+      { id: 'B', text: "Omit provider declarations and let Terraform download random versions on every run." },
+      { id: 'C', text: "Hardcode the provider binary file inside the Git repository." },
+      { id: 'D', text: "Use version constraint `&gt;= 1.0` allowing all future major breaking changes." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Declare the provider in `terraform.required_providers` with source address (`hashicorp/aws`) and pessimistic version constraint (e.g., `~&gt; 5.0`). The `required_providers` block inside `terraform {}` specifies the global source address (e.g., `hashicorp/aws`) and version constraints for each provider. Using the pessimistic operator (`~&gt; 5.0`) allows backward-compatible minor/patch updates while preventing breaking major version upgrades.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/providers/requirements",
@@ -219,12 +219,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to ensure that a security group is created before an EC2 instance that references its ID without writing explicit dependency directives.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Put the security group in a completely separate Terraform workspace." },
+      { id: 'A', text: "Run `terraform apply` twice in a row hoping the second run succeeds." },
       { id: 'B', text: "Add an explicit `depends_on = [aws_security_group.web]` on every single resource." },
-      { id: 'C', text: "Run `terraform apply` twice in a row hoping the second run succeeds." },
-      { id: 'D', text: "Reference the security group attribute directly in the EC2 instance block (e.g., `vpc_security_group_ids = [aws_security_group.web.id]`)." }
+      { id: 'C', text: "Reference the security group attribute directly in the EC2 instance block (e.g., `vpc_security_group_ids = [aws_security_group.web.id]`)." },
+      { id: 'D', text: "Put the security group in a completely separate Terraform workspace." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Reference the security group attribute directly in the EC2 instance block (e.g., `vpc_security_group_ids = [aws_security_group.web.id]`). Terraform builds a Directed Acyclic Graph (DAG) of all resources. Referencing an attribute of one resource in another (e.g., `aws_security_group.web.id`) creates an implicit dependency, instructing Terraform to automatically provision the referenced resource first without requiring manual `depends_on` blocks.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/resources/behavior#resource-dependencies",
@@ -240,12 +240,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to ensure that a security group is created before an EC2 instance that references its ID without writing explicit dependency directives.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Run `terraform apply` twice in a row hoping the second run succeeds." },
-      { id: 'B', text: "Put the security group in a completely separate Terraform workspace." },
-      { id: 'C', text: "Add an explicit `depends_on = [aws_security_group.web]` on every single resource." },
-      { id: 'D', text: "Reference the security group attribute directly in the EC2 instance block (e.g., `vpc_security_group_ids = [aws_security_group.web.id]`)." }
+      { id: 'A', text: "Reference the security group attribute directly in the EC2 instance block (e.g., `vpc_security_group_ids = [aws_security_group.web.id]`)." },
+      { id: 'B', text: "Add an explicit `depends_on = [aws_security_group.web]` on every single resource." },
+      { id: 'C', text: "Put the security group in a completely separate Terraform workspace." },
+      { id: 'D', text: "Run `terraform apply` twice in a row hoping the second run succeeds." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Reference the security group attribute directly in the EC2 instance block (e.g., `vpc_security_group_ids = [aws_security_group.web.id]`). Terraform builds a Directed Acyclic Graph (DAG) of all resources. Referencing an attribute of one resource in another (e.g., `aws_security_group.web.id`) creates an implicit dependency, instructing Terraform to automatically provision the referenced resource first without requiring manual `depends_on` blocks.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/resources/behavior#resource-dependencies",
@@ -263,8 +263,8 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Reference the security group attribute directly in the EC2 instance block (e.g., `vpc_security_group_ids = [aws_security_group.web.id]`)." },
       { id: 'B', text: "Add an explicit `depends_on = [aws_security_group.web]` on every single resource." },
-      { id: 'C', text: "Run `terraform apply` twice in a row hoping the second run succeeds." },
-      { id: 'D', text: "Put the security group in a completely separate Terraform workspace." }
+      { id: 'C', text: "Put the security group in a completely separate Terraform workspace." },
+      { id: 'D', text: "Run `terraform apply` twice in a row hoping the second run succeeds." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,12 +282,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to ensure that a security group is created before an EC2 instance that references its ID without writing explicit dependency directives.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Run `terraform apply` twice in a row hoping the second run succeeds." },
-      { id: 'B', text: "Reference the security group attribute directly in the EC2 instance block (e.g., `vpc_security_group_ids = [aws_security_group.web.id]`)." },
+      { id: 'A', text: "Add an explicit `depends_on = [aws_security_group.web]` on every single resource." },
+      { id: 'B', text: "Run `terraform apply` twice in a row hoping the second run succeeds." },
       { id: 'C', text: "Put the security group in a completely separate Terraform workspace." },
-      { id: 'D', text: "Add an explicit `depends_on = [aws_security_group.web]` on every single resource." }
+      { id: 'D', text: "Reference the security group attribute directly in the EC2 instance block (e.g., `vpc_security_group_ids = [aws_security_group.web.id]`)." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Reference the security group attribute directly in the EC2 instance block (e.g., `vpc_security_group_ids = [aws_security_group.web.id]`). Terraform builds a Directed Acyclic Graph (DAG) of all resources. Referencing an attribute of one resource in another (e.g., `aws_security_group.web.id`) creates an implicit dependency, instructing Terraform to automatically provision the referenced resource first without requiring manual `depends_on` blocks.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/resources/behavior#resource-dependencies",
@@ -303,12 +303,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to ensure that a security group is created before an EC2 instance that references its ID without writing explicit dependency directives.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Run `terraform apply` twice in a row hoping the second run succeeds." },
-      { id: 'B', text: "Reference the security group attribute directly in the EC2 instance block (e.g., `vpc_security_group_ids = [aws_security_group.web.id]`)." },
+      { id: 'A', text: "Add an explicit `depends_on = [aws_security_group.web]` on every single resource." },
+      { id: 'B', text: "Run `terraform apply` twice in a row hoping the second run succeeds." },
       { id: 'C', text: "Put the security group in a completely separate Terraform workspace." },
-      { id: 'D', text: "Add an explicit `depends_on = [aws_security_group.web]` on every single resource." }
+      { id: 'D', text: "Reference the security group attribute directly in the EC2 instance block (e.g., `vpc_security_group_ids = [aws_security_group.web.id]`)." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Reference the security group attribute directly in the EC2 instance block (e.g., `vpc_security_group_ids = [aws_security_group.web.id]`). Terraform builds a Directed Acyclic Graph (DAG) of all resources. Referencing an attribute of one resource in another (e.g., `aws_security_group.web.id`) creates an implicit dependency, instructing Terraform to automatically provision the referenced resource first without requiring manual `depends_on` blocks.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/resources/behavior#resource-dependencies",
@@ -326,8 +326,8 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Specify `depends_on = [aws_iam_role_policy_attachment.app]` in the EC2 instance resource block." },
       { id: 'B', text: "Rely on implicit dependencies which cannot detect out-of-band relationships." },
-      { id: 'C', text: "Deploy the IAM policy attachment in a completely different AWS account." },
-      { id: 'D', text: "Insert a `sleep 60` command into the local operating system terminal." }
+      { id: 'C', text: "Insert a `sleep 60` command into the local operating system terminal." },
+      { id: 'D', text: "Deploy the IAM policy attachment in a completely different AWS account." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,12 +345,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to ensure an EC2 instance is not created until an IAM role policy attachment completes, even though the instance does not directly reference the policy attachment object.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Insert a `sleep 60` command into the local operating system terminal." },
+      { id: 'A', text: "Specify `depends_on = [aws_iam_role_policy_attachment.app]` in the EC2 instance resource block." },
       { id: 'B', text: "Rely on implicit dependencies which cannot detect out-of-band relationships." },
-      { id: 'C', text: "Specify `depends_on = [aws_iam_role_policy_attachment.app]` in the EC2 instance resource block." },
+      { id: 'C', text: "Insert a `sleep 60` command into the local operating system terminal." },
       { id: 'D', text: "Deploy the IAM policy attachment in a completely different AWS account." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Specify `depends_on = [aws_iam_role_policy_attachment.app]` in the EC2 instance resource block. The `depends_on` meta-argument defines explicit dependencies between resources. When resources have hidden or behavioral dependencies that are not expressed through direct attribute references (such as IAM permission propagation), `depends_on` forces Terraform to complete the dependency first.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on",
@@ -366,12 +366,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to ensure an EC2 instance is not created until an IAM role policy attachment completes, even though the instance does not directly reference the policy attachment object.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Insert a `sleep 60` command into the local operating system terminal." },
+      { id: 'A', text: "Specify `depends_on = [aws_iam_role_policy_attachment.app]` in the EC2 instance resource block." },
       { id: 'B', text: "Rely on implicit dependencies which cannot detect out-of-band relationships." },
-      { id: 'C', text: "Specify `depends_on = [aws_iam_role_policy_attachment.app]` in the EC2 instance resource block." },
+      { id: 'C', text: "Insert a `sleep 60` command into the local operating system terminal." },
       { id: 'D', text: "Deploy the IAM policy attachment in a completely different AWS account." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Specify `depends_on = [aws_iam_role_policy_attachment.app]` in the EC2 instance resource block. The `depends_on` meta-argument defines explicit dependencies between resources. When resources have hidden or behavioral dependencies that are not expressed through direct attribute references (such as IAM permission propagation), `depends_on` forces Terraform to complete the dependency first.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on",
@@ -387,12 +387,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to ensure an EC2 instance is not created until an IAM role policy attachment completes, even though the instance does not directly reference the policy attachment object.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Insert a `sleep 60` command into the local operating system terminal." },
-      { id: 'B', text: "Deploy the IAM policy attachment in a completely different AWS account." },
-      { id: 'C', text: "Rely on implicit dependencies which cannot detect out-of-band relationships." },
-      { id: 'D', text: "Specify `depends_on = [aws_iam_role_policy_attachment.app]` in the EC2 instance resource block." }
+      { id: 'A', text: "Rely on implicit dependencies which cannot detect out-of-band relationships." },
+      { id: 'B', text: "Specify `depends_on = [aws_iam_role_policy_attachment.app]` in the EC2 instance resource block." },
+      { id: 'C', text: "Deploy the IAM policy attachment in a completely different AWS account." },
+      { id: 'D', text: "Insert a `sleep 60` command into the local operating system terminal." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Specify `depends_on = [aws_iam_role_policy_attachment.app]` in the EC2 instance resource block. The `depends_on` meta-argument defines explicit dependencies between resources. When resources have hidden or behavioral dependencies that are not expressed through direct attribute references (such as IAM permission propagation), `depends_on` forces Terraform to complete the dependency first.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on",
@@ -409,9 +409,9 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Specify `depends_on = [aws_iam_role_policy_attachment.app]` in the EC2 instance resource block." },
-      { id: 'B', text: "Deploy the IAM policy attachment in a completely different AWS account." },
+      { id: 'B', text: "Rely on implicit dependencies which cannot detect out-of-band relationships." },
       { id: 'C', text: "Insert a `sleep 60` command into the local operating system terminal." },
-      { id: 'D', text: "Rely on implicit dependencies which cannot detect out-of-band relationships." }
+      { id: 'D', text: "Deploy the IAM policy attachment in a completely different AWS account." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -430,9 +430,9 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Terraform compares configuration against state and provider schemas; changing a 'ForceNew' attribute triggers resource destruction and recreation." },
-      { id: 'B', text: "The cloud provider console prompts the user interactively to decide whether to delete." },
+      { id: 'B', text: "Terraform always destroys and recreates every resource on every apply." },
       { id: 'C', text: "Terraform never destroys resources and only issues update API calls." },
-      { id: 'D', text: "Terraform always destroys and recreates every resource on every apply." }
+      { id: 'D', text: "The cloud provider console prompts the user interactively to decide whether to delete." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,12 +450,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to understand how Terraform determines whether an in-place update or a destructive replacement is required when modifying a resource property.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "The cloud provider console prompts the user interactively to decide whether to delete." },
-      { id: 'B', text: "Terraform compares configuration against state and provider schemas; changing a 'ForceNew' attribute triggers resource destruction and recreation." },
+      { id: 'A', text: "Terraform always destroys and recreates every resource on every apply." },
+      { id: 'B', text: "The cloud provider console prompts the user interactively to decide whether to delete." },
       { id: 'C', text: "Terraform never destroys resources and only issues update API calls." },
-      { id: 'D', text: "Terraform always destroys and recreates every resource on every apply." }
+      { id: 'D', text: "Terraform compares configuration against state and provider schemas; changing a 'ForceNew' attribute triggers resource destruction and recreation." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Terraform compares configuration against state and provider schemas; changing a 'ForceNew' attribute triggers resource destruction and recreation. Terraform resources follow CRUD lifecycles. Provider schemas define which attributes can be updated in-place (Update) and which attributes require recreating the resource (Delete followed by Create, marked as 'forces replacement' or `ForceNew` in execution plans).",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/resources/behavior",
@@ -471,12 +471,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to understand how Terraform determines whether an in-place update or a destructive replacement is required when modifying a resource property.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Terraform always destroys and recreates every resource on every apply." },
-      { id: 'B', text: "The cloud provider console prompts the user interactively to decide whether to delete." },
+      { id: 'A', text: "The cloud provider console prompts the user interactively to decide whether to delete." },
+      { id: 'B', text: "Terraform compares configuration against state and provider schemas; changing a 'ForceNew' attribute triggers resource destruction and recreation." },
       { id: 'C', text: "Terraform never destroys resources and only issues update API calls." },
-      { id: 'D', text: "Terraform compares configuration against state and provider schemas; changing a 'ForceNew' attribute triggers resource destruction and recreation." }
+      { id: 'D', text: "Terraform always destroys and recreates every resource on every apply." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Terraform compares configuration against state and provider schemas; changing a 'ForceNew' attribute triggers resource destruction and recreation. Terraform resources follow CRUD lifecycles. Provider schemas define which attributes can be updated in-place (Update) and which attributes require recreating the resource (Delete followed by Create, marked as 'forces replacement' or `ForceNew` in execution plans).",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/resources/behavior",
@@ -492,12 +492,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to understand how Terraform determines whether an in-place update or a destructive replacement is required when modifying a resource property.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Terraform never destroys resources and only issues update API calls." },
+      { id: 'A', text: "Terraform compares configuration against state and provider schemas; changing a 'ForceNew' attribute triggers resource destruction and recreation." },
       { id: 'B', text: "Terraform always destroys and recreates every resource on every apply." },
-      { id: 'C', text: "Terraform compares configuration against state and provider schemas; changing a 'ForceNew' attribute triggers resource destruction and recreation." },
+      { id: 'C', text: "Terraform never destroys resources and only issues update API calls." },
       { id: 'D', text: "The cloud provider console prompts the user interactively to decide whether to delete." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Terraform compares configuration against state and provider schemas; changing a 'ForceNew' attribute triggers resource destruction and recreation. Terraform resources follow CRUD lifecycles. Provider schemas define which attributes can be updated in-place (Update) and which attributes require recreating the resource (Delete followed by Create, marked as 'forces replacement' or `ForceNew` in execution plans).",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/resources/behavior",
@@ -513,12 +513,12 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to understand how Terraform determines whether an in-place update or a destructive replacement is required when modifying a resource property.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "The cloud provider console prompts the user interactively to decide whether to delete." },
-      { id: 'B', text: "Terraform compares configuration against state and provider schemas; changing a 'ForceNew' attribute triggers resource destruction and recreation." },
+      { id: 'A', text: "Terraform always destroys and recreates every resource on every apply." },
+      { id: 'B', text: "The cloud provider console prompts the user interactively to decide whether to delete." },
       { id: 'C', text: "Terraform never destroys resources and only issues update API calls." },
-      { id: 'D', text: "Terraform always destroys and recreates every resource on every apply." }
+      { id: 'D', text: "Terraform compares configuration against state and provider schemas; changing a 'ForceNew' attribute triggers resource destruction and recreation." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Terraform compares configuration against state and provider schemas; changing a 'ForceNew' attribute triggers resource destruction and recreation. Terraform resources follow CRUD lifecycles. Provider schemas define which attributes can be updated in-place (Update) and which attributes require recreating the resource (Delete followed by Create, marked as 'forces replacement' or `ForceNew` in execution plans).",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/resources/behavior",

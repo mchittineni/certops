@@ -9,12 +9,12 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "A quantitative trading desk requires microsecond secrets delivery, zero packet loss, and deterministic authentication guarantees. The AI team is enriching unstructured documents with extracted text and entities as they are indexed. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." },
-      { id: 'B', text: "Run an Azure Function on a queue trigger that calls each AI service in turn and writes the enriched documents into the search index using the push API." },
-      { id: 'C', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." },
-      { id: 'D', text: "Configure an indexer with field mappings that executes on each run, copying the raw document fields straight into the index with no enrichment step." }
+      { id: 'A', text: "Run an Azure Function on a queue trigger that calls each AI service in turn and writes the enriched documents into the search index using the push API." },
+      { id: 'B', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." },
+      { id: 'C', text: "Configure an indexer with field mappings that executes on each run, copying the raw document fields straight into the index with no enrichment step." },
+      { id: 'D', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A skillset is the built-in enrichment pipeline: the indexer runs the skills in order, caches their output, and projects the results into the index without any code to host or operate. A queue-triggered Function reproduces that pipeline by hand and leaves incremental indexing, caching, and retry to be built. A custom Web API skill is part of a skillset rather than an alternative to one, and moving all enrichment into it discards the built-in skills. Field mappings only rename and copy, performing no enrichment.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
@@ -32,8 +32,8 @@ export const AZURE_AI102_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Configure pure vector search over Azure OpenAI embeddings so that every result returned is ranked entirely by its own embedding similarity score alone." },
       { id: 'B', text: "Configure vector search with Azure OpenAI embeddings combined with full-text BM25 search and the Azure AI Search Semantic Ranker for top-tier relevance." },
-      { id: 'C', text: "Configure full-text search together with a custom scoring profile that boosts the title field and the freshness of each document." },
-      { id: 'D', text: "Configure full-text search together with synonym maps so that relevance improves when the phrasings users type differ from the indexed terms." }
+      { id: 'C', text: "Configure full-text search together with synonym maps so that relevance improves when the phrasings users type differ from the indexed terms." },
+      { id: 'D', text: "Configure full-text search together with a custom scoring profile that boosts the title field and the freshness of each document." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,12 +51,12 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "An international retail marketplace prepares for 100x traffic surges with zero downtime and instant failover. The AI team is extracting totals and line items from invoices and receipts arriving from many vendors. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use the Document Intelligence prebuilt-layout model and map the tables and key-value pairs that it returns onto each of the required output fields in application code." },
-      { id: 'B', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." },
-      { id: 'C', text: "Use Document Intelligence prebuilt models (e.g., prebuilt-invoice, prebuilt-receipt) to extract structured key-value pairs, line items, and totals automatically." },
-      { id: 'D', text: "Use the Azure AI Vision Read API to pull the text off each document and apply regular expressions to locate each required field." }
+      { id: 'A', text: "Use Document Intelligence prebuilt models (e.g., prebuilt-invoice, prebuilt-receipt) to extract structured key-value pairs, line items, and totals automatically." },
+      { id: 'B', text: "Use the Azure AI Vision Read API to pull the text off each document and apply regular expressions to locate each required field." },
+      { id: 'C', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." },
+      { id: 'D', text: "Use the Document Intelligence prebuilt-layout model and map the tables and key-value pairs that it returns onto each of the required output fields in application code." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The prebuilt invoice and receipt models already understand these document types and return named fields such as vendor, total, and line items across layouts they have never seen, so vendor variety costs nothing. prebuilt-layout does return the tables and pairs but leaves the semantic mapping to code that has to be maintained per vendor. Training a custom model is work that only becomes necessary once a prebuilt schema does not fit. Regular expressions over raw OCR text break on the first layout change.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
@@ -72,12 +72,12 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "A self-driving automotive fleet streams terabytes of sensor telemetry requiring real-time distributed ingestion and anomaly detection. The AI team is extracting clauses from long contracts whose layout differs with every counterparty. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Train a custom template model on the labelled samples so that each field is anchored to the position where it appears on the page." },
-      { id: 'B', text: "Use the Document Intelligence prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules in code." },
-      { id: 'C', text: "Compose several prebuilt models behind a custom classifier so that every incoming document is routed to whichever schema happens to match it most closely." },
-      { id: 'D', text: "Train a custom neural model in Document Intelligence using 5-10 labeled samples to extract specialized multi-page contract clauses and unstructured forms." }
+      { id: 'A', text: "Compose several prebuilt models behind a custom classifier so that every incoming document is routed to whichever schema happens to match it most closely." },
+      { id: 'B', text: "Train a custom neural model in Document Intelligence using 5-10 labeled samples to extract specialized multi-page contract clauses and unstructured forms." },
+      { id: 'C', text: "Train a custom template model on the labelled samples so that each field is anchored to the position where it appears on the page." },
+      { id: 'D', text: "Use the Document Intelligence prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules in code." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Custom neural models learn the semantics of a field from a handful of labelled samples and keep finding it when the surrounding layout changes, which is the defining problem with contracts from different counterparties. Template models are faster to train and highly accurate when documents are positionally consistent, and that is exactly the assumption these documents break. prebuilt-contract covers common contract fields but not clauses specific to one organisation. A classifier routes a document to a model but still needs an extraction model capable of reading it.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
@@ -93,12 +93,12 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "An enterprise cloud SaaS architecture mandates strict logical tenant isolation, data masking, and per-tenant resource quotas. The AI team is enriching unstructured documents with extracted text and entities as they are indexed. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." },
+      { id: 'A', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." },
       { id: 'B', text: "Run an Azure Function on a queue trigger that calls each AI service in turn and writes the enriched documents into the search index using the push API." },
-      { id: 'C', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." },
+      { id: 'C', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." },
       { id: 'D', text: "Configure an indexer with field mappings that executes on each run, copying the raw document fields straight into the index with no enrichment step." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A skillset is the built-in enrichment pipeline: the indexer runs the skills in order, caches their output, and projects the results into the index without any code to host or operate. A queue-triggered Function reproduces that pipeline by hand and leaves incremental indexing, caching, and retry to be built. A custom Web API skill is part of a skillset rather than an alternative to one, and moving all enrichment into it discards the built-in skills. Field mappings only rename and copy, performing no enrichment.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
@@ -114,12 +114,12 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "A global video streaming service distributes high-bitrate live media with distributed edge caching and tokenized DRM protection. The AI team is improving result quality for conversational queries that rarely match the indexed wording. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure pure vector search over Azure OpenAI embeddings so that every result returned is ranked entirely by its own embedding similarity score alone." },
-      { id: 'B', text: "Configure vector search with Azure OpenAI embeddings combined with full-text BM25 search and the Azure AI Search Semantic Ranker for top-tier relevance." },
-      { id: 'C', text: "Configure full-text search together with a custom scoring profile that boosts the title field and the freshness of each document." },
-      { id: 'D', text: "Configure full-text search together with synonym maps so that relevance improves when the phrasings users type differ from the indexed terms." }
+      { id: 'A', text: "Configure vector search with Azure OpenAI embeddings combined with full-text BM25 search and the Azure AI Search Semantic Ranker for top-tier relevance." },
+      { id: 'B', text: "Configure full-text search together with a custom scoring profile that boosts the title field and the freshness of each document." },
+      { id: 'C', text: "Configure full-text search together with synonym maps so that relevance improves when the phrasings users type differ from the indexed terms." },
+      { id: 'D', text: "Configure pure vector search over Azure OpenAI embeddings so that every result returned is ranked entirely by its own embedding similarity score alone." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Hybrid retrieval runs both the vector and the keyword query and fuses the results, so semantic paraphrases and exact identifiers are both found, and the semantic ranker then reorders the top set with a language model. Pure vector search captures paraphrase well but degrades on exact terms such as part numbers, which embeddings blur together. Scoring profiles and synonym maps are useful refinements to keyword search, but each encodes rules an author has to anticipate rather than matching on meaning.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
@@ -135,10 +135,10 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "An aerospace telemetry platform processes orbital downlinks with fault-tolerant queuing and asynchronous edge processing. The AI team is extracting totals and line items from invoices and receipts arriving from many vendors. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use the Document Intelligence prebuilt-layout model and map the tables and key-value pairs that it returns onto each of the required output fields in application code." },
-      { id: 'B', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." },
+      { id: 'A', text: "Use the Azure AI Vision Read API to pull the text off each document and apply regular expressions to locate each required field." },
+      { id: 'B', text: "Use the Document Intelligence prebuilt-layout model and map the tables and key-value pairs that it returns onto each of the required output fields in application code." },
       { id: 'C', text: "Use Document Intelligence prebuilt models (e.g., prebuilt-invoice, prebuilt-receipt) to extract structured key-value pairs, line items, and totals automatically." },
-      { id: 'D', text: "Use the Azure AI Vision Read API to pull the text off each document and apply regular expressions to locate each required field." }
+      { id: 'D', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,12 +156,12 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "A national telecom operator manages high-density network slices with automated scaling and sub-millisecond service mesh routing. The AI team is extracting clauses from long contracts whose layout differs with every counterparty. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Train a custom template model on the labelled samples so that each field is anchored to the position where it appears on the page." },
+      { id: 'A', text: "Compose several prebuilt models behind a custom classifier so that every incoming document is routed to whichever schema happens to match it most closely." },
       { id: 'B', text: "Use the Document Intelligence prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules in code." },
-      { id: 'C', text: "Compose several prebuilt models behind a custom classifier so that every incoming document is routed to whichever schema happens to match it most closely." },
-      { id: 'D', text: "Train a custom neural model in Document Intelligence using 5-10 labeled samples to extract specialized multi-page contract clauses and unstructured forms." }
+      { id: 'C', text: "Train a custom neural model in Document Intelligence using 5-10 labeled samples to extract specialized multi-page contract clauses and unstructured forms." },
+      { id: 'D', text: "Train a custom template model on the labelled samples so that each field is anchored to the position where it appears on the page." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Custom neural models learn the semantics of a field from a handful of labelled samples and keep finding it when the surrounding layout changes, which is the defining problem with contracts from different counterparties. Template models are faster to train and highly accurate when documents are positionally consistent, and that is exactly the assumption these documents break. prebuilt-contract covers common contract fields but not clauses specific to one organisation. A classifier routes a document to a model but still needs an extraction model capable of reading it.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
@@ -177,12 +177,12 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "A smart electrical grid platform monitors millions of smart meters with low-latency time-series analysis and automated load shedding. The AI team is enriching unstructured documents with extracted text and entities as they are indexed. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." },
-      { id: 'B', text: "Run an Azure Function on a queue trigger that calls each AI service in turn and writes the enriched documents into the search index using the push API." },
+      { id: 'A', text: "Run an Azure Function on a queue trigger that calls each AI service in turn and writes the enriched documents into the search index using the push API." },
+      { id: 'B', text: "Configure an indexer with field mappings that executes on each run, copying the raw document fields straight into the index with no enrichment step." },
       { id: 'C', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." },
-      { id: 'D', text: "Configure an indexer with field mappings that executes on each run, copying the raw document fields straight into the index with no enrichment step." }
+      { id: 'D', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A skillset is the built-in enrichment pipeline: the indexer runs the skills in order, caches their output, and projects the results into the index without any code to host or operate. A queue-triggered Function reproduces that pipeline by hand and leaves incremental indexing, caching, and retry to be built. A custom Web API skill is part of a skillset rather than an alternative to one, and moving all enrichment into it discards the built-in skills. Field mappings only rename and copy, performing no enrichment.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
@@ -198,10 +198,10 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "A pharmaceutical distribution network tracks temperature-sensitive cargo with cryptographic provenance and automated breach alerts. The AI team is improving result quality for conversational queries that rarely match the indexed wording. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure pure vector search over Azure OpenAI embeddings so that every result returned is ranked entirely by its own embedding similarity score alone." },
+      { id: 'A', text: "Configure full-text search together with a custom scoring profile that boosts the title field and the freshness of each document." },
       { id: 'B', text: "Configure vector search with Azure OpenAI embeddings combined with full-text BM25 search and the Azure AI Search Semantic Ranker for top-tier relevance." },
-      { id: 'C', text: "Configure full-text search together with a custom scoring profile that boosts the title field and the freshness of each document." },
-      { id: 'D', text: "Configure full-text search together with synonym maps so that relevance improves when the phrasings users type differ from the indexed terms." }
+      { id: 'C', text: "Configure full-text search together with synonym maps so that relevance improves when the phrasings users type differ from the indexed terms." },
+      { id: 'D', text: "Configure pure vector search over Azure OpenAI embeddings so that every result returned is ranked entirely by its own embedding similarity score alone." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -220,9 +220,9 @@ export const AZURE_AI102_QUESTIONS_17 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use the Document Intelligence prebuilt-layout model and map the tables and key-value pairs that it returns onto each of the required output fields in application code." },
-      { id: 'B', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." },
+      { id: 'B', text: "Use the Azure AI Vision Read API to pull the text off each document and apply regular expressions to locate each required field." },
       { id: 'C', text: "Use Document Intelligence prebuilt models (e.g., prebuilt-invoice, prebuilt-receipt) to extract structured key-value pairs, line items, and totals automatically." },
-      { id: 'D', text: "Use the Azure AI Vision Read API to pull the text off each document and apply regular expressions to locate each required field." }
+      { id: 'D', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -241,8 +241,8 @@ export const AZURE_AI102_QUESTIONS_17 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Train a custom template model on the labelled samples so that each field is anchored to the position where it appears on the page." },
-      { id: 'B', text: "Use the Document Intelligence prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules in code." },
-      { id: 'C', text: "Compose several prebuilt models behind a custom classifier so that every incoming document is routed to whichever schema happens to match it most closely." },
+      { id: 'B', text: "Compose several prebuilt models behind a custom classifier so that every incoming document is routed to whichever schema happens to match it most closely." },
+      { id: 'C', text: "Use the Document Intelligence prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules in code." },
       { id: 'D', text: "Train a custom neural model in Document Intelligence using 5-10 labeled samples to extract specialized multi-page contract clauses and unstructured forms." }
     ],
     correctAnswers: ['D'],
@@ -261,12 +261,12 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The AI team is enriching unstructured documents with extracted text and entities as they are indexed. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." },
-      { id: 'B', text: "Run an Azure Function on a queue trigger that calls each AI service in turn and writes the enriched documents into the search index using the push API." },
-      { id: 'C', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." },
-      { id: 'D', text: "Configure an indexer with field mappings that executes on each run, copying the raw document fields straight into the index with no enrichment step." }
+      { id: 'A', text: "Run an Azure Function on a queue trigger that calls each AI service in turn and writes the enriched documents into the search index using the push API." },
+      { id: 'B', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." },
+      { id: 'C', text: "Configure an indexer with field mappings that executes on each run, copying the raw document fields straight into the index with no enrichment step." },
+      { id: 'D', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A skillset is the built-in enrichment pipeline: the indexer runs the skills in order, caches their output, and projects the results into the index without any code to host or operate. A queue-triggered Function reproduces that pipeline by hand and leaves incremental indexing, caching, and retry to be built. A custom Web API skill is part of a skillset rather than an alternative to one, and moving all enrichment into it discards the built-in skills. Field mappings only rename and copy, performing no enrichment.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
@@ -282,12 +282,12 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "A real-time competitive gaming cluster orchestrates match sessions with regional matchmaking and anti-cheat validation. The AI team is improving result quality for conversational queries that rarely match the indexed wording. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure pure vector search over Azure OpenAI embeddings so that every result returned is ranked entirely by its own embedding similarity score alone." },
-      { id: 'B', text: "Configure vector search with Azure OpenAI embeddings combined with full-text BM25 search and the Azure AI Search Semantic Ranker for top-tier relevance." },
-      { id: 'C', text: "Configure full-text search together with a custom scoring profile that boosts the title field and the freshness of each document." },
-      { id: 'D', text: "Configure full-text search together with synonym maps so that relevance improves when the phrasings users type differ from the indexed terms." }
+      { id: 'A', text: "Configure full-text search together with synonym maps so that relevance improves when the phrasings users type differ from the indexed terms." },
+      { id: 'B', text: "Configure pure vector search over Azure OpenAI embeddings so that every result returned is ranked entirely by its own embedding similarity score alone." },
+      { id: 'C', text: "Configure vector search with Azure OpenAI embeddings combined with full-text BM25 search and the Azure AI Search Semantic Ranker for top-tier relevance." },
+      { id: 'D', text: "Configure full-text search together with a custom scoring profile that boosts the title field and the freshness of each document." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Hybrid retrieval runs both the vector and the keyword query and fuses the results, so semantic paraphrases and exact identifiers are both found, and the semantic ranker then reorders the top set with a language model. Pure vector search captures paraphrase well but degrades on exact terms such as part numbers, which embeddings blur together. Scoring profiles and synonym maps are useful refinements to keyword search, but each encodes rules an author has to anticipate rather than matching on meaning.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
@@ -303,12 +303,12 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "An actuarial underwriting platform executes Monte Carlo simulations across millions of policy holder records with parallel workers. The AI team is extracting totals and line items from invoices and receipts arriving from many vendors. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use the Document Intelligence prebuilt-layout model and map the tables and key-value pairs that it returns onto each of the required output fields in application code." },
-      { id: 'B', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." },
-      { id: 'C', text: "Use Document Intelligence prebuilt models (e.g., prebuilt-invoice, prebuilt-receipt) to extract structured key-value pairs, line items, and totals automatically." },
-      { id: 'D', text: "Use the Azure AI Vision Read API to pull the text off each document and apply regular expressions to locate each required field." }
+      { id: 'A', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." },
+      { id: 'B', text: "Use the Document Intelligence prebuilt-layout model and map the tables and key-value pairs that it returns onto each of the required output fields in application code." },
+      { id: 'C', text: "Use the Azure AI Vision Read API to pull the text off each document and apply regular expressions to locate each required field." },
+      { id: 'D', text: "Use Document Intelligence prebuilt models (e.g., prebuilt-invoice, prebuilt-receipt) to extract structured key-value pairs, line items, and totals automatically." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The prebuilt invoice and receipt models already understand these document types and return named fields such as vendor, total, and line items across layouts they have never seen, so vendor variety costs nothing. prebuilt-layout does return the tables and pairs but leaves the semantic mapping to code that has to be maintained per vendor. Training a custom model is work that only becomes necessary once a prebuilt schema does not fit. Regular expressions over raw OCR text break on the first layout change.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
@@ -325,8 +325,8 @@ export const AZURE_AI102_QUESTIONS_17 = [
     question: "Which Azure AI approach best meets these requirements?",
     options: [
       { id: 'A', text: "Train a custom template model on the labelled samples so that each field is anchored to the position where it appears on the page." },
-      { id: 'B', text: "Use the Document Intelligence prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules in code." },
-      { id: 'C', text: "Compose several prebuilt models behind a custom classifier so that every incoming document is routed to whichever schema happens to match it most closely." },
+      { id: 'B', text: "Compose several prebuilt models behind a custom classifier so that every incoming document is routed to whichever schema happens to match it most closely." },
+      { id: 'C', text: "Use the Document Intelligence prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules in code." },
       { id: 'D', text: "Train a custom neural model in Document Intelligence using 5-10 labeled samples to extract specialized multi-page contract clauses and unstructured forms." }
     ],
     correctAnswers: ['D'],
@@ -345,12 +345,12 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "A metropolitan transit authority optimizes urban traffic signals with real-time video analytics and edge inference. The AI team is enriching unstructured documents with extracted text and entities as they are indexed. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." },
-      { id: 'B', text: "Run an Azure Function on a queue trigger that calls each AI service in turn and writes the enriched documents into the search index using the push API." },
-      { id: 'C', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." },
+      { id: 'A', text: "Run an Azure Function on a queue trigger that calls each AI service in turn and writes the enriched documents into the search index using the push API." },
+      { id: 'B', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." },
+      { id: 'C', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." },
       { id: 'D', text: "Configure an indexer with field mappings that executes on each run, copying the raw document fields straight into the index with no enrichment step." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A skillset is the built-in enrichment pipeline: the indexer runs the skills in order, caches their output, and projects the results into the index without any code to host or operate. A queue-triggered Function reproduces that pipeline by hand and leaves incremental indexing, caching, and retry to be built. A custom Web API skill is part of a skillset rather than an alternative to one, and moving all enrichment into it discards the built-in skills. Field mappings only rename and copy, performing no enrichment.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
@@ -366,12 +366,12 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "A cross-border passport control gateway validates identity credentials with zero-knowledge cryptographic proofs. The AI team is improving result quality for conversational queries that rarely match the indexed wording. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure pure vector search over Azure OpenAI embeddings so that every result returned is ranked entirely by its own embedding similarity score alone." },
-      { id: 'B', text: "Configure vector search with Azure OpenAI embeddings combined with full-text BM25 search and the Azure AI Search Semantic Ranker for top-tier relevance." },
+      { id: 'A', text: "Configure vector search with Azure OpenAI embeddings combined with full-text BM25 search and the Azure AI Search Semantic Ranker for top-tier relevance." },
+      { id: 'B', text: "Configure full-text search together with synonym maps so that relevance improves when the phrasings users type differ from the indexed terms." },
       { id: 'C', text: "Configure full-text search together with a custom scoring profile that boosts the title field and the freshness of each document." },
-      { id: 'D', text: "Configure full-text search together with synonym maps so that relevance improves when the phrasings users type differ from the indexed terms." }
+      { id: 'D', text: "Configure pure vector search over Azure OpenAI embeddings so that every result returned is ranked entirely by its own embedding similarity score alone." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Hybrid retrieval runs both the vector and the keyword query and fuses the results, so semantic paraphrases and exact identifiers are both found, and the semantic ranker then reorders the top set with a language model. Pure vector search captures paraphrase well but degrades on exact terms such as part numbers, which embeddings blur together. Scoring profiles and synonym maps are useful refinements to keyword search, but each encodes rules an author has to anticipate rather than matching on meaning.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
@@ -387,12 +387,12 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "A global law firm conducts regulatory discovery across millions of scanned legal filings with vector-enhanced semantic retrieval. The AI team is extracting totals and line items from invoices and receipts arriving from many vendors. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use the Document Intelligence prebuilt-layout model and map the tables and key-value pairs that it returns onto each of the required output fields in application code." },
-      { id: 'B', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." },
-      { id: 'C', text: "Use Document Intelligence prebuilt models (e.g., prebuilt-invoice, prebuilt-receipt) to extract structured key-value pairs, line items, and totals automatically." },
-      { id: 'D', text: "Use the Azure AI Vision Read API to pull the text off each document and apply regular expressions to locate each required field." }
+      { id: 'A', text: "Use the Azure AI Vision Read API to pull the text off each document and apply regular expressions to locate each required field." },
+      { id: 'B', text: "Use Document Intelligence prebuilt models (e.g., prebuilt-invoice, prebuilt-receipt) to extract structured key-value pairs, line items, and totals automatically." },
+      { id: 'C', text: "Use the Document Intelligence prebuilt-layout model and map the tables and key-value pairs that it returns onto each of the required output fields in application code." },
+      { id: 'D', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The prebuilt invoice and receipt models already understand these document types and return named fields such as vendor, total, and line items across layouts they have never seen, so vendor variety costs nothing. prebuilt-layout does return the tables and pairs but leaves the semantic mapping to code that has to be maintained per vendor. Training a custom model is work that only becomes necessary once a prebuilt schema does not fit. Regular expressions over raw OCR text break on the first layout change.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
@@ -408,9 +408,9 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "An advertising exchange processes 500,000 bids per second with a strict 20-millisecond SLA and distributed caching. The AI team is extracting clauses from long contracts whose layout differs with every counterparty. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Train a custom template model on the labelled samples so that each field is anchored to the position where it appears on the page." },
+      { id: 'A', text: "Compose several prebuilt models behind a custom classifier so that every incoming document is routed to whichever schema happens to match it most closely." },
       { id: 'B', text: "Use the Document Intelligence prebuilt-contract model to extract the clauses and fill any remaining fields with post-processing rules in code." },
-      { id: 'C', text: "Compose several prebuilt models behind a custom classifier so that every incoming document is routed to whichever schema happens to match it most closely." },
+      { id: 'C', text: "Train a custom template model on the labelled samples so that each field is anchored to the position where it appears on the page." },
       { id: 'D', text: "Train a custom neural model in Document Intelligence using 5-10 labeled samples to extract specialized multi-page contract clauses and unstructured forms." }
     ],
     correctAnswers: ['D'],
@@ -429,12 +429,12 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "An agricultural drone fleet captures multispectral crop imagery with automated computer vision defect classification. The AI team is enriching unstructured documents with extracted text and entities as they are indexed. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." },
-      { id: 'B', text: "Run an Azure Function on a queue trigger that calls each AI service in turn and writes the enriched documents into the search index using the push API." },
-      { id: 'C', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." },
-      { id: 'D', text: "Configure an indexer with field mappings that executes on each run, copying the raw document fields straight into the index with no enrichment step." }
+      { id: 'A', text: "Configure an indexer with field mappings that executes on each run, copying the raw document fields straight into the index with no enrichment step." },
+      { id: 'B', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." },
+      { id: 'C', text: "Run an Azure Function on a queue trigger that calls each AI service in turn and writes the enriched documents into the search index using the push API." },
+      { id: 'D', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A skillset is the built-in enrichment pipeline: the indexer runs the skills in order, caches their output, and projects the results into the index without any code to host or operate. A queue-triggered Function reproduces that pipeline by hand and leaves incremental indexing, caching, and retry to be built. A custom Web API skill is part of a skillset rather than an alternative to one, and moving all enrichment into it discards the built-in skills. Field mappings only rename and copy, performing no enrichment.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
@@ -450,12 +450,12 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "A semiconductor fabrication facility detects vibration harmonics on manufacturing robots to prevent unplanned downtime. The AI team is improving result quality for conversational queries that rarely match the indexed wording. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure pure vector search over Azure OpenAI embeddings so that every result returned is ranked entirely by its own embedding similarity score alone." },
-      { id: 'B', text: "Configure vector search with Azure OpenAI embeddings combined with full-text BM25 search and the Azure AI Search Semantic Ranker for top-tier relevance." },
-      { id: 'C', text: "Configure full-text search together with a custom scoring profile that boosts the title field and the freshness of each document." },
-      { id: 'D', text: "Configure full-text search together with synonym maps so that relevance improves when the phrasings users type differ from the indexed terms." }
+      { id: 'A', text: "Configure full-text search together with a custom scoring profile that boosts the title field and the freshness of each document." },
+      { id: 'B', text: "Configure full-text search together with synonym maps so that relevance improves when the phrasings users type differ from the indexed terms." },
+      { id: 'C', text: "Configure pure vector search over Azure OpenAI embeddings so that every result returned is ranked entirely by its own embedding similarity score alone." },
+      { id: 'D', text: "Configure vector search with Azure OpenAI embeddings combined with full-text BM25 search and the Azure AI Search Semantic Ranker for top-tier relevance." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Hybrid retrieval runs both the vector and the keyword query and fuses the results, so semantic paraphrases and exact identifiers are both found, and the semantic ranker then reorders the top set with a language model. Pure vector search captures paraphrase well but degrades on exact terms such as part numbers, which embeddings blur together. Scoring profiles and synonym maps are useful refinements to keyword search, but each encodes rules an author has to anticipate rather than matching on meaning.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",
@@ -471,8 +471,8 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "An online university platform enforces anti-plagiarism and biometric proctoring for high-stakes certification exams. The AI team is extracting totals and line items from invoices and receipts arriving from many vendors. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use the Document Intelligence prebuilt-layout model and map the tables and key-value pairs that it returns onto each of the required output fields in application code." },
-      { id: 'B', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." },
+      { id: 'A', text: "Train a custom extraction model on a labelled sample of the organisation's own invoices so that line items and totals are learned before processing begins." },
+      { id: 'B', text: "Use the Document Intelligence prebuilt-layout model and map the tables and key-value pairs that it returns onto each of the required output fields in application code." },
       { id: 'C', text: "Use Document Intelligence prebuilt models (e.g., prebuilt-invoice, prebuilt-receipt) to extract structured key-value pairs, line items, and totals automatically." },
       { id: 'D', text: "Use the Azure AI Vision Read API to pull the text off each document and apply regular expressions to locate each required field." }
     ],
@@ -513,12 +513,12 @@ export const AZURE_AI102_QUESTIONS_17 = [
     scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The AI team is enriching unstructured documents with extracted text and entities as they are indexed. The work is scoped to the staging environment.",
     question: "Which Azure AI approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." },
+      { id: 'A', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." },
       { id: 'B', text: "Run an Azure Function on a queue trigger that calls each AI service in turn and writes the enriched documents into the search index using the push API." },
-      { id: 'C', text: "Attach a custom Web API skill to the indexer and carry out every part of the enrichment inside the external service that it calls." },
+      { id: 'C', text: "Create an Azure AI Search skillset that executes OCR, entity recognition, and key phrase extraction to enrich data before writing to the search index." },
       { id: 'D', text: "Configure an indexer with field mappings that executes on each run, copying the raw document fields straight into the index with no enrichment step." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A skillset is the built-in enrichment pipeline: the indexer runs the skills in order, caches their output, and projects the results into the index without any code to host or operate. A queue-triggered Function reproduces that pipeline by hand and leaves incremental indexing, caching, and retry to be built. A custom Web API skill is part of a skillset rather than an alternative to one, and moving all enrichment into it discards the built-in skills. Field mappings only rename and copy, performing no enrichment.",
     referenceUrl: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/",

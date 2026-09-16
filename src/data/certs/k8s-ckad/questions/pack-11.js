@@ -9,12 +9,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Sidecar Pattern to collect, filter, and stream application log files from a shared volume to an external logging service without modifying application source code.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Run a separate CronJob that SSHs into the node every minute to copy logs." },
-      { id: 'B', text: "Merge the logging daemon code directly into the application binary repository." },
-      { id: 'C', text: "Add a sidecar container to the pod sharing an `emptyDir` volume with the main application container to stream log data." },
-      { id: 'D', text: "Require the application container to execute with full root privileges." }
+      { id: 'A', text: "Add a DaemonSet log agent that reads the container logs from the node's `/var/log` path." },
+      { id: 'B', text: "Add a sidecar container that reads the logs from an `emptyDir` shared with the application." },
+      { id: 'C', text: "Add a CronJob that mounts the same `emptyDir` each minute and ships whatever it finds." },
+      { id: 'D', text: "Add an init container that opens the log file and forwards it for the pod's lifetime." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Add a sidecar container to the pod sharing an `emptyDir` volume with the main application container to stream log data. The sidecar pattern deploys a helper container alongside the primary application container in the same pod. By sharing a local `emptyDir` volume, the sidecar can read log files emitted by the primary application and stream them asynchronously to external destinations without touching application code.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/#how-pods-manage-multiple-containers",
@@ -30,12 +30,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Sidecar Pattern to collect, filter, and stream application log files from a shared volume to an external logging service without modifying application source code.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Run a separate CronJob that SSHs into the node every minute to copy logs." },
-      { id: 'B', text: "Add a sidecar container to the pod sharing an `emptyDir` volume with the main application container to stream log data." },
-      { id: 'C', text: "Require the application container to execute with full root privileges." },
-      { id: 'D', text: "Merge the logging daemon code directly into the application binary repository." }
+      { id: 'A', text: "Add a sidecar container that reads the logs from an `emptyDir` shared with the application." },
+      { id: 'B', text: "Add a CronJob that mounts the same `emptyDir` each minute and ships whatever it finds." },
+      { id: 'C', text: "Add a DaemonSet log agent that reads the container logs from the node's `/var/log` path." },
+      { id: 'D', text: "Add an init container that opens the log file and forwards it for the pod's lifetime." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Add a sidecar container to the pod sharing an `emptyDir` volume with the main application container to stream log data. The sidecar pattern deploys a helper container alongside the primary application container in the same pod. By sharing a local `emptyDir` volume, the sidecar can read log files emitted by the primary application and stream them asynchronously to external destinations without touching application code.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/#how-pods-manage-multiple-containers",
@@ -51,12 +51,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Sidecar Pattern to collect, filter, and stream application log files from a shared volume to an external logging service without modifying application source code.",
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
-      { id: 'A', text: "Run a separate CronJob that SSHs into the node every minute to copy logs." },
-      { id: 'B', text: "Require the application container to execute with full root privileges." },
-      { id: 'C', text: "Add a sidecar container to the pod sharing an `emptyDir` volume with the main application container to stream log data." },
-      { id: 'D', text: "Merge the logging daemon code directly into the application binary repository." }
+      { id: 'A', text: "Add an init container that opens the log file and forwards it for the pod's lifetime." },
+      { id: 'B', text: "Add a DaemonSet log agent that reads the container logs from the node's `/var/log` path." },
+      { id: 'C', text: "Add a CronJob that mounts the same `emptyDir` each minute and ships whatever it finds." },
+      { id: 'D', text: "Add a sidecar container that reads the logs from an `emptyDir` shared with the application." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Add a sidecar container to the pod sharing an `emptyDir` volume with the main application container to stream log data. The sidecar pattern deploys a helper container alongside the primary application container in the same pod. By sharing a local `emptyDir` volume, the sidecar can read log files emitted by the primary application and stream them asynchronously to external destinations without touching application code.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/#how-pods-manage-multiple-containers",
@@ -72,12 +72,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Sidecar Pattern to collect, filter, and stream application log files from a shared volume to an external logging service without modifying application source code.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
-      { id: 'A', text: "Require the application container to execute with full root privileges." },
-      { id: 'B', text: "Add a sidecar container to the pod sharing an `emptyDir` volume with the main application container to stream log data." },
-      { id: 'C', text: "Merge the logging daemon code directly into the application binary repository." },
-      { id: 'D', text: "Run a separate CronJob that SSHs into the node every minute to copy logs." }
+      { id: 'A', text: "Add a CronJob that mounts the same `emptyDir` each minute and ships whatever it finds." },
+      { id: 'B', text: "Add an init container that opens the log file and forwards it for the pod's lifetime." },
+      { id: 'C', text: "Add a DaemonSet log agent that reads the container logs from the node's `/var/log` path." },
+      { id: 'D', text: "Add a sidecar container that reads the logs from an `emptyDir` shared with the application." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Add a sidecar container to the pod sharing an `emptyDir` volume with the main application container to stream log data. The sidecar pattern deploys a helper container alongside the primary application container in the same pod. By sharing a local `emptyDir` volume, the sidecar can read log files emitted by the primary application and stream them asynchronously to external destinations without touching application code.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/#how-pods-manage-multiple-containers",
@@ -93,10 +93,10 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Sidecar Pattern to collect, filter, and stream application log files from a shared volume to an external logging service without modifying application source code.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
-      { id: 'A', text: "Add a sidecar container to the pod sharing an `emptyDir` volume with the main application container to stream log data." },
-      { id: 'B', text: "Merge the logging daemon code directly into the application binary repository." },
-      { id: 'C', text: "Require the application container to execute with full root privileges." },
-      { id: 'D', text: "Run a separate CronJob that SSHs into the node every minute to copy logs." }
+      { id: 'A', text: "Add a sidecar container that reads the logs from an `emptyDir` shared with the application." },
+      { id: 'B', text: "Add an init container that opens the log file and forwards it for the pod's lifetime." },
+      { id: 'C', text: "Add a CronJob that mounts the same `emptyDir` each minute and ships whatever it finds." },
+      { id: 'D', text: "Add a DaemonSet log agent that reads the container logs from the node's `/var/log` path." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Ambassador Pattern to decouple an application container from the complexities of connecting to an external database cluster with custom sharding and read-write split logic.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "List the replica pod IP addresses in the application environment." },
-      { id: 'B', text: "Expose the database cluster directly over the public internet without credentials." },
-      { id: 'C', text: "Deploy the database inside the same pod as the application." },
-      { id: 'D', text: "Deploy an ambassador container in the pod that listens on localhost and transparently proxies connections to the appropriate external database instances." }
+      { id: 'A', text: "Point the application at a headless Service for the database cluster and let DNS resolution pick the shard." },
+      { id: 'B', text: "Use an init container to write the shard map and read-write split rules into a config file the application reads." },
+      { id: 'C', text: "Add an ambassador container that listens on localhost and proxies each connection to the right database endpoint." },
+      { id: 'D', text: "Add a sidecar that watches the database endpoints and rewrites the application's connection string in place." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy an ambassador container in the pod that listens on localhost and transparently proxies connections to the appropriate external database instances. The ambassador pattern uses a helper container to proxy outbound network communication on behalf of the main application. The application simply connects to `localhost:&lt;port&gt;`, and the ambassador handles connection pooling, TLS termination, sharding logic, and failover transparently.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/",
@@ -135,10 +135,10 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Ambassador Pattern to decouple an application container from the complexities of connecting to an external database cluster with custom sharding and read-write split logic.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Deploy an ambassador container in the pod that listens on localhost and transparently proxies connections to the appropriate external database instances." },
-      { id: 'B', text: "Deploy the database inside the same pod as the application." },
-      { id: 'C', text: "Expose the database cluster directly over the public internet without credentials." },
-      { id: 'D', text: "List the replica pod IP addresses in the application environment." }
+      { id: 'A', text: "Add an ambassador container that listens on localhost and proxies each connection to the right database endpoint." },
+      { id: 'B', text: "Add a sidecar that watches the database endpoints and rewrites the application's connection string in place." },
+      { id: 'C', text: "Point the application at a headless Service for the database cluster and let DNS resolution pick the shard." },
+      { id: 'D', text: "Use an init container to write the shard map and read-write split rules into a config file the application reads." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Ambassador Pattern to decouple an application container from the complexities of connecting to an external database cluster with custom sharding and read-write split logic.",
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
-      { id: 'A', text: "List the replica pod IP addresses in the application environment." },
-      { id: 'B', text: "Deploy the database inside the same pod as the application." },
-      { id: 'C', text: "Expose the database cluster directly over the public internet without credentials." },
-      { id: 'D', text: "Deploy an ambassador container in the pod that listens on localhost and transparently proxies connections to the appropriate external database instances." }
+      { id: 'A', text: "Use an init container to write the shard map and read-write split rules into a config file the application reads." },
+      { id: 'B', text: "Add an ambassador container that listens on localhost and proxies each connection to the right database endpoint." },
+      { id: 'C', text: "Point the application at a headless Service for the database cluster and let DNS resolution pick the shard." },
+      { id: 'D', text: "Add a sidecar that watches the database endpoints and rewrites the application's connection string in place." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy an ambassador container in the pod that listens on localhost and transparently proxies connections to the appropriate external database instances. The ambassador pattern uses a helper container to proxy outbound network communication on behalf of the main application. The application simply connects to `localhost:&lt;port&gt;`, and the ambassador handles connection pooling, TLS termination, sharding logic, and failover transparently.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/",
@@ -177,12 +177,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Ambassador Pattern to decouple an application container from the complexities of connecting to an external database cluster with custom sharding and read-write split logic.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
-      { id: 'A', text: "Expose the database cluster directly over the public internet without credentials." },
-      { id: 'B', text: "Deploy the database inside the same pod as the application." },
-      { id: 'C', text: "List the replica pod IP addresses in the application environment." },
-      { id: 'D', text: "Deploy an ambassador container in the pod that listens on localhost and transparently proxies connections to the appropriate external database instances." }
+      { id: 'A', text: "Add a sidecar that watches the database endpoints and rewrites the application's connection string in place." },
+      { id: 'B', text: "Add an ambassador container that listens on localhost and proxies each connection to the right database endpoint." },
+      { id: 'C', text: "Use an init container to write the shard map and read-write split rules into a config file the application reads." },
+      { id: 'D', text: "Point the application at a headless Service for the database cluster and let DNS resolution pick the shard." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy an ambassador container in the pod that listens on localhost and transparently proxies connections to the appropriate external database instances. The ambassador pattern uses a helper container to proxy outbound network communication on behalf of the main application. The application simply connects to `localhost:&lt;port&gt;`, and the ambassador handles connection pooling, TLS termination, sharding logic, and failover transparently.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/",
@@ -198,10 +198,10 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Ambassador Pattern to decouple an application container from the complexities of connecting to an external database cluster with custom sharding and read-write split logic.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
-      { id: 'A', text: "Deploy an ambassador container in the pod that listens on localhost and transparently proxies connections to the appropriate external database instances." },
-      { id: 'B', text: "List the replica pod IP addresses in the application environment." },
-      { id: 'C', text: "Expose the database cluster directly over the public internet without credentials." },
-      { id: 'D', text: "Deploy the database inside the same pod as the application." }
+      { id: 'A', text: "Add an ambassador container that listens on localhost and proxies each connection to the right database endpoint." },
+      { id: 'B', text: "Add a sidecar that watches the database endpoints and rewrites the application's connection string in place." },
+      { id: 'C', text: "Point the application at a headless Service for the database cluster and let DNS resolution pick the shard." },
+      { id: 'D', text: "Use an init container to write the shard map and read-write split rules into a config file the application reads." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Adapter Pattern to standardize legacy application telemetry and custom metrics into Prometheus-compliant format without rewriting legacy application code.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy an adapter container in the pod that scrapes the legacy application output, transforms it into Prometheus exposition format, and exposes it on port 9090." },
-      { id: 'B', text: "Disable all metric collection across the application deployment." },
-      { id: 'C', text: "Require external monitoring servers to parse non-standard raw application outputs manually." },
-      { id: 'D', text: "Replace the legacy application with an entirely new codebase immediately." }
+      { id: 'A', text: "Add an adapter container that reads the legacy output and re-exposes it in Prometheus exposition format." },
+      { id: 'B', text: "Add `metric_relabel_configs` to the Prometheus scrape job so the legacy metric names are reshaped on ingest." },
+      { id: 'C', text: "Run the application behind a sidecar proxy and scrape the proxy's own request and latency metrics instead." },
+      { id: 'D', text: "Ship the legacy output to a Fluentd sidecar and scrape the metrics the log pipeline derives from it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,12 +240,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Adapter Pattern to standardize legacy application telemetry and custom metrics into Prometheus-compliant format without rewriting legacy application code.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Require external monitoring servers to parse non-standard raw application outputs manually." },
-      { id: 'B', text: "Deploy an adapter container in the pod that scrapes the legacy application output, transforms it into Prometheus exposition format, and exposes it on port 9090." },
-      { id: 'C', text: "Replace the legacy application with an entirely new codebase immediately." },
-      { id: 'D', text: "Disable all metric collection across the application deployment." }
+      { id: 'A', text: "Add `metric_relabel_configs` to the Prometheus scrape job so the legacy metric names are reshaped on ingest." },
+      { id: 'B', text: "Run the application behind a sidecar proxy and scrape the proxy's own request and latency metrics instead." },
+      { id: 'C', text: "Add an adapter container that reads the legacy output and re-exposes it in Prometheus exposition format." },
+      { id: 'D', text: "Ship the legacy output to a Fluentd sidecar and scrape the metrics the log pipeline derives from it." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy an adapter container in the pod that scrapes the legacy application output, transforms it into Prometheus exposition format, and exposes it on port 9090. The adapter pattern standardizes or normalizes the output of an application container to conform to cluster standards. A common use case is an adapter that reads proprietary metrics or logs and exposes them in standard Prometheus or OpenTelemetry format for cluster-wide scraping.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/",
@@ -261,12 +261,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Adapter Pattern to standardize legacy application telemetry and custom metrics into Prometheus-compliant format without rewriting legacy application code.",
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
-      { id: 'A', text: "Replace the legacy application with an entirely new codebase immediately." },
-      { id: 'B', text: "Deploy an adapter container in the pod that scrapes the legacy application output, transforms it into Prometheus exposition format, and exposes it on port 9090." },
-      { id: 'C', text: "Disable all metric collection across the application deployment." },
-      { id: 'D', text: "Require external monitoring servers to parse non-standard raw application outputs manually." }
+      { id: 'A', text: "Add an adapter container that reads the legacy output and re-exposes it in Prometheus exposition format." },
+      { id: 'B', text: "Add `metric_relabel_configs` to the Prometheus scrape job so the legacy metric names are reshaped on ingest." },
+      { id: 'C', text: "Run the application behind a sidecar proxy and scrape the proxy's own request and latency metrics instead." },
+      { id: 'D', text: "Ship the legacy output to a Fluentd sidecar and scrape the metrics the log pipeline derives from it." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy an adapter container in the pod that scrapes the legacy application output, transforms it into Prometheus exposition format, and exposes it on port 9090. The adapter pattern standardizes or normalizes the output of an application container to conform to cluster standards. A common use case is an adapter that reads proprietary metrics or logs and exposes them in standard Prometheus or OpenTelemetry format for cluster-wide scraping.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/",
@@ -282,12 +282,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Adapter Pattern to standardize legacy application telemetry and custom metrics into Prometheus-compliant format without rewriting legacy application code.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
-      { id: 'A', text: "Require external monitoring servers to parse non-standard raw application outputs manually." },
-      { id: 'B', text: "Disable all metric collection across the application deployment." },
-      { id: 'C', text: "Deploy an adapter container in the pod that scrapes the legacy application output, transforms it into Prometheus exposition format, and exposes it on port 9090." },
-      { id: 'D', text: "Replace the legacy application with an entirely new codebase immediately." }
+      { id: 'A', text: "Add an adapter container that reads the legacy output and re-exposes it in Prometheus exposition format." },
+      { id: 'B', text: "Add `metric_relabel_configs` to the Prometheus scrape job so the legacy metric names are reshaped on ingest." },
+      { id: 'C', text: "Run the application behind a sidecar proxy and scrape the proxy's own request and latency metrics instead." },
+      { id: 'D', text: "Ship the legacy output to a Fluentd sidecar and scrape the metrics the log pipeline derives from it." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy an adapter container in the pod that scrapes the legacy application output, transforms it into Prometheus exposition format, and exposes it on port 9090. The adapter pattern standardizes or normalizes the output of an application container to conform to cluster standards. A common use case is an adapter that reads proprietary metrics or logs and exposes them in standard Prometheus or OpenTelemetry format for cluster-wide scraping.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/",
@@ -303,12 +303,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Adapter Pattern to standardize legacy application telemetry and custom metrics into Prometheus-compliant format without rewriting legacy application code.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
-      { id: 'A', text: "Disable all metric collection across the application deployment." },
-      { id: 'B', text: "Deploy an adapter container in the pod that scrapes the legacy application output, transforms it into Prometheus exposition format, and exposes it on port 9090." },
-      { id: 'C', text: "Replace the legacy application with an entirely new codebase immediately." },
-      { id: 'D', text: "Require external monitoring servers to parse non-standard raw application outputs manually." }
+      { id: 'A', text: "Run the application behind a sidecar proxy and scrape the proxy's own request and latency metrics instead." },
+      { id: 'B', text: "Ship the legacy output to a Fluentd sidecar and scrape the metrics the log pipeline derives from it." },
+      { id: 'C', text: "Add an adapter container that reads the legacy output and re-exposes it in Prometheus exposition format." },
+      { id: 'D', text: "Add `metric_relabel_configs` to the Prometheus scrape job so the legacy metric names are reshaped on ingest." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy an adapter container in the pod that scrapes the legacy application output, transforms it into Prometheus exposition format, and exposes it on port 9090. The adapter pattern standardizes or normalizes the output of an application container to conform to cluster standards. A common use case is an adapter that reads proprietary metrics or logs and exposes them in standard Prometheus or OpenTelemetry format for cluster-wide scraping.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/",
@@ -324,12 +324,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Init Containers to ensure a web application container does not start until a backend database service is fully reachable and database schema migrations have executed.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Manually start the application container after observing database startup." },
-      { id: 'B', text: "Configure an `initContainers` block in the pod spec to run connectivity checks and migration scripts before the application container launches." },
-      { id: 'C', text: "Deploy the database and application simultaneously without sequencing." },
-      { id: 'D', text: "Put an infinite retry sleep loop inside the main container's entrypoint script." }
+      { id: 'A', text: "Add a readiness probe that fails until the database answers, so the container is kept out of the Service." },
+      { id: 'B', text: "Add a `postStart` lifecycle hook that runs the migration script as the application container comes up." },
+      { id: 'C', text: "Add a sidecar container that runs the migrations alongside the application and exits when they complete." },
+      { id: 'D', text: "Add an `initContainers` block that runs the connectivity check and the schema migration before the app starts." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure an `initContainers` block in the pod spec to run connectivity checks and migration scripts before the application container launches. Init containers run sequentially to completion before any application containers in the pod are started. If an init container fails, the kubelet restarts the pod until it succeeds, guaranteeing that prerequisites (like database readiness, seed data, or schema migrations) are satisfied first.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/init-containers/",
@@ -345,12 +345,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Init Containers to ensure a web application container does not start until a backend database service is fully reachable and database schema migrations have executed.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Manually start the application container after observing database startup." },
-      { id: 'B', text: "Put an infinite retry sleep loop inside the main container's entrypoint script." },
-      { id: 'C', text: "Deploy the database and application simultaneously without sequencing." },
-      { id: 'D', text: "Configure an `initContainers` block in the pod spec to run connectivity checks and migration scripts before the application container launches." }
+      { id: 'A', text: "Add an `initContainers` block that runs the connectivity check and the schema migration before the app starts." },
+      { id: 'B', text: "Add a readiness probe that fails until the database answers, so the container is kept out of the Service." },
+      { id: 'C', text: "Add a sidecar container that runs the migrations alongside the application and exits when they complete." },
+      { id: 'D', text: "Add a `postStart` lifecycle hook that runs the migration script as the application container comes up." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure an `initContainers` block in the pod spec to run connectivity checks and migration scripts before the application container launches. Init containers run sequentially to completion before any application containers in the pod are started. If an init container fails, the kubelet restarts the pod until it succeeds, guaranteeing that prerequisites (like database readiness, seed data, or schema migrations) are satisfied first.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/init-containers/",
@@ -366,12 +366,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Init Containers to ensure a web application container does not start until a backend database service is fully reachable and database schema migrations have executed.",
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
-      { id: 'A', text: "Manually start the application container after observing database startup." },
-      { id: 'B', text: "Put an infinite retry sleep loop inside the main container's entrypoint script." },
-      { id: 'C', text: "Deploy the database and application simultaneously without sequencing." },
-      { id: 'D', text: "Configure an `initContainers` block in the pod spec to run connectivity checks and migration scripts before the application container launches." }
+      { id: 'A', text: "Add an `initContainers` block that runs the connectivity check and the schema migration before the app starts." },
+      { id: 'B', text: "Add a readiness probe that fails until the database answers, so the container is kept out of the Service." },
+      { id: 'C', text: "Add a sidecar container that runs the migrations alongside the application and exits when they complete." },
+      { id: 'D', text: "Add a `postStart` lifecycle hook that runs the migration script as the application container comes up." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure an `initContainers` block in the pod spec to run connectivity checks and migration scripts before the application container launches. Init containers run sequentially to completion before any application containers in the pod are started. If an init container fails, the kubelet restarts the pod until it succeeds, guaranteeing that prerequisites (like database readiness, seed data, or schema migrations) are satisfied first.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/init-containers/",
@@ -387,12 +387,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Init Containers to ensure a web application container does not start until a backend database service is fully reachable and database schema migrations have executed.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
-      { id: 'A', text: "Put an infinite retry sleep loop inside the main container's entrypoint script." },
-      { id: 'B', text: "Configure an `initContainers` block in the pod spec to run connectivity checks and migration scripts before the application container launches." },
-      { id: 'C', text: "Manually start the application container after observing database startup." },
-      { id: 'D', text: "Deploy the database and application simultaneously without sequencing." }
+      { id: 'A', text: "Add an `initContainers` block that runs the connectivity check and the schema migration before the app starts." },
+      { id: 'B', text: "Add a readiness probe that fails until the database answers, so the container is kept out of the Service." },
+      { id: 'C', text: "Add a sidecar container that runs the migrations alongside the application and exits when they complete." },
+      { id: 'D', text: "Add a `postStart` lifecycle hook that runs the migration script as the application container comes up." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure an `initContainers` block in the pod spec to run connectivity checks and migration scripts before the application container launches. Init containers run sequentially to completion before any application containers in the pod are started. If an init container fails, the kubelet restarts the pod until it succeeds, guaranteeing that prerequisites (like database readiness, seed data, or schema migrations) are satisfied first.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/init-containers/",
@@ -408,12 +408,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Init Containers to ensure a web application container does not start until a backend database service is fully reachable and database schema migrations have executed.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
-      { id: 'A', text: "Manually start the application container after observing database startup." },
-      { id: 'B', text: "Put an infinite retry sleep loop inside the main container's entrypoint script." },
-      { id: 'C', text: "Deploy the database and application simultaneously without sequencing." },
-      { id: 'D', text: "Configure an `initContainers` block in the pod spec to run connectivity checks and migration scripts before the application container launches." }
+      { id: 'A', text: "Add an `initContainers` block that runs the connectivity check and the schema migration before the app starts." },
+      { id: 'B', text: "Add a readiness probe that fails until the database answers, so the container is kept out of the Service." },
+      { id: 'C', text: "Add a sidecar container that runs the migrations alongside the application and exits when they complete." },
+      { id: 'D', text: "Add a `postStart` lifecycle hook that runs the migration script as the application container comes up." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure an `initContainers` block in the pod spec to run connectivity checks and migration scripts before the application container launches. Init containers run sequentially to completion before any application containers in the pod are started. If an init container fails, the kubelet restarts the pod until it succeeds, guaranteeing that prerequisites (like database readiness, seed data, or schema migrations) are satisfied first.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/init-containers/",
@@ -429,10 +429,10 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Native Sidecars to run a proxy container that starts before the main application starts and remains running continuously throughout the entire pod lifecycle.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Define the proxy in `initContainers` with `restartPolicy: Always`, ensuring it starts first and continues running alongside application containers." },
-      { id: 'B', text: "Define the proxy as a standard container and hope it starts before the main container." },
-      { id: 'C', text: "Run the proxy as a host operating system process on the worker node." },
-      { id: 'D', text: "Write a custom controller to restart dead sidecar containers every thirty seconds." }
+      { id: 'A', text: "Define the proxy in `initContainers` with `restartPolicy: Always`, so it starts first and keeps running." },
+      { id: 'B', text: "Define the proxy as a regular container and place it first in the pod's `containers` list." },
+      { id: 'C', text: "Define the proxy in `initContainers` and let the default restart policy bring it back after it exits." },
+      { id: 'D', text: "Define the proxy as a regular container with a `postStart` hook that waits for it to accept traffic." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,12 +450,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Native Sidecars to run a proxy container that starts before the main application starts and remains running continuously throughout the entire pod lifecycle.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Write a custom controller to restart dead sidecar containers every thirty seconds." },
-      { id: 'B', text: "Define the proxy as a standard container and hope it starts before the main container." },
-      { id: 'C', text: "Run the proxy as a host operating system process on the worker node." },
-      { id: 'D', text: "Define the proxy in `initContainers` with `restartPolicy: Always`, ensuring it starts first and continues running alongside application containers." }
+      { id: 'A', text: "Define the proxy as a regular container with a `postStart` hook that waits for it to accept traffic." },
+      { id: 'B', text: "Define the proxy as a regular container and place it first in the pod's `containers` list." },
+      { id: 'C', text: "Define the proxy in `initContainers` with `restartPolicy: Always`, so it starts first and keeps running." },
+      { id: 'D', text: "Define the proxy in `initContainers` and let the default restart policy bring it back after it exits." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define the proxy in `initContainers` with `restartPolicy: Always`, ensuring it starts first and continues running alongside application containers. Kubernetes supports native sidecar containers defined within `initContainers` with `restartPolicy: Always`. The kubelet starts these containers sequentially before main application containers, but does not wait for them to terminate; they run continuously for the pod lifetime.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/",
@@ -471,12 +471,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Native Sidecars to run a proxy container that starts before the main application starts and remains running continuously throughout the entire pod lifecycle.",
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
-      { id: 'A', text: "Write a custom controller to restart dead sidecar containers every thirty seconds." },
-      { id: 'B', text: "Define the proxy as a standard container and hope it starts before the main container." },
-      { id: 'C', text: "Define the proxy in `initContainers` with `restartPolicy: Always`, ensuring it starts first and continues running alongside application containers." },
-      { id: 'D', text: "Run the proxy as a host operating system process on the worker node." }
+      { id: 'A', text: "Define the proxy in `initContainers` with `restartPolicy: Always`, so it starts first and keeps running." },
+      { id: 'B', text: "Define the proxy as a regular container and place it first in the pod's `containers` list." },
+      { id: 'C', text: "Define the proxy in `initContainers` and let the default restart policy bring it back after it exits." },
+      { id: 'D', text: "Define the proxy as a regular container with a `postStart` hook that waits for it to accept traffic." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Define the proxy in `initContainers` with `restartPolicy: Always`, ensuring it starts first and continues running alongside application containers. Kubernetes supports native sidecar containers defined within `initContainers` with `restartPolicy: Always`. The kubelet starts these containers sequentially before main application containers, but does not wait for them to terminate; they run continuously for the pod lifetime.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/",
@@ -492,12 +492,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Native Sidecars to run a proxy container that starts before the main application starts and remains running continuously throughout the entire pod lifecycle.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
-      { id: 'A', text: "Define the proxy as a standard container and hope it starts before the main container." },
-      { id: 'B', text: "Define the proxy in `initContainers` with `restartPolicy: Always`, ensuring it starts first and continues running alongside application containers." },
-      { id: 'C', text: "Write a custom controller to restart dead sidecar containers every thirty seconds." },
-      { id: 'D', text: "Run the proxy as a host operating system process on the worker node." }
+      { id: 'A', text: "Define the proxy in `initContainers` with `restartPolicy: Always`, so it starts first and keeps running." },
+      { id: 'B', text: "Define the proxy as a regular container and place it first in the pod's `containers` list." },
+      { id: 'C', text: "Define the proxy in `initContainers` and let the default restart policy bring it back after it exits." },
+      { id: 'D', text: "Define the proxy as a regular container with a `postStart` hook that waits for it to accept traffic." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Define the proxy in `initContainers` with `restartPolicy: Always`, ensuring it starts first and continues running alongside application containers. Kubernetes supports native sidecar containers defined within `initContainers` with `restartPolicy: Always`. The kubelet starts these containers sequentially before main application containers, but does not wait for them to terminate; they run continuously for the pod lifetime.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/",
@@ -513,12 +513,12 @@ export const K8S_CKAD_QUESTIONS_11 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Native Sidecars to run a proxy container that starts before the main application starts and remains running continuously throughout the entire pod lifecycle.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
-      { id: 'A', text: "Write a custom controller to restart dead sidecar containers every thirty seconds." },
-      { id: 'B', text: "Run the proxy as a host operating system process on the worker node." },
-      { id: 'C', text: "Define the proxy in `initContainers` with `restartPolicy: Always`, ensuring it starts first and continues running alongside application containers." },
-      { id: 'D', text: "Define the proxy as a standard container and hope it starts before the main container." }
+      { id: 'A', text: "Define the proxy in `initContainers` with `restartPolicy: Always`, so it starts first and keeps running." },
+      { id: 'B', text: "Define the proxy as a regular container and place it first in the pod's `containers` list." },
+      { id: 'C', text: "Define the proxy in `initContainers` and let the default restart policy bring it back after it exits." },
+      { id: 'D', text: "Define the proxy as a regular container with a `postStart` hook that waits for it to accept traffic." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Define the proxy in `initContainers` with `restartPolicy: Always`, ensuring it starts first and continues running alongside application containers. Kubernetes supports native sidecar containers defined within `initContainers` with `restartPolicy: Always`. The kubelet starts these containers sequentially before main application containers, but does not wait for them to terminate; they run continuously for the pod lifetime.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/",

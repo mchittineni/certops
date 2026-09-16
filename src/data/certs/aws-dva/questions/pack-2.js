@@ -9,12 +9,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "An Amazon S3 event triggers a Lambda function asynchronously. The function fails on its first attempt due to a transient downstream service error.",
     question: "What is the default retry behavior executed by AWS Lambda for asynchronous invocations?",
     options: [
-      { id: 'A', text: "Lambda retries twice more with exponential backoff" },
+      { id: 'A', text: "Lambda retries continuously for 14 days every 5 seconds" },
       { id: 'B', text: "Lambda immediately drops the event without any retries" },
-      { id: 'C', text: "Lambda retries continuously for 14 days every 5 seconds" },
-      { id: 'D', text: "Lambda converts the invocation to a synchronous HTTP request" }
+      { id: 'C', text: "Lambda converts the invocation to a synchronous HTTP request" },
+      { id: 'D', text: "Lambda retries twice more with exponential backoff" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "For asynchronous invocations, AWS Lambda automatically retries failed executions twice with delay intervals between 1 second and 2 minutes. If all retries fail, the event is either discarded or forwarded to a configured On-Failure Destination or Dead Letter Queue.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html",
@@ -31,9 +31,9 @@ export const AWS_DVA_QUESTIONS_2 = [
     question: "How does AWS Lambda protect data written to the `/tmp` directory?",
     options: [
       { id: 'A', text: "AWS Lambda automatically encrypts data stored in ephemeral storage at rest using an AWS managed KMS key" },
-      { id: 'B', text: "Developers must write a custom encryption filter using GPG in Python before saving to /tmp" },
-      { id: 'C', text: "Ephemeral storage cannot be encrypted under any circumstances" },
-      { id: 'D', text: "Developers must format /tmp with an ext4 encrypted filesystem manually" }
+      { id: 'B', text: "Ephemeral storage cannot be encrypted under any circumstances" },
+      { id: 'C', text: "Developers must format /tmp with an ext4 encrypted filesystem manually" },
+      { id: 'D', text: "Developers must write a custom encryption filter using GPG in Python before saving to /tmp" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "A developer exposes a Lambda Function URL with AuthType `NONE` to serve web traffic. Web browsers fail to read the response due to cross-origin headers.",
     question: "Where should the developer configure allowed origins, methods, and exposed headers for a Function URL?",
     options: [
-      { id: 'A', text: "Configure the CORS settings directly in the Lambda Function URL configuration" },
-      { id: 'B', text: "Deploy an Application Load Balancer in front of the Function URL" },
-      { id: 'C', text: "Embed CORS headers in an S3 bucket policy" },
+      { id: 'A', text: "Deploy an Application Load Balancer in front of the Function URL" },
+      { id: 'B', text: "Embed CORS headers in an S3 bucket policy" },
+      { id: 'C', text: "Configure the CORS settings directly in the Lambda Function URL configuration" },
       { id: 'D', text: "Install an Apache web server inside the Lambda container" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Lambda Function URLs support native Cross-Origin Resource Sharing (CORS) configuration directly in the function URL settings, including `AllowOrigins`, `AllowMethods`, `AllowHeaders`, `ExposeHeaders`, `MaxAge`, and `AllowCredentials`, eliminating the need for proxy layers.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/urls-configuration.html",
@@ -72,12 +72,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "A Lambda function triggers from an Amazon SQS queue. The queue receives various transaction types, but the function only needs to process messages where `eventType` equals `OrderPlaced`.",
     question: "How should the developer prevent unnecessary Lambda invocations for non-matching events without writing code?",
     options: [
-      { id: 'A', text: "Add an EC2 instance that reads messages and filters them before re-enqueueing" },
-      { id: 'B', text: "Increase the SQS visibility timeout to 12 hours" },
-      { id: 'C', text: "Define an Event Source Mapping Filter Criteria with a JSON pattern matching eventType" },
-      { id: 'D', text: "Delete non-matching messages using a second Lambda function polling every second" }
+      { id: 'A', text: "Define an Event Source Mapping Filter Criteria with a JSON pattern matching eventType" },
+      { id: 'B', text: "Delete non-matching messages using a second Lambda function polling every second" },
+      { id: 'C', text: "Add an EC2 instance that reads messages and filters them before re-enqueueing" },
+      { id: 'D', text: "Increase the SQS visibility timeout to 12 hours" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Event source mapping Filter Criteria allow developers to specify JSON filter patterns. Lambda only evaluates and invokes the function for messages matching the criteria. Non-matching messages are automatically filtered out without invoking or billing for Lambda compute.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html",
@@ -93,12 +93,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "A microservice client invokes a Lambda Function URL configured with AuthType `AWS_IAM`. The request receives an HTTP 403 Forbidden response.",
     question: "What must the calling client include in the HTTP request to authenticate successfully?",
     options: [
-      { id: 'A', text: "A SigV4 authorization header signed with AWS credentials" },
+      { id: 'A', text: "An OAuth 2.0 bearer token issued by Google Accounts" },
       { id: 'B', text: "A basic authentication header with an IAM user password" },
-      { id: 'C', text: "An OAuth 2.0 bearer token issued by Google Accounts" },
-      { id: 'D', text: "A client SSL certificate installed in the browser" }
+      { id: 'C', text: "A client SSL certificate installed in the browser" },
+      { id: 'D', text: "A SigV4 authorization header signed with AWS credentials" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "When a Lambda Function URL uses `AWS_IAM` authorization, incoming requests must be signed using AWS Signature Version 4 (SigV4) containing valid AWS IAM access key credentials. Unsigned requests receive an HTTP 403 Forbidden error.",
     referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html",
@@ -114,12 +114,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "A development team needs a cost-effective API for a mobile client that only requires JWT authorization and OIDC integration without complex SOAP transformation.",
     question: "Which API Gateway type should the developer choose to minimize cost and latency?",
     options: [
-      { id: 'A', text: "REST APIs" },
-      { id: 'B', text: "Private REST APIs via VPC endpoints" },
-      { id: 'C', text: "HTTP APIs" },
-      { id: 'D', text: "WebSocket APIs" }
+      { id: 'A', text: "HTTP APIs" },
+      { id: 'B', text: "REST APIs" },
+      { id: 'C', text: "WebSocket APIs" },
+      { id: 'D', text: "Private REST APIs via VPC endpoints" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "API Gateway HTTP APIs are optimized for building serverless workloads with lower latency and up to 70% cost reduction compared to REST APIs, while natively supporting OIDC and JWT authorizers out of the box. REST APIs offer features like API keys and usage plans that are unnecessary for simple JWT mobile workloads.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vs-rest.html",
@@ -136,9 +136,9 @@ export const AWS_DVA_QUESTIONS_2 = [
     question: "How should the developer configure the integration URI in API Gateway?",
     options: [
       { id: 'A', text: "Use a ${stageVariables.env} placeholder in the integration ARN" },
-      { id: 'B', text: "Use Route 53 DNS aliases pointing to three different EC2 instances" },
+      { id: 'B', text: "Point each stage at the $LATEST alias and deploy per environment" },
       { id: 'C', text: "Deploy three separate API Gateway instances in three distinct AWS accounts" },
-      { id: 'D', text: "Point each stage at the $LATEST alias and deploy per environment" }
+      { id: 'D', text: "Use Route 53 DNS aliases pointing to three different EC2 instances" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "A single-page web app hosted on a custom domain makes AJAX requests to an API Gateway endpoint. Browsers block the requests due to Cross-Origin Resource Sharing (CORS) policy.",
     question: "Which HTTP method must API Gateway handle to satisfy browser preflight checks?",
     options: [
-      { id: 'A', text: "GET" },
-      { id: 'B', text: "PUT" },
-      { id: 'C', text: "OPTIONS" },
-      { id: 'D', text: "HEAD" }
+      { id: 'A', text: "OPTIONS" },
+      { id: 'B', text: "GET" },
+      { id: 'C', text: "HEAD" },
+      { id: 'D', text: "PUT" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Web browsers send an HTTP `OPTIONS` preflight request before making cross-origin requests that use methods other than simple GET/POST or include custom headers. API Gateway must return `Access-Control-Allow-Origin`, `Access-Control-Allow-Methods`, and `Access-Control-Allow-Headers` in response to the OPTIONS call.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html",
@@ -178,9 +178,9 @@ export const AWS_DVA_QUESTIONS_2 = [
     question: "Which combination of features should the developer configure to enforce these subscription boundaries?",
     options: [
       { id: 'A', text: "API Keys associated with Usage Plans defining rate limits and quotas" },
-      { id: 'B', text: "VPC Security Groups filtering TCP port 443 packets" },
+      { id: 'B', text: "IAM Policies attached to anonymous caller IP addresses" },
       { id: 'C', text: "WAF Web ACL rules tracking user agent strings" },
-      { id: 'D', text: "IAM Policies attached to anonymous caller IP addresses" }
+      { id: 'D', text: "VPC Security Groups filtering TCP port 443 packets" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "A microservice requires authentication where the incoming request supplies an OAuth token in the Authorization header as well as custom client identifiers in query parameters.",
     question: "Which type of API Gateway Lambda Authorizer should the developer deploy?",
     options: [
-      { id: 'A', text: "A Basic Auth htpasswd authorizer" },
+      { id: 'A', text: "A REQUEST authorizer" },
       { id: 'B', text: "A TOKEN authorizer" },
       { id: 'C', text: "An IAM Authorizer with Cognito identity pools" },
-      { id: 'D', text: "A REQUEST authorizer" }
+      { id: 'D', text: "A Basic Auth htpasswd authorizer" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A `REQUEST` authorizer receives headers, query string parameters, stage variables, path parameters, and context in the `event` object, enabling complex authorization decisions based on multiple request inputs. In contrast, a `TOKEN` authorizer only receives the single token string from the specified authorization header.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html",
@@ -220,9 +220,9 @@ export const AWS_DVA_QUESTIONS_2 = [
     question: "What is the maximum payload size limit for API Gateway requests and responses?",
     options: [
       { id: 'A', text: "10 MB" },
-      { id: 'B', text: "100 MB" },
+      { id: 'B', text: "6 MB" },
       { id: 'C', text: "50 MB" },
-      { id: 'D', text: "6 MB" }
+      { id: 'D', text: "100 MB" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,12 +240,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "A developer needs to convert incoming legacy XML payloads to JSON format before sending them to a backend Lambda function, without modifying backend code.",
     question: "Which API Gateway feature enables server-side request transformations using Velocity Template Language (VTL)?",
     options: [
-      { id: 'A', text: "Method Request Query String parameters" },
-      { id: 'B', text: "Integration Request Mapping Templates" },
-      { id: 'C', text: "Gateway Responses for 4XX errors" },
-      { id: 'D', text: "Integration Response HTTP headers" }
+      { id: 'A', text: "Integration Request Mapping Templates" },
+      { id: 'B', text: "Method Request Query String parameters" },
+      { id: 'C', text: "Integration Response HTTP headers" },
+      { id: 'D', text: "Gateway Responses for 4XX errors" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "API Gateway Mapping Templates allow developers to define Velocity Template Language (VTL) scripts on the Integration Request to inspect, transform, filter, and restructure payload payloads (e.g. converting XML to JSON) before passing the data to backend services or DynamoDB. Method requests define schema validation, not transformations.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html",
@@ -261,12 +261,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "A development team wants to validate a new version of their REST API with 5% of live production traffic and rollback automatically if 5XX errors increase.",
     question: "What built-in API Gateway deployment feature facilitates this testing methodology?",
     options: [
-      { id: 'A', text: "Blue/green EC2 Auto Scaling groups" },
-      { id: 'B', text: "API Gateway Canary release deployment on the stage" },
-      { id: 'C', text: "Route 53 Weighted DNS failover records" },
-      { id: 'D', text: "CloudFront Lambda@Edge origin request viewer filters" }
+      { id: 'A', text: "API Gateway Canary release deployment on the stage" },
+      { id: 'B', text: "Blue/green EC2 Auto Scaling groups" },
+      { id: 'C', text: "CloudFront Lambda@Edge origin request viewer filters" },
+      { id: 'D', text: "Route 53 Weighted DNS failover records" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "API Gateway allows developers to create a Canary release on an existing deployment stage. A percentage of incoming traffic is routed to the canary deployment while execution metrics (latency and 4XX/5XX errors) are tracked separately in CloudWatch, allowing safe testing and zero-downtime promotion.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/canary-release.html",
@@ -282,12 +282,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "An API endpoint returns weather forecast data that changes only once every 30 minutes. Thousands of identical requests per second are overwhelming the downstream Lambda function.",
     question: "How should the developer prevent redundant Lambda invocations while delivering fast responses?",
     options: [
-      { id: 'A', text: "Increase Lambda concurrency to 10,000" },
-      { id: 'B', text: "Deploy an Amazon CloudWatch Synthetics canary to warm the cache" },
-      { id: 'C', text: "Add an SQS queue between API Gateway and the Lambda function" },
-      { id: 'D', text: "Enable API Gateway caching on the stage and configure a TTL of 1800 seconds" }
+      { id: 'A', text: "Enable API Gateway caching on the stage and configure a TTL of 1800 seconds" },
+      { id: 'B', text: "Add an SQS queue between API Gateway and the Lambda function" },
+      { id: 'C', text: "Increase Lambda concurrency to 10,000" },
+      { id: 'D', text: "Deploy an Amazon CloudWatch Synthetics canary to warm the cache" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "API Gateway stage caching caches backend responses for a specified TTL (e.g., 1800 seconds / 30 minutes). Identical requests with matching parameters or headers are served directly from the API Gateway cache without invoking the backend Lambda function, reducing latency and backend costs.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html",
@@ -303,12 +303,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "A multiplayer gaming application uses an API Gateway WebSocket API. When clients connect, the application must store connection identifiers to broadcast state changes later.",
     question: "Which route and context parameter provides the unique connection identifier?",
     options: [
-      { id: 'A', text: "The $ping route and the session cookie token" },
+      { id: 'A', text: "The $connect route and $context.connectionId" },
       { id: 'B', text: "The $disconnect route and the caller IAM user ARN" },
       { id: 'C', text: "The $default route and the client public IP address" },
-      { id: 'D', text: "The $connect route and $context.connectionId" }
+      { id: 'D', text: "The $ping route and the session cookie token" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "In API Gateway WebSocket APIs, the `$connect` route fires when a client establishes a persistent connection. The `$context.connectionId` value contains the unique identifier assigned by API Gateway, which backend systems typically store in Amazon DynamoDB to push messages back to the client using the `@connections` API.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html",
@@ -324,12 +324,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "A developer wants API Gateway to reject requests that have missing query string parameters or an invalid JSON body before invoking the backend Lambda function.",
     question: "Which feature should the developer configure to avoid paying for unnecessary Lambda executions?",
     options: [
-      { id: 'A', text: "Lambda input validation checks inside the handler code" },
-      { id: 'B', text: "Amazon CloudWatch Metric Alarms" },
-      { id: 'C', text: "AWS WAF regex match statements" },
-      { id: 'D', text: "API Gateway Request Validators using JSON Schema models" }
+      { id: 'A', text: "API Gateway Request Validators using JSON Schema models" },
+      { id: 'B', text: "AWS WAF regex match statements" },
+      { id: 'C', text: "Lambda input validation checks inside the handler code" },
+      { id: 'D', text: "Amazon CloudWatch Metric Alarms" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "API Gateway Request Validators evaluate incoming requests against defined JSON Schema models and required parameter rules at the API Gateway layer. If a request does not conform, API Gateway immediately returns an HTTP 400 Bad Request error without invoking or billing for backend Lambda execution.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html",
@@ -345,12 +345,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "A client application submits bursts of 10,000 requests in 2 seconds to an API Gateway REST API and receives HTTP 429 errors.",
     question: "What algorithm and parameters govern API Gateway default account and stage throttling?",
     options: [
-      { id: 'A', text: "Fixed window rate limiting reset at the start of every calendar hour" },
+      { id: 'A', text: "Token bucket algorithm configured with steady-state Rate and Burst capacity" },
       { id: 'B', text: "Leaky bucket algorithm configured with TCP socket timeouts" },
       { id: 'C', text: "Round-robin load balancing across regional availability zones" },
-      { id: 'D', text: "Token bucket algorithm configured with steady-state Rate and Burst capacity" }
+      { id: 'D', text: "Fixed window rate limiting reset at the start of every calendar hour" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "API Gateway uses the token bucket algorithm to enforce throttling limits. The `Rate` (tokens per second added to the bucket) governs sustained throughput, while the `Burst` (bucket capacity) accommodates instantaneous spikes. When the token bucket is empty, API Gateway returns HTTP 429 Too Many Requests.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html",
@@ -366,12 +366,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "A financial institution requires bidirectional certificate authentication (mTLS) between third-party banking servers and their API Gateway REST API.",
     question: "Where must the developer configure the trusted certificate authority (CA) bundle for mTLS in API Gateway?",
     options: [
-      { id: 'A', text: "In AWS Secrets Manager as a binary secret" },
-      { id: 'B', text: "In an Amazon DynamoDB table mapped via VTL template" },
-      { id: 'C', text: "In the Lambda function deployment package zip file" },
-      { id: 'D', text: "In the API Gateway custom domain settings" }
+      { id: 'A', text: "In the API Gateway custom domain settings" },
+      { id: 'B', text: "In the Lambda function deployment package zip file" },
+      { id: 'C', text: "In AWS Secrets Manager as a binary secret" },
+      { id: 'D', text: "In an Amazon DynamoDB table mapped via VTL template" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "API Gateway supports mutual TLS (mTLS) on Custom Domain Names. The developer uploads a truststore containing root and intermediate certificate authorities (CA) as a PEM file in Amazon S3 and references it in the custom domain configuration, allowing API Gateway to verify client certificates during the TLS handshake.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mutual-tls.html",
@@ -387,12 +387,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "A high-throughput IoT ingestion endpoint must insert sensor readings directly into Amazon DynamoDB with the lowest possible latency and operational cost.",
     question: "How can the developer write to DynamoDB without deploying or paying for a Lambda function?",
     options: [
-      { id: 'A', text: "Use Lambda synchronous invocations with maximum memory" },
-      { id: 'B', text: "Configure an SQS queue to poll API Gateway every 5 seconds" },
-      { id: 'C', text: "Attach an Amazon EC2 instance running Nginx reverse proxy" },
-      { id: 'D', text: "An AWS service integration to DynamoDB with a VTL template" }
+      { id: 'A', text: "An AWS service integration to DynamoDB with a VTL template" },
+      { id: 'B', text: "Use Lambda synchronous invocations with maximum memory" },
+      { id: 'C', text: "Configure an SQS queue to poll API Gateway every 5 seconds" },
+      { id: 'D', text: "Attach an Amazon EC2 instance running Nginx reverse proxy" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "API Gateway can integrate directly with AWS services (such as DynamoDB, S3, SQS, Kinesis) as an 'AWS Service' integration type. Using execution roles and VTL mapping templates, API Gateway transforms incoming JSON into DynamoDB `PutItem` requests directly, eliminating Lambda invocation overhead and compute cost.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html",
@@ -408,12 +408,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "An enterprise application serves internal business users who access APIs exclusively over private subnets and Direct Connect without traversing the public internet.",
     question: "Which API Gateway endpoint type is designed for this security requirement?",
     options: [
-      { id: 'A', text: "Private API endpoints accessed via an interface VPC endpoint (AWS PrivateLink)" },
-      { id: 'B', text: "Edge-optimized API endpoints with CloudFront distribution endpoints" },
+      { id: 'A', text: "Public WebSocket API endpoints with IAM authentication" },
+      { id: 'B', text: "Private API endpoints accessed via an interface VPC endpoint (AWS PrivateLink)" },
       { id: 'C', text: "Regional API endpoints with public IP addresses" },
-      { id: 'D', text: "Public WebSocket API endpoints with IAM authentication" }
+      { id: 'D', text: "Edge-optimized API endpoints with CloudFront distribution endpoints" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Private API endpoints can only be accessed from within a private VPC through an interface VPC endpoint (AWS PrivateLink) powered by AWS Hyperplane. Traffic remains entirely inside the AWS network backbone. Edge-optimized and Regional endpoints are accessible from the public internet.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-private-apis.html",
@@ -429,12 +429,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "A company requires all 4XX and 5XX error responses returned by API Gateway (such as 403 Forbidden or 429 Throttled) to adhere to a standardized corporate JSON error structure.",
     question: "Which API Gateway feature allows customization of error payloads generated by the API Gateway layer itself?",
     options: [
-      { id: 'A', text: "CloudWatch Alarms" },
-      { id: 'B', text: "Method Responses" },
-      { id: 'C', text: "Integration Responses" },
-      { id: 'D', text: "Gateway Responses" }
+      { id: 'A', text: "Gateway Responses" },
+      { id: 'B', text: "Integration Responses" },
+      { id: 'C', text: "Method Responses" },
+      { id: 'D', text: "CloudWatch Alarms" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Gateway Responses configure the HTTP status code, response headers, and response templates for errors generated directly by API Gateway before requests reach the backend (e.g., missing authentication token, request validation failure, unauthorized access, throttling). Integration Responses handle backend responses.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html",
@@ -451,9 +451,9 @@ export const AWS_DVA_QUESTIONS_2 = [
     question: "Which API Gateway integration type returns static simulated responses without calling any backend resource?",
     options: [
       { id: 'A', text: "MOCK integration" },
-      { id: 'B', text: "HTTP integration" },
-      { id: 'C', text: "AWS_PROXY integration" },
-      { id: 'D', text: "LAMBDA integration" }
+      { id: 'B', text: "LAMBDA integration" },
+      { id: 'C', text: "HTTP integration" },
+      { id: 'D', text: "AWS_PROXY integration" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,12 +471,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "A developer builds a serverless REST API and wants Lambda to receive all raw HTTP request headers, query parameters, path variables, and body content without configuring mapping templates.",
     question: "Which integration type should the developer select?",
     options: [
-      { id: 'A', text: "Lambda Proxy Integration (AWS_PROXY)" },
-      { id: 'B', text: "Lambda Custom Integration" },
-      { id: 'C', text: "HTTP Integration" },
+      { id: 'A', text: "HTTP Integration" },
+      { id: 'B', text: "Lambda Proxy Integration (AWS_PROXY)" },
+      { id: 'C', text: "Lambda Custom Integration" },
       { id: 'D', text: "VPC Link Integration" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Lambda Proxy Integration (`AWS_PROXY`) passes the entire raw HTTP request (headers, query strings, path parameters, body, requestContext) directly to the Lambda function in the `event` object. The function is responsible for returning a JSON object with `statusCode`, `headers`, and `body`, eliminating the need for VTL mapping templates.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html",
@@ -492,12 +492,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "A company owns `api.example.com` and wants to route `/users` to the User Service API Gateway and `/orders` to the Order Service API Gateway under the same domain.",
     question: "Which feature should the developer configure?",
     options: [
-      { id: 'A', text: "CloudFront signed URLs" },
-      { id: 'B', text: "AWS WAF header rewriting rules" },
-      { id: 'C', text: "Custom domain base path mappings" },
-      { id: 'D', text: "Route 53 latency routing policies" }
+      { id: 'A', text: "Custom domain base path mappings" },
+      { id: 'B', text: "Route 53 latency routing policies" },
+      { id: 'C', text: "AWS WAF header rewriting rules" },
+      { id: 'D', text: "CloudFront signed URLs" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "API Gateway Custom Domain Names support Base Path Mappings. A single domain (e.g. `api.example.com`) can map distinct base paths (such as `users` and `orders`) to entirely different API Gateway deployments and stages, creating a unified API surface across decoupled microservices.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html",
@@ -513,12 +513,12 @@ export const AWS_DVA_QUESTIONS_2 = [
     scenario: "A developer needs full access logs recorded for every HTTP request passing through an API Gateway stage, including client IP, caller identity, and response latency.",
     question: "Where is stage-level Access Logging configured in API Gateway?",
     options: [
-      { id: 'A', text: "Inside the client browser local storage" },
+      { id: 'A', text: "In the stage access logging settings" },
       { id: 'B', text: "In the IAM Role trust policy" },
       { id: 'C', text: "In the resource policy JSON document" },
-      { id: 'D', text: "In the stage access logging settings" }
+      { id: 'D', text: "Inside the client browser local storage" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "API Gateway Access Logging is enabled in the Stage settings. Developers specify an Amazon CloudWatch Log Group ARN and a log format (using standard `$context` variables like `$context.identity.sourceIp`, `$context.responseLatency`, and `$context.status`) to record detailed request logs.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html",

@@ -9,12 +9,12 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to enable developers to query an error in a centralized logging system and instantly retrieve the complete distributed trace of that failure.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
-      { id: 'A', text: "Disable structured logging." },
+      { id: 'A', text: "Configure the logging library to inject active `trace_id` and `span_id` context into structured JSON log fields." },
       { id: 'B', text: "Rely on timestamp matching across servers." },
       { id: 'C', text: "Instruct developers to manually write trace IDs in log message strings." },
-      { id: 'D', text: "Configure the logging library to inject active `trace_id` and `span_id` context into structured JSON log fields." }
+      { id: 'D', text: "Disable structured logging." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure the logging library to inject active `trace_id` and `span_id` context into structured JSON log fields. Correlating logs and traces is a cornerstone of modern observability. When logging frameworks are integrated with OpenTelemetry context, every log line automatically includes `trace_id` and `span_id`, allowing logging platforms to link directly to tracing systems.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/logs/#log-correlation",
@@ -31,8 +31,8 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Configure the logging library to inject active `trace_id` and `span_id` context into structured JSON log fields." },
-      { id: 'B', text: "Instruct developers to manually write trace IDs in log message strings." },
-      { id: 'C', text: "Rely on timestamp matching across servers." },
+      { id: 'B', text: "Rely on timestamp matching across servers." },
+      { id: 'C', text: "Instruct developers to manually write trace IDs in log message strings." },
       { id: 'D', text: "Disable structured logging." }
     ],
     correctAnswers: ['A'],
@@ -51,12 +51,12 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to enable developers to query an error in a centralized logging system and instantly retrieve the complete distributed trace of that failure.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
-      { id: 'A', text: "Disable structured logging." },
+      { id: 'A', text: "Instruct developers to manually write trace IDs in log message strings." },
       { id: 'B', text: "Rely on timestamp matching across servers." },
-      { id: 'C', text: "Configure the logging library to inject active `trace_id` and `span_id` context into structured JSON log fields." },
-      { id: 'D', text: "Instruct developers to manually write trace IDs in log message strings." }
+      { id: 'C', text: "Disable structured logging." },
+      { id: 'D', text: "Configure the logging library to inject active `trace_id` and `span_id` context into structured JSON log fields." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure the logging library to inject active `trace_id` and `span_id` context into structured JSON log fields. Correlating logs and traces is a cornerstone of modern observability. When logging frameworks are integrated with OpenTelemetry context, every log line automatically includes `trace_id` and `span_id`, allowing logging platforms to link directly to tracing systems.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/logs/#log-correlation",
@@ -72,12 +72,12 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to enable developers to query an error in a centralized logging system and instantly retrieve the complete distributed trace of that failure.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
-      { id: 'A', text: "Disable structured logging." },
-      { id: 'B', text: "Instruct developers to manually write trace IDs in log message strings." },
-      { id: 'C', text: "Rely on timestamp matching across servers." },
-      { id: 'D', text: "Configure the logging library to inject active `trace_id` and `span_id` context into structured JSON log fields." }
+      { id: 'A', text: "Configure the logging library to inject active `trace_id` and `span_id` context into structured JSON log fields." },
+      { id: 'B', text: "Rely on timestamp matching across servers." },
+      { id: 'C', text: "Instruct developers to manually write trace IDs in log message strings." },
+      { id: 'D', text: "Disable structured logging." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure the logging library to inject active `trace_id` and `span_id` context into structured JSON log fields. Correlating logs and traces is a cornerstone of modern observability. When logging frameworks are integrated with OpenTelemetry context, every log line automatically includes `trace_id` and `span_id`, allowing logging platforms to link directly to tracing systems.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/logs/#log-correlation",
@@ -93,12 +93,12 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to enable developers to query an error in a centralized logging system and instantly retrieve the complete distributed trace of that failure.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
-      { id: 'A', text: "Disable structured logging." },
-      { id: 'B', text: "Configure the logging library to inject active `trace_id` and `span_id` context into structured JSON log fields." },
-      { id: 'C', text: "Rely on timestamp matching across servers." },
-      { id: 'D', text: "Instruct developers to manually write trace IDs in log message strings." }
+      { id: 'A', text: "Instruct developers to manually write trace IDs in log message strings." },
+      { id: 'B', text: "Disable structured logging." },
+      { id: 'C', text: "Configure the logging library to inject active `trace_id` and `span_id` context into structured JSON log fields." },
+      { id: 'D', text: "Rely on timestamp matching across servers." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the logging library to inject active `trace_id` and `span_id` context into structured JSON log fields. Correlating logs and traces is a cornerstone of modern observability. When logging frameworks are integrated with OpenTelemetry context, every log line automatically includes `trace_id` and `span_id`, allowing logging platforms to link directly to tracing systems.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/logs/#log-correlation",
@@ -114,12 +114,12 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to prevent high-cardinality explosions that can crash Prometheus or incur massive cloud monitoring bills.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
-      { id: 'A', text: "Disable all attributes across all metrics and traces." },
+      { id: 'A', text: "Avoid adding high-cardinality values (e.g., user UUIDs, timestamps) as metric attributes, recording them in trace span attributes instead." },
       { id: 'B', text: "Add unique user credit card numbers as metric dimensions." },
       { id: 'C', text: "Create a separate metric for every unique user session ID." },
-      { id: 'D', text: "Avoid adding high-cardinality values (e.g., user UUIDs, timestamps) as metric attributes, recording them in trace span attributes instead." }
+      { id: 'D', text: "Disable all attributes across all metrics and traces." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Avoid adding high-cardinality values (e.g., user UUIDs, timestamps) as metric attributes, recording them in trace span attributes instead. High cardinality (millions of unique label/dimension combinations) severely degrades metric database performance. Best practice dictates using low-cardinality values (e.g., `http.status_code`, `region`) for metric dimensions, while high-cardinality identifiers (user IDs, order IDs) belong on trace spans.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/metrics/#cardinality",
@@ -157,9 +157,9 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Avoid adding high-cardinality values (e.g., user UUIDs, timestamps) as metric attributes, recording them in trace span attributes instead." },
-      { id: 'B', text: "Disable all attributes across all metrics and traces." },
+      { id: 'B', text: "Add unique user credit card numbers as metric dimensions." },
       { id: 'C', text: "Create a separate metric for every unique user session ID." },
-      { id: 'D', text: "Add unique user credit card numbers as metric dimensions." }
+      { id: 'D', text: "Disable all attributes across all metrics and traces." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -178,8 +178,8 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
       { id: 'A', text: "Avoid adding high-cardinality values (e.g., user UUIDs, timestamps) as metric attributes, recording them in trace span attributes instead." },
-      { id: 'B', text: "Create a separate metric for every unique user session ID." },
-      { id: 'C', text: "Add unique user credit card numbers as metric dimensions." },
+      { id: 'B', text: "Add unique user credit card numbers as metric dimensions." },
+      { id: 'C', text: "Create a separate metric for every unique user session ID." },
       { id: 'D', text: "Disable all attributes across all metrics and traces." }
     ],
     correctAnswers: ['A'],
@@ -198,12 +198,12 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to prevent high-cardinality explosions that can crash Prometheus or incur massive cloud monitoring bills.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
-      { id: 'A', text: "Add unique user credit card numbers as metric dimensions." },
-      { id: 'B', text: "Disable all attributes across all metrics and traces." },
+      { id: 'A', text: "Disable all attributes across all metrics and traces." },
+      { id: 'B', text: "Avoid adding high-cardinality values (e.g., user UUIDs, timestamps) as metric attributes, recording them in trace span attributes instead." },
       { id: 'C', text: "Create a separate metric for every unique user session ID." },
-      { id: 'D', text: "Avoid adding high-cardinality values (e.g., user UUIDs, timestamps) as metric attributes, recording them in trace span attributes instead." }
+      { id: 'D', text: "Add unique user credit card numbers as metric dimensions." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Avoid adding high-cardinality values (e.g., user UUIDs, timestamps) as metric attributes, recording them in trace span attributes instead. High cardinality (millions of unique label/dimension combinations) severely degrades metric database performance. Best practice dictates using low-cardinality values (e.g., `http.status_code`, `region`) for metric dimensions, while high-cardinality identifiers (user IDs, order IDs) belong on trace spans.",
     referenceUrl: "https://opentelemetry.io/docs/concepts/signals/metrics/#cardinality",
@@ -240,12 +240,12 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to configure an application SDK to sample 10% of new root traces while respecting the sampling decision of upstream parent callers.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
-      { id: 'A', text: "Use `AlwaysOff` sampler which disables all tracing." },
-      { id: 'B', text: "Use `TraceIdRatioBased` without ParentBased, breaking distributed trace continuity." },
-      { id: 'C', text: "Configure the SDK with `ParentBased(TraceIdRatioBased(0.10))` sampling policy." },
-      { id: 'D', text: "Use `AlwaysOn` sampler which captures 100% of all traffic." }
+      { id: 'A', text: "Configure the SDK with `ParentBased(TraceIdRatioBased(0.10))` sampling policy." },
+      { id: 'B', text: "Use `AlwaysOn` sampler which captures 100% of all traffic." },
+      { id: 'C', text: "Use `AlwaysOff` sampler which disables all tracing." },
+      { id: 'D', text: "Use `TraceIdRatioBased` without ParentBased, breaking distributed trace continuity." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure the SDK with `ParentBased(TraceIdRatioBased(0.10))` sampling policy. The `ParentBased` sampler wrapper respects upstream decisions: if an upstream service decided to sample a request, downstream services sample it too, preserving trace completeness. For new root traces, it delegates to the child sampler (`TraceIdRatioBased(0.10)`).",
     referenceUrl: "https://opentelemetry.io/docs/concepts/sampling/#parentbased",
@@ -262,8 +262,8 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Configure the SDK with `ParentBased(TraceIdRatioBased(0.10))` sampling policy." },
-      { id: 'B', text: "Use `AlwaysOff` sampler which disables all tracing." },
-      { id: 'C', text: "Use `AlwaysOn` sampler which captures 100% of all traffic." },
+      { id: 'B', text: "Use `AlwaysOn` sampler which captures 100% of all traffic." },
+      { id: 'C', text: "Use `AlwaysOff` sampler which disables all tracing." },
       { id: 'D', text: "Use `TraceIdRatioBased` without ParentBased, breaking distributed trace continuity." }
     ],
     correctAnswers: ['A'],
@@ -282,12 +282,12 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to configure an application SDK to sample 10% of new root traces while respecting the sampling decision of upstream parent callers.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
-      { id: 'A', text: "Use `AlwaysOn` sampler which captures 100% of all traffic." },
-      { id: 'B', text: "Configure the SDK with `ParentBased(TraceIdRatioBased(0.10))` sampling policy." },
-      { id: 'C', text: "Use `TraceIdRatioBased` without ParentBased, breaking distributed trace continuity." },
-      { id: 'D', text: "Use `AlwaysOff` sampler which disables all tracing." }
+      { id: 'A', text: "Configure the SDK with `ParentBased(TraceIdRatioBased(0.10))` sampling policy." },
+      { id: 'B', text: "Use `AlwaysOn` sampler which captures 100% of all traffic." },
+      { id: 'C', text: "Use `AlwaysOff` sampler which disables all tracing." },
+      { id: 'D', text: "Use `TraceIdRatioBased` without ParentBased, breaking distributed trace continuity." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure the SDK with `ParentBased(TraceIdRatioBased(0.10))` sampling policy. The `ParentBased` sampler wrapper respects upstream decisions: if an upstream service decided to sample a request, downstream services sample it too, preserving trace completeness. For new root traces, it delegates to the child sampler (`TraceIdRatioBased(0.10)`).",
     referenceUrl: "https://opentelemetry.io/docs/concepts/sampling/#parentbased",
@@ -304,9 +304,9 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Configure the SDK with `ParentBased(TraceIdRatioBased(0.10))` sampling policy." },
-      { id: 'B', text: "Use `TraceIdRatioBased` without ParentBased, breaking distributed trace continuity." },
-      { id: 'C', text: "Use `AlwaysOn` sampler which captures 100% of all traffic." },
-      { id: 'D', text: "Use `AlwaysOff` sampler which disables all tracing." }
+      { id: 'B', text: "Use `AlwaysOff` sampler which disables all tracing." },
+      { id: 'C', text: "Use `TraceIdRatioBased` without ParentBased, breaking distributed trace continuity." },
+      { id: 'D', text: "Use `AlwaysOn` sampler which captures 100% of all traffic." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -325,9 +325,9 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
       { id: 'A', text: "Invoke `tracerProvider.ForceFlush(ctx)` or `tracerProvider.Shutdown(ctx)` before the process exits." },
-      { id: 'B', text: "Kill the process with SIGKILL immediately." },
-      { id: 'C', text: "Serverless functions cannot emit OpenTelemetry data." },
-      { id: 'D', text: "Rely on background asynchronous batch processors to flush after the process terminates." }
+      { id: 'B', text: "Serverless functions cannot emit OpenTelemetry data." },
+      { id: 'C', text: "Rely on background asynchronous batch processors to flush after the process terminates." },
+      { id: 'D', text: "Kill the process with SIGKILL immediately." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,12 +345,12 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     scenario: "A high-throughput cloud-native platform experiences spikes of billions of spans and metrics daily and requires low-latency telemetry processing and reliable backpressure management. The observability engineer needs to prevent telemetry loss when an AWS Lambda function or short-lived CLI batch script completes execution and terminates.",
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
-      { id: 'A', text: "Serverless functions cannot emit OpenTelemetry data." },
-      { id: 'B', text: "Invoke `tracerProvider.ForceFlush(ctx)` or `tracerProvider.Shutdown(ctx)` before the process exits." },
+      { id: 'A', text: "Rely on background asynchronous batch processors to flush after the process terminates." },
+      { id: 'B', text: "Serverless functions cannot emit OpenTelemetry data." },
       { id: 'C', text: "Kill the process with SIGKILL immediately." },
-      { id: 'D', text: "Rely on background asynchronous batch processors to flush after the process terminates." }
+      { id: 'D', text: "Invoke `tracerProvider.ForceFlush(ctx)` or `tracerProvider.Shutdown(ctx)` before the process exits." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Invoke `tracerProvider.ForceFlush(ctx)` or `tracerProvider.Shutdown(ctx)` before the process exits. Batch processors buffer telemetry in memory. If a process terminates abruptly (as in AWS Lambda or CLI jobs), in-flight spans are lost. Calling `ForceFlush()` or `Shutdown()` blocks briefly to ensure all buffered telemetry is transmitted to the collector before exit.",
     referenceUrl: "https://opentelemetry.io/docs/languages/go/instrumentation/#graceful-shutdown",
@@ -366,12 +366,12 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     scenario: "A platform security and compliance auditor requires cryptographic TLS authentication, PII data masking, and strict tenancy segregation across all telemetry pipelines. The observability engineer needs to prevent telemetry loss when an AWS Lambda function or short-lived CLI batch script completes execution and terminates.",
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
-      { id: 'A', text: "Kill the process with SIGKILL immediately." },
-      { id: 'B', text: "Serverless functions cannot emit OpenTelemetry data." },
-      { id: 'C', text: "Rely on background asynchronous batch processors to flush after the process terminates." },
-      { id: 'D', text: "Invoke `tracerProvider.ForceFlush(ctx)` or `tracerProvider.Shutdown(ctx)` before the process exits." }
+      { id: 'A', text: "Rely on background asynchronous batch processors to flush after the process terminates." },
+      { id: 'B', text: "Invoke `tracerProvider.ForceFlush(ctx)` or `tracerProvider.Shutdown(ctx)` before the process exits." },
+      { id: 'C', text: "Serverless functions cannot emit OpenTelemetry data." },
+      { id: 'D', text: "Kill the process with SIGKILL immediately." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Invoke `tracerProvider.ForceFlush(ctx)` or `tracerProvider.Shutdown(ctx)` before the process exits. Batch processors buffer telemetry in memory. If a process terminates abruptly (as in AWS Lambda or CLI jobs), in-flight spans are lost. Calling `ForceFlush()` or `Shutdown()` blocks briefly to ensure all buffered telemetry is transmitted to the collector before exit.",
     referenceUrl: "https://opentelemetry.io/docs/languages/go/instrumentation/#graceful-shutdown",
@@ -387,12 +387,12 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to prevent telemetry loss when an AWS Lambda function or short-lived CLI batch script completes execution and terminates.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
-      { id: 'A', text: "Kill the process with SIGKILL immediately." },
+      { id: 'A', text: "Invoke `tracerProvider.ForceFlush(ctx)` or `tracerProvider.Shutdown(ctx)` before the process exits." },
       { id: 'B', text: "Rely on background asynchronous batch processors to flush after the process terminates." },
-      { id: 'C', text: "Invoke `tracerProvider.ForceFlush(ctx)` or `tracerProvider.Shutdown(ctx)` before the process exits." },
+      { id: 'C', text: "Kill the process with SIGKILL immediately." },
       { id: 'D', text: "Serverless functions cannot emit OpenTelemetry data." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Invoke `tracerProvider.ForceFlush(ctx)` or `tracerProvider.Shutdown(ctx)` before the process exits. Batch processors buffer telemetry in memory. If a process terminates abruptly (as in AWS Lambda or CLI jobs), in-flight spans are lost. Calling `ForceFlush()` or `Shutdown()` blocks briefly to ensure all buffered telemetry is transmitted to the collector before exit.",
     referenceUrl: "https://opentelemetry.io/docs/languages/go/instrumentation/#graceful-shutdown",
@@ -409,9 +409,9 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
       { id: 'A', text: "Invoke `tracerProvider.ForceFlush(ctx)` or `tracerProvider.Shutdown(ctx)` before the process exits." },
-      { id: 'B', text: "Serverless functions cannot emit OpenTelemetry data." },
+      { id: 'B', text: "Rely on background asynchronous batch processors to flush after the process terminates." },
       { id: 'C', text: "Kill the process with SIGKILL immediately." },
-      { id: 'D', text: "Rely on background asynchronous batch processors to flush after the process terminates." }
+      { id: 'D', text: "Serverless functions cannot emit OpenTelemetry data." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     scenario: "An enterprise observability architecture team is standardizing distributed telemetry collection, correlation, and sampling pipelines across multiple cloud environments. The observability engineer needs to configure an application SDK or collector to export telemetry securely over OTLP gRPC with TLS and gzip compression.",
     question: "Which architectural approach or OpenTelemetry configuration satisfies these enterprise observability objectives?",
     options: [
-      { id: 'A', text: "Use non-standard custom binary ports." },
+      { id: 'A', text: "Disable compression on high-volume networks." },
       { id: 'B', text: "Transmit telemetry over unencrypted HTTP port 80 across public networks." },
-      { id: 'C', text: "Configure the OTLP exporter with `endpoint: https://collector:4317`, `compression: gzip`, and TLS certificates." },
-      { id: 'D', text: "Disable compression on high-volume networks." }
+      { id: 'C', text: "Use non-standard custom binary ports." },
+      { id: 'D', text: "Configure the OTLP exporter with `endpoint: https://collector:4317`, `compression: gzip`, and TLS certificates." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure the OTLP exporter with `endpoint: https://collector:4317`, `compression: gzip`, and TLS certificates. The OTLP exporter transmits telemetry to OpenTelemetry Collectors or native OTLP backends. Configuring TLS ensures encrypted transport across networks, while `compression: gzip` cuts payload byte sizes by 80%+, conserving network egress bandwidth.",
     referenceUrl: "https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/#exporter-selection",
@@ -451,8 +451,8 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     question: "Which OpenTelemetry component design or collector configuration handles this volume efficiently while protecting downstream storage backends?",
     options: [
       { id: 'A', text: "Configure the OTLP exporter with `endpoint: https://collector:4317`, `compression: gzip`, and TLS certificates." },
-      { id: 'B', text: "Disable compression on high-volume networks." },
-      { id: 'C', text: "Transmit telemetry over unencrypted HTTP port 80 across public networks." },
+      { id: 'B', text: "Transmit telemetry over unencrypted HTTP port 80 across public networks." },
+      { id: 'C', text: "Disable compression on high-volume networks." },
       { id: 'D', text: "Use non-standard custom binary ports." }
     ],
     correctAnswers: ['A'],
@@ -472,9 +472,9 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     question: "Which OpenTelemetry configuration or processor implementation satisfies these security and governance controls?",
     options: [
       { id: 'A', text: "Configure the OTLP exporter with `endpoint: https://collector:4317`, `compression: gzip`, and TLS certificates." },
-      { id: 'B', text: "Use non-standard custom binary ports." },
-      { id: 'C', text: "Transmit telemetry over unencrypted HTTP port 80 across public networks." },
-      { id: 'D', text: "Disable compression on high-volume networks." }
+      { id: 'B', text: "Disable compression on high-volume networks." },
+      { id: 'C', text: "Use non-standard custom binary ports." },
+      { id: 'D', text: "Transmit telemetry over unencrypted HTTP port 80 across public networks." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     scenario: "An engineering organization is migrating legacy monolithic instrumentation and vendor-locked agents to the vendor-agnostic OpenTelemetry ecosystem across polyglot microservices. The observability engineer needs to configure an application SDK or collector to export telemetry securely over OTLP gRPC with TLS and gzip compression.",
     question: "Which pattern or OpenTelemetry feature enables the team to migrate telemetry collection with minimal service disruption?",
     options: [
-      { id: 'A', text: "Disable compression on high-volume networks." },
-      { id: 'B', text: "Configure the OTLP exporter with `endpoint: https://collector:4317`, `compression: gzip`, and TLS certificates." },
-      { id: 'C', text: "Transmit telemetry over unencrypted HTTP port 80 across public networks." },
+      { id: 'A', text: "Transmit telemetry over unencrypted HTTP port 80 across public networks." },
+      { id: 'B', text: "Disable compression on high-volume networks." },
+      { id: 'C', text: "Configure the OTLP exporter with `endpoint: https://collector:4317`, `compression: gzip`, and TLS certificates." },
       { id: 'D', text: "Use non-standard custom binary ports." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure the OTLP exporter with `endpoint: https://collector:4317`, `compression: gzip`, and TLS certificates. The OTLP exporter transmits telemetry to OpenTelemetry Collectors or native OTLP backends. Configuring TLS ensures encrypted transport across networks, while `compression: gzip` cuts payload byte sizes by 80%+, conserving network egress bandwidth.",
     referenceUrl: "https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/#exporter-selection",
@@ -513,12 +513,12 @@ export const CNCF_OTCA_QUESTIONS_18 = [
     scenario: "A site reliability engineering team is optimizing observability infrastructure to eliminate collector bottlenecks, prevent memory starvation, and provide continuous health monitoring. The observability engineer needs to configure an application SDK or collector to export telemetry securely over OTLP gRPC with TLS and gzip compression.",
     question: "Which deployment strategy or configuration guarantees resilient telemetry pipeline operation?",
     options: [
-      { id: 'A', text: "Transmit telemetry over unencrypted HTTP port 80 across public networks." },
-      { id: 'B', text: "Disable compression on high-volume networks." },
-      { id: 'C', text: "Configure the OTLP exporter with `endpoint: https://collector:4317`, `compression: gzip`, and TLS certificates." },
+      { id: 'A', text: "Disable compression on high-volume networks." },
+      { id: 'B', text: "Configure the OTLP exporter with `endpoint: https://collector:4317`, `compression: gzip`, and TLS certificates." },
+      { id: 'C', text: "Transmit telemetry over unencrypted HTTP port 80 across public networks." },
       { id: 'D', text: "Use non-standard custom binary ports." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure the OTLP exporter with `endpoint: https://collector:4317`, `compression: gzip`, and TLS certificates. The OTLP exporter transmits telemetry to OpenTelemetry Collectors or native OTLP backends. Configuring TLS ensures encrypted transport across networks, while `compression: gzip` cuts payload byte sizes by 80%+, conserving network egress bandwidth.",
     referenceUrl: "https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/#exporter-selection",

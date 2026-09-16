@@ -10,9 +10,9 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Deploy the Strimzi Kafka Operator and expose `KafkaTopic` and `KafkaUser` custom resources for self-service topic creation." },
-      { id: 'B', text: "Prohibit the use of event streaming architectures across the enterprise." },
+      { id: 'B', text: "Require developers to SSH into Kafka broker nodes and execute raw Java zookeeper CLI scripts." },
       { id: 'C', text: "Run an unauthenticated single-node Kafka container in production with no persistence." },
-      { id: 'D', text: "Require developers to SSH into Kafka broker nodes and execute raw Java zookeeper CLI scripts." }
+      { id: 'D', text: "Prohibit the use of event streaming architectures across the enterprise." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -32,8 +32,8 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Deploy the Strimzi Kafka Operator and expose `KafkaTopic` and `KafkaUser` custom resources for self-service topic creation." },
       { id: 'B', text: "Require developers to SSH into Kafka broker nodes and execute raw Java zookeeper CLI scripts." },
-      { id: 'C', text: "Prohibit the use of event streaming architectures across the enterprise." },
-      { id: 'D', text: "Run an unauthenticated single-node Kafka container in production with no persistence." }
+      { id: 'C', text: "Run an unauthenticated single-node Kafka container in production with no persistence." },
+      { id: 'D', text: "Prohibit the use of event streaming architectures across the enterprise." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to enable application teams to self-provision Kafka topics and user access controls declaratively through GitOps manifests.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
-      { id: 'A', text: "Prohibit the use of event streaming architectures across the enterprise." },
-      { id: 'B', text: "Deploy the Strimzi Kafka Operator and expose `KafkaTopic` and `KafkaUser` custom resources for self-service topic creation." },
-      { id: 'C', text: "Require developers to SSH into Kafka broker nodes and execute raw Java zookeeper CLI scripts." },
-      { id: 'D', text: "Run an unauthenticated single-node Kafka container in production with no persistence." }
+      { id: 'A', text: "Run an unauthenticated single-node Kafka container in production with no persistence." },
+      { id: 'B', text: "Prohibit the use of event streaming architectures across the enterprise." },
+      { id: 'C', text: "Deploy the Strimzi Kafka Operator and expose `KafkaTopic` and `KafkaUser` custom resources for self-service topic creation." },
+      { id: 'D', text: "Require developers to SSH into Kafka broker nodes and execute raw Java zookeeper CLI scripts." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy the Strimzi Kafka Operator and expose `KafkaTopic` and `KafkaUser` custom resources for self-service topic creation. The Strimzi operator manages Apache Kafka clusters on Kubernetes natively. By treating topics (`KafkaTopic`) and credentials (`KafkaUser`) as first-class Kubernetes Custom Resources, platform teams enable developers to manage event streaming infrastructure via GitOps.",
     referenceUrl: "https://strimzi.io/",
@@ -72,12 +72,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to enable application teams to self-provision Kafka topics and user access controls declaratively through GitOps manifests.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Prohibit the use of event streaming architectures across the enterprise." },
-      { id: 'B', text: "Deploy the Strimzi Kafka Operator and expose `KafkaTopic` and `KafkaUser` custom resources for self-service topic creation." },
-      { id: 'C', text: "Require developers to SSH into Kafka broker nodes and execute raw Java zookeeper CLI scripts." },
-      { id: 'D', text: "Run an unauthenticated single-node Kafka container in production with no persistence." }
+      { id: 'A', text: "Run an unauthenticated single-node Kafka container in production with no persistence." },
+      { id: 'B', text: "Prohibit the use of event streaming architectures across the enterprise." },
+      { id: 'C', text: "Deploy the Strimzi Kafka Operator and expose `KafkaTopic` and `KafkaUser` custom resources for self-service topic creation." },
+      { id: 'D', text: "Require developers to SSH into Kafka broker nodes and execute raw Java zookeeper CLI scripts." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy the Strimzi Kafka Operator and expose `KafkaTopic` and `KafkaUser` custom resources for self-service topic creation. The Strimzi operator manages Apache Kafka clusters on Kubernetes natively. By treating topics (`KafkaTopic`) and credentials (`KafkaUser`) as first-class Kubernetes Custom Resources, platform teams enable developers to manage event streaming infrastructure via GitOps.",
     referenceUrl: "https://strimzi.io/",
@@ -93,12 +93,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to enable application teams to self-provision Kafka topics and user access controls declaratively through GitOps manifests.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
-      { id: 'A', text: "Prohibit the use of event streaming architectures across the enterprise." },
-      { id: 'B', text: "Deploy the Strimzi Kafka Operator and expose `KafkaTopic` and `KafkaUser` custom resources for self-service topic creation." },
+      { id: 'A', text: "Require developers to SSH into Kafka broker nodes and execute raw Java zookeeper CLI scripts." },
+      { id: 'B', text: "Prohibit the use of event streaming architectures across the enterprise." },
       { id: 'C', text: "Run an unauthenticated single-node Kafka container in production with no persistence." },
-      { id: 'D', text: "Require developers to SSH into Kafka broker nodes and execute raw Java zookeeper CLI scripts." }
+      { id: 'D', text: "Deploy the Strimzi Kafka Operator and expose `KafkaTopic` and `KafkaUser` custom resources for self-service topic creation." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy the Strimzi Kafka Operator and expose `KafkaTopic` and `KafkaUser` custom resources for self-service topic creation. The Strimzi operator manages Apache Kafka clusters on Kubernetes natively. By treating topics (`KafkaTopic`) and credentials (`KafkaUser`) as first-class Kubernetes Custom Resources, platform teams enable developers to manage event streaming infrastructure via GitOps.",
     referenceUrl: "https://strimzi.io/",
@@ -114,12 +114,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to prevent orphaned preview environments, forgotten test databases, and zombie namespaces from inflating enterprise cloud bills.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
-      { id: 'A', text: "Turn off all production servers every night to save money." },
+      { id: 'A', text: "Permit idle test infrastructure to run indefinitely at maximum capacity." },
       { id: 'B', text: "Rely on developers to remember to delete test clusters manually months after projects finish." },
-      { id: 'C', text: "Implement automated TTL controllers or janitor operators that automatically delete namespaces and cloud resources after an expiration deadline." },
-      { id: 'D', text: "Permit idle test infrastructure to run indefinitely at maximum capacity." }
+      { id: 'C', text: "Turn off all production servers every night to save money." },
+      { id: 'D', text: "Implement automated TTL controllers or janitor operators that automatically delete namespaces and cloud resources after an expiration deadline." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement automated TTL controllers or janitor operators that automatically delete namespaces and cloud resources after an expiration deadline. Resource reclamation automation is critical for cost governance in self-service platforms. Janitor controllers inspect metadata annotations (e.g., `ttl: 24h`) and automatically delete idle preview namespaces, associated cloud databases, and load balancers once deadlines pass.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/ttlafterfinished/",
@@ -135,12 +135,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to prevent orphaned preview environments, forgotten test databases, and zombie namespaces from inflating enterprise cloud bills.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
-      { id: 'A', text: "Turn off all production servers every night to save money." },
-      { id: 'B', text: "Implement automated TTL controllers or janitor operators that automatically delete namespaces and cloud resources after an expiration deadline." },
+      { id: 'A', text: "Rely on developers to remember to delete test clusters manually months after projects finish." },
+      { id: 'B', text: "Turn off all production servers every night to save money." },
       { id: 'C', text: "Permit idle test infrastructure to run indefinitely at maximum capacity." },
-      { id: 'D', text: "Rely on developers to remember to delete test clusters manually months after projects finish." }
+      { id: 'D', text: "Implement automated TTL controllers or janitor operators that automatically delete namespaces and cloud resources after an expiration deadline." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement automated TTL controllers or janitor operators that automatically delete namespaces and cloud resources after an expiration deadline. Resource reclamation automation is critical for cost governance in self-service platforms. Janitor controllers inspect metadata annotations (e.g., `ttl: 24h`) and automatically delete idle preview namespaces, associated cloud databases, and load balancers once deadlines pass.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/ttlafterfinished/",
@@ -156,12 +156,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to prevent orphaned preview environments, forgotten test databases, and zombie namespaces from inflating enterprise cloud bills.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
-      { id: 'A', text: "Permit idle test infrastructure to run indefinitely at maximum capacity." },
-      { id: 'B', text: "Implement automated TTL controllers or janitor operators that automatically delete namespaces and cloud resources after an expiration deadline." },
-      { id: 'C', text: "Rely on developers to remember to delete test clusters manually months after projects finish." },
+      { id: 'A', text: "Rely on developers to remember to delete test clusters manually months after projects finish." },
+      { id: 'B', text: "Permit idle test infrastructure to run indefinitely at maximum capacity." },
+      { id: 'C', text: "Implement automated TTL controllers or janitor operators that automatically delete namespaces and cloud resources after an expiration deadline." },
       { id: 'D', text: "Turn off all production servers every night to save money." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement automated TTL controllers or janitor operators that automatically delete namespaces and cloud resources after an expiration deadline. Resource reclamation automation is critical for cost governance in self-service platforms. Janitor controllers inspect metadata annotations (e.g., `ttl: 24h`) and automatically delete idle preview namespaces, associated cloud databases, and load balancers once deadlines pass.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/ttlafterfinished/",
@@ -177,12 +177,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to prevent orphaned preview environments, forgotten test databases, and zombie namespaces from inflating enterprise cloud bills.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Permit idle test infrastructure to run indefinitely at maximum capacity." },
-      { id: 'B', text: "Implement automated TTL controllers or janitor operators that automatically delete namespaces and cloud resources after an expiration deadline." },
-      { id: 'C', text: "Turn off all production servers every night to save money." },
-      { id: 'D', text: "Rely on developers to remember to delete test clusters manually months after projects finish." }
+      { id: 'A', text: "Turn off all production servers every night to save money." },
+      { id: 'B', text: "Permit idle test infrastructure to run indefinitely at maximum capacity." },
+      { id: 'C', text: "Rely on developers to remember to delete test clusters manually months after projects finish." },
+      { id: 'D', text: "Implement automated TTL controllers or janitor operators that automatically delete namespaces and cloud resources after an expiration deadline." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement automated TTL controllers or janitor operators that automatically delete namespaces and cloud resources after an expiration deadline. Resource reclamation automation is critical for cost governance in self-service platforms. Janitor controllers inspect metadata annotations (e.g., `ttl: 24h`) and automatically delete idle preview namespaces, associated cloud databases, and load balancers once deadlines pass.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/ttlafterfinished/",
@@ -198,12 +198,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to prevent orphaned preview environments, forgotten test databases, and zombie namespaces from inflating enterprise cloud bills.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
-      { id: 'A', text: "Turn off all production servers every night to save money." },
-      { id: 'B', text: "Permit idle test infrastructure to run indefinitely at maximum capacity." },
-      { id: 'C', text: "Implement automated TTL controllers or janitor operators that automatically delete namespaces and cloud resources after an expiration deadline." },
-      { id: 'D', text: "Rely on developers to remember to delete test clusters manually months after projects finish." }
+      { id: 'A', text: "Rely on developers to remember to delete test clusters manually months after projects finish." },
+      { id: 'B', text: "Implement automated TTL controllers or janitor operators that automatically delete namespaces and cloud resources after an expiration deadline." },
+      { id: 'C', text: "Turn off all production servers every night to save money." },
+      { id: 'D', text: "Permit idle test infrastructure to run indefinitely at maximum capacity." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement automated TTL controllers or janitor operators that automatically delete namespaces and cloud resources after an expiration deadline. Resource reclamation automation is critical for cost governance in self-service platforms. Janitor controllers inspect metadata annotations (e.g., `ttl: 24h`) and automatically delete idle preview namespaces, associated cloud databases, and load balancers once deadlines pass.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/ttlafterfinished/",
@@ -220,8 +220,8 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Implement Just-in-Time (JIT) access requests using tools like Teleport or HashiCorp Boundary with dual authorization and session recording." },
-      { id: 'B', text: "Allow unauthenticated anonymous access to production Kubernetes worker nodes." },
-      { id: 'C', text: "Distribute permanent root SSH keys and cluster-admin kubeconfig files to all engineers permanently." },
+      { id: 'B', text: "Distribute permanent root SSH keys and cluster-admin kubeconfig files to all engineers permanently." },
+      { id: 'C', text: "Allow unauthenticated anonymous access to production Kubernetes worker nodes." },
       { id: 'D', text: "Refuse to grant any access to on-call engineers, preventing incident mitigation." }
     ],
     correctAnswers: ['A'],
@@ -241,9 +241,9 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
       { id: 'A', text: "Implement Just-in-Time (JIT) access requests using tools like Teleport or HashiCorp Boundary with dual authorization and session recording." },
-      { id: 'B', text: "Refuse to grant any access to on-call engineers, preventing incident mitigation." },
-      { id: 'C', text: "Distribute permanent root SSH keys and cluster-admin kubeconfig files to all engineers permanently." },
-      { id: 'D', text: "Allow unauthenticated anonymous access to production Kubernetes worker nodes." }
+      { id: 'B', text: "Allow unauthenticated anonymous access to production Kubernetes worker nodes." },
+      { id: 'C', text: "Refuse to grant any access to on-call engineers, preventing incident mitigation." },
+      { id: 'D', text: "Distribute permanent root SSH keys and cluster-admin kubeconfig files to all engineers permanently." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,12 +261,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to grant an on-call engineer temporary 30-minute elevated access to troubleshoot a production database during an incident safely.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
-      { id: 'A', text: "Distribute permanent root SSH keys and cluster-admin kubeconfig files to all engineers permanently." },
-      { id: 'B', text: "Allow unauthenticated anonymous access to production Kubernetes worker nodes." },
-      { id: 'C', text: "Refuse to grant any access to on-call engineers, preventing incident mitigation." },
-      { id: 'D', text: "Implement Just-in-Time (JIT) access requests using tools like Teleport or HashiCorp Boundary with dual authorization and session recording." }
+      { id: 'A', text: "Allow unauthenticated anonymous access to production Kubernetes worker nodes." },
+      { id: 'B', text: "Refuse to grant any access to on-call engineers, preventing incident mitigation." },
+      { id: 'C', text: "Implement Just-in-Time (JIT) access requests using tools like Teleport or HashiCorp Boundary with dual authorization and session recording." },
+      { id: 'D', text: "Distribute permanent root SSH keys and cluster-admin kubeconfig files to all engineers permanently." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement Just-in-Time (JIT) access requests using tools like Teleport or HashiCorp Boundary with dual authorization and session recording. Zero-trust platform engineering eliminates standing privileges. Tools like Teleport provide Just-in-Time (JIT) access workflows: engineers request temporary, short-lived certificates approved via Slack/PagerDuty, with full terminal session recording for compliance auditing.",
     referenceUrl: "https://goteleport.com/docs/access-controls/access-requests/",
@@ -282,12 +282,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to grant an on-call engineer temporary 30-minute elevated access to troubleshoot a production database during an incident safely.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Refuse to grant any access to on-call engineers, preventing incident mitigation." },
-      { id: 'B', text: "Implement Just-in-Time (JIT) access requests using tools like Teleport or HashiCorp Boundary with dual authorization and session recording." },
-      { id: 'C', text: "Distribute permanent root SSH keys and cluster-admin kubeconfig files to all engineers permanently." },
-      { id: 'D', text: "Allow unauthenticated anonymous access to production Kubernetes worker nodes." }
+      { id: 'A', text: "Allow unauthenticated anonymous access to production Kubernetes worker nodes." },
+      { id: 'B', text: "Refuse to grant any access to on-call engineers, preventing incident mitigation." },
+      { id: 'C', text: "Implement Just-in-Time (JIT) access requests using tools like Teleport or HashiCorp Boundary with dual authorization and session recording." },
+      { id: 'D', text: "Distribute permanent root SSH keys and cluster-admin kubeconfig files to all engineers permanently." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement Just-in-Time (JIT) access requests using tools like Teleport or HashiCorp Boundary with dual authorization and session recording. Zero-trust platform engineering eliminates standing privileges. Tools like Teleport provide Just-in-Time (JIT) access workflows: engineers request temporary, short-lived certificates approved via Slack/PagerDuty, with full terminal session recording for compliance auditing.",
     referenceUrl: "https://goteleport.com/docs/access-controls/access-requests/",
@@ -303,12 +303,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to grant an on-call engineer temporary 30-minute elevated access to troubleshoot a production database during an incident safely.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
-      { id: 'A', text: "Distribute permanent root SSH keys and cluster-admin kubeconfig files to all engineers permanently." },
-      { id: 'B', text: "Refuse to grant any access to on-call engineers, preventing incident mitigation." },
-      { id: 'C', text: "Implement Just-in-Time (JIT) access requests using tools like Teleport or HashiCorp Boundary with dual authorization and session recording." },
-      { id: 'D', text: "Allow unauthenticated anonymous access to production Kubernetes worker nodes." }
+      { id: 'A', text: "Refuse to grant any access to on-call engineers, preventing incident mitigation." },
+      { id: 'B', text: "Allow unauthenticated anonymous access to production Kubernetes worker nodes." },
+      { id: 'C', text: "Distribute permanent root SSH keys and cluster-admin kubeconfig files to all engineers permanently." },
+      { id: 'D', text: "Implement Just-in-Time (JIT) access requests using tools like Teleport or HashiCorp Boundary with dual authorization and session recording." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement Just-in-Time (JIT) access requests using tools like Teleport or HashiCorp Boundary with dual authorization and session recording. Zero-trust platform engineering eliminates standing privileges. Tools like Teleport provide Just-in-Time (JIT) access workflows: engineers request temporary, short-lived certificates approved via Slack/PagerDuty, with full terminal session recording for compliance auditing.",
     referenceUrl: "https://goteleport.com/docs/access-controls/access-requests/",
@@ -324,12 +324,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to determine why newly hired developers are abandoning the Golden Path template for Go microservices at step 3 of the wizard.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
-      { id: 'A', text: "Assume developer portals have zero usability flaws and blame developers for lack of platform adoption." },
-      { id: 'B', text: "Prohibit collecting any telemetry on platform tool usage." },
-      { id: 'C', text: "Instrument developer portal workflows with product analytics (e.g., PostHog) to track funnel conversion and step drop-off rates." },
+      { id: 'A', text: "Prohibit collecting any telemetry on platform tool usage." },
+      { id: 'B', text: "Instrument developer portal workflows with product analytics (e.g., PostHog) to track funnel conversion and step drop-off rates." },
+      { id: 'C', text: "Assume developer portals have zero usability flaws and blame developers for lack of platform adoption." },
       { id: 'D', text: "Force developers to sign disciplinary agreements if they fail to complete templates." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Instrument developer portal workflows with product analytics (e.g., PostHog) to track funnel conversion and step drop-off rates. Applying product management rigor to internal platforms requires usage analytics. Instrumenting portal forms with analytics identifies high-friction wizard steps, common validation errors, and template abandonment, informing user-centric improvements to the developer experience.",
     referenceUrl: "https://posthog.com/",
@@ -345,12 +345,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to determine why newly hired developers are abandoning the Golden Path template for Go microservices at step 3 of the wizard.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
-      { id: 'A', text: "Prohibit collecting any telemetry on platform tool usage." },
-      { id: 'B', text: "Instrument developer portal workflows with product analytics (e.g., PostHog) to track funnel conversion and step drop-off rates." },
-      { id: 'C', text: "Force developers to sign disciplinary agreements if they fail to complete templates." },
-      { id: 'D', text: "Assume developer portals have zero usability flaws and blame developers for lack of platform adoption." }
+      { id: 'A', text: "Force developers to sign disciplinary agreements if they fail to complete templates." },
+      { id: 'B', text: "Prohibit collecting any telemetry on platform tool usage." },
+      { id: 'C', text: "Assume developer portals have zero usability flaws and blame developers for lack of platform adoption." },
+      { id: 'D', text: "Instrument developer portal workflows with product analytics (e.g., PostHog) to track funnel conversion and step drop-off rates." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Instrument developer portal workflows with product analytics (e.g., PostHog) to track funnel conversion and step drop-off rates. Applying product management rigor to internal platforms requires usage analytics. Instrumenting portal forms with analytics identifies high-friction wizard steps, common validation errors, and template abandonment, informing user-centric improvements to the developer experience.",
     referenceUrl: "https://posthog.com/",
@@ -366,12 +366,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to determine why newly hired developers are abandoning the Golden Path template for Go microservices at step 3 of the wizard.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
-      { id: 'A', text: "Assume developer portals have zero usability flaws and blame developers for lack of platform adoption." },
-      { id: 'B', text: "Prohibit collecting any telemetry on platform tool usage." },
-      { id: 'C', text: "Instrument developer portal workflows with product analytics (e.g., PostHog) to track funnel conversion and step drop-off rates." },
+      { id: 'A', text: "Prohibit collecting any telemetry on platform tool usage." },
+      { id: 'B', text: "Instrument developer portal workflows with product analytics (e.g., PostHog) to track funnel conversion and step drop-off rates." },
+      { id: 'C', text: "Assume developer portals have zero usability flaws and blame developers for lack of platform adoption." },
       { id: 'D', text: "Force developers to sign disciplinary agreements if they fail to complete templates." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Instrument developer portal workflows with product analytics (e.g., PostHog) to track funnel conversion and step drop-off rates. Applying product management rigor to internal platforms requires usage analytics. Instrumenting portal forms with analytics identifies high-friction wizard steps, common validation errors, and template abandonment, informing user-centric improvements to the developer experience.",
     referenceUrl: "https://posthog.com/",
@@ -387,12 +387,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to determine why newly hired developers are abandoning the Golden Path template for Go microservices at step 3 of the wizard.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Force developers to sign disciplinary agreements if they fail to complete templates." },
-      { id: 'B', text: "Prohibit collecting any telemetry on platform tool usage." },
-      { id: 'C', text: "Instrument developer portal workflows with product analytics (e.g., PostHog) to track funnel conversion and step drop-off rates." },
-      { id: 'D', text: "Assume developer portals have zero usability flaws and blame developers for lack of platform adoption." }
+      { id: 'A', text: "Assume developer portals have zero usability flaws and blame developers for lack of platform adoption." },
+      { id: 'B', text: "Instrument developer portal workflows with product analytics (e.g., PostHog) to track funnel conversion and step drop-off rates." },
+      { id: 'C', text: "Force developers to sign disciplinary agreements if they fail to complete templates." },
+      { id: 'D', text: "Prohibit collecting any telemetry on platform tool usage." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Instrument developer portal workflows with product analytics (e.g., PostHog) to track funnel conversion and step drop-off rates. Applying product management rigor to internal platforms requires usage analytics. Instrumenting portal forms with analytics identifies high-friction wizard steps, common validation errors, and template abandonment, informing user-centric improvements to the developer experience.",
     referenceUrl: "https://posthog.com/",
@@ -409,9 +409,9 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Instrument developer portal workflows with product analytics (e.g., PostHog) to track funnel conversion and step drop-off rates." },
-      { id: 'B', text: "Force developers to sign disciplinary agreements if they fail to complete templates." },
+      { id: 'B', text: "Assume developer portals have zero usability flaws and blame developers for lack of platform adoption." },
       { id: 'C', text: "Prohibit collecting any telemetry on platform tool usage." },
-      { id: 'D', text: "Assume developer portals have zero usability flaws and blame developers for lack of platform adoption." }
+      { id: 'D', text: "Force developers to sign disciplinary agreements if they fail to complete templates." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to block pull requests that introduce severe technical debt, critical code smells, or unmaintained third-party dependencies.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
-      { id: 'A', text: "Disable unit testing and linting to increase pull request throughput." },
-      { id: 'B', text: "Integrate automated quality gates using SonarQube and OpenSSF Scorecards to block merging code that violates maintainability baselines." },
+      { id: 'A', text: "Allow developers to bypass all code quality checks and merge untested code directly into production branches." },
+      { id: 'B', text: "Disable unit testing and linting to increase pull request throughput." },
       { id: 'C', text: "Rely exclusively on subjective manual code review comments with no automated tooling." },
-      { id: 'D', text: "Allow developers to bypass all code quality checks and merge untested code directly into production branches." }
+      { id: 'D', text: "Integrate automated quality gates using SonarQube and OpenSSF Scorecards to block merging code that violates maintainability baselines." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Integrate automated quality gates using SonarQube and OpenSSF Scorecards to block merging code that violates maintainability baselines. Automated quality gates codify engineering standards. Integrating tools like SonarQube (static analysis, coverage) and OpenSSF Scorecard (supply chain health) into CI pipelines enforces objective quality thresholds before changes can merge or deploy.",
     referenceUrl: "https://scorecard.dev/",
@@ -452,8 +452,8 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Integrate automated quality gates using SonarQube and OpenSSF Scorecards to block merging code that violates maintainability baselines." },
       { id: 'B', text: "Allow developers to bypass all code quality checks and merge untested code directly into production branches." },
-      { id: 'C', text: "Disable unit testing and linting to increase pull request throughput." },
-      { id: 'D', text: "Rely exclusively on subjective manual code review comments with no automated tooling." }
+      { id: 'C', text: "Rely exclusively on subjective manual code review comments with no automated tooling." },
+      { id: 'D', text: "Disable unit testing and linting to increase pull request throughput." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,12 +471,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to block pull requests that introduce severe technical debt, critical code smells, or unmaintained third-party dependencies.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
-      { id: 'A', text: "Rely exclusively on subjective manual code review comments with no automated tooling." },
-      { id: 'B', text: "Integrate automated quality gates using SonarQube and OpenSSF Scorecards to block merging code that violates maintainability baselines." },
-      { id: 'C', text: "Disable unit testing and linting to increase pull request throughput." },
-      { id: 'D', text: "Allow developers to bypass all code quality checks and merge untested code directly into production branches." }
+      { id: 'A', text: "Disable unit testing and linting to increase pull request throughput." },
+      { id: 'B', text: "Rely exclusively on subjective manual code review comments with no automated tooling." },
+      { id: 'C', text: "Allow developers to bypass all code quality checks and merge untested code directly into production branches." },
+      { id: 'D', text: "Integrate automated quality gates using SonarQube and OpenSSF Scorecards to block merging code that violates maintainability baselines." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Integrate automated quality gates using SonarQube and OpenSSF Scorecards to block merging code that violates maintainability baselines. Automated quality gates codify engineering standards. Integrating tools like SonarQube (static analysis, coverage) and OpenSSF Scorecard (supply chain health) into CI pipelines enforces objective quality thresholds before changes can merge or deploy.",
     referenceUrl: "https://scorecard.dev/",
@@ -492,12 +492,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to block pull requests that introduce severe technical debt, critical code smells, or unmaintained third-party dependencies.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Rely exclusively on subjective manual code review comments with no automated tooling." },
-      { id: 'B', text: "Integrate automated quality gates using SonarQube and OpenSSF Scorecards to block merging code that violates maintainability baselines." },
-      { id: 'C', text: "Allow developers to bypass all code quality checks and merge untested code directly into production branches." },
+      { id: 'A', text: "Allow developers to bypass all code quality checks and merge untested code directly into production branches." },
+      { id: 'B', text: "Rely exclusively on subjective manual code review comments with no automated tooling." },
+      { id: 'C', text: "Integrate automated quality gates using SonarQube and OpenSSF Scorecards to block merging code that violates maintainability baselines." },
       { id: 'D', text: "Disable unit testing and linting to increase pull request throughput." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Integrate automated quality gates using SonarQube and OpenSSF Scorecards to block merging code that violates maintainability baselines. Automated quality gates codify engineering standards. Integrating tools like SonarQube (static analysis, coverage) and OpenSSF Scorecard (supply chain health) into CI pipelines enforces objective quality thresholds before changes can merge or deploy.",
     referenceUrl: "https://scorecard.dev/",
@@ -513,12 +513,12 @@ export const CNCF_CNPE_QUESTIONS_15 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to block pull requests that introduce severe technical debt, critical code smells, or unmaintained third-party dependencies.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
-      { id: 'A', text: "Rely exclusively on subjective manual code review comments with no automated tooling." },
-      { id: 'B', text: "Integrate automated quality gates using SonarQube and OpenSSF Scorecards to block merging code that violates maintainability baselines." },
-      { id: 'C', text: "Disable unit testing and linting to increase pull request throughput." },
-      { id: 'D', text: "Allow developers to bypass all code quality checks and merge untested code directly into production branches." }
+      { id: 'A', text: "Disable unit testing and linting to increase pull request throughput." },
+      { id: 'B', text: "Rely exclusively on subjective manual code review comments with no automated tooling." },
+      { id: 'C', text: "Allow developers to bypass all code quality checks and merge untested code directly into production branches." },
+      { id: 'D', text: "Integrate automated quality gates using SonarQube and OpenSSF Scorecards to block merging code that violates maintainability baselines." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Integrate automated quality gates using SonarQube and OpenSSF Scorecards to block merging code that violates maintainability baselines. Automated quality gates codify engineering standards. Integrating tools like SonarQube (static analysis, coverage) and OpenSSF Scorecard (supply chain health) into CI pipelines enforces objective quality thresholds before changes can merge or deploy.",
     referenceUrl: "https://scorecard.dev/",

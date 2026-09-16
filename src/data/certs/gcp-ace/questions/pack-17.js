@@ -9,12 +9,12 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to store, version, and manage private Docker container images with integrated vulnerability scanning and fine-grained IAM access control.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Upload Docker image tarballs to an unencrypted public Cloud Storage bucket." },
-      { id: 'B', text: "Push the images to a Docker Hub repository and pull them from there." },
+      { id: 'A', text: "Push the images to a Docker Hub repository and pull them from there." },
+      { id: 'B', text: "An Artifact Registry Docker repo plus gcloud auth configure-docker." },
       { id: 'C', text: "Push container images to an unauthenticated public registry on the internet." },
-      { id: 'D', text: "An Artifact Registry Docker repo plus gcloud auth configure-docker." }
+      { id: 'D', text: "Upload Docker image tarballs to an unencrypted public Cloud Storage bucket." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Docker repository in Artifact Registry and configure Docker authentication using 'gcloud auth configure-docker'. Artifact Registry is the next-generation container and package management service in Google Cloud, replacing Container Registry (GCR). It supports Docker images, Helm charts, and language packages (npm, maven, python) with granular IAM and automatic vulnerability scanning.",
     referenceUrl: "https://cloud.google.com/artifact-registry/docs/docker/store-docker-container-images",
@@ -51,12 +51,12 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to store, version, and manage private Docker container images with integrated vulnerability scanning and fine-grained IAM access control.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Upload Docker image tarballs to an unencrypted public Cloud Storage bucket." },
-      { id: 'B', text: "An Artifact Registry Docker repo plus gcloud auth configure-docker." },
+      { id: 'A', text: "An Artifact Registry Docker repo plus gcloud auth configure-docker." },
+      { id: 'B', text: "Upload Docker image tarballs to an unencrypted public Cloud Storage bucket." },
       { id: 'C', text: "Push container images to an unauthenticated public registry on the internet." },
       { id: 'D', text: "Push the images to a Docker Hub repository and pull them from there." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create a Docker repository in Artifact Registry and configure Docker authentication using 'gcloud auth configure-docker'. Artifact Registry is the next-generation container and package management service in Google Cloud, replacing Container Registry (GCR). It supports Docker images, Helm charts, and language packages (npm, maven, python) with granular IAM and automatic vulnerability scanning.",
     referenceUrl: "https://cloud.google.com/artifact-registry/docs/docker/store-docker-container-images",
@@ -72,12 +72,12 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to store, version, and manage private Docker container images with integrated vulnerability scanning and fine-grained IAM access control.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Upload Docker image tarballs to an unencrypted public Cloud Storage bucket." },
-      { id: 'B', text: "Push the images to a Docker Hub repository and pull them from there." },
-      { id: 'C', text: "An Artifact Registry Docker repo plus gcloud auth configure-docker." },
-      { id: 'D', text: "Push container images to an unauthenticated public registry on the internet." }
+      { id: 'A', text: "Push the images to a Docker Hub repository and pull them from there." },
+      { id: 'B', text: "Push container images to an unauthenticated public registry on the internet." },
+      { id: 'C', text: "Upload Docker image tarballs to an unencrypted public Cloud Storage bucket." },
+      { id: 'D', text: "An Artifact Registry Docker repo plus gcloud auth configure-docker." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a Docker repository in Artifact Registry and configure Docker authentication using 'gcloud auth configure-docker'. Artifact Registry is the next-generation container and package management service in Google Cloud, replacing Container Registry (GCR). It supports Docker images, Helm charts, and language packages (npm, maven, python) with granular IAM and automatic vulnerability scanning.",
     referenceUrl: "https://cloud.google.com/artifact-registry/docs/docker/store-docker-container-images",
@@ -93,12 +93,12 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to store, version, and manage private Docker container images with integrated vulnerability scanning and fine-grained IAM access control.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Push container images to an unauthenticated public registry on the internet." },
+      { id: 'A', text: "An Artifact Registry Docker repo plus gcloud auth configure-docker." },
       { id: 'B', text: "Upload Docker image tarballs to an unencrypted public Cloud Storage bucket." },
-      { id: 'C', text: "An Artifact Registry Docker repo plus gcloud auth configure-docker." },
+      { id: 'C', text: "Push container images to an unauthenticated public registry on the internet." },
       { id: 'D', text: "Push the images to a Docker Hub repository and pull them from there." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create a Docker repository in Artifact Registry and configure Docker authentication using 'gcloud auth configure-docker'. Artifact Registry is the next-generation container and package management service in Google Cloud, replacing Container Registry (GCR). It supports Docker images, Helm charts, and language packages (npm, maven, python) with granular IAM and automatic vulnerability scanning.",
     referenceUrl: "https://cloud.google.com/artifact-registry/docs/docker/store-docker-container-images",
@@ -114,12 +114,12 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to create a centralized operations dashboard displaying real-time CPU utilization, network egress, and disk IOPS across 50 Compute Engine instances.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Build a Looker Studio report over the billing console export." },
+      { id: 'A', text: "Review historical billing CSV exports once per month." },
       { id: 'B', text: "Log into each of the 50 virtual machines via SSH and run the 'top' command." },
-      { id: 'C', text: "Create a custom Cloud Monitoring Dashboard and add charts configured via Metrics Explorer." },
-      { id: 'D', text: "Review historical billing CSV exports once per month." }
+      { id: 'C', text: "Build a Looker Studio report over the billing console export." },
+      { id: 'D', text: "Create a custom Cloud Monitoring Dashboard and add charts configured via Metrics Explorer." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a custom Cloud Monitoring Dashboard and add charts configured via Metrics Explorer. Cloud Monitoring collects metrics, events, and metadata from Google Cloud services and infrastructure. The Metrics Explorer allows querying and visualizing system and custom metrics, which can be pinned to custom dashboards for real-time operational visibility.",
     referenceUrl: "https://cloud.google.com/monitoring/charts/dashboards",
@@ -135,12 +135,12 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to create a centralized operations dashboard displaying real-time CPU utilization, network egress, and disk IOPS across 50 Compute Engine instances.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Build a Looker Studio report over the billing console export." },
+      { id: 'A', text: "Review historical billing CSV exports once per month." },
       { id: 'B', text: "Log into each of the 50 virtual machines via SSH and run the 'top' command." },
-      { id: 'C', text: "Create a custom Cloud Monitoring Dashboard and add charts configured via Metrics Explorer." },
-      { id: 'D', text: "Review historical billing CSV exports once per month." }
+      { id: 'C', text: "Build a Looker Studio report over the billing console export." },
+      { id: 'D', text: "Create a custom Cloud Monitoring Dashboard and add charts configured via Metrics Explorer." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a custom Cloud Monitoring Dashboard and add charts configured via Metrics Explorer. Cloud Monitoring collects metrics, events, and metadata from Google Cloud services and infrastructure. The Metrics Explorer allows querying and visualizing system and custom metrics, which can be pinned to custom dashboards for real-time operational visibility.",
     referenceUrl: "https://cloud.google.com/monitoring/charts/dashboards",
@@ -157,9 +157,9 @@ export const GCP_ACE_QUESTIONS_17 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Create a custom Cloud Monitoring Dashboard and add charts configured via Metrics Explorer." },
-      { id: 'B', text: "Review historical billing CSV exports once per month." },
-      { id: 'C', text: "Build a Looker Studio report over the billing console export." },
-      { id: 'D', text: "Log into each of the 50 virtual machines via SSH and run the 'top' command." }
+      { id: 'B', text: "Build a Looker Studio report over the billing console export." },
+      { id: 'C', text: "Log into each of the 50 virtual machines via SSH and run the 'top' command." },
+      { id: 'D', text: "Review historical billing CSV exports once per month." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to create a centralized operations dashboard displaying real-time CPU utilization, network egress, and disk IOPS across 50 Compute Engine instances.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Build a Looker Studio report over the billing console export." },
-      { id: 'B', text: "Review historical billing CSV exports once per month." },
-      { id: 'C', text: "Create a custom Cloud Monitoring Dashboard and add charts configured via Metrics Explorer." },
-      { id: 'D', text: "Log into each of the 50 virtual machines via SSH and run the 'top' command." }
+      { id: 'A', text: "Log into each of the 50 virtual machines via SSH and run the 'top' command." },
+      { id: 'B', text: "Create a custom Cloud Monitoring Dashboard and add charts configured via Metrics Explorer." },
+      { id: 'C', text: "Build a Looker Studio report over the billing console export." },
+      { id: 'D', text: "Review historical billing CSV exports once per month." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a custom Cloud Monitoring Dashboard and add charts configured via Metrics Explorer. Cloud Monitoring collects metrics, events, and metadata from Google Cloud services and infrastructure. The Metrics Explorer allows querying and visualizing system and custom metrics, which can be pinned to custom dashboards for real-time operational visibility.",
     referenceUrl: "https://cloud.google.com/monitoring/charts/dashboards",
@@ -199,9 +199,9 @@ export const GCP_ACE_QUESTIONS_17 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Create a custom Cloud Monitoring Dashboard and add charts configured via Metrics Explorer." },
-      { id: 'B', text: "Build a Looker Studio report over the billing console export." },
+      { id: 'B', text: "Log into each of the 50 virtual machines via SSH and run the 'top' command." },
       { id: 'C', text: "Review historical billing CSV exports once per month." },
-      { id: 'D', text: "Log into each of the 50 virtual machines via SSH and run the 'top' command." }
+      { id: 'D', text: "Build a Looker Studio report over the billing console export." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,12 +219,12 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to automatically alert on-call DevOps engineers via PagerDuty, Slack, and email whenever an application's HTTP 5xx error rate exceeds 5% for 5 consecutive minutes.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Instruct customer support to telephone engineers whenever users complain about outages." },
-      { id: 'B', text: "Inspect web server access logs manually at the end of each day." },
-      { id: 'C', text: "An alerting policy on the error rate, wired to notification channels." },
-      { id: 'D', text: "Schedule an hourly cron job to check if the website returns HTTP 200." }
+      { id: 'A', text: "Inspect web server access logs manually at the end of each day." },
+      { id: 'B', text: "Schedule an hourly cron job to check if the website returns HTTP 200." },
+      { id: 'C', text: "Instruct customer support to telephone engineers whenever users complain about outages." },
+      { id: 'D', text: "An alerting policy on the error rate, wired to notification channels." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure a Cloud Monitoring Alerting Policy with an error rate condition linked to Notification Channels. Cloud Monitoring alerting policies evaluate metric conditions over specified duration windows. When thresholds are breached, incidents are opened and automated notifications are dispatched across configured notification channels (email, Slack, Webhooks, PagerDuty).",
     referenceUrl: "https://cloud.google.com/monitoring/alerts",
@@ -240,12 +240,12 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to automatically alert on-call DevOps engineers via PagerDuty, Slack, and email whenever an application's HTTP 5xx error rate exceeds 5% for 5 consecutive minutes.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Schedule an hourly cron job to check if the website returns HTTP 200." },
-      { id: 'B', text: "Inspect web server access logs manually at the end of each day." },
-      { id: 'C', text: "Instruct customer support to telephone engineers whenever users complain about outages." },
-      { id: 'D', text: "An alerting policy on the error rate, wired to notification channels." }
+      { id: 'A', text: "Instruct customer support to telephone engineers whenever users complain about outages." },
+      { id: 'B', text: "An alerting policy on the error rate, wired to notification channels." },
+      { id: 'C', text: "Inspect web server access logs manually at the end of each day." },
+      { id: 'D', text: "Schedule an hourly cron job to check if the website returns HTTP 200." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a Cloud Monitoring Alerting Policy with an error rate condition linked to Notification Channels. Cloud Monitoring alerting policies evaluate metric conditions over specified duration windows. When thresholds are breached, incidents are opened and automated notifications are dispatched across configured notification channels (email, Slack, Webhooks, PagerDuty).",
     referenceUrl: "https://cloud.google.com/monitoring/alerts",
@@ -262,9 +262,9 @@ export const GCP_ACE_QUESTIONS_17 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "An alerting policy on the error rate, wired to notification channels." },
-      { id: 'B', text: "Schedule an hourly cron job to check if the website returns HTTP 200." },
-      { id: 'C', text: "Inspect web server access logs manually at the end of each day." },
-      { id: 'D', text: "Instruct customer support to telephone engineers whenever users complain about outages." }
+      { id: 'B', text: "Inspect web server access logs manually at the end of each day." },
+      { id: 'C', text: "Instruct customer support to telephone engineers whenever users complain about outages." },
+      { id: 'D', text: "Schedule an hourly cron job to check if the website returns HTTP 200." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -283,9 +283,9 @@ export const GCP_ACE_QUESTIONS_17 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "An alerting policy on the error rate, wired to notification channels." },
-      { id: 'B', text: "Inspect web server access logs manually at the end of each day." },
+      { id: 'B', text: "Instruct customer support to telephone engineers whenever users complain about outages." },
       { id: 'C', text: "Schedule an hourly cron job to check if the website returns HTTP 200." },
-      { id: 'D', text: "Instruct customer support to telephone engineers whenever users complain about outages." }
+      { id: 'D', text: "Inspect web server access logs manually at the end of each day." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -304,8 +304,8 @@ export const GCP_ACE_QUESTIONS_17 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "An alerting policy on the error rate, wired to notification channels." },
-      { id: 'B', text: "Schedule an hourly cron job to check if the website returns HTTP 200." },
-      { id: 'C', text: "Instruct customer support to telephone engineers whenever users complain about outages." },
+      { id: 'B', text: "Instruct customer support to telephone engineers whenever users complain about outages." },
+      { id: 'C', text: "Schedule an hourly cron job to check if the website returns HTTP 200." },
       { id: 'D', text: "Inspect web server access logs manually at the end of each day." }
     ],
     correctAnswers: ['A'],
@@ -324,12 +324,12 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to investigate a production application crash by searching all application logs in the last 30 minutes containing the error string 'DatabaseConnectionException'.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Connect to each server individually using SSH and grep text files in /var/log." },
-      { id: 'B', text: "A Logs Explorer query on resource type, timestamp and payload." },
+      { id: 'A', text: "A Logs Explorer query on resource type, timestamp and payload." },
+      { id: 'B', text: "Connect to each server individually using SSH and grep text files in /var/log." },
       { id: 'C', text: "Deploy a separate third-party database to store log backups." },
       { id: 'D', text: "Ask users to replicate the crash while an engineer watches their screen." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Use the Cloud Logging Logs Explorer with a query filtering by resource type, timestamp, and textPayload. Cloud Logging Logs Explorer provides powerful query capabilities to search, filter, and analyze billions of structured and unstructured log entries across all Google Cloud services, applications, and hybrid systems in real time.",
     referenceUrl: "https://cloud.google.com/logging/docs/view/logs-explorer-interface",
@@ -345,12 +345,12 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to investigate a production application crash by searching all application logs in the last 30 minutes containing the error string 'DatabaseConnectionException'.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Connect to each server individually using SSH and grep text files in /var/log." },
-      { id: 'B', text: "A Logs Explorer query on resource type, timestamp and payload." },
-      { id: 'C', text: "Ask users to replicate the crash while an engineer watches their screen." },
-      { id: 'D', text: "Deploy a separate third-party database to store log backups." }
+      { id: 'A', text: "A Logs Explorer query on resource type, timestamp and payload." },
+      { id: 'B', text: "Connect to each server individually using SSH and grep text files in /var/log." },
+      { id: 'C', text: "Deploy a separate third-party database to store log backups." },
+      { id: 'D', text: "Ask users to replicate the crash while an engineer watches their screen." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Use the Cloud Logging Logs Explorer with a query filtering by resource type, timestamp, and textPayload. Cloud Logging Logs Explorer provides powerful query capabilities to search, filter, and analyze billions of structured and unstructured log entries across all Google Cloud services, applications, and hybrid systems in real time.",
     referenceUrl: "https://cloud.google.com/logging/docs/view/logs-explorer-interface",
@@ -366,12 +366,12 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to investigate a production application crash by searching all application logs in the last 30 minutes containing the error string 'DatabaseConnectionException'.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Ask users to replicate the crash while an engineer watches their screen." },
-      { id: 'B', text: "Deploy a separate third-party database to store log backups." },
-      { id: 'C', text: "Connect to each server individually using SSH and grep text files in /var/log." },
-      { id: 'D', text: "A Logs Explorer query on resource type, timestamp and payload." }
+      { id: 'A', text: "A Logs Explorer query on resource type, timestamp and payload." },
+      { id: 'B', text: "Connect to each server individually using SSH and grep text files in /var/log." },
+      { id: 'C', text: "Deploy a separate third-party database to store log backups." },
+      { id: 'D', text: "Ask users to replicate the crash while an engineer watches their screen." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Use the Cloud Logging Logs Explorer with a query filtering by resource type, timestamp, and textPayload. Cloud Logging Logs Explorer provides powerful query capabilities to search, filter, and analyze billions of structured and unstructured log entries across all Google Cloud services, applications, and hybrid systems in real time.",
     referenceUrl: "https://cloud.google.com/logging/docs/view/logs-explorer-interface",
@@ -387,12 +387,12 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to investigate a production application crash by searching all application logs in the last 30 minutes containing the error string 'DatabaseConnectionException'.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Connect to each server individually using SSH and grep text files in /var/log." },
-      { id: 'B', text: "A Logs Explorer query on resource type, timestamp and payload." },
+      { id: 'A', text: "A Logs Explorer query on resource type, timestamp and payload." },
+      { id: 'B', text: "Connect to each server individually using SSH and grep text files in /var/log." },
       { id: 'C', text: "Deploy a separate third-party database to store log backups." },
       { id: 'D', text: "Ask users to replicate the crash while an engineer watches their screen." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Use the Cloud Logging Logs Explorer with a query filtering by resource type, timestamp, and textPayload. Cloud Logging Logs Explorer provides powerful query capabilities to search, filter, and analyze billions of structured and unstructured log entries across all Google Cloud services, applications, and hybrid systems in real time.",
     referenceUrl: "https://cloud.google.com/logging/docs/view/logs-explorer-interface",
@@ -408,12 +408,12 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to investigate a production application crash by searching all application logs in the last 30 minutes containing the error string 'DatabaseConnectionException'.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Deploy a separate third-party database to store log backups." },
-      { id: 'B', text: "Ask users to replicate the crash while an engineer watches their screen." },
-      { id: 'C', text: "Connect to each server individually using SSH and grep text files in /var/log." },
-      { id: 'D', text: "A Logs Explorer query on resource type, timestamp and payload." }
+      { id: 'A', text: "Connect to each server individually using SSH and grep text files in /var/log." },
+      { id: 'B', text: "A Logs Explorer query on resource type, timestamp and payload." },
+      { id: 'C', text: "Ask users to replicate the crash while an engineer watches their screen." },
+      { id: 'D', text: "Deploy a separate third-party database to store log backups." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use the Cloud Logging Logs Explorer with a query filtering by resource type, timestamp, and textPayload. Cloud Logging Logs Explorer provides powerful query capabilities to search, filter, and analyze billions of structured and unstructured log entries across all Google Cloud services, applications, and hybrid systems in real time.",
     referenceUrl: "https://cloud.google.com/logging/docs/view/logs-explorer-interface",
@@ -430,9 +430,9 @@ export const GCP_ACE_QUESTIONS_17 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Log Router sinks to Cloud Storage for retention and BigQuery for queries." },
-      { id: 'B', text: "Print out paper copies of critical audit log entries." },
+      { id: 'B', text: "Write a custom daemon that downloads logs via the API and uploads them to a local disk." },
       { id: 'C', text: "Store all logs inside the default 30-day logging bucket without export sinks." },
-      { id: 'D', text: "Write a custom daemon that downloads logs via the API and uploads them to a local disk." }
+      { id: 'D', text: "Print out paper copies of critical audit log entries." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,12 +450,12 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to route all organization security audit logs to an immutable Cloud Storage bucket for 7-year regulatory retention and stream error logs to BigQuery for SQL analysis.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Write a custom daemon that downloads logs via the API and uploads them to a local disk." },
-      { id: 'B', text: "Log Router sinks to Cloud Storage for retention and BigQuery for queries." },
-      { id: 'C', text: "Print out paper copies of critical audit log entries." },
-      { id: 'D', text: "Store all logs inside the default 30-day logging bucket without export sinks." }
+      { id: 'A', text: "Log Router sinks to Cloud Storage for retention and BigQuery for queries." },
+      { id: 'B', text: "Write a custom daemon that downloads logs via the API and uploads them to a local disk." },
+      { id: 'C', text: "Store all logs inside the default 30-day logging bucket without export sinks." },
+      { id: 'D', text: "Print out paper copies of critical audit log entries." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure Log Router Sinks targeting Cloud Storage for long-term retention and BigQuery for analytical querying. Cloud Logging Log Router sinks allow filtering and exporting logs to external destinations in real time. Sinks can route logs to Cloud Storage (cost-effective long-term archival), BigQuery (analytical querying), Pub/Sub (streaming to third-party SIEMs), or another log bucket.",
     referenceUrl: "https://cloud.google.com/logging/docs/export/configure_export_v2",
@@ -472,9 +472,9 @@ export const GCP_ACE_QUESTIONS_17 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Log Router sinks to Cloud Storage for retention and BigQuery for queries." },
-      { id: 'B', text: "Print out paper copies of critical audit log entries." },
+      { id: 'B', text: "Write a custom daemon that downloads logs via the API and uploads them to a local disk." },
       { id: 'C', text: "Store all logs inside the default 30-day logging bucket without export sinks." },
-      { id: 'D', text: "Write a custom daemon that downloads logs via the API and uploads them to a local disk." }
+      { id: 'D', text: "Print out paper copies of critical audit log entries." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const GCP_ACE_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to route all organization security audit logs to an immutable Cloud Storage bucket for 7-year regulatory retention and stream error logs to BigQuery for SQL analysis.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Write a custom daemon that downloads logs via the API and uploads them to a local disk." },
-      { id: 'B', text: "Store all logs inside the default 30-day logging bucket without export sinks." },
-      { id: 'C', text: "Log Router sinks to Cloud Storage for retention and BigQuery for queries." },
+      { id: 'A', text: "Store all logs inside the default 30-day logging bucket without export sinks." },
+      { id: 'B', text: "Log Router sinks to Cloud Storage for retention and BigQuery for queries." },
+      { id: 'C', text: "Write a custom daemon that downloads logs via the API and uploads them to a local disk." },
       { id: 'D', text: "Print out paper copies of critical audit log entries." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure Log Router Sinks targeting Cloud Storage for long-term retention and BigQuery for analytical querying. Cloud Logging Log Router sinks allow filtering and exporting logs to external destinations in real time. Sinks can route logs to Cloud Storage (cost-effective long-term archival), BigQuery (analytical querying), Pub/Sub (streaming to third-party SIEMs), or another log bucket.",
     referenceUrl: "https://cloud.google.com/logging/docs/export/configure_export_v2",
@@ -514,9 +514,9 @@ export const GCP_ACE_QUESTIONS_17 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Log Router sinks to Cloud Storage for retention and BigQuery for queries." },
-      { id: 'B', text: "Print out paper copies of critical audit log entries." },
-      { id: 'C', text: "Write a custom daemon that downloads logs via the API and uploads them to a local disk." },
-      { id: 'D', text: "Store all logs inside the default 30-day logging bucket without export sinks." }
+      { id: 'B', text: "Store all logs inside the default 30-day logging bucket without export sinks." },
+      { id: 'C', text: "Print out paper copies of critical audit log entries." },
+      { id: 'D', text: "Write a custom daemon that downloads logs via the API and uploads them to a local disk." }
     ],
     correctAnswers: ['A'],
     type: "single",

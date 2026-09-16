@@ -9,12 +9,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to eliminate runtime YAML syntax errors and validate complex configuration constraints before manifests are applied to clusters.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
-      { id: 'A', text: "Deploy unvalidated manifests and discover syntax errors during production rollouts." },
+      { id: 'A', text: "Adopt type-safe configuration languages like CUE or KCL to validate schemas, enforce constraints, and generate clean Kubernetes YAML." },
       { id: 'B', text: "Rely on string concatenation inside unvalidated bash scripts to construct multi-thousand line YAML files." },
-      { id: 'C', text: "Adopt type-safe configuration languages like CUE or KCL to validate schemas, enforce constraints, and generate clean Kubernetes YAML." },
+      { id: 'C', text: "Deploy unvalidated manifests and discover syntax errors during production rollouts." },
       { id: 'D', text: "Ban configuration tooling and write raw JSON directly into etcd sockets." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Adopt type-safe configuration languages like CUE or KCL to validate schemas, enforce constraints, and generate clean Kubernetes YAML. Modern platforms replace fragile string-based templating (like raw Helm YAML templates) with type-safe configuration languages like CUE or KCL. These languages treat configuration as data, providing mathematical constraint validation, inheritance, and compile-time error detection.",
     referenceUrl: "https://cuelang.org/",
@@ -30,12 +30,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to eliminate runtime YAML syntax errors and validate complex configuration constraints before manifests are applied to clusters.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
-      { id: 'A', text: "Ban configuration tooling and write raw JSON directly into etcd sockets." },
-      { id: 'B', text: "Adopt type-safe configuration languages like CUE or KCL to validate schemas, enforce constraints, and generate clean Kubernetes YAML." },
+      { id: 'A', text: "Rely on string concatenation inside unvalidated bash scripts to construct multi-thousand line YAML files." },
+      { id: 'B', text: "Ban configuration tooling and write raw JSON directly into etcd sockets." },
       { id: 'C', text: "Deploy unvalidated manifests and discover syntax errors during production rollouts." },
-      { id: 'D', text: "Rely on string concatenation inside unvalidated bash scripts to construct multi-thousand line YAML files." }
+      { id: 'D', text: "Adopt type-safe configuration languages like CUE or KCL to validate schemas, enforce constraints, and generate clean Kubernetes YAML." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Adopt type-safe configuration languages like CUE or KCL to validate schemas, enforce constraints, and generate clean Kubernetes YAML. Modern platforms replace fragile string-based templating (like raw Helm YAML templates) with type-safe configuration languages like CUE or KCL. These languages treat configuration as data, providing mathematical constraint validation, inheritance, and compile-time error detection.",
     referenceUrl: "https://cuelang.org/",
@@ -51,12 +51,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to eliminate runtime YAML syntax errors and validate complex configuration constraints before manifests are applied to clusters.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
-      { id: 'A', text: "Ban configuration tooling and write raw JSON directly into etcd sockets." },
+      { id: 'A', text: "Adopt type-safe configuration languages like CUE or KCL to validate schemas, enforce constraints, and generate clean Kubernetes YAML." },
       { id: 'B', text: "Rely on string concatenation inside unvalidated bash scripts to construct multi-thousand line YAML files." },
       { id: 'C', text: "Deploy unvalidated manifests and discover syntax errors during production rollouts." },
-      { id: 'D', text: "Adopt type-safe configuration languages like CUE or KCL to validate schemas, enforce constraints, and generate clean Kubernetes YAML." }
+      { id: 'D', text: "Ban configuration tooling and write raw JSON directly into etcd sockets." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Adopt type-safe configuration languages like CUE or KCL to validate schemas, enforce constraints, and generate clean Kubernetes YAML. Modern platforms replace fragile string-based templating (like raw Helm YAML templates) with type-safe configuration languages like CUE or KCL. These languages treat configuration as data, providing mathematical constraint validation, inheritance, and compile-time error detection.",
     referenceUrl: "https://cuelang.org/",
@@ -72,12 +72,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to eliminate runtime YAML syntax errors and validate complex configuration constraints before manifests are applied to clusters.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Deploy unvalidated manifests and discover syntax errors during production rollouts." },
-      { id: 'B', text: "Adopt type-safe configuration languages like CUE or KCL to validate schemas, enforce constraints, and generate clean Kubernetes YAML." },
-      { id: 'C', text: "Ban configuration tooling and write raw JSON directly into etcd sockets." },
-      { id: 'D', text: "Rely on string concatenation inside unvalidated bash scripts to construct multi-thousand line YAML files." }
+      { id: 'A', text: "Ban configuration tooling and write raw JSON directly into etcd sockets." },
+      { id: 'B', text: "Deploy unvalidated manifests and discover syntax errors during production rollouts." },
+      { id: 'C', text: "Rely on string concatenation inside unvalidated bash scripts to construct multi-thousand line YAML files." },
+      { id: 'D', text: "Adopt type-safe configuration languages like CUE or KCL to validate schemas, enforce constraints, and generate clean Kubernetes YAML." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Adopt type-safe configuration languages like CUE or KCL to validate schemas, enforce constraints, and generate clean Kubernetes YAML. Modern platforms replace fragile string-based templating (like raw Helm YAML templates) with type-safe configuration languages like CUE or KCL. These languages treat configuration as data, providing mathematical constraint validation, inheritance, and compile-time error detection.",
     referenceUrl: "https://cuelang.org/",
@@ -95,8 +95,8 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Adopt type-safe configuration languages like CUE or KCL to validate schemas, enforce constraints, and generate clean Kubernetes YAML." },
       { id: 'B', text: "Rely on string concatenation inside unvalidated bash scripts to construct multi-thousand line YAML files." },
-      { id: 'C', text: "Ban configuration tooling and write raw JSON directly into etcd sockets." },
-      { id: 'D', text: "Deploy unvalidated manifests and discover syntax errors during production rollouts." }
+      { id: 'C', text: "Deploy unvalidated manifests and discover syntax errors during production rollouts." },
+      { id: 'D', text: "Ban configuration tooling and write raw JSON directly into etcd sockets." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to structure enterprise engineering teams to minimize organizational friction and eliminate dependency bottlenecks between ops and product.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
-      { id: 'A', text: "Eliminate all operations roles and force product managers to configure Linux kernel drivers." },
+      { id: 'A', text: "Embed a dedicated infrastructure engineer into every single product team with no centralized platform standards." },
       { id: 'B', text: "Recreate a traditional siloed operations gatekeeper team that executes all deployments via manual tickets." },
-      { id: 'C', text: "Organize teams following Team Topologies: establish a dedicated Platform Team delivering self-service capabilities to Stream-Aligned Teams." },
-      { id: 'D', text: "Embed a dedicated infrastructure engineer into every single product team with no centralized platform standards." }
+      { id: 'C', text: "Eliminate all operations roles and force product managers to configure Linux kernel drivers." },
+      { id: 'D', text: "Organize teams following Team Topologies: establish a dedicated Platform Team delivering self-service capabilities to Stream-Aligned Teams." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Organize teams following Team Topologies: establish a dedicated Platform Team delivering self-service capabilities to Stream-Aligned Teams. Team Topologies provides the organizational blueprint for platform engineering. It defines four team types: Stream-Aligned (product delivery), Platform (self-service product for devs), Enabling (upskilling), and Complicated-Subsystem, with clear interaction modes (X-as-a-Service, Facilitating).",
     referenceUrl: "https://teamtopologies.com/key-concepts",
@@ -137,8 +137,8 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Organize teams following Team Topologies: establish a dedicated Platform Team delivering self-service capabilities to Stream-Aligned Teams." },
       { id: 'B', text: "Recreate a traditional siloed operations gatekeeper team that executes all deployments via manual tickets." },
-      { id: 'C', text: "Eliminate all operations roles and force product managers to configure Linux kernel drivers." },
-      { id: 'D', text: "Embed a dedicated infrastructure engineer into every single product team with no centralized platform standards." }
+      { id: 'C', text: "Embed a dedicated infrastructure engineer into every single product team with no centralized platform standards." },
+      { id: 'D', text: "Eliminate all operations roles and force product managers to configure Linux kernel drivers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to structure enterprise engineering teams to minimize organizational friction and eliminate dependency bottlenecks between ops and product.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
-      { id: 'A', text: "Eliminate all operations roles and force product managers to configure Linux kernel drivers." },
-      { id: 'B', text: "Embed a dedicated infrastructure engineer into every single product team with no centralized platform standards." },
-      { id: 'C', text: "Organize teams following Team Topologies: establish a dedicated Platform Team delivering self-service capabilities to Stream-Aligned Teams." },
-      { id: 'D', text: "Recreate a traditional siloed operations gatekeeper team that executes all deployments via manual tickets." }
+      { id: 'A', text: "Recreate a traditional siloed operations gatekeeper team that executes all deployments via manual tickets." },
+      { id: 'B', text: "Organize teams following Team Topologies: establish a dedicated Platform Team delivering self-service capabilities to Stream-Aligned Teams." },
+      { id: 'C', text: "Eliminate all operations roles and force product managers to configure Linux kernel drivers." },
+      { id: 'D', text: "Embed a dedicated infrastructure engineer into every single product team with no centralized platform standards." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Organize teams following Team Topologies: establish a dedicated Platform Team delivering self-service capabilities to Stream-Aligned Teams. Team Topologies provides the organizational blueprint for platform engineering. It defines four team types: Stream-Aligned (product delivery), Platform (self-service product for devs), Enabling (upskilling), and Complicated-Subsystem, with clear interaction modes (X-as-a-Service, Facilitating).",
     referenceUrl: "https://teamtopologies.com/key-concepts",
@@ -177,12 +177,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to structure enterprise engineering teams to minimize organizational friction and eliminate dependency bottlenecks between ops and product.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Recreate a traditional siloed operations gatekeeper team that executes all deployments via manual tickets." },
-      { id: 'B', text: "Organize teams following Team Topologies: establish a dedicated Platform Team delivering self-service capabilities to Stream-Aligned Teams." },
-      { id: 'C', text: "Eliminate all operations roles and force product managers to configure Linux kernel drivers." },
-      { id: 'D', text: "Embed a dedicated infrastructure engineer into every single product team with no centralized platform standards." }
+      { id: 'A', text: "Organize teams following Team Topologies: establish a dedicated Platform Team delivering self-service capabilities to Stream-Aligned Teams." },
+      { id: 'B', text: "Recreate a traditional siloed operations gatekeeper team that executes all deployments via manual tickets." },
+      { id: 'C', text: "Embed a dedicated infrastructure engineer into every single product team with no centralized platform standards." },
+      { id: 'D', text: "Eliminate all operations roles and force product managers to configure Linux kernel drivers." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Organize teams following Team Topologies: establish a dedicated Platform Team delivering self-service capabilities to Stream-Aligned Teams. Team Topologies provides the organizational blueprint for platform engineering. It defines four team types: Stream-Aligned (product delivery), Platform (self-service product for devs), Enabling (upskilling), and Complicated-Subsystem, with clear interaction modes (X-as-a-Service, Facilitating).",
     referenceUrl: "https://teamtopologies.com/key-concepts",
@@ -198,12 +198,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to structure enterprise engineering teams to minimize organizational friction and eliminate dependency bottlenecks between ops and product.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
-      { id: 'A', text: "Recreate a traditional siloed operations gatekeeper team that executes all deployments via manual tickets." },
-      { id: 'B', text: "Organize teams following Team Topologies: establish a dedicated Platform Team delivering self-service capabilities to Stream-Aligned Teams." },
-      { id: 'C', text: "Eliminate all operations roles and force product managers to configure Linux kernel drivers." },
-      { id: 'D', text: "Embed a dedicated infrastructure engineer into every single product team with no centralized platform standards." }
+      { id: 'A', text: "Organize teams following Team Topologies: establish a dedicated Platform Team delivering self-service capabilities to Stream-Aligned Teams." },
+      { id: 'B', text: "Recreate a traditional siloed operations gatekeeper team that executes all deployments via manual tickets." },
+      { id: 'C', text: "Embed a dedicated infrastructure engineer into every single product team with no centralized platform standards." },
+      { id: 'D', text: "Eliminate all operations roles and force product managers to configure Linux kernel drivers." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Organize teams following Team Topologies: establish a dedicated Platform Team delivering self-service capabilities to Stream-Aligned Teams. Team Topologies provides the organizational blueprint for platform engineering. It defines four team types: Stream-Aligned (product delivery), Platform (self-service product for devs), Enabling (upskilling), and Complicated-Subsystem, with clear interaction modes (X-as-a-Service, Facilitating).",
     referenceUrl: "https://teamtopologies.com/key-concepts",
@@ -219,12 +219,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to extend the Backstage portal to automate custom enterprise CMDB registration and cloud IPAM subnet reservation securely.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
-      { id: 'A', text: "Print sensitive cloud API tokens in plaintext to application console logs." },
-      { id: 'B', text: "Instruct developers to submit manual tickets to network administrators for subnet allocation." },
-      { id: 'C', text: "Author custom Scaffolder actions in TypeScript with strict JSONSchema validation, worker error handling, and masked `ctx.secrets`." },
-      { id: 'D', text: "Execute unvalidated arbitrary shell commands on the host operating system with root privileges." }
+      { id: 'A', text: "Author custom Scaffolder actions in TypeScript with strict JSONSchema validation, worker error handling, and masked `ctx.secrets`." },
+      { id: 'B', text: "Execute unvalidated arbitrary shell commands on the host operating system with root privileges." },
+      { id: 'C', text: "Print sensitive cloud API tokens in plaintext to application console logs." },
+      { id: 'D', text: "Instruct developers to submit manual tickets to network administrators for subnet allocation." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Author custom Scaffolder actions in TypeScript with strict JSONSchema validation, worker error handling, and masked `ctx.secrets`. Enterprise platform engineers author custom Scaffolder actions in Backstage (`createTemplateAction`). By declaring strict input schemas, sanitizing logs, utilizing `ctx.secrets`, and handling timeouts, platform actions safely orchestrate internal enterprise systems.",
     referenceUrl: "https://backstage.io/docs/features/software-templates/writing-custom-actions",
@@ -242,8 +242,8 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Author custom Scaffolder actions in TypeScript with strict JSONSchema validation, worker error handling, and masked `ctx.secrets`." },
       { id: 'B', text: "Execute unvalidated arbitrary shell commands on the host operating system with root privileges." },
-      { id: 'C', text: "Instruct developers to submit manual tickets to network administrators for subnet allocation." },
-      { id: 'D', text: "Print sensitive cloud API tokens in plaintext to application console logs." }
+      { id: 'C', text: "Print sensitive cloud API tokens in plaintext to application console logs." },
+      { id: 'D', text: "Instruct developers to submit manual tickets to network administrators for subnet allocation." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,12 +261,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to extend the Backstage portal to automate custom enterprise CMDB registration and cloud IPAM subnet reservation securely.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
-      { id: 'A', text: "Print sensitive cloud API tokens in plaintext to application console logs." },
+      { id: 'A', text: "Instruct developers to submit manual tickets to network administrators for subnet allocation." },
       { id: 'B', text: "Execute unvalidated arbitrary shell commands on the host operating system with root privileges." },
-      { id: 'C', text: "Instruct developers to submit manual tickets to network administrators for subnet allocation." },
-      { id: 'D', text: "Author custom Scaffolder actions in TypeScript with strict JSONSchema validation, worker error handling, and masked `ctx.secrets`." }
+      { id: 'C', text: "Author custom Scaffolder actions in TypeScript with strict JSONSchema validation, worker error handling, and masked `ctx.secrets`." },
+      { id: 'D', text: "Print sensitive cloud API tokens in plaintext to application console logs." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Author custom Scaffolder actions in TypeScript with strict JSONSchema validation, worker error handling, and masked `ctx.secrets`. Enterprise platform engineers author custom Scaffolder actions in Backstage (`createTemplateAction`). By declaring strict input schemas, sanitizing logs, utilizing `ctx.secrets`, and handling timeouts, platform actions safely orchestrate internal enterprise systems.",
     referenceUrl: "https://backstage.io/docs/features/software-templates/writing-custom-actions",
@@ -282,12 +282,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to extend the Backstage portal to automate custom enterprise CMDB registration and cloud IPAM subnet reservation securely.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Instruct developers to submit manual tickets to network administrators for subnet allocation." },
-      { id: 'B', text: "Print sensitive cloud API tokens in plaintext to application console logs." },
-      { id: 'C', text: "Execute unvalidated arbitrary shell commands on the host operating system with root privileges." },
-      { id: 'D', text: "Author custom Scaffolder actions in TypeScript with strict JSONSchema validation, worker error handling, and masked `ctx.secrets`." }
+      { id: 'A', text: "Author custom Scaffolder actions in TypeScript with strict JSONSchema validation, worker error handling, and masked `ctx.secrets`." },
+      { id: 'B', text: "Execute unvalidated arbitrary shell commands on the host operating system with root privileges." },
+      { id: 'C', text: "Print sensitive cloud API tokens in plaintext to application console logs." },
+      { id: 'D', text: "Instruct developers to submit manual tickets to network administrators for subnet allocation." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Author custom Scaffolder actions in TypeScript with strict JSONSchema validation, worker error handling, and masked `ctx.secrets`. Enterprise platform engineers author custom Scaffolder actions in Backstage (`createTemplateAction`). By declaring strict input schemas, sanitizing logs, utilizing `ctx.secrets`, and handling timeouts, platform actions safely orchestrate internal enterprise systems.",
     referenceUrl: "https://backstage.io/docs/features/software-templates/writing-custom-actions",
@@ -303,12 +303,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to extend the Backstage portal to automate custom enterprise CMDB registration and cloud IPAM subnet reservation securely.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
-      { id: 'A', text: "Print sensitive cloud API tokens in plaintext to application console logs." },
+      { id: 'A', text: "Instruct developers to submit manual tickets to network administrators for subnet allocation." },
       { id: 'B', text: "Execute unvalidated arbitrary shell commands on the host operating system with root privileges." },
-      { id: 'C', text: "Instruct developers to submit manual tickets to network administrators for subnet allocation." },
-      { id: 'D', text: "Author custom Scaffolder actions in TypeScript with strict JSONSchema validation, worker error handling, and masked `ctx.secrets`." }
+      { id: 'C', text: "Author custom Scaffolder actions in TypeScript with strict JSONSchema validation, worker error handling, and masked `ctx.secrets`." },
+      { id: 'D', text: "Print sensitive cloud API tokens in plaintext to application console logs." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Author custom Scaffolder actions in TypeScript with strict JSONSchema validation, worker error handling, and masked `ctx.secrets`. Enterprise platform engineers author custom Scaffolder actions in Backstage (`createTemplateAction`). By declaring strict input schemas, sanitizing logs, utilizing `ctx.secrets`, and handling timeouts, platform actions safely orchestrate internal enterprise systems.",
     referenceUrl: "https://backstage.io/docs/features/software-templates/writing-custom-actions",
@@ -324,12 +324,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to build an internal developer portal data model that connects microservices, cloud resources, deployment environments, and on-call schedules.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
-      { id: 'A', text: "Prohibit developers from discovering existing microservices to prevent reuse." },
-      { id: 'B', text: "Define interconnected entity blueprints and relations in modern developer portals (like Port or Backstage) modeling full architectural dependencies." },
-      { id: 'C', text: "Store portal data in temporary memory that resets on browser tab refresh." },
-      { id: 'D', text: "Maintain service lists in disconnected, unversioned spreadsheet documents on local workstations." }
+      { id: 'A', text: "Store portal data in temporary memory that resets on browser tab refresh." },
+      { id: 'B', text: "Prohibit developers from discovering existing microservices to prevent reuse." },
+      { id: 'C', text: "Maintain service lists in disconnected, unversioned spreadsheet documents on local workstations." },
+      { id: 'D', text: "Define interconnected entity blueprints and relations in modern developer portals (like Port or Backstage) modeling full architectural dependencies." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Define interconnected entity blueprints and relations in modern developer portals (like Port or Backstage) modeling full architectural dependencies. Modern developer portals use flexible blueprint systems. Platform engineers define entities (Services, Packages, Environments, Cloud Resources) and their relationships, creating an interactive, real-time knowledge graph that drives self-service automation.",
     referenceUrl: "https://www.getport.io/docs/build-your-software-catalog/sync-data-to-catalog/blueprints",
@@ -345,12 +345,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to build an internal developer portal data model that connects microservices, cloud resources, deployment environments, and on-call schedules.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
-      { id: 'A', text: "Maintain service lists in disconnected, unversioned spreadsheet documents on local workstations." },
-      { id: 'B', text: "Prohibit developers from discovering existing microservices to prevent reuse." },
-      { id: 'C', text: "Store portal data in temporary memory that resets on browser tab refresh." },
-      { id: 'D', text: "Define interconnected entity blueprints and relations in modern developer portals (like Port or Backstage) modeling full architectural dependencies." }
+      { id: 'A', text: "Prohibit developers from discovering existing microservices to prevent reuse." },
+      { id: 'B', text: "Store portal data in temporary memory that resets on browser tab refresh." },
+      { id: 'C', text: "Define interconnected entity blueprints and relations in modern developer portals (like Port or Backstage) modeling full architectural dependencies." },
+      { id: 'D', text: "Maintain service lists in disconnected, unversioned spreadsheet documents on local workstations." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define interconnected entity blueprints and relations in modern developer portals (like Port or Backstage) modeling full architectural dependencies. Modern developer portals use flexible blueprint systems. Platform engineers define entities (Services, Packages, Environments, Cloud Resources) and their relationships, creating an interactive, real-time knowledge graph that drives self-service automation.",
     referenceUrl: "https://www.getport.io/docs/build-your-software-catalog/sync-data-to-catalog/blueprints",
@@ -366,12 +366,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to build an internal developer portal data model that connects microservices, cloud resources, deployment environments, and on-call schedules.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
-      { id: 'A', text: "Prohibit developers from discovering existing microservices to prevent reuse." },
+      { id: 'A', text: "Store portal data in temporary memory that resets on browser tab refresh." },
       { id: 'B', text: "Maintain service lists in disconnected, unversioned spreadsheet documents on local workstations." },
-      { id: 'C', text: "Store portal data in temporary memory that resets on browser tab refresh." },
-      { id: 'D', text: "Define interconnected entity blueprints and relations in modern developer portals (like Port or Backstage) modeling full architectural dependencies." }
+      { id: 'C', text: "Define interconnected entity blueprints and relations in modern developer portals (like Port or Backstage) modeling full architectural dependencies." },
+      { id: 'D', text: "Prohibit developers from discovering existing microservices to prevent reuse." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define interconnected entity blueprints and relations in modern developer portals (like Port or Backstage) modeling full architectural dependencies. Modern developer portals use flexible blueprint systems. Platform engineers define entities (Services, Packages, Environments, Cloud Resources) and their relationships, creating an interactive, real-time knowledge graph that drives self-service automation.",
     referenceUrl: "https://www.getport.io/docs/build-your-software-catalog/sync-data-to-catalog/blueprints",
@@ -387,12 +387,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to build an internal developer portal data model that connects microservices, cloud resources, deployment environments, and on-call schedules.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Prohibit developers from discovering existing microservices to prevent reuse." },
-      { id: 'B', text: "Define interconnected entity blueprints and relations in modern developer portals (like Port or Backstage) modeling full architectural dependencies." },
-      { id: 'C', text: "Store portal data in temporary memory that resets on browser tab refresh." },
-      { id: 'D', text: "Maintain service lists in disconnected, unversioned spreadsheet documents on local workstations." }
+      { id: 'A', text: "Store portal data in temporary memory that resets on browser tab refresh." },
+      { id: 'B', text: "Prohibit developers from discovering existing microservices to prevent reuse." },
+      { id: 'C', text: "Maintain service lists in disconnected, unversioned spreadsheet documents on local workstations." },
+      { id: 'D', text: "Define interconnected entity blueprints and relations in modern developer portals (like Port or Backstage) modeling full architectural dependencies." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Define interconnected entity blueprints and relations in modern developer portals (like Port or Backstage) modeling full architectural dependencies. Modern developer portals use flexible blueprint systems. Platform engineers define entities (Services, Packages, Environments, Cloud Resources) and their relationships, creating an interactive, real-time knowledge graph that drives self-service automation.",
     referenceUrl: "https://www.getport.io/docs/build-your-software-catalog/sync-data-to-catalog/blueprints",
@@ -408,12 +408,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to build an internal developer portal data model that connects microservices, cloud resources, deployment environments, and on-call schedules.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
-      { id: 'A', text: "Maintain service lists in disconnected, unversioned spreadsheet documents on local workstations." },
-      { id: 'B', text: "Define interconnected entity blueprints and relations in modern developer portals (like Port or Backstage) modeling full architectural dependencies." },
-      { id: 'C', text: "Store portal data in temporary memory that resets on browser tab refresh." },
-      { id: 'D', text: "Prohibit developers from discovering existing microservices to prevent reuse." }
+      { id: 'A', text: "Define interconnected entity blueprints and relations in modern developer portals (like Port or Backstage) modeling full architectural dependencies." },
+      { id: 'B', text: "Maintain service lists in disconnected, unversioned spreadsheet documents on local workstations." },
+      { id: 'C', text: "Prohibit developers from discovering existing microservices to prevent reuse." },
+      { id: 'D', text: "Store portal data in temporary memory that resets on browser tab refresh." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Define interconnected entity blueprints and relations in modern developer portals (like Port or Backstage) modeling full architectural dependencies. Modern developer portals use flexible blueprint systems. Platform engineers define entities (Services, Packages, Environments, Cloud Resources) and their relationships, creating an interactive, real-time knowledge graph that drives self-service automation.",
     referenceUrl: "https://www.getport.io/docs/build-your-software-catalog/sync-data-to-catalog/blueprints",
@@ -431,8 +431,8 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Orchestrate ephemeral preview environments triggered by PR webhooks, deploying isolated namespaces with lightweight databases." },
       { id: 'B', text: "Force all development teams to test pull requests on a single shared staging cluster with constant collisions." },
-      { id: 'C', text: "Prohibit testing feature branches until after merging into the production main branch." },
-      { id: 'D', text: "Keep 5,000 ephemeral test environments running permanently in production cloud accounts." }
+      { id: 'C', text: "Keep 5,000 ephemeral test environments running permanently in production cloud accounts." },
+      { id: 'D', text: "Prohibit testing feature branches until after merging into the production main branch." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,12 +450,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to enable end-to-end integration testing of pull requests without incurring permanent cloud infrastructure expenses.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
-      { id: 'A', text: "Keep 5,000 ephemeral test environments running permanently in production cloud accounts." },
-      { id: 'B', text: "Orchestrate ephemeral preview environments triggered by PR webhooks, deploying isolated namespaces with lightweight databases." },
-      { id: 'C', text: "Prohibit testing feature branches until after merging into the production main branch." },
-      { id: 'D', text: "Force all development teams to test pull requests on a single shared staging cluster with constant collisions." }
+      { id: 'A', text: "Prohibit testing feature branches until after merging into the production main branch." },
+      { id: 'B', text: "Keep 5,000 ephemeral test environments running permanently in production cloud accounts." },
+      { id: 'C', text: "Force all development teams to test pull requests on a single shared staging cluster with constant collisions." },
+      { id: 'D', text: "Orchestrate ephemeral preview environments triggered by PR webhooks, deploying isolated namespaces with lightweight databases." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Orchestrate ephemeral preview environments triggered by PR webhooks, deploying isolated namespaces with lightweight databases. Ephemeral environment orchestration provisions temporary, isolated testing environments per pull request. Platform automation sets up namespaces, clones database schemas with sanitized test data, runs integration tests, and destroys resources upon PR closure.",
     referenceUrl: "https://internaldeveloperplatform.org/core-components/environment-management/",
@@ -471,12 +471,12 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to enable end-to-end integration testing of pull requests without incurring permanent cloud infrastructure expenses.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
-      { id: 'A', text: "Force all development teams to test pull requests on a single shared staging cluster with constant collisions." },
-      { id: 'B', text: "Prohibit testing feature branches until after merging into the production main branch." },
-      { id: 'C', text: "Orchestrate ephemeral preview environments triggered by PR webhooks, deploying isolated namespaces with lightweight databases." },
-      { id: 'D', text: "Keep 5,000 ephemeral test environments running permanently in production cloud accounts." }
+      { id: 'A', text: "Prohibit testing feature branches until after merging into the production main branch." },
+      { id: 'B', text: "Keep 5,000 ephemeral test environments running permanently in production cloud accounts." },
+      { id: 'C', text: "Force all development teams to test pull requests on a single shared staging cluster with constant collisions." },
+      { id: 'D', text: "Orchestrate ephemeral preview environments triggered by PR webhooks, deploying isolated namespaces with lightweight databases." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Orchestrate ephemeral preview environments triggered by PR webhooks, deploying isolated namespaces with lightweight databases. Ephemeral environment orchestration provisions temporary, isolated testing environments per pull request. Platform automation sets up namespaces, clones database schemas with sanitized test data, runs integration tests, and destroys resources upon PR closure.",
     referenceUrl: "https://internaldeveloperplatform.org/core-components/environment-management/",
@@ -493,9 +493,9 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Orchestrate ephemeral preview environments triggered by PR webhooks, deploying isolated namespaces with lightweight databases." },
-      { id: 'B', text: "Prohibit testing feature branches until after merging into the production main branch." },
+      { id: 'B', text: "Force all development teams to test pull requests on a single shared staging cluster with constant collisions." },
       { id: 'C', text: "Keep 5,000 ephemeral test environments running permanently in production cloud accounts." },
-      { id: 'D', text: "Force all development teams to test pull requests on a single shared staging cluster with constant collisions." }
+      { id: 'D', text: "Prohibit testing feature branches until after merging into the production main branch." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -514,9 +514,9 @@ export const CNCF_CNPE_QUESTIONS_13 = [
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Orchestrate ephemeral preview environments triggered by PR webhooks, deploying isolated namespaces with lightweight databases." },
-      { id: 'B', text: "Prohibit testing feature branches until after merging into the production main branch." },
+      { id: 'B', text: "Force all development teams to test pull requests on a single shared staging cluster with constant collisions." },
       { id: 'C', text: "Keep 5,000 ephemeral test environments running permanently in production cloud accounts." },
-      { id: 'D', text: "Force all development teams to test pull requests on a single shared staging cluster with constant collisions." }
+      { id: 'D', text: "Prohibit testing feature branches until after merging into the production main branch." }
     ],
     correctAnswers: ['A'],
     type: "single",

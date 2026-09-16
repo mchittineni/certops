@@ -11,8 +11,8 @@ export const AWS_SCS_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Require the SaaS provider to supply a unique, secret `ExternalId` in their STS AssumeRole request and enforce it in the role trust policy." },
       { id: 'B', text: "Allow the SaaS provider to assume the role based solely on their AWS Account ID without an ExternalId." },
-      { id: 'C', text: "Grant the third-party vendor unrestricted root credentials to your AWS account." },
-      { id: 'D', text: "Create a long-term IAM user with an access key and email the credentials to the third-party vendor." }
+      { id: 'C', text: "Create a long-term IAM user with an access key and email the credentials to the third-party vendor." },
+      { id: 'D', text: "Grant the third-party vendor unrestricted root credentials to your AWS account." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,12 +30,12 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to allow a third-party SaaS security monitoring platform to assume an IAM role in your AWS account without risking confused deputy attacks.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Allow the SaaS provider to assume the role based solely on their AWS Account ID without an ExternalId." },
-      { id: 'B', text: "Create a long-term IAM user with an access key and email the credentials to the third-party vendor." },
-      { id: 'C', text: "Require the SaaS provider to supply a unique, secret `ExternalId` in their STS AssumeRole request and enforce it in the role trust policy." },
+      { id: 'A', text: "Create a long-term IAM user with an access key and email the credentials to the third-party vendor." },
+      { id: 'B', text: "Require the SaaS provider to supply a unique, secret `ExternalId` in their STS AssumeRole request and enforce it in the role trust policy." },
+      { id: 'C', text: "Allow the SaaS provider to assume the role based solely on their AWS Account ID without an ExternalId." },
       { id: 'D', text: "Grant the third-party vendor unrestricted root credentials to your AWS account." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Require the SaaS provider to supply a unique, secret `ExternalId` in their STS AssumeRole request and enforce it in the role trust policy. In cross-account access for multi-tenant SaaS providers, the 'confused deputy' attack occurs when an attacker tricks the SaaS vendor into assuming another customer's role. Enforcing `sts:ExternalId` in the role trust policy ensures the vendor only assumes the role when acting on behalf of the verified customer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html",
@@ -51,12 +51,12 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to allow a third-party SaaS security monitoring platform to assume an IAM role in your AWS account without risking confused deputy attacks.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Grant the third-party vendor unrestricted root credentials to your AWS account." },
+      { id: 'A', text: "Create a long-term IAM user with an access key and email the credentials to the third-party vendor." },
       { id: 'B', text: "Allow the SaaS provider to assume the role based solely on their AWS Account ID without an ExternalId." },
-      { id: 'C', text: "Require the SaaS provider to supply a unique, secret `ExternalId` in their STS AssumeRole request and enforce it in the role trust policy." },
-      { id: 'D', text: "Create a long-term IAM user with an access key and email the credentials to the third-party vendor." }
+      { id: 'C', text: "Grant the third-party vendor unrestricted root credentials to your AWS account." },
+      { id: 'D', text: "Require the SaaS provider to supply a unique, secret `ExternalId` in their STS AssumeRole request and enforce it in the role trust policy." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Require the SaaS provider to supply a unique, secret `ExternalId` in their STS AssumeRole request and enforce it in the role trust policy. In cross-account access for multi-tenant SaaS providers, the 'confused deputy' attack occurs when an attacker tricks the SaaS vendor into assuming another customer's role. Enforcing `sts:ExternalId` in the role trust policy ensures the vendor only assumes the role when acting on behalf of the verified customer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html",
@@ -73,9 +73,9 @@ export const AWS_SCS_QUESTIONS_17 = [
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Require the SaaS provider to supply a unique, secret `ExternalId` in their STS AssumeRole request and enforce it in the role trust policy." },
-      { id: 'B', text: "Grant the third-party vendor unrestricted root credentials to your AWS account." },
-      { id: 'C', text: "Allow the SaaS provider to assume the role based solely on their AWS Account ID without an ExternalId." },
-      { id: 'D', text: "Create a long-term IAM user with an access key and email the credentials to the third-party vendor." }
+      { id: 'B', text: "Create a long-term IAM user with an access key and email the credentials to the third-party vendor." },
+      { id: 'C', text: "Grant the third-party vendor unrestricted root credentials to your AWS account." },
+      { id: 'D', text: "Allow the SaaS provider to assume the role based solely on their AWS Account ID without an ExternalId." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to allow a third-party SaaS security monitoring platform to assume an IAM role in your AWS account without risking confused deputy attacks.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Allow the SaaS provider to assume the role based solely on their AWS Account ID without an ExternalId." },
-      { id: 'B', text: "Require the SaaS provider to supply a unique, secret `ExternalId` in their STS AssumeRole request and enforce it in the role trust policy." },
+      { id: 'A', text: "Require the SaaS provider to supply a unique, secret `ExternalId` in their STS AssumeRole request and enforce it in the role trust policy." },
+      { id: 'B', text: "Allow the SaaS provider to assume the role based solely on their AWS Account ID without an ExternalId." },
       { id: 'C', text: "Create a long-term IAM user with an access key and email the credentials to the third-party vendor." },
       { id: 'D', text: "Grant the third-party vendor unrestricted root credentials to your AWS account." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Require the SaaS provider to supply a unique, secret `ExternalId` in their STS AssumeRole request and enforce it in the role trust policy. In cross-account access for multi-tenant SaaS providers, the 'confused deputy' attack occurs when an attacker tricks the SaaS vendor into assuming another customer's role. Enforcing `sts:ExternalId` in the role trust policy ensures the vendor only assumes the role when acting on behalf of the verified customer.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html",
@@ -114,12 +114,12 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to enable Account B to read and write KMS-encrypted objects in an S3 bucket owned by Account A without assuming IAM roles.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Disable encryption on the S3 bucket so KMS permissions are unnecessary." },
-      { id: 'B', text: "Attach an S3 bucket policy allowing Account B and grant Account B usage permissions on the Customer Managed KMS Key policy." },
+      { id: 'A', text: "Use AWS Managed Key `aws/s3`, which can never be shared across different AWS accounts." },
+      { id: 'B', text: "Disable encryption on the S3 bucket so KMS permissions are unnecessary." },
       { id: 'C', text: "Make the S3 bucket publicly readable to 0.0.0.0/0." },
-      { id: 'D', text: "Use AWS Managed Key `aws/s3`, which can never be shared across different AWS accounts." }
+      { id: 'D', text: "Attach an S3 bucket policy allowing Account B and grant Account B usage permissions on the Customer Managed KMS Key policy." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Attach an S3 bucket policy allowing Account B and grant Account B usage permissions on the Customer Managed KMS Key policy. Cross-account access to encrypted S3 objects requires dual permissions: 1) the S3 bucket policy (or ACL) must allow the external account, and 2) the KMS key policy must explicitly permit the external account (`kms:Decrypt`, `kms:GenerateDataKey`). AWS Managed Keys (`aws/s3`) cannot be used across accounts.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html",
@@ -136,9 +136,9 @@ export const AWS_SCS_QUESTIONS_17 = [
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
       { id: 'A', text: "Attach an S3 bucket policy allowing Account B and grant Account B usage permissions on the Customer Managed KMS Key policy." },
-      { id: 'B', text: "Disable encryption on the S3 bucket so KMS permissions are unnecessary." },
-      { id: 'C', text: "Use AWS Managed Key `aws/s3`, which can never be shared across different AWS accounts." },
-      { id: 'D', text: "Make the S3 bucket publicly readable to 0.0.0.0/0." }
+      { id: 'B', text: "Make the S3 bucket publicly readable to 0.0.0.0/0." },
+      { id: 'C', text: "Disable encryption on the S3 bucket so KMS permissions are unnecessary." },
+      { id: 'D', text: "Use AWS Managed Key `aws/s3`, which can never be shared across different AWS accounts." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -157,8 +157,8 @@ export const AWS_SCS_QUESTIONS_17 = [
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Attach an S3 bucket policy allowing Account B and grant Account B usage permissions on the Customer Managed KMS Key policy." },
-      { id: 'B', text: "Make the S3 bucket publicly readable to 0.0.0.0/0." },
-      { id: 'C', text: "Use AWS Managed Key `aws/s3`, which can never be shared across different AWS accounts." },
+      { id: 'B', text: "Use AWS Managed Key `aws/s3`, which can never be shared across different AWS accounts." },
+      { id: 'C', text: "Make the S3 bucket publicly readable to 0.0.0.0/0." },
       { id: 'D', text: "Disable encryption on the S3 bucket so KMS permissions are unnecessary." }
     ],
     correctAnswers: ['A'],
@@ -177,12 +177,12 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to enable Account B to read and write KMS-encrypted objects in an S3 bucket owned by Account A without assuming IAM roles.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Use AWS Managed Key `aws/s3`, which can never be shared across different AWS accounts." },
-      { id: 'B', text: "Attach an S3 bucket policy allowing Account B and grant Account B usage permissions on the Customer Managed KMS Key policy." },
+      { id: 'A', text: "Attach an S3 bucket policy allowing Account B and grant Account B usage permissions on the Customer Managed KMS Key policy." },
+      { id: 'B', text: "Use AWS Managed Key `aws/s3`, which can never be shared across different AWS accounts." },
       { id: 'C', text: "Make the S3 bucket publicly readable to 0.0.0.0/0." },
       { id: 'D', text: "Disable encryption on the S3 bucket so KMS permissions are unnecessary." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Attach an S3 bucket policy allowing Account B and grant Account B usage permissions on the Customer Managed KMS Key policy. Cross-account access to encrypted S3 objects requires dual permissions: 1) the S3 bucket policy (or ACL) must allow the external account, and 2) the KMS key policy must explicitly permit the external account (`kms:Decrypt`, `kms:GenerateDataKey`). AWS Managed Keys (`aws/s3`) cannot be used across accounts.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html",
@@ -199,8 +199,8 @@ export const AWS_SCS_QUESTIONS_17 = [
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Attach an S3 bucket policy allowing Account B and grant Account B usage permissions on the Customer Managed KMS Key policy." },
-      { id: 'B', text: "Make the S3 bucket publicly readable to 0.0.0.0/0." },
-      { id: 'C', text: "Use AWS Managed Key `aws/s3`, which can never be shared across different AWS accounts." },
+      { id: 'B', text: "Use AWS Managed Key `aws/s3`, which can never be shared across different AWS accounts." },
+      { id: 'C', text: "Make the S3 bucket publicly readable to 0.0.0.0/0." },
       { id: 'D', text: "Disable encryption on the S3 bucket so KMS permissions are unnecessary." }
     ],
     correctAnswers: ['A'],
@@ -219,12 +219,12 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to identify all S3 buckets, KMS keys, and IAM roles shared outside the corporate AWS Organization and generate right-sized policies.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Assume no resources are exposed to the internet without automated validation." },
-      { id: 'B', text: "Grant wildcard `*` permissions to all application roles to prevent permission-related outages." },
-      { id: 'C', text: "Manually inspect thousands of individual resource JSON policies across 50 AWS accounts in the web console." },
-      { id: 'D', text: "Enable IAM Access Analyzer to detect external sharing findings and use its CloudTrail policy generator to author least-privilege IAM policies." }
+      { id: 'A', text: "Manually inspect thousands of individual resource JSON policies across 50 AWS accounts in the web console." },
+      { id: 'B', text: "Enable IAM Access Analyzer to detect external sharing findings and use its CloudTrail policy generator to author least-privilege IAM policies." },
+      { id: 'C', text: "Grant wildcard `*` permissions to all application roles to prevent permission-related outages." },
+      { id: 'D', text: "Assume no resources are exposed to the internet without automated validation." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable IAM Access Analyzer to detect external sharing findings and use its CloudTrail policy generator to author least-privilege IAM policies. IAM Access Analyzer uses automated reasoning to mathematical prove access. It identifies resources (S3, IAM roles, KMS, SQS, Secrets Manager) accessible outside your organization. It also analyzes CloudTrail logs to generate least-privilege IAM policies containing only the actions actually used.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html",
@@ -242,8 +242,8 @@ export const AWS_SCS_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Enable IAM Access Analyzer to detect external sharing findings and use its CloudTrail policy generator to author least-privilege IAM policies." },
       { id: 'B', text: "Manually inspect thousands of individual resource JSON policies across 50 AWS accounts in the web console." },
-      { id: 'C', text: "Grant wildcard `*` permissions to all application roles to prevent permission-related outages." },
-      { id: 'D', text: "Assume no resources are exposed to the internet without automated validation." }
+      { id: 'C', text: "Assume no resources are exposed to the internet without automated validation." },
+      { id: 'D', text: "Grant wildcard `*` permissions to all application roles to prevent permission-related outages." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,12 +282,12 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to identify all S3 buckets, KMS keys, and IAM roles shared outside the corporate AWS Organization and generate right-sized policies.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Assume no resources are exposed to the internet without automated validation." },
+      { id: 'A', text: "Enable IAM Access Analyzer to detect external sharing findings and use its CloudTrail policy generator to author least-privilege IAM policies." },
       { id: 'B', text: "Manually inspect thousands of individual resource JSON policies across 50 AWS accounts in the web console." },
-      { id: 'C', text: "Enable IAM Access Analyzer to detect external sharing findings and use its CloudTrail policy generator to author least-privilege IAM policies." },
+      { id: 'C', text: "Assume no resources are exposed to the internet without automated validation." },
       { id: 'D', text: "Grant wildcard `*` permissions to all application roles to prevent permission-related outages." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Enable IAM Access Analyzer to detect external sharing findings and use its CloudTrail policy generator to author least-privilege IAM policies. IAM Access Analyzer uses automated reasoning to mathematical prove access. It identifies resources (S3, IAM roles, KMS, SQS, Secrets Manager) accessible outside your organization. It also analyzes CloudTrail logs to generate least-privilege IAM policies containing only the actions actually used.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html",
@@ -304,9 +304,9 @@ export const AWS_SCS_QUESTIONS_17 = [
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
       { id: 'A', text: "Enable IAM Access Analyzer to detect external sharing findings and use its CloudTrail policy generator to author least-privilege IAM policies." },
-      { id: 'B', text: "Grant wildcard `*` permissions to all application roles to prevent permission-related outages." },
-      { id: 'C', text: "Manually inspect thousands of individual resource JSON policies across 50 AWS accounts in the web console." },
-      { id: 'D', text: "Assume no resources are exposed to the internet without automated validation." }
+      { id: 'B', text: "Assume no resources are exposed to the internet without automated validation." },
+      { id: 'C', text: "Grant wildcard `*` permissions to all application roles to prevent permission-related outages." },
+      { id: 'D', text: "Manually inspect thousands of individual resource JSON policies across 50 AWS accounts in the web console." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to ensure that critical actions like terminating EC2 instances or deleting S3 objects can only be executed by users authenticated with hardware MFA.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Disable MFA requirements to prevent developers from being locked out when traveling." },
-      { id: 'B', text: "Send an email to developers asking them to enable MFA voluntarily on their smartphones." },
-      { id: 'C', text: "Include an explicit `Deny` block in IAM policies for target actions with condition `BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`." },
-      { id: 'D', text: "Rely on console login MFA alone, leaving CLI and API requests unprotected." }
+      { id: 'A', text: "Rely on console login MFA alone, leaving CLI and API requests unprotected." },
+      { id: 'B', text: "Include an explicit `Deny` block in IAM policies for target actions with condition `BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`." },
+      { id: 'C', text: "Disable MFA requirements to prevent developers from being locked out when traveling." },
+      { id: 'D', text: "Send an email to developers asking them to enable MFA voluntarily on their smartphones." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Include an explicit `Deny` block in IAM policies for target actions with condition `BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`. Enforcing MFA for sensitive API operations requires policy conditions. Attaching an explicit `Deny` condition (`BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`) ensures that API requests initiated via the AWS CLI or SDK without a valid MFA token session are rejected.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_aws_my-sec-creds-self-manage.html",
@@ -345,12 +345,12 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to ensure that critical actions like terminating EC2 instances or deleting S3 objects can only be executed by users authenticated with hardware MFA.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Disable MFA requirements to prevent developers from being locked out when traveling." },
+      { id: 'A', text: "Include an explicit `Deny` block in IAM policies for target actions with condition `BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`." },
       { id: 'B', text: "Rely on console login MFA alone, leaving CLI and API requests unprotected." },
       { id: 'C', text: "Send an email to developers asking them to enable MFA voluntarily on their smartphones." },
-      { id: 'D', text: "Include an explicit `Deny` block in IAM policies for target actions with condition `BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`." }
+      { id: 'D', text: "Disable MFA requirements to prevent developers from being locked out when traveling." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Include an explicit `Deny` block in IAM policies for target actions with condition `BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`. Enforcing MFA for sensitive API operations requires policy conditions. Attaching an explicit `Deny` condition (`BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`) ensures that API requests initiated via the AWS CLI or SDK without a valid MFA token session are rejected.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_aws_my-sec-creds-self-manage.html",
@@ -367,8 +367,8 @@ export const AWS_SCS_QUESTIONS_17 = [
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Include an explicit `Deny` block in IAM policies for target actions with condition `BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`." },
-      { id: 'B', text: "Send an email to developers asking them to enable MFA voluntarily on their smartphones." },
-      { id: 'C', text: "Rely on console login MFA alone, leaving CLI and API requests unprotected." },
+      { id: 'B', text: "Rely on console login MFA alone, leaving CLI and API requests unprotected." },
+      { id: 'C', text: "Send an email to developers asking them to enable MFA voluntarily on their smartphones." },
       { id: 'D', text: "Disable MFA requirements to prevent developers from being locked out when traveling." }
     ],
     correctAnswers: ['A'],
@@ -388,9 +388,9 @@ export const AWS_SCS_QUESTIONS_17 = [
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Include an explicit `Deny` block in IAM policies for target actions with condition `BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`." },
-      { id: 'B', text: "Disable MFA requirements to prevent developers from being locked out when traveling." },
-      { id: 'C', text: "Rely on console login MFA alone, leaving CLI and API requests unprotected." },
-      { id: 'D', text: "Send an email to developers asking them to enable MFA voluntarily on their smartphones." }
+      { id: 'B', text: "Send an email to developers asking them to enable MFA voluntarily on their smartphones." },
+      { id: 'C', text: "Disable MFA requirements to prevent developers from being locked out when traveling." },
+      { id: 'D', text: "Rely on console login MFA alone, leaving CLI and API requests unprotected." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to ensure that critical actions like terminating EC2 instances or deleting S3 objects can only be executed by users authenticated with hardware MFA.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Disable MFA requirements to prevent developers from being locked out when traveling." },
+      { id: 'A', text: "Include an explicit `Deny` block in IAM policies for target actions with condition `BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`." },
       { id: 'B', text: "Rely on console login MFA alone, leaving CLI and API requests unprotected." },
       { id: 'C', text: "Send an email to developers asking them to enable MFA voluntarily on their smartphones." },
-      { id: 'D', text: "Include an explicit `Deny` block in IAM policies for target actions with condition `BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`." }
+      { id: 'D', text: "Disable MFA requirements to prevent developers from being locked out when traveling." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Include an explicit `Deny` block in IAM policies for target actions with condition `BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`. Enforcing MFA for sensitive API operations requires policy conditions. Attaching an explicit `Deny` condition (`BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`) ensures that API requests initiated via the AWS CLI or SDK without a valid MFA token session are rejected.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_aws_my-sec-creds-self-manage.html",
@@ -429,12 +429,12 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to control cryptographic key deletion schedules, enforce key policies, and enable automated annual key rotation.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Delete the KMS key immediately after encrypting data to prevent attackers from finding it." },
-      { id: 'B', text: "Store unencrypted private keys in plaintext text files inside application code repositories." },
-      { id: 'C', text: "Create a Customer Managed Key (CMK) in AWS KMS, configure a custom key policy, and enable automatic annual key rotation." },
-      { id: 'D', text: "Use the default AWS Managed Key (`aws/s3` or `aws/ebs`), which does not support custom key policies or cross-account access." }
+      { id: 'A', text: "Use the default AWS Managed Key (`aws/s3` or `aws/ebs`), which does not support custom key policies or cross-account access." },
+      { id: 'B', text: "Create a Customer Managed Key (CMK) in AWS KMS, configure a custom key policy, and enable automatic annual key rotation." },
+      { id: 'C', text: "Delete the KMS key immediately after encrypting data to prevent attackers from finding it." },
+      { id: 'D', text: "Store unencrypted private keys in plaintext text files inside application code repositories." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Customer Managed Key (CMK) in AWS KMS, configure a custom key policy, and enable automatic annual key rotation. Customer Managed Keys (CMKs) offer full administrative control: custom key policies, key grants, annual automatic rotation, cryptographic deletion waiting periods (7–30 days), and cross-account access. AWS Managed Keys cannot be shared across accounts and their key policies cannot be modified.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk",
@@ -450,12 +450,12 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to control cryptographic key deletion schedules, enforce key policies, and enable automated annual key rotation.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Store unencrypted private keys in plaintext text files inside application code repositories." },
-      { id: 'B', text: "Create a Customer Managed Key (CMK) in AWS KMS, configure a custom key policy, and enable automatic annual key rotation." },
-      { id: 'C', text: "Delete the KMS key immediately after encrypting data to prevent attackers from finding it." },
-      { id: 'D', text: "Use the default AWS Managed Key (`aws/s3` or `aws/ebs`), which does not support custom key policies or cross-account access." }
+      { id: 'A', text: "Delete the KMS key immediately after encrypting data to prevent attackers from finding it." },
+      { id: 'B', text: "Store unencrypted private keys in plaintext text files inside application code repositories." },
+      { id: 'C', text: "Use the default AWS Managed Key (`aws/s3` or `aws/ebs`), which does not support custom key policies or cross-account access." },
+      { id: 'D', text: "Create a Customer Managed Key (CMK) in AWS KMS, configure a custom key policy, and enable automatic annual key rotation." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a Customer Managed Key (CMK) in AWS KMS, configure a custom key policy, and enable automatic annual key rotation. Customer Managed Keys (CMKs) offer full administrative control: custom key policies, key grants, annual automatic rotation, cryptographic deletion waiting periods (7–30 days), and cross-account access. AWS Managed Keys cannot be shared across accounts and their key policies cannot be modified.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk",
@@ -471,12 +471,12 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to control cryptographic key deletion schedules, enforce key policies, and enable automated annual key rotation.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Store unencrypted private keys in plaintext text files inside application code repositories." },
-      { id: 'B', text: "Delete the KMS key immediately after encrypting data to prevent attackers from finding it." },
-      { id: 'C', text: "Create a Customer Managed Key (CMK) in AWS KMS, configure a custom key policy, and enable automatic annual key rotation." },
-      { id: 'D', text: "Use the default AWS Managed Key (`aws/s3` or `aws/ebs`), which does not support custom key policies or cross-account access." }
+      { id: 'A', text: "Create a Customer Managed Key (CMK) in AWS KMS, configure a custom key policy, and enable automatic annual key rotation." },
+      { id: 'B', text: "Use the default AWS Managed Key (`aws/s3` or `aws/ebs`), which does not support custom key policies or cross-account access." },
+      { id: 'C', text: "Store unencrypted private keys in plaintext text files inside application code repositories." },
+      { id: 'D', text: "Delete the KMS key immediately after encrypting data to prevent attackers from finding it." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create a Customer Managed Key (CMK) in AWS KMS, configure a custom key policy, and enable automatic annual key rotation. Customer Managed Keys (CMKs) offer full administrative control: custom key policies, key grants, annual automatic rotation, cryptographic deletion waiting periods (7–30 days), and cross-account access. AWS Managed Keys cannot be shared across accounts and their key policies cannot be modified.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk",
@@ -492,12 +492,12 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to control cryptographic key deletion schedules, enforce key policies, and enable automated annual key rotation.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Use the default AWS Managed Key (`aws/s3` or `aws/ebs`), which does not support custom key policies or cross-account access." },
-      { id: 'B', text: "Store unencrypted private keys in plaintext text files inside application code repositories." },
-      { id: 'C', text: "Delete the KMS key immediately after encrypting data to prevent attackers from finding it." },
-      { id: 'D', text: "Create a Customer Managed Key (CMK) in AWS KMS, configure a custom key policy, and enable automatic annual key rotation." }
+      { id: 'A', text: "Store unencrypted private keys in plaintext text files inside application code repositories." },
+      { id: 'B', text: "Delete the KMS key immediately after encrypting data to prevent attackers from finding it." },
+      { id: 'C', text: "Create a Customer Managed Key (CMK) in AWS KMS, configure a custom key policy, and enable automatic annual key rotation." },
+      { id: 'D', text: "Use the default AWS Managed Key (`aws/s3` or `aws/ebs`), which does not support custom key policies or cross-account access." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a Customer Managed Key (CMK) in AWS KMS, configure a custom key policy, and enable automatic annual key rotation. Customer Managed Keys (CMKs) offer full administrative control: custom key policies, key grants, annual automatic rotation, cryptographic deletion waiting periods (7–30 days), and cross-account access. AWS Managed Keys cannot be shared across accounts and their key policies cannot be modified.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk",
@@ -513,12 +513,12 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to control cryptographic key deletion schedules, enforce key policies, and enable automated annual key rotation.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Use the default AWS Managed Key (`aws/s3` or `aws/ebs`), which does not support custom key policies or cross-account access." },
-      { id: 'B', text: "Delete the KMS key immediately after encrypting data to prevent attackers from finding it." },
+      { id: 'A', text: "Delete the KMS key immediately after encrypting data to prevent attackers from finding it." },
+      { id: 'B', text: "Create a Customer Managed Key (CMK) in AWS KMS, configure a custom key policy, and enable automatic annual key rotation." },
       { id: 'C', text: "Store unencrypted private keys in plaintext text files inside application code repositories." },
-      { id: 'D', text: "Create a Customer Managed Key (CMK) in AWS KMS, configure a custom key policy, and enable automatic annual key rotation." }
+      { id: 'D', text: "Use the default AWS Managed Key (`aws/s3` or `aws/ebs`), which does not support custom key policies or cross-account access." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Customer Managed Key (CMK) in AWS KMS, configure a custom key policy, and enable automatic annual key rotation. Customer Managed Keys (CMKs) offer full administrative control: custom key policies, key grants, annual automatic rotation, cryptographic deletion waiting periods (7–30 days), and cross-account access. AWS Managed Keys cannot be shared across accounts and their key policies cannot be modified.",
     referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk",

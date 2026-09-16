@@ -9,12 +9,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to ensure all REST API requests initiated by frontend plugins carry the current developer's signed session token to the backend.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Call `identityApi.getCredentials()` and attach the returned token to a plain `fetch` call in every plugin." },
+      { id: 'A', text: "Rely on the browser attaching the Backstage session cookie automatically to same-origin requests, with no header set by the client." },
       { id: 'B', text: "Send the request through the backend `proxy` plugin so that the backend attaches credentials on the caller's behalf, with one proxy entry per upstream service." },
-      { id: 'C', text: "Use the Backstage `fetchApi` (`fetchApi.fetch(...)`), which automatically injects the active user's `Authorization: Bearer &lt;token&gt;` header." },
-      { id: 'D', text: "Rely on the browser attaching the Backstage session cookie automatically to same-origin requests, with no header set by the client." }
+      { id: 'C', text: "Call `identityApi.getCredentials()` and attach the returned token to a plain `fetch` call in every plugin." },
+      { id: 'D', text: "Use the Backstage `fetchApi` (`fetchApi.fetch(...)`), which automatically injects the active user's `Authorization: Bearer &lt;token&gt;` header." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use the Backstage `fetchApi` (`fetchApi.fetch(...)`), which automatically injects the active user's `Authorization: Bearer &lt;token&gt;` header. The Backstage `FetchApi` wraps the standard Fetch API to automatically inject authorization headers containing Backstage identity tokens on requests directed to Backstage backend plugins, guaranteeing authenticated request forwarding. Fetching credentials by hand works but repeats the token handling in every plugin and will attach the header to third-party hosts unless each call site is careful; the proxy plugin exists for calling external services with shared credentials, not for authenticating the user to Backstage's own backends; and Backstage authenticates with a bearer token rather than a cookie, so nothing is attached automatically.",
     referenceUrl: "https://backstage.io/docs/reference/core-plugin-api.fetchapi",
@@ -30,12 +30,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer needs to ensure all REST API requests initiated by frontend plugins carry the current developer's signed session token to the backend.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention?",
     options: [
-      { id: 'A', text: "Rely on the browser attaching the Backstage session cookie automatically to same-origin requests, with no header set by the client." },
-      { id: 'B', text: "Use the Backstage `fetchApi` (`fetchApi.fetch(...)`), which automatically injects the active user's `Authorization: Bearer &lt;token&gt;` header." },
-      { id: 'C', text: "Send the request through the backend `proxy` plugin so that the backend attaches credentials on the caller's behalf, with one proxy entry per upstream service." },
+      { id: 'A', text: "Send the request through the backend `proxy` plugin so that the backend attaches credentials on the caller's behalf, with one proxy entry per upstream service." },
+      { id: 'B', text: "Rely on the browser attaching the Backstage session cookie automatically to same-origin requests, with no header set by the client." },
+      { id: 'C', text: "Use the Backstage `fetchApi` (`fetchApi.fetch(...)`), which automatically injects the active user's `Authorization: Bearer &lt;token&gt;` header." },
       { id: 'D', text: "Call `identityApi.getCredentials()` and attach the returned token to a plain `fetch` call in every plugin." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use the Backstage `fetchApi` (`fetchApi.fetch(...)`), which automatically injects the active user's `Authorization: Bearer &lt;token&gt;` header. The Backstage `FetchApi` wraps the standard Fetch API to automatically inject authorization headers containing Backstage identity tokens on requests directed to Backstage backend plugins, guaranteeing authenticated request forwarding. Fetching credentials by hand works but repeats the token handling in every plugin and will attach the header to third-party hosts unless each call site is careful; the proxy plugin exists for calling external services with shared credentials, not for authenticating the user to Backstage's own backends; and Backstage authenticates with a bearer token rather than a cookie, so nothing is attached automatically.",
     referenceUrl: "https://backstage.io/docs/reference/core-plugin-api.fetchapi",
@@ -51,12 +51,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer needs to ensure all REST API requests initiated by frontend plugins carry the current developer's signed session token to the backend.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls?",
     options: [
-      { id: 'A', text: "Rely on the browser attaching the Backstage session cookie automatically to same-origin requests, with no header set by the client." },
+      { id: 'A', text: "Use the Backstage `fetchApi` (`fetchApi.fetch(...)`), which automatically injects the active user's `Authorization: Bearer &lt;token&gt;` header." },
       { id: 'B', text: "Send the request through the backend `proxy` plugin so that the backend attaches credentials on the caller's behalf, with one proxy entry per upstream service." },
-      { id: 'C', text: "Use the Backstage `fetchApi` (`fetchApi.fetch(...)`), which automatically injects the active user's `Authorization: Bearer &lt;token&gt;` header." },
+      { id: 'C', text: "Rely on the browser attaching the Backstage session cookie automatically to same-origin requests, with no header set by the client." },
       { id: 'D', text: "Call `identityApi.getCredentials()` and attach the returned token to a plain `fetch` call in every plugin." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Use the Backstage `fetchApi` (`fetchApi.fetch(...)`), which automatically injects the active user's `Authorization: Bearer &lt;token&gt;` header. The Backstage `FetchApi` wraps the standard Fetch API to automatically inject authorization headers containing Backstage identity tokens on requests directed to Backstage backend plugins, guaranteeing authenticated request forwarding. Fetching credentials by hand works but repeats the token handling in every plugin and will attach the header to third-party hosts unless each call site is careful; the proxy plugin exists for calling external services with shared credentials, not for authenticating the user to Backstage's own backends; and Backstage authenticates with a bearer token rather than a cookie, so nothing is attached automatically.",
     referenceUrl: "https://backstage.io/docs/reference/core-plugin-api.fetchapi",
@@ -72,12 +72,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer needs to ensure all REST API requests initiated by frontend plugins carry the current developer's signed session token to the backend.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
-      { id: 'A', text: "Rely on the browser attaching the Backstage session cookie automatically to same-origin requests, with no header set by the client." },
-      { id: 'B', text: "Call `identityApi.getCredentials()` and attach the returned token to a plain `fetch` call in every plugin." },
-      { id: 'C', text: "Send the request through the backend `proxy` plugin so that the backend attaches credentials on the caller's behalf, with one proxy entry per upstream service." },
-      { id: 'D', text: "Use the Backstage `fetchApi` (`fetchApi.fetch(...)`), which automatically injects the active user's `Authorization: Bearer &lt;token&gt;` header." }
+      { id: 'A', text: "Send the request through the backend `proxy` plugin so that the backend attaches credentials on the caller's behalf, with one proxy entry per upstream service." },
+      { id: 'B', text: "Use the Backstage `fetchApi` (`fetchApi.fetch(...)`), which automatically injects the active user's `Authorization: Bearer &lt;token&gt;` header." },
+      { id: 'C', text: "Call `identityApi.getCredentials()` and attach the returned token to a plain `fetch` call in every plugin." },
+      { id: 'D', text: "Rely on the browser attaching the Backstage session cookie automatically to same-origin requests, with no header set by the client." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use the Backstage `fetchApi` (`fetchApi.fetch(...)`), which automatically injects the active user's `Authorization: Bearer &lt;token&gt;` header. The Backstage `FetchApi` wraps the standard Fetch API to automatically inject authorization headers containing Backstage identity tokens on requests directed to Backstage backend plugins, guaranteeing authenticated request forwarding. Fetching credentials by hand works but repeats the token handling in every plugin and will attach the header to third-party hosts unless each call site is careful; the proxy plugin exists for calling external services with shared credentials, not for authenticating the user to Backstage's own backends; and Backstage authenticates with a bearer token rather than a cookie, so nothing is attached automatically.",
     referenceUrl: "https://backstage.io/docs/reference/core-plugin-api.fetchapi",
@@ -93,12 +93,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer needs to ensure all REST API requests initiated by frontend plugins carry the current developer's signed session token to the backend.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
-      { id: 'A', text: "Call `identityApi.getCredentials()` and attach the returned token to a plain `fetch` call in every plugin." },
-      { id: 'B', text: "Rely on the browser attaching the Backstage session cookie automatically to same-origin requests, with no header set by the client." },
-      { id: 'C', text: "Use the Backstage `fetchApi` (`fetchApi.fetch(...)`), which automatically injects the active user's `Authorization: Bearer &lt;token&gt;` header." },
-      { id: 'D', text: "Send the request through the backend `proxy` plugin so that the backend attaches credentials on the caller's behalf, with one proxy entry per upstream service." }
+      { id: 'A', text: "Send the request through the backend `proxy` plugin so that the backend attaches credentials on the caller's behalf, with one proxy entry per upstream service." },
+      { id: 'B', text: "Use the Backstage `fetchApi` (`fetchApi.fetch(...)`), which automatically injects the active user's `Authorization: Bearer &lt;token&gt;` header." },
+      { id: 'C', text: "Call `identityApi.getCredentials()` and attach the returned token to a plain `fetch` call in every plugin." },
+      { id: 'D', text: "Rely on the browser attaching the Backstage session cookie automatically to same-origin requests, with no header set by the client." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use the Backstage `fetchApi` (`fetchApi.fetch(...)`), which automatically injects the active user's `Authorization: Bearer &lt;token&gt;` header. The Backstage `FetchApi` wraps the standard Fetch API to automatically inject authorization headers containing Backstage identity tokens on requests directed to Backstage backend plugins, guaranteeing authenticated request forwarding. Fetching credentials by hand works but repeats the token handling in every plugin and will attach the header to third-party hosts unless each call site is careful; the proxy plugin exists for calling external services with shared credentials, not for authenticating the user to Backstage's own backends; and Backstage authenticates with a bearer token rather than a cookie, so nothing is attached automatically.",
     referenceUrl: "https://backstage.io/docs/reference/core-plugin-api.fetchapi",
@@ -114,12 +114,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to inform portal users of network failures or background task errors through consistent, non-intrusive UI toast notifications.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Render a local Material-UI `Snackbar` inside each plugin component so it can show its own error messages, positioned to suit that plugin's layout." },
-      { id: 'B', text: "Trigger user alerts using `alertApi.post({ message, severity: 'error' })` and report exceptions via `errorApi.post(error)`." },
-      { id: 'C', text: "Rethrow the error so the nearest `ErrorBoundary` catches it and replaces the page with an error panel." },
-      { id: 'D', text: "Log the exception with `console.error` and let the browser observability agent collect it from there." }
+      { id: 'A', text: "Rethrow the error so the nearest `ErrorBoundary` catches it and replaces the page with an error panel." },
+      { id: 'B', text: "Render a local Material-UI `Snackbar` inside each plugin component so it can show its own error messages, positioned to suit that plugin's layout." },
+      { id: 'C', text: "Log the exception with `console.error` and let the browser observability agent collect it from there." },
+      { id: 'D', text: "Trigger user alerts using `alertApi.post({ message, severity: 'error' })` and report exceptions via `errorApi.post(error)`." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Trigger user alerts using `alertApi.post({ message, severity: 'error' })` and report exceptions via `errorApi.post(error)`. Backstage provides standard utility APIs including `AlertApi` and `ErrorApi`. Plugins post notification messages with severity levels (`info`, `warning`, `error`) to display uniform toast notifications, while exceptions are forwarded to centralized monitoring. A per-plugin Snackbar gives each plugin its own placement and styling, which is the inconsistency the shared utility APIs remove; an error boundary is the right response to a render that cannot continue but is far too blunt for a single failed request; and a console log reaches monitoring without telling the user anything happened.",
     referenceUrl: "https://backstage.io/docs/reference/core-plugin-api.alertapi",
@@ -135,12 +135,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer needs to inform portal users of network failures or background task errors through consistent, non-intrusive UI toast notifications.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention?",
     options: [
-      { id: 'A', text: "Log the exception with `console.error` and let the browser observability agent collect it from there." },
-      { id: 'B', text: "Rethrow the error so the nearest `ErrorBoundary` catches it and replaces the page with an error panel." },
+      { id: 'A', text: "Rethrow the error so the nearest `ErrorBoundary` catches it and replaces the page with an error panel." },
+      { id: 'B', text: "Trigger user alerts using `alertApi.post({ message, severity: 'error' })` and report exceptions via `errorApi.post(error)`." },
       { id: 'C', text: "Render a local Material-UI `Snackbar` inside each plugin component so it can show its own error messages, positioned to suit that plugin's layout." },
-      { id: 'D', text: "Trigger user alerts using `alertApi.post({ message, severity: 'error' })` and report exceptions via `errorApi.post(error)`." }
+      { id: 'D', text: "Log the exception with `console.error` and let the browser observability agent collect it from there." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Trigger user alerts using `alertApi.post({ message, severity: 'error' })` and report exceptions via `errorApi.post(error)`. Backstage provides standard utility APIs including `AlertApi` and `ErrorApi`. Plugins post notification messages with severity levels (`info`, `warning`, `error`) to display uniform toast notifications, while exceptions are forwarded to centralized monitoring. A per-plugin Snackbar gives each plugin its own placement and styling, which is the inconsistency the shared utility APIs remove; an error boundary is the right response to a render that cannot continue but is far too blunt for a single failed request; and a console log reaches monitoring without telling the user anything happened.",
     referenceUrl: "https://backstage.io/docs/reference/core-plugin-api.alertapi",
@@ -156,12 +156,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer needs to inform portal users of network failures or background task errors through consistent, non-intrusive UI toast notifications.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls?",
     options: [
-      { id: 'A', text: "Render a local Material-UI `Snackbar` inside each plugin component so it can show its own error messages, positioned to suit that plugin's layout." },
+      { id: 'A', text: "Rethrow the error so the nearest `ErrorBoundary` catches it and replaces the page with an error panel." },
       { id: 'B', text: "Log the exception with `console.error` and let the browser observability agent collect it from there." },
-      { id: 'C', text: "Rethrow the error so the nearest `ErrorBoundary` catches it and replaces the page with an error panel." },
-      { id: 'D', text: "Trigger user alerts using `alertApi.post({ message, severity: 'error' })` and report exceptions via `errorApi.post(error)`." }
+      { id: 'C', text: "Trigger user alerts using `alertApi.post({ message, severity: 'error' })` and report exceptions via `errorApi.post(error)`." },
+      { id: 'D', text: "Render a local Material-UI `Snackbar` inside each plugin component so it can show its own error messages, positioned to suit that plugin's layout." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Trigger user alerts using `alertApi.post({ message, severity: 'error' })` and report exceptions via `errorApi.post(error)`. Backstage provides standard utility APIs including `AlertApi` and `ErrorApi`. Plugins post notification messages with severity levels (`info`, `warning`, `error`) to display uniform toast notifications, while exceptions are forwarded to centralized monitoring. A per-plugin Snackbar gives each plugin its own placement and styling, which is the inconsistency the shared utility APIs remove; an error boundary is the right response to a render that cannot continue but is far too blunt for a single failed request; and a console log reaches monitoring without telling the user anything happened.",
     referenceUrl: "https://backstage.io/docs/reference/core-plugin-api.alertapi",
@@ -177,12 +177,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer needs to inform portal users of network failures or background task errors through consistent, non-intrusive UI toast notifications.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
-      { id: 'A', text: "Log the exception with `console.error` and let the browser observability agent collect it from there." },
-      { id: 'B', text: "Trigger user alerts using `alertApi.post({ message, severity: 'error' })` and report exceptions via `errorApi.post(error)`." },
+      { id: 'A', text: "Trigger user alerts using `alertApi.post({ message, severity: 'error' })` and report exceptions via `errorApi.post(error)`." },
+      { id: 'B', text: "Log the exception with `console.error` and let the browser observability agent collect it from there." },
       { id: 'C', text: "Render a local Material-UI `Snackbar` inside each plugin component so it can show its own error messages, positioned to suit that plugin's layout." },
       { id: 'D', text: "Rethrow the error so the nearest `ErrorBoundary` catches it and replaces the page with an error panel." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Trigger user alerts using `alertApi.post({ message, severity: 'error' })` and report exceptions via `errorApi.post(error)`. Backstage provides standard utility APIs including `AlertApi` and `ErrorApi`. Plugins post notification messages with severity levels (`info`, `warning`, `error`) to display uniform toast notifications, while exceptions are forwarded to centralized monitoring. A per-plugin Snackbar gives each plugin its own placement and styling, which is the inconsistency the shared utility APIs remove; an error boundary is the right response to a render that cannot continue but is far too blunt for a single failed request; and a console log reaches monitoring without telling the user anything happened.",
     referenceUrl: "https://backstage.io/docs/reference/core-plugin-api.alertapi",
@@ -198,12 +198,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer needs to inform portal users of network failures or background task errors through consistent, non-intrusive UI toast notifications.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
-      { id: 'A', text: "Rethrow the error so the nearest `ErrorBoundary` catches it and replaces the page with an error panel." },
+      { id: 'A', text: "Render a local Material-UI `Snackbar` inside each plugin component so it can show its own error messages, positioned to suit that plugin's layout." },
       { id: 'B', text: "Log the exception with `console.error` and let the browser observability agent collect it from there." },
-      { id: 'C', text: "Trigger user alerts using `alertApi.post({ message, severity: 'error' })` and report exceptions via `errorApi.post(error)`." },
-      { id: 'D', text: "Render a local Material-UI `Snackbar` inside each plugin component so it can show its own error messages, positioned to suit that plugin's layout." }
+      { id: 'C', text: "Rethrow the error so the nearest `ErrorBoundary` catches it and replaces the page with an error panel." },
+      { id: 'D', text: "Trigger user alerts using `alertApi.post({ message, severity: 'error' })` and report exceptions via `errorApi.post(error)`." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Trigger user alerts using `alertApi.post({ message, severity: 'error' })` and report exceptions via `errorApi.post(error)`. Backstage provides standard utility APIs including `AlertApi` and `ErrorApi`. Plugins post notification messages with severity levels (`info`, `warning`, `error`) to display uniform toast notifications, while exceptions are forwarded to centralized monitoring. A per-plugin Snackbar gives each plugin its own placement and styling, which is the inconsistency the shared utility APIs remove; an error boundary is the right response to a render that cannot continue but is far too blunt for a single failed request; and a console log reaches monitoring without telling the user anything happened.",
     referenceUrl: "https://backstage.io/docs/reference/core-plugin-api.alertapi",
@@ -219,12 +219,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to package Backstage into a secure, minimal container image suitable for deployment onto enterprise Kubernetes clusters.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Build a single-stage image from the whole repository and use `yarn start` as the container entrypoint." },
-      { id: 'B', text: "Install the full dependency tree including `devDependencies` so that the same image can run the tests and production." },
-      { id: 'C', text: "Build a multi-stage Docker image that compiles frontend assets into static files served by the Node.js backend runtime." },
-      { id: 'D', text: "Serve the frontend from a CDN bucket and run only the backend in the container image." }
+      { id: 'A', text: "Build a multi-stage Docker image that compiles frontend assets into static files served by the Node.js backend runtime." },
+      { id: 'B', text: "Serve the frontend from a CDN bucket and run only the backend in the container image." },
+      { id: 'C', text: "Build a single-stage image from the whole repository and use `yarn start` as the container entrypoint." },
+      { id: 'D', text: "Install the full dependency tree including `devDependencies` so that the same image can run the tests and production." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Build a multi-stage Docker image that compiles frontend assets into static files served by the Node.js backend runtime. Official Backstage deployment recommendations employ multi-stage Dockerfiles: one stage builds and compiles TypeScript/React bundles, while a lean production runner stage contains only the Node.js production dependencies, compiled JavaScript, and static frontend assets. `yarn start` runs the development servers, which rebuild on change and serve unminified assets; shipping `devDependencies` multiplies the image size and its vulnerability surface for tooling production never invokes; and serving the frontend from a CDN is a legitimate topology, but it splits the deployment in two and needs its own cache invalidation, which a single image avoids.",
     referenceUrl: "https://backstage.io/docs/deployment/docker",
@@ -261,12 +261,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer needs to package Backstage into a secure, minimal container image suitable for deployment onto enterprise Kubernetes clusters.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls?",
     options: [
-      { id: 'A', text: "Install the full dependency tree including `devDependencies` so that the same image can run the tests and production." },
-      { id: 'B', text: "Build a multi-stage Docker image that compiles frontend assets into static files served by the Node.js backend runtime." },
+      { id: 'A', text: "Serve the frontend from a CDN bucket and run only the backend in the container image." },
+      { id: 'B', text: "Install the full dependency tree including `devDependencies` so that the same image can run the tests and production." },
       { id: 'C', text: "Build a single-stage image from the whole repository and use `yarn start` as the container entrypoint." },
-      { id: 'D', text: "Serve the frontend from a CDN bucket and run only the backend in the container image." }
+      { id: 'D', text: "Build a multi-stage Docker image that compiles frontend assets into static files served by the Node.js backend runtime." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Build a multi-stage Docker image that compiles frontend assets into static files served by the Node.js backend runtime. Official Backstage deployment recommendations employ multi-stage Dockerfiles: one stage builds and compiles TypeScript/React bundles, while a lean production runner stage contains only the Node.js production dependencies, compiled JavaScript, and static frontend assets. `yarn start` runs the development servers, which rebuild on change and serve unminified assets; shipping `devDependencies` multiplies the image size and its vulnerability surface for tooling production never invokes; and serving the frontend from a CDN is a legitimate topology, but it splits the deployment in two and needs its own cache invalidation, which a single image avoids.",
     referenceUrl: "https://backstage.io/docs/deployment/docker",
@@ -282,12 +282,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer needs to package Backstage into a secure, minimal container image suitable for deployment onto enterprise Kubernetes clusters.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
-      { id: 'A', text: "Build a single-stage image from the whole repository and use `yarn start` as the container entrypoint." },
-      { id: 'B', text: "Build a multi-stage Docker image that compiles frontend assets into static files served by the Node.js backend runtime." },
-      { id: 'C', text: "Serve the frontend from a CDN bucket and run only the backend in the container image." },
+      { id: 'A', text: "Serve the frontend from a CDN bucket and run only the backend in the container image." },
+      { id: 'B', text: "Build a single-stage image from the whole repository and use `yarn start` as the container entrypoint." },
+      { id: 'C', text: "Build a multi-stage Docker image that compiles frontend assets into static files served by the Node.js backend runtime." },
       { id: 'D', text: "Install the full dependency tree including `devDependencies` so that the same image can run the tests and production." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Build a multi-stage Docker image that compiles frontend assets into static files served by the Node.js backend runtime. Official Backstage deployment recommendations employ multi-stage Dockerfiles: one stage builds and compiles TypeScript/React bundles, while a lean production runner stage contains only the Node.js production dependencies, compiled JavaScript, and static frontend assets. `yarn start` runs the development servers, which rebuild on change and serve unminified assets; shipping `devDependencies` multiplies the image size and its vulnerability surface for tooling production never invokes; and serving the frontend from a CDN is a legitimate topology, but it splits the deployment in two and needs its own cache invalidation, which a single image avoids.",
     referenceUrl: "https://backstage.io/docs/deployment/docker",
@@ -303,12 +303,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer needs to package Backstage into a secure, minimal container image suitable for deployment onto enterprise Kubernetes clusters.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
-      { id: 'A', text: "Serve the frontend from a CDN bucket and run only the backend in the container image." },
-      { id: 'B', text: "Build a multi-stage Docker image that compiles frontend assets into static files served by the Node.js backend runtime." },
+      { id: 'A', text: "Build a multi-stage Docker image that compiles frontend assets into static files served by the Node.js backend runtime." },
+      { id: 'B', text: "Serve the frontend from a CDN bucket and run only the backend in the container image." },
       { id: 'C', text: "Build a single-stage image from the whole repository and use `yarn start` as the container entrypoint." },
       { id: 'D', text: "Install the full dependency tree including `devDependencies` so that the same image can run the tests and production." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Build a multi-stage Docker image that compiles frontend assets into static files served by the Node.js backend runtime. Official Backstage deployment recommendations employ multi-stage Dockerfiles: one stage builds and compiles TypeScript/React bundles, while a lean production runner stage contains only the Node.js production dependencies, compiled JavaScript, and static frontend assets. `yarn start` runs the development servers, which rebuild on change and serve unminified assets; shipping `devDependencies` multiplies the image size and its vulnerability surface for tooling production never invokes; and serving the frontend from a CDN is a legitimate topology, but it splits the deployment in two and needs its own cache invalidation, which a single image avoids.",
     referenceUrl: "https://backstage.io/docs/deployment/docker",
@@ -347,8 +347,8 @@ export const CNCF_CBA_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Configure Kubernetes liveness and readiness probes against `/.backstage/health/v1/readiness` and export Prometheus metrics using `@backstage/plugin-metrics-node`." },
       { id: 'B', text: "Point both probes at the frontend `/` route and scrape whatever the Node.js runtime exposes by default, alerting on the request duration." },
-      { id: 'C', text: "Configure a liveness probe alone, aimed at the readiness path, so the pod restarts whenever it is not ready, and leave readiness unset so traffic arrives as soon as the container starts." },
-      { id: 'D', text: "Use a Kubernetes TCP socket probe against the backend port for health, collecting only the container metrics the kubelet reports." }
+      { id: 'C', text: "Use a Kubernetes TCP socket probe against the backend port for health, collecting only the container metrics the kubelet reports." },
+      { id: 'D', text: "Configure a liveness probe alone, aimed at the readiness path, so the pod restarts whenever it is not ready, and leave readiness unset so traffic arrives as soon as the container starts." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer needs to monitor Backstage pod availability, request latencies, and database connection pool health in Kubernetes.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls?",
     options: [
-      { id: 'A', text: "Configure a liveness probe alone, aimed at the readiness path, so the pod restarts whenever it is not ready, and leave readiness unset so traffic arrives as soon as the container starts." },
-      { id: 'B', text: "Use a Kubernetes TCP socket probe against the backend port for health, collecting only the container metrics the kubelet reports." },
-      { id: 'C', text: "Configure Kubernetes liveness and readiness probes against `/.backstage/health/v1/readiness` and export Prometheus metrics using `@backstage/plugin-metrics-node`." },
-      { id: 'D', text: "Point both probes at the frontend `/` route and scrape whatever the Node.js runtime exposes by default, alerting on the request duration." }
+      { id: 'A', text: "Point both probes at the frontend `/` route and scrape whatever the Node.js runtime exposes by default, alerting on the request duration." },
+      { id: 'B', text: "Configure Kubernetes liveness and readiness probes against `/.backstage/health/v1/readiness` and export Prometheus metrics using `@backstage/plugin-metrics-node`." },
+      { id: 'C', text: "Configure a liveness probe alone, aimed at the readiness path, so the pod restarts whenever it is not ready, and leave readiness unset so traffic arrives as soon as the container starts." },
+      { id: 'D', text: "Use a Kubernetes TCP socket probe against the backend port for health, collecting only the container metrics the kubelet reports." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure Kubernetes liveness and readiness probes against `/.backstage/health/v1/readiness` and export Prometheus metrics using `@backstage/plugin-metrics-node`. Backstage backend services expose standard health check endpoints (`/.backstage/health/v1/liveness` and `/.backstage/health/v1/readiness`) for Kubernetes probes and support Prometheus metrics collection to monitor HTTP latencies, queue depths, and database pools. The `/` route returns the static shell whether or not the backend can reach its database, so the probe passes during exactly the outage it should catch; a TCP probe confirms the port is bound and nothing more; and pointing liveness at the readiness path turns a transient dependency failure into a restart loop, which is why the two endpoints are separate.",
     referenceUrl: "https://backstage.io/docs/deployment/observability",
@@ -387,12 +387,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer needs to monitor Backstage pod availability, request latencies, and database connection pool health in Kubernetes.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
-      { id: 'A', text: "Point both probes at the frontend `/` route and scrape whatever the Node.js runtime exposes by default, alerting on the request duration." },
-      { id: 'B', text: "Use a Kubernetes TCP socket probe against the backend port for health, collecting only the container metrics the kubelet reports." },
-      { id: 'C', text: "Configure a liveness probe alone, aimed at the readiness path, so the pod restarts whenever it is not ready, and leave readiness unset so traffic arrives as soon as the container starts." },
-      { id: 'D', text: "Configure Kubernetes liveness and readiness probes against `/.backstage/health/v1/readiness` and export Prometheus metrics using `@backstage/plugin-metrics-node`." }
+      { id: 'A', text: "Use a Kubernetes TCP socket probe against the backend port for health, collecting only the container metrics the kubelet reports." },
+      { id: 'B', text: "Configure a liveness probe alone, aimed at the readiness path, so the pod restarts whenever it is not ready, and leave readiness unset so traffic arrives as soon as the container starts." },
+      { id: 'C', text: "Configure Kubernetes liveness and readiness probes against `/.backstage/health/v1/readiness` and export Prometheus metrics using `@backstage/plugin-metrics-node`." },
+      { id: 'D', text: "Point both probes at the frontend `/` route and scrape whatever the Node.js runtime exposes by default, alerting on the request duration." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure Kubernetes liveness and readiness probes against `/.backstage/health/v1/readiness` and export Prometheus metrics using `@backstage/plugin-metrics-node`. Backstage backend services expose standard health check endpoints (`/.backstage/health/v1/liveness` and `/.backstage/health/v1/readiness`) for Kubernetes probes and support Prometheus metrics collection to monitor HTTP latencies, queue depths, and database pools. The `/` route returns the static shell whether or not the backend can reach its database, so the probe passes during exactly the outage it should catch; a TCP probe confirms the port is bound and nothing more; and pointing liveness at the readiness path turns a transient dependency failure into a restart loop, which is why the two endpoints are separate.",
     referenceUrl: "https://backstage.io/docs/deployment/observability",
@@ -408,12 +408,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer needs to monitor Backstage pod availability, request latencies, and database connection pool health in Kubernetes.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
-      { id: 'A', text: "Use a Kubernetes TCP socket probe against the backend port for health, collecting only the container metrics the kubelet reports." },
-      { id: 'B', text: "Configure a liveness probe alone, aimed at the readiness path, so the pod restarts whenever it is not ready, and leave readiness unset so traffic arrives as soon as the container starts." },
-      { id: 'C', text: "Point both probes at the frontend `/` route and scrape whatever the Node.js runtime exposes by default, alerting on the request duration." },
-      { id: 'D', text: "Configure Kubernetes liveness and readiness probes against `/.backstage/health/v1/readiness` and export Prometheus metrics using `@backstage/plugin-metrics-node`." }
+      { id: 'A', text: "Point both probes at the frontend `/` route and scrape whatever the Node.js runtime exposes by default, alerting on the request duration." },
+      { id: 'B', text: "Configure Kubernetes liveness and readiness probes against `/.backstage/health/v1/readiness` and export Prometheus metrics using `@backstage/plugin-metrics-node`." },
+      { id: 'C', text: "Configure a liveness probe alone, aimed at the readiness path, so the pod restarts whenever it is not ready, and leave readiness unset so traffic arrives as soon as the container starts." },
+      { id: 'D', text: "Use a Kubernetes TCP socket probe against the backend port for health, collecting only the container metrics the kubelet reports." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure Kubernetes liveness and readiness probes against `/.backstage/health/v1/readiness` and export Prometheus metrics using `@backstage/plugin-metrics-node`. Backstage backend services expose standard health check endpoints (`/.backstage/health/v1/liveness` and `/.backstage/health/v1/readiness`) for Kubernetes probes and support Prometheus metrics collection to monitor HTTP latencies, queue depths, and database pools. The `/` route returns the static shell whether or not the backend can reach its database, so the probe passes during exactly the outage it should catch; a TCP probe confirms the port is bound and nothing more; and pointing liveness at the readiness path turns a transient dependency failure into a restart loop, which is why the two endpoints are separate.",
     referenceUrl: "https://backstage.io/docs/deployment/observability",
@@ -429,12 +429,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to provide fast, unified search across catalog components, TechDocs documentation, and external knowledge bases.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Keep the default in-memory Lunr engine and accept that the index is rebuilt from scratch on every backend restart, which takes seconds at the current corpus size." },
-      { id: 'B', text: "Query the catalog API directly with a filter on the search term instead of maintaining an index at all." },
-      { id: 'C', text: "Configure `@backstage/plugin-search-backend` with document Collators feeding into a search engine backend like Elasticsearch or Postgres." },
-      { id: 'D', text: "Expose the Elasticsearch cluster to the Backstage frontend and have the browser query the index directly." }
+      { id: 'A', text: "Configure `@backstage/plugin-search-backend` with document Collators feeding into a search engine backend like Elasticsearch or Postgres." },
+      { id: 'B', text: "Expose the Elasticsearch cluster to the Backstage frontend and have the browser query the index directly." },
+      { id: 'C', text: "Keep the default in-memory Lunr engine and accept that the index is rebuilt from scratch on every backend restart, which takes seconds at the current corpus size." },
+      { id: 'D', text: "Query the catalog API directly with a filter on the search term instead of maintaining an index at all." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure `@backstage/plugin-search-backend` with document Collators feeding into a search engine backend like Elasticsearch or Postgres. Backstage Search combines document collators (which extract metadata from sources like Catalog or TechDocs), index decorators, and a search engine (Lunr for dev, Elasticsearch or Postgres for production) to provide indexed full-text search across portal assets. Lunr is the development default and holds the whole index in each replica's memory, so it neither scales with the corpus nor stays consistent across replicas; a catalog filter matches structured fields rather than document text, so TechDocs content is invisible to it; and querying Elasticsearch from the browser puts the index on the public internet with no permission filtering.",
     referenceUrl: "https://backstage.io/docs/features/search/",
@@ -451,8 +451,8 @@ export const CNCF_CBA_QUESTIONS_13 = [
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention?",
     options: [
       { id: 'A', text: "Configure `@backstage/plugin-search-backend` with document Collators feeding into a search engine backend like Elasticsearch or Postgres." },
-      { id: 'B', text: "Keep the default in-memory Lunr engine and accept that the index is rebuilt from scratch on every backend restart, which takes seconds at the current corpus size." },
-      { id: 'C', text: "Expose the Elasticsearch cluster to the Backstage frontend and have the browser query the index directly." },
+      { id: 'B', text: "Expose the Elasticsearch cluster to the Backstage frontend and have the browser query the index directly." },
+      { id: 'C', text: "Keep the default in-memory Lunr engine and accept that the index is rebuilt from scratch on every backend restart, which takes seconds at the current corpus size." },
       { id: 'D', text: "Query the catalog API directly with a filter on the search term instead of maintaining an index at all." }
     ],
     correctAnswers: ['A'],
@@ -471,12 +471,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer needs to provide fast, unified search across catalog components, TechDocs documentation, and external knowledge bases.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls?",
     options: [
-      { id: 'A', text: "Expose the Elasticsearch cluster to the Backstage frontend and have the browser query the index directly." },
-      { id: 'B', text: "Query the catalog API directly with a filter on the search term instead of maintaining an index at all." },
-      { id: 'C', text: "Configure `@backstage/plugin-search-backend` with document Collators feeding into a search engine backend like Elasticsearch or Postgres." },
-      { id: 'D', text: "Keep the default in-memory Lunr engine and accept that the index is rebuilt from scratch on every backend restart, which takes seconds at the current corpus size." }
+      { id: 'A', text: "Query the catalog API directly with a filter on the search term instead of maintaining an index at all." },
+      { id: 'B', text: "Keep the default in-memory Lunr engine and accept that the index is rebuilt from scratch on every backend restart, which takes seconds at the current corpus size." },
+      { id: 'C', text: "Expose the Elasticsearch cluster to the Backstage frontend and have the browser query the index directly." },
+      { id: 'D', text: "Configure `@backstage/plugin-search-backend` with document Collators feeding into a search engine backend like Elasticsearch or Postgres." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure `@backstage/plugin-search-backend` with document Collators feeding into a search engine backend like Elasticsearch or Postgres. Backstage Search combines document collators (which extract metadata from sources like Catalog or TechDocs), index decorators, and a search engine (Lunr for dev, Elasticsearch or Postgres for production) to provide indexed full-text search across portal assets. Lunr is the development default and holds the whole index in each replica's memory, so it neither scales with the corpus nor stays consistent across replicas; a catalog filter matches structured fields rather than document text, so TechDocs content is invisible to it; and querying Elasticsearch from the browser puts the index on the public internet with no permission filtering.",
     referenceUrl: "https://backstage.io/docs/features/search/",
@@ -492,12 +492,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer needs to provide fast, unified search across catalog components, TechDocs documentation, and external knowledge bases.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
-      { id: 'A', text: "Query the catalog API directly with a filter on the search term instead of maintaining an index at all." },
-      { id: 'B', text: "Keep the default in-memory Lunr engine and accept that the index is rebuilt from scratch on every backend restart, which takes seconds at the current corpus size." },
-      { id: 'C', text: "Configure `@backstage/plugin-search-backend` with document Collators feeding into a search engine backend like Elasticsearch or Postgres." },
-      { id: 'D', text: "Expose the Elasticsearch cluster to the Backstage frontend and have the browser query the index directly." }
+      { id: 'A', text: "Expose the Elasticsearch cluster to the Backstage frontend and have the browser query the index directly." },
+      { id: 'B', text: "Configure `@backstage/plugin-search-backend` with document Collators feeding into a search engine backend like Elasticsearch or Postgres." },
+      { id: 'C', text: "Query the catalog API directly with a filter on the search term instead of maintaining an index at all." },
+      { id: 'D', text: "Keep the default in-memory Lunr engine and accept that the index is rebuilt from scratch on every backend restart, which takes seconds at the current corpus size." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `@backstage/plugin-search-backend` with document Collators feeding into a search engine backend like Elasticsearch or Postgres. Backstage Search combines document collators (which extract metadata from sources like Catalog or TechDocs), index decorators, and a search engine (Lunr for dev, Elasticsearch or Postgres for production) to provide indexed full-text search across portal assets. Lunr is the development default and holds the whole index in each replica's memory, so it neither scales with the corpus nor stays consistent across replicas; a catalog filter matches structured fields rather than document text, so TechDocs content is invisible to it; and querying Elasticsearch from the browser puts the index on the public internet with no permission filtering.",
     referenceUrl: "https://backstage.io/docs/features/search/",
@@ -513,12 +513,12 @@ export const CNCF_CBA_QUESTIONS_13 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer needs to provide fast, unified search across catalog components, TechDocs documentation, and external knowledge bases.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
-      { id: 'A', text: "Expose the Elasticsearch cluster to the Backstage frontend and have the browser query the index directly." },
-      { id: 'B', text: "Configure `@backstage/plugin-search-backend` with document Collators feeding into a search engine backend like Elasticsearch or Postgres." },
+      { id: 'A', text: "Configure `@backstage/plugin-search-backend` with document Collators feeding into a search engine backend like Elasticsearch or Postgres." },
+      { id: 'B', text: "Expose the Elasticsearch cluster to the Backstage frontend and have the browser query the index directly." },
       { id: 'C', text: "Keep the default in-memory Lunr engine and accept that the index is rebuilt from scratch on every backend restart, which takes seconds at the current corpus size." },
       { id: 'D', text: "Query the catalog API directly with a filter on the search term instead of maintaining an index at all." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure `@backstage/plugin-search-backend` with document Collators feeding into a search engine backend like Elasticsearch or Postgres. Backstage Search combines document collators (which extract metadata from sources like Catalog or TechDocs), index decorators, and a search engine (Lunr for dev, Elasticsearch or Postgres for production) to provide indexed full-text search across portal assets. Lunr is the development default and holds the whole index in each replica's memory, so it neither scales with the corpus nor stays consistent across replicas; a catalog filter matches structured fields rather than document text, so TechDocs content is invisible to it; and querying Elasticsearch from the browser puts the index on the public internet with no permission filtering.",
     referenceUrl: "https://backstage.io/docs/features/search/",

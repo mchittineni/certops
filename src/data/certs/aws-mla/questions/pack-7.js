@@ -31,11 +31,11 @@ export const AWS_MLA_QUESTIONS_7 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Evaluate the model with ROC-AUC, which is insensitive to the class ratio and is therefore appropriate whenever the positive class is rare." },
-      { id: 'B', text: "Evaluate fraud detection or rare disease models using Precision, Recall, F1-Score, and PR-AUC instead of standard classification accuracy." },
-      { id: 'C', text: "Evaluate with accuracy but move the decision threshold to the observed positive rate so that the score reflects the imbalance without computing precision." },
-      { id: 'D', text: "Rebalance the training data with SMOTE and then evaluate the model using accuracy measured on the rebalanced holdout set." }
+      { id: 'B', text: "Evaluate with accuracy but move the decision threshold to the observed positive rate so that the score reflects the imbalance without computing precision." },
+      { id: 'C', text: "Rebalance the training data with SMOTE and then evaluate the model using accuracy measured on the rebalanced holdout set." },
+      { id: 'D', text: "Evaluate fraud detection or rare disease models using Precision, Recall, F1-Score, and PR-AUC instead of standard classification accuracy." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Precision, recall, F1, and PR-AUC all focus on the positive class, so they fall visibly as false positives begin to outnumber true ones. ROC-AUC is the subtle trap here: its false-positive-rate axis is divided by an enormous negative class, so the curve stays flattering while precision collapses. Shifting the threshold moves the operating point without making accuracy any more informative, since predicting the majority class still scores above 99 percent. Evaluating on a SMOTE-rebalanced holdout measures performance on a class ratio that will never occur in production.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -51,12 +51,12 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "An international retail marketplace prepares for 100x traffic surges with zero downtime and instant failover. The ML engineering team is reducing the cost of long training runs that can tolerate being interrupted. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Purchase a SageMaker Savings Plan covering the expected training hours so that the on-demand rate is discounted for the term committed to." },
-      { id: 'B', text: "Use SageMaker Training Compiler to speed the job up so that fewer instance hours are billed for exactly the same training work." },
-      { id: 'C', text: "Enable Managed Spot Training on SageMaker with checkpointing configured to Amazon S3 to save up to 90% on EC2 compute costs." },
-      { id: 'D', text: "Move the training job onto a larger instance type so that it finishes in fewer hours and therefore costs less in total." }
+      { id: 'A', text: "Enable Managed Spot Training on SageMaker with checkpointing configured to Amazon S3 to save up to 90% on EC2 compute costs." },
+      { id: 'B', text: "Move the training job onto a larger instance type so that it finishes in fewer hours and therefore costs less in total." },
+      { id: 'C', text: "Purchase a SageMaker Savings Plan covering the expected training hours so that the on-demand rate is discounted for the term committed to." },
+      { id: 'D', text: "Use SageMaker Training Compiler to speed the job up so that fewer instance hours are billed for exactly the same training work." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Spot capacity is where the large discount lives, and S3 checkpointing makes an interruption cost only the work since the last checkpoint, which a tolerant job can absorb. A Savings Plan discounts the on-demand rate by considerably less and ties the account to a commitment, though it composes with everything else. The Training Compiler genuinely cuts hours for supported deep-learning models while leaving the hourly rate untouched. A larger instance changes hours multiplied by a higher rate and frequently lands at the same total or worse.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -72,9 +72,9 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "A self-driving automotive fleet streams terabytes of sensor telemetry requiring real-time distributed ingestion and anomaly detection. The ML engineering team is scaling a training job that fits in GPU memory across many GPUs to shorten wall-clock time. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use the SageMaker model parallel library to split the network's layers across the GPUs so that each individual device holds only a portion of the whole model." },
-      { id: 'B', text: "Use PyTorch DistributedDataParallel with NCCL across the cluster's network so that the gradients are averaged between the workers each step." },
-      { id: 'C', text: "Use SageMaker automatic model tuning so that several training jobs execute in parallel across all of the available GPU instances." },
+      { id: 'A', text: "Use PyTorch DistributedDataParallel with NCCL across the cluster's network so that the gradients are averaged between the workers each step." },
+      { id: 'B', text: "Use SageMaker automatic model tuning so that several training jobs execute in parallel across all of the available GPU instances." },
+      { id: 'C', text: "Use the SageMaker model parallel library to split the network's layers across the GPUs so that each individual device holds only a portion of the whole model." },
       { id: 'D', text: "Use the SageMaker Distributed Data Parallel (SMDDP) library to shard training batches across distributed GPU instances with optimized AllReduce communication." }
     ],
     correctAnswers: ['D'],
@@ -93,12 +93,12 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "An enterprise cloud SaaS architecture mandates strict logical tenant isolation, data masking, and per-tenant resource quotas. The ML engineering team is searching a hyperparameter space efficiently when only a limited number of trials can be afforded. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure SageMaker HPO with Bayesian search strategy to systematically converge on optimal model parameters within a defined trial budget." },
-      { id: 'B', text: "Configure SageMaker automatic model tuning with random search so that the parameter space is sampled uniformly right across the trial budget." },
-      { id: 'C', text: "Configure SageMaker automatic model tuning with grid search so that every combination within the defined ranges is evaluated exactly once." },
+      { id: 'A', text: "Configure SageMaker automatic model tuning with grid search so that every combination within the defined ranges is evaluated exactly once." },
+      { id: 'B', text: "Configure SageMaker HPO with Bayesian search strategy to systematically converge on optimal model parameters within a defined trial budget." },
+      { id: 'C', text: "Configure SageMaker automatic model tuning with random search so that the parameter space is sampled uniformly right across the trial budget." },
       { id: 'D', text: "Configure SageMaker Autopilot so that the algorithm and its parameters are both selected automatically from the training dataset." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Bayesian search builds a model of the objective from completed trials and spends the remaining budget where an improvement is most likely, which is exactly what a hard trial limit calls for. Random search is a respectable baseline and parallelises perfectly, but each trial ignores everything the previous ones revealed. Grid search enumerates the space and becomes unusable over continuous ranges, exhausting the budget on a coarse lattice. Autopilot selects an entire pipeline rather than tuning the model that has already been chosen.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -114,12 +114,12 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "A global video streaming service distributes high-bitrate live media with distributed edge caching and tokenized DRM protection. The ML engineering team is choosing evaluation metrics where positives make up a small fraction of one percent. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Evaluate the model with ROC-AUC, which is insensitive to the class ratio and is therefore appropriate whenever the positive class is rare." },
-      { id: 'B', text: "Evaluate fraud detection or rare disease models using Precision, Recall, F1-Score, and PR-AUC instead of standard classification accuracy." },
-      { id: 'C', text: "Evaluate with accuracy but move the decision threshold to the observed positive rate so that the score reflects the imbalance without computing precision." },
-      { id: 'D', text: "Rebalance the training data with SMOTE and then evaluate the model using accuracy measured on the rebalanced holdout set." }
+      { id: 'A', text: "Evaluate with accuracy but move the decision threshold to the observed positive rate so that the score reflects the imbalance without computing precision." },
+      { id: 'B', text: "Evaluate the model with ROC-AUC, which is insensitive to the class ratio and is therefore appropriate whenever the positive class is rare." },
+      { id: 'C', text: "Rebalance the training data with SMOTE and then evaluate the model using accuracy measured on the rebalanced holdout set." },
+      { id: 'D', text: "Evaluate fraud detection or rare disease models using Precision, Recall, F1-Score, and PR-AUC instead of standard classification accuracy." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Precision, recall, F1, and PR-AUC all focus on the positive class, so they fall visibly as false positives begin to outnumber true ones. ROC-AUC is the subtle trap here: its false-positive-rate axis is divided by an enormous negative class, so the curve stays flattering while precision collapses. Shifting the threshold moves the operating point without making accuracy any more informative, since predicting the majority class still scores above 99 percent. Evaluating on a SMOTE-rebalanced holdout measures performance on a class ratio that will never occur in production.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -135,12 +135,12 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "An aerospace telemetry platform processes orbital downlinks with fault-tolerant queuing and asynchronous edge processing. The ML engineering team is reducing the cost of long training runs that can tolerate being interrupted. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Purchase a SageMaker Savings Plan covering the expected training hours so that the on-demand rate is discounted for the term committed to." },
-      { id: 'B', text: "Use SageMaker Training Compiler to speed the job up so that fewer instance hours are billed for exactly the same training work." },
-      { id: 'C', text: "Enable Managed Spot Training on SageMaker with checkpointing configured to Amazon S3 to save up to 90% on EC2 compute costs." },
-      { id: 'D', text: "Move the training job onto a larger instance type so that it finishes in fewer hours and therefore costs less in total." }
+      { id: 'A', text: "Use SageMaker Training Compiler to speed the job up so that fewer instance hours are billed for exactly the same training work." },
+      { id: 'B', text: "Move the training job onto a larger instance type so that it finishes in fewer hours and therefore costs less in total." },
+      { id: 'C', text: "Purchase a SageMaker Savings Plan covering the expected training hours so that the on-demand rate is discounted for the term committed to." },
+      { id: 'D', text: "Enable Managed Spot Training on SageMaker with checkpointing configured to Amazon S3 to save up to 90% on EC2 compute costs." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Spot capacity is where the large discount lives, and S3 checkpointing makes an interruption cost only the work since the last checkpoint, which a tolerant job can absorb. A Savings Plan discounts the on-demand rate by considerably less and ties the account to a commitment, though it composes with everything else. The Training Compiler genuinely cuts hours for supported deep-learning models while leaving the hourly rate untouched. A larger instance changes hours multiplied by a higher rate and frequently lands at the same total or worse.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -156,12 +156,12 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "A national telecom operator manages high-density network slices with automated scaling and sub-millisecond service mesh routing. The ML engineering team is scaling a training job that fits in GPU memory across many GPUs to shorten wall-clock time. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use the SageMaker model parallel library to split the network's layers across the GPUs so that each individual device holds only a portion of the whole model." },
-      { id: 'B', text: "Use PyTorch DistributedDataParallel with NCCL across the cluster's network so that the gradients are averaged between the workers each step." },
-      { id: 'C', text: "Use SageMaker automatic model tuning so that several training jobs execute in parallel across all of the available GPU instances." },
-      { id: 'D', text: "Use the SageMaker Distributed Data Parallel (SMDDP) library to shard training batches across distributed GPU instances with optimized AllReduce communication." }
+      { id: 'A', text: "Use SageMaker automatic model tuning so that several training jobs execute in parallel across all of the available GPU instances." },
+      { id: 'B', text: "Use the SageMaker Distributed Data Parallel (SMDDP) library to shard training batches across distributed GPU instances with optimized AllReduce communication." },
+      { id: 'C', text: "Use PyTorch DistributedDataParallel with NCCL across the cluster's network so that the gradients are averaged between the workers each step." },
+      { id: 'D', text: "Use the SageMaker model parallel library to split the network's layers across the GPUs so that each individual device holds only a portion of the whole model." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Data parallelism is the right axis when the model fits on one GPU and only the data is large, and SMDDP implements it with an AllReduce tuned for the AWS network. Model parallelism exists for the opposite problem, a network too large for a single device, and adds communication that buys nothing here. PyTorch DDP with NCCL is a correct data-parallel implementation and a fair choice, simply without the AWS-specific communication optimisation. Automatic model tuning runs many separate jobs concurrently and never makes one job faster.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -177,12 +177,12 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "A smart electrical grid platform monitors millions of smart meters with low-latency time-series analysis and automated load shedding. The ML engineering team is searching a hyperparameter space efficiently when only a limited number of trials can be afforded. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure SageMaker HPO with Bayesian search strategy to systematically converge on optimal model parameters within a defined trial budget." },
-      { id: 'B', text: "Configure SageMaker automatic model tuning with random search so that the parameter space is sampled uniformly right across the trial budget." },
-      { id: 'C', text: "Configure SageMaker automatic model tuning with grid search so that every combination within the defined ranges is evaluated exactly once." },
-      { id: 'D', text: "Configure SageMaker Autopilot so that the algorithm and its parameters are both selected automatically from the training dataset." }
+      { id: 'A', text: "Configure SageMaker Autopilot so that the algorithm and its parameters are both selected automatically from the training dataset." },
+      { id: 'B', text: "Configure SageMaker automatic model tuning with grid search so that every combination within the defined ranges is evaluated exactly once." },
+      { id: 'C', text: "Configure SageMaker automatic model tuning with random search so that the parameter space is sampled uniformly right across the trial budget." },
+      { id: 'D', text: "Configure SageMaker HPO with Bayesian search strategy to systematically converge on optimal model parameters within a defined trial budget." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Bayesian search builds a model of the objective from completed trials and spends the remaining budget where an improvement is most likely, which is exactly what a hard trial limit calls for. Random search is a respectable baseline and parallelises perfectly, but each trial ignores everything the previous ones revealed. Grid search enumerates the space and becomes unusable over continuous ranges, exhausting the budget on a coarse lattice. Autopilot selects an entire pipeline rather than tuning the model that has already been chosen.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -198,10 +198,10 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "A pharmaceutical distribution network tracks temperature-sensitive cargo with cryptographic provenance and automated breach alerts. The ML engineering team is choosing evaluation metrics where positives make up a small fraction of one percent. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Evaluate the model with ROC-AUC, which is insensitive to the class ratio and is therefore appropriate whenever the positive class is rare." },
+      { id: 'A', text: "Rebalance the training data with SMOTE and then evaluate the model using accuracy measured on the rebalanced holdout set." },
       { id: 'B', text: "Evaluate fraud detection or rare disease models using Precision, Recall, F1-Score, and PR-AUC instead of standard classification accuracy." },
-      { id: 'C', text: "Evaluate with accuracy but move the decision threshold to the observed positive rate so that the score reflects the imbalance without computing precision." },
-      { id: 'D', text: "Rebalance the training data with SMOTE and then evaluate the model using accuracy measured on the rebalanced holdout set." }
+      { id: 'C', text: "Evaluate the model with ROC-AUC, which is insensitive to the class ratio and is therefore appropriate whenever the positive class is rare." },
+      { id: 'D', text: "Evaluate with accuracy but move the decision threshold to the observed positive rate so that the score reflects the imbalance without computing precision." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -220,11 +220,11 @@ export const AWS_MLA_QUESTIONS_7 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Purchase a SageMaker Savings Plan covering the expected training hours so that the on-demand rate is discounted for the term committed to." },
-      { id: 'B', text: "Use SageMaker Training Compiler to speed the job up so that fewer instance hours are billed for exactly the same training work." },
-      { id: 'C', text: "Enable Managed Spot Training on SageMaker with checkpointing configured to Amazon S3 to save up to 90% on EC2 compute costs." },
+      { id: 'B', text: "Enable Managed Spot Training on SageMaker with checkpointing configured to Amazon S3 to save up to 90% on EC2 compute costs." },
+      { id: 'C', text: "Use SageMaker Training Compiler to speed the job up so that fewer instance hours are billed for exactly the same training work." },
       { id: 'D', text: "Move the training job onto a larger instance type so that it finishes in fewer hours and therefore costs less in total." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Spot capacity is where the large discount lives, and S3 checkpointing makes an interruption cost only the work since the last checkpoint, which a tolerant job can absorb. A Savings Plan discounts the on-demand rate by considerably less and ties the account to a commitment, though it composes with everything else. The Training Compiler genuinely cuts hours for supported deep-learning models while leaving the hourly rate untouched. A larger instance changes hours multiplied by a higher rate and frequently lands at the same total or worse.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -241,11 +241,11 @@ export const AWS_MLA_QUESTIONS_7 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use the SageMaker model parallel library to split the network's layers across the GPUs so that each individual device holds only a portion of the whole model." },
-      { id: 'B', text: "Use PyTorch DistributedDataParallel with NCCL across the cluster's network so that the gradients are averaged between the workers each step." },
-      { id: 'C', text: "Use SageMaker automatic model tuning so that several training jobs execute in parallel across all of the available GPU instances." },
-      { id: 'D', text: "Use the SageMaker Distributed Data Parallel (SMDDP) library to shard training batches across distributed GPU instances with optimized AllReduce communication." }
+      { id: 'B', text: "Use SageMaker automatic model tuning so that several training jobs execute in parallel across all of the available GPU instances." },
+      { id: 'C', text: "Use the SageMaker Distributed Data Parallel (SMDDP) library to shard training batches across distributed GPU instances with optimized AllReduce communication." },
+      { id: 'D', text: "Use PyTorch DistributedDataParallel with NCCL across the cluster's network so that the gradients are averaged between the workers each step." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Data parallelism is the right axis when the model fits on one GPU and only the data is large, and SMDDP implements it with an AllReduce tuned for the AWS network. Model parallelism exists for the opposite problem, a network too large for a single device, and adds communication that buys nothing here. PyTorch DDP with NCCL is a correct data-parallel implementation and a fair choice, simply without the AWS-specific communication optimisation. Automatic model tuning runs many separate jobs concurrently and never makes one job faster.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -261,12 +261,12 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The ML engineering team is searching a hyperparameter space efficiently when only a limited number of trials can be afforded. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure SageMaker HPO with Bayesian search strategy to systematically converge on optimal model parameters within a defined trial budget." },
-      { id: 'B', text: "Configure SageMaker automatic model tuning with random search so that the parameter space is sampled uniformly right across the trial budget." },
+      { id: 'A', text: "Configure SageMaker automatic model tuning with random search so that the parameter space is sampled uniformly right across the trial budget." },
+      { id: 'B', text: "Configure SageMaker Autopilot so that the algorithm and its parameters are both selected automatically from the training dataset." },
       { id: 'C', text: "Configure SageMaker automatic model tuning with grid search so that every combination within the defined ranges is evaluated exactly once." },
-      { id: 'D', text: "Configure SageMaker Autopilot so that the algorithm and its parameters are both selected automatically from the training dataset." }
+      { id: 'D', text: "Configure SageMaker HPO with Bayesian search strategy to systematically converge on optimal model parameters within a defined trial budget." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Bayesian search builds a model of the objective from completed trials and spends the remaining budget where an improvement is most likely, which is exactly what a hard trial limit calls for. Random search is a respectable baseline and parallelises perfectly, but each trial ignores everything the previous ones revealed. Grid search enumerates the space and becomes unusable over continuous ranges, exhausting the budget on a coarse lattice. Autopilot selects an entire pipeline rather than tuning the model that has already been chosen.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -284,8 +284,8 @@ export const AWS_MLA_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Evaluate the model with ROC-AUC, which is insensitive to the class ratio and is therefore appropriate whenever the positive class is rare." },
       { id: 'B', text: "Evaluate fraud detection or rare disease models using Precision, Recall, F1-Score, and PR-AUC instead of standard classification accuracy." },
-      { id: 'C', text: "Evaluate with accuracy but move the decision threshold to the observed positive rate so that the score reflects the imbalance without computing precision." },
-      { id: 'D', text: "Rebalance the training data with SMOTE and then evaluate the model using accuracy measured on the rebalanced holdout set." }
+      { id: 'C', text: "Rebalance the training data with SMOTE and then evaluate the model using accuracy measured on the rebalanced holdout set." },
+      { id: 'D', text: "Evaluate with accuracy but move the decision threshold to the observed positive rate so that the score reflects the imbalance without computing precision." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,12 +303,12 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "An actuarial underwriting platform executes Monte Carlo simulations across millions of policy holder records with parallel workers. The ML engineering team is reducing the cost of long training runs that can tolerate being interrupted. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Purchase a SageMaker Savings Plan covering the expected training hours so that the on-demand rate is discounted for the term committed to." },
+      { id: 'A', text: "Enable Managed Spot Training on SageMaker with checkpointing configured to Amazon S3 to save up to 90% on EC2 compute costs." },
       { id: 'B', text: "Use SageMaker Training Compiler to speed the job up so that fewer instance hours are billed for exactly the same training work." },
-      { id: 'C', text: "Enable Managed Spot Training on SageMaker with checkpointing configured to Amazon S3 to save up to 90% on EC2 compute costs." },
+      { id: 'C', text: "Purchase a SageMaker Savings Plan covering the expected training hours so that the on-demand rate is discounted for the term committed to." },
       { id: 'D', text: "Move the training job onto a larger instance type so that it finishes in fewer hours and therefore costs less in total." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Spot capacity is where the large discount lives, and S3 checkpointing makes an interruption cost only the work since the last checkpoint, which a tolerant job can absorb. A Savings Plan discounts the on-demand rate by considerably less and ties the account to a commitment, though it composes with everything else. The Training Compiler genuinely cuts hours for supported deep-learning models while leaving the hourly rate untouched. A larger instance changes hours multiplied by a higher rate and frequently lands at the same total or worse.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -324,12 +324,12 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "A global pharmaceutical research group manages double-blind clinical trial records with strict regulatory reporting and audit trails. The ML engineering team is scaling a training job that fits in GPU memory across many GPUs to shorten wall-clock time. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use the SageMaker model parallel library to split the network's layers across the GPUs so that each individual device holds only a portion of the whole model." },
-      { id: 'B', text: "Use PyTorch DistributedDataParallel with NCCL across the cluster's network so that the gradients are averaged between the workers each step." },
-      { id: 'C', text: "Use SageMaker automatic model tuning so that several training jobs execute in parallel across all of the available GPU instances." },
-      { id: 'D', text: "Use the SageMaker Distributed Data Parallel (SMDDP) library to shard training batches across distributed GPU instances with optimized AllReduce communication." }
+      { id: 'A', text: "Use SageMaker automatic model tuning so that several training jobs execute in parallel across all of the available GPU instances." },
+      { id: 'B', text: "Use the SageMaker model parallel library to split the network's layers across the GPUs so that each individual device holds only a portion of the whole model." },
+      { id: 'C', text: "Use the SageMaker Distributed Data Parallel (SMDDP) library to shard training batches across distributed GPU instances with optimized AllReduce communication." },
+      { id: 'D', text: "Use PyTorch DistributedDataParallel with NCCL across the cluster's network so that the gradients are averaged between the workers each step." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Data parallelism is the right axis when the model fits on one GPU and only the data is large, and SMDDP implements it with an AllReduce tuned for the AWS network. Model parallelism exists for the opposite problem, a network too large for a single device, and adds communication that buys nothing here. PyTorch DDP with NCCL is a correct data-parallel implementation and a fair choice, simply without the AWS-specific communication optimisation. Automatic model tuning runs many separate jobs concurrently and never makes one job faster.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -345,12 +345,12 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "A metropolitan transit authority optimizes urban traffic signals with real-time video analytics and edge inference. The ML engineering team is searching a hyperparameter space efficiently when only a limited number of trials can be afforded. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure SageMaker HPO with Bayesian search strategy to systematically converge on optimal model parameters within a defined trial budget." },
-      { id: 'B', text: "Configure SageMaker automatic model tuning with random search so that the parameter space is sampled uniformly right across the trial budget." },
-      { id: 'C', text: "Configure SageMaker automatic model tuning with grid search so that every combination within the defined ranges is evaluated exactly once." },
-      { id: 'D', text: "Configure SageMaker Autopilot so that the algorithm and its parameters are both selected automatically from the training dataset." }
+      { id: 'A', text: "Configure SageMaker automatic model tuning with random search so that the parameter space is sampled uniformly right across the trial budget." },
+      { id: 'B', text: "Configure SageMaker automatic model tuning with grid search so that every combination within the defined ranges is evaluated exactly once." },
+      { id: 'C', text: "Configure SageMaker Autopilot so that the algorithm and its parameters are both selected automatically from the training dataset." },
+      { id: 'D', text: "Configure SageMaker HPO with Bayesian search strategy to systematically converge on optimal model parameters within a defined trial budget." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Bayesian search builds a model of the objective from completed trials and spends the remaining budget where an improvement is most likely, which is exactly what a hard trial limit calls for. Random search is a respectable baseline and parallelises perfectly, but each trial ignores everything the previous ones revealed. Grid search enumerates the space and becomes unusable over continuous ranges, exhausting the budget on a coarse lattice. Autopilot selects an entire pipeline rather than tuning the model that has already been chosen.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -366,12 +366,12 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "A cross-border passport control gateway validates identity credentials with zero-knowledge cryptographic proofs. The ML engineering team is choosing evaluation metrics where positives make up a small fraction of one percent. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Evaluate the model with ROC-AUC, which is insensitive to the class ratio and is therefore appropriate whenever the positive class is rare." },
-      { id: 'B', text: "Evaluate fraud detection or rare disease models using Precision, Recall, F1-Score, and PR-AUC instead of standard classification accuracy." },
-      { id: 'C', text: "Evaluate with accuracy but move the decision threshold to the observed positive rate so that the score reflects the imbalance without computing precision." },
-      { id: 'D', text: "Rebalance the training data with SMOTE and then evaluate the model using accuracy measured on the rebalanced holdout set." }
+      { id: 'A', text: "Evaluate fraud detection or rare disease models using Precision, Recall, F1-Score, and PR-AUC instead of standard classification accuracy." },
+      { id: 'B', text: "Evaluate with accuracy but move the decision threshold to the observed positive rate so that the score reflects the imbalance without computing precision." },
+      { id: 'C', text: "Rebalance the training data with SMOTE and then evaluate the model using accuracy measured on the rebalanced holdout set." },
+      { id: 'D', text: "Evaluate the model with ROC-AUC, which is insensitive to the class ratio and is therefore appropriate whenever the positive class is rare." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Precision, recall, F1, and PR-AUC all focus on the positive class, so they fall visibly as false positives begin to outnumber true ones. ROC-AUC is the subtle trap here: its false-positive-rate axis is divided by an enormous negative class, so the curve stays flattering while precision collapses. Shifting the threshold moves the operating point without making accuracy any more informative, since predicting the majority class still scores above 99 percent. Evaluating on a SMOTE-rebalanced holdout measures performance on a class ratio that will never occur in production.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -387,12 +387,12 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "A global law firm conducts regulatory discovery across millions of scanned legal filings with vector-enhanced semantic retrieval. The ML engineering team is reducing the cost of long training runs that can tolerate being interrupted. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Purchase a SageMaker Savings Plan covering the expected training hours so that the on-demand rate is discounted for the term committed to." },
-      { id: 'B', text: "Use SageMaker Training Compiler to speed the job up so that fewer instance hours are billed for exactly the same training work." },
-      { id: 'C', text: "Enable Managed Spot Training on SageMaker with checkpointing configured to Amazon S3 to save up to 90% on EC2 compute costs." },
-      { id: 'D', text: "Move the training job onto a larger instance type so that it finishes in fewer hours and therefore costs less in total." }
+      { id: 'A', text: "Use SageMaker Training Compiler to speed the job up so that fewer instance hours are billed for exactly the same training work." },
+      { id: 'B', text: "Move the training job onto a larger instance type so that it finishes in fewer hours and therefore costs less in total." },
+      { id: 'C', text: "Purchase a SageMaker Savings Plan covering the expected training hours so that the on-demand rate is discounted for the term committed to." },
+      { id: 'D', text: "Enable Managed Spot Training on SageMaker with checkpointing configured to Amazon S3 to save up to 90% on EC2 compute costs." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Spot capacity is where the large discount lives, and S3 checkpointing makes an interruption cost only the work since the last checkpoint, which a tolerant job can absorb. A Savings Plan discounts the on-demand rate by considerably less and ties the account to a commitment, though it composes with everything else. The Training Compiler genuinely cuts hours for supported deep-learning models while leaving the hourly rate untouched. A larger instance changes hours multiplied by a higher rate and frequently lands at the same total or worse.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -408,12 +408,12 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "An advertising exchange processes 500,000 bids per second with a strict 20-millisecond SLA and distributed caching. The ML engineering team is scaling a training job that fits in GPU memory across many GPUs to shorten wall-clock time. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use the SageMaker model parallel library to split the network's layers across the GPUs so that each individual device holds only a portion of the whole model." },
-      { id: 'B', text: "Use PyTorch DistributedDataParallel with NCCL across the cluster's network so that the gradients are averaged between the workers each step." },
-      { id: 'C', text: "Use SageMaker automatic model tuning so that several training jobs execute in parallel across all of the available GPU instances." },
-      { id: 'D', text: "Use the SageMaker Distributed Data Parallel (SMDDP) library to shard training batches across distributed GPU instances with optimized AllReduce communication." }
+      { id: 'A', text: "Use SageMaker automatic model tuning so that several training jobs execute in parallel across all of the available GPU instances." },
+      { id: 'B', text: "Use the SageMaker Distributed Data Parallel (SMDDP) library to shard training batches across distributed GPU instances with optimized AllReduce communication." },
+      { id: 'C', text: "Use the SageMaker model parallel library to split the network's layers across the GPUs so that each individual device holds only a portion of the whole model." },
+      { id: 'D', text: "Use PyTorch DistributedDataParallel with NCCL across the cluster's network so that the gradients are averaged between the workers each step." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Data parallelism is the right axis when the model fits on one GPU and only the data is large, and SMDDP implements it with an AllReduce tuned for the AWS network. Model parallelism exists for the opposite problem, a network too large for a single device, and adds communication that buys nothing here. PyTorch DDP with NCCL is a correct data-parallel implementation and a fair choice, simply without the AWS-specific communication optimisation. Automatic model tuning runs many separate jobs concurrently and never makes one job faster.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -430,9 +430,9 @@ export const AWS_MLA_QUESTIONS_7 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure SageMaker HPO with Bayesian search strategy to systematically converge on optimal model parameters within a defined trial budget." },
-      { id: 'B', text: "Configure SageMaker automatic model tuning with random search so that the parameter space is sampled uniformly right across the trial budget." },
-      { id: 'C', text: "Configure SageMaker automatic model tuning with grid search so that every combination within the defined ranges is evaluated exactly once." },
-      { id: 'D', text: "Configure SageMaker Autopilot so that the algorithm and its parameters are both selected automatically from the training dataset." }
+      { id: 'B', text: "Configure SageMaker Autopilot so that the algorithm and its parameters are both selected automatically from the training dataset." },
+      { id: 'C', text: "Configure SageMaker automatic model tuning with random search so that the parameter space is sampled uniformly right across the trial budget." },
+      { id: 'D', text: "Configure SageMaker automatic model tuning with grid search so that every combination within the defined ranges is evaluated exactly once." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,12 +450,12 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "A semiconductor fabrication facility detects vibration harmonics on manufacturing robots to prevent unplanned downtime. The ML engineering team is choosing evaluation metrics where positives make up a small fraction of one percent. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Evaluate the model with ROC-AUC, which is insensitive to the class ratio and is therefore appropriate whenever the positive class is rare." },
-      { id: 'B', text: "Evaluate fraud detection or rare disease models using Precision, Recall, F1-Score, and PR-AUC instead of standard classification accuracy." },
+      { id: 'A', text: "Rebalance the training data with SMOTE and then evaluate the model using accuracy measured on the rebalanced holdout set." },
+      { id: 'B', text: "Evaluate the model with ROC-AUC, which is insensitive to the class ratio and is therefore appropriate whenever the positive class is rare." },
       { id: 'C', text: "Evaluate with accuracy but move the decision threshold to the observed positive rate so that the score reflects the imbalance without computing precision." },
-      { id: 'D', text: "Rebalance the training data with SMOTE and then evaluate the model using accuracy measured on the rebalanced holdout set." }
+      { id: 'D', text: "Evaluate fraud detection or rare disease models using Precision, Recall, F1-Score, and PR-AUC instead of standard classification accuracy." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Precision, recall, F1, and PR-AUC all focus on the positive class, so they fall visibly as false positives begin to outnumber true ones. ROC-AUC is the subtle trap here: its false-positive-rate axis is divided by an enormous negative class, so the curve stays flattering while precision collapses. Shifting the threshold moves the operating point without making accuracy any more informative, since predicting the majority class still scores above 99 percent. Evaluating on a SMOTE-rebalanced holdout measures performance on a class ratio that will never occur in production.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -471,10 +471,10 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "An online university platform enforces anti-plagiarism and biometric proctoring for high-stakes certification exams. The ML engineering team is reducing the cost of long training runs that can tolerate being interrupted. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Purchase a SageMaker Savings Plan covering the expected training hours so that the on-demand rate is discounted for the term committed to." },
+      { id: 'A', text: "Move the training job onto a larger instance type so that it finishes in fewer hours and therefore costs less in total." },
       { id: 'B', text: "Use SageMaker Training Compiler to speed the job up so that fewer instance hours are billed for exactly the same training work." },
       { id: 'C', text: "Enable Managed Spot Training on SageMaker with checkpointing configured to Amazon S3 to save up to 90% on EC2 compute costs." },
-      { id: 'D', text: "Move the training job onto a larger instance type so that it finishes in fewer hours and therefore costs less in total." }
+      { id: 'D', text: "Purchase a SageMaker Savings Plan covering the expected training hours so that the on-demand rate is discounted for the term committed to." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,12 +492,12 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "A property appraisal engine fuses GIS parcel maps with real-time market transactions for automated valuation. The ML engineering team is scaling a training job that fits in GPU memory across many GPUs to shorten wall-clock time. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use the SageMaker model parallel library to split the network's layers across the GPUs so that each individual device holds only a portion of the whole model." },
-      { id: 'B', text: "Use PyTorch DistributedDataParallel with NCCL across the cluster's network so that the gradients are averaged between the workers each step." },
-      { id: 'C', text: "Use SageMaker automatic model tuning so that several training jobs execute in parallel across all of the available GPU instances." },
-      { id: 'D', text: "Use the SageMaker Distributed Data Parallel (SMDDP) library to shard training batches across distributed GPU instances with optimized AllReduce communication." }
+      { id: 'A', text: "Use the SageMaker Distributed Data Parallel (SMDDP) library to shard training batches across distributed GPU instances with optimized AllReduce communication." },
+      { id: 'B', text: "Use the SageMaker model parallel library to split the network's layers across the GPUs so that each individual device holds only a portion of the whole model." },
+      { id: 'C', text: "Use PyTorch DistributedDataParallel with NCCL across the cluster's network so that the gradients are averaged between the workers each step." },
+      { id: 'D', text: "Use SageMaker automatic model tuning so that several training jobs execute in parallel across all of the available GPU instances." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Data parallelism is the right axis when the model fits on one GPU and only the data is large, and SMDDP implements it with an AllReduce tuned for the AWS network. Model parallelism exists for the opposite problem, a network too large for a single device, and adds communication that buys nothing here. PyTorch DDP with NCCL is a correct data-parallel implementation and a fair choice, simply without the AWS-specific communication optimisation. Automatic model tuning runs many separate jobs concurrently and never makes one job faster.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -513,12 +513,12 @@ export const AWS_MLA_QUESTIONS_7 = [
     scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The ML engineering team is searching a hyperparameter space efficiently when only a limited number of trials can be afforded. The work is scoped to the staging environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure SageMaker HPO with Bayesian search strategy to systematically converge on optimal model parameters within a defined trial budget." },
-      { id: 'B', text: "Configure SageMaker automatic model tuning with random search so that the parameter space is sampled uniformly right across the trial budget." },
-      { id: 'C', text: "Configure SageMaker automatic model tuning with grid search so that every combination within the defined ranges is evaluated exactly once." },
-      { id: 'D', text: "Configure SageMaker Autopilot so that the algorithm and its parameters are both selected automatically from the training dataset." }
+      { id: 'A', text: "Configure SageMaker Autopilot so that the algorithm and its parameters are both selected automatically from the training dataset." },
+      { id: 'B', text: "Configure SageMaker automatic model tuning with grid search so that every combination within the defined ranges is evaluated exactly once." },
+      { id: 'C', text: "Configure SageMaker HPO with Bayesian search strategy to systematically converge on optimal model parameters within a defined trial budget." },
+      { id: 'D', text: "Configure SageMaker automatic model tuning with random search so that the parameter space is sampled uniformly right across the trial budget." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Bayesian search builds a model of the objective from completed trials and spends the remaining budget where an improvement is most likely, which is exactly what a hard trial limit calls for. Random search is a respectable baseline and parallelises perfectly, but each trial ignores everything the previous ones revealed. Grid search enumerates the space and becomes unusable over continuous ranges, exhausting the budget on a coarse lattice. Autopilot selects an entire pipeline rather than tuning the model that has already been chosen.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",

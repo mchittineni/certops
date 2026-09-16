@@ -9,12 +9,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A Kubernetes Deployment with 10 replicas is updated to a new image. Company policy mandates zero downtime, requiring that at least 10 pods must remain available at all times during the rollout, but no more than 13 total pods may run simultaneously.",
     question: "Which RollingUpdate strategy parameters enforce these constraints?",
     options: [
-      { id: 'A', text: "maxUnavailable: 0 and maxSurge: 3" },
-      { id: 'B', text: "maxUnavailable: 3 and maxSurge: 0" },
+      { id: 'A', text: "strategy: Recreate" },
+      { id: 'B', text: "maxUnavailable: 0 and maxSurge: 3" },
       { id: 'C', text: "maxUnavailable: 1 and maxSurge: 1" },
-      { id: 'D', text: "strategy: Recreate" }
+      { id: 'D', text: "maxUnavailable: 3 and maxSurge: 0" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In a Deployment's `RollingUpdate` strategy, `maxUnavailable: 0` guarantees that the number of available pods never falls below the desired replica count (10 pods always serving). `maxSurge: 3` allows up to 3 extra pods above desired capacity (up to 13 total pods) during the rollout.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-update-deployment",
@@ -30,12 +30,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A legacy document processing application attaches to a single-node ReadWriteOnce (RWO) storage volume. The application cannot run two instances concurrently against the same storage.",
     question: "Which Deployment strategy terminates all existing pods completely before creating new pods?",
     options: [
-      { id: 'A', text: "strategy: { type: Canary }" },
-      { id: 'B', text: "strategy: { type: Recreate }" },
-      { id: 'C', text: "strategy: { type: RollingUpdate }" },
-      { id: 'D', text: "strategy: { type: BlueGreen }" }
+      { id: 'A', text: "strategy: { type: Recreate }" },
+      { id: 'B', text: "strategy: { type: RollingUpdate }" },
+      { id: 'C', text: "strategy: { type: BlueGreen }" },
+      { id: 'D', text: "strategy: { type: Canary }" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `Recreate` deployment strategy kills all existing running pods before any new pods are created. While this causes a brief service outage, it is required when two versions of an application cannot run simultaneously or share exclusive persistent volumes.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#recreate-deployment",
@@ -51,12 +51,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "After updating a Deployment's container image, the application immediately throws fatal database connection errors. The developer needs to revert the Deployment to the exact previous revision.",
     question: "Which kubectl command executes an immediate rollback to the previous revision?",
     options: [
-      { id: 'A', text: "kubectl rollout undo deployment/&lt;name&gt;" },
+      { id: 'A', text: "kubectl rollout status deployment/&lt;name&gt;" },
       { id: 'B', text: "kubectl delete deployment/&lt;name&gt;" },
-      { id: 'C', text: "kubectl rollout restart deployment/&lt;name&gt;" },
-      { id: 'D', text: "kubectl rollout status deployment/&lt;name&gt;" }
+      { id: 'C', text: "kubectl rollout undo deployment/&lt;name&gt;" },
+      { id: 'D', text: "kubectl rollout restart deployment/&lt;name&gt;" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "`kubectl rollout undo deployment/&lt;name&gt;` rolls back the deployment to the previous revision. To target a specific older revision, pass `--to-revision=&lt;number&gt;` after inspecting revisions with `kubectl rollout history`.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment",
@@ -72,12 +72,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A DevOps engineer needs to make multiple updates to a production Deployment (updating CPU requests, adding an environment variable, and changing the image tag). The engineer wants all changes applied in a single rollout rather than triggering 3 consecutive rolling updates.",
     question: "How should the engineer coordinate these updates using kubectl?",
     options: [
-      { id: 'A', text: "Kubernetes automatically merges updates within 5 minutes" },
+      { id: 'A', text: "kubectl rollout pause, apply, then rollout resume" },
       { id: 'B', text: "Scale replicas to 0, apply changes, and scale back up" },
       { id: 'C', text: "Edit the etcd database directly" },
-      { id: 'D', text: "kubectl rollout pause, apply, then rollout resume" }
+      { id: 'D', text: "Kubernetes automatically merges updates within 5 minutes" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Pausing a deployment (`kubectl rollout pause deployment/&lt;name&gt;`) allows multiple edits to the pod template without triggering intermediate rollouts. Running `kubectl rollout resume deployment/&lt;name&gt;` triggers a single, unified rollout containing all modifications.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#pausing-and-resuming-a-deployment",
@@ -93,12 +93,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "An active CI/CD pipeline deploys updates to a Deployment 20 times per day. Hundreds of old, inactive ReplicaSets accumulate in the namespace, consuming cluster memory.",
     question: "Which Deployment specification field controls how many old ReplicaSets are retained for rollback?",
     options: [
-      { id: 'A', text: "revisionHistoryLimit: 5" },
-      { id: 'B', text: "maxReplicaSets: 5" },
-      { id: 'C', text: "historyLimit: 5" },
+      { id: 'A', text: "maxReplicaSets: 5" },
+      { id: 'B', text: "historyLimit: 5" },
+      { id: 'C', text: "revisionHistoryLimit: 5" },
       { id: 'D', text: "ttlSecondsAfterFinished: 5" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "`revisionHistoryLimit` in a Deployment specification defines the number of old, inactive ReplicaSets to retain for rollbacks (default is 10). Setting it to a smaller number like 3 or 5 cleans up older ReplicaSet objects automatically.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#revision-history-limit",
@@ -114,12 +114,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A developer is deploying a 3-node MongoDB cluster using a Kubernetes StatefulSet. The database nodes need unique, stable network identities (`mongodb-0`, `mongodb-1`, `mongodb-2`) that can be addressed directly via DNS.",
     question: "Which Kubernetes Service configuration is mandatory for a StatefulSet to provide stable network IDs?",
     options: [
-      { id: 'A', text: "A standard ClusterIP service with a virtual IP" },
-      { id: 'B', text: "A headless Service with clusterIP: None" },
-      { id: 'C', text: "An ExternalName service" },
-      { id: 'D', text: "A NodePort service with sticky sessions" }
+      { id: 'A', text: "A headless Service with clusterIP: None" },
+      { id: 'B', text: "A standard ClusterIP service with a virtual IP" },
+      { id: 'C', text: "A NodePort service with sticky sessions" },
+      { id: 'D', text: "An ExternalName service" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "StatefulSets require a `Headless Service` (a Service with `clusterIP: None`) declared in `spec.serviceName`. The headless service does not allocate a virtual IP; instead, CoreDNS creates stable A/AAAA records for each individual pod (e.g. `&lt;pod-name&gt;.&lt;service-name&gt;.&lt;namespace&gt;.svc.cluster.local`).",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#limitations",
@@ -135,12 +135,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A distributed Kafka cluster deployed on Kubernetes requires each broker pod (`kafka-0`, `kafka-1`, `kafka-2`) to have its own dedicated 100 GB PersistentVolume that remains attached to that specific broker identity across restarts.",
     question: "Which StatefulSet construct automatically provisions a distinct PersistentVolumeClaim for each ordinal pod replica?",
     options: [
-      { id: 'A', text: "volumes in the pod spec" },
-      { id: 'B', text: "volumeClaimTemplates" },
-      { id: 'C', text: "persistentVolumeClaim volumeSource" },
-      { id: 'D', text: "emptyDir volumes" }
+      { id: 'A', text: "volumeClaimTemplates" },
+      { id: 'B', text: "volumes in the pod spec" },
+      { id: 'C', text: "emptyDir volumes" },
+      { id: 'D', text: "persistentVolumeClaim volumeSource" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`volumeClaimTemplates` in a StatefulSet automatically generates a unique PersistentVolumeClaim (PVC) for each pod replica (e.g. `data-kafka-0`, `data-kafka-1`). When a pod is rescheduled or restarted, it reattaches to its exact ordinal PVC and disk.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#volume-claim-templates",
@@ -157,9 +157,9 @@ export const K8S_CKAD_QUESTIONS_3 = [
     question: "Which StatefulSet setting enables concurrent pod creation and termination?",
     options: [
       { id: 'A', text: "podManagementPolicy: Parallel" },
-      { id: 'B', text: "parallelism: true" },
+      { id: 'B', text: "podManagementPolicy: OrderedReady" },
       { id: 'C', text: "strategy: Concurrent" },
-      { id: 'D', text: "podManagementPolicy: OrderedReady" }
+      { id: 'D', text: "parallelism: true" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -179,8 +179,8 @@ export const K8S_CKAD_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "DaemonSet" },
       { id: 'B', text: "Deployment with high replicas" },
-      { id: 'C', text: "CronJob" },
-      { id: 'D', text: "StatefulSet" }
+      { id: 'C', text: "StatefulSet" },
+      { id: 'D', text: "CronJob" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A systems administrator updates the image tag in a DaemonSet manifest.",
     question: "By default, how does Kubernetes roll out changes to nodes running the DaemonSet?",
     options: [
-      { id: 'A', text: "RollingUpdate (default, terminates and replaces DaemonSet pods one node at a time)" },
+      { id: 'A', text: "Recreate (kills all pods across all nodes at once)" },
       { id: 'B', text: "OnDelete (waits until the administrator manually kills the old pod on each node)" },
-      { id: 'C', text: "Recreate (kills all pods across all nodes at once)" },
-      { id: 'D', text: "DaemonSets cannot be updated once created" }
+      { id: 'C', text: "DaemonSets cannot be updated once created" },
+      { id: 'D', text: "RollingUpdate (default, terminates and replaces DaemonSet pods one node at a time)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The default `updateStrategy` for DaemonSets is `RollingUpdate`. The controller updates pods on one node at a time (controlled by `maxUnavailable`). Under `OnDelete`, new pods are only created when the user manually deletes the old pod on that node.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/#rolling-update-strategy",
@@ -219,12 +219,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A company deploys version 2 of an application using Deployment `app-v2` alongside active Deployment `app-v1`. When testing passes, traffic must switch instantaneously to v2 with zero downtime.",
     question: "How is instantaneous traffic cutover achieved natively in Kubernetes?",
     options: [
-      { id: 'A', text: "Switch the Service selector to v2" },
-      { id: 'B', text: "Delete the v1 Deployment" },
-      { id: 'C', text: "Restart the CoreDNS pods" },
+      { id: 'A', text: "Restart the CoreDNS pods" },
+      { id: 'B', text: "Switch the Service selector to v2" },
+      { id: 'C', text: "Delete the v1 Deployment" },
       { id: 'D', text: "Reboot the worker nodes" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In a native Kubernetes `Blue-Green deployment`, both versions run concurrently in separate Deployments. The Kubernetes Service routes traffic based on its `spec.selector` labels (e.g. `app: web, version: v1`). Updating the selector to `version: v2` instantly repoints the Service to the new pods.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#alternative-deployment-strategies",
@@ -240,12 +240,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "An engineering team wants to route approximately 10% of production traffic to a new experimental release `v2` and 90% to stable `v1` without deploying a complex service mesh.",
     question: "How can this be achieved using native Kubernetes Deployments and a single Service?",
     options: [
-      { id: 'A', text: "Two deployments at 9 and 1 replicas behind one selector" },
-      { id: 'B', text: "Configure weight: 10% in the Service manifest" },
+      { id: 'A', text: "Run a shell script on the node that drops 90% of packets" },
+      { id: 'B', text: "Two deployments at 9 and 1 replicas behind one selector" },
       { id: 'C', text: "Deploy two Services with different IP addresses" },
-      { id: 'D', text: "Run a shell script on the node that drops 90% of packets" }
+      { id: 'D', text: "Configure weight: 10% in the Service manifest" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Standard Kubernetes Services distribute traffic evenly across all matching endpoint pods. By running Deployment v1 with 9 replicas and Deployment v2 with 1 replica sharing the same selector (e.g. `app: frontend`), the Service naturally routes 10% of traffic to the single v2 pod.",
     referenceUrl: "https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/#canary-deployments",
@@ -261,12 +261,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A DevOps engineer configures an HPA to scale a web application based on average CPU utilization exceeding 70% and custom HTTP requests-per-second exceeding 500.",
     question: "Which Kubernetes autoscaling resource automatically scales pod replicas based on metrics?",
     options: [
-      { id: 'A', text: "ClusterAutoscaler" },
-      { id: 'B', text: "NodeAutoProvisioner" },
-      { id: 'C', text: "VerticalPodAutoscaler" },
-      { id: 'D', text: "A HorizontalPodAutoscaler" }
+      { id: 'A', text: "A HorizontalPodAutoscaler" },
+      { id: 'B', text: "VerticalPodAutoscaler" },
+      { id: 'C', text: "ClusterAutoscaler" },
+      { id: 'D', text: "NodeAutoProvisioner" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `HorizontalPodAutoscaler` (HPA) automatically scales the number of Pods in a Deployment or StatefulSet based on observed CPU/memory utilization or custom metrics (like HTTP requests/sec or queue length) via the metrics API.",
     referenceUrl: "https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/",
@@ -282,12 +282,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A developer creates an HPA targeting an application Deployment with `averageUtilization: 60%` for CPU. However, the HPA fails with status `unknown` and does not scale pods during high traffic.",
     question: "What missing configuration in the Deployment pod specification causes this failure?",
     options: [
-      { id: 'A', text: "The container specification lacks resources.requests.cpu" },
+      { id: 'A', text: "The pod lacks a readiness probe" },
       { id: 'B', text: "The container specification lacks resources.limits.cpu" },
-      { id: 'C', text: "The container is running as root" },
-      { id: 'D', text: "The pod lacks a readiness probe" }
+      { id: 'C', text: "The container specification lacks resources.requests.cpu" },
+      { id: 'D', text: "The container is running as root" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "HPA calculates target utilization percentages against the pod's `resources.requests.cpu` (e.g. `current_usage / requested_cpu * 100%`). If resource requests are not configured on the containers, the HPA cannot compute percentage utilization and fails to scale.",
     referenceUrl: "https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#how-does-an-hpa-work",
@@ -304,9 +304,9 @@ export const K8S_CKAD_QUESTIONS_3 = [
     question: "Which HPA configuration parameter prevents premature scale-down by evaluating peak metrics over a cooldown window?",
     options: [
       { id: 'A', text: "behavior.scaleDown.stabilizationWindowSeconds: 300" },
-      { id: 'B', text: "behavior.scaleUp.stabilizationWindowSeconds: 300" },
-      { id: 'C', text: "minReplicas: 10" },
-      { id: 'D', text: "cooldownPeriod: 300s" }
+      { id: 'B', text: "minReplicas: 10" },
+      { id: 'C', text: "cooldownPeriod: 300s" },
+      { id: 'D', text: "behavior.scaleUp.stabilizationWindowSeconds: 300" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A platform team wants to identify optimal CPU and memory resource requests for legacy microservices. The team wants recommendations displayed in YAML status without automatically modifying or restarting running pods.",
     question: "Which Vertical Pod Autoscaler updateMode satisfies this requirement?",
     options: [
-      { id: 'A', text: "updateMode: Recreate" },
+      { id: 'A', text: "updateMode: Off" },
       { id: 'B', text: "updateMode: Auto" },
-      { id: 'C', text: "updateMode: Off" },
+      { id: 'C', text: "updateMode: Recreate" },
       { id: 'D', text: "updateMode: Initial" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The Vertical Pod Autoscaler (VPA) `updateMode: Off` calculates recommended CPU and memory requests based on historical usage and writes recommendations to the VPA status object without evicting or modifying running pods.",
     referenceUrl: "https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler",
@@ -346,9 +346,9 @@ export const K8S_CKAD_QUESTIONS_3 = [
     question: "Which Kustomize structure organizes common declarative manifests and environment-specific customizations?",
     options: [
       { id: 'A', text: "A base/ directory with per-environment overlays/" },
-      { id: 'B', text: "Hardcoding all configurations into a single YAML file" },
+      { id: 'B', text: "Copying and pasting the entire folder 3 times" },
       { id: 'C', text: "Using bash scripts with sed replacement" },
-      { id: 'D', text: "Copying and pasting the entire folder 3 times" }
+      { id: 'D', text: "Hardcoding all configurations into a single YAML file" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A developer uses Kustomize to inject configuration files into Kubernetes. When a developer edits `config.properties`, the deployed pods must automatically trigger a rolling restart to pick up the changes.",
     question: "How does Kustomize's configMapGenerator guarantee that pods reload upon configuration updates?",
     options: [
-      { id: 'A', text: "It hashes the ConfigMap name, so the pod template changes" },
-      { id: 'B', text: "It executes kubectl exec in all pods to restart the process" },
+      { id: 'A', text: "It deletes the namespace" },
+      { id: 'B', text: "It hashes the ConfigMap name, so the pod template changes" },
       { id: 'C', text: "It modifies etcd directly to force a restart" },
-      { id: 'D', text: "It deletes the namespace" }
+      { id: 'D', text: "It executes kubectl exec in all pods to restart the process" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Kustomize `configMapGenerator` appends a cryptographic hash of the file contents to the generated ConfigMap name. Because the ConfigMap name changes in the Deployment's pod template, Kubernetes recognizes the template mutation and automatically triggers a zero-downtime rolling update.",
     referenceUrl: "https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/configmapgenerator/",
@@ -387,12 +387,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A developer needs to modify an exact single element inside a nested list in a Kubernetes Deployment manifest (e.g. updating the second container's image) using Kustomize.",
     question: "Which patch format provides precise array index manipulation (op: replace, path: /spec/template/spec/containers/1/image)?",
     options: [
-      { id: 'A', text: "A JSON 6902 patch" },
-      { id: 'B', text: "Strategic Merge Patch" },
-      { id: 'C', text: "ConfigMapGenerator" },
+      { id: 'A', text: "Strategic Merge Patch" },
+      { id: 'B', text: "ConfigMapGenerator" },
+      { id: 'C', text: "A JSON 6902 patch" },
       { id: 'D', text: "Replica count override" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Kustomize supports two patching mechanisms: `Strategic Merge Patches` (declarative YAML snippets merged by key) and `JSON 6902 Patches` (RFC 6902 operations: `add`, `remove`, `replace` using exact JSON pointer paths), ideal for modifying specific array indexes.",
     referenceUrl: "https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patchesjson6902/",
@@ -408,12 +408,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A developer deploys an application via Helm (`helm install my-app ./chart`) and modifies `values.yaml`.",
     question: "How does the developer apply the updates to the running release?",
     options: [
-      { id: 'A', text: "helm upgrade my-app ./chart -f values.yaml" },
-      { id: 'B', text: "helm install my-app ./chart --force" },
-      { id: 'C', text: "helm apply my-app" },
+      { id: 'A', text: "helm install my-app ./chart --force" },
+      { id: 'B', text: "helm apply my-app" },
+      { id: 'C', text: "helm upgrade my-app ./chart -f values.yaml" },
       { id: 'D', text: "kubectl apply -f chart/" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "`helm upgrade [RELEASE] [CHART]` applies configuration or template updates to an existing Helm release, creating a new release revision and tracking historical changes for potential rollbacks (`helm rollback`).",
     referenceUrl: "https://helm.sh/docs/helm/helm_upgrade/",
@@ -429,12 +429,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "In an automated CI/CD pipeline, a build script needs to override the container image tag in a Helm chart dynamically with the latest Git commit SHA.",
     question: "Which Helm CLI flag overrides specific individual value keys at runtime?",
     options: [
-      { id: 'A', text: "--env tag=$COMMIT_SHA" },
-      { id: 'B', text: "--override tag=$COMMIT_SHA" },
-      { id: 'C', text: "--values $COMMIT_SHA" },
-      { id: 'D', text: "--set image.tag=$COMMIT_SHA" }
+      { id: 'A', text: "--set image.tag=$COMMIT_SHA" },
+      { id: 'B', text: "--values $COMMIT_SHA" },
+      { id: 'C', text: "--override tag=$COMMIT_SHA" },
+      { id: 'D', text: "--env tag=$COMMIT_SHA" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `--set` flag allows passing individual key-value overrides directly on the CLI (`helm upgrade --set image.tag=v1.2.3`), taking precedence over default values in `values.yaml`.",
     referenceUrl: "https://helm.sh/docs/helm/helm_install/#options",
@@ -450,12 +450,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A developer needs to view all historical revisions of a Helm release named `payment-service` to determine when a broken configuration was introduced.",
     question: "Which Helm command displays historical revisions, dates, and chart versions for a release?",
     options: [
-      { id: 'A', text: "helm get values payment-service" },
-      { id: 'B', text: "helm status payment-service" },
-      { id: 'C', text: "helm list --all" },
-      { id: 'D', text: "helm history payment-service" }
+      { id: 'A', text: "helm history payment-service" },
+      { id: 'B', text: "helm list --all" },
+      { id: 'C', text: "helm status payment-service" },
+      { id: 'D', text: "helm get values payment-service" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`helm history [RELEASE]` displays a table of all past revisions for that release, including the revision number, timestamp, status (deployed/superseded), chart name, and release description.",
     referenceUrl: "https://helm.sh/docs/helm/helm_history/",
@@ -471,12 +471,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A Helm release revision 4 introduced a fatal memory leak. The team decides to rollback immediately to revision 2.",
     question: "Which command executes the rollback to revision 2?",
     options: [
-      { id: 'A', text: "helm rollback payment-service 2" },
-      { id: 'B', text: "helm undo payment-service --revision=2" },
+      { id: 'A', text: "helm revert payment-service 2" },
+      { id: 'B', text: "helm rollback payment-service 2" },
       { id: 'C', text: "helm upgrade payment-service --revision=2" },
-      { id: 'D', text: "helm revert payment-service 2" }
+      { id: 'D', text: "helm undo payment-service --revision=2" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "`helm rollback [RELEASE] [REVISION]` rolls back the release to the specified past revision number. Helm generates a new revision (e.g. revision 5) whose state is identical to revision 2.",
     referenceUrl: "https://helm.sh/docs/helm/helm_rollback/",
@@ -492,12 +492,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A payment gateway application running on 5 pods requires that during Kubernetes node upgrades or cluster maintenance, at least 4 pods must remain online at all times.",
     question: "Which PodDisruptionBudget specification enforces this availability guarantee?",
     options: [
-      { id: 'A', text: "minAvailable: 1" },
-      { id: 'B', text: "parallelism: 4" },
-      { id: 'C', text: "minAvailable: 4 (or maxUnavailable: 1)" },
-      { id: 'D', text: "maxUnavailable: 4" }
+      { id: 'A', text: "minAvailable: 4 (or maxUnavailable: 1)" },
+      { id: 'B', text: "maxUnavailable: 4, or minAvailable: 1" },
+      { id: 'C', text: "minAvailable: 5 and maxUnavailable: 0" },
+      { id: 'D', text: "maxUnavailable: 1 for each of the 5 pods" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A `PodDisruptionBudget` limits voluntary evictions (like draining nodes for maintenance). Setting `minAvailable: 4` (or equivalently `maxUnavailable: 1` out of 5) prevents cluster draining operations from evicting more than 1 pod concurrently.",
     referenceUrl: "https://kubernetes.io/docs/tasks/run-application/configure-pdb/",
@@ -513,12 +513,12 @@ export const K8S_CKAD_QUESTIONS_3 = [
     scenario: "A CI/CD deployment script runs `kubectl apply -f deployment.yaml`. The pipeline script must block and wait until all new pods have passed readiness probes, failing if the rollout times out.",
     question: "Which kubectl command blocks until the deployment rollout is successfully completed?",
     options: [
-      { id: 'A', text: "kubectl describe deployment/&lt;name&gt;" },
-      { id: 'B', text: "kubectl rollout check deployment/&lt;name&gt;" },
-      { id: 'C', text: "kubectl rollout status deployment/&lt;name&gt; --timeout=300s" },
-      { id: 'D', text: "kubectl get pods -w" }
+      { id: 'A', text: "kubectl rollout status deployment/&lt;name&gt; --timeout=300s" },
+      { id: 'B', text: "kubectl get deployment/&lt;name&gt; -w --output-watch-events" },
+      { id: 'C', text: "kubectl wait deployment/&lt;name&gt; --for=condition=Available" },
+      { id: 'D', text: "kubectl rollout history deployment/&lt;name&gt; --revision=0" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`kubectl rollout status deployment/&lt;name&gt;` watches the rollout progress, returning exit code `0` once all replicas are updated and Ready. Adding `--timeout=&lt;duration&gt;` ensures the CI/CD job fails cleanly if pods fail health checks within the time limit.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_status/",

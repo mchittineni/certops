@@ -10,9 +10,9 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Give product owners the cloud cost of each feature and its margin." },
-      { id: 'B', text: "Require Product Owners to manually configure Kubernetes YAML manifests." },
-      { id: 'C', text: "Isolate Product Owners from technical cost discussions so they can focus only on feature design." },
-      { id: 'D', text: "Assume software product features generate zero cloud infrastructure costs." }
+      { id: 'B', text: "Assume software product features generate zero cloud infrastructure costs." },
+      { id: 'C', text: "Require Product Owners to manually configure Kubernetes YAML manifests." },
+      { id: 'D', text: "Isolate Product Owners from technical cost discussions so they can focus only on feature design." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,12 +30,12 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to align cloud infrastructure costs with commercial product features and customer revenue streams.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
-      { id: 'A', text: "Assume software product features generate zero cloud infrastructure costs." },
+      { id: 'A', text: "Require Product Owners to manually configure Kubernetes YAML manifests." },
       { id: 'B', text: "Isolate Product Owners from technical cost discussions so they can focus only on feature design." },
-      { id: 'C', text: "Require Product Owners to manually configure Kubernetes YAML manifests." },
-      { id: 'D', text: "Give product owners the cloud cost of each feature and its margin." }
+      { id: 'C', text: "Give product owners the cloud cost of each feature and its margin." },
+      { id: 'D', text: "Assume software product features generate zero cloud infrastructure costs." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Engage Product Owners: use unit economics to understand the cloud cost of delivering specific features and evaluate customer gross margins. Product Owners and Business Leaders bridge business strategy with cloud investments. In FinOps, they track unit economics (e.g., cloud cost per active user, margin per customer tier), ensuring that cloud investments directly contribute to profitable product growth.",
     referenceUrl: "https://www.finops.org/framework/personas/#product-owner",
@@ -52,9 +52,9 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Give product owners the cloud cost of each feature and its margin." },
-      { id: 'B', text: "Require Product Owners to manually configure Kubernetes YAML manifests." },
-      { id: 'C', text: "Isolate Product Owners from technical cost discussions so they can focus only on feature design." },
-      { id: 'D', text: "Assume software product features generate zero cloud infrastructure costs." }
+      { id: 'B', text: "Assume software product features generate zero cloud infrastructure costs." },
+      { id: 'C', text: "Require Product Owners to manually configure Kubernetes YAML manifests." },
+      { id: 'D', text: "Isolate Product Owners from technical cost discussions so they can focus only on feature design." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,12 +72,12 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to align cloud infrastructure costs with commercial product features and customer revenue streams.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
-      { id: 'A', text: "Isolate Product Owners from technical cost discussions so they can focus only on feature design." },
-      { id: 'B', text: "Require Product Owners to manually configure Kubernetes YAML manifests." },
-      { id: 'C', text: "Give product owners the cloud cost of each feature and its margin." },
-      { id: 'D', text: "Assume software product features generate zero cloud infrastructure costs." }
+      { id: 'A', text: "Require Product Owners to manually configure Kubernetes YAML manifests." },
+      { id: 'B', text: "Assume software product features generate zero cloud infrastructure costs." },
+      { id: 'C', text: "Isolate Product Owners from technical cost discussions so they can focus only on feature design." },
+      { id: 'D', text: "Give product owners the cloud cost of each feature and its margin." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Engage Product Owners: use unit economics to understand the cloud cost of delivering specific features and evaluate customer gross margins. Product Owners and Business Leaders bridge business strategy with cloud investments. In FinOps, they track unit economics (e.g., cloud cost per active user, margin per customer tier), ensuring that cloud investments directly contribute to profitable product growth.",
     referenceUrl: "https://www.finops.org/framework/personas/#product-owner",
@@ -93,12 +93,12 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to align cloud infrastructure costs with commercial product features and customer revenue streams.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
-      { id: 'A', text: "Require Product Owners to manually configure Kubernetes YAML manifests." },
+      { id: 'A', text: "Assume software product features generate zero cloud infrastructure costs." },
       { id: 'B', text: "Isolate Product Owners from technical cost discussions so they can focus only on feature design." },
-      { id: 'C', text: "Give product owners the cloud cost of each feature and its margin." },
-      { id: 'D', text: "Assume software product features generate zero cloud infrastructure costs." }
+      { id: 'C', text: "Require Product Owners to manually configure Kubernetes YAML manifests." },
+      { id: 'D', text: "Give product owners the cloud cost of each feature and its margin." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Engage Product Owners: use unit economics to understand the cloud cost of delivering specific features and evaluate customer gross margins. Product Owners and Business Leaders bridge business strategy with cloud investments. In FinOps, they track unit economics (e.g., cloud cost per active user, margin per customer tier), ensuring that cloud investments directly contribute to profitable product growth.",
     referenceUrl: "https://www.finops.org/framework/personas/#product-owner",
@@ -114,12 +114,12 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to present cloud financial management metrics to the CEO and Board of Directors effectively.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
-      { id: 'A', text: "Present a 200-page unformatted CSV billing file detailing every individual EC2 instance ID." },
-      { id: 'B', text: "Executive priorities: margin, predictability, growth and ROI." },
-      { id: 'C', text: "Hide cloud spending details to avoid executive oversight." },
-      { id: 'D', text: "Complain to the board that engineers are writing too many lines of code." }
+      { id: 'A', text: "Executive priorities: margin, predictability, growth and ROI." },
+      { id: 'B', text: "Present a 200-page unformatted CSV billing file detailing every individual EC2 instance ID." },
+      { id: 'C', text: "Complain to the board that engineers are writing too many lines of code." },
+      { id: 'D', text: "Hide cloud spending details to avoid executive oversight." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Focus on executive priorities: gross margins, cloud spend predictability, corporate growth velocity, and return on cloud investment (ROI). The Executive persona (CIO, CTO, CFO, VP) cares about strategic outcomes: gross margin health, market velocity, innovation agility, and spending predictability. FinOps provides executives with high-level governance, accountability, and assurance that cloud spend drives business value.",
     referenceUrl: "https://www.finops.org/framework/personas/#executives",
@@ -135,12 +135,12 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to present cloud financial management metrics to the CEO and Board of Directors effectively.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
-      { id: 'A', text: "Complain to the board that engineers are writing too many lines of code." },
-      { id: 'B', text: "Hide cloud spending details to avoid executive oversight." },
-      { id: 'C', text: "Executive priorities: margin, predictability, growth and ROI." },
-      { id: 'D', text: "Present a 200-page unformatted CSV billing file detailing every individual EC2 instance ID." }
+      { id: 'A', text: "Executive priorities: margin, predictability, growth and ROI." },
+      { id: 'B', text: "Present a 200-page unformatted CSV billing file detailing every individual EC2 instance ID." },
+      { id: 'C', text: "Complain to the board that engineers are writing too many lines of code." },
+      { id: 'D', text: "Hide cloud spending details to avoid executive oversight." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Focus on executive priorities: gross margins, cloud spend predictability, corporate growth velocity, and return on cloud investment (ROI). The Executive persona (CIO, CTO, CFO, VP) cares about strategic outcomes: gross margin health, market velocity, innovation agility, and spending predictability. FinOps provides executives with high-level governance, accountability, and assurance that cloud spend drives business value.",
     referenceUrl: "https://www.finops.org/framework/personas/#executives",
@@ -157,8 +157,8 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
       { id: 'A', text: "Executive priorities: margin, predictability, growth and ROI." },
-      { id: 'B', text: "Complain to the board that engineers are writing too many lines of code." },
-      { id: 'C', text: "Present a 200-page unformatted CSV billing file detailing every individual EC2 instance ID." },
+      { id: 'B', text: "Present a 200-page unformatted CSV billing file detailing every individual EC2 instance ID." },
+      { id: 'C', text: "Complain to the board that engineers are writing too many lines of code." },
       { id: 'D', text: "Hide cloud spending details to avoid executive oversight." }
     ],
     correctAnswers: ['A'],
@@ -177,12 +177,12 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to present cloud financial management metrics to the CEO and Board of Directors effectively.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
-      { id: 'A', text: "Hide cloud spending details to avoid executive oversight." },
-      { id: 'B', text: "Executive priorities: margin, predictability, growth and ROI." },
+      { id: 'A', text: "Present a 200-page unformatted CSV billing file detailing every individual EC2 instance ID." },
+      { id: 'B', text: "Hide cloud spending details to avoid executive oversight." },
       { id: 'C', text: "Complain to the board that engineers are writing too many lines of code." },
-      { id: 'D', text: "Present a 200-page unformatted CSV billing file detailing every individual EC2 instance ID." }
+      { id: 'D', text: "Executive priorities: margin, predictability, growth and ROI." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Focus on executive priorities: gross margins, cloud spend predictability, corporate growth velocity, and return on cloud investment (ROI). The Executive persona (CIO, CTO, CFO, VP) cares about strategic outcomes: gross margin health, market velocity, innovation agility, and spending predictability. FinOps provides executives with high-level governance, accountability, and assurance that cloud spend drives business value.",
     referenceUrl: "https://www.finops.org/framework/personas/#executives",
@@ -198,12 +198,12 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to present cloud financial management metrics to the CEO and Board of Directors effectively.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
-      { id: 'A', text: "Hide cloud spending details to avoid executive oversight." },
+      { id: 'A', text: "Executive priorities: margin, predictability, growth and ROI." },
       { id: 'B', text: "Present a 200-page unformatted CSV billing file detailing every individual EC2 instance ID." },
       { id: 'C', text: "Complain to the board that engineers are writing too many lines of code." },
-      { id: 'D', text: "Executive priorities: margin, predictability, growth and ROI." }
+      { id: 'D', text: "Hide cloud spending details to avoid executive oversight." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Focus on executive priorities: gross margins, cloud spend predictability, corporate growth velocity, and return on cloud investment (ROI). The Executive persona (CIO, CTO, CFO, VP) cares about strategic outcomes: gross margin health, market velocity, innovation agility, and spending predictability. FinOps provides executives with high-level governance, accountability, and assurance that cloud spend drives business value.",
     referenceUrl: "https://www.finops.org/framework/personas/#executives",
@@ -220,8 +220,8 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
       { id: 'A', text: "Organize around the six FinOps domains." },
-      { id: 'B', text: "Limit FinOps strictly to purchasing 3-year reserved instances." },
-      { id: 'C', text: "Organize solely around monthly bill cutting with no other functional capabilities." },
+      { id: 'B', text: "Organize solely around monthly bill cutting with no other functional capabilities." },
+      { id: 'C', text: "Limit FinOps strictly to purchasing 3-year reserved instances." },
       { id: 'D', text: "Treat FinOps as a software tool installation project that ends upon license deployment." }
     ],
     correctAnswers: ['A'],
@@ -240,12 +240,12 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to structure an enterprise FinOps program across the core functional domains established by the FinOps Foundation.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
-      { id: 'A', text: "Organize solely around monthly bill cutting with no other functional capabilities." },
-      { id: 'B', text: "Limit FinOps strictly to purchasing 3-year reserved instances." },
-      { id: 'C', text: "Organize around the six FinOps domains." },
+      { id: 'A', text: "Limit FinOps strictly to purchasing 3-year reserved instances." },
+      { id: 'B', text: "Organize around the six FinOps domains." },
+      { id: 'C', text: "Organize solely around monthly bill cutting with no other functional capabilities." },
       { id: 'D', text: "Treat FinOps as a software tool installation project that ends upon license deployment." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Organize around the FinOps Domains: Understand Cloud Usage & Cost, Performance Tracking & Benchmarking, Real-Time Decision Making, Rate Optimization, Usage Optimization, and Organizational Alignment. The FinOps Framework structures capabilities into functional domains: Understanding Cloud Usage & Cost (allocation, reporting), Performance Tracking & Benchmarking, Real-Time Decision Making, Rate Optimization (pricing, commitments), Usage Optimization (rightsizing, waste), and Organizational Alignment.",
     referenceUrl: "https://www.finops.org/framework/domains/",
@@ -261,12 +261,12 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to structure an enterprise FinOps program across the core functional domains established by the FinOps Foundation.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
-      { id: 'A', text: "Treat FinOps as a software tool installation project that ends upon license deployment." },
+      { id: 'A', text: "Organize around the six FinOps domains." },
       { id: 'B', text: "Organize solely around monthly bill cutting with no other functional capabilities." },
       { id: 'C', text: "Limit FinOps strictly to purchasing 3-year reserved instances." },
-      { id: 'D', text: "Organize around the six FinOps domains." }
+      { id: 'D', text: "Treat FinOps as a software tool installation project that ends upon license deployment." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Organize around the FinOps Domains: Understand Cloud Usage & Cost, Performance Tracking & Benchmarking, Real-Time Decision Making, Rate Optimization, Usage Optimization, and Organizational Alignment. The FinOps Framework structures capabilities into functional domains: Understanding Cloud Usage & Cost (allocation, reporting), Performance Tracking & Benchmarking, Real-Time Decision Making, Rate Optimization (pricing, commitments), Usage Optimization (rightsizing, waste), and Organizational Alignment.",
     referenceUrl: "https://www.finops.org/framework/domains/",
@@ -282,12 +282,12 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to structure an enterprise FinOps program across the core functional domains established by the FinOps Foundation.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
-      { id: 'A', text: "Organize solely around monthly bill cutting with no other functional capabilities." },
-      { id: 'B', text: "Treat FinOps as a software tool installation project that ends upon license deployment." },
+      { id: 'A', text: "Treat FinOps as a software tool installation project that ends upon license deployment." },
+      { id: 'B', text: "Organize around the six FinOps domains." },
       { id: 'C', text: "Limit FinOps strictly to purchasing 3-year reserved instances." },
-      { id: 'D', text: "Organize around the six FinOps domains." }
+      { id: 'D', text: "Organize solely around monthly bill cutting with no other functional capabilities." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Organize around the FinOps Domains: Understand Cloud Usage & Cost, Performance Tracking & Benchmarking, Real-Time Decision Making, Rate Optimization, Usage Optimization, and Organizational Alignment. The FinOps Framework structures capabilities into functional domains: Understanding Cloud Usage & Cost (allocation, reporting), Performance Tracking & Benchmarking, Real-Time Decision Making, Rate Optimization (pricing, commitments), Usage Optimization (rightsizing, waste), and Organizational Alignment.",
     referenceUrl: "https://www.finops.org/framework/domains/",
@@ -303,12 +303,12 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to structure an enterprise FinOps program across the core functional domains established by the FinOps Foundation.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
-      { id: 'A', text: "Treat FinOps as a software tool installation project that ends upon license deployment." },
-      { id: 'B', text: "Organize around the six FinOps domains." },
-      { id: 'C', text: "Organize solely around monthly bill cutting with no other functional capabilities." },
-      { id: 'D', text: "Limit FinOps strictly to purchasing 3-year reserved instances." }
+      { id: 'A', text: "Limit FinOps strictly to purchasing 3-year reserved instances." },
+      { id: 'B', text: "Treat FinOps as a software tool installation project that ends upon license deployment." },
+      { id: 'C', text: "Organize around the six FinOps domains." },
+      { id: 'D', text: "Organize solely around monthly bill cutting with no other functional capabilities." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Organize around the FinOps Domains: Understand Cloud Usage & Cost, Performance Tracking & Benchmarking, Real-Time Decision Making, Rate Optimization, Usage Optimization, and Organizational Alignment. The FinOps Framework structures capabilities into functional domains: Understanding Cloud Usage & Cost (allocation, reporting), Performance Tracking & Benchmarking, Real-Time Decision Making, Rate Optimization (pricing, commitments), Usage Optimization (rightsizing, waste), and Organizational Alignment.",
     referenceUrl: "https://www.finops.org/framework/domains/",
@@ -324,12 +324,12 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to establish a sustainable institutional governance body that coordinates cloud architecture, financial standards, and security.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
-      { id: 'A', text: "Create a bureaucratic committee that meets once a year to approve software purchases." },
-      { id: 'B', text: "A Cloud Center of Excellence spanning those disciplines." },
-      { id: 'C', text: "Assign all cloud governance responsibilities to a single part-time junior developer." },
+      { id: 'A', text: "Assign all cloud governance responsibilities to a single part-time junior developer." },
+      { id: 'B', text: "Create a bureaucratic committee that meets once a year to approve software purchases." },
+      { id: 'C', text: "A Cloud Center of Excellence spanning those disciplines." },
       { id: 'D', text: "Ban cross-functional communication between technical and financial departments." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Establish a Cloud Center of Excellence (CCoE) incorporating FinOps practitioners, cloud architects, finance leads, and security engineers. A Cloud Center of Excellence (CCoE) is a cross-functional governing body that leads cloud adoption. Embedding FinOps within the CCoE ensures financial accountability is architected into core platform standards, landing zones, security baselines, and developer training.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -366,12 +366,12 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to establish a sustainable institutional governance body that coordinates cloud architecture, financial standards, and security.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
-      { id: 'A', text: "Assign all cloud governance responsibilities to a single part-time junior developer." },
-      { id: 'B', text: "Create a bureaucratic committee that meets once a year to approve software purchases." },
-      { id: 'C', text: "Ban cross-functional communication between technical and financial departments." },
-      { id: 'D', text: "A Cloud Center of Excellence spanning those disciplines." }
+      { id: 'A', text: "Create a bureaucratic committee that meets once a year to approve software purchases." },
+      { id: 'B', text: "Ban cross-functional communication between technical and financial departments." },
+      { id: 'C', text: "A Cloud Center of Excellence spanning those disciplines." },
+      { id: 'D', text: "Assign all cloud governance responsibilities to a single part-time junior developer." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Establish a Cloud Center of Excellence (CCoE) incorporating FinOps practitioners, cloud architects, finance leads, and security engineers. A Cloud Center of Excellence (CCoE) is a cross-functional governing body that leads cloud adoption. Embedding FinOps within the CCoE ensures financial accountability is architected into core platform standards, landing zones, security baselines, and developer training.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -408,12 +408,12 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to establish a sustainable institutional governance body that coordinates cloud architecture, financial standards, and security.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
-      { id: 'A', text: "Ban cross-functional communication between technical and financial departments." },
+      { id: 'A', text: "A Cloud Center of Excellence spanning those disciplines." },
       { id: 'B', text: "Assign all cloud governance responsibilities to a single part-time junior developer." },
       { id: 'C', text: "Create a bureaucratic committee that meets once a year to approve software purchases." },
-      { id: 'D', text: "A Cloud Center of Excellence spanning those disciplines." }
+      { id: 'D', text: "Ban cross-functional communication between technical and financial departments." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Establish a Cloud Center of Excellence (CCoE) incorporating FinOps practitioners, cloud architects, finance leads, and security engineers. A Cloud Center of Excellence (CCoE) is a cross-functional governing body that leads cloud adoption. Embedding FinOps within the CCoE ensures financial accountability is architected into core platform standards, landing zones, security baselines, and developer training.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -429,12 +429,12 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to ensure optimization recommendations (like rightsizing and deleting zombies) actually get prioritized into engineering backlogs.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
-      { id: 'A', text: "Create a completely separate 50-step financial approval ticketing process that halts developer sprints." },
-      { id: 'B', text: "Include cost debt in sprint planning and review spend in retrospectives and monthly reviews." },
-      { id: 'C', text: "Email giant spreadsheets to developers and assume tasks will be completed without backlog prioritization." },
-      { id: 'D', text: "Expect engineers to volunteer their personal weekend time to perform cost cleanups outside of sprint backlogs." }
+      { id: 'A', text: "Include cost debt in sprint planning and review spend in retrospectives and monthly reviews." },
+      { id: 'B', text: "Create a completely separate 50-step financial approval ticketing process that halts developer sprints." },
+      { id: 'C', text: "Expect engineers to volunteer their personal weekend time to perform cost cleanups outside of sprint backlogs." },
+      { id: 'D', text: "Email giant spreadsheets to developers and assume tasks will be completed without backlog prioritization." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Integrate FinOps into existing agile cadences: include cost debt in sprint planning, review spend in retrospectives, and hold monthly reviews. Actioning FinOps insights requires meeting engineers where they work. Integrating cost discussions into existing agile rituals (sprint planning, backlog grooming, retrospectives) ensures that technical debt and financial optimization are prioritized alongside product features.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -450,12 +450,12 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to ensure optimization recommendations (like rightsizing and deleting zombies) actually get prioritized into engineering backlogs.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
-      { id: 'A', text: "Email giant spreadsheets to developers and assume tasks will be completed without backlog prioritization." },
-      { id: 'B', text: "Include cost debt in sprint planning and review spend in retrospectives and monthly reviews." },
-      { id: 'C', text: "Create a completely separate 50-step financial approval ticketing process that halts developer sprints." },
-      { id: 'D', text: "Expect engineers to volunteer their personal weekend time to perform cost cleanups outside of sprint backlogs." }
+      { id: 'A', text: "Expect engineers to volunteer their personal weekend time to perform cost cleanups outside of sprint backlogs." },
+      { id: 'B', text: "Email giant spreadsheets to developers and assume tasks will be completed without backlog prioritization." },
+      { id: 'C', text: "Include cost debt in sprint planning and review spend in retrospectives and monthly reviews." },
+      { id: 'D', text: "Create a completely separate 50-step financial approval ticketing process that halts developer sprints." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Integrate FinOps into existing agile cadences: include cost debt in sprint planning, review spend in retrospectives, and hold monthly reviews. Actioning FinOps insights requires meeting engineers where they work. Integrating cost discussions into existing agile rituals (sprint planning, backlog grooming, retrospectives) ensures that technical debt and financial optimization are prioritized alongside product features.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -471,12 +471,12 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to ensure optimization recommendations (like rightsizing and deleting zombies) actually get prioritized into engineering backlogs.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
-      { id: 'A', text: "Create a completely separate 50-step financial approval ticketing process that halts developer sprints." },
-      { id: 'B', text: "Expect engineers to volunteer their personal weekend time to perform cost cleanups outside of sprint backlogs." },
-      { id: 'C', text: "Email giant spreadsheets to developers and assume tasks will be completed without backlog prioritization." },
-      { id: 'D', text: "Include cost debt in sprint planning and review spend in retrospectives and monthly reviews." }
+      { id: 'A', text: "Expect engineers to volunteer their personal weekend time to perform cost cleanups outside of sprint backlogs." },
+      { id: 'B', text: "Email giant spreadsheets to developers and assume tasks will be completed without backlog prioritization." },
+      { id: 'C', text: "Include cost debt in sprint planning and review spend in retrospectives and monthly reviews." },
+      { id: 'D', text: "Create a completely separate 50-step financial approval ticketing process that halts developer sprints." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Integrate FinOps into existing agile cadences: include cost debt in sprint planning, review spend in retrospectives, and hold monthly reviews. Actioning FinOps insights requires meeting engineers where they work. Integrating cost discussions into existing agile rituals (sprint planning, backlog grooming, retrospectives) ensures that technical debt and financial optimization are prioritized alongside product features.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -493,8 +493,8 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Include cost debt in sprint planning and review spend in retrospectives and monthly reviews." },
-      { id: 'B', text: "Expect engineers to volunteer their personal weekend time to perform cost cleanups outside of sprint backlogs." },
-      { id: 'C', text: "Create a completely separate 50-step financial approval ticketing process that halts developer sprints." },
+      { id: 'B', text: "Create a completely separate 50-step financial approval ticketing process that halts developer sprints." },
+      { id: 'C', text: "Expect engineers to volunteer their personal weekend time to perform cost cleanups outside of sprint backlogs." },
       { id: 'D', text: "Email giant spreadsheets to developers and assume tasks will be completed without backlog prioritization." }
     ],
     correctAnswers: ['A'],
@@ -513,12 +513,12 @@ export const FINOPS_FOCP_QUESTIONS_16 = [
     scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to ensure optimization recommendations (like rightsizing and deleting zombies) actually get prioritized into engineering backlogs.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
-      { id: 'A', text: "Email giant spreadsheets to developers and assume tasks will be completed without backlog prioritization." },
+      { id: 'A', text: "Include cost debt in sprint planning and review spend in retrospectives and monthly reviews." },
       { id: 'B', text: "Create a completely separate 50-step financial approval ticketing process that halts developer sprints." },
       { id: 'C', text: "Expect engineers to volunteer their personal weekend time to perform cost cleanups outside of sprint backlogs." },
-      { id: 'D', text: "Include cost debt in sprint planning and review spend in retrospectives and monthly reviews." }
+      { id: 'D', text: "Email giant spreadsheets to developers and assume tasks will be completed without backlog prioritization." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Integrate FinOps into existing agile cadences: include cost debt in sprint planning, review spend in retrospectives, and hold monthly reviews. Actioning FinOps insights requires meeting engineers where they work. Integrating cost discussions into existing agile rituals (sprint planning, backlog grooming, retrospectives) ensures that technical debt and financial optimization are prioritized alongside product features.",
     referenceUrl: "https://www.finops.org/framework/",

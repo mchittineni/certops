@@ -9,12 +9,12 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates AWS IAM to grant temporary, secure access to an Amazon EC2 instance to read objects from an Amazon S3 bucket without storing long-term AWS access keys on the instance.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Create an IAM Group and add the EC2 instance IP address to the group." },
+      { id: 'A', text: "Configure the S3 bucket with public read access." },
       { id: 'B', text: "Create an IAM User, generate an access key and secret key, and paste them into a text file on the EC2 instance." },
-      { id: 'C', text: "Create an IAM Role with an S3 read policy, attach it to an EC2 instance profile, and assign the profile to the EC2 instance." },
-      { id: 'D', text: "Configure the S3 bucket with public read access." }
+      { id: 'C', text: "Create an IAM Group and add the EC2 instance IP address to the group." },
+      { id: 'D', text: "Create an IAM Role with an S3 read policy, attach it to an EC2 instance profile, and assign the profile to the EC2 instance." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create an IAM Role with an S3 read policy, attach it to an EC2 instance profile, and assign the profile to the EC2 instance. An IAM Role is an IAM identity that you can create in your account that has specific permissions but is not associated with a specific person. Applications running on Amazon EC2 assume an IAM role via instance profiles to obtain temporary, automatically rotated security credentials, eliminating the danger of hardcoding access keys.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html",
@@ -30,12 +30,12 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates AWS IAM to grant temporary, secure access to an Amazon EC2 instance to read objects from an Amazon S3 bucket without storing long-term AWS access keys on the instance.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Configure the S3 bucket with public read access." },
-      { id: 'B', text: "Create an IAM Role with an S3 read policy, attach it to an EC2 instance profile, and assign the profile to the EC2 instance." },
-      { id: 'C', text: "Create an IAM User, generate an access key and secret key, and paste them into a text file on the EC2 instance." },
+      { id: 'A', text: "Create an IAM User, generate an access key and secret key, and paste them into a text file on the EC2 instance." },
+      { id: 'B', text: "Configure the S3 bucket with public read access." },
+      { id: 'C', text: "Create an IAM Role with an S3 read policy, attach it to an EC2 instance profile, and assign the profile to the EC2 instance." },
       { id: 'D', text: "Create an IAM Group and add the EC2 instance IP address to the group." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create an IAM Role with an S3 read policy, attach it to an EC2 instance profile, and assign the profile to the EC2 instance. An IAM Role is an IAM identity that you can create in your account that has specific permissions but is not associated with a specific person. Applications running on Amazon EC2 assume an IAM role via instance profiles to obtain temporary, automatically rotated security credentials, eliminating the danger of hardcoding access keys.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html",
@@ -51,12 +51,12 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates AWS IAM to grant temporary, secure access to an Amazon EC2 instance to read objects from an Amazon S3 bucket without storing long-term AWS access keys on the instance.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Create an IAM User, generate an access key and secret key, and paste them into a text file on the EC2 instance." },
-      { id: 'B', text: "Create an IAM Group and add the EC2 instance IP address to the group." },
+      { id: 'A', text: "Create an IAM Group and add the EC2 instance IP address to the group." },
+      { id: 'B', text: "Create an IAM Role with an S3 read policy, attach it to an EC2 instance profile, and assign the profile to the EC2 instance." },
       { id: 'C', text: "Configure the S3 bucket with public read access." },
-      { id: 'D', text: "Create an IAM Role with an S3 read policy, attach it to an EC2 instance profile, and assign the profile to the EC2 instance." }
+      { id: 'D', text: "Create an IAM User, generate an access key and secret key, and paste them into a text file on the EC2 instance." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create an IAM Role with an S3 read policy, attach it to an EC2 instance profile, and assign the profile to the EC2 instance. An IAM Role is an IAM identity that you can create in your account that has specific permissions but is not associated with a specific person. Applications running on Amazon EC2 assume an IAM role via instance profiles to obtain temporary, automatically rotated security credentials, eliminating the danger of hardcoding access keys.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html",
@@ -94,8 +94,8 @@ export const AWS_CLF_QUESTIONS_14 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Create an IAM Role with an S3 read policy, attach it to an EC2 instance profile, and assign the profile to the EC2 instance." },
-      { id: 'B', text: "Configure the S3 bucket with public read access." },
-      { id: 'C', text: "Create an IAM User, generate an access key and secret key, and paste them into a text file on the EC2 instance." },
+      { id: 'B', text: "Create an IAM User, generate an access key and secret key, and paste them into a text file on the EC2 instance." },
+      { id: 'C', text: "Configure the S3 bucket with public read access." },
       { id: 'D', text: "Create an IAM Group and add the EC2 instance IP address to the group." }
     ],
     correctAnswers: ['A'],
@@ -115,9 +115,9 @@ export const AWS_CLF_QUESTIONS_14 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Enable MFA on the root user, delete its access keys, and use an admin IAM user." },
-      { id: 'B', text: "Disable password complexity requirements on the root user." },
-      { id: 'C', text: "Generate access keys for the root user and share them with all development team leads." },
-      { id: 'D', text: "Use the root user credentials for daily application deployment and database administration." }
+      { id: 'B', text: "Use the root user credentials for daily application deployment and database administration." },
+      { id: 'C', text: "Disable password complexity requirements on the root user." },
+      { id: 'D', text: "Generate access keys for the root user and share them with all development team leads." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,12 +135,12 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates AWS IAM to secure the AWS account root user following official AWS security best practices immediately after creating a new AWS account.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Generate access keys for the root user and share them with all development team leads." },
-      { id: 'B', text: "Enable MFA on the root user, delete its access keys, and use an admin IAM user." },
-      { id: 'C', text: "Disable password complexity requirements on the root user." },
-      { id: 'D', text: "Use the root user credentials for daily application deployment and database administration." }
+      { id: 'A', text: "Enable MFA on the root user, delete its access keys, and use an admin IAM user." },
+      { id: 'B', text: "Generate access keys for the root user and share them with all development team leads." },
+      { id: 'C', text: "Use the root user credentials for daily application deployment and database administration." },
+      { id: 'D', text: "Disable password complexity requirements on the root user." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Enable hardware or virtual Multi-Factor Authentication (MFA) on the root user, lock away root credentials, delete root access keys, and create an administrative IAM user for daily tasks. The AWS account root user has complete, unrestricted access to all resources in the account. Best practices mandate enabling MFA on the root account immediately, deleting any access keys for root, and creating dedicated IAM users or roles with least privilege for day-to-day administrative tasks.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html",
@@ -157,8 +157,8 @@ export const AWS_CLF_QUESTIONS_14 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Enable MFA on the root user, delete its access keys, and use an admin IAM user." },
-      { id: 'B', text: "Use the root user credentials for daily application deployment and database administration." },
-      { id: 'C', text: "Generate access keys for the root user and share them with all development team leads." },
+      { id: 'B', text: "Generate access keys for the root user and share them with all development team leads." },
+      { id: 'C', text: "Use the root user credentials for daily application deployment and database administration." },
       { id: 'D', text: "Disable password complexity requirements on the root user." }
     ],
     correctAnswers: ['A'],
@@ -177,12 +177,12 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates AWS IAM to secure the AWS account root user following official AWS security best practices immediately after creating a new AWS account.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Use the root user credentials for daily application deployment and database administration." },
-      { id: 'B', text: "Enable MFA on the root user, delete its access keys, and use an admin IAM user." },
-      { id: 'C', text: "Disable password complexity requirements on the root user." },
-      { id: 'D', text: "Generate access keys for the root user and share them with all development team leads." }
+      { id: 'A', text: "Disable password complexity requirements on the root user." },
+      { id: 'B', text: "Use the root user credentials for daily application deployment and database administration." },
+      { id: 'C', text: "Generate access keys for the root user and share them with all development team leads." },
+      { id: 'D', text: "Enable MFA on the root user, delete its access keys, and use an admin IAM user." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable hardware or virtual Multi-Factor Authentication (MFA) on the root user, lock away root credentials, delete root access keys, and create an administrative IAM user for daily tasks. The AWS account root user has complete, unrestricted access to all resources in the account. Best practices mandate enabling MFA on the root account immediately, deleting any access keys for root, and creating dedicated IAM users or roles with least privilege for day-to-day administrative tasks.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html",
@@ -199,9 +199,9 @@ export const AWS_CLF_QUESTIONS_14 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Enable MFA on the root user, delete its access keys, and use an admin IAM user." },
-      { id: 'B', text: "Disable password complexity requirements on the root user." },
-      { id: 'C', text: "Generate access keys for the root user and share them with all development team leads." },
-      { id: 'D', text: "Use the root user credentials for daily application deployment and database administration." }
+      { id: 'B', text: "Use the root user credentials for daily application deployment and database administration." },
+      { id: 'C', text: "Disable password complexity requirements on the root user." },
+      { id: 'D', text: "Generate access keys for the root user and share them with all development team leads." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,12 +219,12 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates AWS IAM to protect privileged user accounts by requiring a second authentication factor in addition to a standard username and password.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Require users to change their password every 24 hours." },
-      { id: 'B', text: "Restrict console sign-ins to corporate VPN IP addresses only without second-factor authentication." },
+      { id: 'A', text: "Restrict console sign-ins to corporate VPN IP addresses only without second-factor authentication." },
+      { id: 'B', text: "Enable Multi-Factor Authentication (MFA) using a FIDO security key, hardware TOTP token, or virtual authenticator app." },
       { id: 'C', text: "Require passwords to contain at least 50 characters." },
-      { id: 'D', text: "Enable Multi-Factor Authentication (MFA) using a FIDO security key, hardware TOTP token, or virtual authenticator app." }
+      { id: 'D', text: "Require users to change their password every 24 hours." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Multi-Factor Authentication (MFA) using a FIDO security key, hardware TOTP token, or virtual authenticator app. Multi-Factor Authentication (MFA) adds an extra layer of protection on top of a username and password. With MFA enabled, when a user signs in to the AWS Management Console, they must provide their password and an authentication code from their physical or virtual MFA device.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html",
@@ -240,12 +240,12 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates AWS IAM to protect privileged user accounts by requiring a second authentication factor in addition to a standard username and password.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Require users to change their password every 24 hours." },
-      { id: 'B', text: "Restrict console sign-ins to corporate VPN IP addresses only without second-factor authentication." },
-      { id: 'C', text: "Enable Multi-Factor Authentication (MFA) using a FIDO security key, hardware TOTP token, or virtual authenticator app." },
-      { id: 'D', text: "Require passwords to contain at least 50 characters." }
+      { id: 'A', text: "Restrict console sign-ins to corporate VPN IP addresses only without second-factor authentication." },
+      { id: 'B', text: "Require passwords to contain at least 50 characters." },
+      { id: 'C', text: "Require users to change their password every 24 hours." },
+      { id: 'D', text: "Enable Multi-Factor Authentication (MFA) using a FIDO security key, hardware TOTP token, or virtual authenticator app." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable Multi-Factor Authentication (MFA) using a FIDO security key, hardware TOTP token, or virtual authenticator app. Multi-Factor Authentication (MFA) adds an extra layer of protection on top of a username and password. With MFA enabled, when a user signs in to the AWS Management Console, they must provide their password and an authentication code from their physical or virtual MFA device.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html",
@@ -261,12 +261,12 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates AWS IAM to protect privileged user accounts by requiring a second authentication factor in addition to a standard username and password.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Require passwords to contain at least 50 characters." },
+      { id: 'A', text: "Enable Multi-Factor Authentication (MFA) using a FIDO security key, hardware TOTP token, or virtual authenticator app." },
       { id: 'B', text: "Require users to change their password every 24 hours." },
-      { id: 'C', text: "Enable Multi-Factor Authentication (MFA) using a FIDO security key, hardware TOTP token, or virtual authenticator app." },
+      { id: 'C', text: "Require passwords to contain at least 50 characters." },
       { id: 'D', text: "Restrict console sign-ins to corporate VPN IP addresses only without second-factor authentication." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Enable Multi-Factor Authentication (MFA) using a FIDO security key, hardware TOTP token, or virtual authenticator app. Multi-Factor Authentication (MFA) adds an extra layer of protection on top of a username and password. With MFA enabled, when a user signs in to the AWS Management Console, they must provide their password and an authentication code from their physical or virtual MFA device.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html",
@@ -282,12 +282,12 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates AWS IAM to protect privileged user accounts by requiring a second authentication factor in addition to a standard username and password.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Restrict console sign-ins to corporate VPN IP addresses only without second-factor authentication." },
-      { id: 'B', text: "Enable Multi-Factor Authentication (MFA) using a FIDO security key, hardware TOTP token, or virtual authenticator app." },
-      { id: 'C', text: "Require users to change their password every 24 hours." },
-      { id: 'D', text: "Require passwords to contain at least 50 characters." }
+      { id: 'A', text: "Require passwords to contain at least 50 characters." },
+      { id: 'B', text: "Restrict console sign-ins to corporate VPN IP addresses only without second-factor authentication." },
+      { id: 'C', text: "Enable Multi-Factor Authentication (MFA) using a FIDO security key, hardware TOTP token, or virtual authenticator app." },
+      { id: 'D', text: "Require users to change their password every 24 hours." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Multi-Factor Authentication (MFA) using a FIDO security key, hardware TOTP token, or virtual authenticator app. Multi-Factor Authentication (MFA) adds an extra layer of protection on top of a username and password. With MFA enabled, when a user signs in to the AWS Management Console, they must provide their password and an authentication code from their physical or virtual MFA device.",
     referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html",
@@ -304,9 +304,9 @@ export const AWS_CLF_QUESTIONS_14 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Enable Multi-Factor Authentication (MFA) using a FIDO security key, hardware TOTP token, or virtual authenticator app." },
-      { id: 'B', text: "Restrict console sign-ins to corporate VPN IP addresses only without second-factor authentication." },
-      { id: 'C', text: "Require users to change their password every 24 hours." },
-      { id: 'D', text: "Require passwords to contain at least 50 characters." }
+      { id: 'B', text: "Require passwords to contain at least 50 characters." },
+      { id: 'C', text: "Restrict console sign-ins to corporate VPN IP addresses only without second-factor authentication." },
+      { id: 'D', text: "Require users to change their password every 24 hours." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -325,9 +325,9 @@ export const AWS_CLF_QUESTIONS_14 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Security groups are stateful and allow-only at the interface; network ACLs are stateless at the subnet." },
-      { id: 'B', text: "Security Groups evaluate rules in strict numerical order, while Network ACLs evaluate all rules simultaneously." },
-      { id: 'C', text: "Security Groups are stateless and support Deny rules; Network ACLs are stateful and support Allow rules only." },
-      { id: 'D', text: "Security Groups operate at the subnet level, while Network ACLs operate at the instance level." }
+      { id: 'B', text: "Security Groups operate at the subnet level, while Network ACLs operate at the instance level." },
+      { id: 'C', text: "Security Groups evaluate rules in strict numerical order, while Network ACLs evaluate all rules simultaneously." },
+      { id: 'D', text: "Security Groups are stateless and support Deny rules; Network ACLs are stateful and support Allow rules only." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,12 +345,12 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The organization evaluates Amazon VPC to compare the operational behavior of Amazon VPC Security Groups and Network Access Control Lists (NACLs).",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Security Groups evaluate rules in strict numerical order, while Network ACLs evaluate all rules simultaneously." },
+      { id: 'A', text: "Security groups are stateful and allow-only at the interface; network ACLs are stateless at the subnet." },
       { id: 'B', text: "Security Groups are stateless and support Deny rules; Network ACLs are stateful and support Allow rules only." },
       { id: 'C', text: "Security Groups operate at the subnet level, while Network ACLs operate at the instance level." },
-      { id: 'D', text: "Security groups are stateful and allow-only at the interface; network ACLs are stateless at the subnet." }
+      { id: 'D', text: "Security Groups evaluate rules in strict numerical order, while Network ACLs evaluate all rules simultaneously." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Security Groups are stateful firewalls evaluated at the instance network interface level that only support Allow rules; Network ACLs are stateless firewalls evaluated at the subnet level that support both Allow and Deny rules. Security Groups act as stateful firewalls for EC2 instances—if an inbound request is permitted, return traffic is automatically allowed regardless of outbound rules. Network ACLs act as stateless firewalls for subnets, requiring explicit inbound and outbound rules, and evaluate rules in numerical order with support for explicit Deny rules.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html",
@@ -366,12 +366,12 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates Amazon VPC to compare the operational behavior of Amazon VPC Security Groups and Network Access Control Lists (NACLs).",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Security Groups evaluate rules in strict numerical order, while Network ACLs evaluate all rules simultaneously." },
-      { id: 'B', text: "Security Groups operate at the subnet level, while Network ACLs operate at the instance level." },
-      { id: 'C', text: "Security Groups are stateless and support Deny rules; Network ACLs are stateful and support Allow rules only." },
-      { id: 'D', text: "Security groups are stateful and allow-only at the interface; network ACLs are stateless at the subnet." }
+      { id: 'A', text: "Security groups are stateful and allow-only at the interface; network ACLs are stateless at the subnet." },
+      { id: 'B', text: "Security Groups are stateless and support Deny rules; Network ACLs are stateful and support Allow rules only." },
+      { id: 'C', text: "Security Groups operate at the subnet level, while Network ACLs operate at the instance level." },
+      { id: 'D', text: "Security Groups evaluate rules in strict numerical order, while Network ACLs evaluate all rules simultaneously." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Security Groups are stateful firewalls evaluated at the instance network interface level that only support Allow rules; Network ACLs are stateless firewalls evaluated at the subnet level that support both Allow and Deny rules. Security Groups act as stateful firewalls for EC2 instances—if an inbound request is permitted, return traffic is automatically allowed regardless of outbound rules. Network ACLs act as stateless firewalls for subnets, requiring explicit inbound and outbound rules, and evaluate rules in numerical order with support for explicit Deny rules.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html",
@@ -408,12 +408,12 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates Amazon VPC to compare the operational behavior of Amazon VPC Security Groups and Network Access Control Lists (NACLs).",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Security Groups are stateless and support Deny rules; Network ACLs are stateful and support Allow rules only." },
-      { id: 'B', text: "Security Groups evaluate rules in strict numerical order, while Network ACLs evaluate all rules simultaneously." },
-      { id: 'C', text: "Security groups are stateful and allow-only at the interface; network ACLs are stateless at the subnet." },
-      { id: 'D', text: "Security Groups operate at the subnet level, while Network ACLs operate at the instance level." }
+      { id: 'A', text: "Security Groups evaluate rules in strict numerical order, while Network ACLs evaluate all rules simultaneously." },
+      { id: 'B', text: "Security Groups operate at the subnet level, while Network ACLs operate at the instance level." },
+      { id: 'C', text: "Security Groups are stateless and support Deny rules; Network ACLs are stateful and support Allow rules only." },
+      { id: 'D', text: "Security groups are stateful and allow-only at the interface; network ACLs are stateless at the subnet." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Security Groups are stateful firewalls evaluated at the instance network interface level that only support Allow rules; Network ACLs are stateless firewalls evaluated at the subnet level that support both Allow and Deny rules. Security Groups act as stateful firewalls for EC2 instances—if an inbound request is permitted, return traffic is automatically allowed regardless of outbound rules. Network ACLs act as stateless firewalls for subnets, requiring explicit inbound and outbound rules, and evaluate rules in numerical order with support for explicit Deny rules.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html",
@@ -429,12 +429,12 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The organization evaluates AWS KMS to manage encryption keys and protect sensitive data stored in Amazon S3, Amazon EBS, and Amazon RDS with automated cryptographic key management.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Rely on operating system passwords to encrypt hard disk drives." },
+      { id: 'A', text: "Store encryption keys in plaintext files inside an Amazon S3 bucket." },
       { id: 'B', text: "Write custom symmetric encryption algorithms inside application code." },
-      { id: 'C', text: "Use AWS KMS to create and rotate keys for encryption at rest." },
-      { id: 'D', text: "Store encryption keys in plaintext files inside an Amazon S3 bucket." }
+      { id: 'C', text: "Rely on operating system passwords to encrypt hard disk drives." },
+      { id: 'D', text: "Use AWS KMS to create and rotate keys for encryption at rest." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use AWS Key Management Service (KMS) to create, rotate, and manage cryptographic keys for transparent encryption at rest. AWS Key Management Service (KMS) is a fully managed service that makes it easy to create and manage cryptographic keys used to encrypt data across AWS services and applications. KMS integrates with AWS CloudTrail to log all key usage for regulatory compliance.",
     referenceUrl: "https://aws.amazon.com/kms/",
@@ -452,8 +452,8 @@ export const AWS_CLF_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Use AWS KMS to create and rotate keys for encryption at rest." },
       { id: 'B', text: "Write custom symmetric encryption algorithms inside application code." },
-      { id: 'C', text: "Rely on operating system passwords to encrypt hard disk drives." },
-      { id: 'D', text: "Store encryption keys in plaintext files inside an Amazon S3 bucket." }
+      { id: 'C', text: "Store encryption keys in plaintext files inside an Amazon S3 bucket." },
+      { id: 'D', text: "Rely on operating system passwords to encrypt hard disk drives." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,12 +471,12 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The organization evaluates AWS KMS to manage encryption keys and protect sensitive data stored in Amazon S3, Amazon EBS, and Amazon RDS with automated cryptographic key management.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Store encryption keys in plaintext files inside an Amazon S3 bucket." },
-      { id: 'B', text: "Use AWS KMS to create and rotate keys for encryption at rest." },
-      { id: 'C', text: "Write custom symmetric encryption algorithms inside application code." },
+      { id: 'A', text: "Write custom symmetric encryption algorithms inside application code." },
+      { id: 'B', text: "Store encryption keys in plaintext files inside an Amazon S3 bucket." },
+      { id: 'C', text: "Use AWS KMS to create and rotate keys for encryption at rest." },
       { id: 'D', text: "Rely on operating system passwords to encrypt hard disk drives." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use AWS Key Management Service (KMS) to create, rotate, and manage cryptographic keys for transparent encryption at rest. AWS Key Management Service (KMS) is a fully managed service that makes it easy to create and manage cryptographic keys used to encrypt data across AWS services and applications. KMS integrates with AWS CloudTrail to log all key usage for regulatory compliance.",
     referenceUrl: "https://aws.amazon.com/kms/",
@@ -492,12 +492,12 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to the AWS Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The organization evaluates AWS KMS to manage encryption keys and protect sensitive data stored in Amazon S3, Amazon EBS, and Amazon RDS with automated cryptographic key management.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Store encryption keys in plaintext files inside an Amazon S3 bucket." },
+      { id: 'A', text: "Use AWS KMS to create and rotate keys for encryption at rest." },
       { id: 'B', text: "Write custom symmetric encryption algorithms inside application code." },
-      { id: 'C', text: "Use AWS KMS to create and rotate keys for encryption at rest." },
+      { id: 'C', text: "Store encryption keys in plaintext files inside an Amazon S3 bucket." },
       { id: 'D', text: "Rely on operating system passwords to encrypt hard disk drives." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Use AWS Key Management Service (KMS) to create, rotate, and manage cryptographic keys for transparent encryption at rest. AWS Key Management Service (KMS) is a fully managed service that makes it easy to create and manage cryptographic keys used to encrypt data across AWS services and applications. KMS integrates with AWS CloudTrail to log all key usage for regulatory compliance.",
     referenceUrl: "https://aws.amazon.com/kms/",
@@ -513,12 +513,12 @@ export const AWS_CLF_QUESTIONS_14 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The organization evaluates AWS KMS to manage encryption keys and protect sensitive data stored in Amazon S3, Amazon EBS, and Amazon RDS with automated cryptographic key management.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Store encryption keys in plaintext files inside an Amazon S3 bucket." },
+      { id: 'A', text: "Rely on operating system passwords to encrypt hard disk drives." },
       { id: 'B', text: "Write custom symmetric encryption algorithms inside application code." },
-      { id: 'C', text: "Rely on operating system passwords to encrypt hard disk drives." },
-      { id: 'D', text: "Use AWS KMS to create and rotate keys for encryption at rest." }
+      { id: 'C', text: "Use AWS KMS to create and rotate keys for encryption at rest." },
+      { id: 'D', text: "Store encryption keys in plaintext files inside an Amazon S3 bucket." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use AWS Key Management Service (KMS) to create, rotate, and manage cryptographic keys for transparent encryption at rest. AWS Key Management Service (KMS) is a fully managed service that makes it easy to create and manage cryptographic keys used to encrypt data across AWS services and applications. KMS integrates with AWS CloudTrail to log all key usage for regulatory compliance.",
     referenceUrl: "https://aws.amazon.com/kms/",

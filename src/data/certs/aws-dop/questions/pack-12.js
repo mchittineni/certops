@@ -9,12 +9,12 @@ export const AWS_DOP_QUESTIONS_12 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to execute relational database schema migrations automatically during deployment without causing downtime or query errors for active application instances.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Run SQL alter statements directly on the production database master during peak traffic." },
-      { id: 'B', text: "Never alter database schemas to avoid breaking running applications." },
+      { id: 'A', text: "Never alter database schemas to avoid breaking running applications." },
+      { id: 'B', text: "Trigger database migrations via an AWS Lambda function or AWS Step Functions state machine using the Expand/Contract (Parallel Run) pattern before routing traffic to new code." },
       { id: 'C', text: "Shut down all application servers for 6 hours while executing manual migration scripts." },
-      { id: 'D', text: "Trigger database migrations via an AWS Lambda function or AWS Step Functions state machine using the Expand/Contract (Parallel Run) pattern before routing traffic to new code." }
+      { id: 'D', text: "Run SQL alter statements directly on the production database master during peak traffic." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Trigger database migrations via an AWS Lambda function or AWS Step Functions state machine using the Expand/Contract (Parallel Run) pattern before routing traffic to new code. Database schema changes in continuous delivery require the Expand/Contract pattern. An AWS Lambda task or Step Functions workflow in the pipeline applies backward-compatible schema changes (Expand phase), allowing both old and new application versions to operate concurrently before traffic cutover.",
     referenceUrl: "https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-four-stage-pipeline.html",
@@ -31,9 +31,9 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Trigger database migrations via an AWS Lambda function or AWS Step Functions state machine using the Expand/Contract (Parallel Run) pattern before routing traffic to new code." },
-      { id: 'B', text: "Never alter database schemas to avoid breaking running applications." },
+      { id: 'B', text: "Run SQL alter statements directly on the production database master during peak traffic." },
       { id: 'C', text: "Shut down all application servers for 6 hours while executing manual migration scripts." },
-      { id: 'D', text: "Run SQL alter statements directly on the production database master during peak traffic." }
+      { id: 'D', text: "Never alter database schemas to avoid breaking running applications." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const AWS_DOP_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to execute relational database schema migrations automatically during deployment without causing downtime or query errors for active application instances.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Run SQL alter statements directly on the production database master during peak traffic." },
-      { id: 'B', text: "Shut down all application servers for 6 hours while executing manual migration scripts." },
-      { id: 'C', text: "Never alter database schemas to avoid breaking running applications." },
-      { id: 'D', text: "Trigger database migrations via an AWS Lambda function or AWS Step Functions state machine using the Expand/Contract (Parallel Run) pattern before routing traffic to new code." }
+      { id: 'A', text: "Shut down all application servers for 6 hours while executing manual migration scripts." },
+      { id: 'B', text: "Never alter database schemas to avoid breaking running applications." },
+      { id: 'C', text: "Trigger database migrations via an AWS Lambda function or AWS Step Functions state machine using the Expand/Contract (Parallel Run) pattern before routing traffic to new code." },
+      { id: 'D', text: "Run SQL alter statements directly on the production database master during peak traffic." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Trigger database migrations via an AWS Lambda function or AWS Step Functions state machine using the Expand/Contract (Parallel Run) pattern before routing traffic to new code. Database schema changes in continuous delivery require the Expand/Contract pattern. An AWS Lambda task or Step Functions workflow in the pipeline applies backward-compatible schema changes (Expand phase), allowing both old and new application versions to operate concurrently before traffic cutover.",
     referenceUrl: "https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-four-stage-pipeline.html",
@@ -93,12 +93,12 @@ export const AWS_DOP_QUESTIONS_12 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to execute relational database schema migrations automatically during deployment without causing downtime or query errors for active application instances.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Run SQL alter statements directly on the production database master during peak traffic." },
-      { id: 'B', text: "Never alter database schemas to avoid breaking running applications." },
+      { id: 'A', text: "Never alter database schemas to avoid breaking running applications." },
+      { id: 'B', text: "Trigger database migrations via an AWS Lambda function or AWS Step Functions state machine using the Expand/Contract (Parallel Run) pattern before routing traffic to new code." },
       { id: 'C', text: "Shut down all application servers for 6 hours while executing manual migration scripts." },
-      { id: 'D', text: "Trigger database migrations via an AWS Lambda function or AWS Step Functions state machine using the Expand/Contract (Parallel Run) pattern before routing traffic to new code." }
+      { id: 'D', text: "Run SQL alter statements directly on the production database master during peak traffic." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Trigger database migrations via an AWS Lambda function or AWS Step Functions state machine using the Expand/Contract (Parallel Run) pattern before routing traffic to new code. Database schema changes in continuous delivery require the Expand/Contract pattern. An AWS Lambda task or Step Functions workflow in the pipeline applies backward-compatible schema changes (Expand phase), allowing both old and new application versions to operate concurrently before traffic cutover.",
     referenceUrl: "https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-four-stage-pipeline.html",
@@ -115,9 +115,9 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Associate CloudWatch Alarms directly with the CodeDeploy Deployment Group configuration to trigger immediate automatic deployment rollback upon alarm breach." },
-      { id: 'B', text: "Rely on customer support ticket volume to decide whether to roll back." },
-      { id: 'C', text: "Instruct on-call engineers to manually monitor dashboards and click cancel if errors occur." },
-      { id: 'D', text: "Configure CloudWatch to shut down the AWS account if error rates rise." }
+      { id: 'B', text: "Configure CloudWatch to shut down the AWS account if error rates rise." },
+      { id: 'C', text: "Rely on customer support ticket volume to decide whether to roll back." },
+      { id: 'D', text: "Instruct on-call engineers to manually monitor dashboards and click cancel if errors occur." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,12 +135,12 @@ export const AWS_DOP_QUESTIONS_12 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to automatically halt and roll back an ongoing AWS CodeDeploy release if Amazon CloudWatch Synthetic Canaries detect increased 5xx errors or elevated latency.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Instruct on-call engineers to manually monitor dashboards and click cancel if errors occur." },
-      { id: 'B', text: "Rely on customer support ticket volume to decide whether to roll back." },
+      { id: 'A', text: "Rely on customer support ticket volume to decide whether to roll back." },
+      { id: 'B', text: "Associate CloudWatch Alarms directly with the CodeDeploy Deployment Group configuration to trigger immediate automatic deployment rollback upon alarm breach." },
       { id: 'C', text: "Configure CloudWatch to shut down the AWS account if error rates rise." },
-      { id: 'D', text: "Associate CloudWatch Alarms directly with the CodeDeploy Deployment Group configuration to trigger immediate automatic deployment rollback upon alarm breach." }
+      { id: 'D', text: "Instruct on-call engineers to manually monitor dashboards and click cancel if errors occur." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Associate CloudWatch Alarms directly with the CodeDeploy Deployment Group configuration to trigger immediate automatic deployment rollback upon alarm breach. CodeDeploy supports automated rollbacks based on CloudWatch alarms. When specified alarms enter the `ALARM` state during a deployment or within an optional bake time post-deployment, CodeDeploy immediately halts traffic routing and restores the previous healthy revision.",
     referenceUrl: "https://docs.aws.amazon.com/codedeploy/latest/userguide/deployments-rollback-and-redeploy.html",
@@ -178,8 +178,8 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Associate CloudWatch Alarms directly with the CodeDeploy Deployment Group configuration to trigger immediate automatic deployment rollback upon alarm breach." },
-      { id: 'B', text: "Configure CloudWatch to shut down the AWS account if error rates rise." },
-      { id: 'C', text: "Instruct on-call engineers to manually monitor dashboards and click cancel if errors occur." },
+      { id: 'B', text: "Instruct on-call engineers to manually monitor dashboards and click cancel if errors occur." },
+      { id: 'C', text: "Configure CloudWatch to shut down the AWS account if error rates rise." },
       { id: 'D', text: "Rely on customer support ticket volume to decide whether to roll back." }
     ],
     correctAnswers: ['A'],
@@ -198,12 +198,12 @@ export const AWS_DOP_QUESTIONS_12 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to automatically halt and roll back an ongoing AWS CodeDeploy release if Amazon CloudWatch Synthetic Canaries detect increased 5xx errors or elevated latency.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Configure CloudWatch to shut down the AWS account if error rates rise." },
-      { id: 'B', text: "Rely on customer support ticket volume to decide whether to roll back." },
-      { id: 'C', text: "Associate CloudWatch Alarms directly with the CodeDeploy Deployment Group configuration to trigger immediate automatic deployment rollback upon alarm breach." },
-      { id: 'D', text: "Instruct on-call engineers to manually monitor dashboards and click cancel if errors occur." }
+      { id: 'A', text: "Associate CloudWatch Alarms directly with the CodeDeploy Deployment Group configuration to trigger immediate automatic deployment rollback upon alarm breach." },
+      { id: 'B', text: "Instruct on-call engineers to manually monitor dashboards and click cancel if errors occur." },
+      { id: 'C', text: "Configure CloudWatch to shut down the AWS account if error rates rise." },
+      { id: 'D', text: "Rely on customer support ticket volume to decide whether to roll back." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Associate CloudWatch Alarms directly with the CodeDeploy Deployment Group configuration to trigger immediate automatic deployment rollback upon alarm breach. CodeDeploy supports automated rollbacks based on CloudWatch alarms. When specified alarms enter the `ALARM` state during a deployment or within an optional bake time post-deployment, CodeDeploy immediately halts traffic routing and restores the previous healthy revision.",
     referenceUrl: "https://docs.aws.amazon.com/codedeploy/latest/userguide/deployments-rollback-and-redeploy.html",
@@ -220,9 +220,9 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Create an AWS CodeArtifact domain and repository with external connections to public package managers and restrict access using repository resource policies." },
-      { id: 'B', text: "Instruct developers to download packages directly from untrusted personal GitHub repos." },
-      { id: 'C', text: "Check raw third-party binary zip files directly into Git version control." },
-      { id: 'D', text: "Store all software packages in an unauthenticated public Amazon S3 bucket." }
+      { id: 'B', text: "Store all software packages in an unauthenticated public Amazon S3 bucket." },
+      { id: 'C', text: "Instruct developers to download packages directly from untrusted personal GitHub repos." },
+      { id: 'D', text: "Check raw third-party binary zip files directly into Git version control." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,12 +240,12 @@ export const AWS_DOP_QUESTIONS_12 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to manage internal software dependencies (npm, PyPI, Maven, NuGet) securely across multiple development accounts with upstream public repository caching.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Instruct developers to download packages directly from untrusted personal GitHub repos." },
-      { id: 'B', text: "Store all software packages in an unauthenticated public Amazon S3 bucket." },
-      { id: 'C', text: "Check raw third-party binary zip files directly into Git version control." },
-      { id: 'D', text: "Create an AWS CodeArtifact domain and repository with external connections to public package managers and restrict access using repository resource policies." }
+      { id: 'A', text: "Create an AWS CodeArtifact domain and repository with external connections to public package managers and restrict access using repository resource policies." },
+      { id: 'B', text: "Check raw third-party binary zip files directly into Git version control." },
+      { id: 'C', text: "Store all software packages in an unauthenticated public Amazon S3 bucket." },
+      { id: 'D', text: "Instruct developers to download packages directly from untrusted personal GitHub repos." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create an AWS CodeArtifact domain and repository with external connections to public package managers and restrict access using repository resource policies. AWS CodeArtifact is a fully managed artifact repository service. It securely stores internal software packages and fetches dependencies from public registries (npm, PyPI, Maven) via external connections, caching them internally to protect against upstream outages or tampered dependencies.",
     referenceUrl: "https://docs.aws.amazon.com/codeartifact/latest/ug/welcome.html",
@@ -261,12 +261,12 @@ export const AWS_DOP_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to manage internal software dependencies (npm, PyPI, Maven, NuGet) securely across multiple development accounts with upstream public repository caching.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Store all software packages in an unauthenticated public Amazon S3 bucket." },
-      { id: 'B', text: "Create an AWS CodeArtifact domain and repository with external connections to public package managers and restrict access using repository resource policies." },
-      { id: 'C', text: "Instruct developers to download packages directly from untrusted personal GitHub repos." },
-      { id: 'D', text: "Check raw third-party binary zip files directly into Git version control." }
+      { id: 'A', text: "Instruct developers to download packages directly from untrusted personal GitHub repos." },
+      { id: 'B', text: "Store all software packages in an unauthenticated public Amazon S3 bucket." },
+      { id: 'C', text: "Check raw third-party binary zip files directly into Git version control." },
+      { id: 'D', text: "Create an AWS CodeArtifact domain and repository with external connections to public package managers and restrict access using repository resource policies." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create an AWS CodeArtifact domain and repository with external connections to public package managers and restrict access using repository resource policies. AWS CodeArtifact is a fully managed artifact repository service. It securely stores internal software packages and fetches dependencies from public registries (npm, PyPI, Maven) via external connections, caching them internally to protect against upstream outages or tampered dependencies.",
     referenceUrl: "https://docs.aws.amazon.com/codeartifact/latest/ug/welcome.html",
@@ -282,12 +282,12 @@ export const AWS_DOP_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to manage internal software dependencies (npm, PyPI, Maven, NuGet) securely across multiple development accounts with upstream public repository caching.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Instruct developers to download packages directly from untrusted personal GitHub repos." },
-      { id: 'B', text: "Store all software packages in an unauthenticated public Amazon S3 bucket." },
-      { id: 'C', text: "Create an AWS CodeArtifact domain and repository with external connections to public package managers and restrict access using repository resource policies." },
-      { id: 'D', text: "Check raw third-party binary zip files directly into Git version control." }
+      { id: 'A', text: "Check raw third-party binary zip files directly into Git version control." },
+      { id: 'B', text: "Create an AWS CodeArtifact domain and repository with external connections to public package managers and restrict access using repository resource policies." },
+      { id: 'C', text: "Instruct developers to download packages directly from untrusted personal GitHub repos." },
+      { id: 'D', text: "Store all software packages in an unauthenticated public Amazon S3 bucket." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create an AWS CodeArtifact domain and repository with external connections to public package managers and restrict access using repository resource policies. AWS CodeArtifact is a fully managed artifact repository service. It securely stores internal software packages and fetches dependencies from public registries (npm, PyPI, Maven) via external connections, caching them internally to protect against upstream outages or tampered dependencies.",
     referenceUrl: "https://docs.aws.amazon.com/codeartifact/latest/ug/welcome.html",
@@ -303,12 +303,12 @@ export const AWS_DOP_QUESTIONS_12 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to manage internal software dependencies (npm, PyPI, Maven, NuGet) securely across multiple development accounts with upstream public repository caching.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Instruct developers to download packages directly from untrusted personal GitHub repos." },
-      { id: 'B', text: "Create an AWS CodeArtifact domain and repository with external connections to public package managers and restrict access using repository resource policies." },
+      { id: 'A', text: "Check raw third-party binary zip files directly into Git version control." },
+      { id: 'B', text: "Instruct developers to download packages directly from untrusted personal GitHub repos." },
       { id: 'C', text: "Store all software packages in an unauthenticated public Amazon S3 bucket." },
-      { id: 'D', text: "Check raw third-party binary zip files directly into Git version control." }
+      { id: 'D', text: "Create an AWS CodeArtifact domain and repository with external connections to public package managers and restrict access using repository resource policies." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create an AWS CodeArtifact domain and repository with external connections to public package managers and restrict access using repository resource policies. AWS CodeArtifact is a fully managed artifact repository service. It securely stores internal software packages and fetches dependencies from public registries (npm, PyPI, Maven) via external connections, caching them internally to protect against upstream outages or tampered dependencies.",
     referenceUrl: "https://docs.aws.amazon.com/codeartifact/latest/ug/welcome.html",
@@ -325,9 +325,9 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Implement feature flags using AWS AppConfig with gradual deployment strategies, validators, and automated rollbacks on CloudWatch alarms." },
-      { id: 'B', text: "Deploy new code only to developer laptops and never release to production." },
-      { id: 'C', text: "Use hardcoded boolean flags in code that require recompiling and redeploying the entire service." },
-      { id: 'D', text: "Maintain separate Git branches for every experimental feature and merge only after 6 months." }
+      { id: 'B', text: "Use hardcoded boolean flags in code that require recompiling and redeploying the entire service." },
+      { id: 'C', text: "Maintain separate Git branches for every experimental feature and merge only after 6 months." },
+      { id: 'D', text: "Deploy new code only to developer laptops and never release to production." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,12 +345,12 @@ export const AWS_DOP_QUESTIONS_12 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to deploy code to production continuously while keeping new, untested user features hidden until operational stability is verified across customer segments.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Deploy new code only to developer laptops and never release to production." },
+      { id: 'A', text: "Implement feature flags using AWS AppConfig with gradual deployment strategies, validators, and automated rollbacks on CloudWatch alarms." },
       { id: 'B', text: "Maintain separate Git branches for every experimental feature and merge only after 6 months." },
-      { id: 'C', text: "Implement feature flags using AWS AppConfig with gradual deployment strategies, validators, and automated rollbacks on CloudWatch alarms." },
+      { id: 'C', text: "Deploy new code only to developer laptops and never release to production." },
       { id: 'D', text: "Use hardcoded boolean flags in code that require recompiling and redeploying the entire service." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implement feature flags using AWS AppConfig with gradual deployment strategies, validators, and automated rollbacks on CloudWatch alarms. AWS AppConfig feature flags decouple code deployment from feature release. Engineering teams can safely deploy dormant code to production, validate operational performance, and progressively enable features for specific user cohorts with automated rollbacks if alarms trigger.",
     referenceUrl: "https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-feature-flags.html",
@@ -366,12 +366,12 @@ export const AWS_DOP_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to deploy code to production continuously while keeping new, untested user features hidden until operational stability is verified across customer segments.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Use hardcoded boolean flags in code that require recompiling and redeploying the entire service." },
-      { id: 'B', text: "Deploy new code only to developer laptops and never release to production." },
-      { id: 'C', text: "Implement feature flags using AWS AppConfig with gradual deployment strategies, validators, and automated rollbacks on CloudWatch alarms." },
-      { id: 'D', text: "Maintain separate Git branches for every experimental feature and merge only after 6 months." }
+      { id: 'A', text: "Maintain separate Git branches for every experimental feature and merge only after 6 months." },
+      { id: 'B', text: "Implement feature flags using AWS AppConfig with gradual deployment strategies, validators, and automated rollbacks on CloudWatch alarms." },
+      { id: 'C', text: "Use hardcoded boolean flags in code that require recompiling and redeploying the entire service." },
+      { id: 'D', text: "Deploy new code only to developer laptops and never release to production." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement feature flags using AWS AppConfig with gradual deployment strategies, validators, and automated rollbacks on CloudWatch alarms. AWS AppConfig feature flags decouple code deployment from feature release. Engineering teams can safely deploy dormant code to production, validate operational performance, and progressively enable features for specific user cohorts with automated rollbacks if alarms trigger.",
     referenceUrl: "https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-feature-flags.html",
@@ -388,9 +388,9 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Implement feature flags using AWS AppConfig with gradual deployment strategies, validators, and automated rollbacks on CloudWatch alarms." },
-      { id: 'B', text: "Deploy new code only to developer laptops and never release to production." },
-      { id: 'C', text: "Use hardcoded boolean flags in code that require recompiling and redeploying the entire service." },
-      { id: 'D', text: "Maintain separate Git branches for every experimental feature and merge only after 6 months." }
+      { id: 'B', text: "Use hardcoded boolean flags in code that require recompiling and redeploying the entire service." },
+      { id: 'C', text: "Maintain separate Git branches for every experimental feature and merge only after 6 months." },
+      { id: 'D', text: "Deploy new code only to developer laptops and never release to production." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const AWS_DOP_QUESTIONS_12 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to deploy code to production continuously while keeping new, untested user features hidden until operational stability is verified across customer segments.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Use hardcoded boolean flags in code that require recompiling and redeploying the entire service." },
+      { id: 'A', text: "Implement feature flags using AWS AppConfig with gradual deployment strategies, validators, and automated rollbacks on CloudWatch alarms." },
       { id: 'B', text: "Maintain separate Git branches for every experimental feature and merge only after 6 months." },
       { id: 'C', text: "Deploy new code only to developer laptops and never release to production." },
-      { id: 'D', text: "Implement feature flags using AWS AppConfig with gradual deployment strategies, validators, and automated rollbacks on CloudWatch alarms." }
+      { id: 'D', text: "Use hardcoded boolean flags in code that require recompiling and redeploying the entire service." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implement feature flags using AWS AppConfig with gradual deployment strategies, validators, and automated rollbacks on CloudWatch alarms. AWS AppConfig feature flags decouple code deployment from feature release. Engineering teams can safely deploy dormant code to production, validate operational performance, and progressively enable features for specific user cohorts with automated rollbacks if alarms trigger.",
     referenceUrl: "https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-feature-flags.html",
@@ -429,12 +429,12 @@ export const AWS_DOP_QUESTIONS_12 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to automate the creation, security hardening, patching, and testing of golden Amazon Machine Images (AMIs) across multiple AWS regions and accounts.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Use unpatched public community AMIs from unknown publishers." },
-      { id: 'B', text: "Run configuration management scripts on every instance launch via user-data, adding 20 minutes to boot time." },
-      { id: 'C', text: "Launch an EC2 instance manually, apply patches by hand, create an AMI, and share it manually." },
-      { id: 'D', text: "Create an EC2 Image Builder pipeline with build components (OS hardening, agent installation), test components, and distribution settings to target regions and accounts." }
+      { id: 'A', text: "Create an EC2 Image Builder pipeline with build components (OS hardening, agent installation), test components, and distribution settings to target regions and accounts." },
+      { id: 'B', text: "Launch an EC2 instance manually, apply patches by hand, create an AMI, and share it manually." },
+      { id: 'C', text: "Run configuration management scripts on every instance launch via user-data, adding 20 minutes to boot time." },
+      { id: 'D', text: "Use unpatched public community AMIs from unknown publishers." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create an EC2 Image Builder pipeline with build components (OS hardening, agent installation), test components, and distribution settings to target regions and accounts. EC2 Image Builder automates the creation, management, and deployment of customized, secure, and up-to-date server images. Pipelines execute build components, run automated validation tests, and distribute approved golden AMIs across multiple AWS regions and accounts seamlessly.",
     referenceUrl: "https://docs.aws.amazon.com/imagebuilder/latest/userguide/what-is-image-builder.html",
@@ -450,12 +450,12 @@ export const AWS_DOP_QUESTIONS_12 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to automate the creation, security hardening, patching, and testing of golden Amazon Machine Images (AMIs) across multiple AWS regions and accounts.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Use unpatched public community AMIs from unknown publishers." },
-      { id: 'B', text: "Create an EC2 Image Builder pipeline with build components (OS hardening, agent installation), test components, and distribution settings to target regions and accounts." },
-      { id: 'C', text: "Launch an EC2 instance manually, apply patches by hand, create an AMI, and share it manually." },
-      { id: 'D', text: "Run configuration management scripts on every instance launch via user-data, adding 20 minutes to boot time." }
+      { id: 'A', text: "Run configuration management scripts on every instance launch via user-data, adding 20 minutes to boot time." },
+      { id: 'B', text: "Use unpatched public community AMIs from unknown publishers." },
+      { id: 'C', text: "Create an EC2 Image Builder pipeline with build components (OS hardening, agent installation), test components, and distribution settings to target regions and accounts." },
+      { id: 'D', text: "Launch an EC2 instance manually, apply patches by hand, create an AMI, and share it manually." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create an EC2 Image Builder pipeline with build components (OS hardening, agent installation), test components, and distribution settings to target regions and accounts. EC2 Image Builder automates the creation, management, and deployment of customized, secure, and up-to-date server images. Pipelines execute build components, run automated validation tests, and distribute approved golden AMIs across multiple AWS regions and accounts seamlessly.",
     referenceUrl: "https://docs.aws.amazon.com/imagebuilder/latest/userguide/what-is-image-builder.html",
@@ -472,8 +472,8 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Create an EC2 Image Builder pipeline with build components (OS hardening, agent installation), test components, and distribution settings to target regions and accounts." },
-      { id: 'B', text: "Run configuration management scripts on every instance launch via user-data, adding 20 minutes to boot time." },
-      { id: 'C', text: "Launch an EC2 instance manually, apply patches by hand, create an AMI, and share it manually." },
+      { id: 'B', text: "Launch an EC2 instance manually, apply patches by hand, create an AMI, and share it manually." },
+      { id: 'C', text: "Run configuration management scripts on every instance launch via user-data, adding 20 minutes to boot time." },
       { id: 'D', text: "Use unpatched public community AMIs from unknown publishers." }
     ],
     correctAnswers: ['A'],
@@ -492,12 +492,12 @@ export const AWS_DOP_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to automate the creation, security hardening, patching, and testing of golden Amazon Machine Images (AMIs) across multiple AWS regions and accounts.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Run configuration management scripts on every instance launch via user-data, adding 20 minutes to boot time." },
-      { id: 'B', text: "Use unpatched public community AMIs from unknown publishers." },
-      { id: 'C', text: "Create an EC2 Image Builder pipeline with build components (OS hardening, agent installation), test components, and distribution settings to target regions and accounts." },
-      { id: 'D', text: "Launch an EC2 instance manually, apply patches by hand, create an AMI, and share it manually." }
+      { id: 'A', text: "Create an EC2 Image Builder pipeline with build components (OS hardening, agent installation), test components, and distribution settings to target regions and accounts." },
+      { id: 'B', text: "Launch an EC2 instance manually, apply patches by hand, create an AMI, and share it manually." },
+      { id: 'C', text: "Run configuration management scripts on every instance launch via user-data, adding 20 minutes to boot time." },
+      { id: 'D', text: "Use unpatched public community AMIs from unknown publishers." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create an EC2 Image Builder pipeline with build components (OS hardening, agent installation), test components, and distribution settings to target regions and accounts. EC2 Image Builder automates the creation, management, and deployment of customized, secure, and up-to-date server images. Pipelines execute build components, run automated validation tests, and distribute approved golden AMIs across multiple AWS regions and accounts seamlessly.",
     referenceUrl: "https://docs.aws.amazon.com/imagebuilder/latest/userguide/what-is-image-builder.html",
@@ -514,8 +514,8 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Create an EC2 Image Builder pipeline with build components (OS hardening, agent installation), test components, and distribution settings to target regions and accounts." },
-      { id: 'B', text: "Run configuration management scripts on every instance launch via user-data, adding 20 minutes to boot time." },
-      { id: 'C', text: "Launch an EC2 instance manually, apply patches by hand, create an AMI, and share it manually." },
+      { id: 'B', text: "Launch an EC2 instance manually, apply patches by hand, create an AMI, and share it manually." },
+      { id: 'C', text: "Run configuration management scripts on every instance launch via user-data, adding 20 minutes to boot time." },
       { id: 'D', text: "Use unpatched public community AMIs from unknown publishers." }
     ],
     correctAnswers: ['A'],

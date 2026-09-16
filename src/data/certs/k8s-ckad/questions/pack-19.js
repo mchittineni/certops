@@ -9,10 +9,10 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Service Networking to route traffic arriving on port 80 of an internal Service to backend application pods listening on container port 8080.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Create a Service with `type: ClusterIP`, `port: 80`, and `targetPort: 8080` matching the pod selector." },
-      { id: 'B', text: "Create a NodePort service on port 80." },
-      { id: 'C', text: "Configure backend pods to listen on port 80 using root privileges." },
-      { id: 'D', text: "Set `port: 8080` and `targetPort: 80`." }
+      { id: 'A', text: "Create a `ClusterIP` Service with `port: 80` and `targetPort: 8080` over the pod selector." },
+      { id: 'B', text: "Create a `ClusterIP` Service with `port: 8080` and `targetPort: 80` over the pod selector." },
+      { id: 'C', text: "Create a `ClusterIP` Service with `port: 80` and set `containerPort: 80` on the pods." },
+      { id: 'D', text: "Create a headless Service with `port: 80` and let clients resolve the pod addresses." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Service Networking to route traffic arriving on port 80 of an internal Service to backend application pods listening on container port 8080.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Create a Service with `type: ClusterIP`, `port: 80`, and `targetPort: 8080` matching the pod selector." },
-      { id: 'B', text: "Set `port: 8080` and `targetPort: 80`." },
-      { id: 'C', text: "Create a NodePort service on port 80." },
-      { id: 'D', text: "Configure backend pods to listen on port 80 using root privileges." }
+      { id: 'A', text: "Create a `ClusterIP` Service with `port: 80` and `targetPort: 8080` over the pod selector." },
+      { id: 'B', text: "Create a `ClusterIP` Service with `port: 80` and set `containerPort: 80` on the pods." },
+      { id: 'C', text: "Create a headless Service with `port: 80` and let clients resolve the pod addresses." },
+      { id: 'D', text: "Create a `ClusterIP` Service with `port: 8080` and `targetPort: 80` over the pod selector." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Service Networking to route traffic arriving on port 80 of an internal Service to backend application pods listening on container port 8080.",
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
-      { id: 'A', text: "Set `port: 8080` and `targetPort: 80`." },
-      { id: 'B', text: "Create a Service with `type: ClusterIP`, `port: 80`, and `targetPort: 8080` matching the pod selector." },
-      { id: 'C', text: "Configure backend pods to listen on port 80 using root privileges." },
-      { id: 'D', text: "Create a NodePort service on port 80." }
+      { id: 'A', text: "Create a `ClusterIP` Service with `port: 80` and `targetPort: 8080` over the pod selector." },
+      { id: 'B', text: "Create a `ClusterIP` Service with `port: 80` and set `containerPort: 80` on the pods." },
+      { id: 'C', text: "Create a headless Service with `port: 80` and let clients resolve the pod addresses." },
+      { id: 'D', text: "Create a `ClusterIP` Service with `port: 8080` and `targetPort: 80` over the pod selector." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create a Service with `type: ClusterIP`, `port: 80`, and `targetPort: 8080` matching the pod selector. In a Kubernetes Service spec, `port` is the port exposed internally by the Service itself (which other pods call), while `targetPort` is the destination port on which the backend container process is actually listening. Mismatches prevent traffic from reaching the container.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service",
@@ -72,10 +72,10 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Service Networking to route traffic arriving on port 80 of an internal Service to backend application pods listening on container port 8080.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
-      { id: 'A', text: "Create a Service with `type: ClusterIP`, `port: 80`, and `targetPort: 8080` matching the pod selector." },
-      { id: 'B', text: "Configure backend pods to listen on port 80 using root privileges." },
-      { id: 'C', text: "Set `port: 8080` and `targetPort: 80`." },
-      { id: 'D', text: "Create a NodePort service on port 80." }
+      { id: 'A', text: "Create a `ClusterIP` Service with `port: 80` and `targetPort: 8080` over the pod selector." },
+      { id: 'B', text: "Create a headless Service with `port: 80` and let clients resolve the pod addresses." },
+      { id: 'C', text: "Create a `ClusterIP` Service with `port: 8080` and `targetPort: 80` over the pod selector." },
+      { id: 'D', text: "Create a `ClusterIP` Service with `port: 80` and set `containerPort: 80` on the pods." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Service Networking to route traffic arriving on port 80 of an internal Service to backend application pods listening on container port 8080.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
-      { id: 'A', text: "Create a Service with `type: ClusterIP`, `port: 80`, and `targetPort: 8080` matching the pod selector." },
-      { id: 'B', text: "Create a NodePort service on port 80." },
-      { id: 'C', text: "Set `port: 8080` and `targetPort: 80`." },
-      { id: 'D', text: "Configure backend pods to listen on port 80 using root privileges." }
+      { id: 'A', text: "Create a `ClusterIP` Service with `port: 80` and `targetPort: 8080` over the pod selector." },
+      { id: 'B', text: "Create a `ClusterIP` Service with `port: 80` and set `containerPort: 80` on the pods." },
+      { id: 'C', text: "Create a headless Service with `port: 80` and let clients resolve the pod addresses." },
+      { id: 'D', text: "Create a `ClusterIP` Service with `port: 8080` and `targetPort: 80` over the pod selector." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates NodePort Services to expose an internal testing service directly on a static high port across all worker node IP addresses for on-premises developers.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Configure an Ingress controller without a supporting service." },
-      { id: 'B', text: "Create a Service with `type: NodePort` and optionally specify a `nodePort` in the range 30000-32767." },
-      { id: 'C', text: "Set `hostNetwork: true` on the pod template." },
-      { id: 'D', text: "Create a ClusterIP service and modify the worker node firewall." }
+      { id: 'A', text: "Create a Service with `type: LoadBalancer` and let the cloud controller assign the port." },
+      { id: 'B', text: "Create a Service with `type: ClusterIP` and add `externalIPs` for each worker node address." },
+      { id: 'C', text: "Set `hostPort` on the container so each node forwards the chosen high port to the pod." },
+      { id: 'D', text: "Create a Service with `type: NodePort`, optionally pinning `nodePort` in the 30000-32767 range." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a Service with `type: NodePort` and optionally specify a `nodePort` in the range 30000-32767. A `NodePort` service allocates a static port (default range 30000-32767) on every node in the cluster. Incoming traffic to `&lt;NodeIP&gt;:&lt;NodePort&gt;` is automatically routed by kube-proxy to the backing Service endpoints, regardless of which node receives the packet.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport",
@@ -135,10 +135,10 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates NodePort Services to expose an internal testing service directly on a static high port across all worker node IP addresses for on-premises developers.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Create a Service with `type: NodePort` and optionally specify a `nodePort` in the range 30000-32767." },
-      { id: 'B', text: "Create a ClusterIP service and modify the worker node firewall." },
-      { id: 'C', text: "Set `hostNetwork: true` on the pod template." },
-      { id: 'D', text: "Configure an Ingress controller without a supporting service." }
+      { id: 'A', text: "Create a Service with `type: NodePort`, optionally pinning `nodePort` in the 30000-32767 range." },
+      { id: 'B', text: "Create a Service with `type: LoadBalancer` and let the cloud controller assign the port." },
+      { id: 'C', text: "Set `hostPort` on the container so each node forwards the chosen high port to the pod." },
+      { id: 'D', text: "Create a Service with `type: ClusterIP` and add `externalIPs` for each worker node address." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates NodePort Services to expose an internal testing service directly on a static high port across all worker node IP addresses for on-premises developers.",
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
-      { id: 'A', text: "Create a ClusterIP service and modify the worker node firewall." },
-      { id: 'B', text: "Set `hostNetwork: true` on the pod template." },
-      { id: 'C', text: "Create a Service with `type: NodePort` and optionally specify a `nodePort` in the range 30000-32767." },
-      { id: 'D', text: "Configure an Ingress controller without a supporting service." }
+      { id: 'A', text: "Set `hostPort` on the container so each node forwards the chosen high port to the pod." },
+      { id: 'B', text: "Create a Service with `type: NodePort`, optionally pinning `nodePort` in the 30000-32767 range." },
+      { id: 'C', text: "Create a Service with `type: LoadBalancer` and let the cloud controller assign the port." },
+      { id: 'D', text: "Create a Service with `type: ClusterIP` and add `externalIPs` for each worker node address." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Service with `type: NodePort` and optionally specify a `nodePort` in the range 30000-32767. A `NodePort` service allocates a static port (default range 30000-32767) on every node in the cluster. Incoming traffic to `&lt;NodeIP&gt;:&lt;NodePort&gt;` is automatically routed by kube-proxy to the backing Service endpoints, regardless of which node receives the packet.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport",
@@ -177,10 +177,10 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates NodePort Services to expose an internal testing service directly on a static high port across all worker node IP addresses for on-premises developers.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
-      { id: 'A', text: "Create a Service with `type: NodePort` and optionally specify a `nodePort` in the range 30000-32767." },
-      { id: 'B', text: "Set `hostNetwork: true` on the pod template." },
-      { id: 'C', text: "Configure an Ingress controller without a supporting service." },
-      { id: 'D', text: "Create a ClusterIP service and modify the worker node firewall." }
+      { id: 'A', text: "Create a Service with `type: NodePort`, optionally pinning `nodePort` in the 30000-32767 range." },
+      { id: 'B', text: "Create a Service with `type: ClusterIP` and add `externalIPs` for each worker node address." },
+      { id: 'C', text: "Create a Service with `type: LoadBalancer` and let the cloud controller assign the port." },
+      { id: 'D', text: "Set `hostPort` on the container so each node forwards the chosen high port to the pod." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates NodePort Services to expose an internal testing service directly on a static high port across all worker node IP addresses for on-premises developers.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
-      { id: 'A', text: "Set `hostNetwork: true` on the pod template." },
-      { id: 'B', text: "Configure an Ingress controller without a supporting service." },
-      { id: 'C', text: "Create a ClusterIP service and modify the worker node firewall." },
-      { id: 'D', text: "Create a Service with `type: NodePort` and optionally specify a `nodePort` in the range 30000-32767." }
+      { id: 'A', text: "Create a Service with `type: LoadBalancer` and let the cloud controller assign the port." },
+      { id: 'B', text: "Create a Service with `type: NodePort`, optionally pinning `nodePort` in the 30000-32767 range." },
+      { id: 'C', text: "Create a Service with `type: ClusterIP` and add `externalIPs` for each worker node address." },
+      { id: 'D', text: "Set `hostPort` on the container so each node forwards the chosen high port to the pod." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Service with `type: NodePort` and optionally specify a `nodePort` in the range 30000-32767. A `NodePort` service allocates a static port (default range 30000-32767) on every node in the cluster. Incoming traffic to `&lt;NodeIP&gt;:&lt;NodePort&gt;` is automatically routed by kube-proxy to the backing Service endpoints, regardless of which node receives the packet.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport",
@@ -219,12 +219,12 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates LoadBalancer Services to expose a public-facing e-commerce storefront directly to the internet with a dedicated external public IP address provisioned by the cloud provider.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Configure a Headless service with clusterIP: None." },
-      { id: 'B', text: "Create a Service with `type: LoadBalancer` matching the storefront pod labels." },
-      { id: 'C', text: "Create a ClusterIP service and share internal cluster IPs with public users." },
-      { id: 'D', text: "Assign public elastic IPs directly to individual ephemeral pod network interfaces." }
+      { id: 'A', text: "Assign public elastic IPs directly to individual ephemeral pod network interfaces." },
+      { id: 'B', text: "Configure a Headless service with clusterIP: None." },
+      { id: 'C', text: "Create a Service with `type: LoadBalancer` matching the storefront pod labels." },
+      { id: 'D', text: "Create a ClusterIP service and share internal cluster IPs with public users." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a Service with `type: LoadBalancer` matching the storefront pod labels. On cloud providers supporting load balancer integration, creating a Service of `type: LoadBalancer` automatically provisions an external cloud load balancer (e.g., AWS NLB, GCP Cloud Load Balancing) that routes external traffic directly into cluster worker nodes and backend pods.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer",
@@ -240,12 +240,12 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates LoadBalancer Services to expose a public-facing e-commerce storefront directly to the internet with a dedicated external public IP address provisioned by the cloud provider.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Assign public elastic IPs directly to individual ephemeral pod network interfaces." },
-      { id: 'B', text: "Configure a Headless service with clusterIP: None." },
-      { id: 'C', text: "Create a Service with `type: LoadBalancer` matching the storefront pod labels." },
-      { id: 'D', text: "Create a ClusterIP service and share internal cluster IPs with public users." }
+      { id: 'A', text: "Create a Service with `type: LoadBalancer` matching the storefront pod labels." },
+      { id: 'B', text: "Create a ClusterIP service and share internal cluster IPs with public users." },
+      { id: 'C', text: "Assign public elastic IPs directly to individual ephemeral pod network interfaces." },
+      { id: 'D', text: "Configure a Headless service with clusterIP: None." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create a Service with `type: LoadBalancer` matching the storefront pod labels. On cloud providers supporting load balancer integration, creating a Service of `type: LoadBalancer` automatically provisions an external cloud load balancer (e.g., AWS NLB, GCP Cloud Load Balancing) that routes external traffic directly into cluster worker nodes and backend pods.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer",
@@ -262,9 +262,9 @@ export const K8S_CKAD_QUESTIONS_19 = [
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
       { id: 'A', text: "Create a Service with `type: LoadBalancer` matching the storefront pod labels." },
-      { id: 'B', text: "Assign public elastic IPs directly to individual ephemeral pod network interfaces." },
-      { id: 'C', text: "Configure a Headless service with clusterIP: None." },
-      { id: 'D', text: "Create a ClusterIP service and share internal cluster IPs with public users." }
+      { id: 'B', text: "Configure a Headless service with clusterIP: None." },
+      { id: 'C', text: "Create a ClusterIP service and share internal cluster IPs with public users." },
+      { id: 'D', text: "Assign public elastic IPs directly to individual ephemeral pod network interfaces." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,12 +282,12 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates LoadBalancer Services to expose a public-facing e-commerce storefront directly to the internet with a dedicated external public IP address provisioned by the cloud provider.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
-      { id: 'A', text: "Configure a Headless service with clusterIP: None." },
-      { id: 'B', text: "Assign public elastic IPs directly to individual ephemeral pod network interfaces." },
-      { id: 'C', text: "Create a ClusterIP service and share internal cluster IPs with public users." },
-      { id: 'D', text: "Create a Service with `type: LoadBalancer` matching the storefront pod labels." }
+      { id: 'A', text: "Create a Service with `type: LoadBalancer` matching the storefront pod labels." },
+      { id: 'B', text: "Create a ClusterIP service and share internal cluster IPs with public users." },
+      { id: 'C', text: "Assign public elastic IPs directly to individual ephemeral pod network interfaces." },
+      { id: 'D', text: "Configure a Headless service with clusterIP: None." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create a Service with `type: LoadBalancer` matching the storefront pod labels. On cloud providers supporting load balancer integration, creating a Service of `type: LoadBalancer` automatically provisions an external cloud load balancer (e.g., AWS NLB, GCP Cloud Load Balancing) that routes external traffic directly into cluster worker nodes and backend pods.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer",
@@ -303,12 +303,12 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates LoadBalancer Services to expose a public-facing e-commerce storefront directly to the internet with a dedicated external public IP address provisioned by the cloud provider.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
-      { id: 'A', text: "Configure a Headless service with clusterIP: None." },
-      { id: 'B', text: "Assign public elastic IPs directly to individual ephemeral pod network interfaces." },
-      { id: 'C', text: "Create a Service with `type: LoadBalancer` matching the storefront pod labels." },
-      { id: 'D', text: "Create a ClusterIP service and share internal cluster IPs with public users." }
+      { id: 'A', text: "Create a ClusterIP service and share internal cluster IPs with public users." },
+      { id: 'B', text: "Create a Service with `type: LoadBalancer` matching the storefront pod labels." },
+      { id: 'C', text: "Configure a Headless service with clusterIP: None." },
+      { id: 'D', text: "Assign public elastic IPs directly to individual ephemeral pod network interfaces." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Service with `type: LoadBalancer` matching the storefront pod labels. On cloud providers supporting load balancer integration, creating a Service of `type: LoadBalancer` automatically provisions an external cloud load balancer (e.g., AWS NLB, GCP Cloud Load Balancing) that routes external traffic directly into cluster worker nodes and backend pods.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer",
@@ -324,12 +324,12 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Network Policies to prevent all pods in a namespace from connecting to an internal database pod except those explicitly labeled `role=api`.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Apply a pod anti-affinity rule to separate pods across nodes." },
-      { id: 'B', text: "Configure a Linux iptables script inside the database container image." },
-      { id: 'C', text: "Change the database service to type NodePort." },
-      { id: 'D', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress.from` rule specifying `podSelector: matchLabels: role: api`." }
+      { id: 'A', text: "Create a `NetworkPolicy` on the database pods with an `ingress.from` `podSelector` matching `role=api`." },
+      { id: 'B', text: "Create a `NetworkPolicy` on the `role=api` pods with an `egress.to` `podSelector` matching the database." },
+      { id: 'C', text: "Create a `NetworkPolicy` on the database pods with an `ingress.from` `namespaceSelector` for the namespace." },
+      { id: 'D', text: "Label the database pods `role=api` as well, so that only pods carrying that label can reach them." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create a `NetworkPolicy` targeting the database pods with an `ingress.from` rule specifying `podSelector: matchLabels: role: api`. NetworkPolicy ingress rules restrict traffic entering matching pods. Using `podSelector` within an `ingress.from` block whitelists traffic originating only from pods carrying the specified labels within the same namespace, blocking all other connections.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#networkpolicy-resource",
@@ -345,12 +345,12 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Network Policies to prevent all pods in a namespace from connecting to an internal database pod except those explicitly labeled `role=api`.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Change the database service to type NodePort." },
-      { id: 'B', text: "Apply a pod anti-affinity rule to separate pods across nodes." },
-      { id: 'C', text: "Configure a Linux iptables script inside the database container image." },
-      { id: 'D', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress.from` rule specifying `podSelector: matchLabels: role: api`." }
+      { id: 'A', text: "Create a `NetworkPolicy` on the `role=api` pods with an `egress.to` `podSelector` matching the database." },
+      { id: 'B', text: "Create a `NetworkPolicy` on the database pods with an `ingress.from` `podSelector` matching `role=api`." },
+      { id: 'C', text: "Label the database pods `role=api` as well, so that only pods carrying that label can reach them." },
+      { id: 'D', text: "Create a `NetworkPolicy` on the database pods with an `ingress.from` `namespaceSelector` for the namespace." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a `NetworkPolicy` targeting the database pods with an `ingress.from` rule specifying `podSelector: matchLabels: role: api`. NetworkPolicy ingress rules restrict traffic entering matching pods. Using `podSelector` within an `ingress.from` block whitelists traffic originating only from pods carrying the specified labels within the same namespace, blocking all other connections.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#networkpolicy-resource",
@@ -366,10 +366,10 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Network Policies to prevent all pods in a namespace from connecting to an internal database pod except those explicitly labeled `role=api`.",
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
-      { id: 'A', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress.from` rule specifying `podSelector: matchLabels: role: api`." },
-      { id: 'B', text: "Apply a pod anti-affinity rule to separate pods across nodes." },
-      { id: 'C', text: "Configure a Linux iptables script inside the database container image." },
-      { id: 'D', text: "Change the database service to type NodePort." }
+      { id: 'A', text: "Create a `NetworkPolicy` on the database pods with an `ingress.from` `podSelector` matching `role=api`." },
+      { id: 'B', text: "Create a `NetworkPolicy` on the database pods with an `ingress.from` `namespaceSelector` for the namespace." },
+      { id: 'C', text: "Label the database pods `role=api` as well, so that only pods carrying that label can reach them." },
+      { id: 'D', text: "Create a `NetworkPolicy` on the `role=api` pods with an `egress.to` `podSelector` matching the database." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Network Policies to prevent all pods in a namespace from connecting to an internal database pod except those explicitly labeled `role=api`.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
-      { id: 'A', text: "Apply a pod anti-affinity rule to separate pods across nodes." },
-      { id: 'B', text: "Configure a Linux iptables script inside the database container image." },
-      { id: 'C', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress.from` rule specifying `podSelector: matchLabels: role: api`." },
-      { id: 'D', text: "Change the database service to type NodePort." }
+      { id: 'A', text: "Create a `NetworkPolicy` on the database pods with an `ingress.from` `namespaceSelector` for the namespace." },
+      { id: 'B', text: "Create a `NetworkPolicy` on the `role=api` pods with an `egress.to` `podSelector` matching the database." },
+      { id: 'C', text: "Label the database pods `role=api` as well, so that only pods carrying that label can reach them." },
+      { id: 'D', text: "Create a `NetworkPolicy` on the database pods with an `ingress.from` `podSelector` matching `role=api`." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a `NetworkPolicy` targeting the database pods with an `ingress.from` rule specifying `podSelector: matchLabels: role: api`. NetworkPolicy ingress rules restrict traffic entering matching pods. Using `podSelector` within an `ingress.from` block whitelists traffic originating only from pods carrying the specified labels within the same namespace, blocking all other connections.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#networkpolicy-resource",
@@ -408,12 +408,12 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Network Policies to prevent all pods in a namespace from connecting to an internal database pod except those explicitly labeled `role=api`.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
-      { id: 'A', text: "Apply a pod anti-affinity rule to separate pods across nodes." },
-      { id: 'B', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress.from` rule specifying `podSelector: matchLabels: role: api`." },
-      { id: 'C', text: "Configure a Linux iptables script inside the database container image." },
-      { id: 'D', text: "Change the database service to type NodePort." }
+      { id: 'A', text: "Create a `NetworkPolicy` on the database pods with an `ingress.from` `namespaceSelector` for the namespace." },
+      { id: 'B', text: "Label the database pods `role=api` as well, so that only pods carrying that label can reach them." },
+      { id: 'C', text: "Create a `NetworkPolicy` on the database pods with an `ingress.from` `podSelector` matching `role=api`." },
+      { id: 'D', text: "Create a `NetworkPolicy` on the `role=api` pods with an `egress.to` `podSelector` matching the database." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a `NetworkPolicy` targeting the database pods with an `ingress.from` rule specifying `podSelector: matchLabels: role: api`. NetworkPolicy ingress rules restrict traffic entering matching pods. Using `podSelector` within an `ingress.from` block whitelists traffic originating only from pods carrying the specified labels within the same namespace, blocking all other connections.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/#networkpolicy-resource",
@@ -429,12 +429,12 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Namespace Isolation to allow an analytics service running in the `analytics` namespace to query a database running in the `production` namespace while blocking all other namespaces.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Create a duplicate database inside the analytics namespace." },
-      { id: 'B', text: "In the `production` namespace, create a `NetworkPolicy` on the database with `ingress.from` specifying `namespaceSelector: matchLabels: kubernetes.io/metadata.name: analytics`." },
-      { id: 'C', text: "Allow ingress from `0.0.0.0/0` across all ports." },
-      { id: 'D', text: "Disable NetworkPolicies entirely across the cluster." }
+      { id: 'A', text: "Add a `NetworkPolicy` in `production` selecting the database, with an `ingress.from` `podSelector` matching the analytics service pods." },
+      { id: 'B', text: "Add a `NetworkPolicy` in `analytics` selecting the analytics pods, with an `egress.to` `podSelector` matching the database pods." },
+      { id: 'C', text: "Bind an RBAC Role in `production` to the analytics ServiceAccount, granting it `get` on the database Service object." },
+      { id: 'D', text: "Add a `NetworkPolicy` in `production` selecting the database, with an `ingress.from` `namespaceSelector` matching the analytics namespace label." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In the `production` namespace, create a `NetworkPolicy` on the database with `ingress.from` specifying `namespaceSelector: matchLabels: kubernetes.io/metadata.name: analytics`. To permit cross-namespace traffic in NetworkPolicies, the `from` rule must include a `namespaceSelector`. Matching the label of the source namespace (such as the automatic `kubernetes.io/metadata.name` label) whitelists pods originating from that specific namespace.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
@@ -450,12 +450,12 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Namespace Isolation to allow an analytics service running in the `analytics` namespace to query a database running in the `production` namespace while blocking all other namespaces.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Disable NetworkPolicies entirely across the cluster." },
-      { id: 'B', text: "Allow ingress from `0.0.0.0/0` across all ports." },
-      { id: 'C', text: "Create a duplicate database inside the analytics namespace." },
-      { id: 'D', text: "In the `production` namespace, create a `NetworkPolicy` on the database with `ingress.from` specifying `namespaceSelector: matchLabels: kubernetes.io/metadata.name: analytics`." }
+      { id: 'A', text: "Add a `NetworkPolicy` in `production` selecting the database, with an `ingress.from` `podSelector` matching the analytics service pods." },
+      { id: 'B', text: "Add a `NetworkPolicy` in `production` selecting the database, with an `ingress.from` `namespaceSelector` matching the analytics namespace label." },
+      { id: 'C', text: "Add a `NetworkPolicy` in `analytics` selecting the analytics pods, with an `egress.to` `podSelector` matching the database pods." },
+      { id: 'D', text: "Bind an RBAC Role in `production` to the analytics ServiceAccount, granting it `get` on the database Service object." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In the `production` namespace, create a `NetworkPolicy` on the database with `ingress.from` specifying `namespaceSelector: matchLabels: kubernetes.io/metadata.name: analytics`. To permit cross-namespace traffic in NetworkPolicies, the `from` rule must include a `namespaceSelector`. Matching the label of the source namespace (such as the automatic `kubernetes.io/metadata.name` label) whitelists pods originating from that specific namespace.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
@@ -471,12 +471,12 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Namespace Isolation to allow an analytics service running in the `analytics` namespace to query a database running in the `production` namespace while blocking all other namespaces.",
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
-      { id: 'A', text: "Disable NetworkPolicies entirely across the cluster." },
-      { id: 'B', text: "Allow ingress from `0.0.0.0/0` across all ports." },
-      { id: 'C', text: "Create a duplicate database inside the analytics namespace." },
-      { id: 'D', text: "In the `production` namespace, create a `NetworkPolicy` on the database with `ingress.from` specifying `namespaceSelector: matchLabels: kubernetes.io/metadata.name: analytics`." }
+      { id: 'A', text: "Add a `NetworkPolicy` in `production` selecting the database, with an `ingress.from` `podSelector` matching the analytics service pods." },
+      { id: 'B', text: "Add a `NetworkPolicy` in `production` selecting the database, with an `ingress.from` `namespaceSelector` matching the analytics namespace label." },
+      { id: 'C', text: "Add a `NetworkPolicy` in `analytics` selecting the analytics pods, with an `egress.to` `podSelector` matching the database pods." },
+      { id: 'D', text: "Bind an RBAC Role in `production` to the analytics ServiceAccount, granting it `get` on the database Service object." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In the `production` namespace, create a `NetworkPolicy` on the database with `ingress.from` specifying `namespaceSelector: matchLabels: kubernetes.io/metadata.name: analytics`. To permit cross-namespace traffic in NetworkPolicies, the `from` rule must include a `namespaceSelector`. Matching the label of the source namespace (such as the automatic `kubernetes.io/metadata.name` label) whitelists pods originating from that specific namespace.",
     referenceUrl: "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
@@ -492,10 +492,10 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Namespace Isolation to allow an analytics service running in the `analytics` namespace to query a database running in the `production` namespace while blocking all other namespaces.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
-      { id: 'A', text: "In the `production` namespace, create a `NetworkPolicy` on the database with `ingress.from` specifying `namespaceSelector: matchLabels: kubernetes.io/metadata.name: analytics`." },
-      { id: 'B', text: "Allow ingress from `0.0.0.0/0` across all ports." },
-      { id: 'C', text: "Disable NetworkPolicies entirely across the cluster." },
-      { id: 'D', text: "Create a duplicate database inside the analytics namespace." }
+      { id: 'A', text: "Add a `NetworkPolicy` in `production` selecting the database, with an `ingress.from` `namespaceSelector` matching the analytics namespace label." },
+      { id: 'B', text: "Add a `NetworkPolicy` in `analytics` selecting the analytics pods, with an `egress.to` `podSelector` matching the database pods." },
+      { id: 'C', text: "Add a `NetworkPolicy` in `production` selecting the database, with an `ingress.from` `podSelector` matching the analytics service pods." },
+      { id: 'D', text: "Bind an RBAC Role in `production` to the analytics ServiceAccount, granting it `get` on the database Service object." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKAD_QUESTIONS_19 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Namespace Isolation to allow an analytics service running in the `analytics` namespace to query a database running in the `production` namespace while blocking all other namespaces.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
-      { id: 'A', text: "In the `production` namespace, create a `NetworkPolicy` on the database with `ingress.from` specifying `namespaceSelector: matchLabels: kubernetes.io/metadata.name: analytics`." },
-      { id: 'B', text: "Allow ingress from `0.0.0.0/0` across all ports." },
-      { id: 'C', text: "Create a duplicate database inside the analytics namespace." },
-      { id: 'D', text: "Disable NetworkPolicies entirely across the cluster." }
+      { id: 'A', text: "Add a `NetworkPolicy` in `production` selecting the database, with an `ingress.from` `namespaceSelector` matching the analytics namespace label." },
+      { id: 'B', text: "Bind an RBAC Role in `production` to the analytics ServiceAccount, granting it `get` on the database Service object." },
+      { id: 'C', text: "Add a `NetworkPolicy` in `analytics` selecting the analytics pods, with an `egress.to` `podSelector` matching the database pods." },
+      { id: 'D', text: "Add a `NetworkPolicy` in `production` selecting the database, with an `ingress.from` `podSelector` matching the analytics service pods." }
     ],
     correctAnswers: ['A'],
     type: "single",

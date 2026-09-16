@@ -9,12 +9,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "A quantitative trading desk requires microsecond secrets delivery, zero packet loss, and deterministic authentication guarantees. The ML engineering team is explaining to a declined applicant which inputs drove their particular decision. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions." },
+      { id: 'A', text: "Use the bias drift monitor in SageMaker Model Monitor to report how the model's fairness metrics are changing over time in production." },
       { id: 'B', text: "Use the model's built-in feature importance scores to report which of the inputs the algorithm relies upon most heavily across the whole of the training dataset." },
-      { id: 'C', text: "Use the bias drift monitor in SageMaker Model Monitor to report how the model's fairness metrics are changing over time in production." },
+      { id: 'C', text: "Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions." },
       { id: 'D', text: "Use SageMaker Debugger rules to capture tensors during training and report which of the features carried the largest gradients." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Clarify computes SHAP values per prediction, so the contribution of each input to one applicant's own decision can be stated, and it reports pre-training bias across the dataset as well. Built-in feature importance is a global ranking: it describes the model overall and cannot say anything about an individual case. The bias drift monitor tracks fairness metrics through time and again explains no single decision. Debugger inspects tensors during training rather than the production inference that the applicant is asking about.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -30,10 +30,10 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "A national hospital network requires strict cryptographic privacy, auditable access controls, and HIPAA compliance. The ML engineering team is requiring a reviewer's approval before any model version can reach production. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Tag each SageMaker model resource with its evaluation metrics and an approval tag which the deployment pipeline reads before it will run." },
+      { id: 'A', text: "Store each model artifact in a versioned S3 bucket and record its metrics in a DynamoDB table that the deployment job consults first." },
       { id: 'B', text: "Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage." },
-      { id: 'C', text: "Store each model artifact in a versioned S3 bucket and record its metrics in a DynamoDB table that the deployment job consults first." },
-      { id: 'D', text: "Keep each approved model in its own Amazon ECR image repository and deploy whichever image is currently carrying the production tag." }
+      { id: 'C', text: "Keep each approved model in its own Amazon ECR image repository and deploy whichever image is currently carrying the production tag." },
+      { id: 'D', text: "Tag each SageMaker model resource with its evaluation metrics and an approval tag which the deployment pipeline reads before it will run." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,12 +72,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "A self-driving automotive fleet streams terabytes of sensor telemetry requiring real-time distributed ingestion and anomaly detection. The ML engineering team is detecting that a deployed model's inputs or accuracy have shifted away from training. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure CloudWatch alarms across the endpoint's invocation count, latency, and error metrics so that any operational problem raises an alert." },
-      { id: 'B', text: "Enable data capture on the endpoint and review the captured requests with Amazon Athena during the scheduled monthly model review." },
-      { id: 'C', text: "Schedule a monthly retraining pipeline so that the model is refreshed regularly whether or not its inputs have actually shifted." },
-      { id: 'D', text: "Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation." }
+      { id: 'A', text: "Enable data capture on the endpoint and review the captured requests with Amazon Athena during the scheduled monthly model review." },
+      { id: 'B', text: "Configure CloudWatch alarms across the endpoint's invocation count, latency, and error metrics so that any operational problem raises an alert." },
+      { id: 'C', text: "Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation." },
+      { id: 'D', text: "Schedule a monthly retraining pipeline so that the model is refreshed regularly whether or not its inputs have actually shifted." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Model Monitor compares live traffic against a baseline computed from the training data and raises an alarm when the distributions or the quality metrics move, which is a statistical question no operational metric answers. CloudWatch alarms report that the endpoint is healthy and fast while it confidently returns wrong answers. Data capture plus Athena has the right data but a month of latency and a person in the loop. Blind monthly retraining may mask drift for a while and gives no signal that anything changed.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -93,12 +93,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "An enterprise cloud SaaS architecture mandates strict logical tenant isolation, data masking, and per-tenant resource quotas. The ML engineering team is explaining to a declined applicant which inputs drove their particular decision. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions." },
-      { id: 'B', text: "Use the model's built-in feature importance scores to report which of the inputs the algorithm relies upon most heavily across the whole of the training dataset." },
-      { id: 'C', text: "Use the bias drift monitor in SageMaker Model Monitor to report how the model's fairness metrics are changing over time in production." },
-      { id: 'D', text: "Use SageMaker Debugger rules to capture tensors during training and report which of the features carried the largest gradients." }
+      { id: 'A', text: "Use SageMaker Debugger rules to capture tensors during training and report which of the features carried the largest gradients." },
+      { id: 'B', text: "Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions." },
+      { id: 'C', text: "Use the model's built-in feature importance scores to report which of the inputs the algorithm relies upon most heavily across the whole of the training dataset." },
+      { id: 'D', text: "Use the bias drift monitor in SageMaker Model Monitor to report how the model's fairness metrics are changing over time in production." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Clarify computes SHAP values per prediction, so the contribution of each input to one applicant's own decision can be stated, and it reports pre-training bias across the dataset as well. Built-in feature importance is a global ranking: it describes the model overall and cannot say anything about an individual case. The bias drift monitor tracks fairness metrics through time and again explains no single decision. Debugger inspects tensors during training rather than the production inference that the applicant is asking about.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -114,12 +114,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "A global video streaming service distributes high-bitrate live media with distributed edge caching and tokenized DRM protection. The ML engineering team is requiring a reviewer's approval before any model version can reach production. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Tag each SageMaker model resource with its evaluation metrics and an approval tag which the deployment pipeline reads before it will run." },
-      { id: 'B', text: "Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage." },
-      { id: 'C', text: "Store each model artifact in a versioned S3 bucket and record its metrics in a DynamoDB table that the deployment job consults first." },
-      { id: 'D', text: "Keep each approved model in its own Amazon ECR image repository and deploy whichever image is currently carrying the production tag." }
+      { id: 'A', text: "Keep each approved model in its own Amazon ECR image repository and deploy whichever image is currently carrying the production tag." },
+      { id: 'B', text: "Tag each SageMaker model resource with its evaluation metrics and an approval tag which the deployment pipeline reads before it will run." },
+      { id: 'C', text: "Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage." },
+      { id: 'D', text: "Store each model artifact in a versioned S3 bucket and record its metrics in a DynamoDB table that the deployment job consults first." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The Model Registry models this directly: versions are grouped into a package group, metrics and lineage travel with each version, and the approval status is a first-class field that IAM can restrict to reviewers and EventBridge can react to. Approval tags are mutable by anyone holding tagging permissions, which is a weak gate for a production control. Versioned S3 with a DynamoDB table reimplements the registry without its lineage or events. An ECR tag records that an image exists but carries neither the evaluation metrics nor the reviewer's decision.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -135,12 +135,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "An aerospace telemetry platform processes orbital downlinks with fault-tolerant queuing and asynchronous edge processing. The ML engineering team is keeping training data encrypted and job traffic off the public internet under audit. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Run the training jobs inside a VPC with a NAT gateway for their egress and rely on S3 default encryption using Amazon-managed keys." },
-      { id: 'B', text: "Enable network isolation on the training job so that the container has no network access, and encrypt the storage volumes with the default key." },
-      { id: 'C', text: "Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles." },
-      { id: 'D', text: "Attach an S3 gateway endpoint to the VPC route table and use bucket policies to limit access to the job's execution role." }
+      { id: 'A', text: "Attach an S3 gateway endpoint to the VPC route table and use bucket policies to limit access to the job's execution role." },
+      { id: 'B', text: "Run the training jobs inside a VPC with a NAT gateway for their egress and rely on S3 default encryption using Amazon-managed keys." },
+      { id: 'C', text: "Enable network isolation on the training job so that the container has no network access, and encrypt the storage volumes with the default key." },
+      { id: 'D', text: "Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Interface endpoints keep the SageMaker API and runtime traffic on private addresses, customer-managed KMS keys give the auditable key control and revocation an audit expects, and a least-privilege execution role bounds what a compromised job can reach. A NAT gateway routes egress over the public internet, and Amazon-managed keys leave no customer-controlled key policy to audit. Network isolation is a strong control but blocks the S3 access the job needs unless endpoints are configured too. An S3 gateway endpoint privately covers S3 alone, leaving the SageMaker API calls on the public path.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -157,8 +157,8 @@ export const AWS_MLA_QUESTIONS_20 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Configure CloudWatch alarms across the endpoint's invocation count, latency, and error metrics so that any operational problem raises an alert." },
-      { id: 'B', text: "Enable data capture on the endpoint and review the captured requests with Amazon Athena during the scheduled monthly model review." },
-      { id: 'C', text: "Schedule a monthly retraining pipeline so that the model is refreshed regularly whether or not its inputs have actually shifted." },
+      { id: 'B', text: "Schedule a monthly retraining pipeline so that the model is refreshed regularly whether or not its inputs have actually shifted." },
+      { id: 'C', text: "Enable data capture on the endpoint and review the captured requests with Amazon Athena during the scheduled monthly model review." },
       { id: 'D', text: "Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation." }
     ],
     correctAnswers: ['D'],
@@ -177,12 +177,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "A smart electrical grid platform monitors millions of smart meters with low-latency time-series analysis and automated load shedding. The ML engineering team is explaining to a declined applicant which inputs drove their particular decision. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions." },
-      { id: 'B', text: "Use the model's built-in feature importance scores to report which of the inputs the algorithm relies upon most heavily across the whole of the training dataset." },
-      { id: 'C', text: "Use the bias drift monitor in SageMaker Model Monitor to report how the model's fairness metrics are changing over time in production." },
-      { id: 'D', text: "Use SageMaker Debugger rules to capture tensors during training and report which of the features carried the largest gradients." }
+      { id: 'A', text: "Use the model's built-in feature importance scores to report which of the inputs the algorithm relies upon most heavily across the whole of the training dataset." },
+      { id: 'B', text: "Use the bias drift monitor in SageMaker Model Monitor to report how the model's fairness metrics are changing over time in production." },
+      { id: 'C', text: "Use SageMaker Debugger rules to capture tensors during training and report which of the features carried the largest gradients." },
+      { id: 'D', text: "Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Clarify computes SHAP values per prediction, so the contribution of each input to one applicant's own decision can be stated, and it reports pre-training bias across the dataset as well. Built-in feature importance is a global ranking: it describes the model overall and cannot say anything about an individual case. The bias drift monitor tracks fairness metrics through time and again explains no single decision. Debugger inspects tensors during training rather than the production inference that the applicant is asking about.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -198,10 +198,10 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "A pharmaceutical distribution network tracks temperature-sensitive cargo with cryptographic provenance and automated breach alerts. The ML engineering team is requiring a reviewer's approval before any model version can reach production. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Tag each SageMaker model resource with its evaluation metrics and an approval tag which the deployment pipeline reads before it will run." },
+      { id: 'A', text: "Keep each approved model in its own Amazon ECR image repository and deploy whichever image is currently carrying the production tag." },
       { id: 'B', text: "Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage." },
-      { id: 'C', text: "Store each model artifact in a versioned S3 bucket and record its metrics in a DynamoDB table that the deployment job consults first." },
-      { id: 'D', text: "Keep each approved model in its own Amazon ECR image repository and deploy whichever image is currently carrying the production tag." }
+      { id: 'C', text: "Tag each SageMaker model resource with its evaluation metrics and an approval tag which the deployment pipeline reads before it will run." },
+      { id: 'D', text: "Store each model artifact in a versioned S3 bucket and record its metrics in a DynamoDB table that the deployment job consults first." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -219,12 +219,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "A central banking consortium enforces ACID consistency, immutable transaction audit trails, and automated reconciliation. The ML engineering team is keeping training data encrypted and job traffic off the public internet under audit. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Run the training jobs inside a VPC with a NAT gateway for their egress and rely on S3 default encryption using Amazon-managed keys." },
-      { id: 'B', text: "Enable network isolation on the training job so that the container has no network access, and encrypt the storage volumes with the default key." },
-      { id: 'C', text: "Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles." },
-      { id: 'D', text: "Attach an S3 gateway endpoint to the VPC route table and use bucket policies to limit access to the job's execution role." }
+      { id: 'A', text: "Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles." },
+      { id: 'B', text: "Run the training jobs inside a VPC with a NAT gateway for their egress and rely on S3 default encryption using Amazon-managed keys." },
+      { id: 'C', text: "Attach an S3 gateway endpoint to the VPC route table and use bucket policies to limit access to the job's execution role." },
+      { id: 'D', text: "Enable network isolation on the training job so that the container has no network access, and encrypt the storage volumes with the default key." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Interface endpoints keep the SageMaker API and runtime traffic on private addresses, customer-managed KMS keys give the auditable key control and revocation an audit expects, and a least-privilege execution role bounds what a compromised job can reach. A NAT gateway routes egress over the public internet, and Amazon-managed keys leave no customer-controlled key policy to audit. Network isolation is a strong control but blocks the S3 access the job needs unless endpoints are configured too. An S3 gateway endpoint privately covers S3 alone, leaving the SageMaker API calls on the public path.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -240,12 +240,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "A genomics laboratory processes petabyte-scale FASTQ files with distributed batch computing and high-throughput POSIX storage. The ML engineering team is detecting that a deployed model's inputs or accuracy have shifted away from training. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure CloudWatch alarms across the endpoint's invocation count, latency, and error metrics so that any operational problem raises an alert." },
+      { id: 'A', text: "Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation." },
       { id: 'B', text: "Enable data capture on the endpoint and review the captured requests with Amazon Athena during the scheduled monthly model review." },
-      { id: 'C', text: "Schedule a monthly retraining pipeline so that the model is refreshed regularly whether or not its inputs have actually shifted." },
-      { id: 'D', text: "Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation." }
+      { id: 'C', text: "Configure CloudWatch alarms across the endpoint's invocation count, latency, and error metrics so that any operational problem raises an alert." },
+      { id: 'D', text: "Schedule a monthly retraining pipeline so that the model is refreshed regularly whether or not its inputs have actually shifted." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Model Monitor compares live traffic against a baseline computed from the training data and raises an alarm when the distributions or the quality metrics move, which is a statistical question no operational metric answers. CloudWatch alarms report that the endpoint is healthy and fast while it confidently returns wrong answers. Data capture plus Athena has the right data but a month of latency and a person in the loop. Blind monthly retraining may mask drift for a while and gives no signal that anything changed.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -262,9 +262,9 @@ export const AWS_MLA_QUESTIONS_20 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions." },
-      { id: 'B', text: "Use the model's built-in feature importance scores to report which of the inputs the algorithm relies upon most heavily across the whole of the training dataset." },
+      { id: 'B', text: "Use SageMaker Debugger rules to capture tensors during training and report which of the features carried the largest gradients." },
       { id: 'C', text: "Use the bias drift monitor in SageMaker Model Monitor to report how the model's fairness metrics are changing over time in production." },
-      { id: 'D', text: "Use SageMaker Debugger rules to capture tensors during training and report which of the features carried the largest gradients." }
+      { id: 'D', text: "Use the model's built-in feature importance scores to report which of the inputs the algorithm relies upon most heavily across the whole of the training dataset." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,12 +282,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "A real-time competitive gaming cluster orchestrates match sessions with regional matchmaking and anti-cheat validation. The ML engineering team is requiring a reviewer's approval before any model version can reach production. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Tag each SageMaker model resource with its evaluation metrics and an approval tag which the deployment pipeline reads before it will run." },
-      { id: 'B', text: "Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage." },
+      { id: 'A', text: "Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage." },
+      { id: 'B', text: "Tag each SageMaker model resource with its evaluation metrics and an approval tag which the deployment pipeline reads before it will run." },
       { id: 'C', text: "Store each model artifact in a versioned S3 bucket and record its metrics in a DynamoDB table that the deployment job consults first." },
       { id: 'D', text: "Keep each approved model in its own Amazon ECR image repository and deploy whichever image is currently carrying the production tag." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The Model Registry models this directly: versions are grouped into a package group, metrics and lineage travel with each version, and the approval status is a first-class field that IAM can restrict to reviewers and EventBridge can react to. Approval tags are mutable by anyone holding tagging permissions, which is a weak gate for a production control. Versioned S3 with a DynamoDB table reimplements the registry without its lineage or events. An ECR tag records that an image exists but carries neither the evaluation metrics nor the reviewer's decision.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -303,12 +303,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "An actuarial underwriting platform executes Monte Carlo simulations across millions of policy holder records with parallel workers. The ML engineering team is keeping training data encrypted and job traffic off the public internet under audit. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Run the training jobs inside a VPC with a NAT gateway for their egress and rely on S3 default encryption using Amazon-managed keys." },
-      { id: 'B', text: "Enable network isolation on the training job so that the container has no network access, and encrypt the storage volumes with the default key." },
-      { id: 'C', text: "Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles." },
-      { id: 'D', text: "Attach an S3 gateway endpoint to the VPC route table and use bucket policies to limit access to the job's execution role." }
+      { id: 'A', text: "Attach an S3 gateway endpoint to the VPC route table and use bucket policies to limit access to the job's execution role." },
+      { id: 'B', text: "Run the training jobs inside a VPC with a NAT gateway for their egress and rely on S3 default encryption using Amazon-managed keys." },
+      { id: 'C', text: "Enable network isolation on the training job so that the container has no network access, and encrypt the storage volumes with the default key." },
+      { id: 'D', text: "Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Interface endpoints keep the SageMaker API and runtime traffic on private addresses, customer-managed KMS keys give the auditable key control and revocation an audit expects, and a least-privilege execution role bounds what a compromised job can reach. A NAT gateway routes egress over the public internet, and Amazon-managed keys leave no customer-controlled key policy to audit. Network isolation is a strong control but blocks the S3 access the job needs unless endpoints are configured too. An S3 gateway endpoint privately covers S3 alone, leaving the SageMaker API calls on the public path.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -324,12 +324,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "A global pharmaceutical research group manages double-blind clinical trial records with strict regulatory reporting and audit trails. The ML engineering team is detecting that a deployed model's inputs or accuracy have shifted away from training. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure CloudWatch alarms across the endpoint's invocation count, latency, and error metrics so that any operational problem raises an alert." },
-      { id: 'B', text: "Enable data capture on the endpoint and review the captured requests with Amazon Athena during the scheduled monthly model review." },
-      { id: 'C', text: "Schedule a monthly retraining pipeline so that the model is refreshed regularly whether or not its inputs have actually shifted." },
-      { id: 'D', text: "Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation." }
+      { id: 'A', text: "Schedule a monthly retraining pipeline so that the model is refreshed regularly whether or not its inputs have actually shifted." },
+      { id: 'B', text: "Configure CloudWatch alarms across the endpoint's invocation count, latency, and error metrics so that any operational problem raises an alert." },
+      { id: 'C', text: "Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation." },
+      { id: 'D', text: "Enable data capture on the endpoint and review the captured requests with Amazon Athena during the scheduled monthly model review." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Model Monitor compares live traffic against a baseline computed from the training data and raises an alarm when the distributions or the quality metrics move, which is a statistical question no operational metric answers. CloudWatch alarms report that the endpoint is healthy and fast while it confidently returns wrong answers. Data capture plus Athena has the right data but a month of latency and a person in the loop. Blind monthly retraining may mask drift for a while and gives no signal that anything changed.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -345,12 +345,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "A metropolitan transit authority optimizes urban traffic signals with real-time video analytics and edge inference. The ML engineering team is explaining to a declined applicant which inputs drove their particular decision. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions." },
+      { id: 'A', text: "Use the bias drift monitor in SageMaker Model Monitor to report how the model's fairness metrics are changing over time in production." },
       { id: 'B', text: "Use the model's built-in feature importance scores to report which of the inputs the algorithm relies upon most heavily across the whole of the training dataset." },
-      { id: 'C', text: "Use the bias drift monitor in SageMaker Model Monitor to report how the model's fairness metrics are changing over time in production." },
+      { id: 'C', text: "Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions." },
       { id: 'D', text: "Use SageMaker Debugger rules to capture tensors during training and report which of the features carried the largest gradients." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Clarify computes SHAP values per prediction, so the contribution of each input to one applicant's own decision can be stated, and it reports pre-training bias across the dataset as well. Built-in feature importance is a global ranking: it describes the model overall and cannot say anything about an individual case. The bias drift monitor tracks fairness metrics through time and again explains no single decision. Debugger inspects tensors during training rather than the production inference that the applicant is asking about.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -366,12 +366,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "A cross-border passport control gateway validates identity credentials with zero-knowledge cryptographic proofs. The ML engineering team is requiring a reviewer's approval before any model version can reach production. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Tag each SageMaker model resource with its evaluation metrics and an approval tag which the deployment pipeline reads before it will run." },
-      { id: 'B', text: "Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage." },
-      { id: 'C', text: "Store each model artifact in a versioned S3 bucket and record its metrics in a DynamoDB table that the deployment job consults first." },
-      { id: 'D', text: "Keep each approved model in its own Amazon ECR image repository and deploy whichever image is currently carrying the production tag." }
+      { id: 'A', text: "Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage." },
+      { id: 'B', text: "Keep each approved model in its own Amazon ECR image repository and deploy whichever image is currently carrying the production tag." },
+      { id: 'C', text: "Tag each SageMaker model resource with its evaluation metrics and an approval tag which the deployment pipeline reads before it will run." },
+      { id: 'D', text: "Store each model artifact in a versioned S3 bucket and record its metrics in a DynamoDB table that the deployment job consults first." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The Model Registry models this directly: versions are grouped into a package group, metrics and lineage travel with each version, and the approval status is a first-class field that IAM can restrict to reviewers and EventBridge can react to. Approval tags are mutable by anyone holding tagging permissions, which is a weak gate for a production control. Versioned S3 with a DynamoDB table reimplements the registry without its lineage or events. An ECR tag records that an image exists but carries neither the evaluation metrics nor the reviewer's decision.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -387,12 +387,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "A global law firm conducts regulatory discovery across millions of scanned legal filings with vector-enhanced semantic retrieval. The ML engineering team is keeping training data encrypted and job traffic off the public internet under audit. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Run the training jobs inside a VPC with a NAT gateway for their egress and rely on S3 default encryption using Amazon-managed keys." },
-      { id: 'B', text: "Enable network isolation on the training job so that the container has no network access, and encrypt the storage volumes with the default key." },
-      { id: 'C', text: "Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles." },
-      { id: 'D', text: "Attach an S3 gateway endpoint to the VPC route table and use bucket policies to limit access to the job's execution role." }
+      { id: 'A', text: "Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles." },
+      { id: 'B', text: "Run the training jobs inside a VPC with a NAT gateway for their egress and rely on S3 default encryption using Amazon-managed keys." },
+      { id: 'C', text: "Attach an S3 gateway endpoint to the VPC route table and use bucket policies to limit access to the job's execution role." },
+      { id: 'D', text: "Enable network isolation on the training job so that the container has no network access, and encrypt the storage volumes with the default key." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Interface endpoints keep the SageMaker API and runtime traffic on private addresses, customer-managed KMS keys give the auditable key control and revocation an audit expects, and a least-privilege execution role bounds what a compromised job can reach. A NAT gateway routes egress over the public internet, and Amazon-managed keys leave no customer-controlled key policy to audit. Network isolation is a strong control but blocks the S3 access the job needs unless endpoints are configured too. An S3 gateway endpoint privately covers S3 alone, leaving the SageMaker API calls on the public path.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -410,10 +410,10 @@ export const AWS_MLA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Configure CloudWatch alarms across the endpoint's invocation count, latency, and error metrics so that any operational problem raises an alert." },
       { id: 'B', text: "Enable data capture on the endpoint and review the captured requests with Amazon Athena during the scheduled monthly model review." },
-      { id: 'C', text: "Schedule a monthly retraining pipeline so that the model is refreshed regularly whether or not its inputs have actually shifted." },
-      { id: 'D', text: "Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation." }
+      { id: 'C', text: "Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation." },
+      { id: 'D', text: "Schedule a monthly retraining pipeline so that the model is refreshed regularly whether or not its inputs have actually shifted." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Model Monitor compares live traffic against a baseline computed from the training data and raises an alarm when the distributions or the quality metrics move, which is a statistical question no operational metric answers. CloudWatch alarms report that the endpoint is healthy and fast while it confidently returns wrong answers. Data capture plus Athena has the right data but a month of latency and a person in the loop. Blind monthly retraining may mask drift for a while and gives no signal that anything changed.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -429,12 +429,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "An agricultural drone fleet captures multispectral crop imagery with automated computer vision defect classification. The ML engineering team is explaining to a declined applicant which inputs drove their particular decision. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions." },
-      { id: 'B', text: "Use the model's built-in feature importance scores to report which of the inputs the algorithm relies upon most heavily across the whole of the training dataset." },
-      { id: 'C', text: "Use the bias drift monitor in SageMaker Model Monitor to report how the model's fairness metrics are changing over time in production." },
-      { id: 'D', text: "Use SageMaker Debugger rules to capture tensors during training and report which of the features carried the largest gradients." }
+      { id: 'A', text: "Use the model's built-in feature importance scores to report which of the inputs the algorithm relies upon most heavily across the whole of the training dataset." },
+      { id: 'B', text: "Use SageMaker Debugger rules to capture tensors during training and report which of the features carried the largest gradients." },
+      { id: 'C', text: "Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions." },
+      { id: 'D', text: "Use the bias drift monitor in SageMaker Model Monitor to report how the model's fairness metrics are changing over time in production." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Clarify computes SHAP values per prediction, so the contribution of each input to one applicant's own decision can be stated, and it reports pre-training bias across the dataset as well. Built-in feature importance is a global ranking: it describes the model overall and cannot say anything about an individual case. The bias drift monitor tracks fairness metrics through time and again explains no single decision. Debugger inspects tensors during training rather than the production inference that the applicant is asking about.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -450,12 +450,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "A semiconductor fabrication facility detects vibration harmonics on manufacturing robots to prevent unplanned downtime. The ML engineering team is requiring a reviewer's approval before any model version can reach production. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Tag each SageMaker model resource with its evaluation metrics and an approval tag which the deployment pipeline reads before it will run." },
-      { id: 'B', text: "Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage." },
-      { id: 'C', text: "Store each model artifact in a versioned S3 bucket and record its metrics in a DynamoDB table that the deployment job consults first." },
-      { id: 'D', text: "Keep each approved model in its own Amazon ECR image repository and deploy whichever image is currently carrying the production tag." }
+      { id: 'A', text: "Register models in the SageMaker Model Registry, cataloging metadata, evaluation metrics, approval status ('Approved', 'Rejected'), and lineage." },
+      { id: 'B', text: "Keep each approved model in its own Amazon ECR image repository and deploy whichever image is currently carrying the production tag." },
+      { id: 'C', text: "Tag each SageMaker model resource with its evaluation metrics and an approval tag which the deployment pipeline reads before it will run." },
+      { id: 'D', text: "Store each model artifact in a versioned S3 bucket and record its metrics in a DynamoDB table that the deployment job consults first." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The Model Registry models this directly: versions are grouped into a package group, metrics and lineage travel with each version, and the approval status is a first-class field that IAM can restrict to reviewers and EventBridge can react to. Approval tags are mutable by anyone holding tagging permissions, which is a weak gate for a production control. Versioned S3 with a DynamoDB table reimplements the registry without its lineage or events. An ECR tag records that an image exists but carries neither the evaluation metrics nor the reviewer's decision.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -471,12 +471,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "An online university platform enforces anti-plagiarism and biometric proctoring for high-stakes certification exams. The ML engineering team is keeping training data encrypted and job traffic off the public internet under audit. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Run the training jobs inside a VPC with a NAT gateway for their egress and rely on S3 default encryption using Amazon-managed keys." },
-      { id: 'B', text: "Enable network isolation on the training job so that the container has no network access, and encrypt the storage volumes with the default key." },
-      { id: 'C', text: "Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles." },
-      { id: 'D', text: "Attach an S3 gateway endpoint to the VPC route table and use bucket policies to limit access to the job's execution role." }
+      { id: 'A', text: "Configure VPC interface endpoints (PrivateLink), enable KMS encryption for S3 and EBS storage, and enforce IAM least-privilege execution roles." },
+      { id: 'B', text: "Run the training jobs inside a VPC with a NAT gateway for their egress and rely on S3 default encryption using Amazon-managed keys." },
+      { id: 'C', text: "Attach an S3 gateway endpoint to the VPC route table and use bucket policies to limit access to the job's execution role." },
+      { id: 'D', text: "Enable network isolation on the training job so that the container has no network access, and encrypt the storage volumes with the default key." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Interface endpoints keep the SageMaker API and runtime traffic on private addresses, customer-managed KMS keys give the auditable key control and revocation an audit expects, and a least-privilege execution role bounds what a compromised job can reach. A NAT gateway routes egress over the public internet, and Amazon-managed keys leave no customer-controlled key policy to audit. Network isolation is a strong control but blocks the S3 access the job needs unless endpoints are configured too. An S3 gateway endpoint privately covers S3 alone, leaving the SageMaker API calls on the public path.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -492,12 +492,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "A property appraisal engine fuses GIS parcel maps with real-time market transactions for automated valuation. The ML engineering team is detecting that a deployed model's inputs or accuracy have shifted away from training. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure CloudWatch alarms across the endpoint's invocation count, latency, and error metrics so that any operational problem raises an alert." },
-      { id: 'B', text: "Enable data capture on the endpoint and review the captured requests with Amazon Athena during the scheduled monthly model review." },
-      { id: 'C', text: "Schedule a monthly retraining pipeline so that the model is refreshed regularly whether or not its inputs have actually shifted." },
-      { id: 'D', text: "Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation." }
+      { id: 'A', text: "Configure SageMaker Model Monitor with a baseline dataset to continuously inspect endpoint requests and detect data drift or model quality degradation." },
+      { id: 'B', text: "Schedule a monthly retraining pipeline so that the model is refreshed regularly whether or not its inputs have actually shifted." },
+      { id: 'C', text: "Configure CloudWatch alarms across the endpoint's invocation count, latency, and error metrics so that any operational problem raises an alert." },
+      { id: 'D', text: "Enable data capture on the endpoint and review the captured requests with Amazon Athena during the scheduled monthly model review." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Model Monitor compares live traffic against a baseline computed from the training data and raises an alarm when the distributions or the quality metrics move, which is a statistical question no operational metric answers. CloudWatch alarms report that the endpoint is healthy and fast while it confidently returns wrong answers. Data capture plus Athena has the right data but a month of latency and a person in the loop. Blind monthly retraining may mask drift for a while and gives no signal that anything changed.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -513,12 +513,12 @@ export const AWS_MLA_QUESTIONS_20 = [
     scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The ML engineering team is explaining to a declined applicant which inputs drove their particular decision. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions." },
-      { id: 'B', text: "Use the model's built-in feature importance scores to report which of the inputs the algorithm relies upon most heavily across the whole of the training dataset." },
+      { id: 'A', text: "Use the model's built-in feature importance scores to report which of the inputs the algorithm relies upon most heavily across the whole of the training dataset." },
+      { id: 'B', text: "Use SageMaker Clarify to compute pre-training bias metrics and post-training SHAP (Shapley Additive exPlanations) values to explain feature contributions." },
       { id: 'C', text: "Use the bias drift monitor in SageMaker Model Monitor to report how the model's fairness metrics are changing over time in production." },
       { id: 'D', text: "Use SageMaker Debugger rules to capture tensors during training and report which of the features carried the largest gradients." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Clarify computes SHAP values per prediction, so the contribution of each input to one applicant's own decision can be stated, and it reports pre-training bias across the dataset as well. Built-in feature importance is a global ranking: it describes the model overall and cannot say anything about an individual case. The bias drift monitor tracks fairness metrics through time and again explains no single decision. Debugger inspects tensors during training rather than the production inference that the applicant is asking about.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",

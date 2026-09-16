@@ -9,12 +9,12 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to provision a high-capacity multi-AZ database in production but a minimal single-AZ instance in development using a single resource definition.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Conditional logic is not permitted in Terraform." },
+      { id: 'A', text: "Manually edit the configuration before each deployment." },
       { id: 'B', text: "Maintain two completely separate and duplicate `.tf` files for dev and prod." },
-      { id: 'C', text: "Use a conditional expression in the resource spec: `multi_az = var.env == \"prod\" ? true : false`." },
-      { id: 'D', text: "Manually edit the configuration before each deployment." }
+      { id: 'C', text: "Conditional logic is not permitted in Terraform." },
+      { id: 'D', text: "Use a conditional expression in the resource spec: `multi_az = var.env == \"prod\" ? true : false`." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use a conditional expression in the resource spec: `multi_az = var.env == \"prod\" ? true : false`. Terraform supports ternary conditional expressions in the format `condition ? true_val : false_val`. They evaluate a boolean expression to return one of two values, allowing single resource definitions to adapt gracefully across environment tiers.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/conditionals",
@@ -32,8 +32,8 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Use a conditional expression in the resource spec: `multi_az = var.env == \"prod\" ? true : false`." },
       { id: 'B', text: "Maintain two completely separate and duplicate `.tf` files for dev and prod." },
-      { id: 'C', text: "Conditional logic is not permitted in Terraform." },
-      { id: 'D', text: "Manually edit the configuration before each deployment." }
+      { id: 'C', text: "Manually edit the configuration before each deployment." },
+      { id: 'D', text: "Conditional logic is not permitted in Terraform." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to provision a high-capacity multi-AZ database in production but a minimal single-AZ instance in development using a single resource definition.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Manually edit the configuration before each deployment." },
+      { id: 'A', text: "Use a conditional expression in the resource spec: `multi_az = var.env == \"prod\" ? true : false`." },
       { id: 'B', text: "Maintain two completely separate and duplicate `.tf` files for dev and prod." },
-      { id: 'C', text: "Use a conditional expression in the resource spec: `multi_az = var.env == \"prod\" ? true : false`." },
+      { id: 'C', text: "Manually edit the configuration before each deployment." },
       { id: 'D', text: "Conditional logic is not permitted in Terraform." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Use a conditional expression in the resource spec: `multi_az = var.env == \"prod\" ? true : false`. Terraform supports ternary conditional expressions in the format `condition ? true_val : false_val`. They evaluate a boolean expression to return one of two values, allowing single resource definitions to adapt gracefully across environment tiers.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/conditionals",
@@ -73,9 +73,9 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Use a conditional expression in the resource spec: `multi_az = var.env == \"prod\" ? true : false`." },
-      { id: 'B', text: "Conditional logic is not permitted in Terraform." },
+      { id: 'B', text: "Maintain two completely separate and duplicate `.tf` files for dev and prod." },
       { id: 'C', text: "Manually edit the configuration before each deployment." },
-      { id: 'D', text: "Maintain two completely separate and duplicate `.tf` files for dev and prod." }
+      { id: 'D', text: "Conditional logic is not permitted in Terraform." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to provision a high-capacity multi-AZ database in production but a minimal single-AZ instance in development using a single resource definition.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Manually edit the configuration before each deployment." },
+      { id: 'A', text: "Use a conditional expression in the resource spec: `multi_az = var.env == \"prod\" ? true : false`." },
       { id: 'B', text: "Maintain two completely separate and duplicate `.tf` files for dev and prod." },
-      { id: 'C', text: "Use a conditional expression in the resource spec: `multi_az = var.env == \"prod\" ? true : false`." },
+      { id: 'C', text: "Manually edit the configuration before each deployment." },
       { id: 'D', text: "Conditional logic is not permitted in Terraform." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Use a conditional expression in the resource spec: `multi_az = var.env == \"prod\" ? true : false`. Terraform supports ternary conditional expressions in the format `condition ? true_val : false_val`. They evaluate a boolean expression to return one of two values, allowing single resource definitions to adapt gracefully across environment tiers.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/conditionals",
@@ -114,12 +114,12 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to conditionally create a cloud bastion host instance only when the `create_bastion` variable is set to true.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Delete the bastion instance manually in the cloud console after every apply." },
-      { id: 'B', text: "Set `count = var.create_bastion ? 1 : 0` in the bastion host resource block." },
-      { id: 'C', text: "Comment out the bastion resource block when deploying to environments that do not need it." },
+      { id: 'A', text: "Comment out the bastion resource block when deploying to environments that do not need it." },
+      { id: 'B', text: "Delete the bastion instance manually in the cloud console after every apply." },
+      { id: 'C', text: "Set `count = var.create_bastion ? 1 : 0` in the bastion host resource block." },
       { id: 'D', text: "Set instance_type to none." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Set `count = var.create_bastion ? 1 : 0` in the bastion host resource block. The `count` meta-argument can be combined with a conditional expression (`count = var.enable_feature ? 1 : 0`) to conditionally create resources. If the condition is false, `count` evaluates to 0, and Terraform creates zero instances of the resource.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/count#conditional-creation-of-resources",
@@ -135,12 +135,12 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to conditionally create a cloud bastion host instance only when the `create_bastion` variable is set to true.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Delete the bastion instance manually in the cloud console after every apply." },
-      { id: 'B', text: "Set instance_type to none." },
-      { id: 'C', text: "Set `count = var.create_bastion ? 1 : 0` in the bastion host resource block." },
-      { id: 'D', text: "Comment out the bastion resource block when deploying to environments that do not need it." }
+      { id: 'A', text: "Set `count = var.create_bastion ? 1 : 0` in the bastion host resource block." },
+      { id: 'B', text: "Comment out the bastion resource block when deploying to environments that do not need it." },
+      { id: 'C', text: "Delete the bastion instance manually in the cloud console after every apply." },
+      { id: 'D', text: "Set instance_type to none." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Set `count = var.create_bastion ? 1 : 0` in the bastion host resource block. The `count` meta-argument can be combined with a conditional expression (`count = var.enable_feature ? 1 : 0`) to conditionally create resources. If the condition is false, `count` evaluates to 0, and Terraform creates zero instances of the resource.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/count#conditional-creation-of-resources",
@@ -157,9 +157,9 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Set `count = var.create_bastion ? 1 : 0` in the bastion host resource block." },
-      { id: 'B', text: "Set instance_type to none." },
+      { id: 'B', text: "Comment out the bastion resource block when deploying to environments that do not need it." },
       { id: 'C', text: "Delete the bastion instance manually in the cloud console after every apply." },
-      { id: 'D', text: "Comment out the bastion resource block when deploying to environments that do not need it." }
+      { id: 'D', text: "Set instance_type to none." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to conditionally create a cloud bastion host instance only when the `create_bastion` variable is set to true.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Set instance_type to none." },
-      { id: 'B', text: "Set `count = var.create_bastion ? 1 : 0` in the bastion host resource block." },
+      { id: 'A', text: "Comment out the bastion resource block when deploying to environments that do not need it." },
+      { id: 'B', text: "Set instance_type to none." },
       { id: 'C', text: "Delete the bastion instance manually in the cloud console after every apply." },
-      { id: 'D', text: "Comment out the bastion resource block when deploying to environments that do not need it." }
+      { id: 'D', text: "Set `count = var.create_bastion ? 1 : 0` in the bastion host resource block." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set `count = var.create_bastion ? 1 : 0` in the bastion host resource block. The `count` meta-argument can be combined with a conditional expression (`count = var.enable_feature ? 1 : 0`) to conditionally create resources. If the condition is false, `count` evaluates to 0, and Terraform creates zero instances of the resource.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/count#conditional-creation-of-resources",
@@ -198,12 +198,12 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to conditionally create a cloud bastion host instance only when the `create_bastion` variable is set to true.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Comment out the bastion resource block when deploying to environments that do not need it." },
-      { id: 'B', text: "Set instance_type to none." },
+      { id: 'A', text: "Set instance_type to none." },
+      { id: 'B', text: "Set `count = var.create_bastion ? 1 : 0` in the bastion host resource block." },
       { id: 'C', text: "Delete the bastion instance manually in the cloud console after every apply." },
-      { id: 'D', text: "Set `count = var.create_bastion ? 1 : 0` in the bastion host resource block." }
+      { id: 'D', text: "Comment out the bastion resource block when deploying to environments that do not need it." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Set `count = var.create_bastion ? 1 : 0` in the bastion host resource block. The `count` meta-argument can be combined with a conditional expression (`count = var.enable_feature ? 1 : 0`) to conditionally create resources. If the condition is false, `count` evaluates to 0, and Terraform creates zero instances of the resource.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/count#conditional-creation-of-resources",
@@ -219,12 +219,12 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to standardize a common resource naming convention (combining company, business unit, project, and env) across 50 cloud resources.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Pass the full concatenated name as an input variable from the command line on every run." },
-      { id: 'B', text: "Store the name prefix in an external database and query it with a bash script." },
-      { id: 'C', text: "Copy-paste the full string interpolation expression 50 times across all resource blocks." },
-      { id: 'D', text: "Define a `locals {}` block with `name_prefix = \"${var.org}-${var.dept}-${var.env}\"` and reference `local.name_prefix` in resources." }
+      { id: 'A', text: "Copy-paste the full string interpolation expression 50 times across all resource blocks." },
+      { id: 'B', text: "Define a `locals {}` block with `name_prefix = \"${var.org}-${var.dept}-${var.env}\"` and reference `local.name_prefix` in resources." },
+      { id: 'C', text: "Store the name prefix in an external database and query it with a bash script." },
+      { id: 'D', text: "Pass the full concatenated name as an input variable from the command line on every run." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Define a `locals {}` block with `name_prefix = \"${var.org}-${var.dept}-${var.env}\"` and reference `local.name_prefix` in resources. Local values (`locals`) assign names to intermediate expressions. Unlike input variables, locals are not set directly by users; they allow configurations to compute reusable values, avoiding repetitive boilerplate and simplifying complex expression maintenance.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/values/locals",
@@ -261,12 +261,12 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to standardize a common resource naming convention (combining company, business unit, project, and env) across 50 cloud resources.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Pass the full concatenated name as an input variable from the command line on every run." },
-      { id: 'B', text: "Store the name prefix in an external database and query it with a bash script." },
-      { id: 'C', text: "Copy-paste the full string interpolation expression 50 times across all resource blocks." },
-      { id: 'D', text: "Define a `locals {}` block with `name_prefix = \"${var.org}-${var.dept}-${var.env}\"` and reference `local.name_prefix` in resources." }
+      { id: 'A', text: "Copy-paste the full string interpolation expression 50 times across all resource blocks." },
+      { id: 'B', text: "Define a `locals {}` block with `name_prefix = \"${var.org}-${var.dept}-${var.env}\"` and reference `local.name_prefix` in resources." },
+      { id: 'C', text: "Store the name prefix in an external database and query it with a bash script." },
+      { id: 'D', text: "Pass the full concatenated name as an input variable from the command line on every run." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Define a `locals {}` block with `name_prefix = \"${var.org}-${var.dept}-${var.env}\"` and reference `local.name_prefix` in resources. Local values (`locals`) assign names to intermediate expressions. Unlike input variables, locals are not set directly by users; they allow configurations to compute reusable values, avoiding repetitive boilerplate and simplifying complex expression maintenance.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/values/locals",
@@ -303,12 +303,12 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to standardize a common resource naming convention (combining company, business unit, project, and env) across 50 cloud resources.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Pass the full concatenated name as an input variable from the command line on every run." },
-      { id: 'B', text: "Define a `locals {}` block with `name_prefix = \"${var.org}-${var.dept}-${var.env}\"` and reference `local.name_prefix` in resources." },
-      { id: 'C', text: "Copy-paste the full string interpolation expression 50 times across all resource blocks." },
+      { id: 'A', text: "Copy-paste the full string interpolation expression 50 times across all resource blocks." },
+      { id: 'B', text: "Pass the full concatenated name as an input variable from the command line on every run." },
+      { id: 'C', text: "Define a `locals {}` block with `name_prefix = \"${var.org}-${var.dept}-${var.env}\"` and reference `local.name_prefix` in resources." },
       { id: 'D', text: "Store the name prefix in an external database and query it with a bash script." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define a `locals {}` block with `name_prefix = \"${var.org}-${var.dept}-${var.env}\"` and reference `local.name_prefix` in resources. Local values (`locals`) assign names to intermediate expressions. Unlike input variables, locals are not set directly by users; they allow configurations to compute reusable values, avoiding repetitive boilerplate and simplifying complex expression maintenance.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/values/locals",
@@ -325,9 +325,9 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Configure `lifecycle { prevent_destroy = true }` on the database and `lifecycle { create_before_destroy = true }` on web servers." },
-      { id: 'B', text: "Delete the state file so Terraform cannot destroy resources." },
-      { id: 'C', text: "Change the database username to read-only in the cloud console." },
-      { id: 'D', text: "Rely on human discipline to never run terraform destroy." }
+      { id: 'B', text: "Change the database username to read-only in the cloud console." },
+      { id: 'C', text: "Rely on human discipline to never run terraform destroy." },
+      { id: 'D', text: "Delete the state file so Terraform cannot destroy resources." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -346,9 +346,9 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Configure `lifecycle { prevent_destroy = true }` on the database and `lifecycle { create_before_destroy = true }` on web servers." },
-      { id: 'B', text: "Change the database username to read-only in the cloud console." },
-      { id: 'C', text: "Rely on human discipline to never run terraform destroy." },
-      { id: 'D', text: "Delete the state file so Terraform cannot destroy resources." }
+      { id: 'B', text: "Delete the state file so Terraform cannot destroy resources." },
+      { id: 'C', text: "Change the database username to read-only in the cloud console." },
+      { id: 'D', text: "Rely on human discipline to never run terraform destroy." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to prevent anyone from accidentally destroying a production database and ensure zero-downtime replacement for web server instances.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Change the database username to read-only in the cloud console." },
-      { id: 'B', text: "Configure `lifecycle { prevent_destroy = true }` on the database and `lifecycle { create_before_destroy = true }` on web servers." },
-      { id: 'C', text: "Rely on human discipline to never run terraform destroy." },
-      { id: 'D', text: "Delete the state file so Terraform cannot destroy resources." }
+      { id: 'A', text: "Delete the state file so Terraform cannot destroy resources." },
+      { id: 'B', text: "Change the database username to read-only in the cloud console." },
+      { id: 'C', text: "Configure `lifecycle { prevent_destroy = true }` on the database and `lifecycle { create_before_destroy = true }` on web servers." },
+      { id: 'D', text: "Rely on human discipline to never run terraform destroy." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure `lifecycle { prevent_destroy = true }` on the database and `lifecycle { create_before_destroy = true }` on web servers. The `lifecycle` block customizes resource behavior. `prevent_destroy = true` causes Terraform to reject any execution plan that would destroy the resource. `create_before_destroy = true` creates the replacement resource before terminating the existing one, avoiding downtime.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle",
@@ -408,12 +408,12 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to prevent anyone from accidentally destroying a production database and ensure zero-downtime replacement for web server instances.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Rely on human discipline to never run terraform destroy." },
-      { id: 'B', text: "Delete the state file so Terraform cannot destroy resources." },
-      { id: 'C', text: "Configure `lifecycle { prevent_destroy = true }` on the database and `lifecycle { create_before_destroy = true }` on web servers." },
+      { id: 'A', text: "Delete the state file so Terraform cannot destroy resources." },
+      { id: 'B', text: "Configure `lifecycle { prevent_destroy = true }` on the database and `lifecycle { create_before_destroy = true }` on web servers." },
+      { id: 'C', text: "Rely on human discipline to never run terraform destroy." },
       { id: 'D', text: "Change the database username to read-only in the cloud console." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure `lifecycle { prevent_destroy = true }` on the database and `lifecycle { create_before_destroy = true }` on web servers. The `lifecycle` block customizes resource behavior. `prevent_destroy = true` causes Terraform to reject any execution plan that would destroy the resource. `create_before_destroy = true` creates the replacement resource before terminating the existing one, avoiding downtime.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle",
@@ -429,12 +429,12 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to manage different variable values for staging and production environments without changing the underlying `.tf` codebase.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Use environment variables exclusively for all complex object structures." },
-      { id: 'B', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." },
-      { id: 'C', text: "Hardcode environment values directly inside `variables.tf` and commit changes before each run." },
-      { id: 'D', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." }
+      { id: 'A', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." },
+      { id: 'B', text: "Hardcode environment values directly inside `variables.tf` and commit changes before each run." },
+      { id: 'C', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." },
+      { id: 'D', text: "Use environment variables exclusively for all complex object structures." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`. Terraform automatically loads variables from `terraform.tfvars` and files ending in `.auto.tfvars`. To manage distinct environment values cleanly, teams maintain separate files (e.g., `staging.tfvars`, `prod.tfvars`) and pass them explicitly using `-var-file`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/values/variables#variable-definitions-tfvars-files",
@@ -450,12 +450,12 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to manage different variable values for staging and production environments without changing the underlying `.tf` codebase.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Use environment variables exclusively for all complex object structures." },
+      { id: 'A', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." },
       { id: 'B', text: "Hardcode environment values directly inside `variables.tf` and commit changes before each run." },
-      { id: 'C', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." },
-      { id: 'D', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." }
+      { id: 'C', text: "Use environment variables exclusively for all complex object structures." },
+      { id: 'D', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`. Terraform automatically loads variables from `terraform.tfvars` and files ending in `.auto.tfvars`. To manage distinct environment values cleanly, teams maintain separate files (e.g., `staging.tfvars`, `prod.tfvars`) and pass them explicitly using `-var-file`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/values/variables#variable-definitions-tfvars-files",
@@ -471,12 +471,12 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to manage different variable values for staging and production environments without changing the underlying `.tf` codebase.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Hardcode environment values directly inside `variables.tf` and commit changes before each run." },
-      { id: 'B', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." },
+      { id: 'A', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." },
+      { id: 'B', text: "Hardcode environment values directly inside `variables.tf` and commit changes before each run." },
       { id: 'C', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." },
       { id: 'D', text: "Use environment variables exclusively for all complex object structures." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`. Terraform automatically loads variables from `terraform.tfvars` and files ending in `.auto.tfvars`. To manage distinct environment values cleanly, teams maintain separate files (e.g., `staging.tfvars`, `prod.tfvars`) and pass them explicitly using `-var-file`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/values/variables#variable-definitions-tfvars-files",
@@ -492,12 +492,12 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to manage different variable values for staging and production environments without changing the underlying `.tf` codebase.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use environment variables exclusively for all complex object structures." },
-      { id: 'B', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." },
+      { id: 'A', text: "Hardcode environment values directly inside `variables.tf` and commit changes before each run." },
+      { id: 'B', text: "Use environment variables exclusively for all complex object structures." },
       { id: 'C', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." },
-      { id: 'D', text: "Hardcode environment values directly inside `variables.tf` and commit changes before each run." }
+      { id: 'D', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`. Terraform automatically loads variables from `terraform.tfvars` and files ending in `.auto.tfvars`. To manage distinct environment values cleanly, teams maintain separate files (e.g., `staging.tfvars`, `prod.tfvars`) and pass them explicitly using `-var-file`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/values/variables#variable-definitions-tfvars-files",
@@ -513,12 +513,12 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to manage different variable values for staging and production environments without changing the underlying `.tf` codebase.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." },
+      { id: 'A', text: "Use environment variables exclusively for all complex object structures." },
       { id: 'B', text: "Hardcode environment values directly inside `variables.tf` and commit changes before each run." },
-      { id: 'C', text: "Use environment variables exclusively for all complex object structures." },
-      { id: 'D', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." }
+      { id: 'C', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." },
+      { id: 'D', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`. Terraform automatically loads variables from `terraform.tfvars` and files ending in `.auto.tfvars`. To manage distinct environment values cleanly, teams maintain separate files (e.g., `staging.tfvars`, `prod.tfvars`) and pass them explicitly using `-var-file`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/values/variables#variable-definitions-tfvars-files",

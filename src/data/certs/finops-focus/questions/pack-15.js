@@ -9,12 +9,12 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     scenario: "A quantitative trading desk requires microsecond secrets delivery, zero packet loss, and deterministic authentication guarantees. The FinOps team is showing whether cloud spend is growing faster than the business it supports. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Join FOCUS EffectiveCost with business metrics for unit economics." },
+      { id: 'A', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." },
       { id: 'B', text: "Track the month-on-month growth rate of total cloud spend and compare that rate against the business's overall revenue growth over the same reporting period each quarter." },
-      { id: 'C', text: "Track spend per service and divide it by the number of active resources deployed so the average cost of each one becomes known." },
-      { id: 'D', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." }
+      { id: 'C', text: "Join FOCUS EffectiveCost with business metrics for unit economics." },
+      { id: 'D', text: "Track spend per service and divide it by the number of active resources deployed so the average cost of each one becomes known." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Dividing cost by the business outcome it produces turns spend into a rate that can rise or fall independently of growth, so a doubling of cost against a tripling of transactions reads correctly as an improvement. Comparing spend growth against revenue growth gives one company-wide number that hides which services are getting worse. Cost per resource measures infrastructure density rather than business value, and a team's headcount is not the outcome the business buys.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -30,12 +30,12 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     scenario: "A national hospital network requires strict cryptographic privacy, auditable access controls, and HIPAA compliance. The FinOps team is introducing financial accountability to engineering teams that have never had it. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Implement financial Chargeback from the outset so every team's budget carries its cloud costs from the first FinOps reporting period." },
-      { id: 'B', text: "Implement Showback reports using FOCUS data to create visibility and awareness, transitioning to automated financial Chargeback as FinOps culture matures." },
+      { id: 'A', text: "Implement Showback only, on the basis that visibility changes behaviour and that moving budgets between teams creates unproductive friction." },
+      { id: 'B', text: "Implement financial Chargeback from the outset so every team's budget carries its cloud costs from the first FinOps reporting period." },
       { id: 'C', text: "Implement a central budget with per-team quotas enforced automatically by policy so that spend is capped well before it ever needs to be allocated to anyone." },
-      { id: 'D', text: "Implement Showback only, on the basis that visibility changes behaviour and that moving budgets between teams creates unproductive friction." }
+      { id: 'D', text: "Implement Showback reports using FOCUS data to create visibility and awareness, transitioning to automated financial Chargeback as FinOps culture matures." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Showback first gives teams numbers they can check and argue with while nothing is at stake, so by the time budgets move the allocation is trusted and the conversation is about the spend rather than the data. Chargeback from day one attaches real financial consequences to allocation that is usually still incomplete, which reliably produces disputes about tagging. Quotas cap spend without attributing it and tend to block delivery at the worst moment. Stopping at showback works until visibility has done its work and nothing further changes.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -52,9 +52,9 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Query the 'CommitmentDiscountStatus' column for unused commitment capacity and treat whatever portion of it is unused as the waste that ought to be recovered first across the estate." },
-      { id: 'B', text: "Query for the resources whose EffectiveCost has grown fastest month on month and investigate whichever of the largest increases appear first." },
+      { id: 'B', text: "Query for the resources with the highest EffectiveCost each month, including those near zero utilisation, and review them with their owning teams." },
       { id: 'C', text: "Query FOCUS data where 'EffectiveCost' is recurring but 'PricingQuantity' or compute utilization is near zero to flag idle virtual machines and unattached storage." },
-      { id: 'D', text: "Query for the resources with the highest EffectiveCost each month, including those near zero utilisation, and review them with their owning teams." }
+      { id: 'D', text: "Query for the resources whose EffectiveCost has grown fastest month on month and investigate whichever of the largest increases appear first." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -73,8 +73,8 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Set a monthly budget for each account with alerts raised at fixed percentage thresholds of the total amount that was budgeted." },
-      { id: 'B', text: "Forecast each month's spend from the preceding months and raise an alert whenever that forecast exceeds the budget that was set for the period." },
-      { id: 'C', text: "Review the daily spend dashboard each morning so that anomaly detection is done by eye over the same billing streams." },
+      { id: 'B', text: "Review the daily spend dashboard each morning so that anomaly detection is done by eye over the same billing streams." },
+      { id: 'C', text: "Forecast each month's spend from the preceding months and raise an alert whenever that forecast exceeds the budget that was set for the period." },
       { id: 'D', text: "Run anomaly detection over the daily FOCUS billing stream." }
     ],
     correctAnswers: ['D'],
@@ -93,12 +93,12 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     scenario: "An enterprise cloud SaaS architecture mandates strict logical tenant isolation, data masking, and per-tenant resource quotas. The FinOps team is attributing the cost of a shared cluster and network to the teams using it. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Allocate shared platform costs (e.g., central Kubernetes clusters, security tools, networking transit gateways) across tenant teams based on proportional usage." },
-      { id: 'B', text: "Allocate the shared platform costs to each tenant in proportion to that team's total direct cloud spend, as measured over the same billing period in each and every month of the year." },
-      { id: 'C', text: "Leave shared platform and transit costs in a central cost centre and report them entirely separately from the tenant teams." },
+      { id: 'A', text: "Leave shared platform and transit costs in a central cost centre and report them entirely separately from the tenant teams." },
+      { id: 'B', text: "Allocate shared platform costs (e.g., central Kubernetes clusters, security tools, networking transit gateways) across tenant teams based on proportional usage." },
+      { id: 'C', text: "Allocate the shared platform costs to each tenant in proportion to that team's total direct cloud spend, as measured over the same billing period in each and every month of the year." },
       { id: 'D', text: "Allocate the shared platform costs evenly between the tenant teams so that each one of them carries an identical share of the total." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Allocating on measured consumption of the shared service, such as pod CPU and memory hours or data processed by the gateway, ties each team's charge to the driver it controls, so reducing usage visibly reduces the bill. Splitting by total direct spend is a common proxy but correlates weakly with cluster usage, so a team with heavy managed-database spend subsidises a heavy cluster user. Leaving the cost central is accurate and shows no team what it consumes. An even split charges the smallest tenant the same as the largest.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -114,12 +114,12 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     scenario: "A global video streaming service distributes high-bitrate live media with distributed edge caching and tokenized DRM protection. The FinOps team is reporting cloud spend to leadership in a form that supports a decision. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Distribute the detailed allocation report to every business unit and let the leadership team read through whichever of the sections happen to concern them the most that month." },
-      { id: 'B', text: "Create executive FOCUS dashboards displaying multi-cloud spend trends, commitment coverage percentages, waste reduction metrics, and forecasted budget variance." },
+      { id: 'A', text: "Create executive FOCUS dashboards displaying multi-cloud spend trends, commitment coverage percentages, waste reduction metrics, and forecasted budget variance." },
+      { id: 'B', text: "Distribute the detailed allocation report to every business unit and let the leadership team read through whichever of the sections happen to concern them the most that month." },
       { id: 'C', text: "Create a dashboard driven by unit economics alone, since cost per transaction is the only figure that the business leadership really needs." },
       { id: 'D', text: "Create a dashboard showing total spend by provider and by month so that leadership is able to see exactly where the money is going." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Each of those measures maps to a decision an executive can take: coverage to whether more commitment should be bought, waste to whether optimisation is funded, forecast variance to whether the budget needs revising. Handing out the detailed allocation report delegates the summarising to the reader. Unit economics is the strongest single metric but on its own gives no view of coverage or forecast. Spend by provider and month describes what happened accurately while implying nothing about what to do next.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -135,12 +135,12 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     scenario: "An aerospace telemetry platform processes orbital downlinks with fault-tolerant queuing and asynchronous edge processing. The FinOps team is showing whether cloud spend is growing faster than the business it supports. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Track the month-on-month growth rate of total cloud spend and compare that rate against the business's overall revenue growth over the same reporting period each quarter." },
-      { id: 'B', text: "Track spend per service and divide it by the number of active resources deployed so the average cost of each one becomes known." },
-      { id: 'C', text: "Join FOCUS EffectiveCost with business metrics for unit economics." },
-      { id: 'D', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." }
+      { id: 'A', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." },
+      { id: 'B', text: "Track the month-on-month growth rate of total cloud spend and compare that rate against the business's overall revenue growth over the same reporting period each quarter." },
+      { id: 'C', text: "Track spend per service and divide it by the number of active resources deployed so the average cost of each one becomes known." },
+      { id: 'D', text: "Join FOCUS EffectiveCost with business metrics for unit economics." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Dividing cost by the business outcome it produces turns spend into a rate that can rise or fall independently of growth, so a doubling of cost against a tripling of transactions reads correctly as an improvement. Comparing spend growth against revenue growth gives one company-wide number that hides which services are getting worse. Cost per resource measures infrastructure density rather than business value, and a team's headcount is not the outcome the business buys.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -156,12 +156,12 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     scenario: "A national telecom operator manages high-density network slices with automated scaling and sub-millisecond service mesh routing. The FinOps team is introducing financial accountability to engineering teams that have never had it. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Implement financial Chargeback from the outset so every team's budget carries its cloud costs from the first FinOps reporting period." },
-      { id: 'B', text: "Implement a central budget with per-team quotas enforced automatically by policy so that spend is capped well before it ever needs to be allocated to anyone." },
+      { id: 'A', text: "Implement Showback reports using FOCUS data to create visibility and awareness, transitioning to automated financial Chargeback as FinOps culture matures." },
+      { id: 'B', text: "Implement financial Chargeback from the outset so every team's budget carries its cloud costs from the first FinOps reporting period." },
       { id: 'C', text: "Implement Showback only, on the basis that visibility changes behaviour and that moving budgets between teams creates unproductive friction." },
-      { id: 'D', text: "Implement Showback reports using FOCUS data to create visibility and awareness, transitioning to automated financial Chargeback as FinOps culture matures." }
+      { id: 'D', text: "Implement a central budget with per-team quotas enforced automatically by policy so that spend is capped well before it ever needs to be allocated to anyone." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Showback first gives teams numbers they can check and argue with while nothing is at stake, so by the time budgets move the allocation is trusted and the conversation is about the spend rather than the data. Chargeback from day one attaches real financial consequences to allocation that is usually still incomplete, which reliably produces disputes about tagging. Quotas cap spend without attributing it and tend to block delivery at the worst moment. Stopping at showback works until visibility has done its work and nothing further changes.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -178,9 +178,9 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Query FOCUS data where 'EffectiveCost' is recurring but 'PricingQuantity' or compute utilization is near zero to flag idle virtual machines and unattached storage." },
-      { id: 'B', text: "Query the 'CommitmentDiscountStatus' column for unused commitment capacity and treat whatever portion of it is unused as the waste that ought to be recovered first across the estate." },
-      { id: 'C', text: "Query for the resources whose EffectiveCost has grown fastest month on month and investigate whichever of the largest increases appear first." },
-      { id: 'D', text: "Query for the resources with the highest EffectiveCost each month, including those near zero utilisation, and review them with their owning teams." }
+      { id: 'B', text: "Query for the resources whose EffectiveCost has grown fastest month on month and investigate whichever of the largest increases appear first." },
+      { id: 'C', text: "Query for the resources with the highest EffectiveCost each month, including those near zero utilisation, and review them with their owning teams." },
+      { id: 'D', text: "Query the 'CommitmentDiscountStatus' column for unused commitment capacity and treat whatever portion of it is unused as the waste that ought to be recovered first across the estate." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     scenario: "A pharmaceutical distribution network tracks temperature-sensitive cargo with cryptographic provenance and automated breach alerts. The FinOps team is catching an unexpected spend increase within a day rather than at month end. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Set a monthly budget for each account with alerts raised at fixed percentage thresholds of the total amount that was budgeted." },
-      { id: 'B', text: "Run anomaly detection over the daily FOCUS billing stream." },
-      { id: 'C', text: "Forecast each month's spend from the preceding months and raise an alert whenever that forecast exceeds the budget that was set for the period." },
-      { id: 'D', text: "Review the daily spend dashboard each morning so that anomaly detection is done by eye over the same billing streams." }
+      { id: 'A', text: "Forecast each month's spend from the preceding months and raise an alert whenever that forecast exceeds the budget that was set for the period." },
+      { id: 'B', text: "Review the daily spend dashboard each morning so that anomaly detection is done by eye over the same billing streams." },
+      { id: 'C', text: "Run anomaly detection over the daily FOCUS billing stream." },
+      { id: 'D', text: "Set a monthly budget for each account with alerts raised at fixed percentage thresholds of the total amount that was budgeted." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A baseline held per service or resource fires when something is abnormal for that resource, even where the account total looks ordinary, and it fires the day it happens. A budget threshold only trips once the whole account has burned through its allowance, by which time a runaway process has been running for days. A forecast against budget answers whether the month will overrun rather than what changed and where. A person reading a dashboard each morning catches the dramatic spikes and misses the steady ones.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -219,12 +219,12 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     scenario: "A central banking consortium enforces ACID consistency, immutable transaction audit trails, and automated reconciliation. The FinOps team is attributing the cost of a shared cluster and network to the teams using it. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Allocate the shared platform costs to each tenant in proportion to that team's total direct cloud spend, as measured over the same billing period in each and every month of the year." },
+      { id: 'A', text: "Allocate shared platform costs (e.g., central Kubernetes clusters, security tools, networking transit gateways) across tenant teams based on proportional usage." },
       { id: 'B', text: "Leave shared platform and transit costs in a central cost centre and report them entirely separately from the tenant teams." },
-      { id: 'C', text: "Allocate shared platform costs (e.g., central Kubernetes clusters, security tools, networking transit gateways) across tenant teams based on proportional usage." },
+      { id: 'C', text: "Allocate the shared platform costs to each tenant in proportion to that team's total direct cloud spend, as measured over the same billing period in each and every month of the year." },
       { id: 'D', text: "Allocate the shared platform costs evenly between the tenant teams so that each one of them carries an identical share of the total." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Allocating on measured consumption of the shared service, such as pod CPU and memory hours or data processed by the gateway, ties each team's charge to the driver it controls, so reducing usage visibly reduces the bill. Splitting by total direct spend is a common proxy but correlates weakly with cluster usage, so a team with heavy managed-database spend subsidises a heavy cluster user. Leaving the cost central is accurate and shows no team what it consumes. An even split charges the smallest tenant the same as the largest.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -240,12 +240,12 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     scenario: "A genomics laboratory processes petabyte-scale FASTQ files with distributed batch computing and high-throughput POSIX storage. The FinOps team is reporting cloud spend to leadership in a form that supports a decision. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Distribute the detailed allocation report to every business unit and let the leadership team read through whichever of the sections happen to concern them the most that month." },
+      { id: 'A', text: "Create executive FOCUS dashboards displaying multi-cloud spend trends, commitment coverage percentages, waste reduction metrics, and forecasted budget variance." },
       { id: 'B', text: "Create a dashboard driven by unit economics alone, since cost per transaction is the only figure that the business leadership really needs." },
       { id: 'C', text: "Create a dashboard showing total spend by provider and by month so that leadership is able to see exactly where the money is going." },
-      { id: 'D', text: "Create executive FOCUS dashboards displaying multi-cloud spend trends, commitment coverage percentages, waste reduction metrics, and forecasted budget variance." }
+      { id: 'D', text: "Distribute the detailed allocation report to every business unit and let the leadership team read through whichever of the sections happen to concern them the most that month." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Each of those measures maps to a decision an executive can take: coverage to whether more commitment should be bought, waste to whether optimisation is funded, forecast variance to whether the budget needs revising. Handing out the detailed allocation report delegates the summarising to the reader. Unit economics is the strongest single metric but on its own gives no view of coverage or forecast. Spend by provider and month describes what happened accurately while implying nothing about what to do next.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -261,12 +261,12 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The FinOps team is showing whether cloud spend is growing faster than the business it supports. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Join FOCUS EffectiveCost with business metrics for unit economics." },
-      { id: 'B', text: "Track the month-on-month growth rate of total cloud spend and compare that rate against the business's overall revenue growth over the same reporting period each quarter." },
+      { id: 'A', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." },
+      { id: 'B', text: "Join FOCUS EffectiveCost with business metrics for unit economics." },
       { id: 'C', text: "Track spend per service and divide it by the number of active resources deployed so the average cost of each one becomes known." },
-      { id: 'D', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." }
+      { id: 'D', text: "Track the month-on-month growth rate of total cloud spend and compare that rate against the business's overall revenue growth over the same reporting period each quarter." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Dividing cost by the business outcome it produces turns spend into a rate that can rise or fall independently of growth, so a doubling of cost against a tripling of transactions reads correctly as an improvement. Comparing spend growth against revenue growth gives one company-wide number that hides which services are getting worse. Cost per resource measures infrastructure density rather than business value, and a team's headcount is not the outcome the business buys.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -303,12 +303,12 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     scenario: "An actuarial underwriting platform executes Monte Carlo simulations across millions of policy holder records with parallel workers. The FinOps team is identifying resources that keep costing money without doing any useful work. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Query the 'CommitmentDiscountStatus' column for unused commitment capacity and treat whatever portion of it is unused as the waste that ought to be recovered first across the estate." },
-      { id: 'B', text: "Query for the resources whose EffectiveCost has grown fastest month on month and investigate whichever of the largest increases appear first." },
-      { id: 'C', text: "Query FOCUS data where 'EffectiveCost' is recurring but 'PricingQuantity' or compute utilization is near zero to flag idle virtual machines and unattached storage." },
-      { id: 'D', text: "Query for the resources with the highest EffectiveCost each month, including those near zero utilisation, and review them with their owning teams." }
+      { id: 'A', text: "Query for the resources with the highest EffectiveCost each month, including those near zero utilisation, and review them with their owning teams." },
+      { id: 'B', text: "Query the 'CommitmentDiscountStatus' column for unused commitment capacity and treat whatever portion of it is unused as the waste that ought to be recovered first across the estate." },
+      { id: 'C', text: "Query for the resources whose EffectiveCost has grown fastest month on month and investigate whichever of the largest increases appear first." },
+      { id: 'D', text: "Query FOCUS data where 'EffectiveCost' is recurring but 'PricingQuantity' or compute utilization is near zero to flag idle virtual machines and unattached storage." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Pairing a recurring charge with near-zero usage is what defines an idle resource, and it surfaces the unattached disk and the forgotten load balancer that no cost ranking would ever reach. Unused commitment capacity is real waste but a different kind, and recovering it means changing the commitment rather than the resource. Fastest-growing and largest-cost resources are both worth reviewing, yet the biggest line is usually the production database that is entirely justified, while the waste hides among small recurring charges.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -345,12 +345,12 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     scenario: "A metropolitan transit authority optimizes urban traffic signals with real-time video analytics and edge inference. The FinOps team is attributing the cost of a shared cluster and network to the teams using it. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Allocate shared platform costs (e.g., central Kubernetes clusters, security tools, networking transit gateways) across tenant teams based on proportional usage." },
-      { id: 'B', text: "Allocate the shared platform costs to each tenant in proportion to that team's total direct cloud spend, as measured over the same billing period in each and every month of the year." },
-      { id: 'C', text: "Leave shared platform and transit costs in a central cost centre and report them entirely separately from the tenant teams." },
-      { id: 'D', text: "Allocate the shared platform costs evenly between the tenant teams so that each one of them carries an identical share of the total." }
+      { id: 'A', text: "Leave shared platform and transit costs in a central cost centre and report them entirely separately from the tenant teams." },
+      { id: 'B', text: "Allocate the shared platform costs evenly between the tenant teams so that each one of them carries an identical share of the total." },
+      { id: 'C', text: "Allocate the shared platform costs to each tenant in proportion to that team's total direct cloud spend, as measured over the same billing period in each and every month of the year." },
+      { id: 'D', text: "Allocate shared platform costs (e.g., central Kubernetes clusters, security tools, networking transit gateways) across tenant teams based on proportional usage." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Allocating on measured consumption of the shared service, such as pod CPU and memory hours or data processed by the gateway, ties each team's charge to the driver it controls, so reducing usage visibly reduces the bill. Splitting by total direct spend is a common proxy but correlates weakly with cluster usage, so a team with heavy managed-database spend subsidises a heavy cluster user. Leaving the cost central is accurate and shows no team what it consumes. An even split charges the smallest tenant the same as the largest.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -367,11 +367,11 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Distribute the detailed allocation report to every business unit and let the leadership team read through whichever of the sections happen to concern them the most that month." },
-      { id: 'B', text: "Create executive FOCUS dashboards displaying multi-cloud spend trends, commitment coverage percentages, waste reduction metrics, and forecasted budget variance." },
-      { id: 'C', text: "Create a dashboard driven by unit economics alone, since cost per transaction is the only figure that the business leadership really needs." },
+      { id: 'B', text: "Create a dashboard driven by unit economics alone, since cost per transaction is the only figure that the business leadership really needs." },
+      { id: 'C', text: "Create executive FOCUS dashboards displaying multi-cloud spend trends, commitment coverage percentages, waste reduction metrics, and forecasted budget variance." },
       { id: 'D', text: "Create a dashboard showing total spend by provider and by month so that leadership is able to see exactly where the money is going." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Each of those measures maps to a decision an executive can take: coverage to whether more commitment should be bought, waste to whether optimisation is funded, forecast variance to whether the budget needs revising. Handing out the detailed allocation report delegates the summarising to the reader. Unit economics is the strongest single metric but on its own gives no view of coverage or forecast. Spend by provider and month describes what happened accurately while implying nothing about what to do next.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -388,9 +388,9 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Track the month-on-month growth rate of total cloud spend and compare that rate against the business's overall revenue growth over the same reporting period each quarter." },
-      { id: 'B', text: "Track spend per service and divide it by the number of active resources deployed so the average cost of each one becomes known." },
+      { id: 'B', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." },
       { id: 'C', text: "Join FOCUS EffectiveCost with business metrics for unit economics." },
-      { id: 'D', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." }
+      { id: 'D', text: "Track spend per service and divide it by the number of active resources deployed so the average cost of each one becomes known." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -408,12 +408,12 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     scenario: "An advertising exchange processes 500,000 bids per second with a strict 20-millisecond SLA and distributed caching. The FinOps team is introducing financial accountability to engineering teams that have never had it. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Implement financial Chargeback from the outset so every team's budget carries its cloud costs from the first FinOps reporting period." },
-      { id: 'B', text: "Implement a central budget with per-team quotas enforced automatically by policy so that spend is capped well before it ever needs to be allocated to anyone." },
-      { id: 'C', text: "Implement Showback only, on the basis that visibility changes behaviour and that moving budgets between teams creates unproductive friction." },
-      { id: 'D', text: "Implement Showback reports using FOCUS data to create visibility and awareness, transitioning to automated financial Chargeback as FinOps culture matures." }
+      { id: 'A', text: "Implement Showback only, on the basis that visibility changes behaviour and that moving budgets between teams creates unproductive friction." },
+      { id: 'B', text: "Implement Showback reports using FOCUS data to create visibility and awareness, transitioning to automated financial Chargeback as FinOps culture matures." },
+      { id: 'C', text: "Implement financial Chargeback from the outset so every team's budget carries its cloud costs from the first FinOps reporting period." },
+      { id: 'D', text: "Implement a central budget with per-team quotas enforced automatically by policy so that spend is capped well before it ever needs to be allocated to anyone." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Showback first gives teams numbers they can check and argue with while nothing is at stake, so by the time budgets move the allocation is trusted and the conversation is about the spend rather than the data. Chargeback from day one attaches real financial consequences to allocation that is usually still incomplete, which reliably produces disputes about tagging. Quotas cap spend without attributing it and tend to block delivery at the worst moment. Stopping at showback works until visibility has done its work and nothing further changes.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -429,12 +429,12 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     scenario: "An agricultural drone fleet captures multispectral crop imagery with automated computer vision defect classification. The FinOps team is identifying resources that keep costing money without doing any useful work. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Query FOCUS data where 'EffectiveCost' is recurring but 'PricingQuantity' or compute utilization is near zero to flag idle virtual machines and unattached storage." },
-      { id: 'B', text: "Query the 'CommitmentDiscountStatus' column for unused commitment capacity and treat whatever portion of it is unused as the waste that ought to be recovered first across the estate." },
-      { id: 'C', text: "Query for the resources whose EffectiveCost has grown fastest month on month and investigate whichever of the largest increases appear first." },
-      { id: 'D', text: "Query for the resources with the highest EffectiveCost each month, including those near zero utilisation, and review them with their owning teams." }
+      { id: 'A', text: "Query the 'CommitmentDiscountStatus' column for unused commitment capacity and treat whatever portion of it is unused as the waste that ought to be recovered first across the estate." },
+      { id: 'B', text: "Query for the resources whose EffectiveCost has grown fastest month on month and investigate whichever of the largest increases appear first." },
+      { id: 'C', text: "Query for the resources with the highest EffectiveCost each month, including those near zero utilisation, and review them with their owning teams." },
+      { id: 'D', text: "Query FOCUS data where 'EffectiveCost' is recurring but 'PricingQuantity' or compute utilization is near zero to flag idle virtual machines and unattached storage." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Pairing a recurring charge with near-zero usage is what defines an idle resource, and it surfaces the unattached disk and the forgotten load balancer that no cost ranking would ever reach. Unused commitment capacity is real waste but a different kind, and recovering it means changing the commitment rather than the resource. Fastest-growing and largest-cost resources are both worth reviewing, yet the biggest line is usually the production database that is entirely justified, while the waste hides among small recurring charges.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -450,10 +450,10 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     scenario: "A semiconductor fabrication facility detects vibration harmonics on manufacturing robots to prevent unplanned downtime. The FinOps team is catching an unexpected spend increase within a day rather than at month end. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Set a monthly budget for each account with alerts raised at fixed percentage thresholds of the total amount that was budgeted." },
+      { id: 'A', text: "Forecast each month's spend from the preceding months and raise an alert whenever that forecast exceeds the budget that was set for the period." },
       { id: 'B', text: "Run anomaly detection over the daily FOCUS billing stream." },
-      { id: 'C', text: "Forecast each month's spend from the preceding months and raise an alert whenever that forecast exceeds the budget that was set for the period." },
-      { id: 'D', text: "Review the daily spend dashboard each morning so that anomaly detection is done by eye over the same billing streams." }
+      { id: 'C', text: "Review the daily spend dashboard each morning so that anomaly detection is done by eye over the same billing streams." },
+      { id: 'D', text: "Set a monthly budget for each account with alerts raised at fixed percentage thresholds of the total amount that was budgeted." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,12 +471,12 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     scenario: "An online university platform enforces anti-plagiarism and biometric proctoring for high-stakes certification exams. The FinOps team is attributing the cost of a shared cluster and network to the teams using it. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Allocate the shared platform costs to each tenant in proportion to that team's total direct cloud spend, as measured over the same billing period in each and every month of the year." },
-      { id: 'B', text: "Leave shared platform and transit costs in a central cost centre and report them entirely separately from the tenant teams." },
-      { id: 'C', text: "Allocate shared platform costs (e.g., central Kubernetes clusters, security tools, networking transit gateways) across tenant teams based on proportional usage." },
-      { id: 'D', text: "Allocate the shared platform costs evenly between the tenant teams so that each one of them carries an identical share of the total." }
+      { id: 'A', text: "Allocate shared platform costs (e.g., central Kubernetes clusters, security tools, networking transit gateways) across tenant teams based on proportional usage." },
+      { id: 'B', text: "Allocate the shared platform costs evenly between the tenant teams so that each one of them carries an identical share of the total." },
+      { id: 'C', text: "Allocate the shared platform costs to each tenant in proportion to that team's total direct cloud spend, as measured over the same billing period in each and every month of the year." },
+      { id: 'D', text: "Leave shared platform and transit costs in a central cost centre and report them entirely separately from the tenant teams." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Allocating on measured consumption of the shared service, such as pod CPU and memory hours or data processed by the gateway, ties each team's charge to the driver it controls, so reducing usage visibly reduces the bill. Splitting by total direct spend is a common proxy but correlates weakly with cluster usage, so a team with heavy managed-database spend subsidises a heavy cluster user. Leaving the cost central is accurate and shows no team what it consumes. An even split charges the smallest tenant the same as the largest.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -493,11 +493,11 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Distribute the detailed allocation report to every business unit and let the leadership team read through whichever of the sections happen to concern them the most that month." },
-      { id: 'B', text: "Create a dashboard driven by unit economics alone, since cost per transaction is the only figure that the business leadership really needs." },
-      { id: 'C', text: "Create a dashboard showing total spend by provider and by month so that leadership is able to see exactly where the money is going." },
-      { id: 'D', text: "Create executive FOCUS dashboards displaying multi-cloud spend trends, commitment coverage percentages, waste reduction metrics, and forecasted budget variance." }
+      { id: 'B', text: "Create a dashboard showing total spend by provider and by month so that leadership is able to see exactly where the money is going." },
+      { id: 'C', text: "Create executive FOCUS dashboards displaying multi-cloud spend trends, commitment coverage percentages, waste reduction metrics, and forecasted budget variance." },
+      { id: 'D', text: "Create a dashboard driven by unit economics alone, since cost per transaction is the only figure that the business leadership really needs." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Each of those measures maps to a decision an executive can take: coverage to whether more commitment should be bought, waste to whether optimisation is funded, forecast variance to whether the budget needs revising. Handing out the detailed allocation report delegates the summarising to the reader. Unit economics is the strongest single metric but on its own gives no view of coverage or forecast. Spend by provider and month describes what happened accurately while implying nothing about what to do next.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -513,12 +513,12 @@ export const FINOPS_FOCUS_QUESTIONS_15 = [
     scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The FinOps team is showing whether cloud spend is growing faster than the business it supports. The work is scoped to a newly built secondary environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Join FOCUS EffectiveCost with business metrics for unit economics." },
-      { id: 'B', text: "Track the month-on-month growth rate of total cloud spend and compare that rate against the business's overall revenue growth over the same reporting period each quarter." },
-      { id: 'C', text: "Track spend per service and divide it by the number of active resources deployed so the average cost of each one becomes known." },
-      { id: 'D', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." }
+      { id: 'A', text: "Track the month-on-month growth rate of total cloud spend and compare that rate against the business's overall revenue growth over the same reporting period each quarter." },
+      { id: 'B', text: "Track total spend per team each month and compare the trend against that team's own headcount and its recent delivery velocity." },
+      { id: 'C', text: "Join FOCUS EffectiveCost with business metrics for unit economics." },
+      { id: 'D', text: "Track spend per service and divide it by the number of active resources deployed so the average cost of each one becomes known." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Dividing cost by the business outcome it produces turns spend into a rate that can rise or fall independently of growth, so a doubling of cost against a tripling of transactions reads correctly as an improvement. Comparing spend growth against revenue growth gives one company-wide number that hides which services are getting worse. Cost per resource measures infrastructure density rather than business value, and a team's headcount is not the outcome the business buys.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",

@@ -9,12 +9,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "An enterprise administrator needs to create a security group in Microsoft Entra ID that can be assigned directory roles (such as Global Reader or User Administrator). The group membership must not be modifiable by non-privileged user administrators.",
     question: "Which setting must be configured when creating the security group in Microsoft Entra ID?",
     options: [
-      { id: 'A', text: "Role-assignable at creation" },
-      { id: 'B', text: "Create a Dynamic User group." },
-      { id: 'C', text: "Create an Administrative Unit." },
-      { id: 'D', text: "Assign an Azure Resource Lock." }
+      { id: 'A', text: "Create a Dynamic User group." },
+      { id: 'B', text: "Assign an Azure Resource Lock." },
+      { id: 'C', text: "Role-assignable at creation" },
+      { id: 'D', text: "Create an Administrative Unit." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "In Microsoft Entra ID, to prevent privilege escalation, only groups created with the setting **\"Microsoft Entra roles can be assigned to the group\" = Yes** can have directory roles assigned to them. This setting can only be set at group creation time and requires Privileged Role Administrator permissions to modify membership.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/groups-concept",
@@ -30,12 +30,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "A finance analytics team needs detailed daily Azure cost and usage raw billing data exported automatically as CSV files to an Azure Storage Account for ingestion into Power BI and enterprise data pipelines.",
     question: "Which Microsoft Cost Management feature automates scheduled recurring raw billing exports?",
     options: [
-      { id: 'A', text: "Azure Monitor Log Analytics workspace export." },
-      { id: 'B', text: "Azure Advisor cost scorecard." },
-      { id: 'C', text: "A scheduled Cost Management export" },
-      { id: 'D', text: "Azure Resource Graph daily query." }
+      { id: 'A', text: "Azure Advisor cost scorecard." },
+      { id: 'B', text: "A scheduled Cost Management export" },
+      { id: 'C', text: "Azure Resource Graph daily query." },
+      { id: 'D', text: "Azure Monitor Log Analytics workspace export." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Cost Management Exports in Microsoft Cost Management automatically exports detailed, unaggregated cost and usage data (including tags, resource IDs, and amortized costs) to an Azure Storage Account container on a daily, weekly, or monthly schedule, enabling custom reporting and Power BI integration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-export-acm-data",
@@ -51,12 +51,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "A security compliance policy mandates that every newly created Windows Server virtual machine must have the Azure Monitor Agent (AMA) extension and a diagnostic Data Collection Rule association deployed automatically upon creation.",
     question: "Which Azure Policy effect deploys required child resources or extensions when they are missing from a new deployment?",
     options: [
-      { id: 'A', text: "`Disabled` effect." },
-      { id: 'B', text: "`DeployIfNotExists` effect." },
-      { id: 'C', text: "`Deny` effect." },
-      { id: 'D', text: "`Audit` effect." }
+      { id: 'A', text: "`Audit` effect." },
+      { id: 'B', text: "`Deny` effect." },
+      { id: 'C', text: "`DeployIfNotExists` effect." },
+      { id: 'D', text: "`Disabled` effect." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The `DeployIfNotExists` (DINE) effect in Azure Policy evaluates whether a related child resource or extension (such as the Azure Monitor Agent extension) exists when a parent resource (VM) is created or updated; if it is missing, Azure Policy automatically triggers an ARM template deployment using a managed identity to deploy the missing resource.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deploy-if-not-exists",
@@ -93,12 +93,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "A developer needs Contributor access to a single storage account named `stordev01` located inside resource group `rg-dev` within subscription `sub-core`. The developer must NOT be able to modify any other resource inside `rg-dev`.",
     question: "At which Azure RBAC scope should the Contributor role be assigned?",
     options: [
-      { id: 'A', text: "At the Management Group scope." },
-      { id: 'B', text: "At the Subscription scope (`sub-core`)." },
-      { id: 'C', text: "At the Resource scope (`stordev01`)." },
-      { id: 'D', text: "At the Resource Group scope (`rg-dev`)." }
+      { id: 'A', text: "At the Resource Group scope (`rg-dev`)." },
+      { id: 'B', text: "At the Management Group scope." },
+      { id: 'C', text: "At the Subscription scope (`sub-core`)." },
+      { id: 'D', text: "At the Resource scope (`stordev01`)." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure RBAC supports role assignments at four distinct scopes: Management Group, Subscription, Resource Group, and individual **Resource**. To adhere to the principle of least privilege, assigning the Contributor role directly at the Resource scope (`stordev01`) grants full permissions on that specific storage account without granting access to other resources in the parent resource group.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview",
@@ -114,12 +114,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "A company wants users to access files in an Azure Blob Storage container using their corporate domain name `files.contoso.com` instead of `&lt;accountname&gt;.blob.core.windows.net`, with full HTTPS support.",
     question: "What is the recommended approach to bind a custom domain with HTTPS to Azure Blob Storage?",
     options: [
-      { id: 'A', text: "Deploy an Azure Bastion host." },
+      { id: 'A', text: "A Front Door profile over the blob origin with a managed certificate." },
       { id: 'B', text: "Configure a CNAME record in public DNS pointing directly to the storage account without CDN." },
       { id: 'C', text: "Enable Azure File Sync." },
-      { id: 'D', text: "A Front Door profile over the blob origin with a managed certificate." }
+      { id: 'D', text: "Deploy an Azure Bastion host." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Direct custom domain binding on native Azure Storage accounts only supports HTTP (unencrypted) traffic for custom domains. To enable **HTTPS** for a custom domain (e.g. `files.contoso.com`), Microsoft requires fronting the storage account with Azure Front Door or Azure CDN, which handles SSL termination and automated certificate management.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-custom-domain-name",
@@ -135,10 +135,10 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "A legal investigation requires that all email logs in container `legal-archive` must be protected from deletion immediately for an indeterminate period until pending litigation concludes.",
     question: "Which Azure Blob Storage feature applies an indefinite, tag-based deletion lock?",
     options: [
-      { id: 'A', text: "Configure a Time-Based Retention policy of 365 days." },
-      { id: 'B', text: "Enable Blob Versioning only." },
+      { id: 'A', text: "Set a CanNotDelete Resource Lock on the subscription." },
+      { id: 'B', text: "Configure a Time-Based Retention policy of 365 days." },
       { id: 'C', text: "Apply a Legal Hold with custom identifier tags on the container." },
-      { id: 'D', text: "Set a CanNotDelete Resource Lock on the subscription." }
+      { id: 'D', text: "Enable Blob Versioning only." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,12 +156,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "A multi-tenant SaaS provider stores data for multiple enterprise customers in a single Azure Storage Account. Compliance requires that Customer A's container must be encrypted with Customer A's Key Vault key, while Customer B's container is encrypted with Customer B's key.",
     question: "Which Azure Storage feature enables managing separate encryption keys at the container or individual blob level?",
     options: [
-      { id: 'A', text: "Shared Access Signatures." },
-      { id: 'B', text: "Azure Storage Encryption Scopes." },
-      { id: 'C', text: "Azure Resource Locks." },
-      { id: 'D', text: "Storage Account Access Keys." }
+      { id: 'A', text: "Azure Storage Encryption Scopes." },
+      { id: 'B', text: "Storage Account Access Keys." },
+      { id: 'C', text: "Shared Access Signatures." },
+      { id: 'D', text: "Azure Resource Locks." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Encryption Scopes in Azure Storage allow managing encryption with different keys (Microsoft-managed or Customer-Managed Keys in Azure Key Vault) at the individual container or blob level within the same storage account, making it ideal for multi-tenant data isolation.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/encryption-scope-overview",
@@ -179,10 +179,10 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Recovery Services Vault contains Server Endpoints directly." },
       { id: 'B', text: "Sync Groups contain Storage Accounts only." },
-      { id: 'C', text: "Server Endpoints contain Cloud Endpoints." },
-      { id: 'D', text: "A sync group has one cloud endpoint and many server ones" }
+      { id: 'C', text: "A sync group has one cloud endpoint and many server ones" },
+      { id: 'D', text: "Server Endpoints contain Cloud Endpoints." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The Azure File Sync hierarchy begins with a **Storage Sync Service** (top-level resource). Inside the Storage Sync Service, you create **Sync Groups**, which define the sync topology. A Sync Group must have exactly one **Cloud Endpoint** (an Azure File share) and can have multiple registered **Server Endpoints** (specific folder paths on registered Windows Servers).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-deployment-guide",
@@ -198,12 +198,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "A company moves 10 TB of temporary log files to the Azure Blob Archive tier. After 20 days, the team deletes the blobs.",
     question: "What additional cost is incurred for deleting Archive blobs before 180 days?",
     options: [
-      { id: 'A', text: "A penalty equal to converting the account to Premium." },
-      { id: 'B', text: "A data egress fee equivalent to downloading all files." },
-      { id: 'C', text: "Zero fee, deletions are always completely free." },
-      { id: 'D', text: "An Early Deletion fee prorated for the remaining 160 days." }
+      { id: 'A', text: "A data egress fee equivalent to downloading all files." },
+      { id: 'B', text: "Zero fee, deletions are always completely free." },
+      { id: 'C', text: "An Early Deletion fee prorated for the remaining 160 days." },
+      { id: 'D', text: "A penalty equal to converting the account to Premium." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Blob Storage cooler tiers impose minimum storage retention durations: Cool tier (30 days), Cold tier (90 days), and Archive tier (180 days). Deleting or moving blobs out of these tiers before the minimum retention window expires incurs an **Early Deletion fee** prorated for the remaining unfulfilled days.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview#pricing-and-billing",
@@ -219,12 +219,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "An administrator needs to automatically collect OS-level performance counters and Windows Event Logs from newly deployed Azure VMs into an Azure Log Analytics workspace.",
     question: "Which VM extension must be installed on the virtual machines?",
     options: [
-      { id: 'A', text: "NVIDIA GPU driver extension." },
+      { id: 'A', text: "Custom Script extension." },
       { id: 'B', text: "Network Watcher Agent extension." },
-      { id: 'C', text: "The Azure Monitor Agent" },
-      { id: 'D', text: "Custom Script extension." }
+      { id: 'C', text: "NVIDIA GPU driver extension." },
+      { id: 'D', text: "The Azure Monitor Agent" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The Azure Monitor Agent (AMA) extension collects guest OS telemetry (event logs, syslog, performance counters) and routes data according to Data Collection Rules (DCRs) into Log Analytics workspaces. Network Watcher Agent is for packet captures. Custom Script is for automation.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-manage",
@@ -241,11 +241,11 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     question: "Which VMSS property controls which specific VM instances are selected for termination during scale-in?",
     options: [
       { id: 'A', text: "Azure Resource Lock." },
-      { id: 'B', text: "The scale-in policy" },
+      { id: 'B', text: "Fault Domain count." },
       { id: 'C', text: "Proximity Placement Group." },
-      { id: 'D', text: "Fault Domain count." }
+      { id: 'D', text: "The scale-in policy" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Virtual Machine Scale Sets Scale-In Policies determine which VM instances are deallocated and deleted when a scale-in event occurs. Options include `Default` (balances across AZs/FDs and deletes oldest/newest), `OldestVM` (deletes instances created longest ago), and `NewestVM` (deletes most recently created instances).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy",
@@ -263,10 +263,10 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Network Security Group attached to the App Service Plan." },
       { id: 'B', text: "Azure Route Table on the subnet." },
-      { id: 'C', text: "App Service Hybrid Connections." },
-      { id: 'D', text: "A service tag rule plus `X-Azure-FDID` header filtering" }
+      { id: 'C', text: "A service tag rule plus `X-Azure-FDID` header filtering" },
+      { id: 'D', text: "App Service Hybrid Connections." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "App Service Access Restrictions provide built-in Layer 7 traffic filtering. Administrators create an Allow rule with Service Tag `AzureFrontDoor.Backend` and configure HTTP Header Filtering to require the unique `X-Azure-FDID` Front Door ID, blocking direct public access while permitting traffic routed through your specific Front Door instance.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions",
@@ -282,12 +282,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "An enterprise runs an Oracle database on an Azure Linux VM. The backup team needs to ensure database backups trigger database flush scripts (`VSS` on Windows or pre/post scripts on Linux) so transaction logs are committed cleanly before the snapshot is taken.",
     question: "Which backup consistency level guarantees that transactional databases can recover cleanly without log replays?",
     options: [
-      { id: 'A', text: "Crash-Consistent backup snapshot." },
-      { id: 'B', text: "Application-Consistent backup snapshot." },
-      { id: 'C', text: "Differential backup snapshot." },
-      { id: 'D', text: "File-System Consistent backup snapshot." }
+      { id: 'A', text: "Differential backup snapshot." },
+      { id: 'B', text: "File-System Consistent backup snapshot." },
+      { id: 'C', text: "Crash-Consistent backup snapshot." },
+      { id: 'D', text: "Application-Consistent backup snapshot." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "An **Application-Consistent** backup captures memory contents and pending I/O transactions by leveraging VSS (Volume Shadow Copy Service on Windows) or pre/post freeze/thaw scripts (on Linux) to ensure database transactions are flushed to disk before taking the snapshot, ensuring clean database recovery without corruption.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction#snapshot-consistency",
@@ -304,9 +304,9 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     question: "Which deployment mechanism natively integrates GitHub repositories with Azure App Service deployment center?",
     options: [
       { id: 'A', text: "Deployment Center" },
-      { id: 'B', text: "Azure File Sync." },
+      { id: 'B', text: "AzCopy command line." },
       { id: 'C', text: "Azure Custom Script Extension." },
-      { id: 'D', text: "AzCopy command line." }
+      { id: 'D', text: "Azure File Sync." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "An administrator attempts to establish a Virtual Network Peering connection between `VNet-1` (address space `10.0.0.0/16`) and `VNet-2` (address space `10.0.10.0/24`).",
     question: "Why does Azure Resource Manager reject the peering creation request?",
     options: [
-      { id: 'A', text: "The address spaces of the two virtual networks overlap." },
+      { id: 'A', text: "VNet Peering requires both VNets to have identical address spaces." },
       { id: 'B', text: "VNet Peering requires an ExpressRoute circuit." },
-      { id: 'C', text: "VNet Peering requires both VNets to have identical address spaces." },
-      { id: 'D', text: "Both VNets must be in different Azure regions." }
+      { id: 'C', text: "Both VNets must be in different Azure regions." },
+      { id: 'D', text: "The address spaces of the two virtual networks overlap." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Virtual Network Peering strictly requires that the peered virtual networks must NOT have any overlapping IP address ranges. Since `10.0.10.0/24` is a subnet completely contained inside `10.0.0.0/16`, Azure rejects the peering request immediately due to IP address space collision.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints",
@@ -347,8 +347,8 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "An HTTP health probe on `/health` expecting 200" },
       { id: 'B', text: "Deploy an Azure Bastion host." },
-      { id: 'C', text: "Disable health probes on the load balancer." },
-      { id: 'D', text: "Configure a basic TCP health probe on port 80." }
+      { id: 'C', text: "Configure a basic TCP health probe on port 80." },
+      { id: 'D', text: "Disable health probes on the load balancer." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -368,8 +368,8 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Header and URL rewrite rulesets" },
       { id: 'B', text: "Network Security Group rule evaluation." },
-      { id: 'C', text: "Azure Private Link Service." },
-      { id: 'D', text: "Web Application Firewall (WAF) custom rules." }
+      { id: 'C', text: "Web Application Firewall (WAF) custom rules." },
+      { id: 'D', text: "Azure Private Link Service." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -388,9 +388,9 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     question: "Which built-in Azure Service Tag represents all virtual network and connected hybrid address spaces?",
     options: [
       { id: 'A', text: "`VirtualNetwork` service tag." },
-      { id: 'B', text: "`AzureLoadBalancer` service tag." },
-      { id: 'C', text: "`Internet` service tag." },
-      { id: 'D', text: "`AzureCloud` service tag." }
+      { id: 'B', text: "`AzureCloud` service tag." },
+      { id: 'C', text: "`AzureLoadBalancer` service tag." },
+      { id: 'D', text: "`Internet` service tag." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "A company connects its on-premises datacenter to an Azure Virtual Network via ExpressRoute. A secure DMZ subnet in the VNet must NOT receive dynamic on-premises BGP routes, preventing on-premises clients from accessing the DMZ subnet directly.",
     question: "Which configuration on the custom Route Table associated with the DMZ subnet blocks dynamic BGP routes?",
     options: [
-      { id: 'A', text: "Attach a CanNotDelete Resource Lock to the subnet." },
-      { id: 'B', text: "Enable VNet Peering with Gateway Transit." },
+      { id: 'A', text: "Enable VNet Peering with Gateway Transit." },
+      { id: 'B', text: "Deploy an Azure Bastion host." },
       { id: 'C', text: "Set gateway route propagation to disabled" },
-      { id: 'D', text: "Deploy an Azure Bastion host." }
+      { id: 'D', text: "Attach a CanNotDelete Resource Lock to the subnet." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,12 +429,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "An enterprise ingests 1 TB of high-volume debugging logs daily into Azure Log Analytics. The logs are rarely queried, only needed during post-mortem investigations within 30 days, and standard Analytics ingestion costs are too high.",
     question: "Which Log Analytics table plan reduces log ingestion costs by over 70% for high-volume debug logs?",
     options: [
-      { id: 'A', text: "Azure Event Hubs stream." },
-      { id: 'B', text: "Analytics Logs table plan." },
+      { id: 'A', text: "Basic Logs table plan." },
+      { id: 'B', text: "Azure Event Hubs stream." },
       { id: 'C', text: "Azure Storage Archive container export." },
-      { id: 'D', text: "Basic Logs table plan." }
+      { id: 'D', text: "Analytics Logs table plan." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The **Basic Logs** plan in Azure Log Analytics is designed for high-volume, low-value debugging and operational logs, offering significantly discounted ingestion pricing (over 70% cheaper than Analytics logs) with a 30-day retention period and basic KQL query capabilities.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure",
@@ -450,12 +450,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "An operations team uses ServiceNow as its IT Service Management (ITSM) ticketing system. When critical Azure Monitor metric or activity log alerts fire, an incident ticket must automatically be created in ServiceNow.",
     question: "Which Action Group receiver type integrates Azure Monitor alerts directly with IT service management platforms?",
     options: [
-      { id: 'A', text: "Azure Backup policy." },
+      { id: 'A', text: "Azure Advisor recommendation." },
       { id: 'B', text: "Email notification receiver only." },
-      { id: 'C', text: "An ITSM action group receiver" },
-      { id: 'D', text: "Azure Advisor recommendation." }
+      { id: 'C', text: "Azure Backup policy." },
+      { id: 'D', text: "An ITSM action group receiver" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Action Groups in Azure Monitor support **ITSM connectors** and **Secure Webhooks** to automatically push structured alert payloads to IT Service Management tools (like ServiceNow, Jira, or PagerDuty), automating incident ticket generation and lifecycle tracking.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/itsmc-overview",
@@ -471,12 +471,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "An Azure Virtual Machine experiences unexpected downtime. The administrator checks Azure Resource Health and sees the status \"Unavailable (Platform Initiated)\".",
     question: "What does \"Platform Initiated\" indicate regarding the root cause of the downtime?",
     options: [
-      { id: 'A', text: "An underlying hardware fault or platform maintenance" },
-      { id: 'B', text: "The VM was stopped by a user inside the Azure portal." },
-      { id: 'C', text: "The guest OS ran out of disk space." },
-      { id: 'D', text: "An NSG rule blocked incoming traffic." }
+      { id: 'A', text: "The guest OS ran out of disk space." },
+      { id: 'B', text: "An underlying hardware fault or platform maintenance" },
+      { id: 'C', text: "An NSG rule blocked incoming traffic." },
+      { id: 'D', text: "The VM was stopped by a user inside the Azure portal." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "In Azure Resource Health, \"Platform Initiated\" events indicate that the downtime was triggered by the Azure platform infrastructure (e.g. physical host hardware failure, power glitch, or scheduled platform host update), rather than customer-initiated actions (\"User Initiated\").",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-health/resource-health-checks-resource-types#virtual-machines",
@@ -492,12 +492,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "A Site-to-Site VPN connection between an on-premises Cisco ASA firewall and an Azure Virtual Network Gateway is down. The network administrator needs to diagnose Phase 1 (IKE) and Phase 2 (IPsec) handshake logs and packet counters.",
     question: "Which Azure Network Watcher tool diagnoses Virtual Network Gateway connections and provides diagnostic summary reports?",
     options: [
-      { id: 'A', text: "VPN Troubleshoot." },
-      { id: 'B', text: "IP Flow Verify." },
-      { id: 'C', text: "Next Hop." },
-      { id: 'D', text: "Security Group View." }
+      { id: 'A', text: "IP Flow Verify." },
+      { id: 'B', text: "Security Group View." },
+      { id: 'C', text: "VPN Troubleshoot." },
+      { id: 'D', text: "Next Hop." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The **VPN Troubleshoot** feature in Azure Network Watcher diagnoses Virtual Network Gateways and S2S VPN connections, checking gateway health, IKE/IPsec SA negotiation, and routing status, outputting detailed diagnostic logs to an Azure Storage Account.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-troubleshoot-manage-portal",
@@ -513,12 +513,12 @@ export const AZURE_AZ104_QUESTIONS_7 = [
     scenario: "A development team is deploying a major software update to an Azure App Service web app. During the deployment window, the team needs to observe incoming requests, CPU/memory consumption, and unhandled exceptions in real time with 1-second latency.",
     question: "Which Application Insights feature provides real-time 1-second telemetry monitoring during deployments?",
     options: [
-      { id: 'A', text: "Azure Log Analytics scheduled queries." },
+      { id: 'A', text: "Azure Activity Log." },
       { id: 'B', text: "Application Insights Availability Web Tests." },
-      { id: 'C', text: "Azure Activity Log." },
-      { id: 'D', text: "Application Insights Live Metrics Stream." }
+      { id: 'C', text: "Application Insights Live Metrics Stream." },
+      { id: 'D', text: "Azure Log Analytics scheduled queries." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Application Insights Live Metrics Stream provides real-time, 1-second latency monitoring of live web applications. It streams incoming request rates, failure counts, exception traces, and server CPU/RAM telemetry instantaneously, allowing developers to watch live deployments without waiting for log ingestion indexing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/live-stream",

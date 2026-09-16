@@ -9,12 +9,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to allow multiple independent application teams to deploy workloads into isolated projects while sharing a centralized enterprise VPC network managed by network engineers.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Force all teams to share a single Google Cloud project with Owner permissions." },
+      { id: 'A', text: "Deploy custom software routers inside each project with manual BGP peering." },
       { id: 'B', text: "Deploy separate isolated VPC networks in every project and connect them using public IPs." },
-      { id: 'C', text: "Deploy custom software routers inside each project with manual BGP peering." },
-      { id: 'D', text: "Use Shared VPC with a host project and service projects." }
+      { id: 'C', text: "Use Shared VPC with a host project and service projects." },
+      { id: 'D', text: "Force all teams to share a single Google Cloud project with Owner permissions." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement Shared VPC: designate a central project as the Host Project and attach application projects as Service Projects. Shared VPC allows an organization to connect resources from multiple service projects to a common Shared VPC network hosted in a central host project. Network administrators retain control over subnets and security policies while project teams control application resources.",
     referenceUrl: "https://cloud.google.com/vpc/docs/shared-vpc",
@@ -30,12 +30,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to allow multiple independent application teams to deploy workloads into isolated projects while sharing a centralized enterprise VPC network managed by network engineers.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Deploy custom software routers inside each project with manual BGP peering." },
-      { id: 'B', text: "Use Shared VPC with a host project and service projects." },
+      { id: 'A', text: "Deploy separate isolated VPC networks in every project and connect them using public IPs." },
+      { id: 'B', text: "Deploy custom software routers inside each project with manual BGP peering." },
       { id: 'C', text: "Force all teams to share a single Google Cloud project with Owner permissions." },
-      { id: 'D', text: "Deploy separate isolated VPC networks in every project and connect them using public IPs." }
+      { id: 'D', text: "Use Shared VPC with a host project and service projects." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement Shared VPC: designate a central project as the Host Project and attach application projects as Service Projects. Shared VPC allows an organization to connect resources from multiple service projects to a common Shared VPC network hosted in a central host project. Network administrators retain control over subnets and security policies while project teams control application resources.",
     referenceUrl: "https://cloud.google.com/vpc/docs/shared-vpc",
@@ -51,12 +51,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to allow multiple independent application teams to deploy workloads into isolated projects while sharing a centralized enterprise VPC network managed by network engineers.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy separate isolated VPC networks in every project and connect them using public IPs." },
-      { id: 'B', text: "Use Shared VPC with a host project and service projects." },
+      { id: 'A', text: "Use Shared VPC with a host project and service projects." },
+      { id: 'B', text: "Deploy separate isolated VPC networks in every project and connect them using public IPs." },
       { id: 'C', text: "Force all teams to share a single Google Cloud project with Owner permissions." },
       { id: 'D', text: "Deploy custom software routers inside each project with manual BGP peering." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implement Shared VPC: designate a central project as the Host Project and attach application projects as Service Projects. Shared VPC allows an organization to connect resources from multiple service projects to a common Shared VPC network hosted in a central host project. Network administrators retain control over subnets and security policies while project teams control application resources.",
     referenceUrl: "https://cloud.google.com/vpc/docs/shared-vpc",
@@ -72,12 +72,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to allow multiple independent application teams to deploy workloads into isolated projects while sharing a centralized enterprise VPC network managed by network engineers.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Deploy custom software routers inside each project with manual BGP peering." },
-      { id: 'B', text: "Force all teams to share a single Google Cloud project with Owner permissions." },
-      { id: 'C', text: "Deploy separate isolated VPC networks in every project and connect them using public IPs." },
-      { id: 'D', text: "Use Shared VPC with a host project and service projects." }
+      { id: 'A', text: "Use Shared VPC with a host project and service projects." },
+      { id: 'B', text: "Deploy separate isolated VPC networks in every project and connect them using public IPs." },
+      { id: 'C', text: "Force all teams to share a single Google Cloud project with Owner permissions." },
+      { id: 'D', text: "Deploy custom software routers inside each project with manual BGP peering." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implement Shared VPC: designate a central project as the Host Project and attach application projects as Service Projects. Shared VPC allows an organization to connect resources from multiple service projects to a common Shared VPC network hosted in a central host project. Network administrators retain control over subnets and security policies while project teams control application resources.",
     referenceUrl: "https://cloud.google.com/vpc/docs/shared-vpc",
@@ -93,12 +93,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to allow multiple independent application teams to deploy workloads into isolated projects while sharing a centralized enterprise VPC network managed by network engineers.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Force all teams to share a single Google Cloud project with Owner permissions." },
-      { id: 'B', text: "Deploy custom software routers inside each project with manual BGP peering." },
-      { id: 'C', text: "Use Shared VPC with a host project and service projects." },
-      { id: 'D', text: "Deploy separate isolated VPC networks in every project and connect them using public IPs." }
+      { id: 'A', text: "Use Shared VPC with a host project and service projects." },
+      { id: 'B', text: "Deploy separate isolated VPC networks in every project and connect them using public IPs." },
+      { id: 'C', text: "Force all teams to share a single Google Cloud project with Owner permissions." },
+      { id: 'D', text: "Deploy custom software routers inside each project with manual BGP peering." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implement Shared VPC: designate a central project as the Host Project and attach application projects as Service Projects. Shared VPC allows an organization to connect resources from multiple service projects to a common Shared VPC network hosted in a central host project. Network administrators retain control over subnets and security policies while project teams control application resources.",
     referenceUrl: "https://cloud.google.com/vpc/docs/shared-vpc",
@@ -114,12 +114,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to deploy a fleet of stateless microservices in containers that scale rapidly to thousands of instances during marketing promotions and scale to zero when idle.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy microservices on physical on-premises servers." },
-      { id: 'B', text: "Host microservices inside App Engine Standard Java 8 runtimes." },
-      { id: 'C', text: "Deploy microservices onto static Compute Engine instances running 24/7." },
-      { id: 'D', text: "Deploy the microservices to Cloud Run with scaling limits." }
+      { id: 'A', text: "Deploy the microservices to Cloud Run with scaling limits." },
+      { id: 'B', text: "Deploy microservices onto static Compute Engine instances running 24/7." },
+      { id: 'C', text: "Host microservices inside App Engine Standard Java 8 runtimes." },
+      { id: 'D', text: "Deploy microservices on physical on-premises servers." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy containerized microservices to Cloud Run with configured concurrency and scaling limits. Cloud Run enables deploying containerized applications serverlessly. Each revision automatically scales up to handle incoming HTTP requests and scales down to zero when idle, charging strictly per 100 milliseconds of active vCPU and memory allocation.",
     referenceUrl: "https://cloud.google.com/run/docs/overview/what-is-cloud-run",
@@ -135,12 +135,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to deploy a fleet of stateless microservices in containers that scale rapidly to thousands of instances during marketing promotions and scale to zero when idle.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Deploy microservices onto static Compute Engine instances running 24/7." },
-      { id: 'B', text: "Deploy the microservices to Cloud Run with scaling limits." },
-      { id: 'C', text: "Deploy microservices on physical on-premises servers." },
-      { id: 'D', text: "Host microservices inside App Engine Standard Java 8 runtimes." }
+      { id: 'A', text: "Deploy the microservices to Cloud Run with scaling limits." },
+      { id: 'B', text: "Deploy microservices onto static Compute Engine instances running 24/7." },
+      { id: 'C', text: "Host microservices inside App Engine Standard Java 8 runtimes." },
+      { id: 'D', text: "Deploy microservices on physical on-premises servers." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy containerized microservices to Cloud Run with configured concurrency and scaling limits. Cloud Run enables deploying containerized applications serverlessly. Each revision automatically scales up to handle incoming HTTP requests and scales down to zero when idle, charging strictly per 100 milliseconds of active vCPU and memory allocation.",
     referenceUrl: "https://cloud.google.com/run/docs/overview/what-is-cloud-run",
@@ -157,9 +157,9 @@ export const GCP_PCA_QUESTIONS_12 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy the microservices to Cloud Run with scaling limits." },
-      { id: 'B', text: "Host microservices inside App Engine Standard Java 8 runtimes." },
-      { id: 'C', text: "Deploy microservices on physical on-premises servers." },
-      { id: 'D', text: "Deploy microservices onto static Compute Engine instances running 24/7." }
+      { id: 'B', text: "Deploy microservices on physical on-premises servers." },
+      { id: 'C', text: "Deploy microservices onto static Compute Engine instances running 24/7." },
+      { id: 'D', text: "Host microservices inside App Engine Standard Java 8 runtimes." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to deploy a fleet of stateless microservices in containers that scale rapidly to thousands of instances during marketing promotions and scale to zero when idle.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Host microservices inside App Engine Standard Java 8 runtimes." },
+      { id: 'A', text: "Deploy the microservices to Cloud Run with scaling limits." },
       { id: 'B', text: "Deploy microservices onto static Compute Engine instances running 24/7." },
-      { id: 'C', text: "Deploy the microservices to Cloud Run with scaling limits." },
+      { id: 'C', text: "Host microservices inside App Engine Standard Java 8 runtimes." },
       { id: 'D', text: "Deploy microservices on physical on-premises servers." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy containerized microservices to Cloud Run with configured concurrency and scaling limits. Cloud Run enables deploying containerized applications serverlessly. Each revision automatically scales up to handle incoming HTTP requests and scales down to zero when idle, charging strictly per 100 milliseconds of active vCPU and memory allocation.",
     referenceUrl: "https://cloud.google.com/run/docs/overview/what-is-cloud-run",
@@ -219,12 +219,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to ingest, transform, and aggregate real-time clickstream events from Cloud Pub/Sub and write analytics results to BigQuery with exactly-once processing guarantees.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Write a custom Python script that polls Pub/Sub and executes SQL inserts one by one." },
-      { id: 'B', text: "Export Pub/Sub messages to CSV text files on a local file share." },
-      { id: 'C', text: "Deploy a Google Cloud Dataflow streaming pipeline built with Apache Beam." },
-      { id: 'D', text: "Deploy an Apache Spark cluster on unmanaged Compute Engine virtual machines." }
+      { id: 'A', text: "Export Pub/Sub messages to CSV text files on a local file share." },
+      { id: 'B', text: "Deploy an Apache Spark cluster on unmanaged Compute Engine virtual machines." },
+      { id: 'C', text: "Write a custom Python script that polls Pub/Sub and executes SQL inserts one by one." },
+      { id: 'D', text: "Deploy a Google Cloud Dataflow streaming pipeline built with Apache Beam." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy a Google Cloud Dataflow streaming pipeline built with Apache Beam. Cloud Dataflow is a fully managed service for executing Apache Beam data processing pipelines. It manages resource provisioning, horizontal autoscaling, dynamic work rebalancing, and guarantees exactly-once processing for streaming datasets.",
     referenceUrl: "https://cloud.google.com/dataflow/docs/overview",
@@ -240,12 +240,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to ingest, transform, and aggregate real-time clickstream events from Cloud Pub/Sub and write analytics results to BigQuery with exactly-once processing guarantees.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Write a custom Python script that polls Pub/Sub and executes SQL inserts one by one." },
-      { id: 'B', text: "Deploy a Google Cloud Dataflow streaming pipeline built with Apache Beam." },
+      { id: 'A', text: "Deploy a Google Cloud Dataflow streaming pipeline built with Apache Beam." },
+      { id: 'B', text: "Write a custom Python script that polls Pub/Sub and executes SQL inserts one by one." },
       { id: 'C', text: "Deploy an Apache Spark cluster on unmanaged Compute Engine virtual machines." },
       { id: 'D', text: "Export Pub/Sub messages to CSV text files on a local file share." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy a Google Cloud Dataflow streaming pipeline built with Apache Beam. Cloud Dataflow is a fully managed service for executing Apache Beam data processing pipelines. It manages resource provisioning, horizontal autoscaling, dynamic work rebalancing, and guarantees exactly-once processing for streaming datasets.",
     referenceUrl: "https://cloud.google.com/dataflow/docs/overview",
@@ -261,12 +261,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to ingest, transform, and aggregate real-time clickstream events from Cloud Pub/Sub and write analytics results to BigQuery with exactly-once processing guarantees.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy an Apache Spark cluster on unmanaged Compute Engine virtual machines." },
+      { id: 'A', text: "Export Pub/Sub messages to CSV text files on a local file share." },
       { id: 'B', text: "Write a custom Python script that polls Pub/Sub and executes SQL inserts one by one." },
-      { id: 'C', text: "Export Pub/Sub messages to CSV text files on a local file share." },
-      { id: 'D', text: "Deploy a Google Cloud Dataflow streaming pipeline built with Apache Beam." }
+      { id: 'C', text: "Deploy a Google Cloud Dataflow streaming pipeline built with Apache Beam." },
+      { id: 'D', text: "Deploy an Apache Spark cluster on unmanaged Compute Engine virtual machines." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy a Google Cloud Dataflow streaming pipeline built with Apache Beam. Cloud Dataflow is a fully managed service for executing Apache Beam data processing pipelines. It manages resource provisioning, horizontal autoscaling, dynamic work rebalancing, and guarantees exactly-once processing for streaming datasets.",
     referenceUrl: "https://cloud.google.com/dataflow/docs/overview",
@@ -282,12 +282,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to ingest, transform, and aggregate real-time clickstream events from Cloud Pub/Sub and write analytics results to BigQuery with exactly-once processing guarantees.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Deploy an Apache Spark cluster on unmanaged Compute Engine virtual machines." },
-      { id: 'B', text: "Export Pub/Sub messages to CSV text files on a local file share." },
-      { id: 'C', text: "Deploy a Google Cloud Dataflow streaming pipeline built with Apache Beam." },
-      { id: 'D', text: "Write a custom Python script that polls Pub/Sub and executes SQL inserts one by one." }
+      { id: 'A', text: "Deploy a Google Cloud Dataflow streaming pipeline built with Apache Beam." },
+      { id: 'B', text: "Write a custom Python script that polls Pub/Sub and executes SQL inserts one by one." },
+      { id: 'C', text: "Deploy an Apache Spark cluster on unmanaged Compute Engine virtual machines." },
+      { id: 'D', text: "Export Pub/Sub messages to CSV text files on a local file share." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy a Google Cloud Dataflow streaming pipeline built with Apache Beam. Cloud Dataflow is a fully managed service for executing Apache Beam data processing pipelines. It manages resource provisioning, horizontal autoscaling, dynamic work rebalancing, and guarantees exactly-once processing for streaming datasets.",
     referenceUrl: "https://cloud.google.com/dataflow/docs/overview",
@@ -303,12 +303,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to ingest, transform, and aggregate real-time clickstream events from Cloud Pub/Sub and write analytics results to BigQuery with exactly-once processing guarantees.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Write a custom Python script that polls Pub/Sub and executes SQL inserts one by one." },
-      { id: 'B', text: "Deploy a Google Cloud Dataflow streaming pipeline built with Apache Beam." },
+      { id: 'A', text: "Deploy a Google Cloud Dataflow streaming pipeline built with Apache Beam." },
+      { id: 'B', text: "Write a custom Python script that polls Pub/Sub and executes SQL inserts one by one." },
       { id: 'C', text: "Deploy an Apache Spark cluster on unmanaged Compute Engine virtual machines." },
       { id: 'D', text: "Export Pub/Sub messages to CSV text files on a local file share." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy a Google Cloud Dataflow streaming pipeline built with Apache Beam. Cloud Dataflow is a fully managed service for executing Apache Beam data processing pipelines. It manages resource provisioning, horizontal autoscaling, dynamic work rebalancing, and guarantees exactly-once processing for streaming datasets.",
     referenceUrl: "https://cloud.google.com/dataflow/docs/overview",
@@ -325,9 +325,9 @@ export const GCP_PCA_QUESTIONS_12 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Deploy a Cloud Pub/Sub topic and create subscription endpoints for downstream consumers." },
-      { id: 'B', text: "Use a local Redis cache on a single Compute Engine instance as the messaging buffer." },
-      { id: 'C', text: "Write mobile events directly to local text files on client devices." },
-      { id: 'D', text: "Have mobile clients connect directly to backend database tables over public internet." }
+      { id: 'B', text: "Write mobile events directly to local text files on client devices." },
+      { id: 'C', text: "Have mobile clients connect directly to backend database tables over public internet." },
+      { id: 'D', text: "Use a local Redis cache on a single Compute Engine instance as the messaging buffer." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,12 +345,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to decouple high-throughput mobile event producers from backend processing systems, absorbing traffic surges without dropping messages.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Use a local Redis cache on a single Compute Engine instance as the messaging buffer." },
+      { id: 'A', text: "Deploy a Cloud Pub/Sub topic and create subscription endpoints for downstream consumers." },
       { id: 'B', text: "Have mobile clients connect directly to backend database tables over public internet." },
-      { id: 'C', text: "Deploy a Cloud Pub/Sub topic and create subscription endpoints for downstream consumers." },
+      { id: 'C', text: "Use a local Redis cache on a single Compute Engine instance as the messaging buffer." },
       { id: 'D', text: "Write mobile events directly to local text files on client devices." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy a Cloud Pub/Sub topic and create subscription endpoints for downstream consumers. Cloud Pub/Sub is a fully managed, scalable messaging service that provides reliable, low-latency, many-to-many asynchronous messaging between applications. It automatically scales to handle millions of messages per second, buffering spikes seamlessly.",
     referenceUrl: "https://cloud.google.com/pubsub/docs/overview",
@@ -367,9 +367,9 @@ export const GCP_PCA_QUESTIONS_12 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy a Cloud Pub/Sub topic and create subscription endpoints for downstream consumers." },
-      { id: 'B', text: "Write mobile events directly to local text files on client devices." },
-      { id: 'C', text: "Have mobile clients connect directly to backend database tables over public internet." },
-      { id: 'D', text: "Use a local Redis cache on a single Compute Engine instance as the messaging buffer." }
+      { id: 'B', text: "Use a local Redis cache on a single Compute Engine instance as the messaging buffer." },
+      { id: 'C', text: "Write mobile events directly to local text files on client devices." },
+      { id: 'D', text: "Have mobile clients connect directly to backend database tables over public internet." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to decouple high-throughput mobile event producers from backend processing systems, absorbing traffic surges without dropping messages.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Write mobile events directly to local text files on client devices." },
-      { id: 'B', text: "Deploy a Cloud Pub/Sub topic and create subscription endpoints for downstream consumers." },
-      { id: 'C', text: "Have mobile clients connect directly to backend database tables over public internet." },
-      { id: 'D', text: "Use a local Redis cache on a single Compute Engine instance as the messaging buffer." }
+      { id: 'A', text: "Use a local Redis cache on a single Compute Engine instance as the messaging buffer." },
+      { id: 'B', text: "Write mobile events directly to local text files on client devices." },
+      { id: 'C', text: "Deploy a Cloud Pub/Sub topic and create subscription endpoints for downstream consumers." },
+      { id: 'D', text: "Have mobile clients connect directly to backend database tables over public internet." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy a Cloud Pub/Sub topic and create subscription endpoints for downstream consumers. Cloud Pub/Sub is a fully managed, scalable messaging service that provides reliable, low-latency, many-to-many asynchronous messaging between applications. It automatically scales to handle millions of messages per second, buffering spikes seamlessly.",
     referenceUrl: "https://cloud.google.com/pubsub/docs/overview",
@@ -408,12 +408,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to decouple high-throughput mobile event producers from backend processing systems, absorbing traffic surges without dropping messages.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Have mobile clients connect directly to backend database tables over public internet." },
-      { id: 'B', text: "Deploy a Cloud Pub/Sub topic and create subscription endpoints for downstream consumers." },
-      { id: 'C', text: "Write mobile events directly to local text files on client devices." },
-      { id: 'D', text: "Use a local Redis cache on a single Compute Engine instance as the messaging buffer." }
+      { id: 'A', text: "Deploy a Cloud Pub/Sub topic and create subscription endpoints for downstream consumers." },
+      { id: 'B', text: "Have mobile clients connect directly to backend database tables over public internet." },
+      { id: 'C', text: "Use a local Redis cache on a single Compute Engine instance as the messaging buffer." },
+      { id: 'D', text: "Write mobile events directly to local text files on client devices." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy a Cloud Pub/Sub topic and create subscription endpoints for downstream consumers. Cloud Pub/Sub is a fully managed, scalable messaging service that provides reliable, low-latency, many-to-many asynchronous messaging between applications. It automatically scales to handle millions of messages per second, buffering spikes seamlessly.",
     referenceUrl: "https://cloud.google.com/pubsub/docs/overview",
@@ -429,12 +429,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to optimize query performance and minimize query billing costs when analyzing multi-terabyte transactional audit tables queried by transaction date and customer ID.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Export the entire dataset to Cloud Storage and grep text files using Compute Engine." },
-      { id: 'B', text: "Partition the BigQuery table by transaction_date and cluster by customer_id." },
-      { id: 'C', text: "Store all data in a single unpartitioned, unclustered BigQuery table." },
+      { id: 'A', text: "Store all data in a single unpartitioned, unclustered BigQuery table." },
+      { id: 'B', text: "Export the entire dataset to Cloud Storage and grep text files using Compute Engine." },
+      { id: 'C', text: "Partition the BigQuery table by transaction_date and cluster by customer_id." },
       { id: 'D', text: "Create separate physical BigQuery tables for every single minute of the year." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Partition the BigQuery table by transaction_date and cluster by customer_id. BigQuery table partitioning divides a table into segments based on a date, timestamp, or integer column, pruning scanned data. Clustering sorts data based on specified columns within partitions, enabling BigQuery to skip scanning irrelevant data blocks and dramatically reducing query costs.",
     referenceUrl: "https://cloud.google.com/bigquery/docs/partitioned-tables",
@@ -451,9 +451,9 @@ export const GCP_PCA_QUESTIONS_12 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Partition the BigQuery table by transaction_date and cluster by customer_id." },
-      { id: 'B', text: "Create separate physical BigQuery tables for every single minute of the year." },
-      { id: 'C', text: "Store all data in a single unpartitioned, unclustered BigQuery table." },
-      { id: 'D', text: "Export the entire dataset to Cloud Storage and grep text files using Compute Engine." }
+      { id: 'B', text: "Export the entire dataset to Cloud Storage and grep text files using Compute Engine." },
+      { id: 'C', text: "Create separate physical BigQuery tables for every single minute of the year." },
+      { id: 'D', text: "Store all data in a single unpartitioned, unclustered BigQuery table." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -472,9 +472,9 @@ export const GCP_PCA_QUESTIONS_12 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Partition the BigQuery table by transaction_date and cluster by customer_id." },
-      { id: 'B', text: "Export the entire dataset to Cloud Storage and grep text files using Compute Engine." },
-      { id: 'C', text: "Create separate physical BigQuery tables for every single minute of the year." },
-      { id: 'D', text: "Store all data in a single unpartitioned, unclustered BigQuery table." }
+      { id: 'B', text: "Create separate physical BigQuery tables for every single minute of the year." },
+      { id: 'C', text: "Store all data in a single unpartitioned, unclustered BigQuery table." },
+      { id: 'D', text: "Export the entire dataset to Cloud Storage and grep text files using Compute Engine." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to optimize query performance and minimize query billing costs when analyzing multi-terabyte transactional audit tables queried by transaction date and customer ID.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Export the entire dataset to Cloud Storage and grep text files using Compute Engine." },
-      { id: 'B', text: "Create separate physical BigQuery tables for every single minute of the year." },
-      { id: 'C', text: "Partition the BigQuery table by transaction_date and cluster by customer_id." },
-      { id: 'D', text: "Store all data in a single unpartitioned, unclustered BigQuery table." }
+      { id: 'A', text: "Partition the BigQuery table by transaction_date and cluster by customer_id." },
+      { id: 'B', text: "Store all data in a single unpartitioned, unclustered BigQuery table." },
+      { id: 'C', text: "Export the entire dataset to Cloud Storage and grep text files using Compute Engine." },
+      { id: 'D', text: "Create separate physical BigQuery tables for every single minute of the year." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Partition the BigQuery table by transaction_date and cluster by customer_id. BigQuery table partitioning divides a table into segments based on a date, timestamp, or integer column, pruning scanned data. Clustering sorts data based on specified columns within partitions, enabling BigQuery to skip scanning irrelevant data blocks and dramatically reducing query costs.",
     referenceUrl: "https://cloud.google.com/bigquery/docs/partitioned-tables",
@@ -513,12 +513,12 @@ export const GCP_PCA_QUESTIONS_12 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to optimize query performance and minimize query billing costs when analyzing multi-terabyte transactional audit tables queried by transaction date and customer ID.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Create separate physical BigQuery tables for every single minute of the year." },
-      { id: 'B', text: "Export the entire dataset to Cloud Storage and grep text files using Compute Engine." },
-      { id: 'C', text: "Store all data in a single unpartitioned, unclustered BigQuery table." },
-      { id: 'D', text: "Partition the BigQuery table by transaction_date and cluster by customer_id." }
+      { id: 'A', text: "Partition the BigQuery table by transaction_date and cluster by customer_id." },
+      { id: 'B', text: "Store all data in a single unpartitioned, unclustered BigQuery table." },
+      { id: 'C', text: "Export the entire dataset to Cloud Storage and grep text files using Compute Engine." },
+      { id: 'D', text: "Create separate physical BigQuery tables for every single minute of the year." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Partition the BigQuery table by transaction_date and cluster by customer_id. BigQuery table partitioning divides a table into segments based on a date, timestamp, or integer column, pruning scanned data. Clustering sorts data based on specified columns within partitions, enabling BigQuery to skip scanning irrelevant data blocks and dramatically reducing query costs.",
     referenceUrl: "https://cloud.google.com/bigquery/docs/partitioned-tables",

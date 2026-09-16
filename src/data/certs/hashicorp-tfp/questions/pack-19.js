@@ -9,12 +9,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Advanced Debugging to diagnose an intermittent failure where a cloud provider rejects an API call with an ambiguous 'InvalidParameterValue' error.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Guess which attribute is wrong by changing random configuration values." },
-      { id: 'B', text: "Assume the cloud provider is down and wait 48 hours." },
-      { id: 'C', text: "Inspect `TF_LOG=TRACE` logs to examine the exact HTTP request body and response payload sent to and received from the cloud provider API." },
-      { id: 'D', text: "Reboot the physical machine running the Terraform CLI." }
+      { id: 'A', text: "Assume the cloud provider is down and wait 48 hours." },
+      { id: 'B', text: "Reboot the physical machine running the Terraform CLI." },
+      { id: 'C', text: "Guess which attribute is wrong by changing random configuration values." },
+      { id: 'D', text: "Inspect `TF_LOG=TRACE` logs to examine the exact HTTP request body and response payload sent to and received from the cloud provider API." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Inspect `TF_LOG=TRACE` logs to examine the exact HTTP request body and response payload sent to and received from the cloud provider API. `TF_LOG=TRACE` prints raw HTTP request headers, method paths, request bodies, and full vendor JSON error responses. Inspecting the wire trace reveals the exact parameter name and value rejected by the cloud API, cutting through ambiguous high-level CLI error messages.",
     referenceUrl: "https://developer.hashicorp.com/terraform/internals/debugging",
@@ -30,12 +30,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Advanced Debugging to diagnose an intermittent failure where a cloud provider rejects an API call with an ambiguous 'InvalidParameterValue' error.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Assume the cloud provider is down and wait 48 hours." },
-      { id: 'B', text: "Inspect `TF_LOG=TRACE` logs to examine the exact HTTP request body and response payload sent to and received from the cloud provider API." },
-      { id: 'C', text: "Guess which attribute is wrong by changing random configuration values." },
-      { id: 'D', text: "Reboot the physical machine running the Terraform CLI." }
+      { id: 'A', text: "Reboot the physical machine running the Terraform CLI." },
+      { id: 'B', text: "Assume the cloud provider is down and wait 48 hours." },
+      { id: 'C', text: "Inspect `TF_LOG=TRACE` logs to examine the exact HTTP request body and response payload sent to and received from the cloud provider API." },
+      { id: 'D', text: "Guess which attribute is wrong by changing random configuration values." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Inspect `TF_LOG=TRACE` logs to examine the exact HTTP request body and response payload sent to and received from the cloud provider API. `TF_LOG=TRACE` prints raw HTTP request headers, method paths, request bodies, and full vendor JSON error responses. Inspecting the wire trace reveals the exact parameter name and value rejected by the cloud API, cutting through ambiguous high-level CLI error messages.",
     referenceUrl: "https://developer.hashicorp.com/terraform/internals/debugging",
@@ -52,9 +52,9 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Inspect `TF_LOG=TRACE` logs to examine the exact HTTP request body and response payload sent to and received from the cloud provider API." },
-      { id: 'B', text: "Reboot the physical machine running the Terraform CLI." },
-      { id: 'C', text: "Assume the cloud provider is down and wait 48 hours." },
-      { id: 'D', text: "Guess which attribute is wrong by changing random configuration values." }
+      { id: 'B', text: "Assume the cloud provider is down and wait 48 hours." },
+      { id: 'C', text: "Guess which attribute is wrong by changing random configuration values." },
+      { id: 'D', text: "Reboot the physical machine running the Terraform CLI." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,12 +72,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Advanced Debugging to diagnose an intermittent failure where a cloud provider rejects an API call with an ambiguous 'InvalidParameterValue' error.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Guess which attribute is wrong by changing random configuration values." },
-      { id: 'B', text: "Assume the cloud provider is down and wait 48 hours." },
-      { id: 'C', text: "Inspect `TF_LOG=TRACE` logs to examine the exact HTTP request body and response payload sent to and received from the cloud provider API." },
-      { id: 'D', text: "Reboot the physical machine running the Terraform CLI." }
+      { id: 'A', text: "Assume the cloud provider is down and wait 48 hours." },
+      { id: 'B', text: "Reboot the physical machine running the Terraform CLI." },
+      { id: 'C', text: "Guess which attribute is wrong by changing random configuration values." },
+      { id: 'D', text: "Inspect `TF_LOG=TRACE` logs to examine the exact HTTP request body and response payload sent to and received from the cloud provider API." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Inspect `TF_LOG=TRACE` logs to examine the exact HTTP request body and response payload sent to and received from the cloud provider API. `TF_LOG=TRACE` prints raw HTTP request headers, method paths, request bodies, and full vendor JSON error responses. Inspecting the wire trace reveals the exact parameter name and value rejected by the cloud API, cutting through ambiguous high-level CLI error messages.",
     referenceUrl: "https://developer.hashicorp.com/terraform/internals/debugging",
@@ -93,12 +93,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Advanced Debugging to diagnose an intermittent failure where a cloud provider rejects an API call with an ambiguous 'InvalidParameterValue' error.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Guess which attribute is wrong by changing random configuration values." },
-      { id: 'B', text: "Reboot the physical machine running the Terraform CLI." },
-      { id: 'C', text: "Assume the cloud provider is down and wait 48 hours." },
-      { id: 'D', text: "Inspect `TF_LOG=TRACE` logs to examine the exact HTTP request body and response payload sent to and received from the cloud provider API." }
+      { id: 'A', text: "Reboot the physical machine running the Terraform CLI." },
+      { id: 'B', text: "Assume the cloud provider is down and wait 48 hours." },
+      { id: 'C', text: "Inspect `TF_LOG=TRACE` logs to examine the exact HTTP request body and response payload sent to and received from the cloud provider API." },
+      { id: 'D', text: "Guess which attribute is wrong by changing random configuration values." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Inspect `TF_LOG=TRACE` logs to examine the exact HTTP request body and response payload sent to and received from the cloud provider API. `TF_LOG=TRACE` prints raw HTTP request headers, method paths, request bodies, and full vendor JSON error responses. Inspecting the wire trace reveals the exact parameter name and value rejected by the cloud API, cutting through ambiguous high-level CLI error messages.",
     referenceUrl: "https://developer.hashicorp.com/terraform/internals/debugging",
@@ -116,8 +116,8 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Break the cycle by separating the inline rule into a standalone `aws_security_group_rule` resource referencing both the security group and instance." },
       { id: 'B', text: "Delete the security group and leave the instance unprotected." },
-      { id: 'C', text: "Deploy the instance in an entirely separate AWS region." },
-      { id: 'D', text: "Disable Terraform dependency graphing by passing `-no-graph`." }
+      { id: 'C', text: "Disable Terraform dependency graphing by passing `-no-graph`." },
+      { id: 'D', text: "Deploy the instance in an entirely separate AWS region." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,12 +135,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Dependency Cycles to resolve a `Cycle: ...` error caused by a security group and an EC2 instance that reference each other's IDs simultaneously.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Delete the security group and leave the instance unprotected." },
-      { id: 'B', text: "Disable Terraform dependency graphing by passing `-no-graph`." },
-      { id: 'C', text: "Deploy the instance in an entirely separate AWS region." },
-      { id: 'D', text: "Break the cycle by separating the inline rule into a standalone `aws_security_group_rule` resource referencing both the security group and instance." }
+      { id: 'A', text: "Disable Terraform dependency graphing by passing `-no-graph`." },
+      { id: 'B', text: "Deploy the instance in an entirely separate AWS region." },
+      { id: 'C', text: "Break the cycle by separating the inline rule into a standalone `aws_security_group_rule` resource referencing both the security group and instance." },
+      { id: 'D', text: "Delete the security group and leave the instance unprotected." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Break the cycle by separating the inline rule into a standalone `aws_security_group_rule` resource referencing both the security group and instance. Dependency cycles occur when two resources depend on each other, preventing the DAG from determining creation order. Breaking cycles requires decoupling mutual references—commonly by extracting inline attributes (like security group rules) into independent standalone resources.",
     referenceUrl: "https://developer.hashicorp.com/terraform/intro/how-terraform-works#graph",
@@ -156,12 +156,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Dependency Cycles to resolve a `Cycle: ...` error caused by a security group and an EC2 instance that reference each other's IDs simultaneously.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Disable Terraform dependency graphing by passing `-no-graph`." },
+      { id: 'A', text: "Deploy the instance in an entirely separate AWS region." },
       { id: 'B', text: "Delete the security group and leave the instance unprotected." },
-      { id: 'C', text: "Deploy the instance in an entirely separate AWS region." },
-      { id: 'D', text: "Break the cycle by separating the inline rule into a standalone `aws_security_group_rule` resource referencing both the security group and instance." }
+      { id: 'C', text: "Break the cycle by separating the inline rule into a standalone `aws_security_group_rule` resource referencing both the security group and instance." },
+      { id: 'D', text: "Disable Terraform dependency graphing by passing `-no-graph`." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Break the cycle by separating the inline rule into a standalone `aws_security_group_rule` resource referencing both the security group and instance. Dependency cycles occur when two resources depend on each other, preventing the DAG from determining creation order. Breaking cycles requires decoupling mutual references—commonly by extracting inline attributes (like security group rules) into independent standalone resources.",
     referenceUrl: "https://developer.hashicorp.com/terraform/intro/how-terraform-works#graph",
@@ -177,12 +177,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Dependency Cycles to resolve a `Cycle: ...` error caused by a security group and an EC2 instance that reference each other's IDs simultaneously.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Delete the security group and leave the instance unprotected." },
-      { id: 'B', text: "Deploy the instance in an entirely separate AWS region." },
+      { id: 'A', text: "Deploy the instance in an entirely separate AWS region." },
+      { id: 'B', text: "Break the cycle by separating the inline rule into a standalone `aws_security_group_rule` resource referencing both the security group and instance." },
       { id: 'C', text: "Disable Terraform dependency graphing by passing `-no-graph`." },
-      { id: 'D', text: "Break the cycle by separating the inline rule into a standalone `aws_security_group_rule` resource referencing both the security group and instance." }
+      { id: 'D', text: "Delete the security group and leave the instance unprotected." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Break the cycle by separating the inline rule into a standalone `aws_security_group_rule` resource referencing both the security group and instance. Dependency cycles occur when two resources depend on each other, preventing the DAG from determining creation order. Breaking cycles requires decoupling mutual references—commonly by extracting inline attributes (like security group rules) into independent standalone resources.",
     referenceUrl: "https://developer.hashicorp.com/terraform/intro/how-terraform-works#graph",
@@ -198,12 +198,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Dependency Cycles to resolve a `Cycle: ...` error caused by a security group and an EC2 instance that reference each other's IDs simultaneously.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Delete the security group and leave the instance unprotected." },
-      { id: 'B', text: "Break the cycle by separating the inline rule into a standalone `aws_security_group_rule` resource referencing both the security group and instance." },
+      { id: 'A', text: "Break the cycle by separating the inline rule into a standalone `aws_security_group_rule` resource referencing both the security group and instance." },
+      { id: 'B', text: "Delete the security group and leave the instance unprotected." },
       { id: 'C', text: "Disable Terraform dependency graphing by passing `-no-graph`." },
       { id: 'D', text: "Deploy the instance in an entirely separate AWS region." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Break the cycle by separating the inline rule into a standalone `aws_security_group_rule` resource referencing both the security group and instance. Dependency cycles occur when two resources depend on each other, preventing the DAG from determining creation order. Breaking cycles requires decoupling mutual references—commonly by extracting inline attributes (like security group rules) into independent standalone resources.",
     referenceUrl: "https://developer.hashicorp.com/terraform/intro/how-terraform-works#graph",
@@ -219,12 +219,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Type Mismatches to resolve an error where a child module expects a `map(string)` but the root caller passed an object containing mixed string and number values.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Delete the child module and re-implement all resources in the root module." },
+      { id: 'A', text: "Align the caller's input structure with the module's declared type constraint, or update the module variable to use an `object()` or `any` type." },
       { id: 'B', text: "Disable type checking in the root module by deleting `variables.tf`." },
       { id: 'C', text: "Cast all numbers to strings using regex in local bash scripts." },
-      { id: 'D', text: "Align the caller's input structure with the module's declared type constraint, or update the module variable to use an `object()` or `any` type." }
+      { id: 'D', text: "Delete the child module and re-implement all resources in the root module." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Align the caller's input structure with the module's declared type constraint, or update the module variable to use an `object()` or `any` type. Terraform performs strict type validation. In a `map(string)`, all values must be of the same type (string); passing numbers causes type errors unless explicitly allowed by using `object()` schemas with mixed types or converting numbers using `tostring()`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/types",
@@ -240,12 +240,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Type Mismatches to resolve an error where a child module expects a `map(string)` but the root caller passed an object containing mixed string and number values.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Disable type checking in the root module by deleting `variables.tf`." },
-      { id: 'B', text: "Align the caller's input structure with the module's declared type constraint, or update the module variable to use an `object()` or `any` type." },
-      { id: 'C', text: "Delete the child module and re-implement all resources in the root module." },
-      { id: 'D', text: "Cast all numbers to strings using regex in local bash scripts." }
+      { id: 'A', text: "Align the caller's input structure with the module's declared type constraint, or update the module variable to use an `object()` or `any` type." },
+      { id: 'B', text: "Disable type checking in the root module by deleting `variables.tf`." },
+      { id: 'C', text: "Cast all numbers to strings using regex in local bash scripts." },
+      { id: 'D', text: "Delete the child module and re-implement all resources in the root module." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Align the caller's input structure with the module's declared type constraint, or update the module variable to use an `object()` or `any` type. Terraform performs strict type validation. In a `map(string)`, all values must be of the same type (string); passing numbers causes type errors unless explicitly allowed by using `object()` schemas with mixed types or converting numbers using `tostring()`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/types",
@@ -261,12 +261,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Type Mismatches to resolve an error where a child module expects a `map(string)` but the root caller passed an object containing mixed string and number values.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Delete the child module and re-implement all resources in the root module." },
-      { id: 'B', text: "Cast all numbers to strings using regex in local bash scripts." },
-      { id: 'C', text: "Disable type checking in the root module by deleting `variables.tf`." },
-      { id: 'D', text: "Align the caller's input structure with the module's declared type constraint, or update the module variable to use an `object()` or `any` type." }
+      { id: 'A', text: "Align the caller's input structure with the module's declared type constraint, or update the module variable to use an `object()` or `any` type." },
+      { id: 'B', text: "Disable type checking in the root module by deleting `variables.tf`." },
+      { id: 'C', text: "Cast all numbers to strings using regex in local bash scripts." },
+      { id: 'D', text: "Delete the child module and re-implement all resources in the root module." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Align the caller's input structure with the module's declared type constraint, or update the module variable to use an `object()` or `any` type. Terraform performs strict type validation. In a `map(string)`, all values must be of the same type (string); passing numbers causes type errors unless explicitly allowed by using `object()` schemas with mixed types or converting numbers using `tostring()`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/types",
@@ -282,12 +282,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Type Mismatches to resolve an error where a child module expects a `map(string)` but the root caller passed an object containing mixed string and number values.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Delete the child module and re-implement all resources in the root module." },
-      { id: 'B', text: "Align the caller's input structure with the module's declared type constraint, or update the module variable to use an `object()` or `any` type." },
-      { id: 'C', text: "Disable type checking in the root module by deleting `variables.tf`." },
-      { id: 'D', text: "Cast all numbers to strings using regex in local bash scripts." }
+      { id: 'A', text: "Cast all numbers to strings using regex in local bash scripts." },
+      { id: 'B', text: "Delete the child module and re-implement all resources in the root module." },
+      { id: 'C', text: "Align the caller's input structure with the module's declared type constraint, or update the module variable to use an `object()` or `any` type." },
+      { id: 'D', text: "Disable type checking in the root module by deleting `variables.tf`." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Align the caller's input structure with the module's declared type constraint, or update the module variable to use an `object()` or `any` type. Terraform performs strict type validation. In a `map(string)`, all values must be of the same type (string); passing numbers causes type errors unless explicitly allowed by using `object()` schemas with mixed types or converting numbers using `tostring()`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/types",
@@ -303,12 +303,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Type Mismatches to resolve an error where a child module expects a `map(string)` but the root caller passed an object containing mixed string and number values.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Disable type checking in the root module by deleting `variables.tf`." },
-      { id: 'B', text: "Align the caller's input structure with the module's declared type constraint, or update the module variable to use an `object()` or `any` type." },
-      { id: 'C', text: "Delete the child module and re-implement all resources in the root module." },
-      { id: 'D', text: "Cast all numbers to strings using regex in local bash scripts." }
+      { id: 'A', text: "Align the caller's input structure with the module's declared type constraint, or update the module variable to use an `object()` or `any` type." },
+      { id: 'B', text: "Disable type checking in the root module by deleting `variables.tf`." },
+      { id: 'C', text: "Cast all numbers to strings using regex in local bash scripts." },
+      { id: 'D', text: "Delete the child module and re-implement all resources in the root module." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Align the caller's input structure with the module's declared type constraint, or update the module variable to use an `object()` or `any` type. Terraform performs strict type validation. In a `map(string)`, all values must be of the same type (string); passing numbers causes type errors unless explicitly allowed by using `object()` schemas with mixed types or converting numbers using `tostring()`.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/types",
@@ -324,12 +324,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Provider Crashes to diagnose an error where Terraform terminates abruptly with `Error: The terraform-provider-aws plugin crashed`.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Delete all source code files in the directory." },
-      { id: 'B', text: "Review the panic stack trace in the terminal output, check `TF_LOG=DEBUG`, verify provider version updates, and file an issue on GitHub." },
+      { id: 'A', text: "Ignore the crash and immediately run `terraform destroy`." },
+      { id: 'B', text: "Delete all source code files in the directory." },
       { id: 'C', text: "Reinstall the local Linux operating system." },
-      { id: 'D', text: "Ignore the crash and immediately run `terraform destroy`." }
+      { id: 'D', text: "Review the panic stack trace in the terminal output, check `TF_LOG=DEBUG`, verify provider version updates, and file an issue on GitHub." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Review the panic stack trace in the terminal output, check `TF_LOG=DEBUG`, verify provider version updates, and file an issue on GitHub. When a provider crashes, it panics and prints a Go runtime stack trace. Capturing the stack trace along with `TF_LOG=DEBUG` output pinpoints whether the crash is a known provider bug (often resolved by upgrading or pinning provider versions) or an unhandled edge-case payload.",
     referenceUrl: "https://developer.hashicorp.com/terraform/internals/debugging",
@@ -345,12 +345,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Provider Crashes to diagnose an error where Terraform terminates abruptly with `Error: The terraform-provider-aws plugin crashed`.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Ignore the crash and immediately run `terraform destroy`." },
-      { id: 'B', text: "Reinstall the local Linux operating system." },
-      { id: 'C', text: "Review the panic stack trace in the terminal output, check `TF_LOG=DEBUG`, verify provider version updates, and file an issue on GitHub." },
+      { id: 'A', text: "Reinstall the local Linux operating system." },
+      { id: 'B', text: "Review the panic stack trace in the terminal output, check `TF_LOG=DEBUG`, verify provider version updates, and file an issue on GitHub." },
+      { id: 'C', text: "Ignore the crash and immediately run `terraform destroy`." },
       { id: 'D', text: "Delete all source code files in the directory." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Review the panic stack trace in the terminal output, check `TF_LOG=DEBUG`, verify provider version updates, and file an issue on GitHub. When a provider crashes, it panics and prints a Go runtime stack trace. Capturing the stack trace along with `TF_LOG=DEBUG` output pinpoints whether the crash is a known provider bug (often resolved by upgrading or pinning provider versions) or an unhandled edge-case payload.",
     referenceUrl: "https://developer.hashicorp.com/terraform/internals/debugging",
@@ -366,12 +366,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Provider Crashes to diagnose an error where Terraform terminates abruptly with `Error: The terraform-provider-aws plugin crashed`.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Delete all source code files in the directory." },
-      { id: 'B', text: "Reinstall the local Linux operating system." },
-      { id: 'C', text: "Ignore the crash and immediately run `terraform destroy`." },
-      { id: 'D', text: "Review the panic stack trace in the terminal output, check `TF_LOG=DEBUG`, verify provider version updates, and file an issue on GitHub." }
+      { id: 'A', text: "Review the panic stack trace in the terminal output, check `TF_LOG=DEBUG`, verify provider version updates, and file an issue on GitHub." },
+      { id: 'B', text: "Ignore the crash and immediately run `terraform destroy`." },
+      { id: 'C', text: "Reinstall the local Linux operating system." },
+      { id: 'D', text: "Delete all source code files in the directory." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Review the panic stack trace in the terminal output, check `TF_LOG=DEBUG`, verify provider version updates, and file an issue on GitHub. When a provider crashes, it panics and prints a Go runtime stack trace. Capturing the stack trace along with `TF_LOG=DEBUG` output pinpoints whether the crash is a known provider bug (often resolved by upgrading or pinning provider versions) or an unhandled edge-case payload.",
     referenceUrl: "https://developer.hashicorp.com/terraform/internals/debugging",
@@ -387,12 +387,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Provider Crashes to diagnose an error where Terraform terminates abruptly with `Error: The terraform-provider-aws plugin crashed`.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Reinstall the local Linux operating system." },
-      { id: 'B', text: "Review the panic stack trace in the terminal output, check `TF_LOG=DEBUG`, verify provider version updates, and file an issue on GitHub." },
-      { id: 'C', text: "Ignore the crash and immediately run `terraform destroy`." },
+      { id: 'A', text: "Ignore the crash and immediately run `terraform destroy`." },
+      { id: 'B', text: "Reinstall the local Linux operating system." },
+      { id: 'C', text: "Review the panic stack trace in the terminal output, check `TF_LOG=DEBUG`, verify provider version updates, and file an issue on GitHub." },
       { id: 'D', text: "Delete all source code files in the directory." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Review the panic stack trace in the terminal output, check `TF_LOG=DEBUG`, verify provider version updates, and file an issue on GitHub. When a provider crashes, it panics and prints a Go runtime stack trace. Capturing the stack trace along with `TF_LOG=DEBUG` output pinpoints whether the crash is a known provider bug (often resolved by upgrading or pinning provider versions) or an unhandled edge-case payload.",
     referenceUrl: "https://developer.hashicorp.com/terraform/internals/debugging",
@@ -408,12 +408,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Provider Crashes to diagnose an error where Terraform terminates abruptly with `Error: The terraform-provider-aws plugin crashed`.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Ignore the crash and immediately run `terraform destroy`." },
-      { id: 'B', text: "Delete all source code files in the directory." },
+      { id: 'A', text: "Delete all source code files in the directory." },
+      { id: 'B', text: "Review the panic stack trace in the terminal output, check `TF_LOG=DEBUG`, verify provider version updates, and file an issue on GitHub." },
       { id: 'C', text: "Reinstall the local Linux operating system." },
-      { id: 'D', text: "Review the panic stack trace in the terminal output, check `TF_LOG=DEBUG`, verify provider version updates, and file an issue on GitHub." }
+      { id: 'D', text: "Ignore the crash and immediately run `terraform destroy`." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Review the panic stack trace in the terminal output, check `TF_LOG=DEBUG`, verify provider version updates, and file an issue on GitHub. When a provider crashes, it panics and prints a Go runtime stack trace. Capturing the stack trace along with `TF_LOG=DEBUG` output pinpoints whether the crash is a known provider bug (often resolved by upgrading or pinning provider versions) or an unhandled edge-case payload.",
     referenceUrl: "https://developer.hashicorp.com/terraform/internals/debugging",
@@ -430,8 +430,8 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Verify the provider source address, ensure network reachability, update the lockfile with `terraform init -upgrade`, and commit `.terraform.lock.hcl`." },
-      { id: 'B', text: "Disable checksum verification by hacking the Terraform binary." },
-      { id: 'C', text: "Delete all `.tf` files in the repository." },
+      { id: 'B', text: "Delete all `.tf` files in the repository." },
+      { id: 'C', text: "Disable checksum verification by hacking the Terraform binary." },
       { id: 'D', text: "Manually download arbitrary binaries from unverified third-party websites." }
     ],
     correctAnswers: ['A'],
@@ -450,12 +450,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Schema Errors to resolve an error where a CI pipeline fails during `terraform init` with `Error: Failed to query available provider packages` or checksum mismatch.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Disable checksum verification by hacking the Terraform binary." },
-      { id: 'B', text: "Manually download arbitrary binaries from unverified third-party websites." },
-      { id: 'C', text: "Delete all `.tf` files in the repository." },
-      { id: 'D', text: "Verify the provider source address, ensure network reachability, update the lockfile with `terraform init -upgrade`, and commit `.terraform.lock.hcl`." }
+      { id: 'A', text: "Delete all `.tf` files in the repository." },
+      { id: 'B', text: "Verify the provider source address, ensure network reachability, update the lockfile with `terraform init -upgrade`, and commit `.terraform.lock.hcl`." },
+      { id: 'C', text: "Manually download arbitrary binaries from unverified third-party websites." },
+      { id: 'D', text: "Disable checksum verification by hacking the Terraform binary." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Verify the provider source address, ensure network reachability, update the lockfile with `terraform init -upgrade`, and commit `.terraform.lock.hcl`. Lockfile checksum errors occur when downloaded provider binaries do not match the cryptographic hashes recorded in `.terraform.lock.hcl` (often across different OS architectures). Running `terraform init -upgrade` recalculates valid checksums for all platforms and updates the lockfile cleanly.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/init#upgrade",
@@ -471,12 +471,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Schema Errors to resolve an error where a CI pipeline fails during `terraform init` with `Error: Failed to query available provider packages` or checksum mismatch.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Manually download arbitrary binaries from unverified third-party websites." },
-      { id: 'B', text: "Verify the provider source address, ensure network reachability, update the lockfile with `terraform init -upgrade`, and commit `.terraform.lock.hcl`." },
-      { id: 'C', text: "Delete all `.tf` files in the repository." },
-      { id: 'D', text: "Disable checksum verification by hacking the Terraform binary." }
+      { id: 'A', text: "Disable checksum verification by hacking the Terraform binary." },
+      { id: 'B', text: "Manually download arbitrary binaries from unverified third-party websites." },
+      { id: 'C', text: "Verify the provider source address, ensure network reachability, update the lockfile with `terraform init -upgrade`, and commit `.terraform.lock.hcl`." },
+      { id: 'D', text: "Delete all `.tf` files in the repository." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Verify the provider source address, ensure network reachability, update the lockfile with `terraform init -upgrade`, and commit `.terraform.lock.hcl`. Lockfile checksum errors occur when downloaded provider binaries do not match the cryptographic hashes recorded in `.terraform.lock.hcl` (often across different OS architectures). Running `terraform init -upgrade` recalculates valid checksums for all platforms and updates the lockfile cleanly.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/init#upgrade",
@@ -493,9 +493,9 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Verify the provider source address, ensure network reachability, update the lockfile with `terraform init -upgrade`, and commit `.terraform.lock.hcl`." },
-      { id: 'B', text: "Disable checksum verification by hacking the Terraform binary." },
-      { id: 'C', text: "Manually download arbitrary binaries from unverified third-party websites." },
-      { id: 'D', text: "Delete all `.tf` files in the repository." }
+      { id: 'B', text: "Manually download arbitrary binaries from unverified third-party websites." },
+      { id: 'C', text: "Delete all `.tf` files in the repository." },
+      { id: 'D', text: "Disable checksum verification by hacking the Terraform binary." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,12 +513,12 @@ export const HASHICORP_TFP_QUESTIONS_19 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Schema Errors to resolve an error where a CI pipeline fails during `terraform init` with `Error: Failed to query available provider packages` or checksum mismatch.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Disable checksum verification by hacking the Terraform binary." },
-      { id: 'B', text: "Verify the provider source address, ensure network reachability, update the lockfile with `terraform init -upgrade`, and commit `.terraform.lock.hcl`." },
-      { id: 'C', text: "Delete all `.tf` files in the repository." },
+      { id: 'A', text: "Delete all `.tf` files in the repository." },
+      { id: 'B', text: "Disable checksum verification by hacking the Terraform binary." },
+      { id: 'C', text: "Verify the provider source address, ensure network reachability, update the lockfile with `terraform init -upgrade`, and commit `.terraform.lock.hcl`." },
       { id: 'D', text: "Manually download arbitrary binaries from unverified third-party websites." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Verify the provider source address, ensure network reachability, update the lockfile with `terraform init -upgrade`, and commit `.terraform.lock.hcl`. Lockfile checksum errors occur when downloaded provider binaries do not match the cryptographic hashes recorded in `.terraform.lock.hcl` (often across different OS architectures). Running `terraform init -upgrade` recalculates valid checksums for all platforms and updates the lockfile cleanly.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/init#upgrade",
