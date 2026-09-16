@@ -9,10 +9,10 @@ export const AWS_DOP_QUESTIONS_3 = [
     scenario: "A DevOps team is standardizing multi-account delivery workflows, automated testing gates, and deployment policies for microservices.",
     question: "Which SDLC automation architecture best satisfies deployment scenario #36?",
     options: [
-      { id: 'A', text: "Using manual FTP uploads to transfer build artifacts directly to production instances" },
-      { id: 'B', text: "Implementing AWS CodePipeline with cross-account IAM role assumption, customer-managed KMS encryption, and automated rollback alarms" },
-      { id: 'C', text: "Relying on scheduled off-peak batch scripts without automated health validation" },
-      { id: 'D', text: "Granting full administrator access to deployment scripts with unencrypted artifact storage" }
+      { id: 'A', text: "CodePipeline with a single-account role, the default S3 key, and a manual approval before deploy" },
+      { id: 'B', text: "CodePipeline with cross-account role assumption, a customer-managed KMS key, and rollback alarms" },
+      { id: 'C', text: "CodeBuild running the deploy commands directly, with credentials held in the build project" },
+      { id: 'D', text: "CodeDeploy triggered from each account's own pipeline, with artifacts copied between buckets" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -30,10 +30,10 @@ export const AWS_DOP_QUESTIONS_3 = [
     scenario: "A DevOps team is standardizing multi-account delivery workflows, automated testing gates, and deployment policies for microservices.",
     question: "Which SDLC automation architecture best satisfies deployment scenario #37?",
     options: [
-      { id: 'A', text: "Using manual FTP uploads to transfer build artifacts directly to production instances" },
-      { id: 'B', text: "Granting full administrator access to deployment scripts with unencrypted artifact storage" },
-      { id: 'C', text: "Implementing AWS CodePipeline with cross-account IAM role assumption, customer-managed KMS encryption, and automated rollback alarms" },
-      { id: 'D', text: "Relying on scheduled off-peak batch scripts without automated health validation" }
+      { id: 'A', text: "CodePipeline with a single-account role, the default S3 key, and a manual approval before deploy" },
+      { id: 'B', text: "CodeDeploy triggered from each account's own pipeline, with artifacts copied between buckets" },
+      { id: 'C', text: "CodePipeline with cross-account role assumption, a customer-managed KMS key, and rollback alarms" },
+      { id: 'D', text: "CodeBuild running the deploy commands directly, with credentials held in the build project" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -51,10 +51,10 @@ export const AWS_DOP_QUESTIONS_3 = [
     scenario: "A DevOps team is standardizing multi-account delivery workflows, automated testing gates, and deployment policies for microservices.",
     question: "Which SDLC automation architecture best satisfies deployment scenario #38?",
     options: [
-      { id: 'A', text: "Using manual FTP uploads to transfer build artifacts directly to production instances" },
-      { id: 'B', text: "Implementing AWS CodePipeline with cross-account IAM role assumption, customer-managed KMS encryption, and automated rollback alarms" },
-      { id: 'C', text: "Granting full administrator access to deployment scripts with unencrypted artifact storage" },
-      { id: 'D', text: "Relying on scheduled off-peak batch scripts without automated health validation" }
+      { id: 'A', text: "CodePipeline with a single-account role, the default S3 key, and a manual approval before deploy" },
+      { id: 'B', text: "CodePipeline with cross-account role assumption, a customer-managed KMS key, and rollback alarms" },
+      { id: 'C', text: "CodeDeploy triggered from each account's own pipeline, with artifacts copied between buckets" },
+      { id: 'D', text: "CodeBuild running the deploy commands directly, with credentials held in the build project" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,10 +72,10 @@ export const AWS_DOP_QUESTIONS_3 = [
     scenario: "A DevOps team is standardizing multi-account delivery workflows, automated testing gates, and deployment policies for microservices.",
     question: "Which SDLC automation architecture best satisfies deployment scenario #39?",
     options: [
-      { id: 'A', text: "Relying on scheduled off-peak batch scripts without automated health validation" },
-      { id: 'B', text: "Implementing AWS CodePipeline with cross-account IAM role assumption, customer-managed KMS encryption, and automated rollback alarms" },
-      { id: 'C', text: "Using manual FTP uploads to transfer build artifacts directly to production instances" },
-      { id: 'D', text: "Granting full administrator access to deployment scripts with unencrypted artifact storage" }
+      { id: 'A', text: "CodeBuild running the deploy commands directly, with credentials held in the build project" },
+      { id: 'B', text: "CodePipeline with cross-account role assumption, a customer-managed KMS key, and rollback alarms" },
+      { id: 'C', text: "CodePipeline with a single-account role, the default S3 key, and a manual approval before deploy" },
+      { id: 'D', text: "CodeDeploy triggered from each account's own pipeline, with artifacts copied between buckets" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,10 +93,10 @@ export const AWS_DOP_QUESTIONS_3 = [
     scenario: "A DevOps team is standardizing multi-account delivery workflows, automated testing gates, and deployment policies for microservices.",
     question: "Which SDLC automation architecture best satisfies deployment scenario #40?",
     options: [
-      { id: 'A', text: "Implementing AWS CodePipeline with cross-account IAM role assumption, customer-managed KMS encryption, and automated rollback alarms" },
-      { id: 'B', text: "Granting full administrator access to deployment scripts with unencrypted artifact storage" },
-      { id: 'C', text: "Using manual FTP uploads to transfer build artifacts directly to production instances" },
-      { id: 'D', text: "Relying on scheduled off-peak batch scripts without automated health validation" }
+      { id: 'A', text: "CodePipeline with cross-account role assumption, a customer-managed KMS key, and rollback alarms" },
+      { id: 'B', text: "CodeDeploy triggered from each account's own pipeline, with artifacts copied between buckets" },
+      { id: 'C', text: "CodePipeline with a single-account role, the default S3 key, and a manual approval before deploy" },
+      { id: 'D', text: "CodeBuild running the deploy commands directly, with credentials held in the build project" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -116,7 +116,7 @@ export const AWS_DOP_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "Use CloudFormation Fn::ImportValue to directly query the external third-party REST API" },
       { id: 'B', text: "Hardcode the certificate values in the template parameters and update them manually before deletion" },
-      { id: 'C', text: "Create an AWS::CloudFormation::CustomResource backed by an AWS Lambda function that handles Create, Update, and Delete event types and responds with status and physical resource IDs to the pre-signed S3 response URL" },
+      { id: 'C', text: "A custom resource backed by a Lambda that handles create, update and delete and responds" },
       { id: 'D', text: "Write an EC2 user data script that calls the third-party API and stores the certificate in a local text file" }
     ],
     correctAnswers: ['C'],
@@ -136,7 +136,7 @@ export const AWS_DOP_QUESTIONS_3 = [
     question: "Which CloudFormation feature should be implemented?",
     options: [
       { id: 'A', text: "Nested stacks configured with cross-region export and import values" },
-      { id: 'B', text: "AWS CloudFormation StackSets with service-managed permissions and auto-deployment enabled for target Organizational Units (OUs)" },
+      { id: 'B', text: "StackSets with service-managed permissions and auto-deployment to the units" },
       { id: 'C', text: "A shell script executing aws cloudformation create-stack sequentially over an SSH loop" },
       { id: 'D', text: "A single global CloudFormation template deployed only in the management account" }
     ],
@@ -180,7 +180,7 @@ export const AWS_DOP_QUESTIONS_3 = [
       { id: 'A', text: "AWS CloudTrail alerts triggering an SNS notification to administrators" },
       { id: 'B', text: "AWS Systems Manager Run Command executed manually after an outage" },
       { id: 'C', text: "Amazon Inspector scheduled network reachability scans" },
-      { id: 'D', text: "AWS Systems Manager State Manager associations applied on a defined schedule using instance tags" }
+      { id: 'D', text: "State Manager associations applied on a schedule by instance tag" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -220,7 +220,7 @@ export const AWS_DOP_QUESTIONS_3 = [
     question: "Which StackSets configuration meets these requirements with the LEAST operational overhead?",
     options: [
       { id: 'A', text: "Use self-managed permissions with manually provisioned AWSCloudFormationStackSetAdministrationRole and execution roles in each member account" },
-      { id: 'B', text: "Use service-managed permissions with trusted access enabled between AWS Organizations and CloudFormation, and enable automatic deployments with retain stacks set to false" },
+      { id: 'B', text: "Service-managed permissions with trusted access, and auto-deployment to new accounts" },
       { id: 'C', text: "Deploy a custom Lambda function triggered by AWS Organizations account creation events to invoke CreateStackInstances API calls manually" },
       { id: 'D', text: "Configure an EventBridge rule matching CreateAccount that triggers an AWS Systems Manager Automation document to run CloudFormation CLI commands" }
     ],
@@ -264,7 +264,7 @@ export const AWS_DOP_QUESTIONS_3 = [
       { id: 'A', text: "Configure an Amazon SQS dead-letter queue (DLQ) on the Lambda function to store failed events and trigger an automated stack rollback" },
       { id: 'B', text: "Configure the custom resource in the CloudFormation template with an explicit DeletionPolicy set to Retain" },
       { id: 'C', text: "Increase the Lambda function timeout from 3 minutes to 15 minutes to allow sufficient time for CloudFormation to time out the stack" },
-      { id: 'D', text: "Wrap the entire Lambda handler logic in a comprehensive try/finally block that sends a FAILED response with the original RequestId, StackId, and PhysicalResourceId to the pre-signed S3 response URL" }
+      { id: 'D', text: "Wrap the handler in try/finally so a FAILED response is always sent with the request id" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -284,7 +284,7 @@ export const AWS_DOP_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "Configure AWS Systems Manager Parameter Store dynamic references to retrieve the security group IDs at deploy time instead of using CloudFormation exports" },
       { id: 'B', text: "Combine both stacks into a single nested stack that imports values using Fn::GetAtt across parent and child templates" },
-      { id: 'C', text: "Move the security group ingress/egress rules into standalone AWS::EC2::SecurityGroupIngress and AWS::EC2::SecurityGroupEgress resources defined in a separate dedicated stack or Stack B" },
+      { id: 'C', text: "Move the rules into standalone ingress and egress resources so the cycle is broken" },
       { id: 'D', text: "Disable rollback on both CloudFormation stacks and run the stack updates concurrently using AWS CLI" }
     ],
     correctAnswers: ['C'],
@@ -306,7 +306,7 @@ export const AWS_DOP_QUESTIONS_3 = [
       { id: 'A', text: "Terminate the CloudFormation stack with Retain on stateful resources and recreate the entire stack from scratch" },
       { id: 'B', text: "Run CloudFormation CancelUpdateStack and execute an Import Existing Resources operation on all modified resources" },
       { id: 'C', text: "Delete the drifted resources manually in the console and run a CloudFormation UpdateStack operation with rollback disabled" },
-      { id: 'D', text: "Execute CloudFormation Drift Detection on the stack, inspect the Drift Details in the console or CLI, update the CloudFormation template to match the drifted live state, and execute a Change Set" }
+      { id: 'D', text: "Run drift detection, inspect the drifted properties, and update the template" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -325,7 +325,7 @@ export const AWS_DOP_QUESTIONS_3 = [
     question: "Which combination of steps achieves seamless, zero-downtime automated OS patching?",
     options: [
       { id: 'A', text: "Create an SSM Maintenance Window that runs the AWS-RunPatchBaseline SSM document targeting all 50 instances simultaneously with MaxConcurrency set to 100%" },
-      { id: 'B', text: "Configure an ASG Lifecycle Hook for instance launch and terminate, use SSM Run Command to patch instances in batches using an SSM Maintenance Window with MaxConcurrency set to 20% and MaxErrors set to 0" },
+      { id: 'B', text: "A lifecycle hook on launch and terminate, with Run Command patching in batches" },
       { id: 'C', text: "Deploy an AWS Lambda function that disables the ALB target group, runs yum update on all instances via SSH, and re-enables the target group" },
       { id: 'D', text: "Reboot all EC2 instances using an Amazon EventBridge scheduled rule that invokes an AWS Systems Manager Run Command targeting the instances' AWS tags" }
     ],
@@ -367,7 +367,7 @@ export const AWS_DOP_QUESTIONS_3 = [
     question: "Which AWS Systems Manager feature provides this continuous enforcement?",
     options: [
       { id: 'A', text: "AWS Systems Manager Parameter Store configured with parameter change notification EventBridge rules" },
-      { id: 'B', text: "AWS Systems Manager State Manager association configured with an SSM document targeting instances by tag on a 30-minute schedule" },
+      { id: 'B', text: "A State Manager association targeting instances by tag every thirty minutes" },
       { id: 'C', text: "AWS Systems Manager Session Manager with port forwarding configured to inspect daemon status over SSH" },
       { id: 'D', text: "AWS Systems Manager Run Command triggered manually by security operators during scheduled weekly audits" }
     ],
@@ -408,7 +408,7 @@ export const AWS_DOP_QUESTIONS_3 = [
     scenario: "A software company with 50 development teams deploys microservices across hundreds of CloudFormation stacks. Teams frequently share resource identifiers such as VPC subnet IDs and KMS Key ARNs. The infrastructure team finds that using CloudFormation Exports and 'Fn::ImportValue' prevents them from modifying or updating the core networking stack because other stacks hold active locks on exported values.",
     question: "How should the infrastructure team restructure the resource sharing architecture to decouple stack lifecycles?",
     options: [
-      { id: 'A', text: "Publish shared configuration values and ARNs to AWS Systems Manager Parameter Store (or AWS AppConfig), and have consuming stacks reference them using CloudFormation dynamic references" },
+      { id: 'A', text: "Publish the shared values to Parameter Store and have the consumers resolve them" },
       { id: 'B', text: "Consolidate all microservices and networking components into a monolithic single-template CloudFormation stack" },
       { id: 'C', text: "Create a nested stack hierarchy with a single root template that imports all child outputs via Fn::GetAtt" },
       { id: 'D', text: "Delete the importing stacks temporarily, update the core networking exports, and redeploy the importing stacks" }
@@ -430,7 +430,7 @@ export const AWS_DOP_QUESTIONS_3 = [
     question: "Which solution fulfills these operational constraints?",
     options: [
       { id: 'A', text: "Configure an AWS OpsWorks for Puppet Enterprise master server to run an ad-hoc puppet agent task across all nodes" },
-      { id: 'B', text: "Use AWS Systems Manager Automation with multi-account and multi-region execution, specifying an administration role, MaxConcurrency set to 20, and MaxErrors set to 5" },
+      { id: 'B', text: "Systems Manager Automation run multi-account, with an administration role and concurrency" },
       { id: 'C', text: "Write a multi-threaded Python script using Boto3 on a local bastion host to iterate through each account sequentially" },
       { id: 'D', text: "Deploy an AWS Lambda function with concurrency set to 20 that triggers SSH commands on each target EC2 instance" }
     ],
@@ -453,7 +453,7 @@ export const AWS_DOP_QUESTIONS_3 = [
       { id: 'A', text: "A Step Functions action running a custom Python script that invokes the AWS CLI cloudformation create-stack command" },
       { id: 'B', text: "A CodeBuild action running cfn-lint, followed by a CloudFormation action with ActionMode set to DELETE_ONLY" },
       { id: 'C', text: "A CloudFormation action with ActionMode set to CREATE_UPDATE, followed immediately by an S3 put action" },
-      { id: 'D', text: "A CloudFormation action with ActionMode set to CHANGE_SET_REPLACE, followed by a Manual Approval action, followed by a CloudFormation action with ActionMode set to CHANGE_SET_EXECUTE" }
+      { id: 'D', text: "A `CHANGE_SET_REPLACE` action, a manual approval, then a change set execute action" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -495,7 +495,7 @@ export const AWS_DOP_QUESTIONS_3 = [
       { id: 'A', text: "Attach an IAM policy allowing the ssm:StartSession action with a Condition key requiring an active VPN tunnel" },
       { id: 'B', text: "Install an OpenSSH server on EC2 instances and write a cron job that uploads /var/log/secure to an S3 bucket every 5 minutes" },
       { id: 'C', text: "Enable VPC Flow Logs on the instance subnet and configure a CloudWatch metric filter for port 22 traffic" },
-      { id: 'D', text: "Configure Session Manager preferences in the AWS Systems Manager console to enable CloudWatch logging and KMS encryption specifying the CMK ARN, and ensure the EC2 instance profile has kms:GenerateDataKey and kms:Decrypt permissions" }
+      { id: 'D', text: "Session Manager preferences with CloudWatch logging and KMS encryption, set to the key ARN" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -515,7 +515,7 @@ export const AWS_DOP_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "Use the AWS::CloudFormation::WaitCondition resource to poll individual stacks deployed sequentially from developer workstations" },
       { id: 'B', text: "Use CloudFormation Exports exclusively and trigger cross-account CloudFormation updates via an Amazon SNS topic" },
-      { id: 'C', text: "Store root and child templates in an Amazon S3 bucket, and reference the child template URLs using the AWS::CloudFormation::Stack resource in the root template" },
+      { id: 'C', text: "Keep the templates in S3 and reference the children with `AWS::CloudFormation::Stack`" },
       { id: 'D', text: "Write a monolithic CloudFormation template exceeding 1 MB and compress it using GZIP before uploading to the AWS CLI" }
     ],
     correctAnswers: ['C'],

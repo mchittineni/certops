@@ -9,10 +9,10 @@ export const AWS_DOP_QUESTIONS_6 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #25?",
     options: [
-      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
+      { id: 'A', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'B', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'C', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'D', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const AWS_DOP_QUESTIONS_6 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #26?",
     options: [
-      { id: 'A', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
+      { id: 'A', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'B', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'C', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'D', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -51,10 +51,10 @@ export const AWS_DOP_QUESTIONS_6 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #27?",
     options: [
-      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
+      { id: 'A', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'B', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'C', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'D', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const AWS_DOP_QUESTIONS_6 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #28?",
     options: [
-      { id: 'A', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'C', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
+      { id: 'A', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'B', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'C', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'D', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -93,10 +93,10 @@ export const AWS_DOP_QUESTIONS_6 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #29?",
     options: [
-      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'C', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
+      { id: 'A', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'B', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'C', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'D', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const AWS_DOP_QUESTIONS_6 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #30?",
     options: [
-      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'C', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
+      { id: 'A', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'B', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'C', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'D', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const AWS_DOP_QUESTIONS_6 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #31?",
     options: [
-      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
+      { id: 'A', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'B', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'C', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'D', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -156,10 +156,10 @@ export const AWS_DOP_QUESTIONS_6 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #32?",
     options: [
-      { id: 'A', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'D', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" }
+      { id: 'A', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'B', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'C', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'D', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -177,10 +177,10 @@ export const AWS_DOP_QUESTIONS_6 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #33?",
     options: [
-      { id: 'A', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
+      { id: 'A', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'B', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'C', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'D', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -198,10 +198,10 @@ export const AWS_DOP_QUESTIONS_6 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #34?",
     options: [
-      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'C', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
+      { id: 'A', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'B', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'C', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'D', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -219,10 +219,10 @@ export const AWS_DOP_QUESTIONS_6 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #35?",
     options: [
-      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
+      { id: 'A', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'B', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'C', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'D', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -241,7 +241,7 @@ export const AWS_DOP_QUESTIONS_6 = [
     question: "How should this metric be created and monitored?",
     options: [
       { id: 'A', text: "Stream the entire log group to an on-premises Syslog server over the public internet" },
-      { id: 'B', text: "Create a CloudWatch Logs metric filter with a filter pattern of { $.status = 500 } that publishes a custom metric, and attach a CloudWatch metric alarm to that metric" },
+      { id: 'B', text: "A metric filter on the status field publishing a metric, with an alarm on it" },
       { id: 'C', text: "Configure an EC2 user data script to grep local log files and reboot the instance upon errors" },
       { id: 'D', text: "Write a Lambda function that downloads all logs from CloudWatch every minute and writes an email" }
     ],
@@ -261,7 +261,7 @@ export const AWS_DOP_QUESTIONS_6 = [
     scenario: "An enterprise runs a distributed microservices platform composed of Amazon API Gateway, AWS Lambda, Amazon SQS, and Amazon DynamoDB. Customers report intermittent high latency, but individual service metrics appear normal.",
     question: "Which observability solution enables engineers to visualize end-to-end request latency, identify bottlenecks, and inspect execution service maps across all microservice hops?",
     options: [
-      { id: 'A', text: "AWS X-Ray with active tracing enabled on API Gateway and Lambda, using the AWS X-Ray SDK to propagate trace headers and record subsegments" },
+      { id: 'A', text: "X-Ray with active tracing on the gateway and functions, propagating the header" },
       { id: 'B', text: "VPC Flow Logs enabled on the primary NAT Gateway network interfaces" },
       { id: 'C', text: "AWS Trusted Advisor security check reports emailed weekly to engineering leads" },
       { id: 'D', text: "Amazon CloudWatch Basic Monitoring enabled on the underlying EC2 host instances" }
@@ -283,7 +283,7 @@ export const AWS_DOP_QUESTIONS_6 = [
     question: "How should the DevOps engineer restructure the alarm architecture to consolidate notifications and eliminate alarm fatigue?",
     options: [
       { id: 'A', text: "Increase the evaluation period of all CloudWatch alarms from 1 minute to 60 minutes" },
-      { id: 'B', text: "Create Amazon CloudWatch Composite Alarms combining underlying metric alarms using boolean logic (AND, OR, NOT) and route only the composite alarm actions to the PagerDuty SNS topic" },
+      { id: 'B', text: "Composite alarms combining the metric alarms with boolean logic, paging on those" },
       { id: 'C', text: "Use CloudWatch Anomaly Detection on all metrics with a threshold band of 5 standard deviations" },
       { id: 'D', text: "Configure an SQS queue in front of Amazon SNS to deduplicate incoming alarm messages based on message body hash" }
     ],
@@ -305,7 +305,7 @@ export const AWS_DOP_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Write a scheduled cron job running every minute on an EC2 instance that runs CloudWatch Logs Insights queries and pushes results to OpenSearch" },
       { id: 'B', text: "Configure an EventBridge rule matching CloudWatch Logs events and invoke a synchronous Lambda function to insert documents directly into OpenSearch" },
-      { id: 'C', text: "Create a CloudWatch Logs Subscription Filter targeting Amazon Kinesis Data Firehose, configure a Lambda function for data transformation/masking inside Firehose, and set OpenSearch as the destination with an S3 backup bucket for failed records" },
+      { id: 'C', text: "A subscription filter to Firehose, with a Lambda masking the data before it lands" },
       { id: 'D', text: "Export the CloudWatch Logs log group to Amazon S3 daily using the CreateExportTask API, and ingest from S3 using Logstash" }
     ],
     correctAnswers: ['C'],
@@ -326,7 +326,7 @@ export const AWS_DOP_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "CloudWatch Metric Math applying the RATE and SEARCH functions across access logs" },
       { id: 'B', text: "AWS X-Ray service map filtering by client response time" },
-      { id: 'C', text: "CloudWatch Contributor Insights with a rule configured on the API Gateway access logs evaluating top contributors by client IP or API key" },
+      { id: 'C', text: "Contributor Insights on the access logs, ranking the top clients by request count" },
       { id: 'D', text: "CloudWatch Anomaly Detection configured on the API Gateway 4XXError metric" }
     ],
     correctAnswers: ['C'],
@@ -347,7 +347,7 @@ export const AWS_DOP_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Call the PutMetricData API synchronously inside the Lambda function for every transaction using the AWS SDK" },
       { id: 'B', text: "Send metrics over TCP to an Amazon EC2 instance running a StatsD daemon that batches PutMetricData calls" },
-      { id: 'C', text: "Print structured JSON log events conforming to the CloudWatch Embedded Metric Format (EMF) to stdout; CloudWatch Logs extracts the custom metrics automatically at no extra API cost" },
+      { id: 'C', text: "Print Embedded Metric Format events to stdout, from which CloudWatch extracts metrics" },
       { id: 'D', text: "Write metrics to an Amazon SQS queue and deploy a dedicated consumer fleet of EC2 instances to call PutMetricData" }
     ],
     correctAnswers: ['C'],
@@ -369,7 +369,7 @@ export const AWS_DOP_QUESTIONS_6 = [
       { id: 'A', text: "Record customer account IDs as X-Ray Metadata and debug payloads as X-Ray Annotations" },
       { id: 'B', text: "Pass both values as HTTP custom headers in the trace header string (X-Amzn-Trace-Id)" },
       { id: 'C', text: "Write both customer account IDs and debug payloads to CloudWatch Logs with custom metric filters" },
-      { id: 'D', text: "Record customer account IDs as X-Ray Annotations (key-value pairs indexed for search), and record debug payloads as X-Ray Metadata (non-indexed key-value pairs)" }
+      { id: 'D', text: "Record the account id as an X-Ray annotation, and the debug payload as metadata" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,7 +387,7 @@ export const AWS_DOP_QUESTIONS_6 = [
     scenario: "An enterprise operates 200 AWS member accounts across 4 regions in an AWS Organization. The central Site Reliability Engineering (SRE) team needs a unified, single-pane-of-glass dashboard to view metrics, search CloudWatch Logs, and inspect X-Ray traces across all accounts and regions without constantly switching IAM roles.",
     question: "Which native AWS capability provides this cross-account observability architecture?",
     options: [
-      { id: 'A', text: "Configure Amazon CloudWatch Cross-Account Observability using AWS Observability Access Manager (OAM), defining the central monitoring account as a sink and sharing links from member source accounts across the organization" },
+      { id: 'A', text: "CloudWatch cross-account observability through Observability Access Manager links" },
       { id: 'B', text: "Deploy an Amazon S3 replication rule that copies log archives to a central S3 bucket and run Athena queries" },
       { id: 'C', text: "Write a custom script using Boto3 that assumes IAM roles in all 200 accounts every 5 minutes and pushes metrics into a central account" },
       { id: 'D', text: "Deploy an Amazon OpenSearch Service cluster in each account and establish cross-cluster VPC peering connections" }
@@ -408,7 +408,7 @@ export const AWS_DOP_QUESTIONS_6 = [
     scenario: "A high-frequency algorithmic trading microservice experiences micro-bursts of CPU starvation lasting 5–10 seconds that degrade trade execution. Standard 1-minute CloudWatch metrics average out the spikes, concealing the degradation. The SRE team needs alerts to fire within 15 seconds of a spike occurring.",
     question: "Which CloudWatch configuration detects and alerts on these micro-bursts?",
     options: [
-      { id: 'A', text: "Publish custom metrics with StorageResolution set to 1 (high-resolution 1-second metrics) and configure a high-resolution CloudWatch alarm with an evaluation period of 10 or 30 seconds" },
+      { id: 'A', text: "Publish the metric at one-second resolution and alarm on a 10-second period" },
       { id: 'B', text: "Deploy an EC2 cron job that checks top output every 5 seconds and sends an email via Amazon SES" },
       { id: 'C', text: "Enable CloudWatch Detailed Monitoring on the EC2 instances" },
       { id: 'D', text: "Set the CloudWatch metric period to 60 seconds with an evaluation count of 1 datapoint" }
@@ -430,7 +430,7 @@ export const AWS_DOP_QUESTIONS_6 = [
     question: "Which architecture pattern fulfills this requirement natively on EKS?",
     options: [
       { id: 'A', text: "Configure application pods to write trace files to an Amazon EFS volume shared with a central monitoring server" },
-      { id: 'B', text: "Deploy the AWS Distro for OpenTelemetry (ADOT) Collector as a sidecar or DaemonSet in the EKS cluster, configuring the OTLP receiver with X-Ray and Prometheus Remote Write exporters" },
+      { id: 'B', text: "The ADOT collector as a DaemonSet, with the OTLP receiver and an X-Ray exporter" },
       { id: 'C', text: "Use Amazon CloudWatch Synthetics canaries to probe pod endpoints over localhost" },
       { id: 'D', text: "Install the legacy AWS X-Ray daemon and CloudWatch agent as separate EC2 host agents on worker nodes" }
     ],
@@ -452,7 +452,7 @@ export const AWS_DOP_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Configure two static alarms: one evaluated during weekdays and one evaluated during weekends" },
       { id: 'B', text: "Set the alarm evaluation period to 7 days (10,080 minutes) to average out weekly cyclicality" },
-      { id: 'C', text: "Enable CloudWatch Anomaly Detection on the RequestCount metric and create an alarm that triggers when the metric breaches the predicted threshold band (e.g., lower band breach with threshold 3)" },
+      { id: 'C', text: "Anomaly detection on the request count, alarming when the band is breached" },
       { id: 'D', text: "Create a Lambda function that modifies the static alarm threshold twice daily via the PutMetricAlarm API" }
     ],
     correctAnswers: ['C'],
@@ -473,7 +473,7 @@ export const AWS_DOP_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Export all logs to S3 Glacier Deep Archive and restrict S3 console access" },
       { id: 'B', text: "Write a custom bash script running on EC2 to grep and redact strings before logs reach stdout" },
-      { id: 'C', text: "Configure a CloudWatch Logs Data Protection Policy on the log group specifying managed data identifiers for SSN and passport numbers with the Deidentify/Mask operation" },
+      { id: 'C', text: "A Logs data protection policy with the managed identifiers for those fields" },
       { id: 'D', text: "Deploy an AWS WAF rule that blocks HTTP requests containing numbers with 9 digits" }
     ],
     correctAnswers: ['C'],
@@ -494,7 +494,7 @@ export const AWS_DOP_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Hardcode sampling configuration inside individual application microservice source code files" },
       { id: 'B', text: "Configure an API Gateway throttle limit of 50 RPS on the checkout resource" },
-      { id: 'C', text: "Create custom X-Ray Sampling Rules in the X-Ray console/API: a rule matching '/healthz' with FixedRate 0 and ReservoirSize 0, and a higher priority rule matching '/checkout/*' with ReservoirSize 50 and FixedRate 0.10" },
+      { id: 'C', text: "X-Ray sampling rules: a zero-rate rule for the health path, and a higher-priority rule for the rest" },
       { id: 'D', text: "Deploy a custom Lambda function that inspects incoming HTTP headers and drops traces before sending to the daemon" }
     ],
     correctAnswers: ['C'],
@@ -514,7 +514,7 @@ export const AWS_DOP_QUESTIONS_6 = [
     question: "What is the recommended installation pattern for EKS Container Insights?",
     options: [
       { id: 'A', text: "Run cfn-init on EC2 worker nodes to install collectd and query the kubelet API over HTTP" },
-      { id: 'B', text: "Install the Amazon CloudWatch Observability EKS add-on (or CloudWatch agent with Container Insights with Prometheus enabled) as a DaemonSet on the EKS cluster" },
+      { id: 'B', text: "The CloudWatch Observability EKS add-on, with Container Insights enabled" },
       { id: 'C', text: "Configure worker nodes to send syslog events to an external Nagios server" },
       { id: 'D', text: "Deploy a Lambda function in the cluster VPC that runs kubectl top nodes every 10 seconds" }
     ],

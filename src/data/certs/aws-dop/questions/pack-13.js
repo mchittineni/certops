@@ -9,10 +9,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to trigger an automated CodePipeline execution whenever a new container image is pushed to Amazon ECR or a release tag is created in GitHub.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Require developers to manually log in to the AWS Console and click 'Release change'." },
-      { id: 'B', text: "Configure an Amazon EventBridge rule that matches the ECR `Image Action` or GitHub webhook event and targets the CodePipeline pipeline." },
-      { id: 'C', text: "Run a cron job polling the ECR repository API every 10 seconds from an EC2 instance." },
-      { id: 'D', text: "Disable automated triggers and run deployments on a fixed monthly schedule." }
+      { id: 'A', text: "A CodePipeline source stage polling the ECR repository for a new tag." },
+      { id: 'B', text: "An EventBridge rule on the ECR image action event, targeting the pipeline." },
+      { id: 'C', text: "A scheduled pipeline execution that checks for a new image each hour." },
+      { id: 'D', text: "A Lambda subscribed to the ECR event that copies the image onward." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -30,10 +30,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to trigger an automated CodePipeline execution whenever a new container image is pushed to Amazon ECR or a release tag is created in GitHub.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Require developers to manually log in to the AWS Console and click 'Release change'." },
-      { id: 'B', text: "Disable automated triggers and run deployments on a fixed monthly schedule." },
-      { id: 'C', text: "Configure an Amazon EventBridge rule that matches the ECR `Image Action` or GitHub webhook event and targets the CodePipeline pipeline." },
-      { id: 'D', text: "Run a cron job polling the ECR repository API every 10 seconds from an EC2 instance." }
+      { id: 'A', text: "A CodePipeline source stage polling the ECR repository for a new tag." },
+      { id: 'B', text: "A Lambda subscribed to the ECR event that copies the image onward." },
+      { id: 'C', text: "An EventBridge rule on the ECR image action event, targeting the pipeline." },
+      { id: 'D', text: "A scheduled pipeline execution that checks for a new image each hour." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -51,10 +51,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to trigger an automated CodePipeline execution whenever a new container image is pushed to Amazon ECR or a release tag is created in GitHub.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Configure an Amazon EventBridge rule that matches the ECR `Image Action` or GitHub webhook event and targets the CodePipeline pipeline." },
-      { id: 'B', text: "Require developers to manually log in to the AWS Console and click 'Release change'." },
-      { id: 'C', text: "Disable automated triggers and run deployments on a fixed monthly schedule." },
-      { id: 'D', text: "Run a cron job polling the ECR repository API every 10 seconds from an EC2 instance." }
+      { id: 'A', text: "An EventBridge rule on the ECR image action event, targeting the pipeline." },
+      { id: 'B', text: "A CodePipeline source stage polling the ECR repository for a new tag." },
+      { id: 'C', text: "A Lambda subscribed to the ECR event that copies the image onward." },
+      { id: 'D', text: "A scheduled pipeline execution that checks for a new image each hour." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to trigger an automated CodePipeline execution whenever a new container image is pushed to Amazon ECR or a release tag is created in GitHub.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Run a cron job polling the ECR repository API every 10 seconds from an EC2 instance." },
-      { id: 'B', text: "Require developers to manually log in to the AWS Console and click 'Release change'." },
-      { id: 'C', text: "Configure an Amazon EventBridge rule that matches the ECR `Image Action` or GitHub webhook event and targets the CodePipeline pipeline." },
-      { id: 'D', text: "Disable automated triggers and run deployments on a fixed monthly schedule." }
+      { id: 'A', text: "A scheduled pipeline execution that checks for a new image each hour." },
+      { id: 'B', text: "A CodePipeline source stage polling the ECR repository for a new tag." },
+      { id: 'C', text: "An EventBridge rule on the ECR image action event, targeting the pipeline." },
+      { id: 'D', text: "A Lambda subscribed to the ECR event that copies the image onward." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -93,10 +93,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to trigger an automated CodePipeline execution whenever a new container image is pushed to Amazon ECR or a release tag is created in GitHub.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Disable automated triggers and run deployments on a fixed monthly schedule." },
-      { id: 'B', text: "Require developers to manually log in to the AWS Console and click 'Release change'." },
-      { id: 'C', text: "Run a cron job polling the ECR repository API every 10 seconds from an EC2 instance." },
-      { id: 'D', text: "Configure an Amazon EventBridge rule that matches the ECR `Image Action` or GitHub webhook event and targets the CodePipeline pipeline." }
+      { id: 'A', text: "A Lambda subscribed to the ECR event that copies the image onward." },
+      { id: 'B', text: "A CodePipeline source stage polling the ECR repository for a new tag." },
+      { id: 'C', text: "A scheduled pipeline execution that checks for a new image each hour." },
+      { id: 'D', text: "An EventBridge rule on the ECR image action event, targeting the pipeline." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -114,10 +114,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to deploy centralized security tooling and IAM roles consistently across hundreds of member accounts in an AWS Organization with automatic deployment to new accounts.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Create a CloudFormation StackSet with service-managed permissions linked to the AWS Organizations root, enabling automatic StackSet deployments for newly created accounts." },
-      { id: 'B', text: "Log in to each AWS account manually and deploy individual CloudFormation stacks via the console." },
-      { id: 'C', text: "Write a custom Python script that runs raw AWS CLI commands sequentially over SSH." },
-      { id: 'D', text: "Share the root account credentials with all member accounts." }
+      { id: 'A', text: "A CloudFormation StackSet with service-managed permissions, auto-deploying to new accounts." },
+      { id: 'B', text: "A CloudFormation StackSet with self-managed permissions and an explicit account list." },
+      { id: 'C', text: "A pipeline that assumes a role in each account and deploys the stack in turn." },
+      { id: 'D', text: "An account factory customisation that applies the stack when an account is created." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to deploy centralized security tooling and IAM roles consistently across hundreds of member accounts in an AWS Organization with automatic deployment to new accounts.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Create a CloudFormation StackSet with service-managed permissions linked to the AWS Organizations root, enabling automatic StackSet deployments for newly created accounts." },
-      { id: 'B', text: "Log in to each AWS account manually and deploy individual CloudFormation stacks via the console." },
-      { id: 'C', text: "Write a custom Python script that runs raw AWS CLI commands sequentially over SSH." },
-      { id: 'D', text: "Share the root account credentials with all member accounts." }
+      { id: 'A', text: "A CloudFormation StackSet with service-managed permissions, auto-deploying to new accounts." },
+      { id: 'B', text: "A CloudFormation StackSet with self-managed permissions and an explicit account list." },
+      { id: 'C', text: "A pipeline that assumes a role in each account and deploys the stack in turn." },
+      { id: 'D', text: "An account factory customisation that applies the stack when an account is created." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to deploy centralized security tooling and IAM roles consistently across hundreds of member accounts in an AWS Organization with automatic deployment to new accounts.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Share the root account credentials with all member accounts." },
-      { id: 'B', text: "Write a custom Python script that runs raw AWS CLI commands sequentially over SSH." },
-      { id: 'C', text: "Log in to each AWS account manually and deploy individual CloudFormation stacks via the console." },
-      { id: 'D', text: "Create a CloudFormation StackSet with service-managed permissions linked to the AWS Organizations root, enabling automatic StackSet deployments for newly created accounts." }
+      { id: 'A', text: "An account factory customisation that applies the stack when an account is created." },
+      { id: 'B', text: "A pipeline that assumes a role in each account and deploys the stack in turn." },
+      { id: 'C', text: "A CloudFormation StackSet with self-managed permissions and an explicit account list." },
+      { id: 'D', text: "A CloudFormation StackSet with service-managed permissions, auto-deploying to new accounts." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to deploy centralized security tooling and IAM roles consistently across hundreds of member accounts in an AWS Organization with automatic deployment to new accounts.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Write a custom Python script that runs raw AWS CLI commands sequentially over SSH." },
-      { id: 'B', text: "Create a CloudFormation StackSet with service-managed permissions linked to the AWS Organizations root, enabling automatic StackSet deployments for newly created accounts." },
-      { id: 'C', text: "Log in to each AWS account manually and deploy individual CloudFormation stacks via the console." },
-      { id: 'D', text: "Share the root account credentials with all member accounts." }
+      { id: 'A', text: "A pipeline that assumes a role in each account and deploys the stack in turn." },
+      { id: 'B', text: "A CloudFormation StackSet with service-managed permissions, auto-deploying to new accounts." },
+      { id: 'C', text: "A CloudFormation StackSet with self-managed permissions and an explicit account list." },
+      { id: 'D', text: "An account factory customisation that applies the stack when an account is created." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -198,10 +198,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to deploy centralized security tooling and IAM roles consistently across hundreds of member accounts in an AWS Organization with automatic deployment to new accounts.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Write a custom Python script that runs raw AWS CLI commands sequentially over SSH." },
-      { id: 'B', text: "Share the root account credentials with all member accounts." },
-      { id: 'C', text: "Create a CloudFormation StackSet with service-managed permissions linked to the AWS Organizations root, enabling automatic StackSet deployments for newly created accounts." },
-      { id: 'D', text: "Log in to each AWS account manually and deploy individual CloudFormation stacks via the console." }
+      { id: 'A', text: "A pipeline that assumes a role in each account and deploys the stack in turn." },
+      { id: 'B', text: "An account factory customisation that applies the stack when an account is created." },
+      { id: 'C', text: "A CloudFormation StackSet with service-managed permissions, auto-deploying to new accounts." },
+      { id: 'D', text: "A CloudFormation StackSet with self-managed permissions and an explicit account list." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -219,10 +219,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to detect when an engineer has manually modified security group ingress rules or EC2 instance types outside of the approved CloudFormation template.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Execute CloudFormation Drift Detection on the stack, review drifted resource properties, and update the template or import resources to restore alignment." },
-      { id: 'B', text: "Delete the entire CloudFormation stack and rebuild infrastructure from scratch." },
-      { id: 'C', text: "Disable AWS CloudTrail logging to prevent tracking manual modifications." },
-      { id: 'D', text: "Assume CloudFormation automatically prevents all manual console alterations." }
+      { id: 'A', text: "Run CloudFormation drift detection, review the drifted properties, and update or import." },
+      { id: 'B', text: "Delete the stack and redeploy the template so the resources match it again." },
+      { id: 'C', text: "Enable a stack policy that denies updates to the resources being changed by hand." },
+      { id: 'D', text: "Enable termination protection so console users cannot alter the stack's resources." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to detect when an engineer has manually modified security group ingress rules or EC2 instance types outside of the approved CloudFormation template.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Execute CloudFormation Drift Detection on the stack, review drifted resource properties, and update the template or import resources to restore alignment." },
-      { id: 'B', text: "Delete the entire CloudFormation stack and rebuild infrastructure from scratch." },
-      { id: 'C', text: "Disable AWS CloudTrail logging to prevent tracking manual modifications." },
-      { id: 'D', text: "Assume CloudFormation automatically prevents all manual console alterations." }
+      { id: 'A', text: "Run CloudFormation drift detection, review the drifted properties, and update or import." },
+      { id: 'B', text: "Delete the stack and redeploy the template so the resources match it again." },
+      { id: 'C', text: "Enable a stack policy that denies updates to the resources being changed by hand." },
+      { id: 'D', text: "Enable termination protection so console users cannot alter the stack's resources." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to detect when an engineer has manually modified security group ingress rules or EC2 instance types outside of the approved CloudFormation template.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Execute CloudFormation Drift Detection on the stack, review drifted resource properties, and update the template or import resources to restore alignment." },
-      { id: 'B', text: "Delete the entire CloudFormation stack and rebuild infrastructure from scratch." },
-      { id: 'C', text: "Disable AWS CloudTrail logging to prevent tracking manual modifications." },
-      { id: 'D', text: "Assume CloudFormation automatically prevents all manual console alterations." }
+      { id: 'A', text: "Run CloudFormation drift detection, review the drifted properties, and update or import." },
+      { id: 'B', text: "Delete the stack and redeploy the template so the resources match it again." },
+      { id: 'C', text: "Enable a stack policy that denies updates to the resources being changed by hand." },
+      { id: 'D', text: "Enable termination protection so console users cannot alter the stack's resources." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to detect when an engineer has manually modified security group ingress rules or EC2 instance types outside of the approved CloudFormation template.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Assume CloudFormation automatically prevents all manual console alterations." },
-      { id: 'B', text: "Disable AWS CloudTrail logging to prevent tracking manual modifications." },
-      { id: 'C', text: "Delete the entire CloudFormation stack and rebuild infrastructure from scratch." },
-      { id: 'D', text: "Execute CloudFormation Drift Detection on the stack, review drifted resource properties, and update the template or import resources to restore alignment." }
+      { id: 'A', text: "Enable termination protection so console users cannot alter the stack's resources." },
+      { id: 'B', text: "Enable a stack policy that denies updates to the resources being changed by hand." },
+      { id: 'C', text: "Delete the stack and redeploy the template so the resources match it again." },
+      { id: 'D', text: "Run CloudFormation drift detection, review the drifted properties, and update or import." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,10 +303,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to detect when an engineer has manually modified security group ingress rules or EC2 instance types outside of the approved CloudFormation template.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Delete the entire CloudFormation stack and rebuild infrastructure from scratch." },
-      { id: 'B', text: "Execute CloudFormation Drift Detection on the stack, review drifted resource properties, and update the template or import resources to restore alignment." },
-      { id: 'C', text: "Assume CloudFormation automatically prevents all manual console alterations." },
-      { id: 'D', text: "Disable AWS CloudTrail logging to prevent tracking manual modifications." }
+      { id: 'A', text: "Delete the stack and redeploy the template so the resources match it again." },
+      { id: 'B', text: "Run CloudFormation drift detection, review the drifted properties, and update or import." },
+      { id: 'C', text: "Enable termination protection so console users cannot alter the stack's resources." },
+      { id: 'D', text: "Enable a stack policy that denies updates to the resources being changed by hand." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -324,10 +324,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to define and provision complex, reusable cloud architectures with built-in security defaults using familiar object-oriented programming languages.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Avoid using infrastructure as code and configure resources via the AWS Console exclusively." },
-      { id: 'B', text: "Write imperative shell scripts calling the AWS CLI." },
-      { id: 'C', text: "Hand-craft raw 10,000-line JSON CloudFormation templates without validation." },
-      { id: 'D', text: "Use the AWS Cloud Development Kit (CDK) to author infrastructure constructs, synthesize CloudFormation templates, and deploy via `cdk deploy`." }
+      { id: 'A', text: "Author the templates in raw CloudFormation YAML held in the repository." },
+      { id: 'B', text: "Author the resources as CLI calls in a shell script run by the pipeline." },
+      { id: 'C', text: "Author the stacks with the Serverless Application Model for every resource." },
+      { id: 'D', text: "Author the infrastructure with the CDK and deploy the synthesised template." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to define and provision complex, reusable cloud architectures with built-in security defaults using familiar object-oriented programming languages.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Use the AWS Cloud Development Kit (CDK) to author infrastructure constructs, synthesize CloudFormation templates, and deploy via `cdk deploy`." },
-      { id: 'B', text: "Hand-craft raw 10,000-line JSON CloudFormation templates without validation." },
-      { id: 'C', text: "Write imperative shell scripts calling the AWS CLI." },
-      { id: 'D', text: "Avoid using infrastructure as code and configure resources via the AWS Console exclusively." }
+      { id: 'A', text: "Author the infrastructure with the CDK and deploy the synthesised template." },
+      { id: 'B', text: "Author the stacks with the Serverless Application Model for every resource." },
+      { id: 'C', text: "Author the resources as CLI calls in a shell script run by the pipeline." },
+      { id: 'D', text: "Author the templates in raw CloudFormation YAML held in the repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to define and provision complex, reusable cloud architectures with built-in security defaults using familiar object-oriented programming languages.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Hand-craft raw 10,000-line JSON CloudFormation templates without validation." },
-      { id: 'B', text: "Write imperative shell scripts calling the AWS CLI." },
-      { id: 'C', text: "Use the AWS Cloud Development Kit (CDK) to author infrastructure constructs, synthesize CloudFormation templates, and deploy via `cdk deploy`." },
-      { id: 'D', text: "Avoid using infrastructure as code and configure resources via the AWS Console exclusively." }
+      { id: 'A', text: "Author the stacks with the Serverless Application Model for every resource." },
+      { id: 'B', text: "Author the resources as CLI calls in a shell script run by the pipeline." },
+      { id: 'C', text: "Author the infrastructure with the CDK and deploy the synthesised template." },
+      { id: 'D', text: "Author the templates in raw CloudFormation YAML held in the repository." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to define and provision complex, reusable cloud architectures with built-in security defaults using familiar object-oriented programming languages.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Use the AWS Cloud Development Kit (CDK) to author infrastructure constructs, synthesize CloudFormation templates, and deploy via `cdk deploy`." },
-      { id: 'B', text: "Hand-craft raw 10,000-line JSON CloudFormation templates without validation." },
-      { id: 'C', text: "Write imperative shell scripts calling the AWS CLI." },
-      { id: 'D', text: "Avoid using infrastructure as code and configure resources via the AWS Console exclusively." }
+      { id: 'A', text: "Author the infrastructure with the CDK and deploy the synthesised template." },
+      { id: 'B', text: "Author the stacks with the Serverless Application Model for every resource." },
+      { id: 'C', text: "Author the resources as CLI calls in a shell script run by the pipeline." },
+      { id: 'D', text: "Author the templates in raw CloudFormation YAML held in the repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to define and provision complex, reusable cloud architectures with built-in security defaults using familiar object-oriented programming languages.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Use the AWS Cloud Development Kit (CDK) to author infrastructure constructs, synthesize CloudFormation templates, and deploy via `cdk deploy`." },
-      { id: 'B', text: "Hand-craft raw 10,000-line JSON CloudFormation templates without validation." },
-      { id: 'C', text: "Write imperative shell scripts calling the AWS CLI." },
-      { id: 'D', text: "Avoid using infrastructure as code and configure resources via the AWS Console exclusively." }
+      { id: 'A', text: "Author the infrastructure with the CDK and deploy the synthesised template." },
+      { id: 'B', text: "Author the stacks with the Serverless Application Model for every resource." },
+      { id: 'C', text: "Author the resources as CLI calls in a shell script run by the pipeline." },
+      { id: 'D', text: "Author the templates in raw CloudFormation YAML held in the repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to guarantee that all EC2 instances in an Auto Scaling group maintain required security configurations, antivirus agents, and software versions continuously.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Rely on EC2 user-data scripts that only execute once during initial instance launch." },
-      { id: 'B', text: "Rebuild the entire Auto Scaling group every 30 minutes to apply updates." },
-      { id: 'C', text: "SSH into each instance nightly and execute bash update commands manually." },
-      { id: 'D', text: "Create an AWS Systems Manager State Manager association targeting instances by tag, executing an SSM Document on a recurring schedule." }
+      { id: 'A', text: "A user-data script, which runs each time an instance is launched by the group." },
+      { id: 'B', text: "An instance refresh on the Auto Scaling group, run on a nightly schedule." },
+      { id: 'C', text: "A Run Command invocation targeting the same tag, started by a schedule." },
+      { id: 'D', text: "A State Manager association targeting instances by tag on a recurring schedule." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -450,10 +450,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to guarantee that all EC2 instances in an Auto Scaling group maintain required security configurations, antivirus agents, and software versions continuously.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Rely on EC2 user-data scripts that only execute once during initial instance launch." },
-      { id: 'B', text: "Create an AWS Systems Manager State Manager association targeting instances by tag, executing an SSM Document on a recurring schedule." },
-      { id: 'C', text: "Rebuild the entire Auto Scaling group every 30 minutes to apply updates." },
-      { id: 'D', text: "SSH into each instance nightly and execute bash update commands manually." }
+      { id: 'A', text: "A user-data script, which runs each time an instance is launched by the group." },
+      { id: 'B', text: "A State Manager association targeting instances by tag on a recurring schedule." },
+      { id: 'C', text: "An instance refresh on the Auto Scaling group, run on a nightly schedule." },
+      { id: 'D', text: "A Run Command invocation targeting the same tag, started by a schedule." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,10 +471,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to guarantee that all EC2 instances in an Auto Scaling group maintain required security configurations, antivirus agents, and software versions continuously.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Rebuild the entire Auto Scaling group every 30 minutes to apply updates." },
-      { id: 'B', text: "Create an AWS Systems Manager State Manager association targeting instances by tag, executing an SSM Document on a recurring schedule." },
-      { id: 'C', text: "SSH into each instance nightly and execute bash update commands manually." },
-      { id: 'D', text: "Rely on EC2 user-data scripts that only execute once during initial instance launch." }
+      { id: 'A', text: "An instance refresh on the Auto Scaling group, run on a nightly schedule." },
+      { id: 'B', text: "A State Manager association targeting instances by tag on a recurring schedule." },
+      { id: 'C', text: "A Run Command invocation targeting the same tag, started by a schedule." },
+      { id: 'D', text: "A user-data script, which runs each time an instance is launched by the group." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,10 +492,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to guarantee that all EC2 instances in an Auto Scaling group maintain required security configurations, antivirus agents, and software versions continuously.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Create an AWS Systems Manager State Manager association targeting instances by tag, executing an SSM Document on a recurring schedule." },
-      { id: 'B', text: "Rebuild the entire Auto Scaling group every 30 minutes to apply updates." },
-      { id: 'C', text: "Rely on EC2 user-data scripts that only execute once during initial instance launch." },
-      { id: 'D', text: "SSH into each instance nightly and execute bash update commands manually." }
+      { id: 'A', text: "A State Manager association targeting instances by tag on a recurring schedule." },
+      { id: 'B', text: "An instance refresh on the Auto Scaling group, run on a nightly schedule." },
+      { id: 'C', text: "A user-data script, which runs each time an instance is launched by the group." },
+      { id: 'D', text: "A Run Command invocation targeting the same tag, started by a schedule." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to guarantee that all EC2 instances in an Auto Scaling group maintain required security configurations, antivirus agents, and software versions continuously.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Rebuild the entire Auto Scaling group every 30 minutes to apply updates." },
-      { id: 'B', text: "SSH into each instance nightly and execute bash update commands manually." },
-      { id: 'C', text: "Rely on EC2 user-data scripts that only execute once during initial instance launch." },
-      { id: 'D', text: "Create an AWS Systems Manager State Manager association targeting instances by tag, executing an SSM Document on a recurring schedule." }
+      { id: 'A', text: "An instance refresh on the Auto Scaling group, run on a nightly schedule." },
+      { id: 'B', text: "A Run Command invocation targeting the same tag, started by a schedule." },
+      { id: 'C', text: "A user-data script, which runs each time an instance is launched by the group." },
+      { id: 'D', text: "A State Manager association targeting instances by tag on a recurring schedule." }
     ],
     correctAnswers: ['D'],
     type: "single",

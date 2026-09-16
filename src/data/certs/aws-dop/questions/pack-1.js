@@ -12,7 +12,7 @@ export const AWS_DOP_QUESTIONS_1 = [
       { id: 'A', text: "Use the default AWS-managed aws/s3 key for artifact encryption and grant public read access on the pipeline S3 bucket to target accounts" },
       { id: 'B', text: "Deploy a separate standalone CodePipeline in every member account and pull source code over unauthenticated public Git endpoints" },
       { id: 'C', text: "Configure VPC Peering between all accounts and share IAM user static access keys stored in environment variables across build jobs" },
-      { id: 'D', text: "Configure a Customer Managed Key (CMK) in AWS KMS in the pipeline account, grant cross-account KMS usage and S3 artifact bucket permissions to deployment roles in the target member accounts, and configure CodePipeline stages to assume the target account roles" }
+      { id: 'D', text: "A customer-managed key in the pipeline account, with the artifact bucket and key shared to the targets" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -31,7 +31,7 @@ export const AWS_DOP_QUESTIONS_1 = [
     question: "Which CodeDeploy deployment configuration satisfies this requirement?",
     options: [
       { id: 'A', text: "CodeDeployDefault.AllAtOnce with an immediate alias pointer update" },
-      { id: 'B', text: "CodeDeployLinear10PercentEvery1Minute combined with a CloudWatch alarm trigger or Canary10Percent15Minutes in the AppSpec file" },
+      { id: 'B', text: "`CodeDeployLinear10PercentEvery1Minute` with an alarm configured on the group" },
       { id: 'C', text: "Route 53 weighted routing using latency-based DNS records updated every 60 seconds" },
       { id: 'D', text: "AWS Lambda provisioned concurrency configured to 10% with manual alias version tagging" }
     ],
@@ -74,7 +74,7 @@ export const AWS_DOP_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "Download the database tables to an S3 bucket before the build begins using a pre-build shell script" },
       { id: 'B', text: "Assign a public IPv4 address to the CodeBuild compute container and configure NAT Gateway port forwarding" },
-      { id: 'C', text: "Configure the CodeBuild project to run inside the VPC by specifying the VPC ID, private subnets, and security groups that have network routes to the database and Direct Connect gateway" },
+      { id: 'C', text: "Run the CodeBuild project inside the VPC, naming the private subnets and security groups" },
       { id: 'D', text: "Deploy an internet-facing Application Load Balancer in front of the private database and allow all inbound connections" }
     ],
     correctAnswers: ['C'],
@@ -96,7 +96,7 @@ export const AWS_DOP_QUESTIONS_1 = [
       { id: 'A', text: "Store all node_modules dependencies directly in the Git source code repository" },
       { id: 'B', text: "Scale up the CodeBuild compute type to GPU-accelerated instances without caching" },
       { id: 'C', text: "Disable unit testing and static code analysis during the build phase" },
-      { id: 'D', text: "Enable local caching (Source and Docker layer cache) or Amazon S3 caching in the CodeBuild project settings and define the cache directories in the buildspec.yml file" }
+      { id: 'D', text: "Enable local or S3 caching in the CodeBuild project and name the cache directories" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -117,7 +117,7 @@ export const AWS_DOP_QUESTIONS_1 = [
       { id: 'A', text: "Rely on Auto Scaling group scale-in policies to terminate unhealthy instances during deployments" },
       { id: 'B', text: "Configure Route 53 health checks to switch DNS records to an S3 error page" },
       { id: 'C', text: "Write a cron job on the EC2 instances that checks metrics and calls the AWS CLI rollback command" },
-      { id: 'D', text: "Attach Amazon CloudWatch alarms monitoring error rate and CPU metrics to the CodeDeploy deployment group's automatic rollback configuration" }
+      { id: 'D', text: "Alarms on error rate and CPU attached to the deployment group's rollback configuration" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -137,7 +137,7 @@ export const AWS_DOP_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "Create three completely independent pipelines that each clone the source repository and run their own builds in parallel" },
       { id: 'B', text: "Use AWS Snowball to physically transport build artifacts between regional datacenters" },
-      { id: 'C', text: "Configure a single CodePipeline pipeline with cross-region actions, defining an artifact bucket in each region encrypted with that region's KMS CMK, and specify action providers in the target regions within the pipeline stages" },
+      { id: 'C', text: "One pipeline with cross-region actions, an artifact bucket per region encrypted by its own key" },
       { id: 'D', text: "Write custom shell scripts in CodeBuild that use the AWS CLI to copy files over the public internet to regional S3 buckets" }
     ],
     correctAnswers: ['C'],
@@ -156,10 +156,10 @@ export const AWS_DOP_QUESTIONS_1 = [
     scenario: "A company hosts an e-commerce website on AWS Elastic Beanstalk. During application deployments, the site must maintain 100% of its provisioned capacity to avoid performance degradation, but management does not want to pay for a full duplicate set of instances during the update.",
     question: "Which deployment policy best balances these requirements?",
     options: [
-      { id: 'A', text: "Rolling with additional batch" },
-      { id: 'B', text: "Rolling" },
-      { id: 'C', text: "All at once" },
-      { id: 'D', text: "Immutable" }
+      { id: 'A', text: "Rolling with an extra batch" },
+      { id: 'B', text: "Rolling, in batches of 25%" },
+      { id: 'C', text: "All at once, then reboot" },
+      { id: 'D', text: "Immutable, on a new group" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -201,7 +201,7 @@ export const AWS_DOP_QUESTIONS_1 = [
       { id: 'A', text: "buildspec.yml is used exclusively by AWS CloudFormation, whereas appspec.yml is used by Amazon CloudWatch" },
       { id: 'B', text: "appspec.yml compiles source code into binaries, whereas buildspec.yml assigns IAM role permissions" },
       { id: 'C', text: "Both files are identical and can be used interchangeably in any AWS developer tool" },
-      { id: 'D', text: "buildspec.yml defines build, compile, and packaging instructions for AWS CodeBuild, whereas appspec.yml defines deployment lifecycle hooks and file copy instructions for AWS CodeDeploy" }
+      { id: 'D', text: "`buildspec.yml` drives the build in CodeBuild; `appspec.yml` drives the deployment hooks" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -222,7 +222,7 @@ export const AWS_DOP_QUESTIONS_1 = [
       { id: 'A', text: "A cron job that pauses execution for 24 hours automatically" },
       { id: 'B', text: "Disabling CodePipeline until an administrator restarts it manually" },
       { id: 'C', text: "Hardcoding a 10-minute sleep command inside the buildspec.yml file" },
-      { id: 'D', text: "A manual approval action backed by Amazon SNS topic notifications and IAM authorization" }
+      { id: 'D', text: "A manual approval action with an SNS topic and IAM-restricted approvers" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -283,7 +283,7 @@ export const AWS_DOP_QUESTIONS_1 = [
     question: "Which configuration or architectural pattern satisfies these requirements?",
     options: [
       { id: 'A', text: "Blue/green deployments permanently overwrite existing instances without replacement" },
-      { id: 'B', text: "Blue/green deployments provision new replacement instances and reroute traffic, enabling near-instant rollbacks" },
+      { id: 'B', text: "Blue/green provisions replacement instances and reroutes, so rollback is near-instant" },
       { id: 'C', text: "Both deployment types execute identical hardware replacement procedures" },
       { id: 'D', text: "In-place deployments require zero downtime across all workloads" }
     ],
@@ -306,7 +306,7 @@ export const AWS_DOP_QUESTIONS_1 = [
       { id: 'A', text: "Manually inspecting container base layers via SSH terminal sessions" },
       { id: 'B', text: "Running anti-virus software inside live production containers" },
       { id: 'C', text: "Restricting container image sizes to under 50 megabytes" },
-      { id: 'D', text: "Enabling Amazon ECR enhanced scanning with continuous vulnerability assessments powered by Amazon Inspector" }
+      { id: 'D', text: "ECR enhanced scanning, which assesses images continuously through Inspector" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const AWS_DOP_QUESTIONS_1 = [
     scenario: "A DevOps team is standardizing multi-account delivery workflows, automated testing gates, and deployment policies for microservices.",
     question: "Which SDLC automation architecture best satisfies deployment scenario #1?",
     options: [
-      { id: 'A', text: "Using manual FTP uploads to transfer build artifacts directly to production instances" },
-      { id: 'B', text: "Granting full administrator access to deployment scripts with unencrypted artifact storage" },
-      { id: 'C', text: "Implementing AWS CodePipeline with cross-account IAM role assumption, customer-managed KMS encryption, and automated rollback alarms" },
-      { id: 'D', text: "Relying on scheduled off-peak batch scripts without automated health validation" }
+      { id: 'A', text: "CodePipeline with a single-account role, the default S3 key, and a manual approval before deploy" },
+      { id: 'B', text: "CodeDeploy triggered from each account's own pipeline, with artifacts copied between buckets" },
+      { id: 'C', text: "CodePipeline with cross-account role assumption, a customer-managed KMS key, and rollback alarms" },
+      { id: 'D', text: "CodeBuild running the deploy commands directly, with credentials held in the build project" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,10 +345,10 @@ export const AWS_DOP_QUESTIONS_1 = [
     scenario: "A DevOps team is standardizing multi-account delivery workflows, automated testing gates, and deployment policies for microservices.",
     question: "Which SDLC automation architecture best satisfies deployment scenario #2?",
     options: [
-      { id: 'A', text: "Implementing AWS CodePipeline with cross-account IAM role assumption, customer-managed KMS encryption, and automated rollback alarms" },
-      { id: 'B', text: "Using manual FTP uploads to transfer build artifacts directly to production instances" },
-      { id: 'C', text: "Relying on scheduled off-peak batch scripts without automated health validation" },
-      { id: 'D', text: "Granting full administrator access to deployment scripts with unencrypted artifact storage" }
+      { id: 'A', text: "CodePipeline with cross-account role assumption, a customer-managed KMS key, and rollback alarms" },
+      { id: 'B', text: "CodePipeline with a single-account role, the default S3 key, and a manual approval before deploy" },
+      { id: 'C', text: "CodeBuild running the deploy commands directly, with credentials held in the build project" },
+      { id: 'D', text: "CodeDeploy triggered from each account's own pipeline, with artifacts copied between buckets" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const AWS_DOP_QUESTIONS_1 = [
     scenario: "A DevOps team is standardizing multi-account delivery workflows, automated testing gates, and deployment policies for microservices.",
     question: "Which SDLC automation architecture best satisfies deployment scenario #3?",
     options: [
-      { id: 'A', text: "Implementing AWS CodePipeline with cross-account IAM role assumption, customer-managed KMS encryption, and automated rollback alarms" },
-      { id: 'B', text: "Granting full administrator access to deployment scripts with unencrypted artifact storage" },
-      { id: 'C', text: "Relying on scheduled off-peak batch scripts without automated health validation" },
-      { id: 'D', text: "Using manual FTP uploads to transfer build artifacts directly to production instances" }
+      { id: 'A', text: "CodePipeline with cross-account role assumption, a customer-managed KMS key, and rollback alarms" },
+      { id: 'B', text: "CodeDeploy triggered from each account's own pipeline, with artifacts copied between buckets" },
+      { id: 'C', text: "CodeBuild running the deploy commands directly, with credentials held in the build project" },
+      { id: 'D', text: "CodePipeline with a single-account role, the default S3 key, and a manual approval before deploy" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const AWS_DOP_QUESTIONS_1 = [
     scenario: "A DevOps team is standardizing multi-account delivery workflows, automated testing gates, and deployment policies for microservices.",
     question: "Which SDLC automation architecture best satisfies deployment scenario #4?",
     options: [
-      { id: 'A', text: "Relying on scheduled off-peak batch scripts without automated health validation" },
-      { id: 'B', text: "Using manual FTP uploads to transfer build artifacts directly to production instances" },
-      { id: 'C', text: "Granting full administrator access to deployment scripts with unencrypted artifact storage" },
-      { id: 'D', text: "Implementing AWS CodePipeline with cross-account IAM role assumption, customer-managed KMS encryption, and automated rollback alarms" }
+      { id: 'A', text: "CodeBuild running the deploy commands directly, with credentials held in the build project" },
+      { id: 'B', text: "CodePipeline with a single-account role, the default S3 key, and a manual approval before deploy" },
+      { id: 'C', text: "CodeDeploy triggered from each account's own pipeline, with artifacts copied between buckets" },
+      { id: 'D', text: "CodePipeline with cross-account role assumption, a customer-managed KMS key, and rollback alarms" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -408,10 +408,10 @@ export const AWS_DOP_QUESTIONS_1 = [
     scenario: "A DevOps team is standardizing multi-account delivery workflows, automated testing gates, and deployment policies for microservices.",
     question: "Which SDLC automation architecture best satisfies deployment scenario #5?",
     options: [
-      { id: 'A', text: "Implementing AWS CodePipeline with cross-account IAM role assumption, customer-managed KMS encryption, and automated rollback alarms" },
-      { id: 'B', text: "Relying on scheduled off-peak batch scripts without automated health validation" },
-      { id: 'C', text: "Using manual FTP uploads to transfer build artifacts directly to production instances" },
-      { id: 'D', text: "Granting full administrator access to deployment scripts with unencrypted artifact storage" }
+      { id: 'A', text: "CodePipeline with cross-account role assumption, a customer-managed KMS key, and rollback alarms" },
+      { id: 'B', text: "CodeBuild running the deploy commands directly, with credentials held in the build project" },
+      { id: 'C', text: "CodePipeline with a single-account role, the default S3 key, and a manual approval before deploy" },
+      { id: 'D', text: "CodeDeploy triggered from each account's own pipeline, with artifacts copied between buckets" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const AWS_DOP_QUESTIONS_1 = [
     scenario: "A DevOps team is standardizing multi-account delivery workflows, automated testing gates, and deployment policies for microservices.",
     question: "Which SDLC automation architecture best satisfies deployment scenario #6?",
     options: [
-      { id: 'A', text: "Using manual FTP uploads to transfer build artifacts directly to production instances" },
-      { id: 'B', text: "Granting full administrator access to deployment scripts with unencrypted artifact storage" },
-      { id: 'C', text: "Implementing AWS CodePipeline with cross-account IAM role assumption, customer-managed KMS encryption, and automated rollback alarms" },
-      { id: 'D', text: "Relying on scheduled off-peak batch scripts without automated health validation" }
+      { id: 'A', text: "CodePipeline with a single-account role, the default S3 key, and a manual approval before deploy" },
+      { id: 'B', text: "CodeDeploy triggered from each account's own pipeline, with artifacts copied between buckets" },
+      { id: 'C', text: "CodePipeline with cross-account role assumption, a customer-managed KMS key, and rollback alarms" },
+      { id: 'D', text: "CodeBuild running the deploy commands directly, with credentials held in the build project" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const AWS_DOP_QUESTIONS_1 = [
     scenario: "A DevOps team is standardizing multi-account delivery workflows, automated testing gates, and deployment policies for microservices.",
     question: "Which SDLC automation architecture best satisfies deployment scenario #7?",
     options: [
-      { id: 'A', text: "Relying on scheduled off-peak batch scripts without automated health validation" },
-      { id: 'B', text: "Using manual FTP uploads to transfer build artifacts directly to production instances" },
-      { id: 'C', text: "Implementing AWS CodePipeline with cross-account IAM role assumption, customer-managed KMS encryption, and automated rollback alarms" },
-      { id: 'D', text: "Granting full administrator access to deployment scripts with unencrypted artifact storage" }
+      { id: 'A', text: "CodeBuild running the deploy commands directly, with credentials held in the build project" },
+      { id: 'B', text: "CodePipeline with a single-account role, the default S3 key, and a manual approval before deploy" },
+      { id: 'C', text: "CodePipeline with cross-account role assumption, a customer-managed KMS key, and rollback alarms" },
+      { id: 'D', text: "CodeDeploy triggered from each account's own pipeline, with artifacts copied between buckets" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -471,10 +471,10 @@ export const AWS_DOP_QUESTIONS_1 = [
     scenario: "A DevOps team is standardizing multi-account delivery workflows, automated testing gates, and deployment policies for microservices.",
     question: "Which SDLC automation architecture best satisfies deployment scenario #8?",
     options: [
-      { id: 'A', text: "Relying on scheduled off-peak batch scripts without automated health validation" },
-      { id: 'B', text: "Implementing AWS CodePipeline with cross-account IAM role assumption, customer-managed KMS encryption, and automated rollback alarms" },
-      { id: 'C', text: "Granting full administrator access to deployment scripts with unencrypted artifact storage" },
-      { id: 'D', text: "Using manual FTP uploads to transfer build artifacts directly to production instances" }
+      { id: 'A', text: "CodeBuild running the deploy commands directly, with credentials held in the build project" },
+      { id: 'B', text: "CodePipeline with cross-account role assumption, a customer-managed KMS key, and rollback alarms" },
+      { id: 'C', text: "CodeDeploy triggered from each account's own pipeline, with artifacts copied between buckets" },
+      { id: 'D', text: "CodePipeline with a single-account role, the default S3 key, and a manual approval before deploy" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,10 +492,10 @@ export const AWS_DOP_QUESTIONS_1 = [
     scenario: "A DevOps team is standardizing multi-account delivery workflows, automated testing gates, and deployment policies for microservices.",
     question: "Which SDLC automation architecture best satisfies deployment scenario #9?",
     options: [
-      { id: 'A', text: "Relying on scheduled off-peak batch scripts without automated health validation" },
-      { id: 'B', text: "Implementing AWS CodePipeline with cross-account IAM role assumption, customer-managed KMS encryption, and automated rollback alarms" },
-      { id: 'C', text: "Granting full administrator access to deployment scripts with unencrypted artifact storage" },
-      { id: 'D', text: "Using manual FTP uploads to transfer build artifacts directly to production instances" }
+      { id: 'A', text: "CodeBuild running the deploy commands directly, with credentials held in the build project" },
+      { id: 'B', text: "CodePipeline with cross-account role assumption, a customer-managed KMS key, and rollback alarms" },
+      { id: 'C', text: "CodeDeploy triggered from each account's own pipeline, with artifacts copied between buckets" },
+      { id: 'D', text: "CodePipeline with a single-account role, the default S3 key, and a manual approval before deploy" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -513,10 +513,10 @@ export const AWS_DOP_QUESTIONS_1 = [
     scenario: "A DevOps team is standardizing multi-account delivery workflows, automated testing gates, and deployment policies for microservices.",
     question: "Which SDLC automation architecture best satisfies deployment scenario #10?",
     options: [
-      { id: 'A', text: "Implementing AWS CodePipeline with cross-account IAM role assumption, customer-managed KMS encryption, and automated rollback alarms" },
-      { id: 'B', text: "Using manual FTP uploads to transfer build artifacts directly to production instances" },
-      { id: 'C', text: "Granting full administrator access to deployment scripts with unencrypted artifact storage" },
-      { id: 'D', text: "Relying on scheduled off-peak batch scripts without automated health validation" }
+      { id: 'A', text: "CodePipeline with cross-account role assumption, a customer-managed KMS key, and rollback alarms" },
+      { id: 'B', text: "CodePipeline with a single-account role, the default S3 key, and a manual approval before deploy" },
+      { id: 'C', text: "CodeDeploy triggered from each account's own pipeline, with artifacts copied between buckets" },
+      { id: 'D', text: "CodeBuild running the deploy commands directly, with credentials held in the build project" }
     ],
     correctAnswers: ['A'],
     type: "single",

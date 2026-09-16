@@ -9,7 +9,7 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A payment processing microservice consumes messages from an Amazon SQS standard queue. Occasionally, corrupted transaction payloads cause the consumer Lambda function to throw exceptions and fail repeatedly.",
     question: "How should the architecture be updated to prevent poisoned messages from blocking the processing queue?",
     options: [
-      { id: 'A', text: "Configure an Amazon SQS Dead-Letter Queue (DLQ) with a maxReceiveCount threshold, and use SQS dead-letter queue redrive to reprocess messages after fixing the underlying bug" },
+      { id: 'A', text: "An SQS dead-letter queue with a redrive policy, reprocessed once the fix is out" },
       { id: 'B', text: "Increase the SQS visibility timeout to 12 hours so failed messages remain hidden" },
       { id: 'C', text: "Configure the Lambda function to delete any message that fails on the first attempt without logging" },
       { id: 'D', text: "Replace the standard queue with an Amazon SNS FIFO topic with zero retries" }
@@ -30,10 +30,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #1?",
     options: [
-      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
+      { id: 'A', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'B', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'C', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'D', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #2?",
     options: [
-      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
+      { id: 'A', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'B', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'C', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'D', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,10 +72,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #3?",
     options: [
-      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
+      { id: 'A', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'B', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'C', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'D', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #4?",
     options: [
-      { id: 'A', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'C', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
+      { id: 'A', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'B', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'C', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'D', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #5?",
     options: [
-      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
+      { id: 'A', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'B', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'C', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'D', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -135,10 +135,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #6?",
     options: [
-      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'C', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'D', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" }
+      { id: 'A', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'B', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'C', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'D', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -156,10 +156,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #7?",
     options: [
-      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'C', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'D', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" }
+      { id: 'A', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'B', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'C', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'D', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -177,10 +177,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #8?",
     options: [
-      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'C', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
+      { id: 'A', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'B', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'C', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'D', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #9?",
     options: [
-      { id: 'A', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
+      { id: 'A', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'B', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'C', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'D', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -219,10 +219,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #10?",
     options: [
-      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'C', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
+      { id: 'A', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'B', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'C', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'D', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,10 +240,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #11?",
     options: [
-      { id: 'A', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
+      { id: 'A', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'B', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'C', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'D', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #12?",
     options: [
-      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
+      { id: 'A', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'B', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'C', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'D', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #13?",
     options: [
-      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'C', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
+      { id: 'A', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'B', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'C', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'D', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,10 +303,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #14?",
     options: [
-      { id: 'A', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
+      { id: 'A', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'B', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'C', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'D', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -324,10 +324,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #15?",
     options: [
-      { id: 'A', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'D', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" }
+      { id: 'A', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'B', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'C', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'D', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -345,10 +345,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #16?",
     options: [
-      { id: 'A', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'C', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
+      { id: 'A', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'B', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'C', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'D', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -366,10 +366,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #17?",
     options: [
-      { id: 'A', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'B', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'C', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
+      { id: 'A', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'B', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'C', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'D', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #18?",
     options: [
-      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'C', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'D', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" }
+      { id: 'A', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'B', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'C', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'D', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #19?",
     options: [
-      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'D', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" }
+      { id: 'A', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'B', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'C', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'D', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #20?",
     options: [
-      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'B', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'D', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" }
+      { id: 'A', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'B', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'C', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'D', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #21?",
     options: [
-      { id: 'A', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" },
-      { id: 'B', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'D', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" }
+      { id: 'A', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" },
+      { id: 'B', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'C', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'D', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #22?",
     options: [
-      { id: 'A', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'B', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'C', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
+      { id: 'A', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'B', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'C', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'D', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,10 +492,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #23?",
     options: [
-      { id: 'A', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'C', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
+      { id: 'A', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'B', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'C', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'D', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const AWS_DOP_QUESTIONS_5 = [
     scenario: "A DevOps team is architecting fault-tolerant distributed systems capable of surviving zone outages and traffic spikes without degradation.",
     question: "Which architecture provides optimal resilience and high availability for scenario #24?",
     options: [
-      { id: 'A', text: "Relying on manual DNS updates to redirect traffic to static maintenance error pages" },
-      { id: 'B', text: "Disabling all health checks and timeouts to allow backlogged requests to accumulate" },
-      { id: 'C', text: "Single-instance standalone deployment in a single Availability Zone without automated backups" },
-      { id: 'D', text: "Multi-AZ deployment behind an Application Load Balancer with auto-healing Auto Scaling groups and cross-zone replication" }
+      { id: 'A', text: "Multi-region active-passive, with Route 53 health checks failing traffic across" },
+      { id: 'B', text: "Single-AZ behind an Application Load Balancer, with a warm standby in a second zone" },
+      { id: 'C', text: "Multi-AZ behind a Network Load Balancer, with a fixed-size fleet in each zone" },
+      { id: 'D', text: "Multi-AZ behind an Application Load Balancer, with auto-healing Auto Scaling groups" }
     ],
     correctAnswers: ['D'],
     type: "single",

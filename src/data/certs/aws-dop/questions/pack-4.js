@@ -12,7 +12,7 @@ export const AWS_DOP_QUESTIONS_4 = [
       { id: 'A', text: "An AWS Systems Manager State Manager association executing a bash script that writes an AMI directly to Amazon S3" },
       { id: 'B', text: "An AWS CodeBuild job running a Packer script on a local Docker container that launches an EC2 instance via SSH" },
       { id: 'C', text: "An AWS Lambda function triggered by a weekly EventBridge rule that takes an EBS snapshot of a running bastion host" },
-      { id: 'D', text: "AWS EC2 Image Builder configured with an image recipe, CIS benchmark build component, automated test components, and a distribution configuration targeting multiple regions" }
+      { id: 'D', text: "Image Builder with a CIS hardening component, test components and a distribution" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -31,7 +31,7 @@ export const AWS_DOP_QUESTIONS_4 = [
     question: "How should the DevOps engineer configure Systems Manager to enforce these patching rules?",
     options: [
       { id: 'A', text: "Run AWS Systems Manager Inventory across all instances and execute yum update manually via Session Manager during the weekend" },
-      { id: 'B', text: "Create separate Patch Baselines with auto-approval delays (2 days vs 7 days), create SSM Maintenance Windows scheduled accordingly, and assign instance targets using tag-based filtering (Environment=Production)" },
+      { id: 'B', text: "Separate patch baselines with different approval delays, applied by their own windows" },
       { id: 'C', text: "Configure AWS Config rules with automated remediation documents that run yum update when instance uptime exceeds 7 days" },
       { id: 'D', text: "Write an AWS Lambda function that queries the AWS Security Bulletin RSS feed and reboots instances using the EC2 StopInstances API" }
     ],
@@ -54,7 +54,7 @@ export const AWS_DOP_QUESTIONS_4 = [
       { id: 'A', text: "AWS CloudFormation StackSets with override parameters configured in the account administration settings" },
       { id: 'B', text: "An Amazon EventBridge rule that catches resource creation events and runs an SSM Automation runbook to add tags" },
       { id: 'C', text: "A CloudFormation dynamic reference pointing to an Amazon DynamoDB table holding required tag definitions" },
-      { id: 'D', text: "AWS CloudFormation Macros backed by an AWS Lambda function that parses the template JSON/YAML and injects the required tags before CloudFormation creates the change set" }
+      { id: 'D', text: "A CloudFormation macro whose Lambda injects the required tags into the template" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -73,7 +73,7 @@ export const AWS_DOP_QUESTIONS_4 = [
     question: "Which attribute should be configured on the AWS::AutoScaling::AutoScalingGroup resource?",
     options: [
       { id: 'A', text: "Configure an UpdateReplacePolicy attribute set to Retain on the LaunchTemplate resource" },
-      { id: 'B', text: "Configure an UpdatePolicy attribute with AutoScalingRollingUpdate specifying MaxBatchSize, MinInstancesInService, and WaitOnResourceSignals" },
+      { id: 'B', text: "An `AutoScalingRollingUpdate` policy with batch size, minimum in service and signals" },
       { id: 'C', text: "Configure a CreationPolicy attribute with ResourceSignal set to count 4 and a timeout of 10 minutes" },
       { id: 'D', text: "Configure an AWS::CloudFormation::WaitCondition resource that receives signals from the ALB target group" }
     ],
@@ -117,7 +117,7 @@ export const AWS_DOP_QUESTIONS_4 = [
       { id: 'A', text: "Use Amazon CloudWatch Logs Insights to search for package manager stdout logs across all EC2 system logs" },
       { id: 'B', text: "Deploy an SSH bastion script that connects to each instance, runs rpm -qa, and appends output to a local CSV file" },
       { id: 'C', text: "Configure an AWS Lambda function triggered by instance reboot events to inspect the /opt directory via SSM Run Command" },
-      { id: 'D', text: "Configure AWS Systems Manager Inventory on all managed instances, enable Resource Data Sync to an Amazon S3 bucket in a central account, and query the synchronized inventory data using Amazon Athena" }
+      { id: 'D', text: "Systems Manager Inventory with a resource data sync into a central bucket" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -137,7 +137,7 @@ export const AWS_DOP_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Take an RDS snapshot, delete the monolithic stack, and launch the new stack from the snapshot using CloudFormation CLI" },
       { id: 'B', text: "Use AWS Database Migration Service (AWS DMS) to replicate the database to a newly created RDS instance in the new stack" },
-      { id: 'C', text: "Set DeletionPolicy to Retain on the RDS instance, remove it from the monolithic stack template, update the stack so the resource is retained, and then use the CloudFormation 'Import Existing Resources' feature in the new stack" },
+      { id: 'C', text: "`DeletionPolicy: Retain` on the database, remove it from the stack, then import it into the new one" },
       { id: 'D', text: "Execute a CloudFormation Change Set with Replacement set to Conditional on the monolithic template" }
     ],
     correctAnswers: ['C'],
@@ -178,7 +178,7 @@ export const AWS_DOP_QUESTIONS_4 = [
     question: "Which combination of dynamic reference types meets both requirements securely?",
     options: [
       { id: 'A', text: "Use CloudFormation Parameters with Default values hardcoded in a parameter file committed to Git" },
-      { id: 'B', text: "Use '{{resolve:ssm:ApiBaseUrl}}' for the base URL, and '{{resolve:secretsmanager:ApiToken:SecretString:token}}' for the API token" },
+      { id: 'B', text: "`{{resolve:ssm:...}}` for the base URL and `{{resolve:secretsmanager:...}}` for the token" },
       { id: 'C', text: "Use Fn::ImportValue for both values exported from a shared infrastructure stack" },
       { id: 'D', text: "Use '{{resolve:s3:MyBucket/config.json}}' for both parameters using an S3 pre-signed URL" }
     ],
@@ -201,7 +201,7 @@ export const AWS_DOP_QUESTIONS_4 = [
       { id: 'A', text: "Schedule a cron job on a management EC2 instance that runs an AWS CLI command to delete all volumes without tags" },
       { id: 'B', text: "Create an Amazon CloudWatch billing alarm that triggers an Amazon SNS topic when EBS storage costs increase" },
       { id: 'C', text: "Configure an Amazon S3 Lifecycle rule to transition EBS volume snapshots to S3 Glacier Deep Archive" },
-      { id: 'D', text: "Deploy the AWS Config managed rule 'ec2-volume-inuse-check', configure an automatic remediation action pointing to an SSM Automation document that snapshots and deletes the detached volume, and set the remediation parameter to execute when non-compliant" }
+      { id: 'D', text: "The `ec2-volume-inuse-check` Config rule, remediated by a runbook that snapshots and deletes" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -220,7 +220,7 @@ export const AWS_DOP_QUESTIONS_4 = [
     question: "Which CloudFormation deployment flag or setting allows the team to preserve provisioned resources for troubleshooting upon failure?",
     options: [
       { id: 'A', text: "Add DeletionPolicy: Retain to all resources in the template" },
-      { id: 'B', text: "Set Rollback on failure to 'Disabled' (or use the --disable-rollback CLI flag) during stack creation" },
+      { id: 'B', text: "Set rollback on failure to disabled while creating the stack" },
       { id: 'C', text: "Set TerminationProtection to 'Enabled' on the stack" },
       { id: 'D', text: "Configure an Amazon SQS Dead-Letter Queue on the CloudFormation service role" }
     ],
@@ -243,7 +243,7 @@ export const AWS_DOP_QUESTIONS_4 = [
       { id: 'A', text: "Attach an administrator access policy to the target account's root user credentials" },
       { id: 'B', text: "Add an S3 bucket policy granting s3:GetObject to all IAM roles across the organization" },
       { id: 'C', text: "Configure the administrator role to use AWS Organizations SCP bypass permissions" },
-      { id: 'D', text: "Update the trust relationship of AWSCloudFormationStackSetExecutionRole in account 123456789012 to allow the sts:AssumeRole action from the administrator account's AWSCloudFormationStackSetAdministrationRole ARN" }
+      { id: 'D', text: "Update the StackSet execution role's trust policy to allow the administration account to assume it" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,7 +261,7 @@ export const AWS_DOP_QUESTIONS_4 = [
     scenario: "An enterprise cloud engineering team maintains a rigorously tested Linux OS patch baseline with approved CVE patches and package blacklists. All 50 member accounts in the AWS Organization must use this single validated baseline to prevent fragmented or inconsistent patching policies.",
     question: "How can the engineering team distribute and enforce the custom patch baseline across all member accounts efficiently?",
     options: [
-      { id: 'A', text: "Share the custom Patch Baseline from the management or delegated administrator account across the organization using AWS Resource Access Manager (AWS RAM)" },
+      { id: 'A', text: "Share the custom patch baseline across the organization with Resource Access Manager" },
       { id: 'B', text: "Write a Python script that runs daily in each account to download the patch list from an Amazon S3 bucket" },
       { id: 'C', text: "Manually copy-paste the Patch Baseline JSON configuration into each member account's Systems Manager console" },
       { id: 'D', text: "Deploy an AWS Config rule that terminates EC2 instances not using the default AWS-managed patch baseline" }
@@ -282,7 +282,7 @@ export const AWS_DOP_QUESTIONS_4 = [
     scenario: "A company provisions Amazon EC2 instances using CloudFormation. The instances require complex package installations, configuration file templating, and service startup. The DevOps engineer uses the AWS::CloudFormation::Init metadata key and cfn-init helper script. If any package fails to install, the stack creation must fail and notify CloudFormation immediately.",
     question: "Which combination of helper scripts in the EC2 user data script ensures proper signaling?",
     options: [
-      { id: 'A', text: "Run /opt/aws/bin/cfn-init to process the AWS::CloudFormation::Init metadata, followed immediately by /opt/aws/bin/cfn-signal with --exit-code $? passed to the stack WaitCondition or CreationPolicy" },
+      { id: 'A', text: "Run `cfn-init` to process the metadata, then `cfn-signal` with the exit code" },
       { id: 'B', text: "Run cfn-get-metadata and parse the JSON output using a custom python script in the user data" },
       { id: 'C', text: "Run /opt/aws/bin/cfn-hup in daemon mode and reboot the instance using shutdown -r now" },
       { id: 'D', text: "Execute curl against the instance metadata service (IMDS) and send an SNS notification upon failure" }
@@ -306,7 +306,7 @@ export const AWS_DOP_QUESTIONS_4 = [
       { id: 'A', text: "Configure an EC2 Auto Scaling group with a target tracking scaling policy set to CPUUtilization 50%" },
       { id: 'B', text: "Deploy two distinct CloudFormation stacks and toggle an AWS Route 53 Weighted CNAME record manually" },
       { id: 'C', text: "Use CloudFormation Fn::Join to merge two different ECS task definitions into a single container definition" },
-      { id: 'D', text: "Include the 'Transform: AWS::CodeDeployBlueGreen' declaration in the template and define an AWS::CodeDeploy::BlueGreen hook specifying the ECS service, test listener, and target groups" }
+      { id: 'D', text: "The `AWS::CodeDeployBlueGreen` transform with a hook naming the ECS service" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,7 +345,7 @@ export const AWS_DOP_QUESTIONS_4 = [
     scenario: "A microservice configuration requires storing large application configuration payloads (over 6 KB each) with parameter policies that enforce parameter expiration after 90 days. The developer attempts to store this in AWS Systems Manager Parameter Store but receives a parameter size limit error.",
     question: "How should the developer resolve this issue in Parameter Store?",
     options: [
-      { id: 'A', text: "Upgrade the parameter tier from Standard to Advanced to allow parameter sizes up to 8 KB and support Parameter Policies (such as expiration)" },
+      { id: 'A', text: "Move the parameter to the advanced tier, which allows 8 KB and parameter policies" },
       { id: 'B', text: "Compress the configuration payload using gzip and encode it in Base64 before saving as a Standard parameter" },
       { id: 'C', text: "Split the configuration into two separate AWS Secrets Manager secrets" },
       { id: 'D', text: "Store the configuration file in an Amazon S3 bucket and save the S3 pre-signed URL in Parameter Store" }
@@ -388,7 +388,7 @@ export const AWS_DOP_QUESTIONS_4 = [
     question: "Which IAM policy statement restricts developer access according to the principle of least privilege?",
     options: [
       { id: 'A', text: "Grant ssm:* on Resource '*' with a Condition checking the principal's IP address" },
-      { id: 'B', text: "Grant ssm:GetParameters*, ssm:PutParameter on Resource 'arn:aws:ssm:region:account:parameter/app/dev/*' and 'arn:aws:ssm:region:account:parameter/app/test/*'" },
+      { id: 'B', text: "Grant the parameter actions only on the `/app/dev/*` path for that environment" },
       { id: 'C', text: "Grant ssm:DescribeParameters on all resources and deny ssm:GetParameter in the account SCP" },
       { id: 'D', text: "Store production parameters in an encrypted S3 bucket and grant developers read-only permissions to S3" }
     ],
@@ -408,7 +408,7 @@ export const AWS_DOP_QUESTIONS_4 = [
     scenario: "A development team regularly deploys and tears down ephemeral test environments using CloudFormation. The stack creates an Amazon S3 bucket that holds test execution logs. When deleting the stack, the deletion fails with the error: 'The bucket you are trying to delete is not empty'.",
     question: "How can the team ensure the CloudFormation stack deletes completely and cleanly without manual intervention?",
     options: [
-      { id: 'A', text: "Add a CloudFormation custom resource backed by Lambda that empties all object versions and delete markers from the S3 bucket during the Delete request before the bucket is deleted" },
+      { id: 'A', text: "A custom resource whose Lambda empties the bucket's versions on delete" },
       { id: 'B', text: "Set the DeletionPolicy attribute on the S3 bucket resource to Delete in the CloudFormation template" },
       { id: 'C', text: "Configure an S3 lifecycle rule to expire current versions after 1 day" },
       { id: 'D', text: "Attach an S3 bucket policy denying s3:PutObject during stack deletion" }
@@ -452,7 +452,7 @@ export const AWS_DOP_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Enable Termination Protection on the CloudFormation stack in the console" },
       { id: 'B', text: "Set UpdateReplacePolicy: Retain on the Aurora DBCluster resource in the template" },
-      { id: 'C', text: "Apply a CloudFormation Stack Policy to the stack that has an 'Effect: Deny' on 'Update:*' actions targeting the Aurora cluster resource logical ID" },
+      { id: 'C', text: "A stack policy denying `Update:*` on the Aurora cluster resource" },
       { id: 'D', text: "Attach an IAM permission boundary to developer roles denying rds:ModifyDBCluster" }
     ],
     correctAnswers: ['C'],
@@ -471,7 +471,7 @@ export const AWS_DOP_QUESTIONS_4 = [
     scenario: "A backend REST API running on Amazon API Gateway receives 10,000 requests per second. The engineering team wants to release a new deployment stage with 5% of production traffic routed to the new version for 1 hour. If client-side errors (4xx) or server-side errors (5xx) increase, traffic must revert to 100% on the stable version with zero downtime.",
     question: "Which native API Gateway deployment feature provides this functionality?",
     options: [
-      { id: 'A', text: "Enable Canary Settings on the API Gateway deployment stage, configure percentage weight to 5.0%, and promote or drop the canary based on CloudWatch metrics" },
+      { id: 'A', text: "Canary settings on the API stage at five percent, promoted or dropped on the metrics" },
       { id: 'B', text: "Use an AWS Lambda function URL with alias weighted routing configured" },
       { id: 'C', text: "Deploy two separate API Gateway APIs and use Route 53 Weighted routing to split traffic" },
       { id: 'D', text: "Deploy an AWS Application Load Balancer in front of API Gateway with weighted target groups" }
@@ -494,7 +494,7 @@ export const AWS_DOP_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Increase the Auto Scaling scale-in cooldown period to 24 hours" },
       { id: 'B', text: "Set the EC2 instance shutdown behavior to Stop instead of Terminate" },
-      { id: 'C', text: "Configure an Auto Scaling lifecycle hook for autoscaling:EC2_INSTANCE_TERMINATING, send a heartbeat signal while the job finishes, and complete the lifecycle action when processing completes" },
+      { id: 'C', text: "A terminating lifecycle hook, with heartbeats until the job finishes" },
       { id: 'D', text: "Attach an Elastic Load Balancer connection draining timeout set to 60 seconds" }
     ],
     correctAnswers: ['C'],
