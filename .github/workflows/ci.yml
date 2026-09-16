@@ -45,9 +45,6 @@ jobs:
       - name: Validate content
         run: npm run validate
 
-      # The 24 rewritten banks must stay inside every target. The remaining
-      # filler banks still breach, so this ratchets on the passing count rather
-      # than using --strict, which would fail until they are authored.
       - name: Distractor quality ratchet
         run: |
           {
