@@ -10,7 +10,7 @@ export const AWS_SCS_QUESTIONS_3 = [
     question: "Which EventBridge rule pattern detects and alerts on attempts to stop CloudTrail logging in real time?",
     options: [
       { id: 'A', text: "<code>{ \"source\": [\"aws.guardduty\"], \"detail\": { \"severity\": [\"LOW\"] } }</code>" },
-      { id: 'B', text: "<code>{ \"source\": [\"aws.cloudtrail\"], \"detail-type\": [\"AWS API Call via CloudTrail\"], \"detail\": { \"eventSource\": [\"cloudtrail.amazonaws.com\"], \"eventName\": [\"StopLogging\", \"DeleteTrail\", \"UpdateTrail\"] } }</code>" },
+      { id: 'B', text: "<code>{ \"source\": [\"aws.cloudtrail\"], \"detail\": { \"eventName\": [\"StopLogging\"] } }</code>" },
       { id: 'C', text: "<code>{ \"source\": [\"aws.ec2\"], \"detail-type\": [\"EC2 Instance State-change Notification\"] }</code>" },
       { id: 'D', text: "<code>{ \"source\": [\"aws.health\"], \"detail\": { \"service\": [\"CLOUDTRAIL\"] } }</code>" }
     ],
@@ -30,10 +30,10 @@ export const AWS_SCS_QUESTIONS_3 = [
     scenario: "To prevent unauthorized backdoors, a company requires real-time alerting whenever an Internet Gateway, Customer Gateway, NAT Gateway, or Virtual Private Gateway is created or attached to a VPC.",
     question: "Which metric filter pattern satisfies CIS Benchmark compliance for network gateway changes?",
     options: [
-      { id: 'A', text: "<code>{($.eventName=CreateCustomerGateway)||($.eventName=DeleteCustomerGateway)||($.eventName=AttachInternetGateway)||($.eventName=CreateInternetGateway)||($.eventName=DeleteInternetGateway)||($.eventName=DetachInternetGateway)||($.eventName=CreateNatGateway)||($.eventName=DeleteNatGateway)}</code>" },
-      { id: 'B', text: "<code>{ $.eventSource = \"s3.amazonaws.com\" }</code>" },
-      { id: 'C', text: "<code>{ $.eventName = \"AuthorizeSecurityGroupIngress\" }</code>" },
-      { id: 'D', text: "<code>{ $.userIdentity.sessionContext.sessionIssuer.userName = \"NetworkAdmin\" }</code>" }
+      { id: 'A', text: "<code>{($.eventName=CreateInternetGateway)||($.eventName=DeleteNatGateway)}</code>" },
+      { id: 'B', text: "<code>{($.eventSource=ec2.amazonaws.com)&&($.eventName=DescribeVpcs)}</code>" },
+      { id: 'C', text: "<code>{($.eventName=AuthorizeSecurityGroupIngress)&&($.errorCode=NOT_NULL)}</code>" },
+      { id: 'D', text: "<code>{($.userIdentity.sessionContext.sessionIssuer.userName=NetworkAdmin)}</code>" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -52,7 +52,7 @@ export const AWS_SCS_QUESTIONS_3 = [
     question: "Which architectural pattern provides automated, scalable log streaming across accounts?",
     options: [
       { id: 'A', text: "Deploy an EC2 instance in each member account to run logstash" },
-      { id: 'B', text: "Configure CloudWatch Logs Subscription Filters in each member account targeting an Amazon Kinesis Data Stream in the Security account via a cross-account IAM role, and process the stream into OpenSearch using Kinesis Data Firehose" },
+      { id: 'B', text: "Subscription filters in each account streaming to a Kinesis stream in the security account" },
       { id: 'C', text: "Grant public access to the OpenSearch cluster and configure member accounts to write directly over the public internet" },
       { id: 'D', text: "Export CloudWatch Logs to local member account S3 buckets and configure S3 cross-region replication to OpenSearch" }
     ],
@@ -72,10 +72,10 @@ export const AWS_SCS_QUESTIONS_3 = [
     scenario: "A security architect must choose between Amazon S3 Server Access Logging and AWS CloudTrail S3 Data Events for tracking access to an internal data archive.",
     question: "What is a key technical differentiator between S3 Server Access Logging and CloudTrail S3 Data Events?",
     options: [
-      { id: 'A', text: "CloudTrail S3 data events provide detailed caller IAM identity (role ARN, session context, STS credentials) and integrate with EventBridge, whereas S3 server access logs provide HTTP-level details (Turnaround Time, HTTP status codes) but have best-effort delivery and no EventBridge integration" },
-      { id: 'B', text: "S3 server access logging requires customer managed KMS keys, while CloudTrail cannot be encrypted" },
-      { id: 'C', text: "S3 server access logs can only record PUT requests, while CloudTrail records only GET requests" },
-      { id: 'D', text: "CloudTrail data events are free of charge, while S3 server access logging is billed per API call" }
+      { id: 'A', text: "CloudTrail data events carry the caller's identity and reach EventBridge; access logs are best-effort" },
+      { id: 'B', text: "S3 server access logging requires a customer-managed key, whereas CloudTrail data events cannot be encrypted at all" },
+      { id: 'C', text: "S3 server access logs record only write requests, whereas CloudTrail data events record only the read requests" },
+      { id: 'D', text: "CloudTrail data events are included at no charge, whereas S3 server access logging is billed per request" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,7 +114,7 @@ export const AWS_SCS_QUESTIONS_3 = [
     scenario: "An operations team needs a single unified CloudWatch console to view alarms, logs, and metrics across all production member accounts without configuring complex custom streaming pipelines.",
     question: "Which native AWS capability configures centralized cross-account cross-Region CloudWatch dashboards and log access?",
     options: [
-      { id: 'A', text: "AWS CloudWatch Observability Access Manager (OAM) linking source accounts to a central monitoring account" },
+      { id: 'A', text: "Observability Access Manager linking the source accounts to a monitoring account" },
       { id: 'B', text: "Amazon VPC Peering between all VPCs across all accounts" },
       { id: 'C', text: "Configuring an S3 bucket in each account with public read permissions" },
       { id: 'D', text: "IAM cross-account role switching in the AWS Management Console for every query" }
@@ -135,10 +135,10 @@ export const AWS_SCS_QUESTIONS_3 = [
     scenario: "A compliance check mandates alerting whenever an S3 bucket policy, bucket ACL, or bucket replication configuration is modified in the account.",
     question: "Which CloudWatch Logs metric filter pattern identifies S3 configuration changes?",
     options: [
-      { id: 'A', text: "<code>{ $.eventSource = \"ec2.amazonaws.com\" }</code>" },
-      { id: 'B', text: "<code>{ $.errorCode = \"403\" }</code>" },
-      { id: 'C', text: "<code>{($.eventSource=s3.amazonaws.com)&&(($.eventName=PutBucketAcl)||($.eventName=PutBucketPolicy)||($.eventName=PutBucketCors)||($.eventName=PutBucketLifecycle)||($.eventName=PutBucketReplication)||($.eventName=DeleteBucketPolicy)||($.eventName=DeleteBucketCors)||($.eventName=DeleteBucketLifecycle))}</code>" },
-      { id: 'D', text: "<code>{ $.eventName = \"GetObject\" }</code>" }
+      { id: 'A', text: "<code>{($.eventSource=iam.amazonaws.com)&&($.eventName=GetRole)}</code>" },
+      { id: 'B', text: "<code>{($.eventSource=s3.amazonaws.com)&&($.errorCode=AccessDenied)}</code>" },
+      { id: 'C', text: "<code>{($.eventSource=s3.amazonaws.com)&&($.eventName=PutBucketPolicy)}</code>" },
+      { id: 'D', text: "<code>{($.eventSource=s3.amazonaws.com)&&($.eventName=GetObject)}</code>" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,7 +156,7 @@ export const AWS_SCS_QUESTIONS_3 = [
     scenario: "A web application behind an ALB is targeted by an HTTP flood attack. The security engineer must find the top 10 client IP addresses sending the highest volume of requests within the past hour.",
     question: "How can the engineer query the ALB access logs efficiently?",
     options: [
-      { id: 'A', text: "Create an Athena table over the ALB access logs S3 location, and run a query grouping by <code>client_ip</code> with <code>COUNT(*)</code> ordered descending" },
+      { id: 'A', text: "An Athena table over the access logs, grouping by client address and counting" },
       { id: 'B', text: "Review the AWS WAF Sampled Requests tab which displays 100% of all requests" },
       { id: 'C', text: "Open each raw gzip file locally using text editors" },
       { id: 'D', text: "Use CloudWatch Metrics for ALB RequestCount" }
@@ -198,7 +198,7 @@ export const AWS_SCS_QUESTIONS_3 = [
     scenario: "A DevOps team wants to evaluate CloudFormation templates during CI/CD pre-deployment pipelines to ensure resources comply with security policies before being provisioned.",
     question: "Which AWS Config rule mode allows evaluating resource configurations prior to creation?",
     options: [
-      { id: 'A', text: "Proactive mode evaluation using the <code>StartResourceEvaluation</code> API or CloudFormation Guard" },
+      { id: 'A', text: "Proactive evaluation with `StartResourceEvaluation`" },
       { id: 'B', text: "Detective mode evaluation using CloudTrail event triggers" },
       { id: 'C', text: "Reactive mode evaluation via CloudWatch alarms" },
       { id: 'D', text: "Periodic mode evaluation running on a 24-hour schedule" }
@@ -221,7 +221,7 @@ export const AWS_SCS_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "Install Wireshark on a central EC2 instance" },
       { id: 'B', text: "Enable flow logs only on the Direct Connect virtual interface" },
-      { id: 'C', text: "Enable flow logs directly on the Transit Gateway attachments, delivering to S3, CloudWatch Logs, or Kinesis Data Firehose" },
+      { id: 'C', text: "Flow logs on the Transit Gateway attachments, delivered to S3 or CloudWatch" },
       { id: 'D', text: "Enable VPC peering flow logs" }
     ],
     correctAnswers: ['C'],
@@ -240,7 +240,7 @@ export const AWS_SCS_QUESTIONS_3 = [
     scenario: "To meet regulatory retention requirements, a company must ensure that centralized CloudTrail and VPC Flow Logs cannot be deleted or overwritten by anyone, including the AWS account root user, for 5 years.",
     question: "Which S3 feature and mode must be configured on the log archive S3 bucket?",
     options: [
-      { id: 'A', text: "S3 Object Lock in Compliance mode with a default retention period of 5 years" },
+      { id: 'A', text: "S3 Object Lock in compliance mode, retained five years" },
       { id: 'B', text: "S3 Glacier Vault Lock alone without versioning" },
       { id: 'C', text: "S3 Bucket Policy denying s3:DeleteObject for non-root users" },
       { id: 'D', text: "S3 Object Lock in Governance mode" }
@@ -284,7 +284,7 @@ export const AWS_SCS_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "<code>{ $.errorCode = \"UnauthorizedOperation\" }</code>" },
       { id: 'B', text: "<code>{ $.responseElements = null }</code>" },
-      { id: 'C', text: "<code>{($.eventName=ConsoleLogin)&&($.errorMessage=\"Failed authentication\")}</code>" },
+      { id: 'C', text: "<code>{($.eventName=ConsoleLogin)&&($.errorMessage=\"Failed\")}</code>" },
       { id: 'D', text: "<code>{ $.userIdentity.type = \"Root\" }</code>" }
     ],
     correctAnswers: ['C'],
@@ -303,7 +303,7 @@ export const AWS_SCS_QUESTIONS_3 = [
     scenario: "A security operations team requires sub-second latency for streaming CloudFront CDN access logs into an analytical engine to immediately identify and block malicious scraping bots.",
     question: "Which CloudFront feature streams access logs in real time with field selection?",
     options: [
-      { id: 'A', text: "CloudFront Real-Time Logs configured to publish selected fields to an Amazon Kinesis Data Stream" },
+      { id: 'A', text: "CloudFront real-time logs into a Kinesis stream" },
       { id: 'B', text: "VPC Flow Logs on CloudFront edge locations" },
       { id: 'C', text: "AWS CloudTrail S3 data events" },
       { id: 'D', text: "CloudFront standard logging delivered to Amazon S3" }
@@ -325,7 +325,7 @@ export const AWS_SCS_QUESTIONS_3 = [
     question: "Which CloudWatch metric and dimension should be configured for the alarm?",
     options: [
       { id: 'A', text: "Metric <code>RequestCount</code> in namespace <code>AWS/CloudFront</code>" },
-      { id: 'B', text: "Metric <code>BlockedRequests</code> in namespace <code>AWS/WAFV2</code> with dimensions <code>WebACL</code>, <code>Rule</code> (matching the SQL injection rule), and <code>Region</code>" },
+      { id: 'B', text: "The `BlockedRequests` metric in `AWS/WAFV2`, dimensioned by web ACL and rule" },
       { id: 'C', text: "Metric <code>HTTPCode_Target_5XX_Count</code> in namespace <code>AWS/ApplicationELB</code>" },
       { id: 'D', text: "Metric <code>PacketsDropCW</code> in namespace <code>AWS/NetworkFirewall</code>" }
     ],
@@ -348,7 +348,7 @@ export const AWS_SCS_QUESTIONS_3 = [
       { id: 'A', text: "A cron script that calls aws ec2 describe-security-groups every hour" },
       { id: 'B', text: "An S3 Lifecycle rule that deletes security groups" },
       { id: 'C', text: "An Amazon CloudWatch Logs metric filter that runs once a day" },
-      { id: 'D', text: "An Amazon EventBridge rule matching CloudTrail API calls <code>AuthorizeSecurityGroupIngress</code>, triggering a Lambda function that inspects the <code>ipPermissions</code> payload and sends an alert via SNS if CIDR 0.0.0.0/0 is detected" }
+      { id: 'D', text: "An EventBridge rule on the ingress call, running a Lambda that reverts it" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -367,7 +367,7 @@ export const AWS_SCS_QUESTIONS_3 = [
     question: "Which SQL query against the CloudTrail Athena table returns the activity of this compromised access key?",
     options: [
       { id: 'A', text: "<code>SELECT * FROM cloudtrail_logs WHERE useridentity.type = 'Root';</code>" },
-      { id: 'B', text: "<code>SELECT eventtime, eventsource, eventname, sourceipaddress, useragent FROM cloudtrail_logs WHERE useridentity.accesskeyid = 'AKIAEXAMPLE12345' AND eventtime &gt;= '2026-09-01T00:00:00Z' ORDER BY eventtime DESC;</code>" },
+      { id: 'B', text: "<code>SELECT eventtime, eventname FROM cloudtrail_logs WHERE accesskeyid = '...'</code>" },
       { id: 'C', text: "<code>SELECT count(*) FROM cloudtrail_logs GROUP BY eventsource;</code>" },
       { id: 'D', text: "<code>SELECT * FROM vpc_flow_logs WHERE action = 'REJECT';</code>" }
     ],
@@ -387,7 +387,7 @@ export const AWS_SCS_QUESTIONS_3 = [
     scenario: "CloudTrail in Account A fails to deliver log files to an S3 bucket in Account B with an `AccessDenied` error in the CloudTrail console.",
     question: "What permissions must be granted in the S3 bucket policy in Account B to allow CloudTrail log delivery?",
     options: [
-      { id: 'A', text: "Grant <code>s3:PutObject</code> and <code>s3:GetBucketAcl</code> permissions to the principal <code>cloudtrail.amazonaws.com</code> with a condition matching Account A's ARN or ID (or <code>aws:SourceArn</code> of the trail)" },
+      { id: 'A', text: "Grant `s3:PutObject` and `s3:GetBucketAcl` to the `cloudtrail.amazonaws.com` principal" },
       { id: 'B', text: "Disable S3 bucket encryption in Account B" },
       { id: 'C', text: "Grant full <code>s3:*</code> access to <code>*</code> without any conditions" },
       { id: 'D', text: "Attach an IAM user policy to the root account of Account B" }
@@ -408,10 +408,10 @@ export const AWS_SCS_QUESTIONS_3 = [
     scenario: "To enforce perimeter integrity, a security policy mandates real-time alerting whenever a VPC route table is updated to route traffic to a VPC peering connection.",
     question: "Which metric filter pattern satisfies CIS Benchmark requirements for VPC route table changes?",
     options: [
-      { id: 'A', text: "<code>{ $.userIdentity.sessionContext = null }</code>" },
-      { id: 'B', text: "<code>{ $.eventName = \"DescribeRouteTables\" }</code>" },
-      { id: 'C', text: "<code>{ $.eventSource = \"iam.amazonaws.com\" }</code>" },
-      { id: 'D', text: "<code>{($.eventName=CreateRoute)||($.eventName=CreateRouteTable)||($.eventName=ReplaceRoute)||($.eventName=ReplaceRouteTableAssociation)||($.eventName=DeleteRouteTable)||($.eventName=DeleteRoute)||($.eventName=DisassociateRouteTable)}</code>" }
+      { id: 'A', text: "<code>{($.eventSource=ec2.amazonaws.com)&&($.userIdentity.sessionContext=null)}</code>" },
+      { id: 'B', text: "<code>{($.eventName=DescribeRouteTables)&&($.readOnly=true)}</code>" },
+      { id: 'C', text: "<code>{($.eventSource=iam.amazonaws.com)&&($.readOnly=false)}</code>" },
+      { id: 'D', text: "<code>{($.eventName=CreateRoute)||($.eventName=ReplaceRoute)||($.eventName=DeleteRouteTable)}</code>" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -430,7 +430,7 @@ export const AWS_SCS_QUESTIONS_3 = [
     question: "Which CloudWatch Logs metric filter pattern identifies Network ACL modifications?",
     options: [
       { id: 'A', text: "<code>{ $.responseElements = true }</code>" },
-      { id: 'B', text: "<code>{($.eventName=CreateNetworkAcl)||($.eventName=CreateNetworkAclEntry)||($.eventName=DeleteNetworkAcl)||($.eventName=DeleteNetworkAclEntry)||($.eventName=ReplaceNetworkAclEntry)||($.eventName=ReplaceNetworkAclAssociation)}</code>" },
+      { id: 'B', text: "<code>{($.eventName=CreateNetworkAclEntry)}</code>" },
       { id: 'C', text: "<code>{ $.eventName = \"DescribeNetworkAcls\" }</code>" },
       { id: 'D', text: "<code>{ $.eventSource = \"lambda.amazonaws.com\" }</code>" }
     ],
@@ -451,7 +451,7 @@ export const AWS_SCS_QUESTIONS_3 = [
     question: "Which CloudWatch Logs feature automatically masks sensitive PII and financial data in log streams without changing application code?",
     options: [
       { id: 'A', text: "S3 Glacier Vault Lock policies" },
-      { id: 'B', text: "CloudWatch Logs Data Protection policies configured with managed data identifiers for credit cards and email addresses" },
+      { id: 'B', text: "Logs data protection policies with the managed identifiers for those fields" },
       { id: 'C', text: "AWS WAF Data Masking rules attached to the ECS task definition" },
       { id: 'D', text: "Amazon GuardDuty Malware Protection" }
     ],
@@ -473,7 +473,7 @@ export const AWS_SCS_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "<code>{ \"source\": [\"aws.s3\"], \"detail\": { \"eventName\": [\"GetObject\"] } }</code>" },
       { id: 'B', text: "<code>{ \"source\": [\"aws.glacier\"], \"detail\": { \"action\": [\"Expire\"] } }</code>" },
-      { id: 'C', text: "<code>{ \"source\": [\"aws.s3\"], \"detail-type\": [\"AWS API Call via CloudTrail\"], \"detail\": { \"eventSource\": [\"s3.amazonaws.com\"], \"eventName\": [\"DeleteBucketLifecycle\"] } }</code>" },
+      { id: 'C', text: "<code>{ \"source\": [\"aws.s3\"], \"detail\": { \"eventName\": [\"PutBucketPolicy\"] } }</code>" },
       { id: 'D', text: "<code>{ \"source\": [\"aws.config\"], \"detail\": { \"configRuleName\": [\"s3-lifecycle\"] } }</code>" }
     ],
     correctAnswers: ['C'],
@@ -495,7 +495,7 @@ export const AWS_SCS_QUESTIONS_3 = [
       { id: 'A', text: "Amazon Inspector Assessment Templates" },
       { id: 'B', text: "AWS Systems Manager Inventory dashboards" },
       { id: 'C', text: "AWS Artifact Reports" },
-      { id: 'D', text: "AWS Config Conformance Packs deployed organization-wide using an Organization Conformance Pack" }
+      { id: 'D', text: "An organization conformance pack across the accounts" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -515,7 +515,7 @@ export const AWS_SCS_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "Metric <code>CPUUtilization</code> in namespace <code>AWS/EC2</code>" },
       { id: 'B', text: "Metric <code>IncomingBytes</code> in namespace <code>AWS/Kinesis</code>" },
-      { id: 'C', text: "Metric <code>DDoSDetected</code> in namespace <code>AWS/DDoSProtection</code> with dimension <code>ResourceArn</code>" },
+      { id: 'C', text: "The `DDoSDetected` metric in `AWS/DDoSProtection`, by resource ARN" },
       { id: 'D', text: "Metric <code>SurgeQueueLength</code> in namespace <code>AWS/ELB</code>" }
     ],
     correctAnswers: ['C'],

@@ -9,10 +9,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "Amazon GuardDuty generates a high-severity finding (UnauthorizedAccess:EC2/TorIPCaller) indicating that an Amazon EC2 web server instance is communicating with known Tor exit nodes and may be actively compromised. Security response policy requires isolating the instance immediately while preserving volatile system memory for forensic analysis.",
     question: "Which incident response sequence should the security team execute?",
     options: [
-      { id: 'A', text: "Add a deny-all rule to the VPC Network ACL for the entire subnet, disconnecting all other healthy workloads" },
-      { id: 'B', text: "Reboot the instance to clear malware from memory and assign a new public Elastic IP address" },
-      { id: 'C', text: "Immediately terminate the EC2 instance using the AWS CLI and delete its attached root EBS volumes to stop data exfiltration" },
-      { id: 'D', text: "Tag the instance, modify its security group to remove all inbound/outbound rules and attach an isolation security group that allows inbound forensic analysis from a secure bastion, create an EBS volume snapshot of all attached volumes, and capture volatile RAM using an SSM Automation document or kernel module prior to stopping" }
+      { id: 'A', text: "Add a deny-all network ACL for the subnet, which cuts the instance off from every other workload" },
+      { id: 'B', text: "Reboot the instance to clear memory, then assign it a new address and re-examine the traffic" },
+      { id: 'C', text: "Terminate the instance and delete its volumes at once, so the exfiltration cannot continue" },
+      { id: 'D', text: "Tag it, swap in an isolation security group, snapshot the volumes, and capture memory before stopping it" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -31,7 +31,7 @@ export const AWS_SCS_QUESTIONS_1 = [
     question: "Which event-driven architecture satisfies this requirement?",
     options: [
       { id: 'A', text: "Configure Amazon CloudWatch Logs metric filters on VPC Flow Logs to reboot instances" },
-      { id: 'B', text: "Configure an Amazon EventBridge rule that filters for GuardDuty findings of type CryptoCurrency:EC2/BitcoinTool.B!, targeting an AWS Systems Manager Automation runbook (AWS-StopEC2Instance) and an Amazon SNS topic for SOC notification" },
+      { id: 'B', text: "An EventBridge rule on that GuardDuty finding type, targeting an Automation runbook" },
       { id: 'C', text: "Create an AWS Config managed rule that evaluates instance CPU utilization every hour" },
       { id: 'D', text: "Write a cron job running on an on-premises server that calls aws guardduty list-findings every 30 minutes" }
     ],
@@ -51,10 +51,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #1?",
     options: [
-      { id: 'A', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" }
+      { id: 'A', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'B', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'D', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #2?",
     options: [
-      { id: 'A', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'B', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'C', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'D', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" }
+      { id: 'A', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'B', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'C', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'D', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #3?",
     options: [
-      { id: 'A', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" }
+      { id: 'A', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'B', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'D', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #4?",
     options: [
-      { id: 'A', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'C', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
+      { id: 'A', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'B', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'C', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'D', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,10 +135,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #5?",
     options: [
-      { id: 'A', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'C', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'D', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" }
+      { id: 'A', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'B', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'C', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'D', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #6?",
     options: [
-      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
+      { id: 'A', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'B', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'D', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #7?",
     options: [
-      { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'C', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
+      { id: 'A', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'B', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'C', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'D', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -198,10 +198,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #8?",
     options: [
-      { id: 'A', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'C', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
+      { id: 'A', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'B', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'C', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'D', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -219,10 +219,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #9?",
     options: [
-      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'B', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'C', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
+      { id: 'A', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'B', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'C', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'D', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #10?",
     options: [
-      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" }
+      { id: 'A', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'B', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'D', text: "Aggregating findings in Security Hub and triaging them from each account's own console" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,10 +261,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #11?",
     options: [
-      { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" }
+      { id: 'A', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'B', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'D', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #12?",
     options: [
-      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'C', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
+      { id: 'A', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'B', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'C', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'D', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #13?",
     options: [
-      { id: 'A', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'C', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
+      { id: 'A', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'B', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'C', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'D', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #14?",
     options: [
-      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'C', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
+      { id: 'A', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'B', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'C', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'D', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -345,10 +345,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #15?",
     options: [
-      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" }
+      { id: 'A', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'B', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'D', text: "Aggregating findings in Security Hub and triaging them from each account's own console" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #16?",
     options: [
-      { id: 'A', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" }
+      { id: 'A', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'B', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'D', text: "Aggregating findings in Security Hub and triaging them from each account's own console" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #17?",
     options: [
-      { id: 'A', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'B', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'C', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'D', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" }
+      { id: 'A', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'B', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'C', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'D', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #18?",
     options: [
-      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
+      { id: 'A', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'B', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'D', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,10 +429,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #19?",
     options: [
-      { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
+      { id: 'A', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'B', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'D', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -450,10 +450,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #20?",
     options: [
-      { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
+      { id: 'A', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'B', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'D', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #21?",
     options: [
-      { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
+      { id: 'A', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'B', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'D', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,10 +492,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #22?",
     options: [
-      { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'C', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
+      { id: 'A', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'B', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'C', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'D', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -513,10 +513,10 @@ export const AWS_SCS_QUESTIONS_1 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #23?",
     options: [
-      { id: 'A', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'C', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
+      { id: 'A', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'B', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'C', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'D', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" }
     ],
     correctAnswers: ['D'],
     type: "single",

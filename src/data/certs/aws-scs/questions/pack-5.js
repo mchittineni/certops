@@ -12,7 +12,7 @@ export const AWS_SCS_QUESTIONS_5 = [
       { id: 'A', text: "Specify the entire subnet CIDR block of VPC A (10.1.0.0/16)" },
       { id: 'B', text: "Attach a Network ACL rule permitting port 5432 to 0.0.0.0/0" },
       { id: 'C', text: "Establish an SSH tunnel between the instances" },
-      { id: 'D', text: "Reference the security group ID of the application servers in VPC A (e.g. <code>sg-app12345</code>) as the source in the database security group ingress rule" }
+      { id: 'D', text: "Reference the application security group as the source in the rule" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -30,10 +30,10 @@ export const AWS_SCS_QUESTIONS_5 = [
     scenario: "A company must guarantee that no IAM user or automated build pipeline can ever change an Amazon Machine Image (AMI) permission to make it publicly accessible.",
     question: "Which preventive control blocks making AMIs public across all accounts in an organization?",
     options: [
-      { id: 'A', text: "Deploy an AWS Config rule that sends an email after an AMI is made public" },
-      { id: 'B', text: "Enable the Amazon EC2 Block Public Access for AMIs feature at the AWS account or AWS Organizations level" },
-      { id: 'C', text: "Rely on Amazon Inspector vulnerability scans" },
-      { id: 'D', text: "Delete all customer managed AMIs from the account" }
+      { id: 'A', text: "Add a Config rule that emails the owner once an AMI has been made public" },
+      { id: 'B', text: "Enable EC2 Block Public Access for AMIs at the organization level" },
+      { id: 'C', text: "Add an Inspector scan that reports images shared outside the organization" },
+      { id: 'D', text: "Add an SCP denying `ec2:ModifyImageAttribute` across the organization" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -52,7 +52,7 @@ export const AWS_SCS_QUESTIONS_5 = [
     question: "Which rule order setting must be configured on the stateful rule group?",
     options: [
       { id: 'A', text: "Disable stateless inspection on the firewall policy" },
-      { id: 'B', text: "Set the rule order to <code>Strict order</code> and specify rule order evaluation priority" },
+      { id: 'B', text: "Set the rule order to strict and give each rule its priority" },
       { id: 'C', text: "Set the rule order to <code>Default action order</code>" },
       { id: 'D', text: "Configure all rules as stateless rules" }
     ],
@@ -93,7 +93,7 @@ export const AWS_SCS_QUESTIONS_5 = [
     scenario: "An e-commerce site wants to deter automated bots from inventory-scraping product pages without completely blocking human users who happen to browse rapidly.",
     question: "Which AWS WAF rule action tests suspected client browsers with silent or interactive puzzles before permitting access?",
     options: [
-      { id: 'A', text: "Configure the WAF rule action to <code>Challenge</code> (silent browser token verification) or <code>CAPTCHA</code> (interactive visual puzzle)" },
+      { id: 'A', text: "Set the rule action to <code>Challenge</code> or <code>CAPTCHA</code>" },
       { id: 'B', text: "Attach an Amazon Cognito User Pool to the load balancer" },
       { id: 'C', text: "Set the action to <code>Count</code> and ignore the logs" },
       { id: 'D', text: "Set the action to <code>Block</code> with HTTP 500 error code" }
@@ -137,7 +137,7 @@ export const AWS_SCS_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Convert the NLB into a Classic Load Balancer" },
       { id: 'B', text: "Attach an AWS WAF Web ACL directly to the NLB TCP listener" },
-      { id: 'C', text: "Create a TLS listener on port 443 with an ACM certificate and attach a security group directly to the Network Load Balancer" },
+      { id: 'C', text: "A TLS listener on 443 with an ACM certificate on the balancer" },
       { id: 'D', text: "Deploy an iptables firewall on each backend target instance" }
     ],
     correctAnswers: ['C'],
@@ -157,7 +157,7 @@ export const AWS_SCS_QUESTIONS_5 = [
     question: "Where should these kernel parameter modifications be applied during automated instance provisioning?",
     options: [
       { id: 'A', text: "In the VPC DHCP options set configuration" },
-      { id: 'B', text: "In the EC2 User Data script by writing parameters to <code>/etc/sysctl.d/99-security.conf</code> and running <code>sysctl -p /etc/sysctl.d/99-security.conf</code>" },
+      { id: 'B', text: "In the user data, writing the parameters under `/etc/sysctl.d`" },
       { id: 'C', text: "In the IAM role trust policy attached to the instance" },
       { id: 'D', text: "In the Network ACL inbound rule configuration" }
     ],
@@ -180,7 +180,7 @@ export const AWS_SCS_QUESTIONS_5 = [
       { id: 'A', text: "Enable S3 Server Access Logging and S3 Event Notifications" },
       { id: 'B', text: "Attach an S3 bucket policy allowing s3:DeleteObject only during business hours" },
       { id: 'C', text: "Configure Amazon S3 Transfer Acceleration" },
-      { id: 'D', text: "Enable S3 Versioning and configure MFA Delete using the AWS CLI with the AWS account root credentials and a physical MFA token" }
+      { id: 'D', text: "Enable versioning and MFA delete from the CLI with the root credentials" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -199,7 +199,7 @@ export const AWS_SCS_QUESTIONS_5 = [
     question: "Which Suricata rule syntax accurately defines this drop action?",
     options: [
       { id: 'A', text: "<code>deny tcp any any -&gt; any any (action: block; string: \"malware_c2_beacon\";)</code>" },
-      { id: 'B', text: "<code>drop http $HOME_NET any -&gt; $EXTERNAL_NET any (msg:\"Malware C2 Beacon Detected\"; content:\"malware_c2_beacon\"; http_uri; sid:1000001; rev:1;)</code>" },
+      { id: 'B', text: "<code>drop http $HOME_NET any -&gt; $EXTERNAL_NET any (content:\"malware_c2_beacon\"; sid:1;)</code>" },
       { id: 'C', text: "<code>reject ip any -&gt; any (payload: \"malware_c2_beacon\")</code>" },
       { id: 'D', text: "<code>filter outbound http where uri contains 'malware_c2_beacon' drop</code>" }
     ],
@@ -243,7 +243,7 @@ export const AWS_SCS_QUESTIONS_5 = [
       { id: 'A', text: "Configure an ALB listener rule to drop all cookies" },
       { id: 'B', text: "Attach a rate-based rule on the IP address" },
       { id: 'C', text: "Inspect the query string for SQL injection patterns" },
-      { id: 'D', text: "Configure a WAF SQL injection match statement that inspects the <code>Single header</code> or <code>Cookie</code> with the specific cookie name <code>session_token</code>" }
+      { id: 'D', text: "A WAF SQL injection statement on the named header" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,7 +282,7 @@ export const AWS_SCS_QUESTIONS_5 = [
     scenario: "A static website hosted on Amazon S3 is fronted by an Amazon CloudFront distribution. Users must be prevented from bypassing CloudFront and accessing the S3 bucket URL directly.",
     question: "Which modern AWS feature securely restricts S3 bucket access strictly to the CloudFront distribution?",
     options: [
-      { id: 'A', text: "Configure CloudFront Origin Access Control (OAC), and update the S3 bucket policy to allow s3:GetObject only when <code>aws:SourceArn</code> matches the CloudFront distribution ARN" },
+      { id: 'A', text: "Origin Access Control, with the bucket policy allowing only that distribution's ARN" },
       { id: 'B', text: "Store S3 objects with public-read ACLs" },
       { id: 'C', text: "Configure Route 53 CNAME records pointing directly to S3" },
       { id: 'D', text: "Configure CloudFront Origin Access Identity (OAI) with an open S3 bucket policy" }
@@ -306,7 +306,7 @@ export const AWS_SCS_QUESTIONS_5 = [
       { id: 'A', text: "The domain registrar must send a signed fax to Amazon Trust Services" },
       { id: 'B', text: "The certificate must be renewed manually every 13 months via the AWS CLI" },
       { id: 'C', text: "The certificate private key must be exported to an S3 bucket" },
-      { id: 'D', text: "The CNAME record created during initial certificate issuance must remain permanently present in the domain's public DNS zone, and the certificate must be actively associated with an in-use AWS service" }
+      { id: 'D', text: "The validation CNAME must stay in the public zone for ACM to renew the certificate" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -326,7 +326,7 @@ export const AWS_SCS_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "AWS CodeDeploy deploying a full application update" },
       { id: 'B', text: "SSH executed via bash loops over a public bastion host" },
-      { id: 'C', text: "AWS Systems Manager Run Command using the <code>AWS-RunShellScript</code> document, logging standard output to an encrypted S3 bucket" },
+      { id: 'C', text: "Run Command with `AWS-RunShellScript`, logging to a bucket" },
       { id: 'D', text: "AWS Lambda running inside the default VPC" }
     ],
     correctAnswers: ['C'],
@@ -345,7 +345,7 @@ export const AWS_SCS_QUESTIONS_5 = [
     scenario: "VPC A is peered with VPC B, and VPC B is peered with VPC C. An auditor is concerned that instances in VPC A might be able to route packets to VPC C through VPC B.",
     question: "How does AWS VPC Peering handle transitive routing between peered VPCs?",
     options: [
-      { id: 'A', text: "AWS VPC Peering strictly forbids transitive routing; traffic cannot hop through an intermediate VPC, so VPC A cannot reach VPC C unless a direct peering connection is established" },
+      { id: 'A', text: "Peering is not transitive, so VPC A cannot reach VPC C through the intermediate peer" },
       { id: 'B', text: "VPC B automatically acts as a NAT gateway for VPC A" },
       { id: 'C', text: "Transitive routing occurs only if Network ACLs allow port 80" },
       { id: 'D', text: "Transitive routing is enabled by default in all VPC peering connections" }
@@ -368,7 +368,7 @@ export const AWS_SCS_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Route 53 latency routing policies" },
       { id: 'B', text: "AWS WAF Web ACL request transformation rules" },
-      { id: 'C', text: "CloudFront Response Headers Policies attached to the distribution's cache behaviors" },
+      { id: 'C', text: "CloudFront response headers policies on the cache behaviors" },
       { id: 'D', text: "S3 metadata tags on each uploaded static file" }
     ],
     correctAnswers: ['C'],
@@ -387,7 +387,7 @@ export const AWS_SCS_QUESTIONS_5 = [
     scenario: "An organization must inspect encrypted outbound HTTPS traffic to detect malware payloads and prevent data exfiltration. The firewall must terminate TLS, inspect cleartext payloads against Suricata rules, and re-encrypt traffic toward the destination.",
     question: "Which AWS Network Firewall capability and configuration enables TLS outbound inspection?",
     options: [
-      { id: 'A', text: "Enable TLS Inspection configuration on the Network Firewall policy, providing an internal CA certificate imported into AWS Certificate Manager (ACM) to generate re-signed certificates for inspected sessions" },
+      { id: 'A', text: "TLS inspection on the firewall policy with an internal CA" },
       { id: 'B', text: "Deploy CloudFront in reverse proxy mode inside the private subnet" },
       { id: 'C', text: "Attach an AWS WAF Web ACL to the NAT Gateway" },
       { id: 'D', text: "Install Wireshark on the Internet Gateway" }
@@ -408,7 +408,7 @@ export const AWS_SCS_QUESTIONS_5 = [
     scenario: "A security engineer creates a regional AWS WAF Web ACL containing rate-limiting and SQL injection rules. Which set of AWS resources can be directly associated with this Web ACL?",
     question: "Which AWS services support direct regional AWS WAF Web ACL association?",
     options: [
-      { id: 'A', text: "Application Load Balancers (ALB), Amazon API Gateway REST APIs, AWS AppSync GraphQL APIs, Amazon Cognito User Pools, and AWS App Runner services" },
+      { id: 'A', text: "Application Load Balancers, API Gateway, AppSync and Cognito pools" },
       { id: 'B', text: "Amazon S3 buckets and Amazon EFS file systems" },
       { id: 'C', text: "Amazon EC2 instances directly and Network Load Balancers" },
       { id: 'D', text: "Amazon RDS databases and Amazon ElastiCache clusters" }
@@ -432,7 +432,7 @@ export const AWS_SCS_QUESTIONS_5 = [
       { id: 'A', text: "Deploying an external squid proxy in a separate VPC" },
       { id: 'B', text: "Standard Kubernetes ClusterIP services without VPC integration" },
       { id: 'C', text: "Relying solely on node-level security groups on the EC2 worker instances" },
-      { id: 'D', text: "Amazon EKS Security Groups for Pods using the Amazon VPC CNI plugin to attach dedicated Elastic Network Interfaces (ENIs) with distinct security groups directly to individual Kubernetes pods" }
+      { id: 'D', text: "EKS security groups for pods, through the VPC CNI plugin" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -450,7 +450,7 @@ export const AWS_SCS_QUESTIONS_5 = [
     scenario: "A mission-critical database running on EC2 must be protected from accidental termination by administrators using the AWS Management Console or AWS CLI scripts.",
     question: "Which two configurations provide defense-in-depth against instance termination?",
     options: [
-      { id: 'A', text: "Enable Termination Protection (<code>DisableApiTermination=true</code>) on the EC2 instance, and attach an IAM policy with an explicit Deny on <code>ec2:TerminateInstances</code> unless a specific MFA token is presented" },
+      { id: 'A', text: "Enable termination protection and deny the terminate action" },
       { id: 'B', text: "Store the EC2 instance ID in a private S3 bucket" },
       { id: 'C', text: "Remove all security groups from the instance" },
       { id: 'D', text: "Change the instance tenancy from Default to Dedicated" }
@@ -473,7 +473,7 @@ export const AWS_SCS_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "The ALB drops all HTTP requests containing cookies" },
       { id: 'B', text: "AWS WAF replaces all user passwords with one-time SMS codes" },
-      { id: 'C', text: "The application embeds the AWS WAF JavaScript SDK to obtain an encrypted WAF token (cookie) verified by Challenge or CAPTCHA rules on sensitive mutating endpoints" },
+      { id: 'C', text: "The application embeds the WAF SDK to obtain the token the rule verifies" },
       { id: 'D', text: "CloudFront caches all POST requests for 24 hours" }
     ],
     correctAnswers: ['C'],
@@ -495,7 +495,7 @@ export const AWS_SCS_QUESTIONS_5 = [
       { id: 'A', text: "Deploy an AWS Lambda function that stops instances every 10 minutes" },
       { id: 'B', text: "Attach an IAM policy denying ec2:RunInstances" },
       { id: 'C', text: "Enable S3 bucket default encryption" },
-      { id: 'D', text: "Enable **EBS encryption by default** in the EC2 settings for the Region, and specify a Customer Managed KMS Key as the default key" }
+      { id: 'D', text: "Enable EBS encryption by default for the region with a customer-managed key" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,7 +513,7 @@ export const AWS_SCS_QUESTIONS_5 = [
     scenario: "A database subnet must be completely isolated from the internet. It must not have routes to an Internet Gateway, NAT Gateway, or Virtual Private Gateway, but must receive software patches from an internal repository hosted in another private subnet.",
     question: "How should the route table for this isolated database subnet be configured?",
     options: [
-      { id: 'A', text: "Associate a custom route table containing only the local VPC route (e.g. <code>10.0.0.0/16 -&gt; local</code>) with zero 0.0.0.0/0 default routes" },
+      { id: 'A', text: "Associate a route table holding only the local route, with no route to any gateway" },
       { id: 'B', text: "Delete the subnet from the VPC" },
       { id: 'C', text: "Add a route 0.0.0.0/0 pointing to an Internet Gateway with a disabled state" },
       { id: 'D', text: "Configure a 0.0.0.0/0 route pointing to blackhole" }

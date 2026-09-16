@@ -12,7 +12,7 @@ export const AWS_SCS_QUESTIONS_14 = [
       { id: 'A', text: "Rely on developers to voluntarily restrict their security group rules." },
       { id: 'B', text: "Disable AWS Config to reduce monthly configuration snapshot recording fees." },
       { id: 'C', text: "Perform quarterly manual audits where engineers inspect EC2 security groups in the management console." },
-      { id: 'D', text: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation." }
+      { id: 'D', text: "Config recorders everywhere with the `restricted-ssh` rule and automated remediation." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -30,7 +30,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation." },
+      { id: 'A', text: "Config recorders everywhere with the `restricted-ssh` rule and automated remediation." },
       { id: 'B', text: "Perform quarterly manual audits where engineers inspect EC2 security groups in the management console." },
       { id: 'C', text: "Disable AWS Config to reduce monthly configuration snapshot recording fees." },
       { id: 'D', text: "Rely on developers to voluntarily restrict their security group rules." }
@@ -52,7 +52,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Perform quarterly manual audits where engineers inspect EC2 security groups in the management console." },
-      { id: 'B', text: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation." },
+      { id: 'B', text: "Config recorders everywhere with the `restricted-ssh` rule and automated remediation." },
       { id: 'C', text: "Rely on developers to voluntarily restrict their security group rules." },
       { id: 'D', text: "Disable AWS Config to reduce monthly configuration snapshot recording fees." }
     ],
@@ -74,7 +74,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Rely on developers to voluntarily restrict their security group rules." },
       { id: 'B', text: "Perform quarterly manual audits where engineers inspect EC2 security groups in the management console." },
-      { id: 'C', text: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation." },
+      { id: 'C', text: "Config recorders everywhere with the `restricted-ssh` rule and automated remediation." },
       { id: 'D', text: "Disable AWS Config to reduce monthly configuration snapshot recording fees." }
     ],
     correctAnswers: ['C'],
@@ -93,7 +93,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Enable AWS Config recorders across all accounts and regions with the managed rule `restricted-ssh` linked to SSM automated remediation." },
+      { id: 'A', text: "Config recorders everywhere with the `restricted-ssh` rule and automated remediation." },
       { id: 'B', text: "Perform quarterly manual audits where engineers inspect EC2 security groups in the management console." },
       { id: 'C', text: "Disable AWS Config to reduce monthly configuration snapshot recording fees." },
       { id: 'D', text: "Rely on developers to voluntarily restrict their security group rules." }
@@ -117,7 +117,7 @@ export const AWS_SCS_QUESTIONS_14 = [
       { id: 'A', text: "Deploy individual NAT Gateways and third-party firewall instances in every private subnet with no central management." },
       { id: 'B', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." },
       { id: 'C', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." },
-      { id: 'D', text: "Deploy AWS Network Firewall in a centralized inspection VPC with Transit Gateway route tables directing traffic through firewall endpoints." }
+      { id: 'D', text: "Network Firewall in a central inspection VPC, with Transit Gateway routes through it" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -138,7 +138,7 @@ export const AWS_SCS_QUESTIONS_14 = [
       { id: 'A', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." },
       { id: 'B', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." },
       { id: 'C', text: "Deploy individual NAT Gateways and third-party firewall instances in every private subnet with no central management." },
-      { id: 'D', text: "Deploy AWS Network Firewall in a centralized inspection VPC with Transit Gateway route tables directing traffic through firewall endpoints." }
+      { id: 'D', text: "Network Firewall in a central inspection VPC, with Transit Gateway routes through it" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -157,7 +157,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Deploy individual NAT Gateways and third-party firewall instances in every private subnet with no central management." },
-      { id: 'B', text: "Deploy AWS Network Firewall in a centralized inspection VPC with Transit Gateway route tables directing traffic through firewall endpoints." },
+      { id: 'B', text: "Network Firewall in a central inspection VPC, with Transit Gateway routes through it" },
       { id: 'C', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." },
       { id: 'D', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." }
     ],
@@ -177,7 +177,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to inspect and filter all north-south internet egress and east-west VPC traffic centrally across an entire AWS Organization.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Deploy AWS Network Firewall in a centralized inspection VPC with Transit Gateway route tables directing traffic through firewall endpoints." },
+      { id: 'A', text: "Network Firewall in a central inspection VPC, with Transit Gateway routes through it" },
       { id: 'B', text: "Deploy individual NAT Gateways and third-party firewall instances in every private subnet with no central management." },
       { id: 'C', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." },
       { id: 'D', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." }
@@ -198,7 +198,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to inspect and filter all north-south internet egress and east-west VPC traffic centrally across an entire AWS Organization.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Deploy AWS Network Firewall in a centralized inspection VPC with Transit Gateway route tables directing traffic through firewall endpoints." },
+      { id: 'A', text: "Network Firewall in a central inspection VPC, with Transit Gateway routes through it" },
       { id: 'B', text: "Deploy individual NAT Gateways and third-party firewall instances in every private subnet with no central management." },
       { id: 'C', text: "Allow all VPC traffic to egress directly to the internet without stateful inspection." },
       { id: 'D', text: "Disable Transit Gateway routing to force all traffic through public internet VPNs." }
@@ -219,7 +219,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to protect an e-commerce login API from distributed credential stuffing attacks originating from thousands of rotating IP addresses.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Implement an AWS WAF Web ACL with a rate-based rule limiting requests to `/login` and enable AWS WAF Bot Control." },
+      { id: 'A', text: "A WAF web ACL with a rate-based rule on `/login` and Bot Control enabled." },
       { id: 'B', text: "Increase EC2 instance sizes to absorb the massive volume of fraudulent login attempts." },
       { id: 'C', text: "Disable rate limiting to prevent blocking legitimate customers who forget their passwords." },
       { id: 'D', text: "Rely on client-side JavaScript popups to deter automated attack scripts." }
@@ -240,7 +240,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to protect an e-commerce login API from distributed credential stuffing attacks originating from thousands of rotating IP addresses.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Implement an AWS WAF Web ACL with a rate-based rule limiting requests to `/login` and enable AWS WAF Bot Control." },
+      { id: 'A', text: "A WAF web ACL with a rate-based rule on `/login` and Bot Control enabled." },
       { id: 'B', text: "Increase EC2 instance sizes to absorb the massive volume of fraudulent login attempts." },
       { id: 'C', text: "Disable rate limiting to prevent blocking legitimate customers who forget their passwords." },
       { id: 'D', text: "Rely on client-side JavaScript popups to deter automated attack scripts." }
@@ -261,7 +261,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to protect an e-commerce login API from distributed credential stuffing attacks originating from thousands of rotating IP addresses.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Implement an AWS WAF Web ACL with a rate-based rule limiting requests to `/login` and enable AWS WAF Bot Control." },
+      { id: 'A', text: "A WAF web ACL with a rate-based rule on `/login` and Bot Control enabled." },
       { id: 'B', text: "Increase EC2 instance sizes to absorb the massive volume of fraudulent login attempts." },
       { id: 'C', text: "Disable rate limiting to prevent blocking legitimate customers who forget their passwords." },
       { id: 'D', text: "Rely on client-side JavaScript popups to deter automated attack scripts." }
@@ -285,7 +285,7 @@ export const AWS_SCS_QUESTIONS_14 = [
       { id: 'A', text: "Increase EC2 instance sizes to absorb the massive volume of fraudulent login attempts." },
       { id: 'B', text: "Rely on client-side JavaScript popups to deter automated attack scripts." },
       { id: 'C', text: "Disable rate limiting to prevent blocking legitimate customers who forget their passwords." },
-      { id: 'D', text: "Implement an AWS WAF Web ACL with a rate-based rule limiting requests to `/login` and enable AWS WAF Bot Control." }
+      { id: 'D', text: "A WAF web ACL with a rate-based rule on `/login` and Bot Control enabled." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -305,7 +305,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Increase EC2 instance sizes to absorb the massive volume of fraudulent login attempts." },
       { id: 'B', text: "Disable rate limiting to prevent blocking legitimate customers who forget their passwords." },
-      { id: 'C', text: "Implement an AWS WAF Web ACL with a rate-based rule limiting requests to `/login` and enable AWS WAF Bot Control." },
+      { id: 'C', text: "A WAF web ACL with a rate-based rule on `/login` and Bot Control enabled." },
       { id: 'D', text: "Rely on client-side JavaScript popups to deter automated attack scripts." }
     ],
     correctAnswers: ['C'],
@@ -429,7 +429,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to block a specific malicious IP subnet from reaching any resources in a subnet while allowing stateful return traffic for application servers.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Add an explicit `DENY` rule for the CIDR block in the subnet's stateless Network ACL, while managing stateful application rules in Security Groups." },
+      { id: 'A', text: "An explicit deny for that CIDR in the subnet's network ACL, with the rest on the security group" },
       { id: 'B', text: "Remove all outbound rules from Security Groups expecting them to block response traffic for accepted inbound connections." },
       { id: 'C', text: "Attempt to add a DENY rule to a Security Group, which only supports permissive ALLOW rules." },
       { id: 'D', text: "Disable Network ACLs and leave subnets completely unshielded." }
@@ -452,7 +452,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Disable Network ACLs and leave subnets completely unshielded." },
       { id: 'B', text: "Remove all outbound rules from Security Groups expecting them to block response traffic for accepted inbound connections." },
-      { id: 'C', text: "Add an explicit `DENY` rule for the CIDR block in the subnet's stateless Network ACL, while managing stateful application rules in Security Groups." },
+      { id: 'C', text: "An explicit deny for that CIDR in the subnet's network ACL, with the rest on the security group" },
       { id: 'D', text: "Attempt to add a DENY rule to a Security Group, which only supports permissive ALLOW rules." }
     ],
     correctAnswers: ['C'],
@@ -471,7 +471,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to block a specific malicious IP subnet from reaching any resources in a subnet while allowing stateful return traffic for application servers.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Add an explicit `DENY` rule for the CIDR block in the subnet's stateless Network ACL, while managing stateful application rules in Security Groups." },
+      { id: 'A', text: "An explicit deny for that CIDR in the subnet's network ACL, with the rest on the security group" },
       { id: 'B', text: "Attempt to add a DENY rule to a Security Group, which only supports permissive ALLOW rules." },
       { id: 'C', text: "Disable Network ACLs and leave subnets completely unshielded." },
       { id: 'D', text: "Remove all outbound rules from Security Groups expecting them to block response traffic for accepted inbound connections." }
@@ -492,7 +492,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to block a specific malicious IP subnet from reaching any resources in a subnet while allowing stateful return traffic for application servers.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Add an explicit `DENY` rule for the CIDR block in the subnet's stateless Network ACL, while managing stateful application rules in Security Groups." },
+      { id: 'A', text: "An explicit deny for that CIDR in the subnet's network ACL, with the rest on the security group" },
       { id: 'B', text: "Attempt to add a DENY rule to a Security Group, which only supports permissive ALLOW rules." },
       { id: 'C', text: "Disable Network ACLs and leave subnets completely unshielded." },
       { id: 'D', text: "Remove all outbound rules from Security Groups expecting them to block response traffic for accepted inbound connections." }
@@ -513,7 +513,7 @@ export const AWS_SCS_QUESTIONS_14 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to block a specific malicious IP subnet from reaching any resources in a subnet while allowing stateful return traffic for application servers.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Add an explicit `DENY` rule for the CIDR block in the subnet's stateless Network ACL, while managing stateful application rules in Security Groups." },
+      { id: 'A', text: "An explicit deny for that CIDR in the subnet's network ACL, with the rest on the security group" },
       { id: 'B', text: "Attempt to add a DENY rule to a Security Group, which only supports permissive ALLOW rules." },
       { id: 'C', text: "Disable Network ACLs and leave subnets completely unshielded." },
       { id: 'D', text: "Remove all outbound rules from Security Groups expecting them to block response traffic for accepted inbound connections." }

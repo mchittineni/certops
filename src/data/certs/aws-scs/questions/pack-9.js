@@ -12,7 +12,7 @@ export const AWS_SCS_QUESTIONS_9 = [
       { id: 'A', text: "The snapshot must be converted to unencrypted prior to copying" },
       { id: 'B', text: "Aurora cluster snapshots cannot be shared across AWS accounts" },
       { id: 'C', text: "The destination account can restore the cluster directly using the source KMS key without copying" },
-      { id: 'D', text: "The destination account must copy the shared snapshot into its own account, re-encrypting it with a Customer Managed Key owned by the destination account" }
+      { id: 'D', text: "The destination account must copy the snapshot, re-encrypting it with its own key" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -30,10 +30,10 @@ export const AWS_SCS_QUESTIONS_9 = [
     scenario: "A security policy requires separating duties: Cloud administrators must be able to manage KMS key metadata (tags, descriptions, rotation) but must be strictly prevented from using the key to encrypt or decrypt sensitive data.",
     question: "How is this separation of duties achieved in the KMS Key Policy?",
     options: [
-      { id: 'A', text: "Convert the key to an AWS managed key" },
-      { id: 'B', text: "Create two statements in the Key Policy: Statement 1 grants administrators management actions (<code>kms:Describe*</code>, <code>kms:Put*</code>, <code>kms:Update*</code>, <code>kms:TagResource</code>); Statement 2 grants only the application role cryptographic actions (<code>kms:Encrypt</code>, <code>kms:Decrypt</code>, <code>kms:GenerateDataKey*</code>)" },
-      { id: 'C', text: "Use IAM permissions boundaries alone without modifying the key policy" },
-      { id: 'D', text: "Grant <code>kms:*</code> to both administrators and applications" }
+      { id: 'A', text: "One key policy statement granting both administrators and the application the full set of key actions" },
+      { id: 'B', text: "Two key policy statements: management actions for the administrators, cryptographic actions for the application role" },
+      { id: 'C', text: "An IAM permissions boundary on each principal, leaving the key policy granting access to the account root" },
+      { id: 'D', text: "A grant issued to the application role for the cryptographic actions, with no change to the key policy" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -53,7 +53,7 @@ export const AWS_SCS_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Parameters are automatically replicated to all member accounts" },
       { id: 'B', text: "Parameter Store supports resource policies natively like Secrets Manager" },
-      { id: 'C', text: "Parameter Store does not support cross-account resource policies directly; member accounts must assume an IAM role in the central configuration account that has permissions to <code>ssm:GetParameter</code> and <code>kms:Decrypt</code>" },
+      { id: 'C', text: "Parameter Store has no cross-account policy, so the members assume a role" },
       { id: 'D', text: "Parameters must be stored in plaintext to be accessed cross-account" }
     ],
     correctAnswers: ['C'],
@@ -72,7 +72,7 @@ export const AWS_SCS_QUESTIONS_9 = [
     scenario: "A financial institution must archive transaction logs in Amazon S3 Glacier for 7 years to comply with SEC Rule 17a-4. Once locked, the archive policy must be immutable, preventing any administrative override.",
     question: "Which process commits an immutable S3 Glacier Vault Lock policy?",
     options: [
-      { id: 'A', text: "Initiate the vault lock using <code>InitiateVaultLock</code>, test the policy within the 24-hour testing window, and call <code>CompleteVaultLock</code> with the lock ID to lock the policy permanently" },
+      { id: 'A', text: "Initiate the lock, test within the window, then complete it" },
       { id: 'B', text: "Export the vault data to AWS Snowball" },
       { id: 'C', text: "Enable S3 Transfer Acceleration" },
       { id: 'D', text: "Apply an S3 bucket policy with an explicit Deny" }
@@ -95,7 +95,7 @@ export const AWS_SCS_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Store the KMS private key in the mobile application binary" },
       { id: 'B', text: "Use an AWS STS temporary session on every mobile phone" },
-      { id: 'C', text: "Call the <code>GetPublicKey</code> API once (or distribute the public key PEM file with the app), and use standard crypto libraries to verify the signature locally" },
+      { id: 'C', text: "Call `GetPublicKey` once and verify the signature locally with a standard library" },
       { id: 'D', text: "Require mobile apps to call <code>kms:Decrypt</code> over the public internet" }
     ],
     correctAnswers: ['C'],
@@ -114,10 +114,10 @@ export const AWS_SCS_QUESTIONS_9 = [
     scenario: "A security requirement mandates that all log data stored in Amazon CloudWatch Logs must be encrypted at rest using a Customer Managed KMS Key (CMK).",
     question: "What permission must be added to the KMS key policy to permit CloudWatch Logs to encrypt log groups?",
     options: [
-      { id: 'A', text: "Disable TLS on CloudWatch log streams" },
-      { id: 'B', text: "Attach an S3 bucket policy to the CloudWatch log group" },
-      { id: 'C', text: "Grant the service principal <code>logs.&lt;region&gt;.amazonaws.com</code> permissions to <code>kms:Encrypt*</code>, <code>kms:Decrypt*</code>, <code>kms:ReEncrypt*</code>, <code>kms:GenerateDataKey*</code>, and <code>kms:Describe*</code> with an <code>arn:aws:logs</code> encryption context condition" },
-      { id: 'D', text: "Grant <code>kms:*</code> to the IAM user who created the log group" }
+      { id: 'A', text: "Grant the `logs.&lt;region&gt;.amazonaws.com` principal `kms:Describe*` only, since the service encrypts with its own key" },
+      { id: 'B', text: "Attach a resource policy to the log group naming the key, which the service then uses for the encryption" },
+      { id: 'C', text: "Grant the `logs.&lt;region&gt;.amazonaws.com` principal the encrypt and decrypt actions, with an encryption context condition" },
+      { id: 'D', text: "Grant the IAM principal that created the log group the full set of key actions on that customer-managed key" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -136,7 +136,7 @@ export const AWS_SCS_QUESTIONS_9 = [
     question: "Why does AWS prevent sharing snapshots encrypted with the default `aws/ebs` key?",
     options: [
       { id: 'A', text: "External accounts can only access unencrypted snapshots" },
-      { id: 'B', text: "The default `aws/ebs` key is an AWS Managed Key owned by the source account; its key policy cannot be modified to grant cross-account access, so snapshots must be encrypted with a Customer Managed Key to be shareable" },
+      { id: 'B', text: "The `aws/ebs` key is AWS-managed, so its policy cannot be changed to share across accounts" },
       { id: 'C', text: "Default keys do not use AES-256 encryption" },
       { id: 'D', text: "Snapshots encrypted with default keys are automatically deleted after 24 hours" }
     ],
@@ -156,10 +156,10 @@ export const AWS_SCS_QUESTIONS_9 = [
     scenario: "A high-concurrency serverless application on AWS Lambda retrieves database secrets from Secrets Manager on every invocation. The application experiences high Secrets Manager API throttling (429 TooManyRequests) and elevated API costs.",
     question: "Which software architectural pattern resolves the throttling and reduces API costs?",
     options: [
-      { id: 'A', text: "Increase the Lambda timeout to 15 minutes" },
-      { id: 'B', text: "Use the AWS Secrets Manager **caching client** library (or the AWS Parameters and Secrets Lambda Extension) to cache secret values in function memory across execution invocations" },
-      { id: 'C', text: "Hardcode the database password into the Lambda function code" },
-      { id: 'D', text: "Create 10 duplicate secrets in Secrets Manager" }
+      { id: 'A', text: "Raise the function's timeout so the throttled calls have time to succeed" },
+      { id: 'B', text: "Use the Secrets Manager caching client to cache the value" },
+      { id: 'C', text: "Pass the password in as a Lambda environment variable at deployment time" },
+      { id: 'D', text: "Create one secret per function so the request rate is spread across them" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -222,7 +222,7 @@ export const AWS_SCS_QUESTIONS_9 = [
       { id: 'A', text: "The upload defaults to SSE-S3 and ignores the request header" },
       { id: 'B', text: "The object is encrypted twice (double encryption)" },
       { id: 'C', text: "The upload is rejected with a 400 Bad Request error" },
-      { id: 'D', text: "The upload uses **SSE-KMS** as specified in the request header; default encryption only applies when an incoming upload does not specify an encryption header" }
+      { id: 'D', text: "The upload named SSE-KMS; the default applies only without one" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -241,7 +241,7 @@ export const AWS_SCS_QUESTIONS_9 = [
     question: "Which cryptographic algorithm and mode does AWS KMS use for symmetric encryption keys?",
     options: [
       { id: 'A', text: "RSA with 2048-bit keys in PKCS#1 v1.5 padding" },
-      { id: 'B', text: "Advanced Encryption Standard (AES) in Galois/Counter Mode (GCM) with 256-bit keys (**AES-GCM-256**)" },
+      { id: 'B', text: "AES in Galois/Counter Mode with 256-bit keys" },
       { id: 'C', text: "Blowfish in Electronic Codebook (ECB) mode" },
       { id: 'D', text: "Data Encryption Standard (3DES) in Cipher Block Chaining (CBC) mode" }
     ],
@@ -264,7 +264,7 @@ export const AWS_SCS_QUESTIONS_9 = [
       { id: 'A', text: "Yes, private keys are sent via email to the account root address" },
       { id: 'B', text: "Yes, private keys can be exported using the AWS CLI command get-private-key" },
       { id: 'C', text: "Yes, but only if the certificate was validated via email" },
-      { id: 'D', text: "No, private keys for public certificates managed by ACM cannot be exported; they are protected by AWS KMS and can only be used on integrated AWS services (ALB, CloudFront, API Gateway)" }
+      { id: 'D', text: "No: ACM private keys cannot be exported from the service" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -284,7 +284,7 @@ export const AWS_SCS_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "AWS Systems Manager Parameter Store with SecureString" },
       { id: 'B', text: "Importing key material directly into standard KMS" },
-      { id: 'C', text: "AWS KMS **External Key Store (XKS)** using an external key store proxy" },
+      { id: 'C', text: "A KMS external key store through its proxy" },
       { id: 'D', text: "AWS CloudHSM in the local VPC" }
     ],
     correctAnswers: ['C'],
@@ -303,7 +303,7 @@ export const AWS_SCS_QUESTIONS_9 = [
     scenario: "A security architect is configuring encryption at rest for an Amazon Redshift data warehouse cluster storing sensitive analytics data.",
     question: "How does Amazon Redshift manage encryption keys using AWS KMS?",
     options: [
-      { id: 'A', text: "Redshift uses a 4-tier key hierarchy: the AWS KMS Customer Managed Key encrypts a cluster key, the cluster key encrypts database keys, and database keys encrypt individual data block encryption keys" },
+      { id: 'A', text: "Redshift layers the keys: the customer key wraps the cluster key" },
       { id: 'B', text: "Redshift uses unencrypted ephemeral keys stored in S3" },
       { id: 'C', text: "Redshift sends all raw database queries to the KMS API for decryption" },
       { id: 'D', text: "Redshift relies on Linux dm-crypt on EC2 instances" }
@@ -326,7 +326,7 @@ export const AWS_SCS_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "SCPs only apply to member accounts if explicitly accepted by the member account administrator" },
       { id: 'B', text: "SCPs apply to the management account itself, locking the security team out" },
-      { id: 'C', text: "The actions are blocked for all IAM users and roles in all member accounts, including the member account root user, and can only be modified or detached by the management account" },
+      { id: 'C', text: "They are blocked for every principal in the member accounts, including the account root" },
       { id: 'D', text: "The SCP blocks actions for standard IAM users, but member account root users can bypass it" }
     ],
     correctAnswers: ['C'],
@@ -345,10 +345,10 @@ export const AWS_SCS_QUESTIONS_9 = [
     scenario: "An enterprise governance committee is establishing landing zones, compliance conformance packs, and audit readiness across hundreds of AWS accounts.",
     question: "Which governance architecture best fulfills objective #1?",
     options: [
-      { id: 'A', text: "Allowing unmanaged standalone AWS accounts without central organizational oversight" },
-      { id: 'B', text: "Deleting all security audit trails immediately after compliance reviews finish" },
-      { id: 'C', text: "Deploying AWS Control Tower with mandatory guardrails, AWS Config conformance packs, and AWS Audit Manager evidence collection" },
-      { id: 'D', text: "Disabling AWS Config recording across production accounts to avoid recording charges" }
+      { id: 'A', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
+      { id: 'B', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
+      { id: 'C', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
+      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -366,10 +366,10 @@ export const AWS_SCS_QUESTIONS_9 = [
     scenario: "An enterprise governance committee is establishing landing zones, compliance conformance packs, and audit readiness across hundreds of AWS accounts.",
     question: "Which governance architecture best fulfills objective #2?",
     options: [
-      { id: 'A', text: "Deploying AWS Control Tower with mandatory guardrails, AWS Config conformance packs, and AWS Audit Manager evidence collection" },
-      { id: 'B', text: "Deleting all security audit trails immediately after compliance reviews finish" },
-      { id: 'C', text: "Allowing unmanaged standalone AWS accounts without central organizational oversight" },
-      { id: 'D', text: "Disabling AWS Config recording across production accounts to avoid recording charges" }
+      { id: 'A', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
+      { id: 'B', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
+      { id: 'C', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
+      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const AWS_SCS_QUESTIONS_9 = [
     scenario: "An enterprise governance committee is establishing landing zones, compliance conformance packs, and audit readiness across hundreds of AWS accounts.",
     question: "Which governance architecture best fulfills objective #3?",
     options: [
-      { id: 'A', text: "Deploying AWS Control Tower with mandatory guardrails, AWS Config conformance packs, and AWS Audit Manager evidence collection" },
-      { id: 'B', text: "Deleting all security audit trails immediately after compliance reviews finish" },
-      { id: 'C', text: "Allowing unmanaged standalone AWS accounts without central organizational oversight" },
-      { id: 'D', text: "Disabling AWS Config recording across production accounts to avoid recording charges" }
+      { id: 'A', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
+      { id: 'B', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
+      { id: 'C', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
+      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const AWS_SCS_QUESTIONS_9 = [
     scenario: "An enterprise governance committee is establishing landing zones, compliance conformance packs, and audit readiness across hundreds of AWS accounts.",
     question: "Which governance architecture best fulfills objective #4?",
     options: [
-      { id: 'A', text: "Allowing unmanaged standalone AWS accounts without central organizational oversight" },
-      { id: 'B', text: "Deploying AWS Control Tower with mandatory guardrails, AWS Config conformance packs, and AWS Audit Manager evidence collection" },
-      { id: 'C', text: "Deleting all security audit trails immediately after compliance reviews finish" },
-      { id: 'D', text: "Disabling AWS Config recording across production accounts to avoid recording charges" }
+      { id: 'A', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
+      { id: 'B', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
+      { id: 'C', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
+      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const AWS_SCS_QUESTIONS_9 = [
     scenario: "An enterprise governance committee is establishing landing zones, compliance conformance packs, and audit readiness across hundreds of AWS accounts.",
     question: "Which governance architecture best fulfills objective #5?",
     options: [
-      { id: 'A', text: "Allowing unmanaged standalone AWS accounts without central organizational oversight" },
-      { id: 'B', text: "Deploying AWS Control Tower with mandatory guardrails, AWS Config conformance packs, and AWS Audit Manager evidence collection" },
-      { id: 'C', text: "Disabling AWS Config recording across production accounts to avoid recording charges" },
-      { id: 'D', text: "Deleting all security audit trails immediately after compliance reviews finish" }
+      { id: 'A', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
+      { id: 'B', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
+      { id: 'C', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'D', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,10 +450,10 @@ export const AWS_SCS_QUESTIONS_9 = [
     scenario: "An enterprise governance committee is establishing landing zones, compliance conformance packs, and audit readiness across hundreds of AWS accounts.",
     question: "Which governance architecture best fulfills objective #6?",
     options: [
-      { id: 'A', text: "Allowing unmanaged standalone AWS accounts without central organizational oversight" },
-      { id: 'B', text: "Deploying AWS Control Tower with mandatory guardrails, AWS Config conformance packs, and AWS Audit Manager evidence collection" },
-      { id: 'C', text: "Disabling AWS Config recording across production accounts to avoid recording charges" },
-      { id: 'D', text: "Deleting all security audit trails immediately after compliance reviews finish" }
+      { id: 'A', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
+      { id: 'B', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
+      { id: 'C', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'D', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,10 +471,10 @@ export const AWS_SCS_QUESTIONS_9 = [
     scenario: "An enterprise governance committee is establishing landing zones, compliance conformance packs, and audit readiness across hundreds of AWS accounts.",
     question: "Which governance architecture best fulfills objective #7?",
     options: [
-      { id: 'A', text: "Deploying AWS Control Tower with mandatory guardrails, AWS Config conformance packs, and AWS Audit Manager evidence collection" },
-      { id: 'B', text: "Disabling AWS Config recording across production accounts to avoid recording charges" },
-      { id: 'C', text: "Deleting all security audit trails immediately after compliance reviews finish" },
-      { id: 'D', text: "Allowing unmanaged standalone AWS accounts without central organizational oversight" }
+      { id: 'A', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
+      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'C', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
+      { id: 'D', text: "Control Tower with the elective guardrails only, and evidence gathered per account" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const AWS_SCS_QUESTIONS_9 = [
     scenario: "An enterprise governance committee is establishing landing zones, compliance conformance packs, and audit readiness across hundreds of AWS accounts.",
     question: "Which governance architecture best fulfills objective #8?",
     options: [
-      { id: 'A', text: "Deploying AWS Control Tower with mandatory guardrails, AWS Config conformance packs, and AWS Audit Manager evidence collection" },
-      { id: 'B', text: "Disabling AWS Config recording across production accounts to avoid recording charges" },
-      { id: 'C', text: "Allowing unmanaged standalone AWS accounts without central organizational oversight" },
-      { id: 'D', text: "Deleting all security audit trails immediately after compliance reviews finish" }
+      { id: 'A', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
+      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'C', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
+      { id: 'D', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const AWS_SCS_QUESTIONS_9 = [
     scenario: "An enterprise governance committee is establishing landing zones, compliance conformance packs, and audit readiness across hundreds of AWS accounts.",
     question: "Which governance architecture best fulfills objective #9?",
     options: [
-      { id: 'A', text: "Deploying AWS Control Tower with mandatory guardrails, AWS Config conformance packs, and AWS Audit Manager evidence collection" },
-      { id: 'B', text: "Disabling AWS Config recording across production accounts to avoid recording charges" },
-      { id: 'C', text: "Allowing unmanaged standalone AWS accounts without central organizational oversight" },
-      { id: 'D', text: "Deleting all security audit trails immediately after compliance reviews finish" }
+      { id: 'A', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
+      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'C', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
+      { id: 'D', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" }
     ],
     correctAnswers: ['A'],
     type: "single",
