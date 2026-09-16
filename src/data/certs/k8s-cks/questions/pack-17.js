@@ -117,7 +117,7 @@ export const K8S_CKS_QUESTIONS_17 = [
       { id: 'A', text: "Hold the registry credentials in a `kubernetes.io/dockerconfigjson` Secret named by `imagePullSecrets`." },
       { id: 'B', text: "Hold the registry credentials in an `Opaque` Secret mounted into each pod as a config file." },
       { id: 'C', text: "Hold the registry credentials in the node's own `/var/lib/kubelet/config.json` on every node." },
-      { id: 'D', text: "Hold the registry credentials in the default ServiceAccount's `imagePullSecrets` for every namespace." }
+      { id: 'D', text: "Hold the registry credentials in the default ServiceAccount's `imagePullSecrets` in every namespace instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -136,7 +136,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Hold the registry credentials in a `kubernetes.io/dockerconfigjson` Secret named by `imagePullSecrets`." },
-      { id: 'B', text: "Hold the registry credentials in the default ServiceAccount's `imagePullSecrets` for every namespace." },
+      { id: 'B', text: "Hold the registry credentials in the default ServiceAccount's `imagePullSecrets` in every namespace instead." },
       { id: 'C', text: "Hold the registry credentials in an `Opaque` Secret mounted into each pod as a config file." },
       { id: 'D', text: "Hold the registry credentials in the node's own `/var/lib/kubelet/config.json` on every node." }
     ],
@@ -159,7 +159,7 @@ export const K8S_CKS_QUESTIONS_17 = [
       { id: 'A', text: "Hold the registry credentials in a `kubernetes.io/dockerconfigjson` Secret named by `imagePullSecrets`." },
       { id: 'B', text: "Hold the registry credentials in an `Opaque` Secret mounted into each pod as a config file." },
       { id: 'C', text: "Hold the registry credentials in the node's own `/var/lib/kubelet/config.json` on every node." },
-      { id: 'D', text: "Hold the registry credentials in the default ServiceAccount's `imagePullSecrets` for every namespace." }
+      { id: 'D', text: "Hold the registry credentials in the default ServiceAccount's `imagePullSecrets` in every namespace instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -180,7 +180,7 @@ export const K8S_CKS_QUESTIONS_17 = [
       { id: 'A', text: "Hold the registry credentials in a `kubernetes.io/dockerconfigjson` Secret named by `imagePullSecrets`." },
       { id: 'B', text: "Hold the registry credentials in an `Opaque` Secret mounted into each pod as a config file." },
       { id: 'C', text: "Hold the registry credentials in the node's own `/var/lib/kubelet/config.json` on every node." },
-      { id: 'D', text: "Hold the registry credentials in the default ServiceAccount's `imagePullSecrets` for every namespace." }
+      { id: 'D', text: "Hold the registry credentials in the default ServiceAccount's `imagePullSecrets` in every namespace instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -201,7 +201,7 @@ export const K8S_CKS_QUESTIONS_17 = [
       { id: 'A', text: "Hold the registry credentials in an `Opaque` Secret mounted into each pod as a config file." },
       { id: 'B', text: "Hold the registry credentials in the node's own `/var/lib/kubelet/config.json` on every node." },
       { id: 'C', text: "Hold the registry credentials in a `kubernetes.io/dockerconfigjson` Secret named by `imagePullSecrets`." },
-      { id: 'D', text: "Hold the registry credentials in the default ServiceAccount's `imagePullSecrets` for every namespace." }
+      { id: 'D', text: "Hold the registry credentials in the default ServiceAccount's `imagePullSecrets` in every namespace instead." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,7 +324,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent developers from deploying containers sourced from unvetted public registries (like personal Docker Hub accounts) to production clusters.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Apply an `AlwaysPullImages` admission plugin so unapproved registries fail the pull at admission." },
+      { id: 'A', text: "Apply an `AlwaysPullImages` admission plugin so that unapproved registries fail the pull at admission." },
       { id: 'B', text: "Apply an `ImagePolicyWebhook` configuration whose backend defaults to allow when unreachable." },
       { id: 'C', text: "Apply a Kyverno mutate policy that rewrites every image reference to the internal mirror." },
       { id: 'D', text: "Apply a Gatekeeper or Kyverno policy that rejects pods whose images are not from approved registries." }
@@ -348,7 +348,7 @@ export const K8S_CKS_QUESTIONS_17 = [
       { id: 'A', text: "Apply an `ImagePolicyWebhook` configuration whose backend defaults to allow when unreachable." },
       { id: 'B', text: "Apply a Gatekeeper or Kyverno policy that rejects pods whose images are not from approved registries." },
       { id: 'C', text: "Apply a Kyverno mutate policy that rewrites every image reference to the internal mirror." },
-      { id: 'D', text: "Apply an `AlwaysPullImages` admission plugin so unapproved registries fail the pull at admission." }
+      { id: 'D', text: "Apply an `AlwaysPullImages` admission plugin so that unapproved registries fail the pull at admission." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -369,7 +369,7 @@ export const K8S_CKS_QUESTIONS_17 = [
       { id: 'A', text: "Apply a Gatekeeper or Kyverno policy that rejects pods whose images are not from approved registries." },
       { id: 'B', text: "Apply a Kyverno mutate policy that rewrites every image reference to the internal mirror." },
       { id: 'C', text: "Apply an `ImagePolicyWebhook` configuration whose backend defaults to allow when unreachable." },
-      { id: 'D', text: "Apply an `AlwaysPullImages` admission plugin so unapproved registries fail the pull at admission." }
+      { id: 'D', text: "Apply an `AlwaysPullImages` admission plugin so that unapproved registries fail the pull at admission." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -390,7 +390,7 @@ export const K8S_CKS_QUESTIONS_17 = [
       { id: 'A', text: "Apply a Gatekeeper or Kyverno policy that rejects pods whose images are not from approved registries." },
       { id: 'B', text: "Apply a Kyverno mutate policy that rewrites every image reference to the internal mirror." },
       { id: 'C', text: "Apply an `ImagePolicyWebhook` configuration whose backend defaults to allow when unreachable." },
-      { id: 'D', text: "Apply an `AlwaysPullImages` admission plugin so unapproved registries fail the pull at admission." }
+      { id: 'D', text: "Apply an `AlwaysPullImages` admission plugin so that unapproved registries fail the pull at admission." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,7 +408,7 @@ export const K8S_CKS_QUESTIONS_17 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to prevent developers from deploying containers sourced from unvetted public registries (like personal Docker Hub accounts) to production clusters.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Apply an `AlwaysPullImages` admission plugin so unapproved registries fail the pull at admission." },
+      { id: 'A', text: "Apply an `AlwaysPullImages` admission plugin so that unapproved registries fail the pull at admission." },
       { id: 'B', text: "Apply a Gatekeeper or Kyverno policy that rejects pods whose images are not from approved registries." },
       { id: 'C', text: "Apply an `ImagePolicyWebhook` configuration whose backend defaults to allow when unreachable." },
       { id: 'D', text: "Apply a Kyverno mutate policy that rewrites every image reference to the internal mirror." }

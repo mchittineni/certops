@@ -114,7 +114,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to enforce cluster-wide pod security baselines without deploying complex third-party policy engines.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Label the namespaces with `pod-security.kubernetes.io/warn: restricted` and leave enforce unset." },
+      { id: 'A', text: "Label the namespaces with `pod-security.kubernetes.io/warn: restricted` and leave the enforce label unset." },
       { id: 'B', text: "Install the Pod Security admission webhook and configure its default in the API server config." },
       { id: 'C', text: "Install PodSecurityPolicy objects and bind them to the namespaces' default ServiceAccounts." },
       { id: 'D', text: "Label the namespaces with `pod-security.kubernetes.io/enforce: restricted`, plus `audit` and `warn`." }
@@ -135,7 +135,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to enforce cluster-wide pod security baselines without deploying complex third-party policy engines.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Label the namespaces with `pod-security.kubernetes.io/warn: restricted` and leave enforce unset." },
+      { id: 'A', text: "Label the namespaces with `pod-security.kubernetes.io/warn: restricted` and leave the enforce label unset." },
       { id: 'B', text: "Install PodSecurityPolicy objects and bind them to the namespaces' default ServiceAccounts." },
       { id: 'C', text: "Label the namespaces with `pod-security.kubernetes.io/enforce: restricted`, plus `audit` and `warn`." },
       { id: 'D', text: "Install the Pod Security admission webhook and configure its default in the API server config." }
@@ -158,7 +158,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Install PodSecurityPolicy objects and bind them to the namespaces' default ServiceAccounts." },
       { id: 'B', text: "Label the namespaces with `pod-security.kubernetes.io/enforce: restricted`, plus `audit` and `warn`." },
-      { id: 'C', text: "Label the namespaces with `pod-security.kubernetes.io/warn: restricted` and leave enforce unset." },
+      { id: 'C', text: "Label the namespaces with `pod-security.kubernetes.io/warn: restricted` and leave the enforce label unset." },
       { id: 'D', text: "Install the Pod Security admission webhook and configure its default in the API server config." }
     ],
     correctAnswers: ['B'],
@@ -179,7 +179,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Install PodSecurityPolicy objects and bind them to the namespaces' default ServiceAccounts." },
       { id: 'B', text: "Label the namespaces with `pod-security.kubernetes.io/enforce: restricted`, plus `audit` and `warn`." },
-      { id: 'C', text: "Label the namespaces with `pod-security.kubernetes.io/warn: restricted` and leave enforce unset." },
+      { id: 'C', text: "Label the namespaces with `pod-security.kubernetes.io/warn: restricted` and leave the enforce label unset." },
       { id: 'D', text: "Install the Pod Security admission webhook and configure its default in the API server config." }
     ],
     correctAnswers: ['B'],
@@ -199,7 +199,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Install the Pod Security admission webhook and configure its default in the API server config." },
-      { id: 'B', text: "Label the namespaces with `pod-security.kubernetes.io/warn: restricted` and leave enforce unset." },
+      { id: 'B', text: "Label the namespaces with `pod-security.kubernetes.io/warn: restricted` and leave the enforce label unset." },
       { id: 'C', text: "Label the namespaces with `pod-security.kubernetes.io/enforce: restricted`, plus `audit` and `warn`." },
       { id: 'D', text: "Install PodSecurityPolicy objects and bind them to the namespaces' default ServiceAccounts." }
     ],
@@ -219,7 +219,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     scenario: "A platform security architecture team is establishing incident containment procedures and resilient security baselines for enterprise Kubernetes infrastructure. The Kubernetes security engineer needs to prevent developers with debugging access in a namespace from inspecting production database passwords stored in Secrets.",
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Grant the developer Role `get` on `secrets` but withhold `list`, so no secret can be enumerated." },
+      { id: 'A', text: "Grant the developer Role `get` on `secrets` but withhold `list`, so that none of the secrets can be enumerated." },
       { id: 'B', text: "Grant the developer Role the built-in `view` ClusterRole, which excludes the secret contents." },
       { id: 'C', text: "Grant the developer Role `*` on the namespace and rely on encryption at rest for the secrets." },
       { id: 'D', text: "Leave `get`, `list` and `watch` on `secrets` out of the developer Role, granting only pods and configmaps." }
@@ -243,7 +243,7 @@ export const K8S_CKS_QUESTIONS_14 = [
       { id: 'A', text: "Leave `get`, `list` and `watch` on `secrets` out of the developer Role, granting only pods and configmaps." },
       { id: 'B', text: "Grant the developer Role `*` on the namespace and rely on encryption at rest for the secrets." },
       { id: 'C', text: "Grant the developer Role the built-in `view` ClusterRole, which excludes the secret contents." },
-      { id: 'D', text: "Grant the developer Role `get` on `secrets` but withhold `list`, so no secret can be enumerated." }
+      { id: 'D', text: "Grant the developer Role `get` on `secrets` but withhold `list`, so that none of the secrets can be enumerated." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -264,7 +264,7 @@ export const K8S_CKS_QUESTIONS_14 = [
       { id: 'A', text: "Leave `get`, `list` and `watch` on `secrets` out of the developer Role, granting only pods and configmaps." },
       { id: 'B', text: "Grant the developer Role `*` on the namespace and rely on encryption at rest for the secrets." },
       { id: 'C', text: "Grant the developer Role the built-in `view` ClusterRole, which excludes the secret contents." },
-      { id: 'D', text: "Grant the developer Role `get` on `secrets` but withhold `list`, so no secret can be enumerated." }
+      { id: 'D', text: "Grant the developer Role `get` on `secrets` but withhold `list`, so that none of the secrets can be enumerated." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -285,7 +285,7 @@ export const K8S_CKS_QUESTIONS_14 = [
       { id: 'A', text: "Leave `get`, `list` and `watch` on `secrets` out of the developer Role, granting only pods and configmaps." },
       { id: 'B', text: "Grant the developer Role `*` on the namespace and rely on encryption at rest for the secrets." },
       { id: 'C', text: "Grant the developer Role the built-in `view` ClusterRole, which excludes the secret contents." },
-      { id: 'D', text: "Grant the developer Role `get` on `secrets` but withhold `list`, so no secret can be enumerated." }
+      { id: 'D', text: "Grant the developer Role `get` on `secrets` but withhold `list`, so that none of the secrets can be enumerated." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -306,7 +306,7 @@ export const K8S_CKS_QUESTIONS_14 = [
       { id: 'A', text: "Leave `get`, `list` and `watch` on `secrets` out of the developer Role, granting only pods and configmaps." },
       { id: 'B', text: "Grant the developer Role `*` on the namespace and rely on encryption at rest for the secrets." },
       { id: 'C', text: "Grant the developer Role the built-in `view` ClusterRole, which excludes the secret contents." },
-      { id: 'D', text: "Grant the developer Role `get` on `secrets` but withhold `list`, so no secret can be enumerated." }
+      { id: 'D', text: "Grant the developer Role `get` on `secrets` but withhold `list`, so that none of the secrets can be enumerated." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -326,7 +326,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Build on a slim Debian base and remove the shells in a final `RUN` instruction." },
       { id: 'B', text: "Build on an Alpine base and keep `curl` and `nmap` for in-cluster debugging." },
-      { id: 'C', text: "Build on the vendor's JDK image and set `readOnlyRootFilesystem: true` at runtime." },
+      { id: 'C', text: "Build on the vendor's own JDK image and set `readOnlyRootFilesystem: true` on the container." },
       { id: 'D', text: "Build on a distroless Java base, which carries no package manager, shell or utilities." }
     ],
     correctAnswers: ['D'],
@@ -345,7 +345,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     scenario: "A large-scale production Kubernetes cluster experiences high deployment throughput and heavy container execution volumes under strict zero-trust constraints. The Kubernetes security engineer needs to minimize Common Vulnerabilities and Exposures (CVEs) and eliminate potential post-exploitation tools in a Java microservice.",
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
-      { id: 'A', text: "Build on the vendor's JDK image and set `readOnlyRootFilesystem: true` at runtime." },
+      { id: 'A', text: "Build on the vendor's own JDK image and set `readOnlyRootFilesystem: true` on the container." },
       { id: 'B', text: "Build on an Alpine base and keep `curl` and `nmap` for in-cluster debugging." },
       { id: 'C', text: "Build on a distroless Java base, which carries no package manager, shell or utilities." },
       { id: 'D', text: "Build on a slim Debian base and remove the shells in a final `RUN` instruction." }
@@ -367,7 +367,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Build on a distroless Java base, which carries no package manager, shell or utilities." },
-      { id: 'B', text: "Build on the vendor's JDK image and set `readOnlyRootFilesystem: true` at runtime." },
+      { id: 'B', text: "Build on the vendor's own JDK image and set `readOnlyRootFilesystem: true` on the container." },
       { id: 'C', text: "Build on an Alpine base and keep `curl` and `nmap` for in-cluster debugging." },
       { id: 'D', text: "Build on a slim Debian base and remove the shells in a final `RUN` instruction." }
     ],
@@ -388,7 +388,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Build on a distroless Java base, which carries no package manager, shell or utilities." },
-      { id: 'B', text: "Build on the vendor's JDK image and set `readOnlyRootFilesystem: true` at runtime." },
+      { id: 'B', text: "Build on the vendor's own JDK image and set `readOnlyRootFilesystem: true` on the container." },
       { id: 'C', text: "Build on an Alpine base and keep `curl` and `nmap` for in-cluster debugging." },
       { id: 'D', text: "Build on a slim Debian base and remove the shells in a final `RUN` instruction." }
     ],
@@ -411,7 +411,7 @@ export const K8S_CKS_QUESTIONS_14 = [
       { id: 'A', text: "Build on a distroless Java base, which carries no package manager, shell or utilities." },
       { id: 'B', text: "Build on an Alpine base and keep `curl` and `nmap` for in-cluster debugging." },
       { id: 'C', text: "Build on a slim Debian base and remove the shells in a final `RUN` instruction." },
-      { id: 'D', text: "Build on the vendor's JDK image and set `readOnlyRootFilesystem: true` at runtime." }
+      { id: 'D', text: "Build on the vendor's own JDK image and set `readOnlyRootFilesystem: true` on the container." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -430,7 +430,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Set `readOnlyRootFilesystem: true` on the container and mount an `emptyDir` at `/tmp` for scratch." },
-      { id: 'B', text: "Set `runAsNonRoot: true` on the container so the process cannot write to the image's own paths." },
+      { id: 'B', text: "Set `runAsNonRoot: true` on the container so that the process cannot write to the image's own paths." },
       { id: 'C', text: "Set `procMount: Unmasked` on the container and mount an `emptyDir` at `/tmp` for scratch space." },
       { id: 'D', text: "Set `fsGroup` on the pod so the mounted volumes, and not the image layers, hold the writes." }
     ],
@@ -453,7 +453,7 @@ export const K8S_CKS_QUESTIONS_14 = [
       { id: 'A', text: "Set `fsGroup` on the pod so the mounted volumes, and not the image layers, hold the writes." },
       { id: 'B', text: "Set `readOnlyRootFilesystem: true` on the container and mount an `emptyDir` at `/tmp` for scratch." },
       { id: 'C', text: "Set `procMount: Unmasked` on the container and mount an `emptyDir` at `/tmp` for scratch space." },
-      { id: 'D', text: "Set `runAsNonRoot: true` on the container so the process cannot write to the image's own paths." }
+      { id: 'D', text: "Set `runAsNonRoot: true` on the container so that the process cannot write to the image's own paths." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -474,7 +474,7 @@ export const K8S_CKS_QUESTIONS_14 = [
       { id: 'A', text: "Set `procMount: Unmasked` on the container and mount an `emptyDir` at `/tmp` for scratch space." },
       { id: 'B', text: "Set `fsGroup` on the pod so the mounted volumes, and not the image layers, hold the writes." },
       { id: 'C', text: "Set `readOnlyRootFilesystem: true` on the container and mount an `emptyDir` at `/tmp` for scratch." },
-      { id: 'D', text: "Set `runAsNonRoot: true` on the container so the process cannot write to the image's own paths." }
+      { id: 'D', text: "Set `runAsNonRoot: true` on the container so that the process cannot write to the image's own paths." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,7 +492,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to prevent malicious actors from writing scripts or modifying binaries inside a compromised microservice container.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Set `runAsNonRoot: true` on the container so the process cannot write to the image's own paths." },
+      { id: 'A', text: "Set `runAsNonRoot: true` on the container so that the process cannot write to the image's own paths." },
       { id: 'B', text: "Set `readOnlyRootFilesystem: true` on the container and mount an `emptyDir` at `/tmp` for scratch." },
       { id: 'C', text: "Set `fsGroup` on the pod so the mounted volumes, and not the image layers, hold the writes." },
       { id: 'D', text: "Set `procMount: Unmasked` on the container and mount an `emptyDir` at `/tmp` for scratch space." }
@@ -514,7 +514,7 @@ export const K8S_CKS_QUESTIONS_14 = [
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Set `readOnlyRootFilesystem: true` on the container and mount an `emptyDir` at `/tmp` for scratch." },
-      { id: 'B', text: "Set `runAsNonRoot: true` on the container so the process cannot write to the image's own paths." },
+      { id: 'B', text: "Set `runAsNonRoot: true` on the container so that the process cannot write to the image's own paths." },
       { id: 'C', text: "Set `procMount: Unmasked` on the container and mount an `emptyDir` at `/tmp` for scratch space." },
       { id: 'D', text: "Set `fsGroup` on the pod so the mounted volumes, and not the image layers, hold the writes." }
     ],

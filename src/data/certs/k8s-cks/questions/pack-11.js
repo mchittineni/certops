@@ -11,8 +11,8 @@ export const K8S_CKS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Disable all authentication flags on the apiserver to simplify audit testing." },
       { id: 'B', text: "Execute `kube-bench` against master and node components and remediate reported FAIL findings." },
-      { id: 'C', text: "Assume the default kubeadm installation passes all CIS benchmark criteria automatically." },
-      { id: 'D', text: "Inspect cluster logs manually with grep without a standardized benchmark." }
+      { id: 'C', text: "Assume the default kubeadm installation passes all of the CIS benchmark criteria automatically." },
+      { id: 'D', text: "Inspect the cluster logs manually with grep without a standardized benchmark." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -31,8 +31,8 @@ export const K8S_CKS_QUESTIONS_11 = [
     question: "Which security mechanism or policy engine enforces cluster compliance efficiently without causing API latency or scheduling bottlenecks?",
     options: [
       { id: 'A', text: "Execute `kube-bench` against master and node components and remediate reported FAIL findings." },
-      { id: 'B', text: "Inspect cluster logs manually with grep without a standardized benchmark." },
-      { id: 'C', text: "Assume the default kubeadm installation passes all CIS benchmark criteria automatically." },
+      { id: 'B', text: "Inspect the cluster logs manually with grep without a standardized benchmark." },
+      { id: 'C', text: "Assume the default kubeadm installation passes all of the CIS benchmark criteria automatically." },
       { id: 'D', text: "Disable all authentication flags on the apiserver to simplify audit testing." }
     ],
     correctAnswers: ['A'],
@@ -52,8 +52,8 @@ export const K8S_CKS_QUESTIONS_11 = [
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Execute `kube-bench` against master and node components and remediate reported FAIL findings." },
-      { id: 'B', text: "Inspect cluster logs manually with grep without a standardized benchmark." },
-      { id: 'C', text: "Assume the default kubeadm installation passes all CIS benchmark criteria automatically." },
+      { id: 'B', text: "Inspect the cluster logs manually with grep without a standardized benchmark." },
+      { id: 'C', text: "Assume the default kubeadm installation passes all of the CIS benchmark criteria automatically." },
       { id: 'D', text: "Disable all authentication flags on the apiserver to simplify audit testing." }
     ],
     correctAnswers: ['A'],
@@ -73,8 +73,8 @@ export const K8S_CKS_QUESTIONS_11 = [
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
       { id: 'A', text: "Execute `kube-bench` against master and node components and remediate reported FAIL findings." },
-      { id: 'B', text: "Inspect cluster logs manually with grep without a standardized benchmark." },
-      { id: 'C', text: "Assume the default kubeadm installation passes all CIS benchmark criteria automatically." },
+      { id: 'B', text: "Inspect the cluster logs manually with grep without a standardized benchmark." },
+      { id: 'C', text: "Assume the default kubeadm installation passes all of the CIS benchmark criteria automatically." },
       { id: 'D', text: "Disable all authentication flags on the apiserver to simplify audit testing." }
     ],
     correctAnswers: ['A'],
@@ -94,8 +94,8 @@ export const K8S_CKS_QUESTIONS_11 = [
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Execute `kube-bench` against master and node components and remediate reported FAIL findings." },
-      { id: 'B', text: "Inspect cluster logs manually with grep without a standardized benchmark." },
-      { id: 'C', text: "Assume the default kubeadm installation passes all CIS benchmark criteria automatically." },
+      { id: 'B', text: "Inspect the cluster logs manually with grep without a standardized benchmark." },
+      { id: 'C', text: "Assume the default kubeadm installation passes all of the CIS benchmark criteria automatically." },
       { id: 'D', text: "Disable all authentication flags on the apiserver to simplify audit testing." }
     ],
     correctAnswers: ['A'],
@@ -431,7 +431,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Apply a default-deny NetworkPolicy per tenant namespace and allow only the required selectors." },
       { id: 'B', text: "Apply a default-deny NetworkPolicy at the cluster scope and allow each tenant's own CIDR." },
-      { id: 'C', text: "Apply a NetworkPolicy per tenant whose `namespaceSelector` matches the tenant's own label." },
+      { id: 'C', text: "Apply one NetworkPolicy per tenant whose `namespaceSelector` matches only that tenant's own label." },
       { id: 'D', text: "Give each tenant its own CNI network attachment so the pods land on separate subnets." }
     ],
     correctAnswers: ['A'],
@@ -452,7 +452,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Apply a default-deny NetworkPolicy per tenant namespace and allow only the required selectors." },
       { id: 'B', text: "Apply a default-deny NetworkPolicy at the cluster scope and allow each tenant's own CIDR." },
-      { id: 'C', text: "Apply a NetworkPolicy per tenant whose `namespaceSelector` matches the tenant's own label." },
+      { id: 'C', text: "Apply one NetworkPolicy per tenant whose `namespaceSelector` matches only that tenant's own label." },
       { id: 'D', text: "Give each tenant its own CNI network attachment so the pods land on separate subnets." }
     ],
     correctAnswers: ['A'],
@@ -474,7 +474,7 @@ export const K8S_CKS_QUESTIONS_11 = [
       { id: 'A', text: "Apply a default-deny NetworkPolicy per tenant namespace and allow only the required selectors." },
       { id: 'B', text: "Give each tenant its own CNI network attachment so the pods land on separate subnets." },
       { id: 'C', text: "Apply a default-deny NetworkPolicy at the cluster scope and allow each tenant's own CIDR." },
-      { id: 'D', text: "Apply a NetworkPolicy per tenant whose `namespaceSelector` matches the tenant's own label." }
+      { id: 'D', text: "Apply one NetworkPolicy per tenant whose `namespaceSelector` matches only that tenant's own label." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -495,7 +495,7 @@ export const K8S_CKS_QUESTIONS_11 = [
       { id: 'A', text: "Apply a default-deny NetworkPolicy at the cluster scope and allow each tenant's own CIDR." },
       { id: 'B', text: "Apply a default-deny NetworkPolicy per tenant namespace and allow only the required selectors." },
       { id: 'C', text: "Give each tenant its own CNI network attachment so the pods land on separate subnets." },
-      { id: 'D', text: "Apply a NetworkPolicy per tenant whose `namespaceSelector` matches the tenant's own label." }
+      { id: 'D', text: "Apply one NetworkPolicy per tenant whose `namespaceSelector` matches only that tenant's own label." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -514,7 +514,7 @@ export const K8S_CKS_QUESTIONS_11 = [
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
       { id: 'A', text: "Give each tenant its own CNI network attachment so the pods land on separate subnets." },
-      { id: 'B', text: "Apply a NetworkPolicy per tenant whose `namespaceSelector` matches the tenant's own label." },
+      { id: 'B', text: "Apply one NetworkPolicy per tenant whose `namespaceSelector` matches only that tenant's own label." },
       { id: 'C', text: "Apply a default-deny NetworkPolicy at the cluster scope and allow each tenant's own CIDR." },
       { id: 'D', text: "Apply a default-deny NetworkPolicy per tenant namespace and allow only the required selectors." }
     ],

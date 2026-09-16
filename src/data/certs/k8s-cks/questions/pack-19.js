@@ -220,7 +220,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     question: "Which architectural control or configuration satisfies these security containment and operational resilience objectives?",
     options: [
       { id: 'A', text: "Run Falco with its kernel module driver and alert on the matching syscall rule instead." },
-      { id: 'B', text: "Run a Cilium NetworkPolicy at L7 so the anomalous calls are dropped before they are made." },
+      { id: 'B', text: "Run a Cilium NetworkPolicy at L7 so that the anomalous calls are dropped before they are ever made." },
       { id: 'C', text: "Run an eBPF enforcement tool such as Cilium Tetragon with tracing policies that block the exec." },
       { id: 'D', text: "Run an audit webhook that evaluates each API call and rejects the anomalous ones inline." }
     ],
@@ -243,7 +243,7 @@ export const K8S_CKS_QUESTIONS_19 = [
       { id: 'A', text: "Run an audit webhook that evaluates each API call and rejects the anomalous ones inline." },
       { id: 'B', text: "Run Falco with its kernel module driver and alert on the matching syscall rule instead." },
       { id: 'C', text: "Run an eBPF enforcement tool such as Cilium Tetragon with tracing policies that block the exec." },
-      { id: 'D', text: "Run a Cilium NetworkPolicy at L7 so the anomalous calls are dropped before they are made." }
+      { id: 'D', text: "Run a Cilium NetworkPolicy at L7 so that the anomalous calls are dropped before they are ever made." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -264,7 +264,7 @@ export const K8S_CKS_QUESTIONS_19 = [
       { id: 'A', text: "Run an eBPF enforcement tool such as Cilium Tetragon with tracing policies that block the exec." },
       { id: 'B', text: "Run an audit webhook that evaluates each API call and rejects the anomalous ones inline." },
       { id: 'C', text: "Run Falco with its kernel module driver and alert on the matching syscall rule instead." },
-      { id: 'D', text: "Run a Cilium NetworkPolicy at L7 so the anomalous calls are dropped before they are made." }
+      { id: 'D', text: "Run a Cilium NetworkPolicy at L7 so that the anomalous calls are dropped before they are ever made." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,7 +282,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     scenario: "An enterprise is migrating traditional on-premises secure enclave workloads into production Kubernetes clusters running in hybrid environments. The Kubernetes security engineer needs to block malicious system calls and process executions in real time directly inside the Linux kernel before syscall execution completes.",
     question: "Which security pattern or platform feature enables the organization to maintain strict defense-in-depth isolation during this modernization?",
     options: [
-      { id: 'A', text: "Run a Cilium NetworkPolicy at L7 so the anomalous calls are dropped before they are made." },
+      { id: 'A', text: "Run a Cilium NetworkPolicy at L7 so that the anomalous calls are dropped before they are ever made." },
       { id: 'B', text: "Run Falco with its kernel module driver and alert on the matching syscall rule instead." },
       { id: 'C', text: "Run an audit webhook that evaluates each API call and rejects the anomalous ones inline." },
       { id: 'D', text: "Run an eBPF enforcement tool such as Cilium Tetragon with tracing policies that block the exec." }
@@ -303,7 +303,7 @@ export const K8S_CKS_QUESTIONS_19 = [
     scenario: "A security operations team is hardening container runtime defenses to detect anomalies, eliminate privilege escalation vectors, and automate threat response. The Kubernetes security engineer needs to block malicious system calls and process executions in real time directly inside the Linux kernel before syscall execution completes.",
     question: "Which design pattern or configuration eliminates vulnerabilities and guarantees runtime cluster protection?",
     options: [
-      { id: 'A', text: "Run a Cilium NetworkPolicy at L7 so the anomalous calls are dropped before they are made." },
+      { id: 'A', text: "Run a Cilium NetworkPolicy at L7 so that the anomalous calls are dropped before they are ever made." },
       { id: 'B', text: "Run an audit webhook that evaluates each API call and rejects the anomalous ones inline." },
       { id: 'C', text: "Run an eBPF enforcement tool such as Cilium Tetragon with tracing policies that block the exec." },
       { id: 'D', text: "Run Falco with its kernel module driver and alert on the matching syscall rule instead." }
