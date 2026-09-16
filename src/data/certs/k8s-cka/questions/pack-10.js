@@ -9,10 +9,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "Three control plane nodes each run a kube-scheduler and a kube-controller-manager, yet only one of each appears to be doing work.",
     question: "Why is that expected?",
     options: [
-      { id: 'A', text: "Work is sharded by namespace across the three replicas." },
-      { id: 'B', text: "The other replicas have crashed and should be investigated." },
+      { id: 'A', text: "Their work is sharded by namespace across the three running replicas." },
+      { id: 'B', text: "The other replicas have crashed, and their logs should be investigated." },
       { id: 'C', text: "Only the replica on the first control plane node is ever used, by design." },
-      { id: 'D', text: "Those components run active/passive using a Lease object, so only the elected leader acts while the others stand by." }
+      { id: 'D', text: "They run active/passive on a Lease, so only the elected leader acts at a time." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "On a freshly built cluster the CoreDNS pods crash-loop. Their logs end with a plugin/loop message about a forwarding loop detected in the upstream resolver.",
     question: "What is the cause and remedy?",
     options: [
-      { id: 'A', text: "The node resolv.conf points at a local stub resolver, so CoreDNS forwards to itself; point the kubelet at the real upstream resolv.conf or fix the node resolver." },
-      { id: 'B', text: "The CoreDNS image is corrupt and must be re-pulled." },
-      { id: 'C', text: "The kube-dns Service has no ClusterIP." },
-      { id: 'D', text: "The cluster CIDR overlaps the Service CIDR." }
+      { id: 'A', text: "The node's resolv.conf points at a local stub, so CoreDNS forwards to itself." },
+      { id: 'B', text: "The CoreDNS image is corrupt on that node and has to be re-pulled before resolution recovers." },
+      { id: 'C', text: "The kube-dns Service has no cluster IP, so the pods' resolver has nothing to send queries to." },
+      { id: 'D', text: "The cluster CIDR overlaps the Service CIDR, so replies from CoreDNS are routed back to the pod." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "A PersistentVolume shows the phase Released after its claim was deleted, and a new identical claim will not bind to it.",
     question: "Why, and what is required?",
     options: [
-      { id: 'A', text: "The new claim must request exactly the same size to bind." },
-      { id: 'B', text: "A Released volume still records its previous claim reference, so it does not rebind automatically; clear the claimRef or recreate the PV." },
-      { id: 'C', text: "Released volumes rebind automatically after the reclaim timeout." },
-      { id: 'D', text: "Released volumes are corrupt and must be deleted." }
+      { id: 'A', text: "The new claim has to request exactly the same size before the volume will bind to it." },
+      { id: 'B', text: "A Released volume still records its old `claimRef`, so clear it or recreate the PV to rebind." },
+      { id: 'C', text: "Released volumes rebind on their own once the reclaim timeout on the class expires." },
+      { id: 'D', text: "Released volumes are considered corrupt and have to be deleted and reprovisioned." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "An engineer is deciding which command to reach for when a pod misbehaves.",
     question: "What does describe provide that get -o yaml does not?",
     options: [
-      { id: 'A', text: "The Events list narrating what controllers and the kubelet have attempted, plus human-formatted fields." },
-      { id: 'B', text: "The container logs." },
-      { id: 'C', text: "The exact persisted spec after defaulting and admission." },
-      { id: 'D', text: "The resource usage metrics." }
+      { id: 'A', text: "The Events narrating what the controllers and kubelet attempted, plus formatted fields." },
+      { id: 'B', text: "The container's own log output from the most recent start of the pod." },
+      { id: 'C', text: "The exact persisted spec after defaulting and admission have been applied." },
+      { id: 'D', text: "The resource usage metrics the kubelet reports for the pod's containers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "An application must log its own pod name, namespace, and node name without querying the API server.",
     question: "Which mechanism supplies those values?",
     options: [
-      { id: 'A', text: "A ServiceAccount token mounted into the pod." },
-      { id: 'B', text: "The downward API, exposing fields such as metadata.name and spec.nodeName as environment variables or files." },
-      { id: 'C', text: "The kubelet writing values into /etc/hosts." },
-      { id: 'D', text: "A ConfigMap generated by the kubelet for each pod." }
+      { id: 'A', text: "The mounted ServiceAccount token, which the app reads and queries the API with." },
+      { id: 'B', text: "The downward API, exposing `metadata.name` and `spec.nodeName` as env vars or files." },
+      { id: 'C', text: "The kubelet, which writes the pod's identity into its `/etc/hosts` at start." },
+      { id: 'D', text: "A ConfigMap the kubelet generates for each pod as it is admitted." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "A Service is unreachable and the operator wants a systematic order of tests rather than guesswork.",
     question: "Which sequence isolates the layer fastest?",
     options: [
-      { id: 'A', text: "Check EndpointSlices, then curl the pod IP, then curl the ClusterIP, then test DNS resolution, then review NetworkPolicies." },
-      { id: 'B', text: "Recreate the Service, then the Deployment, then the namespace." },
-      { id: 'C', text: "Restart kube-proxy, then CoreDNS, then the application pods." },
-      { id: 'D', text: "Read the API server audit log first." }
+      { id: 'A', text: "Check the EndpointSlices, curl the pod IP, curl the ClusterIP, test DNS, then read the policies." },
+      { id: 'B', text: "Recreate the Service, then the Deployment, then the namespace holding both of them." },
+      { id: 'C', text: "Restart kube-proxy, then CoreDNS, then the application pods on the affected node." },
+      { id: 'D', text: "Read the API server audit log for the Service's own update events first." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,9 +198,9 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "A new machine is being prepared for kubeadm join and the checklist is being reviewed.",
     question: "Which prerequisites are required? (Choose two.)",
     options: [
-      { id: 'A', text: "The br_netfilter module loaded and net.bridge.bridge-nf-call-iptables set to 1." },
-      { id: 'B', text: "A CNI plugin binary compiled from source on that node." },
-      { id: 'C', text: "kubectl installed and configured with admin.conf." },
+      { id: 'A', text: "`br_netfilter` loaded, with `bridge-nf-call-iptables` set to 1." },
+      { id: 'B', text: "A CNI plugin binary compiled from source on that node itself." },
+      { id: 'C', text: "kubectl installed on the node and configured with `admin.conf`." },
       { id: 'D', text: "Swap disabled, unless swap support has been deliberately configured." }
     ],
     correctAnswers: ['A', 'D'],
@@ -240,10 +240,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "kubectl describe node shows MemoryPressure False, DiskPressure True, PIDPressure False, Ready True.",
     question: "What does that combination mean?",
     options: [
-      { id: 'A', text: "The kubelet has stopped reporting." },
-      { id: 'B', text: "The node is broken and should be deleted." },
-      { id: 'C', text: "The node is out of memory." },
-      { id: 'D', text: "The node is still accepting work in general but is low on disk, so the kubelet is reclaiming and may evict pods, and a disk-pressure taint discourages new placements." }
+      { id: 'A', text: "The kubelet has stopped reporting, so the control plane is showing the last conditions it received." },
+      { id: 'B', text: "The node is unrecoverable and should be deleted so its workloads reschedule elsewhere." },
+      { id: 'C', text: "The node is out of memory, and the kubelet is evicting to bring usage back below the threshold." },
+      { id: 'D', text: "The node still takes work but is low on disk, so the kubelet reclaims and may evict, and a taint deters new pods." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "A pod has two containers. The first sets equal CPU and memory requests and limits; the second sets only a memory limit.",
     question: "What is the pod QoS class?",
     options: [
-      { id: 'A', text: "Guaranteed, because at least one container qualifies." },
-      { id: 'B', text: "Burstable, because Guaranteed requires every container to set equal requests and limits for both CPU and memory." },
-      { id: 'C', text: "The pod is rejected as invalid." },
-      { id: 'D', text: "BestEffort, because one container omits requests." }
+      { id: 'A', text: "Guaranteed, since at least one container matches its requests and limits." },
+      { id: 'B', text: "Burstable, since Guaranteed needs every container to match requests and limits." },
+      { id: 'C', text: "Invalid, since a pod may not mix the two resource configurations." },
+      { id: 'D', text: "BestEffort, since one of the containers omits its resource requests." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "An application makes many outbound calls to external hostnames, and DNS query volume is high because each lookup tries several search domains first.",
     question: "Which pod setting reduces the wasted queries?",
     options: [
-      { id: 'A', text: "Increasing the CoreDNS cache TTL only." },
-      { id: 'B', text: "A dnsConfig with a lower ndots option, so fully qualified external names are not tried against the cluster search domains first." },
-      { id: 'C', text: "hostNetwork: true." },
-      { id: 'D', text: "dnsPolicy: None with no dnsConfig." }
+      { id: 'A', text: "A higher CoreDNS cache TTL, so the repeated lookups are answered from the cache instead." },
+      { id: 'B', text: "A `dnsConfig` with a lower `ndots`, so external names are not tried against the search domains first." },
+      { id: 'C', text: "`hostNetwork: true`, so the pod uses the node's resolver and skips the cluster search path." },
+      { id: 'D', text: "`dnsPolicy: None` with no `dnsConfig`, which leaves the pod with no search domains at all." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "A kubeconfig contains three clusters, three users, and four contexts.",
     question: "What does a context define?",
     options: [
-      { id: 'A', text: "A set of RBAC permissions granted to the user." },
-      { id: 'B', text: "A named combination of a cluster, a user, and an optional default namespace." },
-      { id: 'C', text: "The API server certificate authority." },
-      { id: 'D', text: "A list of resources kubectl may access." }
+      { id: 'A', text: "A set of RBAC permissions granted to the named user" },
+      { id: 'B', text: "A named combination of a cluster, a user and a namespace" },
+      { id: 'C', text: "The certificate authority the client trusts for the API" },
+      { id: 'D', text: "The list of resource types kubectl is allowed to read" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "A read-only reference dataset must be available to fifty pods spread across many nodes, and it never changes.",
     question: "Which approach is most appropriate?",
     options: [
-      { id: 'A', text: "A PersistentVolume with ReadOnlyMany, or the data baked into the container image if it is small enough." },
-      { id: 'B', text: "A hostPath volume on every node." },
-      { id: 'C', text: "An emptyDir populated by an init container in each pod." },
-      { id: 'D', text: "A ReadWriteOnce volume shared by all pods." }
+      { id: 'A', text: "A `ReadOnlyMany` PersistentVolume, or the data baked into the image if it is small." },
+      { id: 'B', text: "A `hostPath` volume on every node, populated by a DaemonSet at start-up." },
+      { id: 'C', text: "An `emptyDir` that an init container populates in each pod as it starts." },
+      { id: 'D', text: "A `ReadWriteOnce` volume shared by the pods scheduled onto one node." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "After rotating control plane certificates, kubectl works but new pods stay Pending and the scheduler logs show authentication failures.",
     question: "What was probably missed?",
     options: [
-      { id: 'A', text: "The component kubeconfigs in /etc/kubernetes were not regenerated or the static pods were not restarted, so the scheduler is still presenting an old certificate." },
-      { id: 'B', text: "The nodes need to rejoin the cluster." },
-      { id: 'C', text: "The cluster CA was deleted." },
-      { id: 'D', text: "etcd must be restored from a snapshot." }
+      { id: 'A', text: "The component kubeconfigs were not regenerated, so an old certificate is served." },
+      { id: 'B', text: "The nodes have to rejoin the cluster, since their kubelet certificates were issued by the previous CA." },
+      { id: 'C', text: "The cluster CA was regenerated rather than renewed, so every existing certificate is now untrusted." },
+      { id: 'D', text: "etcd holds the old certificates, so it must be restored from a snapshot taken after the renewal." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "An operator deletes a single pod belonging to a three-replica deployment.",
     question: "What happens next?",
     options: [
-      { id: 'A', text: "The same pod is recreated with its original name and IP address." },
-      { id: 'B', text: "The deployment is scaled down to two replicas permanently." },
-      { id: 'C', text: "The ReplicaSet observes the shortfall and creates a replacement pod with a new name." },
-      { id: 'D', text: "Nothing happens until the deployment is reapplied." }
+      { id: 'A', text: "The same pod is recreated with its original name and address" },
+      { id: 'B', text: "The Deployment settles at two replicas until it is scaled up" },
+      { id: 'C', text: "The ReplicaSet notices the shortfall and creates a replacement" },
+      { id: 'D', text: "Nothing happens until the Deployment manifest is reapplied" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "A Service defines port 80 and targetPort 8080, and the pod container listens on 8080.",
     question: "Which statement is correct?",
     options: [
-      { id: 'A', text: "targetPort is the node port opened on every node." },
-      { id: 'B', text: "Both values must match or the Service is invalid." },
-      { id: 'C', text: "Clients connect on 8080 and the pod receives traffic on 80." },
-      { id: 'D', text: "Clients connect to the ClusterIP on 80, and kube-proxy forwards to the pod on 8080." }
+      { id: 'A', text: "`targetPort` is the node port opened on each node of the cluster." },
+      { id: 'B', text: "Both values must be equal or the Service is rejected as invalid." },
+      { id: 'C', text: "Clients connect on 8080 and the pod receives the traffic on 80." },
+      { id: 'D', text: "Clients reach the ClusterIP on 80 and kube-proxy forwards to 8080." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "kubectl api-resources begins failing with an error mentioning v1beta1.metrics.k8s.io, and namespace deletions have started hanging.",
     question: "What is the relationship?",
     options: [
-      { id: 'A', text: "APIService controls RBAC for the metrics API only." },
-      { id: 'B', text: "An APIService registers an aggregated API server; when its backing service is unavailable, discovery fails and namespace finalization can block because resources of that group cannot be enumerated." },
-      { id: 'C', text: "The error is cosmetic and unrelated to namespace deletion." },
-      { id: 'D', text: "APIService objects define CRDs, which must be deleted first." }
+      { id: 'A', text: "An `APIService` carries the RBAC rules for the metrics API, so a missing one denies the discovery request." },
+      { id: 'B', text: "An `APIService` registers an aggregated server; when it is down, discovery and finalization block." },
+      { id: 'C', text: "The discovery error is cosmetic and unrelated to the namespace deletions, which block on their own finalizers." },
+      { id: 'D', text: "An `APIService` defines the CRDs in that group, so they have to be deleted before the namespace can be." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "A new StatefulSet pod is created with a volumeClaimTemplate on a CSI-backed StorageClass using WaitForFirstConsumer.",
     question: "Which sequence is correct?",
     options: [
-      { id: 'A', text: "The pod starts first and the volume is attached afterwards without staging." },
-      { id: 'B', text: "PV created first, then the PVC binds, then the pod is scheduled to wherever the volume already exists." },
-      { id: 'C', text: "PVC created, scheduler selects a node, provisioner creates the PV and binds it, CSI controller attaches it to that node, CSI node plugin stages and publishes it into the pod." },
-      { id: 'D', text: "The kubelet creates the volume directly through the cloud API." }
+      { id: 'A', text: "The pod starts first and the volume is attached to the node afterwards without a staging step." },
+      { id: 'B', text: "The PV is created first, the PVC binds to it, and the pod is scheduled where the volume exists." },
+      { id: 'C', text: "PVC created, node selected, the PV provisioned and bound, attached, then mounted." },
+      { id: 'D', text: "The kubelet creates the volume through the cloud API itself and mounts it into the pod." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "Four symptoms are reported: a pod stuck Pending, a node NotReady, no ReplicaSet created for a new deployment, and every kubectl command failing.",
     question: "Which mapping of symptom to component is correct?",
     options: [
-      { id: 'A', text: "Pending to the kubelet and NotReady to the scheduler." },
-      { id: 'B', text: "All four to etcd, since it stores all state." },
-      { id: 'C', text: "All four to the kubelet, since it runs everything on the node." },
-      { id: 'D', text: "Pending to kube-scheduler, NotReady to the kubelet, missing ReplicaSet to kube-controller-manager, and total failure to kube-apiserver or etcd." }
+      { id: 'A', text: "Pending to the kubelet, NotReady to the scheduler, missing ReplicaSet to etcd, and total failure to the controller manager." },
+      { id: 'B', text: "All four to etcd, since every object's state passes through it before any component acts on it." },
+      { id: 'C', text: "All four to the kubelet, since it is what runs each workload on the node in the end." },
+      { id: 'D', text: "Pending to the scheduler, NotReady to the kubelet, missing ReplicaSet to the controller manager, total failure to the API server." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "Scheduled jobs must stop running during a maintenance window but the CronJob definition must remain in the cluster.",
     question: "Which change achieves that?",
     options: [
-      { id: 'A', text: "Setting concurrencyPolicy to Forbid." },
-      { id: 'B', text: "Deleting the CronJob and recreating it afterwards." },
-      { id: 'C', text: "Setting spec.suspend to true on the CronJob, which stops new Jobs being created without affecting one already running." },
-      { id: 'D', text: "Scaling the CronJob to zero replicas." }
+      { id: 'A', text: "Set `concurrencyPolicy: Forbid`, which prevents a second Job while one runs." },
+      { id: 'B', text: "Delete the CronJob and recreate it once the running Job has completed." },
+      { id: 'C', text: "Set `spec.suspend: true`, which stops new Jobs without touching one already running." },
+      { id: 'D', text: "Set `spec.jobTemplate.spec.parallelism: 0` so no further pods start." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "An Ingress returns 503 for a host, while the backing pods are Running and Ready and their pod IPs answer correctly.",
     question: "Which cause fits best?",
     options: [
-      { id: 'A', text: "The Ingress backend references a Service name or port that does not resolve to endpoints - a typo, the wrong port name, or a Service in a different namespace." },
-      { id: 'B', text: "The pods lack a liveness probe." },
-      { id: 'C', text: "The ingress controller needs its own PersistentVolume." },
-      { id: 'D', text: "The pods are on a different node from the controller." }
+      { id: 'A', text: "The Ingress backend names a Service or port with no endpoints — a typo, wrong port name, or wrong namespace." },
+      { id: 'B', text: "The backend pods have no liveness probe, so the controller cannot tell whether they are healthy." },
+      { id: 'C', text: "The ingress controller needs its own PersistentVolume before it can serve the configured routes." },
+      { id: 'D', text: "The backend pods are on a different node from the controller, which cannot route across nodes." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKA_QUESTIONS_10 = [
     scenario: "A validating webhook backend becomes unavailable and pod creation begins failing cluster-wide.",
     question: "Which configuration decides that behaviour, and what is the trade-off?",
     options: [
-      { id: 'A', text: "Webhooks are always ignored when unreachable." },
-      { id: 'B', text: "Only mutating webhooks can block requests." },
-      { id: 'C', text: "failurePolicy: Fail blocks requests when the webhook is unreachable, which is safer for policy but makes the webhook a cluster-wide dependency; Ignore trades enforcement for availability." },
-      { id: 'D', text: "The API server retries indefinitely until the webhook responds." }
+      { id: 'A', text: "Webhooks are ignored whenever they are unreachable, so the choice only affects the error the caller sees." },
+      { id: 'B', text: "Only mutating webhooks can block a request; a validating webhook records the objection and admits it." },
+      { id: 'C', text: "`failurePolicy: Fail` blocks on an outage, making the webhook a dependency; `Ignore` trades enforcement." },
+      { id: 'D', text: "The API server retries until the webhook answers, so an outage delays requests rather than failing them." }
     ],
     correctAnswers: ['C'],
     type: "single",

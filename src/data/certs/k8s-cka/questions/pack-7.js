@@ -30,10 +30,10 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A single control plane cluster must become highly available by adding two more control plane nodes behind an existing load balancer endpoint.",
     question: "Which additional step does joining a control plane node require compared with joining a worker?",
     options: [
-      { id: 'A', text: "The new node must be labelled node-role.kubernetes.io/control-plane before joining." },
-      { id: 'B', text: "The certificate key from kubeadm init phase upload-certs must be supplied with --control-plane --certificate-key so the new node can fetch the shared certificates." },
-      { id: 'C', text: "etcd must be stopped on the first control plane node during the join." },
-      { id: 'D', text: "A separate bootstrap token type is required for control plane nodes." }
+      { id: 'A', text: "The node must carry the `node-role.kubernetes.io/control-plane` label before it joins." },
+      { id: 'B', text: "The certificate key from `upload-certs` must be passed with `--control-plane --certificate-key`." },
+      { id: 'C', text: "etcd has to be stopped on the first control plane node while the join completes." },
+      { id: 'D', text: "A separate class of bootstrap token is required for a control plane join." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A cluster grew from 20 to 200 nodes and DNS lookups have become slow, with CoreDNS pods showing sustained high CPU.",
     question: "Which response is appropriate?",
     options: [
-      { id: 'A', text: "Move CoreDNS to a DaemonSet on control plane nodes only." },
-      { id: 'B', text: "Increase CoreDNS replicas and resources, and consider NodeLocal DNSCache to reduce per-node query load." },
-      { id: 'C', text: "Set dnsPolicy: Default on every pod so they use the node resolver." },
-      { id: 'D', text: "Disable the cluster DNS Service and rely on /etc/hosts entries." }
+      { id: 'A', text: "Move CoreDNS to a DaemonSet running on the control plane nodes only." },
+      { id: 'B', text: "Raise the CoreDNS replicas and resources, and consider NodeLocal DNSCache." },
+      { id: 'C', text: "Set `dnsPolicy: Default` on every pod so they use the node's resolver." },
+      { id: 'D', text: "Disable the cluster DNS Service and rely on `/etc/hosts` entries." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "An administrator pre-created a PersistentVolume of 50Gi with accessModes ReadWriteOnce and storageClassName manual. A PVC requests 20Gi, ReadWriteOnce, storageClassName manual.",
     question: "What happens?",
     options: [
-      { id: 'A', text: "The claim binds to the 50Gi volume, because a PV may be larger than the request as long as class and access mode match." },
-      { id: 'B', text: "The claim is rejected because manual is not a real provisioner." },
-      { id: 'C', text: "The PV is split into a 20Gi and a 30Gi volume." },
-      { id: 'D', text: "The claim stays Pending because the sizes are not equal." }
+      { id: 'A', text: "It binds to the 50Gi volume, since a PV may exceed the request when class and mode match." },
+      { id: 'B', text: "It is rejected, since `manual` is not a real provisioner for dynamic provisioning." },
+      { id: 'C', text: "The volume is split into a 20Gi bound piece and a 30Gi remainder." },
+      { id: 'D', text: "It stays Pending, since a claim binds only to a volume of equal size." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "kubeadm join fails with an error about the CA certificate hash not matching the pinned public key.",
     question: "What does that indicate?",
     options: [
-      { id: 'A', text: "The worker clock is ahead of the control plane clock." },
-      { id: 'B', text: "The CNI plugin is not installed on the worker." },
-      { id: 'C', text: "The bootstrap token has expired." },
-      { id: 'D', text: "The --discovery-token-ca-cert-hash value does not match the current cluster CA, usually because it was copied from an older cluster or the CA was regenerated." }
+      { id: 'A', text: "The worker's clock is ahead of the control plane's, so the bootstrap token appears not yet valid." },
+      { id: 'B', text: "The CNI plugin is missing on the worker, so the kubelet cannot report itself as ready to join." },
+      { id: 'C', text: "The bootstrap token has expired, and a new one has to be created before the node can join." },
+      { id: 'D', text: "The `--discovery-token-ca-cert-hash` no longer matches the cluster CA, usually because the CA was regenerated." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A pod manifest sets spec.nodeName directly to node03. The node is cordoned and lacks capacity.",
     question: "What happens?",
     options: [
-      { id: 'A', text: "The scheduler moves the pod to a node with capacity." },
-      { id: 'B', text: "The scheduler is bypassed entirely; the kubelet on node03 tries to run the pod and it may fail admission on the node for lack of resources." },
-      { id: 'C', text: "The pod stays Pending until node03 is uncordoned." },
-      { id: 'D', text: "The API server rejects the manifest." }
+      { id: 'A', text: "The scheduler overrides the field and places the pod on a node that has capacity for it." },
+      { id: 'B', text: "The scheduler is bypassed; the kubelet tries to run it and may reject it for resources." },
+      { id: 'C', text: "The pod stays `Pending` until that node is uncordoned, since `nodeName` implies a binding." },
+      { id: 'D', text: "The API server rejects the manifest, since `nodeName` may only be set by the scheduler." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A cluster control plane runs 1.31 and an operator wants to know which kubelet versions are supported on the nodes.",
     question: "Which statement reflects the supported skew policy?",
     options: [
-      { id: 'A', text: "There is no supported skew policy; any combination works." },
-      { id: 'B', text: "Kubelets may be up to three minor versions older than the API server, and must never be newer than it." },
-      { id: 'C', text: "Kubelets must exactly match the API server minor version." },
-      { id: 'D', text: "Kubelets may be one minor version newer than the API server." }
+      { id: 'A', text: "There is no supported skew policy, so any combination of versions is permitted." },
+      { id: 'B', text: "Kubelets may be up to three minor versions behind the API server, never ahead of it." },
+      { id: 'C', text: "Kubelets have to match the API server's minor version exactly on every node." },
+      { id: 'D', text: "Kubelets may be one minor version ahead of the API server during an upgrade." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "Three bare pods carry the label app=web. A ReplicaSet with selector app=web and replicas 3 is then created.",
     question: "What does the ReplicaSet do?",
     options: [
-      { id: 'A', text: "It refuses to start because the pods have no owner." },
-      { id: 'B', text: "It deletes the bare pods and creates three of its own." },
-      { id: 'C', text: "It adopts the three existing pods by setting ownerReferences and creates none, because the desired count is already met." },
-      { id: 'D', text: "It creates three additional pods, for six in total." }
+      { id: 'A', text: "It refuses to start, since the existing pods have no owner reference." },
+      { id: 'B', text: "It deletes the bare pods and creates three replicas of its own." },
+      { id: 'C', text: "It adopts the three pods by setting `ownerReferences` and creates none." },
+      { id: 'D', text: "It creates three more pods, leaving six matching the selector." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "Clients see occasional connection resets when calling a Service during a rolling update, even though readiness probes are configured.",
     question: "Which change most directly reduces the resets?",
     options: [
-      { id: 'A', text: "Switch the Service to type NodePort." },
-      { id: 'B', text: "Set terminationGracePeriodSeconds to 0 so pods exit quickly." },
-      { id: 'C', text: "Increase the readiness probe failureThreshold." },
-      { id: 'D', text: "Add a preStop hook with a short sleep so the pod keeps serving while endpoint removal propagates to every node." }
+      { id: 'A', text: "Switch the Service to `NodePort` so clients connect to the node rather than the pod." },
+      { id: 'B', text: "Set `terminationGracePeriodSeconds: 0` so the pod exits before the next request lands." },
+      { id: 'C', text: "Raise the readiness probe's `failureThreshold` so the pod leaves rotation more slowly." },
+      { id: 'D', text: "Add a `preStop` hook with a short sleep so the pod serves while endpoint removal propagates." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "Events on a pod repeat: \"Liveness probe failed: HTTP probe failed with statuscode: 500\" followed by \"Killing container\".",
     question: "What is the correct interpretation?",
     options: [
-      { id: 'A', text: "The container image is missing curl, which the probe requires." },
-      { id: 'B', text: "The probe URL is unreachable because of a NetworkPolicy blocking the kubelet." },
-      { id: 'C', text: "The pod exceeded its memory limit." },
-      { id: 'D', text: "The application health endpoint is returning an error, so the kubelet restarts the container; the application logs explain why the endpoint is unhealthy." }
+      { id: 'A', text: "The image has no `curl`, which the HTTP probe needs in order to make its request." },
+      { id: 'B', text: "A NetworkPolicy is blocking the kubelet, so the probe cannot reach the endpoint." },
+      { id: 'C', text: "The container exceeded its memory limit, which the kubelet reports as a probe failure." },
+      { id: 'D', text: "The health endpoint is returning an error, so the kubelet restarts it; the app logs say why." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A contractor authenticating with a client certificate whose CN is contractor must be able to fully manage objects in the sandbox namespace and see nothing elsewhere.",
     question: "Which RBAC objects implement that?",
     options: [
-      { id: 'A', text: "A NetworkPolicy restricting the contractor to the sandbox namespace." },
-      { id: 'B', text: "A ClusterRole plus a ClusterRoleBinding for the user." },
-      { id: 'C', text: "A Role in sandbox granting the needed verbs, plus a RoleBinding in sandbox with a User subject named contractor." },
-      { id: 'D', text: "A ServiceAccount in sandbox plus a RoleBinding." }
+      { id: 'A', text: "A NetworkPolicy confining the contractor's workloads to the sandbox namespace." },
+      { id: 'B', text: "A `ClusterRole` with those verbs and a `ClusterRoleBinding` naming the user." },
+      { id: 'C', text: "A `Role` in the namespace with the needed verbs, and a `RoleBinding` naming the user." },
+      { id: 'D', text: "A ServiceAccount in the namespace with a `RoleBinding` naming that account." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A container must receive the value of key password from a Secret named db-creds as the environment variable DB_PASSWORD.",
     question: "Which construct does that?",
     options: [
-      { id: 'A', text: "envFrom.configMapRef naming db-creds." },
-      { id: 'B', text: "env with name DB_PASSWORD and valueFrom.secretKeyRef naming db-creds and password." },
-      { id: 'C', text: "An annotation secret.kubernetes.io/DB_PASSWORD on the pod." },
-      { id: 'D', text: "A volumeMount of db-creds at /env/DB_PASSWORD." }
+      { id: 'A', text: "`envFrom.configMapRef` naming `db-creds` as the source." },
+      { id: 'B', text: "`env` with `valueFrom.secretKeyRef` naming `db-creds` and its key." },
+      { id: 'C', text: "An annotation `secret.kubernetes.io/DB_PASSWORD` on the pod." },
+      { id: 'D', text: "A `volumeMount` of `db-creds` at `/env/DB_PASSWORD`." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A platform must prevent a pod from being scheduled until an external quota controller confirms budget, without leaving the pod in a failed state or deleting it.",
     question: "Which mechanism is designed for this?",
     options: [
-      { id: 'A', text: "A very high initialDelaySeconds on the readiness probe." },
-      { id: 'B', text: "Setting replicas to 0 until approval." },
-      { id: 'C', text: "A NoExecute taint on every node." },
-      { id: 'D', text: "spec.schedulingGates, which keep the pod SchedulingGated until the gates are removed by the controller." }
+      { id: 'A', text: "A very large `initialDelaySeconds` on the readiness probe, so it stays out of rotation." },
+      { id: 'B', text: "Setting the Deployment's replicas to 0 until the approval has been recorded." },
+      { id: 'C', text: "A `NoExecute` taint on every node until the workload has been approved to run." },
+      { id: 'D', text: "`spec.schedulingGates`, which hold the pod `SchedulingGated` until a controller clears them." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A legacy application keeps session state in memory, so requests from one client should keep reaching the same pod through a ClusterIP Service.",
     question: "Which Service field provides basic affinity?",
     options: [
-      { id: 'A', text: "publishNotReadyAddresses: true" },
-      { id: 'B', text: "externalTrafficPolicy: Local" },
-      { id: 'C', text: "allocateLoadBalancerNodePorts: false" },
-      { id: 'D', text: "sessionAffinity: ClientIP with an optional sessionAffinityConfig timeout." }
+      { id: 'A', text: "`publishNotReadyAddresses: true` on the Service" },
+      { id: 'B', text: "`externalTrafficPolicy: Local` on the Service" },
+      { id: 'C', text: "`allocateLoadBalancerNodePorts: false` on it" },
+      { id: 'D', text: "`sessionAffinity: ClientIP`, with an optional timeout" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "An operator runs kubectl delete node worker3 while the machine is still powered on and its kubelet is running.",
     question: "What happens?",
     options: [
-      { id: 'A', text: "The node object is recreated with the same pods intact." },
-      { id: 'B', text: "The machine is powered off by the control plane." },
-      { id: 'C', text: "Nothing happens until the node is cordoned first." },
-      { id: 'D', text: "The pods on it are removed from the API and rescheduled elsewhere, but the kubelet may re-register the node unless it is drained and its kubelet stopped or reset." }
+      { id: 'A', text: "The node object is recreated by the kubelet with its pods intact, since the pods live in etcd." },
+      { id: 'B', text: "The machine is powered off by the control plane once its workloads have been rescheduled." },
+      { id: 'C', text: "Nothing happens until the node is cordoned, since deletion is refused on a schedulable node." },
+      { id: 'D', text: "Its pods are rescheduled, but the kubelet may re-register unless it is drained." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A container reports no space left on device while the node has hundreds of gigabytes free. The pod mounts an emptyDir with sizeLimit set to 1Gi.",
     question: "What is happening?",
     options: [
-      { id: 'A', text: "The PersistentVolume needs expanding." },
-      { id: 'B', text: "The container image layer is read-only, so all writes fail." },
-      { id: 'C', text: "The emptyDir sizeLimit caps the volume, and exceeding it causes the pod to be evicted or writes to fail regardless of node capacity." },
-      { id: 'D', text: "The node inode table is exhausted." }
+      { id: 'A', text: "The PersistentVolume needs expanding, which is why writes fail once it reaches its capacity." },
+      { id: 'B', text: "The container's image layer is read-only, so every write outside a volume fails immediately." },
+      { id: 'C', text: "The `emptyDir` `sizeLimit` caps the volume, so exceeding it evicts the pod whatever the node has spare." },
+      { id: 'D', text: "The node's inode table is exhausted, so new files fail even with free space on the disk." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKA_QUESTIONS_7 = [
     scenario: "A pod remains Terminating long after its grace period because its node is unreachable, and the workload must be recreated promptly.",
     question: "What is the correct understanding of kubectl delete pod --force --grace-period=0?",
     options: [
-      { id: 'A', text: "It removes the pod object from the API immediately without confirming the container stopped, which risks two instances running if the node returns - dangerous for single-writer workloads." },
-      { id: 'B', text: "It automatically detaches any PersistentVolume safely." },
-      { id: 'C', text: "It sends SIGKILL to the container and waits for confirmation." },
-      { id: 'D', text: "It is the recommended first response to any Terminating pod." }
+      { id: 'A', text: "It drops the pod object without confirming the container stopped, risking two writers." },
+      { id: 'B', text: "It detaches any PersistentVolume first, so the replacement pod can bind it immediately." },
+      { id: 'C', text: "It sends `SIGKILL` to the container and waits for the kubelet to confirm it exited." },
+      { id: 'D', text: "It is the recommended first response whenever a pod is stuck in `Terminating`." }
     ],
     correctAnswers: ['A'],
     type: "single",

@@ -9,10 +9,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A cluster is being migrated from an in-tree cloud provider to an external one, and the team must explain what functionality moves.",
     question: "Which responsibilities belong to the cloud-controller-manager?",
     options: [
-      { id: 'A', text: "Scheduling pods onto nodes and enforcing affinity rules." },
-      { id: 'B', text: "Node lifecycle against the cloud API, route configuration, and LoadBalancer Service provisioning." },
-      { id: 'C', text: "Programming iptables rules for Services on each node." },
-      { id: 'D', text: "Serving the Kubernetes API and persisting objects." }
+      { id: 'A', text: "Scheduling pods onto nodes and enforcing the affinity rules they declare." },
+      { id: 'B', text: "Node lifecycle against the cloud API, routes, and LoadBalancer provisioning." },
+      { id: 'C', text: "Programming the iptables rules for each Service on every node in turn." },
+      { id: 'D', text: "Serving the Kubernetes API and persisting each object into etcd." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A LoadBalancer Service uses externalTrafficPolicy: Local. Three of five nodes run a backend pod, and the cloud load balancer sends equal traffic to all five nodes.",
     question: "What happens to the traffic and how is it normally avoided?",
     options: [
-      { id: 'A', text: "kube-proxy schedules a new pod onto each node automatically." },
-      { id: 'B', text: "Nodes with no local backend fail the load balancer health check and are removed from rotation, so traffic reaches only nodes running a pod." },
-      { id: 'C', text: "Traffic to nodes without a pod is forwarded to other nodes with SNAT applied." },
-      { id: 'D', text: "Traffic is dropped permanently and the Service must be recreated as Cluster policy." }
+      { id: 'A', text: "kube-proxy schedules a backend pod onto each node so every node can answer the check." },
+      { id: 'B', text: "Nodes with no local backend fail the health check and leave rotation." },
+      { id: 'C', text: "Traffic to a node without a pod is forwarded on to another node with SNAT applied." },
+      { id: 'D', text: "Traffic is dropped for good, and the Service has to be recreated with `Cluster` policy." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "Hardening requires readOnlyRootFilesystem: true, but the application must still write temporary files to /tmp.",
     question: "Which change keeps both requirements?",
     options: [
-      { id: 'A', text: "Run the container as root so it can write anywhere." },
-      { id: 'B', text: "Set readOnlyRootFilesystem: false only for that container." },
-      { id: 'C', text: "Grant the container the SYS_ADMIN capability." },
-      { id: 'D', text: "Mount an emptyDir volume at /tmp while keeping the root filesystem read-only." }
+      { id: 'A', text: "Run the container as root so it can write to the image's paths." },
+      { id: 'B', text: "Set `readOnlyRootFilesystem: false` for that one container only." },
+      { id: 'C', text: "Grant the container `SYS_ADMIN` so it can remount the path." },
+      { id: 'D', text: "Mount an `emptyDir` at `/tmp` and keep the root filesystem read-only." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A monitoring DaemonSet must also run on control plane nodes, which carry the NoSchedule control plane taint.",
     question: "What is required?",
     options: [
-      { id: 'A', text: "Set hostNetwork: true on the DaemonSet." },
-      { id: 'B', text: "Remove the taint from the control plane nodes." },
-      { id: 'C', text: "Add a toleration for node-role.kubernetes.io/control-plane with effect NoSchedule to the DaemonSet pod template." },
-      { id: 'D', text: "Give the DaemonSet a nodeSelector for the control plane label." }
+      { id: 'A', text: "Set `hostNetwork: true` on the DaemonSet so its pods bypass the node's taints." },
+      { id: 'B', text: "Remove the `NoSchedule` taint from each of the control plane nodes in the cluster." },
+      { id: 'C', text: "Add a toleration for `node-role.kubernetes.io/control-plane:NoSchedule` to the pod template." },
+      { id: 'D', text: "Give the DaemonSet a `nodeSelector` for the control plane role label on those nodes." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "An application needs a short-lived, audience-scoped token to authenticate to an external service, rather than a long-lived Secret-based ServiceAccount token.",
     question: "Which mechanism provides it?",
     options: [
-      { id: 'A', text: "A projected volume with a serviceAccountToken source specifying audience and expirationSeconds." },
-      { id: 'B', text: "A Secret of type kubernetes.io/service-account-token mounted manually." },
-      { id: 'C', text: "The automountServiceAccountToken field set to true." },
-      { id: 'D', text: "A ConfigMap containing the token value." }
+      { id: 'A', text: "A projected volume with a `serviceAccountToken` source and an audience." },
+      { id: 'B', text: "A Secret of type `kubernetes.io/service-account-token`, mounted by hand." },
+      { id: 'C', text: "The `automountServiceAccountToken` field set to true on the pod spec." },
+      { id: 'D', text: "A ConfigMap holding the token, mounted at the conventional path." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "An operator wants to confirm that a Service name resolves from inside the cluster, without modifying any existing workload.",
     question: "Which command is a reasonable one-liner?",
     options: [
-      { id: 'A', text: "kubectl run tmp --rm -it --image=busybox --restart=Never -- nslookup api.web.svc.cluster.local" },
-      { id: 'B', text: "kubectl get svc api -o jsonpath={.spec.clusterIP}" },
-      { id: 'C', text: "nslookup api.web.svc.cluster.local from the workstation" },
-      { id: 'D', text: "kubectl describe configmap coredns -n kube-system" }
+      { id: 'A', text: "`kubectl run tmp --rm -it --image=busybox -- nslookup api.web.svc.cluster.local`" },
+      { id: 'B', text: "`kubectl get svc api -o jsonpath={.spec.clusterIP}` from the workstation" },
+      { id: 'C', text: "`nslookup api.web.svc.cluster.local` run on the workstation itself" },
+      { id: 'D', text: "`kubectl describe configmap coredns -n kube-system` to read the zone" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A node lost network connectivity. After around five minutes, its pods were marked for deletion and recreated elsewhere.",
     question: "Which mechanism caused that delay and action?",
     options: [
-      { id: 'A', text: "The node controller added a node.kubernetes.io/unreachable:NoExecute taint, and the default tolerationSeconds of 300 expired." },
-      { id: 'B', text: "The scheduler preempted the pods to free capacity." },
-      { id: 'C', text: "A PodDisruptionBudget triggered the eviction." },
-      { id: 'D', text: "The kubelet on the unreachable node evicted its own pods." }
+      { id: 'A', text: "The node controller taints `unreachable:NoExecute`, and the 300s toleration expired." },
+      { id: 'B', text: "The scheduler preempted those pods to free capacity for a higher-priority workload." },
+      { id: 'C', text: "A PodDisruptionBudget triggered the eviction once the node stopped reporting in." },
+      { id: 'D', text: "The kubelet on the unreachable node evicted its own pods before losing contact." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A team wants point-in-time copies of a CSI-backed PersistentVolume that can be used to create new claims, using Kubernetes APIs rather than provider tooling.",
     question: "Which objects are involved?",
     options: [
-      { id: 'A', text: "A StorageClass with reclaimPolicy: Retain and a cloned PersistentVolume." },
-      { id: 'B', text: "A CronJob running tar against the mounted volume." },
-      { id: 'C', text: "A PersistentVolumeClaim with accessMode ReadOnlyMany." },
-      { id: 'D', text: "A VolumeSnapshotClass, a VolumeSnapshot referencing the source PVC, and a new PVC with dataSource pointing at the snapshot." }
+      { id: 'A', text: "A StorageClass with `reclaimPolicy: Retain` and a cloned PersistentVolume object." },
+      { id: 'B', text: "A CronJob that runs `tar` against the mounted volume into object storage." },
+      { id: 'C', text: "A second PersistentVolumeClaim with the `ReadOnlyMany` access mode." },
+      { id: 'D', text: "A `VolumeSnapshotClass`, a `VolumeSnapshot` of the source PVC, and a PVC with a `dataSource`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A manifest is applied repeatedly by a CI pipeline as the file evolves.",
     question: "Why is kubectl apply preferred over kubectl create here?",
     options: [
-      { id: 'A', text: "apply performs a declarative create-or-update and records the configuration so later changes converge, while create fails if the object already exists." },
-      { id: 'B', text: "apply deletes and recreates the object each time." },
-      { id: 'C', text: "apply bypasses admission control, so it is faster." },
-      { id: 'D', text: "create cannot read YAML files." }
+      { id: 'A', text: "`apply` is a declarative create-or-update, while `create` fails if the object exists." },
+      { id: 'B', text: "`apply` deletes and recreates the object each time, which is how it converges on the manifest." },
+      { id: 'C', text: "`apply` bypasses admission control, which is why it completes faster on a busy API server." },
+      { id: 'D', text: "`create` cannot read a multi-document YAML file, so it fails on a manifest with several objects." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "Pods labelled tier=backend must be able to reach 10.0.0.0/8 but must not reach any public address, using NetworkPolicy only.",
     question: "Which egress rule expresses that?",
     options: [
-      { id: 'A', text: "An ingress rule with ipBlock cidr 10.0.0.0/8." },
-      { id: 'B', text: "An egress rule with to: [{ ipBlock: { cidr: 10.0.0.0/8 } }] and no other rules, in a policy selecting tier=backend with policyTypes including Egress." },
-      { id: 'C', text: "A policy with no rules and policyTypes: [Ingress]." },
-      { id: 'D', text: "An egress rule with ipBlock cidr 0.0.0.0/0 and except 10.0.0.0/8." }
+      { id: 'A', text: "An ingress rule with `from: [{ ipBlock: { cidr: 10.0.0.0/8 } }]` on the same selector." },
+      { id: 'B', text: "An egress rule with `to: [{ ipBlock: { cidr: 10.0.0.0/8 } }]` in a policy selecting `tier=backend`." },
+      { id: 'C', text: "A policy with no rules at all and `policyTypes: [Ingress]` over `tier=backend`." },
+      { id: 'D', text: "An egress rule with `ipBlock` `0.0.0.0/0` and `except: [10.0.0.0/8]` on that selector." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A pod shows READY 1/1, STATUS Running, and RESTARTS 47 over three hours.",
     question: "What should the operator conclude?",
     options: [
-      { id: 'A', text: "The pod has been rescheduled 47 times onto different nodes." },
-      { id: 'B', text: "The container has crashed or been killed 47 times and is currently healthy; the previous container logs and the termination reason explain why." },
-      { id: 'C', text: "The readiness probe has failed 47 times." },
-      { id: 'D', text: "The deployment has been rolled out 47 times." }
+      { id: 'A', text: "The pod has been rescheduled 47 times onto different nodes by the scheduler." },
+      { id: 'B', text: "The container has been killed 47 times and is healthy now; the previous logs say why." },
+      { id: 'C', text: "The readiness probe has failed 47 times since the pod was first started." },
+      { id: 'D', text: "The deployment has rolled out 47 times, and the count follows the pod." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A PDB with minAvailable: 2 was configured, yet all three replicas went down when a node hardware failure occurred.",
     question: "Why did the budget not help?",
     options: [
-      { id: 'A', text: "minAvailable must be expressed as a percentage to be honoured." },
-      { id: 'B', text: "PDBs require a matching PriorityClass to take effect." },
-      { id: 'C', text: "PodDisruptionBudgets only constrain voluntary disruptions made through the eviction API; involuntary failures such as hardware faults are not blocked." },
-      { id: 'D', text: "The PDB applies only to StatefulSets." }
+      { id: 'A', text: "A `minAvailable` expressed as a count rather than a percentage is ignored by the eviction API." },
+      { id: 'B', text: "A PodDisruptionBudget needs a matching `PriorityClass` on the pods before it takes effect." },
+      { id: 'C', text: "A PodDisruptionBudget bounds voluntary disruptions through the eviction API; a hardware failure is not one." },
+      { id: 'D', text: "A PodDisruptionBudget applies only to StatefulSets, whose replicas have stable identities." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A CRD named backups.example.com is added, and users holding the built-in view ClusterRole should automatically gain read access to it without editing that ClusterRole.",
     question: "How is that achieved?",
     options: [
-      { id: 'A', text: "Create a ClusterRole with get, list, and watch on backups and label it rbac.authorization.k8s.io/aggregate-to-view: \"true\"." },
-      { id: 'B', text: "Add the CRD to the default ServiceAccount RoleBinding." },
-      { id: 'C', text: "Set aggregation: view in the CRD spec." },
-      { id: 'D', text: "Edit the view ClusterRole and add the new rules directly." }
+      { id: 'A', text: "Create a ClusterRole with read verbs on the resource, labelled `aggregate-to-view: \"true\"`." },
+      { id: 'B', text: "Add the CRD's group to the default ServiceAccount's RoleBinding in each namespace." },
+      { id: 'C', text: "Set `aggregation: view` in the CustomResourceDefinition's own spec block." },
+      { id: 'D', text: "Edit the built-in `view` ClusterRole and add the rules to it directly." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A pod in namespace app references a PVC named data, and an identical PVC named data exists in namespace other.",
     question: "Which claim is used?",
     options: [
-      { id: 'A', text: "Whichever claim was created first, because PVC names are cluster-unique." },
-      { id: 'B', text: "Both, because the claims are merged." },
-      { id: 'C', text: "The claim in namespace app, because PVCs are namespaced and a pod can only reference one in its own namespace." },
-      { id: 'D', text: "Neither; the pod must reference the PersistentVolume directly." }
+      { id: 'A', text: "Whichever claim was created first, since claim names are cluster-wide." },
+      { id: 'B', text: "Both, since the two claims are merged into one bound volume." },
+      { id: 'C', text: "The claim in the pod's own namespace, since claims are namespaced." },
+      { id: 'D', text: "Neither; the pod has to reference the PersistentVolume directly." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A Service must front a database running outside the cluster at a fixed IP address, while pods keep using a normal in-cluster Service name.",
     question: "How is that modelled?",
     options: [
-      { id: 'A', text: "Create a Service with no selector and a matching EndpointSlice or Endpoints object holding the external address." },
-      { id: 'B', text: "Create a NetworkPolicy allowing egress to the database." },
-      { id: 'C', text: "Create a LoadBalancer Service and set its clusterIP to the external address." },
-      { id: 'D', text: "Create a headless Service with a podSelector for the database." }
+      { id: 'A', text: "A Service with no selector, plus an EndpointSlice holding the external address." },
+      { id: 'B', text: "A NetworkPolicy permitting egress from the workload to the database." },
+      { id: 'C', text: "A `LoadBalancer` Service whose `clusterIP` is set to the external one." },
+      { id: 'D', text: "A headless Service with a `podSelector` matching the database pods." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "kubectl apply reported the deployment configured, kubectl get deployment shows 0/3 ready and 0 replicas created, and no pods and no ReplicaSet exist.",
     question: "Where should the investigation start?",
     options: [
-      { id: 'A', text: "The CNI plugin configuration." },
-      { id: 'B', text: "The kubelet on each worker node." },
-      { id: 'C', text: "The kube-controller-manager, because the deployment controller creates the ReplicaSet and it is evidently not running or not leader." },
-      { id: 'D', text: "The Service selector for the deployment." }
+      { id: 'A', text: "The CNI plugin's configuration, since pods cannot be created while the network is unready." },
+      { id: 'B', text: "The kubelet on each worker, since it is what turns a scheduled pod into a running container." },
+      { id: 'C', text: "The kube-controller-manager, since it creates the ReplicaSet and is not leading." },
+      { id: 'D', text: "The Service selector, since the deployment's pods are not being matched to their endpoints." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "An administrator needs to regenerate only the kubeconfig files on a control plane node without touching the rest of the installation.",
     question: "Which capability supports that?",
     options: [
-      { id: 'A', text: "kubeadm join --control-plane --skip-phases=all" },
-      { id: 'B', text: "kubectl config regenerate" },
-      { id: 'C', text: "kubeadm init phase kubeconfig all, which runs one phase of the init workflow in isolation." },
-      { id: 'D', text: "kubeadm reset --kubeconfig-only" }
+      { id: 'A', text: "`kubeadm join --control-plane --skip-phases=all` on the same node." },
+      { id: 'B', text: "`kubectl config view --raw` piped back into the kubeconfig file." },
+      { id: 'C', text: "`kubeadm init phase kubeconfig all`, which runs that one phase in isolation." },
+      { id: 'D', text: "`kubeadm reset --cleanup-tmp-dir`, which leaves the cluster running." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A very large cluster suffers API server load from thousands of watches on ConfigMaps that never change after creation.",
     question: "Which setting reduces that load and what is the tradeoff?",
     options: [
-      { id: 'A', text: "Convert the ConfigMaps to Secrets, which are not watched." },
-      { id: 'B', text: "Add the annotation kubernetes.io/no-watch: \"true\"." },
-      { id: 'C', text: "Set immutable: true, which encrypts the data at rest." },
-      { id: 'D', text: "Set immutable: true, which stops the kubelet watching for changes; the object can then only be replaced, not updated." }
+      { id: 'A', text: "Converting them to Secrets, which the kubelet watches at a lower frequency." },
+      { id: 'B', text: "The `kubernetes.io/no-watch` annotation, which drops the kubelet's watch." },
+      { id: 'C', text: "`immutable: true`, which also encrypts the object's data at rest in etcd." },
+      { id: 'D', text: "`immutable: true` stops the kubelet watching it; the object can then only be replaced." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A cluster runs Services with thousands of endpoints and operators observe growing latency when kube-proxy reprograms rules.",
     question: "Why might IPVS mode help?",
     options: [
-      { id: 'A', text: "IPVS uses a hash table for lookups and scales better as the number of Services and endpoints grows, whereas iptables rule chains grow linearly and are slower to reprogram." },
-      { id: 'B', text: "IPVS removes the need for a CNI plugin." },
-      { id: 'C', text: "IPVS eliminates the need for EndpointSlices." },
-      { id: 'D', text: "IPVS provides layer 7 routing for HTTP Services." }
+      { id: 'A', text: "IPVS looks up in a hash table and scales with Service count, where iptables chains grow linearly." },
+      { id: 'B', text: "IPVS programs the pod routes itself, so the CNI plugin is no longer on the data path." },
+      { id: 'C', text: "IPVS reads the Endpoints object directly, so EndpointSlices are not needed in the cluster." },
+      { id: 'D', text: "IPVS provides layer 7 routing for HTTP Services, which iptables mode cannot express." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "A Job with backoffLimit: 4 runs a task that exits non-zero every time.",
     question: "What is the outcome?",
     options: [
-      { id: 'A', text: "The Job retries forever until manually deleted." },
-      { id: 'B', text: "The Job is marked Complete because the pods ran." },
+      { id: 'A', text: "The Job retries indefinitely until an operator deletes the object." },
+      { id: 'B', text: "The Job is marked Complete, since its pods did run to termination." },
       { id: 'C', text: "The Job is suspended and waits for an operator to resume it." },
-      { id: 'D', text: "The Job retries with exponential backoff and is marked Failed after the retry budget is exhausted." }
+      { id: 'D', text: "The Job retries with backoff and is marked Failed once the budget runs out." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKA_QUESTIONS_6 = [
     scenario: "The same application manifests must be deployed to staging and production with different replica counts and image tags, without duplicating the YAML.",
     question: "Which native kubectl capability supports that?",
     options: [
-      { id: 'A', text: "kubectl apply -f with a --set flag for each value." },
-      { id: 'B', text: "kubectl apply -k with a base plus per-environment Kustomize overlays that patch replicas and images." },
-      { id: 'C', text: "kubectl apply --prune against a single manifest." },
-      { id: 'D', text: "kubectl replace with environment variables expanded by the shell." }
+      { id: 'A', text: "`kubectl apply -f` with a `--set` flag for each overridden value." },
+      { id: 'B', text: "`kubectl apply -k` with a base and per-environment Kustomize overlays." },
+      { id: 'C', text: "`kubectl apply --prune` against a single combined manifest file." },
+      { id: 'D', text: "`kubectl replace` with the environment variables expanded first." }
     ],
     correctAnswers: ['B'],
     type: "single",

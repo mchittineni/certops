@@ -9,10 +9,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to implement modern, extensible service networking that cleanly separates infrastructure provider duties from application developer routing rules.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Hardcode routing logic inside application container code." },
-      { id: 'B', text: "Create static host route entries on every worker node." },
-      { id: 'C', text: "Adopt the Kubernetes Gateway API, defining `GatewayClass` (infra provider), `Gateway` (cluster operator), and `HTTPRoute` (developer)." },
-      { id: 'D', text: "Stick with deprecated Ingress v1beta1 annotations." }
+      { id: 'A', text: "Adopt one Ingress per team with a shared `ingressClassName`, and route by host inside each one." },
+      { id: 'B', text: "Adopt a service mesh and express the routing as `VirtualService` objects owned by each team." },
+      { id: 'C', text: "Adopt the Gateway API: `GatewayClass` for the provider, `Gateway` for the operator, `HTTPRoute` for teams." },
+      { id: 'D', text: "Adopt Ingress with controller-specific annotations, which each team sets on its own resource." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to implement modern, extensible service networking that cleanly separates infrastructure provider duties from application developer routing rules.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Hardcode routing logic inside application container code." },
-      { id: 'B', text: "Stick with deprecated Ingress v1beta1 annotations." },
-      { id: 'C', text: "Create static host route entries on every worker node." },
-      { id: 'D', text: "Adopt the Kubernetes Gateway API, defining `GatewayClass` (infra provider), `Gateway` (cluster operator), and `HTTPRoute` (developer)." }
+      { id: 'A', text: "Adopt one Ingress per team with a shared `ingressClassName`, and route by host inside each one." },
+      { id: 'B', text: "Adopt Ingress with controller-specific annotations, which each team sets on its own resource." },
+      { id: 'C', text: "Adopt a service mesh and express the routing as `VirtualService` objects owned by each team." },
+      { id: 'D', text: "Adopt the Gateway API: `GatewayClass` for the provider, `Gateway` for the operator, `HTTPRoute` for teams." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to implement modern, extensible service networking that cleanly separates infrastructure provider duties from application developer routing rules.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Stick with deprecated Ingress v1beta1 annotations." },
-      { id: 'B', text: "Hardcode routing logic inside application container code." },
-      { id: 'C', text: "Adopt the Kubernetes Gateway API, defining `GatewayClass` (infra provider), `Gateway` (cluster operator), and `HTTPRoute` (developer)." },
-      { id: 'D', text: "Create static host route entries on every worker node." }
+      { id: 'A', text: "Adopt Ingress with controller-specific annotations, which each team sets on its own resource." },
+      { id: 'B', text: "Adopt one Ingress per team with a shared `ingressClassName`, and route by host inside each one." },
+      { id: 'C', text: "Adopt the Gateway API: `GatewayClass` for the provider, `Gateway` for the operator, `HTTPRoute` for teams." },
+      { id: 'D', text: "Adopt a service mesh and express the routing as `VirtualService` objects owned by each team." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to implement modern, extensible service networking that cleanly separates infrastructure provider duties from application developer routing rules.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Adopt the Kubernetes Gateway API, defining `GatewayClass` (infra provider), `Gateway` (cluster operator), and `HTTPRoute` (developer)." },
-      { id: 'B', text: "Stick with deprecated Ingress v1beta1 annotations." },
-      { id: 'C', text: "Hardcode routing logic inside application container code." },
-      { id: 'D', text: "Create static host route entries on every worker node." }
+      { id: 'A', text: "Adopt the Gateway API: `GatewayClass` for the provider, `Gateway` for the operator, `HTTPRoute` for teams." },
+      { id: 'B', text: "Adopt Ingress with controller-specific annotations, which each team sets on its own resource." },
+      { id: 'C', text: "Adopt one Ingress per team with a shared `ingressClassName`, and route by host inside each one." },
+      { id: 'D', text: "Adopt a service mesh and express the routing as `VirtualService` objects owned by each team." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to implement modern, extensible service networking that cleanly separates infrastructure provider duties from application developer routing rules.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Stick with deprecated Ingress v1beta1 annotations." },
-      { id: 'B', text: "Adopt the Kubernetes Gateway API, defining `GatewayClass` (infra provider), `Gateway` (cluster operator), and `HTTPRoute` (developer)." },
-      { id: 'C', text: "Create static host route entries on every worker node." },
-      { id: 'D', text: "Hardcode routing logic inside application container code." }
+      { id: 'A', text: "Adopt Ingress with controller-specific annotations, which each team sets on its own resource." },
+      { id: 'B', text: "Adopt the Gateway API: `GatewayClass` for the provider, `Gateway` for the operator, `HTTPRoute` for teams." },
+      { id: 'C', text: "Adopt a service mesh and express the routing as `VirtualService` objects owned by each team." },
+      { id: 'D', text: "Adopt one Ingress per team with a shared `ingressClassName`, and route by host inside each one." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -114,10 +114,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to configure Kubernetes cluster pods to resolve internal corporate domain names (e.g., `corp.internal`) via an on-premises enterprise DNS server.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Edit the CoreDNS ConfigMap in `kube-system` to add a server block forwarding queries for `corp.internal` to the enterprise DNS server IP." },
-      { id: 'B', text: "Edit the /etc/resolv.conf file on every worker node manually." },
-      { id: 'C', text: "Modify every pod manifest to include custom hostAliases for thousands of corporate records." },
-      { id: 'D', text: "Disable CoreDNS and route all cluster DNS queries through public 8.8.8.8 servers." }
+      { id: 'A', text: "Add a server block to the CoreDNS ConfigMap forwarding `corp.internal` to the enterprise resolver." },
+      { id: 'B', text: "Add the enterprise resolver to each node's `/etc/resolv.conf` and use `dnsPolicy: Default`." },
+      { id: 'C', text: "Add `hostAliases` entries for the corporate records to each workload's own pod template." },
+      { id: 'D', text: "Add a `dnsConfig` block on every pod naming the enterprise resolver as its nameserver." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to configure Kubernetes cluster pods to resolve internal corporate domain names (e.g., `corp.internal`) via an on-premises enterprise DNS server.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Edit the /etc/resolv.conf file on every worker node manually." },
-      { id: 'B', text: "Edit the CoreDNS ConfigMap in `kube-system` to add a server block forwarding queries for `corp.internal` to the enterprise DNS server IP." },
-      { id: 'C', text: "Disable CoreDNS and route all cluster DNS queries through public 8.8.8.8 servers." },
-      { id: 'D', text: "Modify every pod manifest to include custom hostAliases for thousands of corporate records." }
+      { id: 'A', text: "Add the enterprise resolver to each node's `/etc/resolv.conf` and use `dnsPolicy: Default`." },
+      { id: 'B', text: "Add a server block to the CoreDNS ConfigMap forwarding `corp.internal` to the enterprise resolver." },
+      { id: 'C', text: "Add a `dnsConfig` block on every pod naming the enterprise resolver as its nameserver." },
+      { id: 'D', text: "Add `hostAliases` entries for the corporate records to each workload's own pod template." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to configure Kubernetes cluster pods to resolve internal corporate domain names (e.g., `corp.internal`) via an on-premises enterprise DNS server.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Edit the /etc/resolv.conf file on every worker node manually." },
-      { id: 'B', text: "Edit the CoreDNS ConfigMap in `kube-system` to add a server block forwarding queries for `corp.internal` to the enterprise DNS server IP." },
-      { id: 'C', text: "Disable CoreDNS and route all cluster DNS queries through public 8.8.8.8 servers." },
-      { id: 'D', text: "Modify every pod manifest to include custom hostAliases for thousands of corporate records." }
+      { id: 'A', text: "Add the enterprise resolver to each node's `/etc/resolv.conf` and use `dnsPolicy: Default`." },
+      { id: 'B', text: "Add a server block to the CoreDNS ConfigMap forwarding `corp.internal` to the enterprise resolver." },
+      { id: 'C', text: "Add a `dnsConfig` block on every pod naming the enterprise resolver as its nameserver." },
+      { id: 'D', text: "Add `hostAliases` entries for the corporate records to each workload's own pod template." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to configure Kubernetes cluster pods to resolve internal corporate domain names (e.g., `corp.internal`) via an on-premises enterprise DNS server.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Edit the CoreDNS ConfigMap in `kube-system` to add a server block forwarding queries for `corp.internal` to the enterprise DNS server IP." },
-      { id: 'B', text: "Edit the /etc/resolv.conf file on every worker node manually." },
-      { id: 'C', text: "Modify every pod manifest to include custom hostAliases for thousands of corporate records." },
-      { id: 'D', text: "Disable CoreDNS and route all cluster DNS queries through public 8.8.8.8 servers." }
+      { id: 'A', text: "Add a server block to the CoreDNS ConfigMap forwarding `corp.internal` to the enterprise resolver." },
+      { id: 'B', text: "Add the enterprise resolver to each node's `/etc/resolv.conf` and use `dnsPolicy: Default`." },
+      { id: 'C', text: "Add `hostAliases` entries for the corporate records to each workload's own pod template." },
+      { id: 'D', text: "Add a `dnsConfig` block on every pod naming the enterprise resolver as its nameserver." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to configure Kubernetes cluster pods to resolve internal corporate domain names (e.g., `corp.internal`) via an on-premises enterprise DNS server.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Edit the CoreDNS ConfigMap in `kube-system` to add a server block forwarding queries for `corp.internal` to the enterprise DNS server IP." },
-      { id: 'B', text: "Edit the /etc/resolv.conf file on every worker node manually." },
-      { id: 'C', text: "Modify every pod manifest to include custom hostAliases for thousands of corporate records." },
-      { id: 'D', text: "Disable CoreDNS and route all cluster DNS queries through public 8.8.8.8 servers." }
+      { id: 'A', text: "Add a server block to the CoreDNS ConfigMap forwarding `corp.internal` to the enterprise resolver." },
+      { id: 'B', text: "Add the enterprise resolver to each node's `/etc/resolv.conf` and use `dnsPolicy: Default`." },
+      { id: 'C', text: "Add `hostAliases` entries for the corporate records to each workload's own pod template." },
+      { id: 'D', text: "Add a `dnsConfig` block on every pod naming the enterprise resolver as its nameserver." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to optimize inter-service network latency and eliminate unnecessary cross-node hops by routing service calls only to pods running on the same node.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Configure pods with hardcoded node IP addresses." },
-      { id: 'B', text: "Set `spec.externalTrafficPolicy: Cluster`." },
-      { id: 'C', text: "Deploy a separate service for every worker node." },
-      { id: 'D', text: "Set `spec.internalTrafficPolicy: Local` on the Service manifest." }
+      { id: 'A', text: "Set `spec.externalTrafficPolicy: Local` on the Service" },
+      { id: 'B', text: "Set `spec.sessionAffinity: ClientIP` on the Service" },
+      { id: 'C', text: "Set `spec.publishNotReadyAddresses: true` on it" },
+      { id: 'D', text: "Set `spec.internalTrafficPolicy: Local` on the Service" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to optimize inter-service network latency and eliminate unnecessary cross-node hops by routing service calls only to pods running on the same node.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Set `spec.internalTrafficPolicy: Local` on the Service manifest." },
-      { id: 'B', text: "Set `spec.externalTrafficPolicy: Cluster`." },
-      { id: 'C', text: "Configure pods with hardcoded node IP addresses." },
-      { id: 'D', text: "Deploy a separate service for every worker node." }
+      { id: 'A', text: "Set `spec.internalTrafficPolicy: Local` on the Service" },
+      { id: 'B', text: "Set `spec.sessionAffinity: ClientIP` on the Service" },
+      { id: 'C', text: "Set `spec.externalTrafficPolicy: Local` on the Service" },
+      { id: 'D', text: "Set `spec.publishNotReadyAddresses: true` on it" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to optimize inter-service network latency and eliminate unnecessary cross-node hops by routing service calls only to pods running on the same node.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Set `spec.externalTrafficPolicy: Cluster`." },
-      { id: 'B', text: "Set `spec.internalTrafficPolicy: Local` on the Service manifest." },
-      { id: 'C', text: "Deploy a separate service for every worker node." },
-      { id: 'D', text: "Configure pods with hardcoded node IP addresses." }
+      { id: 'A', text: "Set `spec.sessionAffinity: ClientIP` on the Service" },
+      { id: 'B', text: "Set `spec.internalTrafficPolicy: Local` on the Service" },
+      { id: 'C', text: "Set `spec.publishNotReadyAddresses: true` on it" },
+      { id: 'D', text: "Set `spec.externalTrafficPolicy: Local` on the Service" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to optimize inter-service network latency and eliminate unnecessary cross-node hops by routing service calls only to pods running on the same node.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Set `spec.internalTrafficPolicy: Local` on the Service manifest." },
-      { id: 'B', text: "Set `spec.externalTrafficPolicy: Cluster`." },
-      { id: 'C', text: "Configure pods with hardcoded node IP addresses." },
-      { id: 'D', text: "Deploy a separate service for every worker node." }
+      { id: 'A', text: "Set `spec.internalTrafficPolicy: Local` on the Service" },
+      { id: 'B', text: "Set `spec.sessionAffinity: ClientIP` on the Service" },
+      { id: 'C', text: "Set `spec.externalTrafficPolicy: Local` on the Service" },
+      { id: 'D', text: "Set `spec.publishNotReadyAddresses: true` on it" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to optimize inter-service network latency and eliminate unnecessary cross-node hops by routing service calls only to pods running on the same node.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Deploy a separate service for every worker node." },
-      { id: 'B', text: "Configure pods with hardcoded node IP addresses." },
-      { id: 'C', text: "Set `spec.externalTrafficPolicy: Cluster`." },
-      { id: 'D', text: "Set `spec.internalTrafficPolicy: Local` on the Service manifest." }
+      { id: 'A', text: "Set `spec.publishNotReadyAddresses: true` on it" },
+      { id: 'B', text: "Set `spec.externalTrafficPolicy: Local` on the Service" },
+      { id: 'C', text: "Set `spec.sessionAffinity: ClientIP` on the Service" },
+      { id: 'D', text: "Set `spec.internalTrafficPolicy: Local` on the Service" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,7 +324,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to preserve real client IP addresses in web server access logs for incoming external traffic arriving through a LoadBalancer or NodePort service.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Set `spec.externalTrafficPolicy: Cluster`." },
+      { id: 'A', text: "Set `spec.sessionAffinity: ClientIP` on the Service" },
       { id: 'B', text: "Set `spec.externalTrafficPolicy: Local` on the Service." },
       { id: 'C', text: "Disable kube-proxy across all worker nodes." },
       { id: 'D', text: "Configure an iptables SNAT rule on worker nodes to overwrite the source IP." }
@@ -347,7 +347,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     options: [
       { id: 'A', text: "Configure an iptables SNAT rule on worker nodes to overwrite the source IP." },
       { id: 'B', text: "Set `spec.externalTrafficPolicy: Local` on the Service." },
-      { id: 'C', text: "Set `spec.externalTrafficPolicy: Cluster`." },
+      { id: 'C', text: "Set `spec.sessionAffinity: ClientIP` on the Service" },
       { id: 'D', text: "Disable kube-proxy across all worker nodes." }
     ],
     correctAnswers: ['B'],
@@ -366,7 +366,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to preserve real client IP addresses in web server access logs for incoming external traffic arriving through a LoadBalancer or NodePort service.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Set `spec.externalTrafficPolicy: Cluster`." },
+      { id: 'A', text: "Set `spec.sessionAffinity: ClientIP` on the Service" },
       { id: 'B', text: "Set `spec.externalTrafficPolicy: Local` on the Service." },
       { id: 'C', text: "Disable kube-proxy across all worker nodes." },
       { id: 'D', text: "Configure an iptables SNAT rule on worker nodes to overwrite the source IP." }
@@ -390,7 +390,7 @@ export const K8S_CKA_QUESTIONS_21 = [
       { id: 'A', text: "Configure an iptables SNAT rule on worker nodes to overwrite the source IP." },
       { id: 'B', text: "Disable kube-proxy across all worker nodes." },
       { id: 'C', text: "Set `spec.externalTrafficPolicy: Local` on the Service." },
-      { id: 'D', text: "Set `spec.externalTrafficPolicy: Cluster`." }
+      { id: 'D', text: "Set `spec.sessionAffinity: ClientIP` on the Service" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -411,7 +411,7 @@ export const K8S_CKA_QUESTIONS_21 = [
       { id: 'A', text: "Disable kube-proxy across all worker nodes." },
       { id: 'B', text: "Set `spec.externalTrafficPolicy: Local` on the Service." },
       { id: 'C', text: "Configure an iptables SNAT rule on worker nodes to overwrite the source IP." },
-      { id: 'D', text: "Set `spec.externalTrafficPolicy: Cluster`." }
+      { id: 'D', text: "Set `spec.sessionAffinity: ClientIP` on the Service" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to maintain efficient network routing and minimize control plane memory overhead for a microservice scaled to over 5,000 pod replicas.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Rely on Kubernetes `EndpointSlices`, which partition large endpoint sets into discrete resources containing at most 100 endpoints each." },
-      { id: 'B', text: "Force kube-proxy to use legacy monolithic Endpoints objects." },
-      { id: 'C', text: "Split the 5,000 pods into 5,000 separate individual Service definitions." },
-      { id: 'D', text: "Disable Service routing and require clients to use manual socket connections." }
+      { id: 'A', text: "Rely on `EndpointSlices`, which split large endpoint sets into slices of at most 100." },
+      { id: 'B', text: "Rely on the legacy `Endpoints` object, which kube-proxy reads in a single watch." },
+      { id: 'C', text: "Split the workload across several Services so each carries a smaller endpoint set." },
+      { id: 'D', text: "Switch kube-proxy to IPVS mode, which removes the endpoint object from the path." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to maintain efficient network routing and minimize control plane memory overhead for a microservice scaled to over 5,000 pod replicas.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Rely on Kubernetes `EndpointSlices`, which partition large endpoint sets into discrete resources containing at most 100 endpoints each." },
-      { id: 'B', text: "Force kube-proxy to use legacy monolithic Endpoints objects." },
-      { id: 'C', text: "Split the 5,000 pods into 5,000 separate individual Service definitions." },
-      { id: 'D', text: "Disable Service routing and require clients to use manual socket connections." }
+      { id: 'A', text: "Rely on `EndpointSlices`, which split large endpoint sets into slices of at most 100." },
+      { id: 'B', text: "Rely on the legacy `Endpoints` object, which kube-proxy reads in a single watch." },
+      { id: 'C', text: "Split the workload across several Services so each carries a smaller endpoint set." },
+      { id: 'D', text: "Switch kube-proxy to IPVS mode, which removes the endpoint object from the path." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to maintain efficient network routing and minimize control plane memory overhead for a microservice scaled to over 5,000 pod replicas.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Rely on Kubernetes `EndpointSlices`, which partition large endpoint sets into discrete resources containing at most 100 endpoints each." },
-      { id: 'B', text: "Disable Service routing and require clients to use manual socket connections." },
-      { id: 'C', text: "Force kube-proxy to use legacy monolithic Endpoints objects." },
-      { id: 'D', text: "Split the 5,000 pods into 5,000 separate individual Service definitions." }
+      { id: 'A', text: "Rely on `EndpointSlices`, which split large endpoint sets into slices of at most 100." },
+      { id: 'B', text: "Switch kube-proxy to IPVS mode, which removes the endpoint object from the path." },
+      { id: 'C', text: "Rely on the legacy `Endpoints` object, which kube-proxy reads in a single watch." },
+      { id: 'D', text: "Split the workload across several Services so each carries a smaller endpoint set." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to maintain efficient network routing and minimize control plane memory overhead for a microservice scaled to over 5,000 pod replicas.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Rely on Kubernetes `EndpointSlices`, which partition large endpoint sets into discrete resources containing at most 100 endpoints each." },
-      { id: 'B', text: "Force kube-proxy to use legacy monolithic Endpoints objects." },
-      { id: 'C', text: "Split the 5,000 pods into 5,000 separate individual Service definitions." },
-      { id: 'D', text: "Disable Service routing and require clients to use manual socket connections." }
+      { id: 'A', text: "Rely on `EndpointSlices`, which split large endpoint sets into slices of at most 100." },
+      { id: 'B', text: "Rely on the legacy `Endpoints` object, which kube-proxy reads in a single watch." },
+      { id: 'C', text: "Split the workload across several Services so each carries a smaller endpoint set." },
+      { id: 'D', text: "Switch kube-proxy to IPVS mode, which removes the endpoint object from the path." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to maintain efficient network routing and minimize control plane memory overhead for a microservice scaled to over 5,000 pod replicas.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Split the 5,000 pods into 5,000 separate individual Service definitions." },
-      { id: 'B', text: "Disable Service routing and require clients to use manual socket connections." },
-      { id: 'C', text: "Rely on Kubernetes `EndpointSlices`, which partition large endpoint sets into discrete resources containing at most 100 endpoints each." },
-      { id: 'D', text: "Force kube-proxy to use legacy monolithic Endpoints objects." }
+      { id: 'A', text: "Split the workload across several Services so each carries a smaller endpoint set." },
+      { id: 'B', text: "Switch kube-proxy to IPVS mode, which removes the endpoint object from the path." },
+      { id: 'C', text: "Rely on `EndpointSlices`, which split large endpoint sets into slices of at most 100." },
+      { id: 'D', text: "Rely on the legacy `Endpoints` object, which kube-proxy reads in a single watch." }
     ],
     correctAnswers: ['C'],
     type: "single",

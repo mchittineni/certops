@@ -219,10 +219,10 @@ export const K8S_CKA_QUESTIONS_12 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to increase the storage capacity of an existing database PersistentVolumeClaim without unmounting the volume or causing pod downtime.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Ensure the StorageClass has `allowVolumeExpansion: true`, then edit the PVC spec to request a larger `storage` size." },
-      { id: 'B', text: "Delete the PVC and recreate it with the new size while the pod is actively writing." },
-      { id: 'C', text: "Manually format the underlying physical block device from the host operating system." },
-      { id: 'D', text: "Edit the read-only PersistentVolume object directly in etcd using an external hex editor." }
+      { id: 'A', text: "Check the StorageClass allows expansion, then raise the PVC's requested size." },
+      { id: 'B', text: "Delete the PVC and recreate it at the larger size, rebinding the same volume." },
+      { id: 'C', text: "Grow the PersistentVolume's `capacity` field and restart the mounting pod." },
+      { id: 'D', text: "Resize the underlying disk in the provider and remount it on the same node." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKA_QUESTIONS_12 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to increase the storage capacity of an existing database PersistentVolumeClaim without unmounting the volume or causing pod downtime.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Ensure the StorageClass has `allowVolumeExpansion: true`, then edit the PVC spec to request a larger `storage` size." },
-      { id: 'B', text: "Delete the PVC and recreate it with the new size while the pod is actively writing." },
-      { id: 'C', text: "Manually format the underlying physical block device from the host operating system." },
-      { id: 'D', text: "Edit the read-only PersistentVolume object directly in etcd using an external hex editor." }
+      { id: 'A', text: "Check the StorageClass allows expansion, then raise the PVC's requested size." },
+      { id: 'B', text: "Delete the PVC and recreate it at the larger size, rebinding the same volume." },
+      { id: 'C', text: "Grow the PersistentVolume's `capacity` field and restart the mounting pod." },
+      { id: 'D', text: "Resize the underlying disk in the provider and remount it on the same node." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKA_QUESTIONS_12 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to increase the storage capacity of an existing database PersistentVolumeClaim without unmounting the volume or causing pod downtime.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Ensure the StorageClass has `allowVolumeExpansion: true`, then edit the PVC spec to request a larger `storage` size." },
-      { id: 'B', text: "Delete the PVC and recreate it with the new size while the pod is actively writing." },
-      { id: 'C', text: "Manually format the underlying physical block device from the host operating system." },
-      { id: 'D', text: "Edit the read-only PersistentVolume object directly in etcd using an external hex editor." }
+      { id: 'A', text: "Check the StorageClass allows expansion, then raise the PVC's requested size." },
+      { id: 'B', text: "Delete the PVC and recreate it at the larger size, rebinding the same volume." },
+      { id: 'C', text: "Grow the PersistentVolume's `capacity` field and restart the mounting pod." },
+      { id: 'D', text: "Resize the underlying disk in the provider and remount it on the same node." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKA_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to increase the storage capacity of an existing database PersistentVolumeClaim without unmounting the volume or causing pod downtime.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Manually format the underlying physical block device from the host operating system." },
-      { id: 'B', text: "Edit the read-only PersistentVolume object directly in etcd using an external hex editor." },
-      { id: 'C', text: "Ensure the StorageClass has `allowVolumeExpansion: true`, then edit the PVC spec to request a larger `storage` size." },
-      { id: 'D', text: "Delete the PVC and recreate it with the new size while the pod is actively writing." }
+      { id: 'A', text: "Grow the PersistentVolume's `capacity` field and restart the mounting pod." },
+      { id: 'B', text: "Resize the underlying disk in the provider and remount it on the same node." },
+      { id: 'C', text: "Check the StorageClass allows expansion, then raise the PVC's requested size." },
+      { id: 'D', text: "Delete the PVC and recreate it at the larger size, rebinding the same volume." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKA_QUESTIONS_12 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to increase the storage capacity of an existing database PersistentVolumeClaim without unmounting the volume or causing pod downtime.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Manually format the underlying physical block device from the host operating system." },
-      { id: 'B', text: "Edit the read-only PersistentVolume object directly in etcd using an external hex editor." },
-      { id: 'C', text: "Ensure the StorageClass has `allowVolumeExpansion: true`, then edit the PVC spec to request a larger `storage` size." },
-      { id: 'D', text: "Delete the PVC and recreate it with the new size while the pod is actively writing." }
+      { id: 'A', text: "Grow the PersistentVolume's `capacity` field and restart the mounting pod." },
+      { id: 'B', text: "Resize the underlying disk in the provider and remount it on the same node." },
+      { id: 'C', text: "Check the StorageClass allows expansion, then raise the PVC's requested size." },
+      { id: 'D', text: "Delete the PVC and recreate it at the larger size, rebinding the same volume." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKA_QUESTIONS_12 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to allow multiple pods distributed across different worker nodes to read and write simultaneously to a shared asset directory.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Mount an `emptyDir` volume shared across separate node hosts using symlinks." },
-      { id: 'B', text: "Use `ReadOnlyMany` (ROX) and configure the application to ignore write errors." },
-      { id: 'C', text: "Configure the PersistentVolume and PersistentVolumeClaim with the `ReadWriteMany` (RWX) access mode using a supporting network filesystem." },
-      { id: 'D', text: "Use `ReadWriteOnce` (RWO) which permits mounting by pods across multiple nodes simultaneously." }
+      { id: 'A', text: "Use a `ReadWriteOnce` PersistentVolume and schedule every replica onto the same node." },
+      { id: 'B', text: "Use a `ReadOnlyMany` PersistentVolume and have the writers use a second claim of their own." },
+      { id: 'C', text: "Use a `ReadWriteMany` PersistentVolume backed by a network filesystem for the claim." },
+      { id: 'D', text: "Use a `ReadWriteOncePod` PersistentVolume, which admits one pod per node to the volume." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKA_QUESTIONS_12 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to allow multiple pods distributed across different worker nodes to read and write simultaneously to a shared asset directory.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Use `ReadOnlyMany` (ROX) and configure the application to ignore write errors." },
-      { id: 'B', text: "Mount an `emptyDir` volume shared across separate node hosts using symlinks." },
-      { id: 'C', text: "Use `ReadWriteOnce` (RWO) which permits mounting by pods across multiple nodes simultaneously." },
-      { id: 'D', text: "Configure the PersistentVolume and PersistentVolumeClaim with the `ReadWriteMany` (RWX) access mode using a supporting network filesystem." }
+      { id: 'A', text: "Use a `ReadOnlyMany` PersistentVolume and have the writers use a second claim of their own." },
+      { id: 'B', text: "Use a `ReadWriteOnce` PersistentVolume and schedule every replica onto the same node." },
+      { id: 'C', text: "Use a `ReadWriteOncePod` PersistentVolume, which admits one pod per node to the volume." },
+      { id: 'D', text: "Use a `ReadWriteMany` PersistentVolume backed by a network filesystem for the claim." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKA_QUESTIONS_12 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to allow multiple pods distributed across different worker nodes to read and write simultaneously to a shared asset directory.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Use `ReadWriteOnce` (RWO) which permits mounting by pods across multiple nodes simultaneously." },
-      { id: 'B', text: "Configure the PersistentVolume and PersistentVolumeClaim with the `ReadWriteMany` (RWX) access mode using a supporting network filesystem." },
-      { id: 'C', text: "Use `ReadOnlyMany` (ROX) and configure the application to ignore write errors." },
-      { id: 'D', text: "Mount an `emptyDir` volume shared across separate node hosts using symlinks." }
+      { id: 'A', text: "Use a `ReadWriteOncePod` PersistentVolume, which admits one pod per node to the volume." },
+      { id: 'B', text: "Use a `ReadWriteMany` PersistentVolume backed by a network filesystem for the claim." },
+      { id: 'C', text: "Use a `ReadOnlyMany` PersistentVolume and have the writers use a second claim of their own." },
+      { id: 'D', text: "Use a `ReadWriteOnce` PersistentVolume and schedule every replica onto the same node." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKA_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to allow multiple pods distributed across different worker nodes to read and write simultaneously to a shared asset directory.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Configure the PersistentVolume and PersistentVolumeClaim with the `ReadWriteMany` (RWX) access mode using a supporting network filesystem." },
-      { id: 'B', text: "Use `ReadWriteOnce` (RWO) which permits mounting by pods across multiple nodes simultaneously." },
-      { id: 'C', text: "Mount an `emptyDir` volume shared across separate node hosts using symlinks." },
-      { id: 'D', text: "Use `ReadOnlyMany` (ROX) and configure the application to ignore write errors." }
+      { id: 'A', text: "Use a `ReadWriteMany` PersistentVolume backed by a network filesystem for the claim." },
+      { id: 'B', text: "Use a `ReadWriteOncePod` PersistentVolume, which admits one pod per node to the volume." },
+      { id: 'C', text: "Use a `ReadWriteOnce` PersistentVolume and schedule every replica onto the same node." },
+      { id: 'D', text: "Use a `ReadOnlyMany` PersistentVolume and have the writers use a second claim of their own." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKA_QUESTIONS_12 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to allow multiple pods distributed across different worker nodes to read and write simultaneously to a shared asset directory.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Mount an `emptyDir` volume shared across separate node hosts using symlinks." },
-      { id: 'B', text: "Use `ReadWriteOnce` (RWO) which permits mounting by pods across multiple nodes simultaneously." },
-      { id: 'C', text: "Use `ReadOnlyMany` (ROX) and configure the application to ignore write errors." },
-      { id: 'D', text: "Configure the PersistentVolume and PersistentVolumeClaim with the `ReadWriteMany` (RWX) access mode using a supporting network filesystem." }
+      { id: 'A', text: "Use a `ReadWriteOnce` PersistentVolume and schedule every replica onto the same node." },
+      { id: 'B', text: "Use a `ReadWriteOncePod` PersistentVolume, which admits one pod per node to the volume." },
+      { id: 'C', text: "Use a `ReadOnlyMany` PersistentVolume and have the writers use a second claim of their own." },
+      { id: 'D', text: "Use a `ReadWriteMany` PersistentVolume backed by a network filesystem for the claim." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKA_QUESTIONS_12 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to inject a configuration file from a ConfigMap into an existing container directory without overwriting the directory's other pre-existing files.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Mount the ConfigMap volume using the `subPath` property pointing to the specific configuration file key." },
-      { id: 'B', text: "Mount the ConfigMap directly to the target directory path without specifying a subPath." },
-      { id: 'C', text: "Hardcode the configuration file directly inside the container image layer." },
-      { id: 'D', text: "Use an init container to download the file over insecure HTTP from the public internet." }
+      { id: 'A', text: "Mount the ConfigMap with `subPath` naming the single configuration file key." },
+      { id: 'B', text: "Mount the ConfigMap at the target directory with no `subPath` specified." },
+      { id: 'C', text: "Bake the configuration file into the image and mount the ConfigMap elsewhere." },
+      { id: 'D', text: "Use an init container to copy the file out of the ConfigMap into an `emptyDir`." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKA_QUESTIONS_12 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to inject a configuration file from a ConfigMap into an existing container directory without overwriting the directory's other pre-existing files.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Use an init container to download the file over insecure HTTP from the public internet." },
-      { id: 'B', text: "Hardcode the configuration file directly inside the container image layer." },
-      { id: 'C', text: "Mount the ConfigMap directly to the target directory path without specifying a subPath." },
-      { id: 'D', text: "Mount the ConfigMap volume using the `subPath` property pointing to the specific configuration file key." }
+      { id: 'A', text: "Use an init container to copy the file out of the ConfigMap into an `emptyDir`." },
+      { id: 'B', text: "Bake the configuration file into the image and mount the ConfigMap elsewhere." },
+      { id: 'C', text: "Mount the ConfigMap at the target directory with no `subPath` specified." },
+      { id: 'D', text: "Mount the ConfigMap with `subPath` naming the single configuration file key." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKA_QUESTIONS_12 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to inject a configuration file from a ConfigMap into an existing container directory without overwriting the directory's other pre-existing files.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Hardcode the configuration file directly inside the container image layer." },
-      { id: 'B', text: "Mount the ConfigMap directly to the target directory path without specifying a subPath." },
-      { id: 'C', text: "Use an init container to download the file over insecure HTTP from the public internet." },
-      { id: 'D', text: "Mount the ConfigMap volume using the `subPath` property pointing to the specific configuration file key." }
+      { id: 'A', text: "Bake the configuration file into the image and mount the ConfigMap elsewhere." },
+      { id: 'B', text: "Mount the ConfigMap at the target directory with no `subPath` specified." },
+      { id: 'C', text: "Use an init container to copy the file out of the ConfigMap into an `emptyDir`." },
+      { id: 'D', text: "Mount the ConfigMap with `subPath` naming the single configuration file key." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKA_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to inject a configuration file from a ConfigMap into an existing container directory without overwriting the directory's other pre-existing files.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Use an init container to download the file over insecure HTTP from the public internet." },
-      { id: 'B', text: "Hardcode the configuration file directly inside the container image layer." },
-      { id: 'C', text: "Mount the ConfigMap directly to the target directory path without specifying a subPath." },
-      { id: 'D', text: "Mount the ConfigMap volume using the `subPath` property pointing to the specific configuration file key." }
+      { id: 'A', text: "Use an init container to copy the file out of the ConfigMap into an `emptyDir`." },
+      { id: 'B', text: "Bake the configuration file into the image and mount the ConfigMap elsewhere." },
+      { id: 'C', text: "Mount the ConfigMap at the target directory with no `subPath` specified." },
+      { id: 'D', text: "Mount the ConfigMap with `subPath` naming the single configuration file key." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKA_QUESTIONS_12 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to inject a configuration file from a ConfigMap into an existing container directory without overwriting the directory's other pre-existing files.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Hardcode the configuration file directly inside the container image layer." },
-      { id: 'B', text: "Use an init container to download the file over insecure HTTP from the public internet." },
-      { id: 'C', text: "Mount the ConfigMap volume using the `subPath` property pointing to the specific configuration file key." },
-      { id: 'D', text: "Mount the ConfigMap directly to the target directory path without specifying a subPath." }
+      { id: 'A', text: "Bake the configuration file into the image and mount the ConfigMap elsewhere." },
+      { id: 'B', text: "Use an init container to copy the file out of the ConfigMap into an `emptyDir`." },
+      { id: 'C', text: "Mount the ConfigMap with `subPath` naming the single configuration file key." },
+      { id: 'D', text: "Mount the ConfigMap at the target directory with no `subPath` specified." }
     ],
     correctAnswers: ['C'],
     type: "single",

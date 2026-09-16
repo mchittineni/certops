@@ -9,10 +9,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Execute `kubectl logs &lt;pod-name&gt; --previous` to inspect stdout/stderr before termination and review container exit codes via `kubectl describe pod`." },
-      { id: 'B', text: "Delete the cluster control plane to force pod redeployment." },
-      { id: 'C', text: "Increase CPU and memory limits indefinitely without checking container logs." },
-      { id: 'D', text: "Assume the network switch failed and reboot all physical worker nodes." }
+      { id: 'A', text: "Run `kubectl logs &lt;pod&gt; --previous` for the prior container, and read the exit code from `describe`." },
+      { id: 'B', text: "Run `kubectl logs &lt;pod&gt; -f` and wait for the next crash to observe the failure live." },
+      { id: 'C', text: "Run `kubectl describe pod` and raise the memory limit until the container stops restarting." },
+      { id: 'D', text: "Run `kubectl get events -A` and correlate the restarts with the node's own health events." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Execute `kubectl logs &lt;pod-name&gt; --previous` to inspect stdout/stderr before termination and review container exit codes via `kubectl describe pod`." },
-      { id: 'B', text: "Delete the cluster control plane to force pod redeployment." },
-      { id: 'C', text: "Increase CPU and memory limits indefinitely without checking container logs." },
-      { id: 'D', text: "Assume the network switch failed and reboot all physical worker nodes." }
+      { id: 'A', text: "Run `kubectl logs &lt;pod&gt; --previous` for the prior container, and read the exit code from `describe`." },
+      { id: 'B', text: "Run `kubectl logs &lt;pod&gt; -f` and wait for the next crash to observe the failure live." },
+      { id: 'C', text: "Run `kubectl describe pod` and raise the memory limit until the container stops restarting." },
+      { id: 'D', text: "Run `kubectl get events -A` and correlate the restarts with the node's own health events." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Execute `kubectl logs &lt;pod-name&gt; --previous` to inspect stdout/stderr before termination and review container exit codes via `kubectl describe pod`." },
-      { id: 'B', text: "Delete the cluster control plane to force pod redeployment." },
-      { id: 'C', text: "Increase CPU and memory limits indefinitely without checking container logs." },
-      { id: 'D', text: "Assume the network switch failed and reboot all physical worker nodes." }
+      { id: 'A', text: "Run `kubectl logs &lt;pod&gt; --previous` for the prior container, and read the exit code from `describe`." },
+      { id: 'B', text: "Run `kubectl logs &lt;pod&gt; -f` and wait for the next crash to observe the failure live." },
+      { id: 'C', text: "Run `kubectl describe pod` and raise the memory limit until the container stops restarting." },
+      { id: 'D', text: "Run `kubectl get events -A` and correlate the restarts with the node's own health events." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Execute `kubectl logs &lt;pod-name&gt; --previous` to inspect stdout/stderr before termination and review container exit codes via `kubectl describe pod`." },
-      { id: 'B', text: "Delete the cluster control plane to force pod redeployment." },
-      { id: 'C', text: "Increase CPU and memory limits indefinitely without checking container logs." },
-      { id: 'D', text: "Assume the network switch failed and reboot all physical worker nodes." }
+      { id: 'A', text: "Run `kubectl logs &lt;pod&gt; --previous` for the prior container, and read the exit code from `describe`." },
+      { id: 'B', text: "Run `kubectl logs &lt;pod&gt; -f` and wait for the next crash to observe the failure live." },
+      { id: 'C', text: "Run `kubectl describe pod` and raise the memory limit until the container stops restarting." },
+      { id: 'D', text: "Run `kubectl get events -A` and correlate the restarts with the node's own health events." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Execute `kubectl logs &lt;pod-name&gt; --previous` to inspect stdout/stderr before termination and review container exit codes via `kubectl describe pod`." },
-      { id: 'B', text: "Increase CPU and memory limits indefinitely without checking container logs." },
-      { id: 'C', text: "Assume the network switch failed and reboot all physical worker nodes." },
-      { id: 'D', text: "Delete the cluster control plane to force pod redeployment." }
+      { id: 'A', text: "Run `kubectl logs &lt;pod&gt; --previous` for the prior container, and read the exit code from `describe`." },
+      { id: 'B', text: "Run `kubectl describe pod` and raise the memory limit until the container stops restarting." },
+      { id: 'C', text: "Run `kubectl get events -A` and correlate the restarts with the node's own health events." },
+      { id: 'D', text: "Run `kubectl logs &lt;pod&gt; -f` and wait for the next crash to observe the failure live." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Change the pod restart policy to Never to prevent restarts." },
-      { id: 'B', text: "Add more CPU cores to resolve out-of-memory errors." },
-      { id: 'C', text: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings." },
-      { id: 'D', text: "Assume the host node ran out of disk space and truncate the root filesystem." }
+      { id: 'A', text: "Read the container's logs for a stack trace and set `restartPolicy: Never` to preserve it." },
+      { id: 'B', text: "Read `kubectl top pod` for the CPU figure and raise the container's CPU limit to match." },
+      { id: 'C', text: "Read `kubectl describe pod` for `OOMKilled` and exit code 137, then adjust the memory limit." },
+      { id: 'D', text: "Read the node's disk pressure condition, since eviction also shows as a restart loop." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings." },
-      { id: 'B', text: "Assume the host node ran out of disk space and truncate the root filesystem." },
-      { id: 'C', text: "Change the pod restart policy to Never to prevent restarts." },
-      { id: 'D', text: "Add more CPU cores to resolve out-of-memory errors." }
+      { id: 'A', text: "Read `kubectl describe pod` for `OOMKilled` and exit code 137, then adjust the memory limit." },
+      { id: 'B', text: "Read the node's disk pressure condition, since eviction also shows as a restart loop." },
+      { id: 'C', text: "Read the container's logs for a stack trace and set `restartPolicy: Never` to preserve it." },
+      { id: 'D', text: "Read `kubectl top pod` for the CPU figure and raise the container's CPU limit to match." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings." },
-      { id: 'B', text: "Assume the host node ran out of disk space and truncate the root filesystem." },
-      { id: 'C', text: "Change the pod restart policy to Never to prevent restarts." },
-      { id: 'D', text: "Add more CPU cores to resolve out-of-memory errors." }
+      { id: 'A', text: "Read `kubectl describe pod` for `OOMKilled` and exit code 137, then adjust the memory limit." },
+      { id: 'B', text: "Read the node's disk pressure condition, since eviction also shows as a restart loop." },
+      { id: 'C', text: "Read the container's logs for a stack trace and set `restartPolicy: Never` to preserve it." },
+      { id: 'D', text: "Read `kubectl top pod` for the CPU figure and raise the container's CPU limit to match." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Assume the host node ran out of disk space and truncate the root filesystem." },
-      { id: 'B', text: "Add more CPU cores to resolve out-of-memory errors." },
-      { id: 'C', text: "Change the pod restart policy to Never to prevent restarts." },
-      { id: 'D', text: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings." }
+      { id: 'A', text: "Read the node's disk pressure condition, since eviction also shows as a restart loop." },
+      { id: 'B', text: "Read `kubectl top pod` for the CPU figure and raise the container's CPU limit to match." },
+      { id: 'C', text: "Read the container's logs for a stack trace and set `restartPolicy: Never` to preserve it." },
+      { id: 'D', text: "Read `kubectl describe pod` for `OOMKilled` and exit code 137, then adjust the memory limit." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Change the pod restart policy to Never to prevent restarts." },
-      { id: 'B', text: "Assume the host node ran out of disk space and truncate the root filesystem." },
-      { id: 'C', text: "Add more CPU cores to resolve out-of-memory errors." },
-      { id: 'D', text: "Inspect `kubectl describe pod` for `OOMKilled: true` (exit code 137) and adjust the container memory limit or JVM heap settings." }
+      { id: 'A', text: "Read the container's logs for a stack trace and set `restartPolicy: Never` to preserve it." },
+      { id: 'B', text: "Read the node's disk pressure condition, since eviction also shows as a restart loop." },
+      { id: 'C', text: "Read `kubectl top pod` for the CPU figure and raise the container's CPU limit to match." },
+      { id: 'D', text: "Read `kubectl describe pod` for `OOMKilled` and exit code 137, then adjust the memory limit." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Disable authentication on the private registry to bypass security credentials." },
-      { id: 'B', text: "Change the container port from 8080 to 80." },
-      { id: 'C', text: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials." },
-      { id: 'D', text: "Restart the kube-apiserver service on all master nodes." }
+      { id: 'A', text: "Check the node's disk pressure condition, since a full node cannot unpack the image layers." },
+      { id: 'B', text: "Check the `imagePullPolicy` and set it to `IfNotPresent` so the node uses its cached layer." },
+      { id: 'C', text: "Check the image repository and tag, and confirm the pod names an `imagePullSecrets` entry." },
+      { id: 'D', text: "Check the ServiceAccount's own `imagePullSecrets`, which the pod inherits when it has none." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials." },
-      { id: 'B', text: "Disable authentication on the private registry to bypass security credentials." },
-      { id: 'C', text: "Change the container port from 8080 to 80." },
-      { id: 'D', text: "Restart the kube-apiserver service on all master nodes." }
+      { id: 'A', text: "Check the image repository and tag, and confirm the pod names an `imagePullSecrets` entry." },
+      { id: 'B', text: "Check the node's disk pressure condition, since a full node cannot unpack the image layers." },
+      { id: 'C', text: "Check the `imagePullPolicy` and set it to `IfNotPresent` so the node uses its cached layer." },
+      { id: 'D', text: "Check the ServiceAccount's own `imagePullSecrets`, which the pod inherits when it has none." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials." },
-      { id: 'B', text: "Restart the kube-apiserver service on all master nodes." },
-      { id: 'C', text: "Disable authentication on the private registry to bypass security credentials." },
-      { id: 'D', text: "Change the container port from 8080 to 80." }
+      { id: 'A', text: "Check the image repository and tag, and confirm the pod names an `imagePullSecrets` entry." },
+      { id: 'B', text: "Check the ServiceAccount's own `imagePullSecrets`, which the pod inherits when it has none." },
+      { id: 'C', text: "Check the node's disk pressure condition, since a full node cannot unpack the image layers." },
+      { id: 'D', text: "Check the `imagePullPolicy` and set it to `IfNotPresent` so the node uses its cached layer." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Disable authentication on the private registry to bypass security credentials." },
-      { id: 'B', text: "Change the container port from 8080 to 80." },
-      { id: 'C', text: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials." },
-      { id: 'D', text: "Restart the kube-apiserver service on all master nodes." }
+      { id: 'A', text: "Check the node's disk pressure condition, since a full node cannot unpack the image layers." },
+      { id: 'B', text: "Check the `imagePullPolicy` and set it to `IfNotPresent` so the node uses its cached layer." },
+      { id: 'C', text: "Check the image repository and tag, and confirm the pod names an `imagePullSecrets` entry." },
+      { id: 'D', text: "Check the ServiceAccount's own `imagePullSecrets`, which the pod inherits when it has none." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to resolve an `ImagePullBackOff` error on a newly deployed pod attempting to pull an image from a private container registry.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Restart the kube-apiserver service on all master nodes." },
-      { id: 'B', text: "Verify the container image repository name and tag, and confirm that the pod references a valid `imagePullSecrets` containing registry credentials." },
-      { id: 'C', text: "Change the container port from 8080 to 80." },
-      { id: 'D', text: "Disable authentication on the private registry to bypass security credentials." }
+      { id: 'A', text: "Check the ServiceAccount's own `imagePullSecrets`, which the pod inherits when it has none." },
+      { id: 'B', text: "Check the image repository and tag, and confirm the pod names an `imagePullSecrets` entry." },
+      { id: 'C', text: "Check the `imagePullPolicy` and set it to `IfNotPresent` so the node uses its cached layer." },
+      { id: 'D', text: "Check the node's disk pressure condition, since a full node cannot unpack the image layers." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Drain and cordon all other healthy nodes in the cluster." },
-      { id: 'B', text: "Delete the cluster etcd data directory from the master node." },
-      { id: 'C', text: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`." },
-      { id: 'D', text: "Assume the pod network crashed and reinstall the container runtime blindly." }
+      { id: 'A', text: "Check `kubectl describe node` for the conditions the kubelet last reported." },
+      { id: 'B', text: "Check the container runtime with `crictl info` and restart it if it is wedged." },
+      { id: 'C', text: "Check `systemctl status kubelet` on the node and read `journalctl -u kubelet -e`." },
+      { id: 'D', text: "Check the CNI plugin's DaemonSet pod on that node and restart it if it is failing." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Delete the cluster etcd data directory from the master node." },
-      { id: 'B', text: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`." },
-      { id: 'C', text: "Drain and cordon all other healthy nodes in the cluster." },
-      { id: 'D', text: "Assume the pod network crashed and reinstall the container runtime blindly." }
+      { id: 'A', text: "Check the container runtime with `crictl info` and restart it if it is wedged." },
+      { id: 'B', text: "Check `systemctl status kubelet` on the node and read `journalctl -u kubelet -e`." },
+      { id: 'C', text: "Check `kubectl describe node` for the conditions the kubelet last reported." },
+      { id: 'D', text: "Check the CNI plugin's DaemonSet pod on that node and restart it if it is failing." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Delete the cluster etcd data directory from the master node." },
-      { id: 'B', text: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`." },
-      { id: 'C', text: "Drain and cordon all other healthy nodes in the cluster." },
-      { id: 'D', text: "Assume the pod network crashed and reinstall the container runtime blindly." }
+      { id: 'A', text: "Check the container runtime with `crictl info` and restart it if it is wedged." },
+      { id: 'B', text: "Check `systemctl status kubelet` on the node and read `journalctl -u kubelet -e`." },
+      { id: 'C', text: "Check `kubectl describe node` for the conditions the kubelet last reported." },
+      { id: 'D', text: "Check the CNI plugin's DaemonSet pod on that node and restart it if it is failing." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`." },
-      { id: 'B', text: "Delete the cluster etcd data directory from the master node." },
-      { id: 'C', text: "Assume the pod network crashed and reinstall the container runtime blindly." },
-      { id: 'D', text: "Drain and cordon all other healthy nodes in the cluster." }
+      { id: 'A', text: "Check `systemctl status kubelet` on the node and read `journalctl -u kubelet -e`." },
+      { id: 'B', text: "Check the container runtime with `crictl info` and restart it if it is wedged." },
+      { id: 'C', text: "Check the CNI plugin's DaemonSet pod on that node and restart it if it is failing." },
+      { id: 'D', text: "Check `kubectl describe node` for the conditions the kubelet last reported." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to troubleshoot a Kubernetes worker node that transitioned to `NotReady` status following a host operating system upgrade.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "SSH into the worker node, check `systemctl status kubelet`, and inspect recent journal logs using `journalctl -u kubelet -e`." },
-      { id: 'B', text: "Delete the cluster etcd data directory from the master node." },
-      { id: 'C', text: "Assume the pod network crashed and reinstall the container runtime blindly." },
-      { id: 'D', text: "Drain and cordon all other healthy nodes in the cluster." }
+      { id: 'A', text: "Check `systemctl status kubelet` on the node and read `journalctl -u kubelet -e`." },
+      { id: 'B', text: "Check the container runtime with `crictl info` and restart it if it is wedged." },
+      { id: 'C', text: "Check the CNI plugin's DaemonSet pod on that node and restart it if it is failing." },
+      { id: 'D', text: "Check `kubectl describe node` for the conditions the kubelet last reported." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity." },
-      { id: 'B', text: "Increase pod memory requests to prevent eviction." },
-      { id: 'C', text: "Delete the kube-proxy daemonset across all worker nodes." },
-      { id: 'D', text: "Disable kubelet eviction thresholds entirely by setting them to 100%." }
+      { id: 'A', text: "Check the node's disk usage, prune unreferenced images with `crictl`, and grow the filesystem." },
+      { id: 'B', text: "Raise the pods' memory requests so the kubelet ranks them above the eviction threshold." },
+      { id: 'C', text: "Raise the kubelet's `evictionHard` thresholds so the node tolerates the fuller disk." },
+      { id: 'D', text: "Add an `emptyDir` `sizeLimit` to each pod so no workload can fill the node's disk." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity." },
-      { id: 'B', text: "Increase pod memory requests to prevent eviction." },
-      { id: 'C', text: "Delete the kube-proxy daemonset across all worker nodes." },
-      { id: 'D', text: "Disable kubelet eviction thresholds entirely by setting them to 100%." }
+      { id: 'A', text: "Check the node's disk usage, prune unreferenced images with `crictl`, and grow the filesystem." },
+      { id: 'B', text: "Raise the pods' memory requests so the kubelet ranks them above the eviction threshold." },
+      { id: 'C', text: "Raise the kubelet's `evictionHard` thresholds so the node tolerates the fuller disk." },
+      { id: 'D', text: "Add an `emptyDir` `sizeLimit` to each pod so no workload can fill the node's disk." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Increase pod memory requests to prevent eviction." },
-      { id: 'B', text: "Delete the kube-proxy daemonset across all worker nodes." },
-      { id: 'C', text: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity." },
-      { id: 'D', text: "Disable kubelet eviction thresholds entirely by setting them to 100%." }
+      { id: 'A', text: "Raise the pods' memory requests so the kubelet ranks them above the eviction threshold." },
+      { id: 'B', text: "Raise the kubelet's `evictionHard` thresholds so the node tolerates the fuller disk." },
+      { id: 'C', text: "Check the node's disk usage, prune unreferenced images with `crictl`, and grow the filesystem." },
+      { id: 'D', text: "Add an `emptyDir` `sizeLimit` to each pod so no workload can fill the node's disk." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Delete the kube-proxy daemonset across all worker nodes." },
-      { id: 'B', text: "Disable kubelet eviction thresholds entirely by setting them to 100%." },
-      { id: 'C', text: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity." },
-      { id: 'D', text: "Increase pod memory requests to prevent eviction." }
+      { id: 'A', text: "Raise the kubelet's `evictionHard` thresholds so the node tolerates the fuller disk." },
+      { id: 'B', text: "Add an `emptyDir` `sizeLimit` to each pod so no workload can fill the node's disk." },
+      { id: 'C', text: "Check the node's disk usage, prune unreferenced images with `crictl`, and grow the filesystem." },
+      { id: 'D', text: "Raise the pods' memory requests so the kubelet ranks them above the eviction threshold." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Increase pod memory requests to prevent eviction." },
-      { id: 'B', text: "Disable kubelet eviction thresholds entirely by setting them to 100%." },
-      { id: 'C', text: "Delete the kube-proxy daemonset across all worker nodes." },
-      { id: 'D', text: "Inspect disk utilization on the node, clean up unreferenced container images via crictl, and increase the node root/data filesystem capacity." }
+      { id: 'A', text: "Raise the pods' memory requests so the kubelet ranks them above the eviction threshold." },
+      { id: 'B', text: "Add an `emptyDir` `sizeLimit` to each pod so no workload can fill the node's disk." },
+      { id: 'C', text: "Raise the kubelet's `evictionHard` thresholds so the node tolerates the fuller disk." },
+      { id: 'D', text: "Check the node's disk usage, prune unreferenced images with `crictl`, and grow the filesystem." }
     ],
     correctAnswers: ['D'],
     type: "single",

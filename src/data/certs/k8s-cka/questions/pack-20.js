@@ -114,10 +114,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to allow client pods to discover and connect directly to individual stateful database replica pod IPs without routing through proxy load balancing.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Configure a standard ClusterIP service with round-robin load balancing." },
-      { id: 'B', text: "Assign public static elastic IP addresses to each database container." },
-      { id: 'C', text: "Create a Service with `clusterIP: None` (Headless Service) matching the StatefulSet pod selector." },
-      { id: 'D', text: "Create a NodePort service on port 3306." }
+      { id: 'A', text: "Create a `ClusterIP` Service over the same selector, load balanced round-robin." },
+      { id: 'B', text: "Create a `LoadBalancer` Service per replica so each gets a stable address." },
+      { id: 'C', text: "Create a headless Service, `clusterIP: None`, over the StatefulSet's selector." },
+      { id: 'D', text: "Create a `NodePort` Service on 3306 and address the replicas by node." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to allow client pods to discover and connect directly to individual stateful database replica pod IPs without routing through proxy load balancing.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Configure a standard ClusterIP service with round-robin load balancing." },
-      { id: 'B', text: "Create a NodePort service on port 3306." },
-      { id: 'C', text: "Assign public static elastic IP addresses to each database container." },
-      { id: 'D', text: "Create a Service with `clusterIP: None` (Headless Service) matching the StatefulSet pod selector." }
+      { id: 'A', text: "Create a `ClusterIP` Service over the same selector, load balanced round-robin." },
+      { id: 'B', text: "Create a `NodePort` Service on 3306 and address the replicas by node." },
+      { id: 'C', text: "Create a `LoadBalancer` Service per replica so each gets a stable address." },
+      { id: 'D', text: "Create a headless Service, `clusterIP: None`, over the StatefulSet's selector." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to allow client pods to discover and connect directly to individual stateful database replica pod IPs without routing through proxy load balancing.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Create a Service with `clusterIP: None` (Headless Service) matching the StatefulSet pod selector." },
-      { id: 'B', text: "Create a NodePort service on port 3306." },
-      { id: 'C', text: "Configure a standard ClusterIP service with round-robin load balancing." },
-      { id: 'D', text: "Assign public static elastic IP addresses to each database container." }
+      { id: 'A', text: "Create a headless Service, `clusterIP: None`, over the StatefulSet's selector." },
+      { id: 'B', text: "Create a `NodePort` Service on 3306 and address the replicas by node." },
+      { id: 'C', text: "Create a `ClusterIP` Service over the same selector, load balanced round-robin." },
+      { id: 'D', text: "Create a `LoadBalancer` Service per replica so each gets a stable address." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to allow client pods to discover and connect directly to individual stateful database replica pod IPs without routing through proxy load balancing.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Create a NodePort service on port 3306." },
-      { id: 'B', text: "Configure a standard ClusterIP service with round-robin load balancing." },
-      { id: 'C', text: "Create a Service with `clusterIP: None` (Headless Service) matching the StatefulSet pod selector." },
-      { id: 'D', text: "Assign public static elastic IP addresses to each database container." }
+      { id: 'A', text: "Create a `NodePort` Service on 3306 and address the replicas by node." },
+      { id: 'B', text: "Create a `ClusterIP` Service over the same selector, load balanced round-robin." },
+      { id: 'C', text: "Create a headless Service, `clusterIP: None`, over the StatefulSet's selector." },
+      { id: 'D', text: "Create a `LoadBalancer` Service per replica so each gets a stable address." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to allow client pods to discover and connect directly to individual stateful database replica pod IPs without routing through proxy load balancing.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Create a Service with `clusterIP: None` (Headless Service) matching the StatefulSet pod selector." },
-      { id: 'B', text: "Create a NodePort service on port 3306." },
-      { id: 'C', text: "Configure a standard ClusterIP service with round-robin load balancing." },
-      { id: 'D', text: "Assign public static elastic IP addresses to each database container." }
+      { id: 'A', text: "Create a headless Service, `clusterIP: None`, over the StatefulSet's selector." },
+      { id: 'B', text: "Create a `NodePort` Service on 3306 and address the replicas by node." },
+      { id: 'C', text: "Create a `ClusterIP` Service over the same selector, load balanced round-robin." },
+      { id: 'D', text: "Create a `LoadBalancer` Service per replica so each gets a stable address." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to route external HTTP traffic based on URL paths (`/api` and `/web`) to different internal backend services using a single entry point and TLS certificate.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Deploy an Ingress Controller (e.g., ingress-nginx) and define an `Ingress` resource specifying host and path routing rules." },
-      { id: 'B', text: "Create separate LoadBalancer services for each path, requiring multiple public IP addresses." },
-      { id: 'C', text: "Manually configure iptables on every worker node to route port 80 traffic." },
-      { id: 'D', text: "Instruct clients to connect directly to worker node internal IP addresses." }
+      { id: 'A', text: "Deploy an ingress controller and define an `Ingress` with the host and path rules." },
+      { id: 'B', text: "Deploy a `LoadBalancer` Service per path, each with its own external address." },
+      { id: 'C', text: "Deploy a `NodePort` Service per path and front them with an external proxy." },
+      { id: 'D', text: "Deploy a Gateway API `Gateway` without any route attached to it yet." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to route external HTTP traffic based on URL paths (`/api` and `/web`) to different internal backend services using a single entry point and TLS certificate.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Deploy an Ingress Controller (e.g., ingress-nginx) and define an `Ingress` resource specifying host and path routing rules." },
-      { id: 'B', text: "Create separate LoadBalancer services for each path, requiring multiple public IP addresses." },
-      { id: 'C', text: "Manually configure iptables on every worker node to route port 80 traffic." },
-      { id: 'D', text: "Instruct clients to connect directly to worker node internal IP addresses." }
+      { id: 'A', text: "Deploy an ingress controller and define an `Ingress` with the host and path rules." },
+      { id: 'B', text: "Deploy a `LoadBalancer` Service per path, each with its own external address." },
+      { id: 'C', text: "Deploy a `NodePort` Service per path and front them with an external proxy." },
+      { id: 'D', text: "Deploy a Gateway API `Gateway` without any route attached to it yet." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to route external HTTP traffic based on URL paths (`/api` and `/web`) to different internal backend services using a single entry point and TLS certificate.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Instruct clients to connect directly to worker node internal IP addresses." },
-      { id: 'B', text: "Create separate LoadBalancer services for each path, requiring multiple public IP addresses." },
-      { id: 'C', text: "Deploy an Ingress Controller (e.g., ingress-nginx) and define an `Ingress` resource specifying host and path routing rules." },
-      { id: 'D', text: "Manually configure iptables on every worker node to route port 80 traffic." }
+      { id: 'A', text: "Deploy a Gateway API `Gateway` without any route attached to it yet." },
+      { id: 'B', text: "Deploy a `LoadBalancer` Service per path, each with its own external address." },
+      { id: 'C', text: "Deploy an ingress controller and define an `Ingress` with the host and path rules." },
+      { id: 'D', text: "Deploy a `NodePort` Service per path and front them with an external proxy." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to route external HTTP traffic based on URL paths (`/api` and `/web`) to different internal backend services using a single entry point and TLS certificate.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Deploy an Ingress Controller (e.g., ingress-nginx) and define an `Ingress` resource specifying host and path routing rules." },
-      { id: 'B', text: "Manually configure iptables on every worker node to route port 80 traffic." },
-      { id: 'C', text: "Instruct clients to connect directly to worker node internal IP addresses." },
-      { id: 'D', text: "Create separate LoadBalancer services for each path, requiring multiple public IP addresses." }
+      { id: 'A', text: "Deploy an ingress controller and define an `Ingress` with the host and path rules." },
+      { id: 'B', text: "Deploy a `NodePort` Service per path and front them with an external proxy." },
+      { id: 'C', text: "Deploy a Gateway API `Gateway` without any route attached to it yet." },
+      { id: 'D', text: "Deploy a `LoadBalancer` Service per path, each with its own external address." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to route external HTTP traffic based on URL paths (`/api` and `/web`) to different internal backend services using a single entry point and TLS certificate.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Deploy an Ingress Controller (e.g., ingress-nginx) and define an `Ingress` resource specifying host and path routing rules." },
-      { id: 'B', text: "Create separate LoadBalancer services for each path, requiring multiple public IP addresses." },
-      { id: 'C', text: "Manually configure iptables on every worker node to route port 80 traffic." },
-      { id: 'D', text: "Instruct clients to connect directly to worker node internal IP addresses." }
+      { id: 'A', text: "Deploy an ingress controller and define an `Ingress` with the host and path rules." },
+      { id: 'B', text: "Deploy a `LoadBalancer` Service per path, each with its own external address." },
+      { id: 'C', text: "Deploy a `NodePort` Service per path and front them with an external proxy." },
+      { id: 'D', text: "Deploy a Gateway API `Gateway` without any route attached to it yet." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to isolate a database pod so that it only accepts incoming TCP connections on port 5432 from pods labeled `app=backend` and blocks all other traffic.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Rely on Linux file permissions inside the container filesystem to restrict network packets." },
-      { id: 'B', text: "Delete all other pods in the cluster to prevent them from sending traffic." },
-      { id: 'C', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress` rule permitting traffic only from pods matching `podSelector: matchLabels: app: backend`." },
-      { id: 'D', text: "Install a host-based firewall manually on each worker node operating system." }
+      { id: 'A', text: "Create a `NetworkPolicy` on the backend pods allowing egress only to the database pods." },
+      { id: 'B', text: "Create a `NetworkPolicy` on the database pods allowing ingress from the namespace as a whole." },
+      { id: 'C', text: "Create a `NetworkPolicy` on the database pods allowing ingress only from `app: backend` pods." },
+      { id: 'D', text: "Move the database to its own namespace and rely on namespace boundaries to separate traffic." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to isolate a database pod so that it only accepts incoming TCP connections on port 5432 from pods labeled `app=backend` and blocks all other traffic.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress` rule permitting traffic only from pods matching `podSelector: matchLabels: app: backend`." },
-      { id: 'B', text: "Install a host-based firewall manually on each worker node operating system." },
-      { id: 'C', text: "Rely on Linux file permissions inside the container filesystem to restrict network packets." },
-      { id: 'D', text: "Delete all other pods in the cluster to prevent them from sending traffic." }
+      { id: 'A', text: "Create a `NetworkPolicy` on the database pods allowing ingress only from `app: backend` pods." },
+      { id: 'B', text: "Move the database to its own namespace and rely on namespace boundaries to separate traffic." },
+      { id: 'C', text: "Create a `NetworkPolicy` on the backend pods allowing egress only to the database pods." },
+      { id: 'D', text: "Create a `NetworkPolicy` on the database pods allowing ingress from the namespace as a whole." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to isolate a database pod so that it only accepts incoming TCP connections on port 5432 from pods labeled `app=backend` and blocks all other traffic.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Install a host-based firewall manually on each worker node operating system." },
-      { id: 'B', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress` rule permitting traffic only from pods matching `podSelector: matchLabels: app: backend`." },
-      { id: 'C', text: "Delete all other pods in the cluster to prevent them from sending traffic." },
-      { id: 'D', text: "Rely on Linux file permissions inside the container filesystem to restrict network packets." }
+      { id: 'A', text: "Move the database to its own namespace and rely on namespace boundaries to separate traffic." },
+      { id: 'B', text: "Create a `NetworkPolicy` on the database pods allowing ingress only from `app: backend` pods." },
+      { id: 'C', text: "Create a `NetworkPolicy` on the database pods allowing ingress from the namespace as a whole." },
+      { id: 'D', text: "Create a `NetworkPolicy` on the backend pods allowing egress only to the database pods." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to isolate a database pod so that it only accepts incoming TCP connections on port 5432 from pods labeled `app=backend` and blocks all other traffic.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress` rule permitting traffic only from pods matching `podSelector: matchLabels: app: backend`." },
-      { id: 'B', text: "Install a host-based firewall manually on each worker node operating system." },
-      { id: 'C', text: "Rely on Linux file permissions inside the container filesystem to restrict network packets." },
-      { id: 'D', text: "Delete all other pods in the cluster to prevent them from sending traffic." }
+      { id: 'A', text: "Create a `NetworkPolicy` on the database pods allowing ingress only from `app: backend` pods." },
+      { id: 'B', text: "Move the database to its own namespace and rely on namespace boundaries to separate traffic." },
+      { id: 'C', text: "Create a `NetworkPolicy` on the backend pods allowing egress only to the database pods." },
+      { id: 'D', text: "Create a `NetworkPolicy` on the database pods allowing ingress from the namespace as a whole." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to isolate a database pod so that it only accepts incoming TCP connections on port 5432 from pods labeled `app=backend` and blocks all other traffic.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Install a host-based firewall manually on each worker node operating system." },
-      { id: 'B', text: "Rely on Linux file permissions inside the container filesystem to restrict network packets." },
-      { id: 'C', text: "Create a `NetworkPolicy` targeting the database pods with an `ingress` rule permitting traffic only from pods matching `podSelector: matchLabels: app: backend`." },
-      { id: 'D', text: "Delete all other pods in the cluster to prevent them from sending traffic." }
+      { id: 'A', text: "Move the database to its own namespace and rely on namespace boundaries to separate traffic." },
+      { id: 'B', text: "Create a `NetworkPolicy` on the backend pods allowing egress only to the database pods." },
+      { id: 'C', text: "Create a `NetworkPolicy` on the database pods allowing ingress only from `app: backend` pods." },
+      { id: 'D', text: "Create a `NetworkPolicy` on the database pods allowing ingress from the namespace as a whole." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to enforce a zero-trust network posture in a sensitive namespace where all pod communication is blocked by default until explicitly permitted.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Create a `NetworkPolicy` with an empty `podSelector: {}` and `policyTypes: [Ingress, Egress]` without defining any ingress or egress allow rules." },
-      { id: 'B', text: "Disable the CNI network plugin in that namespace." },
-      { id: 'C', text: "Change the namespace label to `isolation: maximum`." },
-      { id: 'D', text: "Block DNS port 53 traffic across the entire cluster." }
+      { id: 'A', text: "Create a `NetworkPolicy` with an empty `podSelector` and both `policyTypes`, with no allow rules." },
+      { id: 'B', text: "Create a `NetworkPolicy` with an empty `podSelector` and `policyTypes: [Ingress]` only." },
+      { id: 'C', text: "Create a `NetworkPolicy` whose `podSelector` matches every pod label used in the namespace." },
+      { id: 'D', text: "Create a `NetworkPolicy` with an egress rule denying UDP 53, which stops all name resolution." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to enforce a zero-trust network posture in a sensitive namespace where all pod communication is blocked by default until explicitly permitted.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Create a `NetworkPolicy` with an empty `podSelector: {}` and `policyTypes: [Ingress, Egress]` without defining any ingress or egress allow rules." },
-      { id: 'B', text: "Disable the CNI network plugin in that namespace." },
-      { id: 'C', text: "Change the namespace label to `isolation: maximum`." },
-      { id: 'D', text: "Block DNS port 53 traffic across the entire cluster." }
+      { id: 'A', text: "Create a `NetworkPolicy` with an empty `podSelector` and both `policyTypes`, with no allow rules." },
+      { id: 'B', text: "Create a `NetworkPolicy` with an empty `podSelector` and `policyTypes: [Ingress]` only." },
+      { id: 'C', text: "Create a `NetworkPolicy` whose `podSelector` matches every pod label used in the namespace." },
+      { id: 'D', text: "Create a `NetworkPolicy` with an egress rule denying UDP 53, which stops all name resolution." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to enforce a zero-trust network posture in a sensitive namespace where all pod communication is blocked by default until explicitly permitted.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Change the namespace label to `isolation: maximum`." },
-      { id: 'B', text: "Create a `NetworkPolicy` with an empty `podSelector: {}` and `policyTypes: [Ingress, Egress]` without defining any ingress or egress allow rules." },
-      { id: 'C', text: "Disable the CNI network plugin in that namespace." },
-      { id: 'D', text: "Block DNS port 53 traffic across the entire cluster." }
+      { id: 'A', text: "Create a `NetworkPolicy` whose `podSelector` matches every pod label used in the namespace." },
+      { id: 'B', text: "Create a `NetworkPolicy` with an empty `podSelector` and both `policyTypes`, with no allow rules." },
+      { id: 'C', text: "Create a `NetworkPolicy` with an empty `podSelector` and `policyTypes: [Ingress]` only." },
+      { id: 'D', text: "Create a `NetworkPolicy` with an egress rule denying UDP 53, which stops all name resolution." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to enforce a zero-trust network posture in a sensitive namespace where all pod communication is blocked by default until explicitly permitted.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Create a `NetworkPolicy` with an empty `podSelector: {}` and `policyTypes: [Ingress, Egress]` without defining any ingress or egress allow rules." },
-      { id: 'B', text: "Disable the CNI network plugin in that namespace." },
-      { id: 'C', text: "Change the namespace label to `isolation: maximum`." },
-      { id: 'D', text: "Block DNS port 53 traffic across the entire cluster." }
+      { id: 'A', text: "Create a `NetworkPolicy` with an empty `podSelector` and both `policyTypes`, with no allow rules." },
+      { id: 'B', text: "Create a `NetworkPolicy` with an empty `podSelector` and `policyTypes: [Ingress]` only." },
+      { id: 'C', text: "Create a `NetworkPolicy` whose `podSelector` matches every pod label used in the namespace." },
+      { id: 'D', text: "Create a `NetworkPolicy` with an egress rule denying UDP 53, which stops all name resolution." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKA_QUESTIONS_20 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to enforce a zero-trust network posture in a sensitive namespace where all pod communication is blocked by default until explicitly permitted.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Disable the CNI network plugin in that namespace." },
-      { id: 'B', text: "Create a `NetworkPolicy` with an empty `podSelector: {}` and `policyTypes: [Ingress, Egress]` without defining any ingress or egress allow rules." },
-      { id: 'C', text: "Block DNS port 53 traffic across the entire cluster." },
-      { id: 'D', text: "Change the namespace label to `isolation: maximum`." }
+      { id: 'A', text: "Create a `NetworkPolicy` with an empty `podSelector` and `policyTypes: [Ingress]` only." },
+      { id: 'B', text: "Create a `NetworkPolicy` with an empty `podSelector` and both `policyTypes`, with no allow rules." },
+      { id: 'C', text: "Create a `NetworkPolicy` with an egress rule denying UDP 53, which stops all name resolution." },
+      { id: 'D', text: "Create a `NetworkPolicy` whose `podSelector` matches every pod label used in the namespace." }
     ],
     correctAnswers: ['B'],
     type: "single",

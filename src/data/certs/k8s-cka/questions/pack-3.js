@@ -30,10 +30,10 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "Pods across every namespace suddenly fail to resolve any name. Pod-to-pod traffic by IP address still works, and the CoreDNS deployment shows 0/2 pods ready.",
     question: "Which investigation is most likely to find the cause?",
     options: [
-      { id: 'A', text: "Check the CoreDNS pod logs and events, plus the kube-dns Service endpoints in kube-system." },
-      { id: 'B', text: "Increase the dnsPolicy timeout on each pod spec." },
-      { id: 'C', text: "Edit /etc/resolv.conf inside each application pod." },
-      { id: 'D', text: "Recreate every application Deployment so pods get new DNS settings." }
+      { id: 'A', text: "Check the CoreDNS pod logs and the kube-dns Service endpoints." },
+      { id: 'B', text: "Raise the `dnsPolicy` timeout in each of the pod specs." },
+      { id: 'C', text: "Edit `/etc/resolv.conf` inside each application pod." },
+      { id: 'D', text: "Recreate every Deployment so the pods get new DNS settings." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A PVC bound to a CSI volume needs to grow from 20Gi to 50Gi without recreating the pod data.",
     question: "What must be true for the resize to succeed?",
     options: [
-      { id: 'A', text: "The PersistentVolume capacity must be edited directly; PVCs are immutable." },
-      { id: 'B', text: "The pod must set a resizePolicy of RestartContainer." },
-      { id: 'C', text: "The StorageClass must set allowVolumeExpansion: true and the PVC spec.resources.requests.storage must be increased." },
-      { id: 'D', text: "The PVC must be deleted and recreated with the larger size." }
+      { id: 'A', text: "The PersistentVolume's capacity must be edited, since claims are immutable." },
+      { id: 'B', text: "The pod must declare a `resizePolicy` of `RestartContainer` for the volume." },
+      { id: 'C', text: "The StorageClass must allow expansion and the claim's requested size must be raised." },
+      { id: 'D', text: "The claim must be deleted and recreated at the larger requested size." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "Pods labelled app=db in the data namespace must accept connections on port 5432 only from pods in the namespace labelled team=payments, and from nowhere else.",
     question: "Which NetworkPolicy rule expresses that?",
     options: [
-      { id: 'A', text: "An egress rule with to: [{ namespaceSelector: { matchLabels: { team: payments } } }]." },
-      { id: 'B', text: "An ingress rule with ipBlock cidr set to the payments pod CIDR." },
-      { id: 'C', text: "An ingress rule with from: [{ namespaceSelector: { matchLabels: { team: payments } } }] and ports: [{ port: 5432 }]." },
-      { id: 'D', text: "An ingress rule with from: [{ podSelector: { matchLabels: { team: payments } } }]." }
+      { id: 'A', text: "An egress rule with a `namespaceSelector` for `team: payments` on that port." },
+      { id: 'B', text: "An ingress rule with an `ipBlock` covering the payments pod CIDR range." },
+      { id: 'C', text: "An ingress rule with a `namespaceSelector` for `team: payments` on port 5432." },
+      { id: 'D', text: "An ingress rule with a `podSelector` for `team: payments` on port 5432." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A service takes ninety seconds to warm its cache at startup. During that window it must not receive traffic, but it must also not be restarted.",
     question: "Which probe configuration fits?",
     options: [
-      { id: 'A', text: "Only a readiness probe with failureThreshold: 1." },
-      { id: 'B', text: "Only a liveness probe with a one-second period." },
-      { id: 'C', text: "A startup probe alone, with no readiness probe." },
-      { id: 'D', text: "A readiness probe on the health endpoint, plus a liveness probe with an initialDelaySeconds or startupProbe long enough to cover warm-up." }
+      { id: 'A', text: "A readiness probe alone with `failureThreshold: 1`, so traffic stops at the first failure." },
+      { id: 'B', text: "A liveness probe alone on a one-second period, so a hung process is restarted quickly." },
+      { id: 'C', text: "A startup probe alone, with the readiness check folded into the container's entrypoint." },
+      { id: 'D', text: "A readiness probe on the health endpoint, plus a startup probe long enough to cover warm-up." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A new administrator asks what breaks if kube-proxy stops running on a node while the CNI plugin keeps working.",
     question: "Which statement is correct?",
     options: [
-      { id: 'A', text: "All pod networking stops immediately, including pod IP traffic." },
-      { id: 'B', text: "DNS keeps working but pods lose their IP addresses." },
-      { id: 'C', text: "Pod-to-pod traffic by pod IP keeps working, but new ClusterIP Service routing on that node is no longer programmed." },
-      { id: 'D', text: "The node is marked NotReady within seconds." }
+      { id: 'A', text: "All pod networking stops at once on that node, including traffic addressed by pod IP." },
+      { id: 'B', text: "DNS keeps working while the pods lose their addresses until kube-proxy returns." },
+      { id: 'C', text: "Pod-to-pod traffic by IP keeps working, but new Service routing on that node stops being programmed." },
+      { id: 'D', text: "The node is marked `NotReady` within seconds and its pods are rescheduled." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A platform team wants route configuration owned by application teams while cluster operators keep control of the listener, TLS certificates, and load balancer address.",
     question: "Which model provides that split of responsibility?",
     options: [
-      { id: 'A', text: "Gateway API, where a GatewayClass and Gateway are operator-owned and HTTPRoutes are application-owned." },
-      { id: 'B', text: "A NetworkPolicy per route with L7 path selectors." },
-      { id: 'C', text: "A single Ingress object per cluster shared by all teams." },
-      { id: 'D', text: "One LoadBalancer Service per application team." }
+      { id: 'A', text: "The Gateway API, where the `Gateway` is operator-owned and `HTTPRoute` application-owned." },
+      { id: 'B', text: "A NetworkPolicy per route with layer 7 path selectors owned by each team." },
+      { id: 'C', text: "A single Ingress object per cluster, shared and edited by all the teams." },
+      { id: 'D', text: "One `LoadBalancer` Service per application team, each with its own address." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "Before granting more permissions, an administrator wants to confirm whether the ServiceAccount build in namespace ci may already delete deployments there.",
     question: "Which command answers that?",
     options: [
-      { id: 'A', text: "kubectl get rolebindings -n ci" },
-      { id: 'B', text: "kubectl describe serviceaccount build -n ci" },
-      { id: 'C', text: "kubectl auth can-i delete deployments --as=system:serviceaccount:ci:build -n ci" },
-      { id: 'D', text: "kubectl auth reconcile -n ci" }
+      { id: 'A', text: "`kubectl get rolebindings -n ci -o wide` and read the subjects" },
+      { id: 'B', text: "`kubectl describe serviceaccount build -n ci` for its bindings" },
+      { id: 'C', text: "`kubectl auth can-i delete deployments --as=system:serviceaccount:ci:build`" },
+      { id: 'D', text: "`kubectl auth reconcile -f role.yaml -n ci` against the role" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A crashing container is built from a distroless image with no shell, so kubectl exec fails. The pod is still running and must not be recreated.",
     question: "Which approach gives an interactive debugging environment inside that pod?",
     options: [
-      { id: 'A', text: "kubectl cp a shell binary into the container filesystem." },
-      { id: 'B', text: "kubectl debug -it POD --image=busybox --target=app to attach an ephemeral container." },
-      { id: 'C', text: "kubectl attach POD -c app" },
-      { id: 'D', text: "kubectl edit pod POD and add a sidecar container." }
+      { id: 'A', text: "`kubectl cp` a shell binary into the container's own filesystem first" },
+      { id: 'B', text: "`kubectl debug -it POD --image=busybox --target=app` for an ephemeral container" },
+      { id: 'C', text: "`kubectl attach POD -c app` to reach the running process directly" },
+      { id: 'D', text: "`kubectl edit pod POD` to add a debugging sidecar container" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A deployment must spread its replicas across availability zones so no zone carries more than one replica more than any other, and pods should still schedule if perfect balance is impossible.",
     question: "Which configuration expresses that?",
     options: [
-      { id: 'A', text: "topologySpreadConstraints with maxSkew: 1, topologyKey: topology.kubernetes.io/zone and whenUnsatisfiable: ScheduleAnyway." },
-      { id: 'B', text: "topologySpreadConstraints with maxSkew: 1 and whenUnsatisfiable: DoNotSchedule." },
-      { id: 'C', text: "A nodeSelector on topology.kubernetes.io/zone." },
-      { id: 'D', text: "requiredDuringSchedulingIgnoredDuringExecution podAntiAffinity on the zone topology key." }
+      { id: 'A', text: "`topologySpreadConstraints` with `maxSkew: 1` on the zone key and `ScheduleAnyway`." },
+      { id: 'B', text: "`topologySpreadConstraints` with `maxSkew: 1` on the zone key and `DoNotSchedule`." },
+      { id: 'C', text: "A `nodeSelector` on `topology.kubernetes.io/zone` naming the preferred zone." },
+      { id: 'D', text: "A required `podAntiAffinity` on the zone key so no two replicas share a zone." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A static pod manifest was placed in /etc/kubernetes/manifests on a worker node, but no pod appears and no event is recorded in the API server.",
     question: "Which check comes first?",
     options: [
-      { id: 'A', text: "Check the scheduler logs for a placement failure." },
-      { id: 'B', text: "Run kubectl apply -f on the manifest from the control plane node." },
-      { id: 'C', text: "Confirm the kubelet staticPodPath in its config file and read journalctl -u kubelet for parse errors." },
-      { id: 'D', text: "Verify that a Deployment owns the static pod." }
+      { id: 'A', text: "Read the scheduler's logs for a placement failure against that node." },
+      { id: 'B', text: "Run `kubectl apply -f` on the manifest from the control plane node." },
+      { id: 'C', text: "Confirm the kubelet's `staticPodPath` and read its journal for parse errors." },
+      { id: 'D', text: "Confirm that a Deployment owns the static pod the kubelet started." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKA_QUESTIONS_3 = [
     scenario: "A pod using a CSI block volume is stuck in Terminating after its node crashed. The replacement pod cannot start because the volume is still attached to the dead node.",
     question: "Which action is the correct recovery?",
     options: [
-      { id: 'A', text: "Delete the Node object for the crashed node so the attach-detach controller can force-detach the volume." },
-      { id: 'B', text: "Delete the PersistentVolume so a new one is provisioned." },
-      { id: 'C', text: "Restart kube-proxy on the surviving nodes." },
-      { id: 'D', text: "Remove the finalizer from the PersistentVolumeClaim." }
+      { id: 'A', text: "Delete the Node object so the attach-detach controller can force-detach the volume." },
+      { id: 'B', text: "Delete the PersistentVolume so a replacement is provisioned for the claim." },
+      { id: 'C', text: "Restart kube-proxy on the surviving nodes so the volume's mount is retried." },
+      { id: 'D', text: "Remove the finalizer from the PersistentVolumeClaim so it releases the volume." }
     ],
     correctAnswers: ['A'],
     type: "single",

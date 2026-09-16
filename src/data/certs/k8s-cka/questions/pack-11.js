@@ -9,10 +9,10 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "A pod in the web namespace references a Secret that exists only in the data namespace, and the pod stays in ContainerCreating.",
     question: "What is wrong?",
     options: [
-      { id: 'A', text: "RBAC must grant the pod ServiceAccount read access across namespaces." },
-      { id: 'B', text: "The Secret must be marked shared: true." },
-      { id: 'C', text: "The kubelet needs a cluster-wide Secret cache enabled." },
-      { id: 'D', text: "Secrets are namespaced and a pod can only mount Secrets from its own namespace, so the Secret must be created in web." }
+      { id: 'A', text: "RBAC must grant the pod's ServiceAccount read access across the namespaces." },
+      { id: 'B', text: "The Secret has to be created with `immutable: true` before it can be shared." },
+      { id: 'C', text: "The kubelet needs its cluster-wide Secret cache enabled on that node first." },
+      { id: 'D', text: "Secrets are namespaced, so the Secret has to exist in the pod's own namespace." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "A cluster with three control plane nodes and twenty workers must be upgraded one minor version with minimal disruption.",
     question: "Which order is correct?",
     options: [
-      { id: 'A', text: "First control plane node with kubeadm upgrade apply, remaining control plane nodes with kubeadm upgrade node, then workers one at a time with drain, kubeadm upgrade node, kubelet upgrade, and uncordon." },
-      { id: 'B', text: "All nodes simultaneously to minimise the maintenance window." },
-      { id: 'C', text: "All workers first, then the control plane nodes together." },
-      { id: 'D', text: "Control plane nodes last, after every worker reports the new version." }
+      { id: 'A', text: "First control plane node with `upgrade apply`, the rest with `upgrade node`, then workers one at a time." },
+      { id: 'B', text: "Every node at once with `upgrade node`, to keep the maintenance window as short as possible." },
+      { id: 'C', text: "All workers first with `upgrade node`, then the control plane nodes together with `upgrade apply`." },
+      { id: 'D', text: "Control plane last, once every worker has drained, upgraded and reported the new version." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "A newcomer asks why anyone would create a Deployment instead of a bare pod.",
     question: "Which answer is correct?",
     options: [
-      { id: 'A', text: "A Deployment runs faster because it bypasses the scheduler." },
-      { id: 'B', text: "A Deployment is required for a pod to receive an IP address." },
-      { id: 'C', text: "A Deployment adds a controller that maintains the desired replica count, replaces failed pods, and manages rolling updates and rollbacks; a bare pod is never recreated once it dies." },
-      { id: 'D', text: "A bare pod cannot mount volumes." }
+      { id: 'A', text: "A Deployment schedules faster, since its ReplicaSet places pods without waiting for the scheduler." },
+      { id: 'B', text: "A Deployment is required before a pod can be given an IP address by the cluster's CNI plugin." },
+      { id: 'C', text: "A Deployment adds a controller that keeps the replica count, replaces failed pods and manages rollouts." },
+      { id: 'D', text: "A bare pod cannot mount a PersistentVolumeClaim, since binding happens through the ReplicaSet." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "After adding a default-deny egress policy, application pods still serve traffic but the ingress controller marks them unhealthy.",
     question: "Which explanation is most plausible?",
     options: [
-      { id: 'A', text: "Health checks bypass NetworkPolicy entirely, so the policy is irrelevant." },
-      { id: 'B', text: "It is not the egress policy blocking the checks directly - probe traffic is inbound - so look for an ingress policy on the same pods, or an egress rule the application needs for the endpoint it reports on." },
-      { id: 'C', text: "Egress policies require a matching ingress rule for return traffic." },
-      { id: 'D', text: "Egress policies always block health checks." }
+      { id: 'A', text: "Probe traffic comes from the kubelet, which NetworkPolicy does not apply to at all." },
+      { id: 'B', text: "Probe traffic is inbound, so look at the ingress policy on those pods." },
+      { id: 'C', text: "Egress policies need a matching ingress rule before return traffic is permitted." },
+      { id: 'D', text: "Egress policies drop the probe's reply, since the connection is opened outbound." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "A namespace was deleted by mistake. Its PVCs are gone but the PersistentVolumes used a Retain policy and still hold the data.",
     question: "How is the data recovered?",
     options: [
-      { id: 'A', text: "Delete the PVs so they are recreated with the data intact." },
-      { id: 'B', text: "Recreate the namespace, and the PVCs rebind automatically." },
-      { id: 'C', text: "Restore etcd from a snapshot, which restores the volume data." },
-      { id: 'D', text: "Clear the stale claimRef on each Released PV so it becomes Available, then create a matching PVC in the recreated namespace to bind to it." }
+      { id: 'A', text: "Delete the PVs so the provisioner recreates them with the same underlying disks." },
+      { id: 'B', text: "Recreate the namespace, after which the PVCs rebind to their volumes automatically." },
+      { id: 'C', text: "Restore etcd from a snapshot, which brings the claims and their data back together." },
+      { id: 'D', text: "Clear the stale `claimRef` on each Released PV, then create a matching PVC to rebind it." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "Before scheduling a large workload, an operator wants to see how much CPU and memory each node has already committed through requests.",
     question: "Which command shows allocated requests and limits per node?",
     options: [
-      { id: 'A', text: "kubectl get node NODE -o wide." },
-      { id: 'B', text: "kubectl describe node NODE, which lists Allocated resources with request and limit totals." },
-      { id: 'C', text: "kubectl get pods -A --field-selector spec.nodeName=NODE -o name." },
-      { id: 'D', text: "kubectl top node NODE, which shows requests." }
+      { id: 'A', text: "`kubectl get node NODE -o wide` and read the capacity columns it prints" },
+      { id: 'B', text: "`kubectl describe node NODE`, which lists the allocated request and limit totals" },
+      { id: 'C', text: "`kubectl get pods -A --field-selector spec.nodeName=NODE -o name`" },
+      { id: 'D', text: "`kubectl top node NODE`, which reports the requests per node" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "A cluster-critical agent must survive scheduling pressure and never be preempted in favour of ordinary workloads.",
     question: "Which mechanism expresses that?",
     options: [
-      { id: 'A', text: "Assign a PriorityClass with a high value, such as one of the built-in system-cluster-critical or system-node-critical classes where appropriate." },
-      { id: 'B', text: "Add a PodDisruptionBudget with minAvailable 1." },
-      { id: 'C', text: "Set prevent_preemption: true on the pod." },
-      { id: 'D', text: "Set the pod QoS class to BestEffort." }
+      { id: 'A', text: "Assign a high-value `PriorityClass`, such as `system-cluster-critical` where appropriate." },
+      { id: 'B', text: "Assign a `PodDisruptionBudget` with `minAvailable: 1` over the workload's selector." },
+      { id: 'C', text: "Assign a `PriorityClass` with `preemptionPolicy: Never` to the workload's pods." },
+      { id: 'D', text: "Assign the pod a Guaranteed QoS class by matching its requests and limits." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "Pods in namespace A can reach pods in namespace B, but not the reverse, and both namespaces have NetworkPolicies.",
     question: "What explains the asymmetry?",
     options: [
-      { id: 'A', text: "NetworkPolicies always apply symmetrically, so the CNI plugin must be broken." },
-      { id: 'B', text: "Policies are directional and additive per pod, so B pods likely lack an ingress rule allowing A - or A pods lack one allowing B - since return traffic on an established connection is permitted but a new connection in the other direction is not." },
-      { id: 'C', text: "Cross-namespace traffic requires a Service in both namespaces." },
-      { id: 'D', text: "kube-proxy only programs rules in one direction." }
+      { id: 'A', text: "NetworkPolicies apply symmetrically once both namespaces carry one, so the CNI plugin must be failing to program the reverse rule." },
+      { id: 'B', text: "Policies are directional and additive per pod, so the reverse direction needs its own rule." },
+      { id: 'C', text: "Cross-namespace traffic needs a Service in both namespaces, and only one direction has one defined for its workloads." },
+      { id: 'D', text: "kube-proxy programs its rules in one direction only, so the reverse path depends on the CNI plugin's own routing." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "A container needs a ConfigMap key, a Secret key, and its ServiceAccount token to appear together under a single directory.",
     question: "Which volume type does that in one mount?",
     options: [
-      { id: 'A', text: "A hostPath volume aggregating the files." },
-      { id: 'B', text: "A projected volume with configMap, secret, and serviceAccountToken sources." },
-      { id: 'C', text: "Three separate volumeMounts at the same mountPath." },
-      { id: 'D', text: "An emptyDir populated by an init container." }
+      { id: 'A', text: "A `hostPath` volume aggregating the files on the node." },
+      { id: 'B', text: "A projected volume with configMap, secret and token sources." },
+      { id: 'C', text: "Three separate `volumeMounts` at the same mount path." },
+      { id: 'D', text: "An `emptyDir` populated by an init container at start." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "A Job shows one pod Running indefinitely. The container includes a native sidecar proxy alongside the main workload, which exits successfully.",
     question: "Which detail matters?",
     options: [
-      { id: 'A', text: "backoffLimit must be set to 0 for a Job to complete." },
-      { id: 'B', text: "A sidecar declared as an init container with restartPolicy Always is excluded from Job completion, whereas an ordinary long-running container in the pod would keep the Job from finishing." },
-      { id: 'C', text: "The Job needs completions set to 0." },
-      { id: 'D', text: "Jobs never complete when they contain more than one container." }
+      { id: 'A', text: "A `backoffLimit` of 0 is required before a Job with more than one container can complete." },
+      { id: 'B', text: "A sidecar declared as an init container with `restartPolicy: Always` is excluded from Job completion." },
+      { id: 'C', text: "A Job with `completions` unset waits indefinitely once any container is still running." },
+      { id: 'D', text: "A Job never completes while it contains more than one container in its pod template." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "A team debates whether to set CPU limits on latency-sensitive services.",
     question: "Which statement reflects the trade-off accurately?",
     options: [
-      { id: 'A', text: "CPU limits are mandatory for scheduling to work." },
-      { id: 'B', text: "Omitting CPU limits makes the pod BestEffort." },
-      { id: 'C', text: "Memory limits cause throttling in the same way CPU limits do." },
-      { id: 'D', text: "CPU limits cause throttling once the ceiling is reached, which can add latency even on an idle node, so some teams set CPU requests without limits while always setting memory limits because memory is incompressible." }
+      { id: 'A', text: "CPU limits are required for the scheduler to place the pod, since the request defaults to the limit when only one is set." },
+      { id: 'B', text: "Omitting CPU limits makes the pod BestEffort, which is evicted first when the node comes under pressure." },
+      { id: 'C', text: "Memory limits throttle the workload in the same way CPU limits do, so both carry the same latency risk." },
+      { id: 'D', text: "CPU limits throttle at the ceiling, adding latency even when the node is idle." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "A Service must be reachable only by pods inside the cluster, with no possibility of external exposure.",
     question: "Which configuration is appropriate?",
     options: [
-      { id: 'A', text: "A LoadBalancer Service with an empty loadBalancerSourceRanges list." },
-      { id: 'B', text: "An ExternalName Service pointing at the ClusterIP." },
-      { id: 'C', text: "A ClusterIP Service, optionally with internalTrafficPolicy and a NetworkPolicy restricting which pods may connect." },
-      { id: 'D', text: "A NodePort Service with a firewall rule on each node." }
+      { id: 'A', text: "A `LoadBalancer` Service with an empty `loadBalancerSourceRanges` list." },
+      { id: 'B', text: "An `ExternalName` Service pointing at the workload's own cluster IP." },
+      { id: 'C', text: "A `ClusterIP` Service, with a NetworkPolicy restricting which pods may connect." },
+      { id: 'D', text: "A `NodePort` Service with a firewall rule applied on every node." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKA_QUESTIONS_11 = [
     scenario: "A cluster is restored from an etcd snapshot taken two hours earlier, using the original PKI directory.",
     question: "What is the expected state afterwards?",
     options: [
-      { id: 'A', text: "The restore is transparent because kubelets resynchronise their local state into etcd." },
-      { id: 'B', text: "API objects revert to the snapshot, so anything created in those two hours is gone from the cluster view even though the real cloud resources and running containers may still exist and must be reconciled." },
-      { id: 'C', text: "Only Secrets and ConfigMaps are restored; workloads are unaffected." },
-      { id: 'D', text: "Both the API objects and the underlying infrastructure roll back to the snapshot time." }
+      { id: 'A', text: "The restore is transparent, because the kubelets resynchronise their own pods back into etcd." },
+      { id: 'B', text: "API objects revert to the snapshot while the real resources persist and need reconciling." },
+      { id: 'C', text: "Only Secrets and ConfigMaps come back; the workload objects are rebuilt by their controllers." },
+      { id: 'D', text: "Both the API objects and the underlying infrastructure roll back to the snapshot's point in time." }
     ],
     correctAnswers: ['B'],
     type: "single",

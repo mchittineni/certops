@@ -30,9 +30,9 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "A worker node shows status NotReady. kubectl describe node lists the condition Ready with status Unknown and the message \"Kubelet stopped posting node status\".",
     question: "What is the most direct next step on that node?",
     options: [
-      { id: 'A', text: "Restart kube-apiserver on the control plane node." },
-      { id: 'B', text: "Drain the node and reinstall the container runtime." },
-      { id: 'C', text: "Inspect the kubelet service with systemctl status kubelet and journalctl -u kubelet." },
+      { id: 'A', text: "Restart kube-apiserver on the control plane node and retry." },
+      { id: 'B', text: "Drain the node and reinstall its container runtime package." },
+      { id: 'C', text: "Inspect the kubelet with `systemctl status` and `journalctl -u kubelet`." },
       { id: 'D', text: "Delete the node object so the scheduler stops considering it." }
     ],
     correctAnswers: ['C'],
@@ -114,10 +114,10 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "An administrator must take a point-in-time backup of a stacked etcd on a kubeadm control plane node, using the client certificates in /etc/kubernetes/pki/etcd.",
     question: "Which command produces the snapshot?",
     options: [
-      { id: 'A', text: "ETCDCTL_API=3 etcdctl snapshot save /opt/snap.db --endpoints=https://127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key" },
-      { id: 'B', text: "ETCDCTL_API=3 etcdctl snapshot restore /opt/snap.db" },
-      { id: 'C', text: "cp -r /var/lib/etcd /opt/snap.db while etcd is running" },
-      { id: 'D', text: "kubectl get all --all-namespaces -o yaml > /opt/snap.yaml" }
+      { id: 'A', text: "ETCDCTL_API=3 etcdctl snapshot save /opt/snap.db --endpoints=https://127.0.0.1:2379 --cacert=&lt;ca&gt; --cert=&lt;cert&gt; --key=&lt;key&gt;" },
+      { id: 'B', text: "ETCDCTL_API=3 etcdctl snapshot restore /opt/snap.db --endpoints=https://127.0.0.1:2379 --cacert=&lt;ca&gt; --cert=&lt;cert&gt; --key=&lt;key&gt;" },
+      { id: 'C', text: "ETCDCTL_API=3 etcdctl get / --prefix --keys-only --endpoints=https://127.0.0.1:2379 &gt; /opt/snap.db" },
+      { id: 'D', text: "cp -r /var/lib/etcd/member /opt/snap.db while the etcd static pod is still running" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "A deployment referencing registry.internal/app:2.1 shows ImagePullBackOff. kubectl describe pod reports \"unauthorized: authentication required\" from the registry.",
     question: "What resolves the failure?",
     options: [
-      { id: 'A', text: "Add a ServiceAccount token volume mount to the container." },
-      { id: 'B', text: "Create a docker-registry Secret and reference it in the pod spec imagePullSecrets." },
-      { id: 'C', text: "Increase the kubelet image pull timeout." },
-      { id: 'D', text: "Set imagePullPolicy to IfNotPresent on the container." }
+      { id: 'A', text: "Add a ServiceAccount token volume mount to the failing container." },
+      { id: 'B', text: "Create a `docker-registry` Secret and name it in `imagePullSecrets`." },
+      { id: 'C', text: "Raise the kubelet's image pull timeout on the affected node." },
+      { id: 'D', text: "Set `imagePullPolicy: IfNotPresent` on the container's spec." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "A StatefulSet named db with three replicas in the data namespace needs stable per-pod DNS names so peers can address each other individually rather than through a load-balanced VIP.",
     question: "Which Service configuration provides per-pod DNS records?",
     options: [
-      { id: 'A', text: "A Service with clusterIP: None referenced as the StatefulSet serviceName." },
-      { id: 'B', text: "An ExternalName Service pointing at the pod IP addresses." },
-      { id: 'C', text: "A ClusterIP Service with sessionAffinity: ClientIP." },
-      { id: 'D', text: "A NodePort Service with externalTrafficPolicy: Local." }
+      { id: 'A', text: "A Service with `clusterIP: None` named as the StatefulSet's `serviceName`." },
+      { id: 'B', text: "An `ExternalName` Service pointing at each replica's own address." },
+      { id: 'C', text: "A `ClusterIP` Service with `sessionAffinity: ClientIP` enabled." },
+      { id: 'D', text: "A `NodePort` Service with `externalTrafficPolicy: Local` set." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,9 +303,9 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "A cluster must be upgraded from one minor version to the next using kubeadm, across one control plane node and several workers.",
     question: "Which sequence is correct for the first control plane node?",
     options: [
-      { id: 'A', text: "Upgrade the kubelet, then run kubeadm upgrade apply, then upgrade the kubeadm binary." },
-      { id: 'B', text: "Upgrade the kubeadm binary, run kubeadm upgrade plan and apply, then drain the node and upgrade kubelet and kubectl, then uncordon." },
-      { id: 'C', text: "Run kubeadm upgrade node on the control plane, then upgrade the kubeadm binary." },
+      { id: 'A', text: "Upgrade the kubelet, run `kubeadm upgrade apply`, then upgrade the `kubeadm` binary." },
+      { id: 'B', text: "Upgrade `kubeadm`, run `upgrade plan` and `apply`, drain, upgrade `kubelet`, then uncordon." },
+      { id: 'C', text: "Run `kubeadm upgrade node` on the control plane, then upgrade the `kubeadm` binary." },
       { id: 'D', text: "Drain every worker first, then upgrade the control plane binaries in any order." }
     ],
     correctAnswers: ['B'],
@@ -324,10 +324,10 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "An administrator edited /etc/kubernetes/manifests/kube-apiserver.yaml on the single control plane node and now every kubectl command fails with a connection refused error.",
     question: "Which approach diagnoses the problem?",
     options: [
-      { id: 'A', text: "Delete the API server pod with kubectl so the kubelet re-creates it." },
-      { id: 'B', text: "Restart etcd and wait for the API server to re-register." },
-      { id: 'C', text: "Run kubectl logs -n kube-system kube-apiserver-cp01." },
-      { id: 'D', text: "Inspect the container runtime directly with crictl ps -a and crictl logs, plus the kubelet journal." }
+      { id: 'A', text: "Delete the API server pod with kubectl so the kubelet recreates it." },
+      { id: 'B', text: "Restart etcd and wait for the API server to register itself again." },
+      { id: 'C', text: "Run `kubectl logs -n kube-system kube-apiserver-cp01` for the error." },
+      { id: 'D', text: "Inspect the runtime with `crictl ps -a` and the kubelet journal." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "A LoadBalancer Service fronts an application that logs client IP addresses. Every request is logged with a node IP instead of the real client address.",
     question: "Which setting preserves the original client source IP?",
     options: [
-      { id: 'A', text: "sessionAffinity: ClientIP" },
+      { id: 'A', text: "`sessionAffinity: ClientIP` on the Service" },
       { id: 'B', text: "internalTrafficPolicy: Local" },
-      { id: 'C', text: "externalTrafficPolicy: Local" },
-      { id: 'D', text: "externalTrafficPolicy: Cluster" }
+      { id: 'C', text: "`externalTrafficPolicy: Local` on the Service" },
+      { id: 'D', text: "`externalTrafficPolicy: Cluster` on the Service" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "An application reads its settings from a file at /etc/app/config.yaml and must pick up changes to that file without the pod being recreated.",
     question: "How should the ConfigMap be consumed?",
     options: [
-      { id: 'A', text: "As a projected volume mount, because the kubelet refreshes mounted ConfigMap keys in place." },
-      { id: 'B', text: "With a single env entry using valueFrom.configMapKeyRef." },
-      { id: 'C', text: "With envFrom.configMapRef so the values become environment variables." },
-      { id: 'D', text: "By baking the ConfigMap contents into the container image." }
+      { id: 'A', text: "As a mounted volume, since the kubelet refreshes mounted keys in place." },
+      { id: 'B', text: "With a single `env` entry using `valueFrom.configMapKeyRef`." },
+      { id: 'C', text: "With `envFrom.configMapRef`, so the values arrive as env vars." },
+      { id: 'D', text: "By baking the ConfigMap's contents into the container image." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKA_QUESTIONS_2 = [
     scenario: "A freshly joined worker node stays NotReady and its kubelet log repeats \"network plugin is not ready: cni config uninitialized\". Pods scheduled there stay in ContainerCreating.",
     question: "What is the correct remedy?",
     options: [
-      { id: 'A', text: "Set the kubelet flag --fail-swap-on=false." },
-      { id: 'B', text: "Recreate the pods with hostNetwork: true permanently." },
-      { id: 'C', text: "Restart kube-proxy on the control plane node." },
-      { id: 'D', text: "Install or repair the cluster CNI plugin so a config appears in /etc/cni/net.d." }
+      { id: 'A', text: "Set the kubelet's `--fail-swap-on=false` flag and restart the service." },
+      { id: 'B', text: "Recreate the pods with `hostNetwork: true` so they skip the CNI." },
+      { id: 'C', text: "Restart kube-proxy on the control plane and then on the worker." },
+      { id: 'D', text: "Install or repair the CNI plugin so a config appears in `/etc/cni/net.d`." }
     ],
     correctAnswers: ['D'],
     type: "single",
