@@ -9,7 +9,7 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to resolve a secret scanning alert after the engineering team successfully rotates the compromised production API key.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Revoke the secret with the provider, verify rotation, and resolve the GitHub alert with the resolution reason `Revoked`." },
+      { id: 'A', text: "Revoke the secret with the provider, confirm rotation, then resolve the alert as `Revoked`." },
       { id: 'B', text: "Delete the git commit history using a force push and assume the secret is safe without rotating the key." },
       { id: 'C', text: "Mark the alert as `False positive` to clear the security queue quickly without rotating the credential." },
       { id: 'D', text: "Leave the alert open permanently to maintain historical record visibility." }
@@ -30,7 +30,7 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to resolve a secret scanning alert after the engineering team successfully rotates the compromised production API key.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Revoke the secret with the provider, verify rotation, and resolve the GitHub alert with the resolution reason `Revoked`." },
+      { id: 'A', text: "Revoke the secret with the provider, confirm rotation, then resolve the alert as `Revoked`." },
       { id: 'B', text: "Mark the alert as `False positive` to clear the security queue quickly without rotating the credential." },
       { id: 'C', text: "Leave the alert open permanently to maintain historical record visibility." },
       { id: 'D', text: "Delete the git commit history using a force push and assume the secret is safe without rotating the key." }
@@ -51,7 +51,7 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to resolve a secret scanning alert after the engineering team successfully rotates the compromised production API key.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Revoke the secret with the provider, verify rotation, and resolve the GitHub alert with the resolution reason `Revoked`." },
+      { id: 'A', text: "Revoke the secret with the provider, confirm rotation, then resolve the alert as `Revoked`." },
       { id: 'B', text: "Delete the git commit history using a force push and assume the secret is safe without rotating the key." },
       { id: 'C', text: "Mark the alert as `False positive` to clear the security queue quickly without rotating the credential." },
       { id: 'D', text: "Leave the alert open permanently to maintain historical record visibility." }
@@ -75,7 +75,7 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
       { id: 'A', text: "Leave the alert open permanently to maintain historical record visibility." },
       { id: 'B', text: "Mark the alert as `False positive` to clear the security queue quickly without rotating the credential." },
       { id: 'C', text: "Delete the git commit history using a force push and assume the secret is safe without rotating the key." },
-      { id: 'D', text: "Revoke the secret with the provider, verify rotation, and resolve the GitHub alert with the resolution reason `Revoked`." }
+      { id: 'D', text: "Revoke the secret with the provider, confirm rotation, then resolve the alert as `Revoked`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -95,7 +95,7 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Mark the alert as `False positive` to clear the security queue quickly without rotating the credential." },
       { id: 'B', text: "Leave the alert open permanently to maintain historical record visibility." },
-      { id: 'C', text: "Revoke the secret with the provider, verify rotation, and resolve the GitHub alert with the resolution reason `Revoked`." },
+      { id: 'C', text: "Revoke the secret with the provider, confirm rotation, then resolve the alert as `Revoked`." },
       { id: 'D', text: "Delete the git commit history using a force push and assume the secret is safe without rotating the key." }
     ],
     correctAnswers: ['C'],
@@ -114,10 +114,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to ensure all historical commits pushed over the past five years are thoroughly analyzed for leaked credentials when enabling GHAS.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Assume credentials committed in past years are expired and skip historical scanning." },
-      { id: 'B', text: "Manually checkout every historical git commit and run local regex search scripts." },
-      { id: 'C', text: "Delete repository git history prior to enabling GHAS to reduce scan processing times." },
-      { id: 'D', text: "Enable Secret Scanning on the repository, which automatically triggers a comprehensive scan across all historical commits and branches." }
+      { id: 'A', text: "Enable push protection, which checks each new push as it reaches the remote." },
+      { id: 'B', text: "Enable the scanning API and submit each historical commit range to it in turn." },
+      { id: 'C', text: "Enable secret scanning after rewriting history so only current branches remain." },
+      { id: 'D', text: "Enable secret scanning, which scans the full commit history on activation." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,10 +135,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to ensure all historical commits pushed over the past five years are thoroughly analyzed for leaked credentials when enabling GHAS.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Enable Secret Scanning on the repository, which automatically triggers a comprehensive scan across all historical commits and branches." },
-      { id: 'B', text: "Assume credentials committed in past years are expired and skip historical scanning." },
-      { id: 'C', text: "Delete repository git history prior to enabling GHAS to reduce scan processing times." },
-      { id: 'D', text: "Manually checkout every historical git commit and run local regex search scripts." }
+      { id: 'A', text: "Enable secret scanning, which scans the full commit history on activation." },
+      { id: 'B', text: "Enable push protection, which checks each new push as it reaches the remote." },
+      { id: 'C', text: "Enable secret scanning after rewriting history so only current branches remain." },
+      { id: 'D', text: "Enable the scanning API and submit each historical commit range to it in turn." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to ensure all historical commits pushed over the past five years are thoroughly analyzed for leaked credentials when enabling GHAS.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Assume credentials committed in past years are expired and skip historical scanning." },
-      { id: 'B', text: "Manually checkout every historical git commit and run local regex search scripts." },
-      { id: 'C', text: "Delete repository git history prior to enabling GHAS to reduce scan processing times." },
-      { id: 'D', text: "Enable Secret Scanning on the repository, which automatically triggers a comprehensive scan across all historical commits and branches." }
+      { id: 'A', text: "Enable push protection, which checks each new push as it reaches the remote." },
+      { id: 'B', text: "Enable the scanning API and submit each historical commit range to it in turn." },
+      { id: 'C', text: "Enable secret scanning after rewriting history so only current branches remain." },
+      { id: 'D', text: "Enable secret scanning, which scans the full commit history on activation." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to ensure all historical commits pushed over the past five years are thoroughly analyzed for leaked credentials when enabling GHAS.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Enable Secret Scanning on the repository, which automatically triggers a comprehensive scan across all historical commits and branches." },
-      { id: 'B', text: "Delete repository git history prior to enabling GHAS to reduce scan processing times." },
-      { id: 'C', text: "Manually checkout every historical git commit and run local regex search scripts." },
-      { id: 'D', text: "Assume credentials committed in past years are expired and skip historical scanning." }
+      { id: 'A', text: "Enable secret scanning, which scans the full commit history on activation." },
+      { id: 'B', text: "Enable secret scanning after rewriting history so only current branches remain." },
+      { id: 'C', text: "Enable the scanning API and submit each historical commit range to it in turn." },
+      { id: 'D', text: "Enable push protection, which checks each new push as it reaches the remote." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to ensure all historical commits pushed over the past five years are thoroughly analyzed for leaked credentials when enabling GHAS.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Assume credentials committed in past years are expired and skip historical scanning." },
-      { id: 'B', text: "Enable Secret Scanning on the repository, which automatically triggers a comprehensive scan across all historical commits and branches." },
-      { id: 'C', text: "Manually checkout every historical git commit and run local regex search scripts." },
-      { id: 'D', text: "Delete repository git history prior to enabling GHAS to reduce scan processing times." }
+      { id: 'A', text: "Enable push protection, which checks each new push as it reaches the remote." },
+      { id: 'B', text: "Enable secret scanning, which scans the full commit history on activation." },
+      { id: 'C', text: "Enable the scanning API and submit each historical commit range to it in turn." },
+      { id: 'D', text: "Enable secret scanning after rewriting history so only current branches remain." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -219,10 +219,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to prevent engineers from pasting sensitive production credentials into repository wiki pages, issue descriptions, or PR comments.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Enable Secret Scanning across non-code surfaces including repository Wikis, issue descriptions, and pull request comments." },
-      { id: 'B', text: "Assume developers only ever store credentials inside source code files." },
-      { id: 'C', text: "Disable repository wikis to prevent any potential documentation leaks." },
-      { id: 'D', text: "Rely on manual human moderators to read every issue comment posted across the organization." }
+      { id: 'A', text: "Enable secret scanning over the non-code surfaces too: wikis, issues and pull request comments." },
+      { id: 'B', text: "Enable push protection on the default branch, which covers whatever reaches the repository." },
+      { id: 'C', text: "Disable the repository wikis and issue templates so credentials cannot be pasted into them." },
+      { id: 'D', text: "Add a moderation workflow that scans new issue comments with the organization's patterns." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to prevent engineers from pasting sensitive production credentials into repository wiki pages, issue descriptions, or PR comments.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Enable Secret Scanning across non-code surfaces including repository Wikis, issue descriptions, and pull request comments." },
-      { id: 'B', text: "Assume developers only ever store credentials inside source code files." },
-      { id: 'C', text: "Disable repository wikis to prevent any potential documentation leaks." },
-      { id: 'D', text: "Rely on manual human moderators to read every issue comment posted across the organization." }
+      { id: 'A', text: "Enable secret scanning over the non-code surfaces too: wikis, issues and pull request comments." },
+      { id: 'B', text: "Enable push protection on the default branch, which covers whatever reaches the repository." },
+      { id: 'C', text: "Disable the repository wikis and issue templates so credentials cannot be pasted into them." },
+      { id: 'D', text: "Add a moderation workflow that scans new issue comments with the organization's patterns." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to prevent engineers from pasting sensitive production credentials into repository wiki pages, issue descriptions, or PR comments.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Rely on manual human moderators to read every issue comment posted across the organization." },
-      { id: 'B', text: "Disable repository wikis to prevent any potential documentation leaks." },
-      { id: 'C', text: "Assume developers only ever store credentials inside source code files." },
-      { id: 'D', text: "Enable Secret Scanning across non-code surfaces including repository Wikis, issue descriptions, and pull request comments." }
+      { id: 'A', text: "Add a moderation workflow that scans new issue comments with the organization's patterns." },
+      { id: 'B', text: "Disable the repository wikis and issue templates so credentials cannot be pasted into them." },
+      { id: 'C', text: "Enable push protection on the default branch, which covers whatever reaches the repository." },
+      { id: 'D', text: "Enable secret scanning over the non-code surfaces too: wikis, issues and pull request comments." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to prevent engineers from pasting sensitive production credentials into repository wiki pages, issue descriptions, or PR comments.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Enable Secret Scanning across non-code surfaces including repository Wikis, issue descriptions, and pull request comments." },
-      { id: 'B', text: "Assume developers only ever store credentials inside source code files." },
-      { id: 'C', text: "Disable repository wikis to prevent any potential documentation leaks." },
-      { id: 'D', text: "Rely on manual human moderators to read every issue comment posted across the organization." }
+      { id: 'A', text: "Enable secret scanning over the non-code surfaces too: wikis, issues and pull request comments." },
+      { id: 'B', text: "Enable push protection on the default branch, which covers whatever reaches the repository." },
+      { id: 'C', text: "Disable the repository wikis and issue templates so credentials cannot be pasted into them." },
+      { id: 'D', text: "Add a moderation workflow that scans new issue comments with the organization's patterns." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to prevent engineers from pasting sensitive production credentials into repository wiki pages, issue descriptions, or PR comments.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Assume developers only ever store credentials inside source code files." },
-      { id: 'B', text: "Rely on manual human moderators to read every issue comment posted across the organization." },
-      { id: 'C', text: "Disable repository wikis to prevent any potential documentation leaks." },
-      { id: 'D', text: "Enable Secret Scanning across non-code surfaces including repository Wikis, issue descriptions, and pull request comments." }
+      { id: 'A', text: "Enable push protection on the default branch, which covers whatever reaches the repository." },
+      { id: 'B', text: "Add a moderation workflow that scans new issue comments with the organization's patterns." },
+      { id: 'C', text: "Disable the repository wikis and issue templates so credentials cannot be pasted into them." },
+      { id: 'D', text: "Enable secret scanning over the non-code surfaces too: wikis, issues and pull request comments." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to integrate GitHub Secret Scanning alerts directly into an enterprise Security Operations Center (SOC) SOAR platform.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Disable external security integrations to avoid API rate limits." },
-      { id: 'B', text: "Scrape the GitHub HTML web console using automated browser emulation scripts." },
-      { id: 'C', text: "Instruct SOC analysts to log into GitHub manually every morning and refresh the web interface." },
-      { id: 'D', text: "Configure `secret_scanning_alert` webhook events and query the Secret Scanning REST API to trigger automated SOAR ticketing and containment." }
+      { id: 'A', text: "Subscribe to the audit log stream and drive the SOAR from its secret scanning entries." },
+      { id: 'B', text: "Poll the code scanning alerts API on a schedule and open a ticket for each new entry." },
+      { id: 'C', text: "Forward the organization's security alert emails into the SOAR's intake mailbox." },
+      { id: 'D', text: "Subscribe to `secret_scanning_alert` webhooks and drive the SOAR from the alerts API." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to integrate GitHub Secret Scanning alerts directly into an enterprise Security Operations Center (SOC) SOAR platform.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Configure `secret_scanning_alert` webhook events and query the Secret Scanning REST API to trigger automated SOAR ticketing and containment." },
-      { id: 'B', text: "Instruct SOC analysts to log into GitHub manually every morning and refresh the web interface." },
-      { id: 'C', text: "Scrape the GitHub HTML web console using automated browser emulation scripts." },
-      { id: 'D', text: "Disable external security integrations to avoid API rate limits." }
+      { id: 'A', text: "Subscribe to `secret_scanning_alert` webhooks and drive the SOAR from the alerts API." },
+      { id: 'B', text: "Forward the organization's security alert emails into the SOAR's intake mailbox." },
+      { id: 'C', text: "Poll the code scanning alerts API on a schedule and open a ticket for each new entry." },
+      { id: 'D', text: "Subscribe to the audit log stream and drive the SOAR from its secret scanning entries." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to integrate GitHub Secret Scanning alerts directly into an enterprise Security Operations Center (SOC) SOAR platform.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Disable external security integrations to avoid API rate limits." },
-      { id: 'B', text: "Scrape the GitHub HTML web console using automated browser emulation scripts." },
-      { id: 'C', text: "Instruct SOC analysts to log into GitHub manually every morning and refresh the web interface." },
-      { id: 'D', text: "Configure `secret_scanning_alert` webhook events and query the Secret Scanning REST API to trigger automated SOAR ticketing and containment." }
+      { id: 'A', text: "Subscribe to the audit log stream and drive the SOAR from its secret scanning entries." },
+      { id: 'B', text: "Poll the code scanning alerts API on a schedule and open a ticket for each new entry." },
+      { id: 'C', text: "Forward the organization's security alert emails into the SOAR's intake mailbox." },
+      { id: 'D', text: "Subscribe to `secret_scanning_alert` webhooks and drive the SOAR from the alerts API." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to integrate GitHub Secret Scanning alerts directly into an enterprise Security Operations Center (SOC) SOAR platform.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Configure `secret_scanning_alert` webhook events and query the Secret Scanning REST API to trigger automated SOAR ticketing and containment." },
-      { id: 'B', text: "Instruct SOC analysts to log into GitHub manually every morning and refresh the web interface." },
-      { id: 'C', text: "Scrape the GitHub HTML web console using automated browser emulation scripts." },
-      { id: 'D', text: "Disable external security integrations to avoid API rate limits." }
+      { id: 'A', text: "Subscribe to `secret_scanning_alert` webhooks and drive the SOAR from the alerts API." },
+      { id: 'B', text: "Forward the organization's security alert emails into the SOAR's intake mailbox." },
+      { id: 'C', text: "Poll the code scanning alerts API on a schedule and open a ticket for each new entry." },
+      { id: 'D', text: "Subscribe to the audit log stream and drive the SOAR from its secret scanning entries." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to integrate GitHub Secret Scanning alerts directly into an enterprise Security Operations Center (SOC) SOAR platform.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Disable external security integrations to avoid API rate limits." },
-      { id: 'B', text: "Instruct SOC analysts to log into GitHub manually every morning and refresh the web interface." },
-      { id: 'C', text: "Configure `secret_scanning_alert` webhook events and query the Secret Scanning REST API to trigger automated SOAR ticketing and containment." },
-      { id: 'D', text: "Scrape the GitHub HTML web console using automated browser emulation scripts." }
+      { id: 'A', text: "Subscribe to the audit log stream and drive the SOAR from its secret scanning entries." },
+      { id: 'B', text: "Forward the organization's security alert emails into the SOAR's intake mailbox." },
+      { id: 'C', text: "Subscribe to `secret_scanning_alert` webhooks and drive the SOAR from the alerts API." },
+      { id: 'D', text: "Poll the code scanning alerts API on a schedule and open a ticket for each new entry." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to ensure security teams maintain oversight when developers bypass push protection for urgent production deployments.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Monitor `secret_scanning_push_protection.bypass` audit log events and configure Security Manager roles to review bypass justifications." },
-      { id: 'B', text: "Disable audit logging to prevent capturing bypass explanations." },
-      { id: 'C', text: "Allow anonymous unauthenticated users to bypass push protection without justification." },
-      { id: 'D', text: "Ban all push protection bypasses permanently, causing complete deployment freezes during false positive incidents." }
+      { id: 'A', text: "Alert on the push protection bypass audit events, and have security managers review the reasons." },
+      { id: 'B', text: "Require a second approver on each bypass, configured through the repository's own ruleset." },
+      { id: 'C', text: "Allow bypasses only from the organization owners, who record the reason in the audit trail." },
+      { id: 'D', text: "Ban bypasses outright, so a false positive is resolved by adding a pattern exclusion instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to ensure security teams maintain oversight when developers bypass push protection for urgent production deployments.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Ban all push protection bypasses permanently, causing complete deployment freezes during false positive incidents." },
-      { id: 'B', text: "Allow anonymous unauthenticated users to bypass push protection without justification." },
-      { id: 'C', text: "Disable audit logging to prevent capturing bypass explanations." },
-      { id: 'D', text: "Monitor `secret_scanning_push_protection.bypass` audit log events and configure Security Manager roles to review bypass justifications." }
+      { id: 'A', text: "Ban bypasses outright, so a false positive is resolved by adding a pattern exclusion instead." },
+      { id: 'B', text: "Allow bypasses only from the organization owners, who record the reason in the audit trail." },
+      { id: 'C', text: "Require a second approver on each bypass, configured through the repository's own ruleset." },
+      { id: 'D', text: "Alert on the push protection bypass audit events, and have security managers review the reasons." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to ensure security teams maintain oversight when developers bypass push protection for urgent production deployments.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Monitor `secret_scanning_push_protection.bypass` audit log events and configure Security Manager roles to review bypass justifications." },
-      { id: 'B', text: "Disable audit logging to prevent capturing bypass explanations." },
-      { id: 'C', text: "Allow anonymous unauthenticated users to bypass push protection without justification." },
-      { id: 'D', text: "Ban all push protection bypasses permanently, causing complete deployment freezes during false positive incidents." }
+      { id: 'A', text: "Alert on the push protection bypass audit events, and have security managers review the reasons." },
+      { id: 'B', text: "Require a second approver on each bypass, configured through the repository's own ruleset." },
+      { id: 'C', text: "Allow bypasses only from the organization owners, who record the reason in the audit trail." },
+      { id: 'D', text: "Ban bypasses outright, so a false positive is resolved by adding a pattern exclusion instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to ensure security teams maintain oversight when developers bypass push protection for urgent production deployments.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Allow anonymous unauthenticated users to bypass push protection without justification." },
-      { id: 'B', text: "Ban all push protection bypasses permanently, causing complete deployment freezes during false positive incidents." },
-      { id: 'C', text: "Monitor `secret_scanning_push_protection.bypass` audit log events and configure Security Manager roles to review bypass justifications." },
-      { id: 'D', text: "Disable audit logging to prevent capturing bypass explanations." }
+      { id: 'A', text: "Allow bypasses only from the organization owners, who record the reason in the audit trail." },
+      { id: 'B', text: "Ban bypasses outright, so a false positive is resolved by adding a pattern exclusion instead." },
+      { id: 'C', text: "Alert on the push protection bypass audit events, and have security managers review the reasons." },
+      { id: 'D', text: "Require a second approver on each bypass, configured through the repository's own ruleset." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_GHAS_QUESTIONS_12 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to ensure security teams maintain oversight when developers bypass push protection for urgent production deployments.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Monitor `secret_scanning_push_protection.bypass` audit log events and configure Security Manager roles to review bypass justifications." },
-      { id: 'B', text: "Disable audit logging to prevent capturing bypass explanations." },
-      { id: 'C', text: "Allow anonymous unauthenticated users to bypass push protection without justification." },
-      { id: 'D', text: "Ban all push protection bypasses permanently, causing complete deployment freezes during false positive incidents." }
+      { id: 'A', text: "Alert on the push protection bypass audit events, and have security managers review the reasons." },
+      { id: 'B', text: "Require a second approver on each bypass, configured through the repository's own ruleset." },
+      { id: 'C', text: "Allow bypasses only from the organization owners, who record the reason in the audit trail." },
+      { id: 'D', text: "Ban bypasses outright, so a false positive is resolved by adding a pattern exclusion instead." }
     ],
     correctAnswers: ['A'],
     type: "single",

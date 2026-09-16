@@ -9,10 +9,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to run CodeQL static analysis on build jobs running inside an external enterprise Jenkins or GitLab CI/CD pipeline.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Execute unverified third-party binaries that lack security attestation." },
-      { id: 'B', text: "Use the CodeQL CLI to run `codeql database create`, `codeql database analyze`, and upload the resulting SARIF file to the GitHub Code Scanning API." },
-      { id: 'C', text: "Run CodeQL inside client web browsers using WebAssembly." },
-      { id: 'D', text: "Migrate all company infrastructure to GitHub Actions immediately regardless of enterprise constraints." }
+      { id: 'A', text: "Use the CodeQL Action on a self-hosted runner inside the build environment." },
+      { id: 'B', text: "Use the CodeQL CLI to create and analyze the database, then upload the SARIF." },
+      { id: 'C', text: "Use the CodeQL CLI to create the database and analyze it on GitHub's runners." },
+      { id: 'D', text: "Use the third-party SARIF upload endpoint with the scanner already in the build." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -30,10 +30,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to run CodeQL static analysis on build jobs running inside an external enterprise Jenkins or GitLab CI/CD pipeline.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Run CodeQL inside client web browsers using WebAssembly." },
-      { id: 'B', text: "Use the CodeQL CLI to run `codeql database create`, `codeql database analyze`, and upload the resulting SARIF file to the GitHub Code Scanning API." },
-      { id: 'C', text: "Migrate all company infrastructure to GitHub Actions immediately regardless of enterprise constraints." },
-      { id: 'D', text: "Execute unverified third-party binaries that lack security attestation." }
+      { id: 'A', text: "Use the CodeQL CLI to create the database and analyze it on GitHub's runners." },
+      { id: 'B', text: "Use the CodeQL CLI to create and analyze the database, then upload the SARIF." },
+      { id: 'C', text: "Use the third-party SARIF upload endpoint with the scanner already in the build." },
+      { id: 'D', text: "Use the CodeQL Action on a self-hosted runner inside the build environment." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,10 +51,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to run CodeQL static analysis on build jobs running inside an external enterprise Jenkins or GitLab CI/CD pipeline.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Use the CodeQL CLI to run `codeql database create`, `codeql database analyze`, and upload the resulting SARIF file to the GitHub Code Scanning API." },
-      { id: 'B', text: "Execute unverified third-party binaries that lack security attestation." },
-      { id: 'C', text: "Migrate all company infrastructure to GitHub Actions immediately regardless of enterprise constraints." },
-      { id: 'D', text: "Run CodeQL inside client web browsers using WebAssembly." }
+      { id: 'A', text: "Use the CodeQL CLI to create and analyze the database, then upload the SARIF." },
+      { id: 'B', text: "Use the CodeQL Action on a self-hosted runner inside the build environment." },
+      { id: 'C', text: "Use the third-party SARIF upload endpoint with the scanner already in the build." },
+      { id: 'D', text: "Use the CodeQL CLI to create the database and analyze it on GitHub's runners." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to run CodeQL static analysis on build jobs running inside an external enterprise Jenkins or GitLab CI/CD pipeline.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Use the CodeQL CLI to run `codeql database create`, `codeql database analyze`, and upload the resulting SARIF file to the GitHub Code Scanning API." },
-      { id: 'B', text: "Run CodeQL inside client web browsers using WebAssembly." },
-      { id: 'C', text: "Execute unverified third-party binaries that lack security attestation." },
-      { id: 'D', text: "Migrate all company infrastructure to GitHub Actions immediately regardless of enterprise constraints." }
+      { id: 'A', text: "Use the CodeQL CLI to create and analyze the database, then upload the SARIF." },
+      { id: 'B', text: "Use the CodeQL CLI to create the database and analyze it on GitHub's runners." },
+      { id: 'C', text: "Use the CodeQL Action on a self-hosted runner inside the build environment." },
+      { id: 'D', text: "Use the third-party SARIF upload endpoint with the scanner already in the build." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to run CodeQL static analysis on build jobs running inside an external enterprise Jenkins or GitLab CI/CD pipeline.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Run CodeQL inside client web browsers using WebAssembly." },
-      { id: 'B', text: "Migrate all company infrastructure to GitHub Actions immediately regardless of enterprise constraints." },
-      { id: 'C', text: "Execute unverified third-party binaries that lack security attestation." },
-      { id: 'D', text: "Use the CodeQL CLI to run `codeql database create`, `codeql database analyze`, and upload the resulting SARIF file to the GitHub Code Scanning API." }
+      { id: 'A', text: "Use the CodeQL CLI to create the database and analyze it on GitHub's runners." },
+      { id: 'B', text: "Use the third-party SARIF upload endpoint with the scanner already in the build." },
+      { id: 'C', text: "Use the CodeQL Action on a self-hosted runner inside the build environment." },
+      { id: 'D', text: "Use the CodeQL CLI to create and analyze the database, then upload the SARIF." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -114,10 +114,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to display findings from third-party security tools (e.g., Snyk, Checkmarx, SonarQube, Trivy) alongside CodeQL in GitHub Security.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Build custom proprietary database tables to store third-party security results." },
-      { id: 'B', text: "Display third-party findings only in external tool web dashboards." },
-      { id: 'C', text: "Configure third-party tools to output results in SARIF format and upload them using `github/codeql-action/upload-sarif`." },
-      { id: 'D', text: "Convert third-party scan results into plain text emails sent to developers." }
+      { id: 'A', text: "Have the third-party tools emit SARIF and publish it as a workflow artifact per run." },
+      { id: 'B', text: "Have the third-party tools post their findings as pull request review comments." },
+      { id: 'C', text: "Have the third-party tools emit SARIF and upload it with `codeql-action/upload-sarif`." },
+      { id: 'D', text: "Have the third-party tools write their findings into repository issues by API." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to display findings from third-party security tools (e.g., Snyk, Checkmarx, SonarQube, Trivy) alongside CodeQL in GitHub Security.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Configure third-party tools to output results in SARIF format and upload them using `github/codeql-action/upload-sarif`." },
-      { id: 'B', text: "Convert third-party scan results into plain text emails sent to developers." },
-      { id: 'C', text: "Build custom proprietary database tables to store third-party security results." },
-      { id: 'D', text: "Display third-party findings only in external tool web dashboards." }
+      { id: 'A', text: "Have the third-party tools emit SARIF and upload it with `codeql-action/upload-sarif`." },
+      { id: 'B', text: "Have the third-party tools write their findings into repository issues by API." },
+      { id: 'C', text: "Have the third-party tools emit SARIF and publish it as a workflow artifact per run." },
+      { id: 'D', text: "Have the third-party tools post their findings as pull request review comments." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to display findings from third-party security tools (e.g., Snyk, Checkmarx, SonarQube, Trivy) alongside CodeQL in GitHub Security.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Configure third-party tools to output results in SARIF format and upload them using `github/codeql-action/upload-sarif`." },
-      { id: 'B', text: "Convert third-party scan results into plain text emails sent to developers." },
-      { id: 'C', text: "Build custom proprietary database tables to store third-party security results." },
-      { id: 'D', text: "Display third-party findings only in external tool web dashboards." }
+      { id: 'A', text: "Have the third-party tools emit SARIF and upload it with `codeql-action/upload-sarif`." },
+      { id: 'B', text: "Have the third-party tools write their findings into repository issues by API." },
+      { id: 'C', text: "Have the third-party tools emit SARIF and publish it as a workflow artifact per run." },
+      { id: 'D', text: "Have the third-party tools post their findings as pull request review comments." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to display findings from third-party security tools (e.g., Snyk, Checkmarx, SonarQube, Trivy) alongside CodeQL in GitHub Security.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Convert third-party scan results into plain text emails sent to developers." },
-      { id: 'B', text: "Display third-party findings only in external tool web dashboards." },
-      { id: 'C', text: "Build custom proprietary database tables to store third-party security results." },
-      { id: 'D', text: "Configure third-party tools to output results in SARIF format and upload them using `github/codeql-action/upload-sarif`." }
+      { id: 'A', text: "Have the third-party tools write their findings into repository issues by API." },
+      { id: 'B', text: "Have the third-party tools post their findings as pull request review comments." },
+      { id: 'C', text: "Have the third-party tools emit SARIF and publish it as a workflow artifact per run." },
+      { id: 'D', text: "Have the third-party tools emit SARIF and upload it with `codeql-action/upload-sarif`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to display findings from third-party security tools (e.g., Snyk, Checkmarx, SonarQube, Trivy) alongside CodeQL in GitHub Security.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Configure third-party tools to output results in SARIF format and upload them using `github/codeql-action/upload-sarif`." },
-      { id: 'B', text: "Convert third-party scan results into plain text emails sent to developers." },
-      { id: 'C', text: "Build custom proprietary database tables to store third-party security results." },
-      { id: 'D', text: "Display third-party findings only in external tool web dashboards." }
+      { id: 'A', text: "Have the third-party tools emit SARIF and upload it with `codeql-action/upload-sarif`." },
+      { id: 'B', text: "Have the third-party tools write their findings into repository issues by API." },
+      { id: 'C', text: "Have the third-party tools emit SARIF and publish it as a workflow artifact per run." },
+      { id: 'D', text: "Have the third-party tools post their findings as pull request review comments." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to resolve a CodeQL build failure in a complex multi-module Java/Gradle project that requires custom build flags and JDK versions.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Remove the Gradle wrapper and commit uncompiled .class files directly to git." },
-      { id: 'B', text: "Ignore build errors and upload empty SARIF files to satisfy compliance gates." },
-      { id: 'C', text: "Replace the `autobuild` step in the CodeQL Advanced Setup workflow with explicit manual build commands (`./gradlew build -x test`)." },
-      { id: 'D', text: "Disable CodeQL scanning for all compiled languages and scan only plaintext documentation." }
+      { id: 'A', text: "Replace `autobuild` with a build-mode of `none`, which skips the compilation step entirely." },
+      { id: 'B', text: "Keep `autobuild` and raise the runner size so the build has time to finish before analysis." },
+      { id: 'C', text: "Replace `autobuild` in the advanced setup workflow with the project's own build commands." },
+      { id: 'D', text: "Keep `autobuild` and add the language to the default setup's configuration instead." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to resolve a CodeQL build failure in a complex multi-module Java/Gradle project that requires custom build flags and JDK versions.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Replace the `autobuild` step in the CodeQL Advanced Setup workflow with explicit manual build commands (`./gradlew build -x test`)." },
-      { id: 'B', text: "Disable CodeQL scanning for all compiled languages and scan only plaintext documentation." },
-      { id: 'C', text: "Remove the Gradle wrapper and commit uncompiled .class files directly to git." },
-      { id: 'D', text: "Ignore build errors and upload empty SARIF files to satisfy compliance gates." }
+      { id: 'A', text: "Replace `autobuild` in the advanced setup workflow with the project's own build commands." },
+      { id: 'B', text: "Keep `autobuild` and add the language to the default setup's configuration instead." },
+      { id: 'C', text: "Replace `autobuild` with a build-mode of `none`, which skips the compilation step entirely." },
+      { id: 'D', text: "Keep `autobuild` and raise the runner size so the build has time to finish before analysis." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to resolve a CodeQL build failure in a complex multi-module Java/Gradle project that requires custom build flags and JDK versions.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Replace the `autobuild` step in the CodeQL Advanced Setup workflow with explicit manual build commands (`./gradlew build -x test`)." },
-      { id: 'B', text: "Disable CodeQL scanning for all compiled languages and scan only plaintext documentation." },
-      { id: 'C', text: "Remove the Gradle wrapper and commit uncompiled .class files directly to git." },
-      { id: 'D', text: "Ignore build errors and upload empty SARIF files to satisfy compliance gates." }
+      { id: 'A', text: "Replace `autobuild` in the advanced setup workflow with the project's own build commands." },
+      { id: 'B', text: "Keep `autobuild` and add the language to the default setup's configuration instead." },
+      { id: 'C', text: "Replace `autobuild` with a build-mode of `none`, which skips the compilation step entirely." },
+      { id: 'D', text: "Keep `autobuild` and raise the runner size so the build has time to finish before analysis." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to resolve a CodeQL build failure in a complex multi-module Java/Gradle project that requires custom build flags and JDK versions.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Replace the `autobuild` step in the CodeQL Advanced Setup workflow with explicit manual build commands (`./gradlew build -x test`)." },
-      { id: 'B', text: "Disable CodeQL scanning for all compiled languages and scan only plaintext documentation." },
-      { id: 'C', text: "Remove the Gradle wrapper and commit uncompiled .class files directly to git." },
-      { id: 'D', text: "Ignore build errors and upload empty SARIF files to satisfy compliance gates." }
+      { id: 'A', text: "Replace `autobuild` in the advanced setup workflow with the project's own build commands." },
+      { id: 'B', text: "Keep `autobuild` and add the language to the default setup's configuration instead." },
+      { id: 'C', text: "Replace `autobuild` with a build-mode of `none`, which skips the compilation step entirely." },
+      { id: 'D', text: "Keep `autobuild` and raise the runner size so the build has time to finish before analysis." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to resolve a CodeQL build failure in a complex multi-module Java/Gradle project that requires custom build flags and JDK versions.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Replace the `autobuild` step in the CodeQL Advanced Setup workflow with explicit manual build commands (`./gradlew build -x test`)." },
-      { id: 'B', text: "Disable CodeQL scanning for all compiled languages and scan only plaintext documentation." },
-      { id: 'C', text: "Remove the Gradle wrapper and commit uncompiled .class files directly to git." },
-      { id: 'D', text: "Ignore build errors and upload empty SARIF files to satisfy compliance gates." }
+      { id: 'A', text: "Replace `autobuild` in the advanced setup workflow with the project's own build commands." },
+      { id: 'B', text: "Keep `autobuild` and add the language to the default setup's configuration instead." },
+      { id: 'C', text: "Replace `autobuild` with a build-mode of `none`, which skips the compilation step entirely." },
+      { id: 'D', text: "Keep `autobuild` and raise the runner size so the build has time to finish before analysis." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to dismiss a CodeQL alert on an intentional test mock script while maintaining an auditable record of the decision.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Delete the source code file from git to make the alert disappear." },
-      { id: 'B', text: "Dismiss all enterprise alerts as `False positive` without reviewing the code." },
-      { id: 'C', text: "Dismiss the alert in the GitHub UI, selecting `Used in tests` as the reason and adding an explanatory comment." },
-      { id: 'D', text: "Modify CodeQL core libraries to suppress all warning messages globally." }
+      { id: 'A', text: "Dismiss the alert as `False positive`, with a comment recording why." },
+      { id: 'B', text: "Add the file to the analysis paths-ignore list in the scan configuration." },
+      { id: 'C', text: "Dismiss the alert as `Used in tests`, with a comment recording why." },
+      { id: 'D', text: "Exclude the query by identifier in the code scanning configuration file." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to dismiss a CodeQL alert on an intentional test mock script while maintaining an auditable record of the decision.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Dismiss all enterprise alerts as `False positive` without reviewing the code." },
-      { id: 'B', text: "Modify CodeQL core libraries to suppress all warning messages globally." },
-      { id: 'C', text: "Dismiss the alert in the GitHub UI, selecting `Used in tests` as the reason and adding an explanatory comment." },
-      { id: 'D', text: "Delete the source code file from git to make the alert disappear." }
+      { id: 'A', text: "Add the file to the analysis paths-ignore list in the scan configuration." },
+      { id: 'B', text: "Exclude the query by identifier in the code scanning configuration file." },
+      { id: 'C', text: "Dismiss the alert as `Used in tests`, with a comment recording why." },
+      { id: 'D', text: "Dismiss the alert as `False positive`, with a comment recording why." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to dismiss a CodeQL alert on an intentional test mock script while maintaining an auditable record of the decision.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Modify CodeQL core libraries to suppress all warning messages globally." },
-      { id: 'B', text: "Dismiss all enterprise alerts as `False positive` without reviewing the code." },
-      { id: 'C', text: "Delete the source code file from git to make the alert disappear." },
-      { id: 'D', text: "Dismiss the alert in the GitHub UI, selecting `Used in tests` as the reason and adding an explanatory comment." }
+      { id: 'A', text: "Exclude the query by identifier in the code scanning configuration file." },
+      { id: 'B', text: "Add the file to the analysis paths-ignore list in the scan configuration." },
+      { id: 'C', text: "Dismiss the alert as `False positive`, with a comment recording why." },
+      { id: 'D', text: "Dismiss the alert as `Used in tests`, with a comment recording why." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to dismiss a CodeQL alert on an intentional test mock script while maintaining an auditable record of the decision.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Dismiss the alert in the GitHub UI, selecting `Used in tests` as the reason and adding an explanatory comment." },
-      { id: 'B', text: "Delete the source code file from git to make the alert disappear." },
-      { id: 'C', text: "Dismiss all enterprise alerts as `False positive` without reviewing the code." },
-      { id: 'D', text: "Modify CodeQL core libraries to suppress all warning messages globally." }
+      { id: 'A', text: "Dismiss the alert as `Used in tests`, with a comment recording why." },
+      { id: 'B', text: "Dismiss the alert as `False positive`, with a comment recording why." },
+      { id: 'C', text: "Add the file to the analysis paths-ignore list in the scan configuration." },
+      { id: 'D', text: "Exclude the query by identifier in the code scanning configuration file." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to dismiss a CodeQL alert on an intentional test mock script while maintaining an auditable record of the decision.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Dismiss all enterprise alerts as `False positive` without reviewing the code." },
-      { id: 'B', text: "Delete the source code file from git to make the alert disappear." },
-      { id: 'C', text: "Modify CodeQL core libraries to suppress all warning messages globally." },
-      { id: 'D', text: "Dismiss the alert in the GitHub UI, selecting `Used in tests` as the reason and adding an explanatory comment." }
+      { id: 'A', text: "Add the file to the analysis paths-ignore list in the scan configuration." },
+      { id: 'B', text: "Dismiss the alert as `False positive`, with a comment recording why." },
+      { id: 'C', text: "Exclude the query by identifier in the code scanning configuration file." },
+      { id: 'D', text: "Dismiss the alert as `Used in tests`, with a comment recording why." }
     ],
     correctAnswers: ['D'],
     type: "single",

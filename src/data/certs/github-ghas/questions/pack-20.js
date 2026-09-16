@@ -114,10 +114,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Email plaintext vulnerability reports across unencrypted email chains." },
-      { id: 'B', text: "Ignore external researcher reports and threaten legal action." },
-      { id: 'C', text: "Ask security researchers to post exploit details publicly in open GitHub issues." },
-      { id: 'D', text: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs." }
+      { id: 'A', text: "Enable private vulnerability reporting, and hold the fix in a private mirror repository." },
+      { id: 'B', text: "Direct reporters to a `SECURITY.md` mailbox, and track the fix in a private issue." },
+      { id: 'C', text: "Direct reporters to open a draft advisory themselves, and fix on the default branch." },
+      { id: 'D', text: "Enable private vulnerability reporting, and use security advisories to fix in a private fork." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,10 +135,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs." },
-      { id: 'B', text: "Ask security researchers to post exploit details publicly in open GitHub issues." },
-      { id: 'C', text: "Ignore external researcher reports and threaten legal action." },
-      { id: 'D', text: "Email plaintext vulnerability reports across unencrypted email chains." }
+      { id: 'A', text: "Enable private vulnerability reporting, and use security advisories to fix in a private fork." },
+      { id: 'B', text: "Direct reporters to open a draft advisory themselves, and fix on the default branch." },
+      { id: 'C', text: "Direct reporters to a `SECURITY.md` mailbox, and track the fix in a private issue." },
+      { id: 'D', text: "Enable private vulnerability reporting, and hold the fix in a private mirror repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Ask security researchers to post exploit details publicly in open GitHub issues." },
-      { id: 'B', text: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs." },
-      { id: 'C', text: "Email plaintext vulnerability reports across unencrypted email chains." },
-      { id: 'D', text: "Ignore external researcher reports and threaten legal action." }
+      { id: 'A', text: "Direct reporters to open a draft advisory themselves, and fix on the default branch." },
+      { id: 'B', text: "Enable private vulnerability reporting, and use security advisories to fix in a private fork." },
+      { id: 'C', text: "Enable private vulnerability reporting, and hold the fix in a private mirror repository." },
+      { id: 'D', text: "Direct reporters to a `SECURITY.md` mailbox, and track the fix in a private issue." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -177,10 +177,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Ask security researchers to post exploit details publicly in open GitHub issues." },
-      { id: 'B', text: "Ignore external researcher reports and threaten legal action." },
-      { id: 'C', text: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs." },
-      { id: 'D', text: "Email plaintext vulnerability reports across unencrypted email chains." }
+      { id: 'A', text: "Direct reporters to open a draft advisory themselves, and fix on the default branch." },
+      { id: 'B', text: "Direct reporters to a `SECURITY.md` mailbox, and track the fix in a private issue." },
+      { id: 'C', text: "Enable private vulnerability reporting, and use security advisories to fix in a private fork." },
+      { id: 'D', text: "Enable private vulnerability reporting, and hold the fix in a private mirror repository." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Enable Private Vulnerability Reporting and use Repository Security Advisories to collaborate on fixes in private forks and request CVEs." },
-      { id: 'B', text: "Ask security researchers to post exploit details publicly in open GitHub issues." },
-      { id: 'C', text: "Ignore external researcher reports and threaten legal action." },
-      { id: 'D', text: "Email plaintext vulnerability reports across unencrypted email chains." }
+      { id: 'A', text: "Enable private vulnerability reporting, and use security advisories to fix in a private fork." },
+      { id: 'B', text: "Direct reporters to open a draft advisory themselves, and fix on the default branch." },
+      { id: 'C', text: "Direct reporters to a `SECURITY.md` mailbox, and track the fix in a private issue." },
+      { id: 'D', text: "Enable private vulnerability reporting, and hold the fix in a private mirror repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to instruct external researchers and customers on how to responsibly disclose security vulnerabilities found in your software.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Require researchers to mail physical letters to corporate headquarters." },
-      { id: 'B', text: "Hide contact information to discourage anyone from reporting security flaws." },
-      { id: 'C', text: "Leave security reporting procedures undefined and unmonitored." },
-      { id: 'D', text: "Add a `SECURITY.md` file in the `.github` repository or project root detailing contact instructions, PGP keys, and disclosure policies." }
+      { id: 'A', text: "Add a `CODEOWNERS` entry routing security reports to the response team." },
+      { id: 'B', text: "Add an issue template that asks reporters for the vulnerability details." },
+      { id: 'C', text: "Add a repository security advisory draft for researchers to comment on." },
+      { id: 'D', text: "Add a `SECURITY.md` with the contact route, keys and disclosure policy." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to instruct external researchers and customers on how to responsibly disclose security vulnerabilities found in your software.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Add a `SECURITY.md` file in the `.github` repository or project root detailing contact instructions, PGP keys, and disclosure policies." },
-      { id: 'B', text: "Require researchers to mail physical letters to corporate headquarters." },
-      { id: 'C', text: "Leave security reporting procedures undefined and unmonitored." },
-      { id: 'D', text: "Hide contact information to discourage anyone from reporting security flaws." }
+      { id: 'A', text: "Add a `SECURITY.md` with the contact route, keys and disclosure policy." },
+      { id: 'B', text: "Add a `CODEOWNERS` entry routing security reports to the response team." },
+      { id: 'C', text: "Add a repository security advisory draft for researchers to comment on." },
+      { id: 'D', text: "Add an issue template that asks reporters for the vulnerability details." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to instruct external researchers and customers on how to responsibly disclose security vulnerabilities found in your software.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Hide contact information to discourage anyone from reporting security flaws." },
-      { id: 'B', text: "Add a `SECURITY.md` file in the `.github` repository or project root detailing contact instructions, PGP keys, and disclosure policies." },
-      { id: 'C', text: "Leave security reporting procedures undefined and unmonitored." },
-      { id: 'D', text: "Require researchers to mail physical letters to corporate headquarters." }
+      { id: 'A', text: "Add an issue template that asks reporters for the vulnerability details." },
+      { id: 'B', text: "Add a `SECURITY.md` with the contact route, keys and disclosure policy." },
+      { id: 'C', text: "Add a repository security advisory draft for researchers to comment on." },
+      { id: 'D', text: "Add a `CODEOWNERS` entry routing security reports to the response team." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to instruct external researchers and customers on how to responsibly disclose security vulnerabilities found in your software.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Require researchers to mail physical letters to corporate headquarters." },
-      { id: 'B', text: "Hide contact information to discourage anyone from reporting security flaws." },
-      { id: 'C', text: "Leave security reporting procedures undefined and unmonitored." },
-      { id: 'D', text: "Add a `SECURITY.md` file in the `.github` repository or project root detailing contact instructions, PGP keys, and disclosure policies." }
+      { id: 'A', text: "Add a `CODEOWNERS` entry routing security reports to the response team." },
+      { id: 'B', text: "Add an issue template that asks reporters for the vulnerability details." },
+      { id: 'C', text: "Add a repository security advisory draft for researchers to comment on." },
+      { id: 'D', text: "Add a `SECURITY.md` with the contact route, keys and disclosure policy." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to instruct external researchers and customers on how to responsibly disclose security vulnerabilities found in your software.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Add a `SECURITY.md` file in the `.github` repository or project root detailing contact instructions, PGP keys, and disclosure policies." },
-      { id: 'B', text: "Hide contact information to discourage anyone from reporting security flaws." },
-      { id: 'C', text: "Require researchers to mail physical letters to corporate headquarters." },
-      { id: 'D', text: "Leave security reporting procedures undefined and unmonitored." }
+      { id: 'A', text: "Add a `SECURITY.md` with the contact route, keys and disclosure policy." },
+      { id: 'B', text: "Add an issue template that asks reporters for the vulnerability details." },
+      { id: 'C', text: "Add a `CODEOWNERS` entry routing security reports to the response team." },
+      { id: 'D', text: "Add a repository security advisory draft for researchers to comment on." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to extract all open High and Critical Code Scanning, Dependabot, and Secret Scanning alerts across 500 repos for an executive audit report.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Query the GitHub REST and GraphQL APIs using a fine-grained personal access token or GitHub App with security permissions." },
-      { id: 'B', text: "Manually copy and paste alert data from web pages into an Excel spreadsheet." },
-      { id: 'C', text: "Scrape web pages using unauthenticated headless browser sessions." },
-      { id: 'D', text: "Refuse to provide audit data due to manual reporting constraints." }
+      { id: 'A', text: "Query the REST and GraphQL APIs with a GitHub App holding the security read scopes." },
+      { id: 'B', text: "Query the audit log API with a personal access token holding the admin read scopes." },
+      { id: 'C', text: "Export each repository's alerts to CSV from the security overview and combine them." },
+      { id: 'D', text: "Subscribe the compliance mailbox to the organization's own security alert digests." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to extract all open High and Critical Code Scanning, Dependabot, and Secret Scanning alerts across 500 repos for an executive audit report.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Query the GitHub REST and GraphQL APIs using a fine-grained personal access token or GitHub App with security permissions." },
-      { id: 'B', text: "Manually copy and paste alert data from web pages into an Excel spreadsheet." },
-      { id: 'C', text: "Scrape web pages using unauthenticated headless browser sessions." },
-      { id: 'D', text: "Refuse to provide audit data due to manual reporting constraints." }
+      { id: 'A', text: "Query the REST and GraphQL APIs with a GitHub App holding the security read scopes." },
+      { id: 'B', text: "Query the audit log API with a personal access token holding the admin read scopes." },
+      { id: 'C', text: "Export each repository's alerts to CSV from the security overview and combine them." },
+      { id: 'D', text: "Subscribe the compliance mailbox to the organization's own security alert digests." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to extract all open High and Critical Code Scanning, Dependabot, and Secret Scanning alerts across 500 repos for an executive audit report.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Scrape web pages using unauthenticated headless browser sessions." },
-      { id: 'B', text: "Refuse to provide audit data due to manual reporting constraints." },
-      { id: 'C', text: "Query the GitHub REST and GraphQL APIs using a fine-grained personal access token or GitHub App with security permissions." },
-      { id: 'D', text: "Manually copy and paste alert data from web pages into an Excel spreadsheet." }
+      { id: 'A', text: "Export each repository's alerts to CSV from the security overview and combine them." },
+      { id: 'B', text: "Subscribe the compliance mailbox to the organization's own security alert digests." },
+      { id: 'C', text: "Query the REST and GraphQL APIs with a GitHub App holding the security read scopes." },
+      { id: 'D', text: "Query the audit log API with a personal access token holding the admin read scopes." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to extract all open High and Critical Code Scanning, Dependabot, and Secret Scanning alerts across 500 repos for an executive audit report.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Query the GitHub REST and GraphQL APIs using a fine-grained personal access token or GitHub App with security permissions." },
-      { id: 'B', text: "Manually copy and paste alert data from web pages into an Excel spreadsheet." },
-      { id: 'C', text: "Scrape web pages using unauthenticated headless browser sessions." },
-      { id: 'D', text: "Refuse to provide audit data due to manual reporting constraints." }
+      { id: 'A', text: "Query the REST and GraphQL APIs with a GitHub App holding the security read scopes." },
+      { id: 'B', text: "Query the audit log API with a personal access token holding the admin read scopes." },
+      { id: 'C', text: "Export each repository's alerts to CSV from the security overview and combine them." },
+      { id: 'D', text: "Subscribe the compliance mailbox to the organization's own security alert digests." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to extract all open High and Critical Code Scanning, Dependabot, and Secret Scanning alerts across 500 repos for an executive audit report.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Query the GitHub REST and GraphQL APIs using a fine-grained personal access token or GitHub App with security permissions." },
-      { id: 'B', text: "Manually copy and paste alert data from web pages into an Excel spreadsheet." },
-      { id: 'C', text: "Scrape web pages using unauthenticated headless browser sessions." },
-      { id: 'D', text: "Refuse to provide audit data due to manual reporting constraints." }
+      { id: 'A', text: "Query the REST and GraphQL APIs with a GitHub App holding the security read scopes." },
+      { id: 'B', text: "Query the audit log API with a personal access token holding the admin read scopes." },
+      { id: 'C', text: "Export each repository's alerts to CSV from the security overview and combine them." },
+      { id: 'D', text: "Subscribe the compliance mailbox to the organization's own security alert digests." }
     ],
     correctAnswers: ['A'],
     type: "single",
