@@ -6,17 +6,22 @@ answer away just as cheaply. Together they mean a large share of the bank can be
 answered without knowing the material — the opposite of showcasing real exam experience.
 
 Run `npm run audit:distractors` for the current numbers. Add `--strict` to make it
-exit non-zero, which is how this becomes a build gate once the content lands.
+exit non-zero on any breach, or `--min-passing <n>` to fail only when the number of
+passing banks drops below `n` — the form CI uses, since the filler banks below still
+breach and `--strict` would fail until they are authored.
 
 ## What the audit measures
 
-| Tell | What it detects | Corpus now | Target |
-| --- | --- | --- | --- |
-| `longest%` | the single longest option is the key | **62.7%** | 12-40% |
-| `shortest%` | the single shortest option is the key | **11.5%** | 12-40% |
-| `strawman%` | items with a distractor nobody would pick | **4.6%** | ≤5% |
-| `leak%` | the stem names a distinctive term the key uses and no distractor does | **22.3%** | ≤35% |
-| `len gap` | mean key length minus mean distractor length | **+31 chars** | ≤+15 |
+| Tell | What it detects | At the start | Corpus now | Target |
+| --- | --- | --- | --- | --- |
+| `longest%` | the single longest option is the key | 62.7% | **46.6%** | 12-40% |
+| `shortest%` | the single shortest option is the key | 11.5% | **15.6%** | 12-40% |
+| `strawman%` | items with a distractor nobody would pick | 4.6% | **2.2%** | ≤5% |
+| `leak%` | the stem names a distinctive term the key uses and no distractor does | 22.3% | **19.0%** | ≤35% |
+| `len gap` | mean key length minus mean distractor length | +31 chars | **+15 chars** | ≤+15 |
+
+The corpus figures are dragged down by the 8 filler banks, which cannot be fixed by
+distractor work. Every one of the 24 hand-authored banks now passes all five.
 
 `longest%` and `shortest%` are held inside one band rather than merely capped. Chance is
 ~25% each on four options; far above the band "always pick it" works, far below it
@@ -24,7 +29,8 @@ exit non-zero, which is how this becomes a build gate once the content lands.
 into the opposite tell if left unwatched — `finops-focp` reached 64.5% `shortest%` mid-
 rewrite, exactly as exploitable as the problem it replaced.
 
-18 of 32 live certifications still breach at least one target.
+8 of 32 live certifications still breach at least one target, and all 8 are filler
+banks blocked on authoring rather than on distractor repair.
 
 ### What measuring honestly required
 
@@ -117,13 +123,15 @@ the one built for CIDR-bound machine identity. That is the bar for every rewritt
 
 ## Where each bank stands
 
-Run `npm run audit:distractors` for live numbers. Three groups:
+Run `npm run audit:distractors` for live numbers. Two groups remain:
 
-### Passing (14)
+### Passing (24)
 
 `hashicorp-vault`, `aws-mla`, `finops-focus`, `azure-ai102`, `cncf-opa` (the generator
 banks), plus `azure-az900`, `aws-clf`, `gcp-pca`, `azure-az204`, `aws-dva`, `gcp-ace`,
-`azure-az104`, `aws-saa`, `finops-focp`.
+`azure-az104`, `aws-saa`, `finops-focp`, and the ten repaired by this plan:
+`k8s-ckad`, `azure-az400`, `k8s-cka`, `k8s-cks`, `hashicorp-tfa`, `hashicorp-tfp`,
+`github-actions`, `github-ghas`, `aws-dop`, `aws-scs`.
 
 The generators for the first five **have since been deleted** at the maintainer's
 request, so the JS packs under `src/data/certs/<cert>/questions/` are the only source of
@@ -133,19 +141,35 @@ One limitation remains in those five: they draw 500 questions from ~20 topics ea
 topic recurs about 25 times in different scenario framing. That repetition is inherent to
 how the banks were built and distractor work does not address it.
 
-### Repairable, still breaching (10)
+### Repaired (was 10, now 0)
 
 `k8s-ckad`, `azure-az400`, `k8s-cka`, `k8s-cks`, `hashicorp-tfa`, `hashicorp-tfp`,
-`github-actions`, `github-ghas`, `aws-dop`, `aws-scs`.
+`github-actions`, `github-ghas`, `aws-dop`, `aws-scs` are done and now sit in the
+passing group above.
 
-These are genuinely hand-authored and the questions are good; the key is simply more
-complete than the distractors. Two of them are part-done. The cost is roughly 200-300
-authored strings each, and it does not compress: unlike the generator banks, where one
-edit covered 30 questions, these average 2.3 questions per distinct option set. Much of
-the remainder is YAML and CLI keys, where the fix is not to trim the key — a correct
+These were genuinely hand-authored and the questions were good; the key was simply more
+complete than the distractors. The repair took two passes, because closing the gap did
+not close the tell:
+
+1. **Length parity** — no key longer than every distractor by more than 15 characters.
+   This cleared `len gap` and `strawman%` but left `longest%` at 60-70%: the key still
+   led by a handful of characters in most items, so "pick the longest" still scored
+   ~2.6× chance.
+2. **Band tightening** — expand one distractor past the key (or trim a padded key) on
+   the highest-frequency option sets until `longest%` falls inside 12-40%. Several banks
+   then needed the mirror fix, trimming keys on a few sets so the key is sometimes the
+   shortest and `shortest%` climbs back over 12%.
+
+The second pass was far cheaper than the first. Option sets are deduplicated by their
+sorted option texts, and the worst offenders repeat: in `aws-scs`, three authored edits
+moved 105 items and took `longest%` from 60.7% to 35.8%. Ordering the worklist by item
+count is what made a ~140-item target a ~20-edit job per bank.
+
+Much of the work is YAML and CLI keys, where the fix is not to trim the key — a correct
 command cannot be shortened — but to write distractors of equal specificity. Several
-existing ones are invented (`kubectl clone pod`, `helm install --fake`) or jokes
-(`Checking email`), which is a content defect independent of length.
+existing ones were invented (`kubectl clone pod`, `helm install --fake`) or jokes
+(`Checking email`); those were replaced with real mechanisms that fail for a stated
+reason, which is what took `strawman%` to 0.0% in most of these banks.
 
 ### Blocked on authoring, not repair (8)
 
@@ -169,17 +193,42 @@ stripping trailing parentheticals corpus-wide (it would turn `AWS Key Management
 ```bash
 npm run backup                            # packs are irreplaceable — always first
 npm run audit:distractors -- --cert <id>  # score one cert before and after
+npm run audit:length -- --cert <id>       # worklist: which option sets carry the tell
+npm run fix:options -- --cert <id> --file patch.json   # apply authored rewrites
 npm run validate                          # schema + answer keys + explanation letters
 npm run shuffle                           # rebalance A/B/C/D after any option edit
 npm run build:content                     # regenerate the index
 ```
 
+`audit:length` groups items by option set and prints each option with an 8-character
+content hash, its length, and the stem, so the worklist is ordered by how many items one
+rewrite will move. `fix:options` takes those hashes back:
+
+```json
+{ "options": [{ "hash": "9545d4b2", "to": "new option text" }],
+  "explanations": [{ "id": "aws-scs-133", "to": "new explanation" }] }
+```
+
+Keying by content hash rather than by position means a 200-character YAML key never has
+to be retyped, and a hash that no longer resolves is an error — so re-applying a patch
+fails loudly instead of silently double-editing. Neither script ever touches
+`correctAnswers`; only option text and explanation prose change.
+
 `npm run shuffle` matters here: rewriting options changes their order-independence
 assumptions, and the shuffler re-letters everything. Run `npm run audit:explanations`
 after it to confirm no explanation refers to a letter that moved.
 
-Once a phase brings its certs under target, wire the gate in:
+## The gate
 
-```json
-"validate": "node scripts/validate-content.mjs && npm run audit:explanations && npm run audit:distractors -- --strict"
+CI runs the ratchet on every push and pull request, in the `content` job of
+`.github/workflows/ci.yml`:
+
+```bash
+npm run audit:distractors -- --min-passing 24
 ```
+
+It fails when fewer than 24 banks pass every target, so the repaired banks cannot
+regress, and prints the table into the job summary either way. `--strict` is the
+end state — it fails on any breach at all — and becomes the right setting once the
+8 filler banks have real questions. Raise the `--min-passing` number as each one
+lands, rather than leaving it where it is.
