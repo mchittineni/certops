@@ -9,10 +9,10 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     scenario: "A software security policy requires continuous, automated vulnerability scanning of open-source libraries and container images integrated directly into pull request workflows in Azure DevOps, alerting developers to critical CVEs before merging.",
     question: "Which integrated security solution fulfills this requirement?",
     options: [
-      { id: 'A', text: "Azure Network Watcher packet capturing" },
-      { id: 'B', text: "Microsoft Defender for DevOps (or GitHub Advanced Security for Azure DevOps)" },
-      { id: 'C', text: "Reviewing CVE lists manually on government advisory websites" },
-      { id: 'D', text: "Running Windows Defender locally on developer workstations" }
+      { id: 'A', text: "Microsoft Defender for Cloud's container registry scanning on the ACR alone" },
+      { id: 'B', text: "Microsoft Defender for DevOps, or GitHub Advanced Security for Azure DevOps" },
+      { id: 'C', text: "Microsoft Defender for Endpoint, reporting on the developer workstations" },
+      { id: 'D', text: "Azure Policy's guest configuration, evaluated against the build agent pool" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -114,9 +114,9 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "Which Azure Pipelines task analyzes project manifest and lock files (package-lock.json, pom.xml) to detect open-source libraries with known CVE vulnerabilities?",
     options: [
-      { id: 'A', text: "Docker@2 building an image that bakes in the configuration" },
+      { id: 'A', text: "The `Docker@2` task, which bakes the playbook's settings into the machine image instead" },
       { id: 'B', text: "PublishBuildArtifacts@1" },
-      { id: 'C', text: "CopyFiles@2 moving the playbook onto each target machine" },
+      { id: 'C', text: "The `CopyFiles@2` task, which copies the playbook to each machine in the deployment group" },
       { id: 'D', text: "AdvancedSecurity-Dependency-Scanning@1" }
     ],
     correctAnswers: ['D'],
@@ -240,10 +240,10 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     scenario: "An engineer wants a fast, lightweight open-source scanner in Azure Pipelines to scan Docker container images and fail the build if any Critical severity vulnerabilities are found.",
     question: "Which pipeline task or command pattern accomplishes this with Trivy?",
     options: [
-      { id: 'A', text: "Re-run the generator and diff the output directory by hand" },
+      { id: 'A', text: "Run `trivy image --severity CRITICAL myimage:tag` and publish the report as an artifact" },
       { id: 'B', text: "Run `trivy image --exit-code 1 --severity CRITICAL myimage:tag` in a script task" },
-      { id: 'C', text: "Push the image and rely on registry scanning afterwards" },
-      { id: 'D', text: "Run `trivy image` without --exit-code and read the output" }
+      { id: 'C', text: "Run `trivy image --exit-code 0 --severity CRITICAL,HIGH myimage:tag` in a script task" },
+      { id: 'D', text: "Run `trivy config .` against the Dockerfile before the image has been built at all" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,9 +261,9 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     scenario: "Microsoft provides a unified CLI extension (`Microsoft.Security.DevOps.Cli`) for Azure Pipelines that consolidates multiple static analysis tools (anti-malware, CredScan, template analyzers) into a single task.",
     question: "Which Azure Pipelines task executes this unified Microsoft scanner?",
     options: [
-      { id: 'A', text: "Docker@2 building an image that bakes in the configuration" },
+      { id: 'A', text: "The `Docker@2` task, which bakes the playbook's settings into the machine image instead" },
       { id: 'B', text: "MicrosoftSecurityDevOps@1" },
-      { id: 'C', text: "CopyFiles@2 moving the playbook onto each target machine" },
+      { id: 'C', text: "The `CopyFiles@2` task, which copies the playbook to each machine in the deployment group" },
       { id: 'D', text: "PublishBuildArtifacts@1" }
     ],
     correctAnswers: ['B'],
@@ -324,10 +324,10 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     scenario: "A platform team wants deployment pipelines to verify compliance against organizational Azure Policies and fail the release if target resource groups contain non-compliant resources.",
     question: "Which command or task evaluates compliance state during pipeline execution?",
     options: [
-      { id: 'A', text: "AzureCLI@2 running `az policy assignment list` for the scope" },
-      { id: 'B', text: "A scheduled Azure Policy evaluation, checked the next day" },
-      { id: 'C', text: "AzureCLI@2 executing `az policy state trigger-scan` and evaluating compliance results" },
-      { id: 'D', text: "Reading the compliance blade in the portal after deployment" }
+      { id: 'A', text: "AzureCLI@2 running `az policy assignment list` for the target resource group scope" },
+      { id: 'B', text: "AzureCLI@2 running `az policy definition list` and comparing it with the deployed set" },
+      { id: 'C', text: "AzureCLI@2 running `az policy state trigger-scan` and reading the compliance results" },
+      { id: 'D', text: "An Azure Policy compliance scan on its own schedule, checked on the following day" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -453,7 +453,7 @@ export const AZURE_AZ400_QUESTIONS_8 = [
       { id: 'A', text: "Cosign (Sigstore) and Kyverno / Gatekeeper" },
       { id: 'B', text: "WinZip" },
       { id: 'C', text: "Docker build and push" },
-      { id: 'D', text: "CopyFiles@2 moving the playbook onto each target machine" }
+      { id: 'D', text: "The `CopyFiles@2` task, which copies the playbook to each machine in the deployment group" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,9 +471,9 @@ export const AZURE_AZ400_QUESTIONS_8 = [
     scenario: "Federal compliance standards mandate that every production release binary must include a verifiable Software Bill of Materials (SBOM) listing all nested components.",
     question: "Which open-source specification formats are industry standards for machine-readable SBOM metadata?",
     options: [
-      { id: 'A', text: "CSV and XML spreadsheets" },
-      { id: 'B', text: "Markdown and PDF files" },
-      { id: 'C', text: "PNG and JPEG images" },
+      { id: 'A', text: "SWID tags and the OSI license identifier list" },
+      { id: 'B', text: "SARIF and the OpenSSF Scorecard result format" },
+      { id: 'C', text: "OCI image manifests and Docker Content Trust" },
       { id: 'D', text: "SPDX (Software Package Data Exchange) and CycloneDX" }
     ],
     correctAnswers: ['D'],

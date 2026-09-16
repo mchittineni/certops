@@ -114,10 +114,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to prevent repository bloat and slow clone times caused by developers committing large 500MB binary media files directly to a Git repository.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Zip binary files into multi-part archives and check them into source control." },
-      { id: 'B', text: "Commit all binary files directly to standard Git history." },
-      { id: 'C', text: "Delete the Git repository history every time the repository exceeds 2GB." },
-      { id: 'D', text: "Configure Git Large File Storage (Git LFS) in the repository with a `.gitattributes` file tracking target binary file extensions." }
+      { id: 'A', text: "Enable a repository size push policy that rejects any commit larger than 100 megabytes." },
+      { id: 'B', text: "Enable shallow fetch on the pipeline so clones stop pulling the full binary history." },
+      { id: 'C', text: "Enable Git sparse-checkout so working copies exclude the directory holding the media." },
+      { id: 'D', text: "Enable Git LFS and track the binary extensions in the repository's `.gitattributes`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,10 +135,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to prevent repository bloat and slow clone times caused by developers committing large 500MB binary media files directly to a Git repository.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Configure Git Large File Storage (Git LFS) in the repository with a `.gitattributes` file tracking target binary file extensions." },
-      { id: 'B', text: "Commit all binary files directly to standard Git history." },
-      { id: 'C', text: "Zip binary files into multi-part archives and check them into source control." },
-      { id: 'D', text: "Delete the Git repository history every time the repository exceeds 2GB." }
+      { id: 'A', text: "Enable Git LFS and track the binary extensions in the repository's `.gitattributes`." },
+      { id: 'B', text: "Enable shallow fetch on the pipeline so clones stop pulling the full binary history." },
+      { id: 'C', text: "Enable a repository size push policy that rejects any commit larger than 100 megabytes." },
+      { id: 'D', text: "Enable Git sparse-checkout so working copies exclude the directory holding the media." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to prevent repository bloat and slow clone times caused by developers committing large 500MB binary media files directly to a Git repository.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Configure Git Large File Storage (Git LFS) in the repository with a `.gitattributes` file tracking target binary file extensions." },
-      { id: 'B', text: "Commit all binary files directly to standard Git history." },
-      { id: 'C', text: "Zip binary files into multi-part archives and check them into source control." },
-      { id: 'D', text: "Delete the Git repository history every time the repository exceeds 2GB." }
+      { id: 'A', text: "Enable Git LFS and track the binary extensions in the repository's `.gitattributes`." },
+      { id: 'B', text: "Enable shallow fetch on the pipeline so clones stop pulling the full binary history." },
+      { id: 'C', text: "Enable a repository size push policy that rejects any commit larger than 100 megabytes." },
+      { id: 'D', text: "Enable Git sparse-checkout so working copies exclude the directory holding the media." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to prevent repository bloat and slow clone times caused by developers committing large 500MB binary media files directly to a Git repository.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Configure Git Large File Storage (Git LFS) in the repository with a `.gitattributes` file tracking target binary file extensions." },
-      { id: 'B', text: "Commit all binary files directly to standard Git history." },
-      { id: 'C', text: "Zip binary files into multi-part archives and check them into source control." },
-      { id: 'D', text: "Delete the Git repository history every time the repository exceeds 2GB." }
+      { id: 'A', text: "Enable Git LFS and track the binary extensions in the repository's `.gitattributes`." },
+      { id: 'B', text: "Enable shallow fetch on the pipeline so clones stop pulling the full binary history." },
+      { id: 'C', text: "Enable a repository size push policy that rejects any commit larger than 100 megabytes." },
+      { id: 'D', text: "Enable Git sparse-checkout so working copies exclude the directory holding the media." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to prevent repository bloat and slow clone times caused by developers committing large 500MB binary media files directly to a Git repository.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Commit all binary files directly to standard Git history." },
-      { id: 'B', text: "Zip binary files into multi-part archives and check them into source control." },
-      { id: 'C', text: "Configure Git Large File Storage (Git LFS) in the repository with a `.gitattributes` file tracking target binary file extensions." },
-      { id: 'D', text: "Delete the Git repository history every time the repository exceeds 2GB." }
+      { id: 'A', text: "Enable shallow fetch on the pipeline so clones stop pulling the full binary history." },
+      { id: 'B', text: "Enable a repository size push policy that rejects any commit larger than 100 megabytes." },
+      { id: 'C', text: "Enable Git LFS and track the binary extensions in the repository's `.gitattributes`." },
+      { id: 'D', text: "Enable Git sparse-checkout so working copies exclude the directory holding the media." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -219,10 +219,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to prevent contractor developers from force-pushing, rewriting branch history, or creating new top-level branches in a corporate Azure Repos repository.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Explicitly deny `Force push (rewrite history)`, `Bypass policies when completing pull requests`, and `Create branch` permissions for the Contractors group." },
-      { id: 'B', text: "Rely on verbal instructions to not run git push --force." },
-      { id: 'C', text: "Grant full Project Administrator privileges to all contractor accounts." },
-      { id: 'D', text: "Make the repository completely public with anonymous write access." }
+      { id: 'A', text: "Deny the Contractors group the Force Push, Bypass policies, and Create branch repository permissions." },
+      { id: 'B', text: "Deny the Contractors group the Contribute permission and let them work through forks of the repository." },
+      { id: 'C', text: "Add a branch policy on every branch requiring two reviewers before any push can be completed." },
+      { id: 'D', text: "Enable a push policy that rejects commits whose author email is outside the corporate domain." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to prevent contractor developers from force-pushing, rewriting branch history, or creating new top-level branches in a corporate Azure Repos repository.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Explicitly deny `Force push (rewrite history)`, `Bypass policies when completing pull requests`, and `Create branch` permissions for the Contractors group." },
-      { id: 'B', text: "Grant full Project Administrator privileges to all contractor accounts." },
-      { id: 'C', text: "Make the repository completely public with anonymous write access." },
-      { id: 'D', text: "Rely on verbal instructions to not run git push --force." }
+      { id: 'A', text: "Deny the Contractors group the Force Push, Bypass policies, and Create branch repository permissions." },
+      { id: 'B', text: "Add a branch policy on every branch requiring two reviewers before any push can be completed." },
+      { id: 'C', text: "Enable a push policy that rejects commits whose author email is outside the corporate domain." },
+      { id: 'D', text: "Deny the Contractors group the Contribute permission and let them work through forks of the repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to prevent contractor developers from force-pushing, rewriting branch history, or creating new top-level branches in a corporate Azure Repos repository.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Explicitly deny `Force push (rewrite history)`, `Bypass policies when completing pull requests`, and `Create branch` permissions for the Contractors group." },
-      { id: 'B', text: "Grant full Project Administrator privileges to all contractor accounts." },
-      { id: 'C', text: "Make the repository completely public with anonymous write access." },
-      { id: 'D', text: "Rely on verbal instructions to not run git push --force." }
+      { id: 'A', text: "Deny the Contractors group the Force Push, Bypass policies, and Create branch repository permissions." },
+      { id: 'B', text: "Add a branch policy on every branch requiring two reviewers before any push can be completed." },
+      { id: 'C', text: "Enable a push policy that rejects commits whose author email is outside the corporate domain." },
+      { id: 'D', text: "Deny the Contractors group the Contribute permission and let them work through forks of the repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to prevent contractor developers from force-pushing, rewriting branch history, or creating new top-level branches in a corporate Azure Repos repository.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Explicitly deny `Force push (rewrite history)`, `Bypass policies when completing pull requests`, and `Create branch` permissions for the Contractors group." },
-      { id: 'B', text: "Grant full Project Administrator privileges to all contractor accounts." },
-      { id: 'C', text: "Make the repository completely public with anonymous write access." },
-      { id: 'D', text: "Rely on verbal instructions to not run git push --force." }
+      { id: 'A', text: "Deny the Contractors group the Force Push, Bypass policies, and Create branch repository permissions." },
+      { id: 'B', text: "Add a branch policy on every branch requiring two reviewers before any push can be completed." },
+      { id: 'C', text: "Enable a push policy that rejects commits whose author email is outside the corporate domain." },
+      { id: 'D', text: "Deny the Contractors group the Contribute permission and let them work through forks of the repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to prevent contractor developers from force-pushing, rewriting branch history, or creating new top-level branches in a corporate Azure Repos repository.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Make the repository completely public with anonymous write access." },
-      { id: 'B', text: "Rely on verbal instructions to not run git push --force." },
-      { id: 'C', text: "Explicitly deny `Force push (rewrite history)`, `Bypass policies when completing pull requests`, and `Create branch` permissions for the Contractors group." },
-      { id: 'D', text: "Grant full Project Administrator privileges to all contractor accounts." }
+      { id: 'A', text: "Enable a push policy that rejects commits whose author email is outside the corporate domain." },
+      { id: 'B', text: "Deny the Contractors group the Contribute permission and let them work through forks of the repository." },
+      { id: 'C', text: "Deny the Contractors group the Force Push, Bypass policies, and Create branch repository permissions." },
+      { id: 'D', text: "Add a branch policy on every branch requiring two reviewers before any push can be completed." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,10 +324,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to trigger CI/CD builds only for the specific microservice whose code was modified within a large multi-service monorepo.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Trigger all 50 microservice builds simultaneously on every single commit across the monorepo." },
-      { id: 'B', text: "Configure CI trigger `paths` filters in the Azure Pipelines YAML file (e.g., `paths: include: [src/billing/**]`)." },
-      { id: 'C', text: "Require developers to manually trigger build pipelines after every push." },
-      { id: 'D', text: "Split the repository into 50 standalone Git repos without dependency tooling." }
+      { id: 'A', text: "Add `paths: exclude: [docs/**]` to the CI trigger and leave the branch filter open." },
+      { id: 'B', text: "Add `paths: include: [src/billing/**]` to the CI trigger in each service's pipeline." },
+      { id: 'C', text: "Add a `trigger: none` block and start each service's pipeline from a scheduled run." },
+      { id: 'D', text: "Add a build validation policy per service and let the pull request decide what runs." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -345,10 +345,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to trigger CI/CD builds only for the specific microservice whose code was modified within a large multi-service monorepo.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Configure CI trigger `paths` filters in the Azure Pipelines YAML file (e.g., `paths: include: [src/billing/**]`)." },
-      { id: 'B', text: "Trigger all 50 microservice builds simultaneously on every single commit across the monorepo." },
-      { id: 'C', text: "Split the repository into 50 standalone Git repos without dependency tooling." },
-      { id: 'D', text: "Require developers to manually trigger build pipelines after every push." }
+      { id: 'A', text: "Add `paths: include: [src/billing/**]` to the CI trigger in each service's pipeline." },
+      { id: 'B', text: "Add `paths: exclude: [docs/**]` to the CI trigger and leave the branch filter open." },
+      { id: 'C', text: "Add a build validation policy per service and let the pull request decide what runs." },
+      { id: 'D', text: "Add a `trigger: none` block and start each service's pipeline from a scheduled run." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to trigger CI/CD builds only for the specific microservice whose code was modified within a large multi-service monorepo.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Split the repository into 50 standalone Git repos without dependency tooling." },
-      { id: 'B', text: "Require developers to manually trigger build pipelines after every push." },
-      { id: 'C', text: "Configure CI trigger `paths` filters in the Azure Pipelines YAML file (e.g., `paths: include: [src/billing/**]`)." },
-      { id: 'D', text: "Trigger all 50 microservice builds simultaneously on every single commit across the monorepo." }
+      { id: 'A', text: "Add a build validation policy per service and let the pull request decide what runs." },
+      { id: 'B', text: "Add a `trigger: none` block and start each service's pipeline from a scheduled run." },
+      { id: 'C', text: "Add `paths: include: [src/billing/**]` to the CI trigger in each service's pipeline." },
+      { id: 'D', text: "Add `paths: exclude: [docs/**]` to the CI trigger and leave the branch filter open." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to trigger CI/CD builds only for the specific microservice whose code was modified within a large multi-service monorepo.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Configure CI trigger `paths` filters in the Azure Pipelines YAML file (e.g., `paths: include: [src/billing/**]`)." },
-      { id: 'B', text: "Trigger all 50 microservice builds simultaneously on every single commit across the monorepo." },
-      { id: 'C', text: "Split the repository into 50 standalone Git repos without dependency tooling." },
-      { id: 'D', text: "Require developers to manually trigger build pipelines after every push." }
+      { id: 'A', text: "Add `paths: include: [src/billing/**]` to the CI trigger in each service's pipeline." },
+      { id: 'B', text: "Add `paths: exclude: [docs/**]` to the CI trigger and leave the branch filter open." },
+      { id: 'C', text: "Add a build validation policy per service and let the pull request decide what runs." },
+      { id: 'D', text: "Add a `trigger: none` block and start each service's pipeline from a scheduled run." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to trigger CI/CD builds only for the specific microservice whose code was modified within a large multi-service monorepo.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Trigger all 50 microservice builds simultaneously on every single commit across the monorepo." },
-      { id: 'B', text: "Require developers to manually trigger build pipelines after every push." },
-      { id: 'C', text: "Split the repository into 50 standalone Git repos without dependency tooling." },
-      { id: 'D', text: "Configure CI trigger `paths` filters in the Azure Pipelines YAML file (e.g., `paths: include: [src/billing/**]`)." }
+      { id: 'A', text: "Add `paths: exclude: [docs/**]` to the CI trigger and leave the branch filter open." },
+      { id: 'B', text: "Add a `trigger: none` block and start each service's pipeline from a scheduled run." },
+      { id: 'C', text: "Add a build validation policy per service and let the pull request decide what runs." },
+      { id: 'D', text: "Add `paths: include: [src/billing/**]` to the CI trigger in each service's pipeline." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,10 +429,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to completely expunge an accidentally committed production connection string and certificate private key from all branches and commit history in a Git repository.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Add the file name to `.gitignore` and assume past commits are automatically scrubbed." },
-      { id: 'B', text: "Delete the entire Azure DevOps project and rebuild all infrastructure." },
-      { id: 'C', text: "Rotate the compromised credentials immediately, and rewrite repository history using `git-filter-repo` (or BFG Repo-Cleaner) followed by a forced push." },
-      { id: 'D', text: "Make a new commit deleting the credentials file and assume previous history is inaccessible." }
+      { id: 'A', text: "Rotate the exposed credentials, then add the file to `.gitignore` and commit the removal." },
+      { id: 'B', text: "Rotate the exposed credentials, then squash the offending branch and merge it back into `main`." },
+      { id: 'C', text: "Rotate the exposed credentials, then rewrite history with `git-filter-repo` and force-push." },
+      { id: 'D', text: "Rotate the exposed credentials, then run `git rm --cached` on the file and push the deletion." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to completely expunge an accidentally committed production connection string and certificate private key from all branches and commit history in a Git repository.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Add the file name to `.gitignore` and assume past commits are automatically scrubbed." },
-      { id: 'B', text: "Make a new commit deleting the credentials file and assume previous history is inaccessible." },
-      { id: 'C', text: "Delete the entire Azure DevOps project and rebuild all infrastructure." },
-      { id: 'D', text: "Rotate the compromised credentials immediately, and rewrite repository history using `git-filter-repo` (or BFG Repo-Cleaner) followed by a forced push." }
+      { id: 'A', text: "Rotate the exposed credentials, then add the file to `.gitignore` and commit the removal." },
+      { id: 'B', text: "Rotate the exposed credentials, then run `git rm --cached` on the file and push the deletion." },
+      { id: 'C', text: "Rotate the exposed credentials, then squash the offending branch and merge it back into `main`." },
+      { id: 'D', text: "Rotate the exposed credentials, then rewrite history with `git-filter-repo` and force-push." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to completely expunge an accidentally committed production connection string and certificate private key from all branches and commit history in a Git repository.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Make a new commit deleting the credentials file and assume previous history is inaccessible." },
-      { id: 'B', text: "Delete the entire Azure DevOps project and rebuild all infrastructure." },
-      { id: 'C', text: "Add the file name to `.gitignore` and assume past commits are automatically scrubbed." },
-      { id: 'D', text: "Rotate the compromised credentials immediately, and rewrite repository history using `git-filter-repo` (or BFG Repo-Cleaner) followed by a forced push." }
+      { id: 'A', text: "Rotate the exposed credentials, then run `git rm --cached` on the file and push the deletion." },
+      { id: 'B', text: "Rotate the exposed credentials, then squash the offending branch and merge it back into `main`." },
+      { id: 'C', text: "Rotate the exposed credentials, then add the file to `.gitignore` and commit the removal." },
+      { id: 'D', text: "Rotate the exposed credentials, then rewrite history with `git-filter-repo` and force-push." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,10 +492,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to completely expunge an accidentally committed production connection string and certificate private key from all branches and commit history in a Git repository.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Rotate the compromised credentials immediately, and rewrite repository history using `git-filter-repo` (or BFG Repo-Cleaner) followed by a forced push." },
-      { id: 'B', text: "Make a new commit deleting the credentials file and assume previous history is inaccessible." },
-      { id: 'C', text: "Add the file name to `.gitignore` and assume past commits are automatically scrubbed." },
-      { id: 'D', text: "Delete the entire Azure DevOps project and rebuild all infrastructure." }
+      { id: 'A', text: "Rotate the exposed credentials, then rewrite history with `git-filter-repo` and force-push." },
+      { id: 'B', text: "Rotate the exposed credentials, then run `git rm --cached` on the file and push the deletion." },
+      { id: 'C', text: "Rotate the exposed credentials, then add the file to `.gitignore` and commit the removal." },
+      { id: 'D', text: "Rotate the exposed credentials, then squash the offending branch and merge it back into `main`." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const AZURE_AZ400_QUESTIONS_13 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to completely expunge an accidentally committed production connection string and certificate private key from all branches and commit history in a Git repository.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Rotate the compromised credentials immediately, and rewrite repository history using `git-filter-repo` (or BFG Repo-Cleaner) followed by a forced push." },
-      { id: 'B', text: "Make a new commit deleting the credentials file and assume previous history is inaccessible." },
-      { id: 'C', text: "Add the file name to `.gitignore` and assume past commits are automatically scrubbed." },
-      { id: 'D', text: "Delete the entire Azure DevOps project and rebuild all infrastructure." }
+      { id: 'A', text: "Rotate the exposed credentials, then rewrite history with `git-filter-repo` and force-push." },
+      { id: 'B', text: "Rotate the exposed credentials, then run `git rm --cached` on the file and push the deletion." },
+      { id: 'C', text: "Rotate the exposed credentials, then add the file to `.gitignore` and commit the removal." },
+      { id: 'D', text: "Rotate the exposed credentials, then squash the offending branch and merge it back into `main`." }
     ],
     correctAnswers: ['A'],
     type: "single",

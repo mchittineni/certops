@@ -93,10 +93,10 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "An automated pull request pipeline must validate Terraform changes safely before merging. What sequence of Terraform commands should run during the PR validation build?",
     options: [
-      { id: 'A', text: "terraform fmt -check && terraform init -backend=false && terraform validate" },
-      { id: 'B', text: "terraform providers lock and a terraform version check" },
-      { id: 'C', text: "terraform plan -out=tfplan followed by terraform show" },
-      { id: 'D', text: "terraform init with the remote backend, then terraform plan" }
+      { id: 'A', text: "terraform fmt -check, then init -backend=false, then validate" },
+      { id: 'B', text: "terraform init with the remote backend, then plan -out=tfplan" },
+      { id: 'C', text: "terraform providers lock, then version, then fmt -check" },
+      { id: 'D', text: "terraform apply -auto-approve against an ephemeral workspace" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     scenario: "A platform team uses Ansible playbooks in an Azure Pipeline to configure software packages and security settings on a fleet of 50 Linux virtual machines post-deployment.",
     question: "Which tool or task executes Ansible playbooks securely within an Azure DevOps agent job?",
     options: [
-      { id: 'A', text: "AzureWebApp@1 deploying the package to each host in turn" },
-      { id: 'B', text: "Ansible@0 task (or a Bash@3 step invoking ansible-playbook with dynamic Azure inventory)" },
-      { id: 'C', text: "CopyFiles@2 moving the playbook onto each target machine" },
-      { id: 'D', text: "Docker@2 building an image that bakes in the configuration" }
+      { id: 'A', text: "The `AzureWebApp@1` task, run once per host with the playbook passed as its package" },
+      { id: 'B', text: "The `Ansible@0` task, or a `Bash@3` step running `ansible-playbook` with a dynamic inventory" },
+      { id: 'C', text: "The `CopyFiles@2` task, which copies the playbook to each machine in the deployment group" },
+      { id: 'D', text: "The `Docker@2` task, which bakes the playbook's settings into the machine image instead" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,7 +303,7 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "Which dedicated Azure Pipelines task packages, installs, and upgrades Helm charts on an Azure Kubernetes Service (AKS) cluster using an authorized Kubernetes service connection?",
     options: [
-      { id: 'A', text: "Docker@2 building an image that bakes in the configuration" },
+      { id: 'A', text: "The `Docker@2` task, which bakes the playbook's settings into the machine image instead" },
       { id: 'B', text: "AzureCLI@2 with az aks install-cli" },
       { id: 'C', text: "Kubernetes@1" },
       { id: 'D', text: "HelmDeploy@0" }
@@ -366,10 +366,10 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     scenario: "A security architect requires that all Terraform and Bicep pull requests must be scanned for misconfigurations (such as unencrypted storage accounts or open ingress 0.0.0.0/0 rules) before merging.",
     question: "Which open-source static analysis security tools should be integrated into the PR validation pipeline?",
     options: [
-      { id: 'A', text: "JUnit" },
-      { id: 'B', text: "ESLint" },
-      { id: 'C', text: "Checkov or tfsec / Trivy" },
-      { id: 'D', text: "Valgrind" }
+      { id: 'A', text: "ESLint with a YAML plugin, or JUnit reports" },
+      { id: 'B', text: "SonarQube's IaC rules, or OWASP ZAP" },
+      { id: 'C', text: "Checkov, or tfsec / Trivy config scanning" },
+      { id: 'D', text: "Dependabot, or the npm audit advisory feed" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,10 +429,10 @@ export const AZURE_AZ400_QUESTIONS_7 = [
     scenario: "A software team practices continuous deployment but needs the ability to toggle new experimental features on or off in production instantly without redeploying code.",
     question: "Which Azure service provides centralized dynamic feature flag management and configuration key-value storage?",
     options: [
-      { id: 'A', text: "Azure Key Vault" },
-      { id: 'B', text: "Azure App Configuration (with Feature Manager)" },
-      { id: 'C', text: "Azure Storage Tables" },
-      { id: 'D', text: "Azure Service Bus" }
+      { id: 'A', text: "Azure Key Vault, with versioned secret values" },
+      { id: 'B', text: "Azure App Configuration, with its Feature Manager" },
+      { id: 'C', text: "Azure App Service, with its App Settings slots" },
+      { id: 'D', text: "Azure Monitor, with its dynamic alert rules" }
     ],
     correctAnswers: ['B'],
     type: "single",

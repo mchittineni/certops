@@ -9,10 +9,10 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Grant full contributor write permissions on the central repository to all enterprise employees." },
-      { id: 'B', text: "Instruct developers to email zipped code folders to the core team." },
-      { id: 'C', text: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests." },
-      { id: 'D', text: "Keep the core repository strictly private and prohibit contributions from other teams." }
+      { id: 'A', text: "Have contributors branch in the core repository and protect `main` with a two-reviewer policy." },
+      { id: 'B', text: "Have contributors work in their own repository and let the core team cherry-pick the commits." },
+      { id: 'C', text: "Have contributors fork the core repository and raise cross-repository pull requests back to it." },
+      { id: 'D', text: "Have contributors submit patches as work item attachments for the core team to apply." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -30,10 +30,10 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Instruct developers to email zipped code folders to the core team." },
-      { id: 'B', text: "Keep the core repository strictly private and prohibit contributions from other teams." },
-      { id: 'C', text: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests." },
-      { id: 'D', text: "Grant full contributor write permissions on the central repository to all enterprise employees." }
+      { id: 'A', text: "Have contributors work in their own repository and let the core team cherry-pick the commits." },
+      { id: 'B', text: "Have contributors submit patches as work item attachments for the core team to apply." },
+      { id: 'C', text: "Have contributors fork the core repository and raise cross-repository pull requests back to it." },
+      { id: 'D', text: "Have contributors branch in the core repository and protect `main` with a two-reviewer policy." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -51,10 +51,10 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Grant full contributor write permissions on the central repository to all enterprise employees." },
-      { id: 'B', text: "Instruct developers to email zipped code folders to the core team." },
-      { id: 'C', text: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests." },
-      { id: 'D', text: "Keep the core repository strictly private and prohibit contributions from other teams." }
+      { id: 'A', text: "Have contributors branch in the core repository and protect `main` with a two-reviewer policy." },
+      { id: 'B', text: "Have contributors work in their own repository and let the core team cherry-pick the commits." },
+      { id: 'C', text: "Have contributors fork the core repository and raise cross-repository pull requests back to it." },
+      { id: 'D', text: "Have contributors submit patches as work item attachments for the core team to apply." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,10 +72,10 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Grant full contributor write permissions on the central repository to all enterprise employees." },
-      { id: 'B', text: "Keep the core repository strictly private and prohibit contributions from other teams." },
-      { id: 'C', text: "Instruct developers to email zipped code folders to the core team." },
-      { id: 'D', text: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests." }
+      { id: 'A', text: "Have contributors branch in the core repository and protect `main` with a two-reviewer policy." },
+      { id: 'B', text: "Have contributors submit patches as work item attachments for the core team to apply." },
+      { id: 'C', text: "Have contributors work in their own repository and let the core team cherry-pick the commits." },
+      { id: 'D', text: "Have contributors fork the core repository and raise cross-repository pull requests back to it." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Keep the core repository strictly private and prohibit contributions from other teams." },
-      { id: 'B', text: "Grant full contributor write permissions on the central repository to all enterprise employees." },
-      { id: 'C', text: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests." },
-      { id: 'D', text: "Instruct developers to email zipped code folders to the core team." }
+      { id: 'A', text: "Have contributors submit patches as work item attachments for the core team to apply." },
+      { id: 'B', text: "Have contributors branch in the core repository and protect `main` with a two-reviewer policy." },
+      { id: 'C', text: "Have contributors fork the core repository and raise cross-repository pull requests back to it." },
+      { id: 'D', text: "Have contributors work in their own repository and let the core team cherry-pick the commits." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to author an enterprise CI/CD pipeline with distinct build, staging deployment, and production deployment stages governed by dependencies.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Define an Azure Pipelines YAML file using `stages`, `jobs`, and `steps` hierarchy with `dependsOn` declarations linking sequential stages." },
-      { id: 'B', text: "Create three completely disconnected Classic release pipelines in the web UI." },
-      { id: 'C', text: "Put all build and deployment tasks into a single monolithic script with no stages." },
-      { id: 'D', text: "Avoid using YAML and write batch files executed locally on developer machines." }
+      { id: 'A', text: "Define one YAML pipeline with `stages`, `jobs` and `steps`, ordered by `dependsOn`." },
+      { id: 'B', text: "Define one YAML pipeline per stage and chain them with pipeline resource triggers." },
+      { id: 'C', text: "Define one YAML pipeline with three jobs in a single stage, ordered by `dependsOn`." },
+      { id: 'D', text: "Define one classic release definition with three environments and pre-deployment conditions." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to author an enterprise CI/CD pipeline with distinct build, staging deployment, and production deployment stages governed by dependencies.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Define an Azure Pipelines YAML file using `stages`, `jobs`, and `steps` hierarchy with `dependsOn` declarations linking sequential stages." },
-      { id: 'B', text: "Put all build and deployment tasks into a single monolithic script with no stages." },
-      { id: 'C', text: "Avoid using YAML and write batch files executed locally on developer machines." },
-      { id: 'D', text: "Create three completely disconnected Classic release pipelines in the web UI." }
+      { id: 'A', text: "Define one YAML pipeline with `stages`, `jobs` and `steps`, ordered by `dependsOn`." },
+      { id: 'B', text: "Define one YAML pipeline with three jobs in a single stage, ordered by `dependsOn`." },
+      { id: 'C', text: "Define one classic release definition with three environments and pre-deployment conditions." },
+      { id: 'D', text: "Define one YAML pipeline per stage and chain them with pipeline resource triggers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to author an enterprise CI/CD pipeline with distinct build, staging deployment, and production deployment stages governed by dependencies.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Define an Azure Pipelines YAML file using `stages`, `jobs`, and `steps` hierarchy with `dependsOn` declarations linking sequential stages." },
-      { id: 'B', text: "Create three completely disconnected Classic release pipelines in the web UI." },
-      { id: 'C', text: "Put all build and deployment tasks into a single monolithic script with no stages." },
-      { id: 'D', text: "Avoid using YAML and write batch files executed locally on developer machines." }
+      { id: 'A', text: "Define one YAML pipeline with `stages`, `jobs` and `steps`, ordered by `dependsOn`." },
+      { id: 'B', text: "Define one YAML pipeline per stage and chain them with pipeline resource triggers." },
+      { id: 'C', text: "Define one YAML pipeline with three jobs in a single stage, ordered by `dependsOn`." },
+      { id: 'D', text: "Define one classic release definition with three environments and pre-deployment conditions." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to author an enterprise CI/CD pipeline with distinct build, staging deployment, and production deployment stages governed by dependencies.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Define an Azure Pipelines YAML file using `stages`, `jobs`, and `steps` hierarchy with `dependsOn` declarations linking sequential stages." },
-      { id: 'B', text: "Create three completely disconnected Classic release pipelines in the web UI." },
-      { id: 'C', text: "Put all build and deployment tasks into a single monolithic script with no stages." },
-      { id: 'D', text: "Avoid using YAML and write batch files executed locally on developer machines." }
+      { id: 'A', text: "Define one YAML pipeline with `stages`, `jobs` and `steps`, ordered by `dependsOn`." },
+      { id: 'B', text: "Define one YAML pipeline per stage and chain them with pipeline resource triggers." },
+      { id: 'C', text: "Define one YAML pipeline with three jobs in a single stage, ordered by `dependsOn`." },
+      { id: 'D', text: "Define one classic release definition with three environments and pre-deployment conditions." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to author an enterprise CI/CD pipeline with distinct build, staging deployment, and production deployment stages governed by dependencies.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Avoid using YAML and write batch files executed locally on developer machines." },
-      { id: 'B', text: "Put all build and deployment tasks into a single monolithic script with no stages." },
-      { id: 'C', text: "Create three completely disconnected Classic release pipelines in the web UI." },
-      { id: 'D', text: "Define an Azure Pipelines YAML file using `stages`, `jobs`, and `steps` hierarchy with `dependsOn` declarations linking sequential stages." }
+      { id: 'A', text: "Define one classic release definition with three environments and pre-deployment conditions." },
+      { id: 'B', text: "Define one YAML pipeline with three jobs in a single stage, ordered by `dependsOn`." },
+      { id: 'C', text: "Define one YAML pipeline per stage and chain them with pipeline resource triggers." },
+      { id: 'D', text: "Define one YAML pipeline with `stages`, `jobs` and `steps`, ordered by `dependsOn`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Install Xcode on Windows Server agents." },
-      { id: 'B', text: "Submit the job to a random agent pool and let it fail repeatedly until it lands on a Mac." },
-      { id: 'C', text: "Manually assign jobs to specific agent IP addresses in the console." },
-      { id: 'D', text: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool." }
+      { id: 'A', text: "Set `pool: vmImage: windows-latest` on the job and install the Xcode command line tools in a step." },
+      { id: 'B', text: "Set `condition` on the job to check `Agent.OS` and let the other agents skip the job at run time." },
+      { id: 'C', text: "Set `strategy: matrix` over the agent names so the job runs once against each self-hosted agent." },
+      { id: 'D', text: "Set `demands: [xcode, macOS]` on the YAML job so it matches the capabilities of the Mac agents." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Submit the job to a random agent pool and let it fail repeatedly until it lands on a Mac." },
-      { id: 'B', text: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool." },
-      { id: 'C', text: "Manually assign jobs to specific agent IP addresses in the console." },
-      { id: 'D', text: "Install Xcode on Windows Server agents." }
+      { id: 'A', text: "Set `condition` on the job to check `Agent.OS` and let the other agents skip the job at run time." },
+      { id: 'B', text: "Set `demands: [xcode, macOS]` on the YAML job so it matches the capabilities of the Mac agents." },
+      { id: 'C', text: "Set `strategy: matrix` over the agent names so the job runs once against each self-hosted agent." },
+      { id: 'D', text: "Set `pool: vmImage: windows-latest` on the job and install the Xcode command line tools in a step." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool." },
-      { id: 'B', text: "Submit the job to a random agent pool and let it fail repeatedly until it lands on a Mac." },
-      { id: 'C', text: "Install Xcode on Windows Server agents." },
-      { id: 'D', text: "Manually assign jobs to specific agent IP addresses in the console." }
+      { id: 'A', text: "Set `demands: [xcode, macOS]` on the YAML job so it matches the capabilities of the Mac agents." },
+      { id: 'B', text: "Set `condition` on the job to check `Agent.OS` and let the other agents skip the job at run time." },
+      { id: 'C', text: "Set `pool: vmImage: windows-latest` on the job and install the Xcode command line tools in a step." },
+      { id: 'D', text: "Set `strategy: matrix` over the agent names so the job runs once against each self-hosted agent." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool." },
-      { id: 'B', text: "Submit the job to a random agent pool and let it fail repeatedly until it lands on a Mac." },
-      { id: 'C', text: "Install Xcode on Windows Server agents." },
-      { id: 'D', text: "Manually assign jobs to specific agent IP addresses in the console." }
+      { id: 'A', text: "Set `demands: [xcode, macOS]` on the YAML job so it matches the capabilities of the Mac agents." },
+      { id: 'B', text: "Set `condition` on the job to check `Agent.OS` and let the other agents skip the job at run time." },
+      { id: 'C', text: "Set `pool: vmImage: windows-latest` on the job and install the Xcode command line tools in a step." },
+      { id: 'D', text: "Set `strategy: matrix` over the agent names so the job runs once against each self-hosted agent." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool." },
-      { id: 'B', text: "Submit the job to a random agent pool and let it fail repeatedly until it lands on a Mac." },
-      { id: 'C', text: "Install Xcode on Windows Server agents." },
-      { id: 'D', text: "Manually assign jobs to specific agent IP addresses in the console." }
+      { id: 'A', text: "Set `demands: [xcode, macOS]` on the YAML job so it matches the capabilities of the Mac agents." },
+      { id: 'B', text: "Set `condition` on the job to check `Agent.OS` and let the other agents skip the job at run time." },
+      { id: 'C', text: "Set `pool: vmImage: windows-latest` on the job and install the Xcode command line tools in a step." },
+      { id: 'D', text: "Set `strategy: matrix` over the agent names so the job runs once against each self-hosted agent." }
     ],
     correctAnswers: ['A'],
     type: "single",

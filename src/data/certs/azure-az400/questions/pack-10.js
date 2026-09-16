@@ -51,10 +51,10 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "In Site Reliability Engineering (SRE) practice, what is the relationship between an SLI, an SLO, and an SLA?",
     options: [
-      { id: 'A', text: "An SLA is internal; an SLO is external" },
-      { id: 'B', text: "An SLI is a legal document" },
+      { id: 'A', text: "An SLI is the internal target, an SLO the measurement, an SLA the error budget policy" },
+      { id: 'B', text: "An SLI is the external contract, an SLO its internal target, an SLA the measurement" },
       { id: 'C', text: "An SLI is the measurement, an SLO the internal target, an SLA the external contract" },
-      { id: 'D', text: "They all describe the exact same concept" }
+      { id: 'D', text: "An SLI is the error budget, an SLO the monthly report, an SLA the customer credit" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -93,10 +93,10 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An engineer needs a Kusto Query Language (KQL) query to find the top 5 most frequent unhandled exceptions in the past 24 hours from Application Insights.",
     question: "Which KQL query accurately performs this aggregation?",
     options: [
-      { id: 'A', text: "cat exceptions.log | grep error | head -5" },
+      { id: 'A', text: "exceptions | where timestamp > ago(24h) | summarize count() by type | take 5" },
       { id: 'B', text: "exceptions | where timestamp > ago(24h) | summarize count() by type | top 5 by count_ desc" },
-      { id: 'C', text: "SELECT TOP 5 * FROM exceptions WHERE date = today" },
-      { id: 'D', text: "exceptions | where timestamp > ago(24h) | count by type" }
+      { id: 'C', text: "exceptions | where timestamp > ago(1d) | top 5 by timestamp desc | summarize count() by type" },
+      { id: 'D', text: "exceptions | where timestamp > ago(24h) | count by type | order by count_ desc | limit 5" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -240,10 +240,10 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "During a Severity 1 incident, if the primary on-call SRE does not acknowledge a PagerDuty or Opsgenie alert within 5 minutes, how should the alert system respond?",
     options: [
-      { id: 'A', text: "Notify the wider engineering channel and wait for a volunteer" },
-      { id: 'B', text: "Auto-resolve the alert and open a low-priority ticket" },
-      { id: 'C', text: "Page the same on-call engineer again after another interval" },
-      { id: 'D', text: "Automatically escalate the alert to the secondary on-call engineer and incident commander" }
+      { id: 'A', text: "Escalate automatically to the wider engineering channel and wait for a volunteer" },
+      { id: 'B', text: "Escalate automatically to a low-priority ticket and auto-resolve the original page" },
+      { id: 'C', text: "Escalate automatically by re-paging the same engineer after a second interval" },
+      { id: 'D', text: "Escalate automatically to the secondary on-call engineer and the incident commander" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,10 +387,10 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "A retail backend needs to track business KPIs (e.g. 'OrderPlaced', 'RevenueAmount') directly from C# code and correlate them with operational traces.",
     question: "Which telemetry client method records custom business events in Application Insights?",
     options: [
-      { id: 'A', text: "Console.WriteLine()" },
+      { id: 'A', text: "TelemetryClient.TrackTrace('OrderPlaced', SeverityLevel.Information)" },
       { id: 'B', text: "TelemetryClient.TrackEvent('OrderPlaced', properties, metrics)" },
-      { id: 'C', text: "Database INSERT statement" },
-      { id: 'D', text: "System.Diagnostics.Trace.WriteLine()" }
+      { id: 'C', text: "TelemetryClient.TrackRequest('OrderPlaced', start, duration, '200', true)" },
+      { id: 'D', text: "System.Diagnostics.Activity.Current?.AddTag('OrderPlaced', amount)" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -408,10 +408,10 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "When a web server virtual machine runs out of disk space (disk free < 5%), how can an Azure Monitor alert rule automatically trigger a script to clean up temporary log files without human intervention?",
     options: [
-      { id: 'A', text: "Send an email to the on-call distribution list for triage" },
-      { id: 'B', text: "Configure the Alert Action Group to invoke an Azure Automation Runbook or Azure Logic App" },
-      { id: 'C', text: "Scale the App Service plan up whenever the alert fires" },
-      { id: 'D', text: "Open a ticket for an engineer to clear the disk manually" }
+      { id: 'A', text: "Point the alert's action group at an email action for the on-call distribution list" },
+      { id: 'B', text: "Point the alert's action group at an Automation runbook or a Logic App webhook" },
+      { id: 'C', text: "Point the alert at an autoscale setting that adds an instance when disk space falls" },
+      { id: 'D', text: "Point the alert's action group at the ITSM connector so a ticket is raised instead" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,10 +492,10 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "Following a major post-incident review, the SRE team identifies 3 systemic failure points that require architectural remediation.",
     question: "How should these remediation action items be managed to guarantee they are prioritized before new features?",
     options: [
-      { id: 'A', text: "Create high-priority work items (User Stories or Tasks) in Azure Boards, tag them as 'Post-Mortem Action Items', and prioritize them into the upcoming sprint backlog" },
-      { id: 'B', text: "Store them in personal notes" },
-      { id: 'C', text: "Write them on a whiteboard in the meeting room" },
-      { id: 'D', text: "Assume the failure will not recur" }
+      { id: 'A', text: "Create work items for the fixes, tag them post-mortem, and pull them into the sprint" },
+      { id: 'B', text: "Create work items for the fixes and park them in the backlog for later grooming" },
+      { id: 'C', text: "Create one epic for the incident and let each team break it down when convenient" },
+      { id: 'D', text: "Record the fixes in the incident report and revisit them at the next review" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "What foundational principle summarizes the goal of the Microsoft Certified: DevOps Engineer Expert role?",
     options: [
-      { id: 'A', text: "DevOps is the union of people, process, and products to enable continuous delivery of value to end users" },
-      { id: 'B', text: "DevOps eliminates the need for software testing" },
-      { id: 'C', text: "DevOps is a software tool purchased from Microsoft" },
-      { id: 'D', text: "DevOps replaces human developers with automated scripts entirely" }
+      { id: 'A', text: "DevOps is the union of people, process and products enabling continuous value delivery" },
+      { id: 'B', text: "DevOps is the practice of moving testing and release work into a single operations team" },
+      { id: 'C', text: "DevOps is the set of Azure services that automate build, release and monitoring work" },
+      { id: 'D', text: "DevOps is the discipline of automating every manual step in the delivery pipeline" }
     ],
     correctAnswers: ['A'],
     type: "single",

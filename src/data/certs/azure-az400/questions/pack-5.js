@@ -177,10 +177,10 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "An organization's developers complain that pull request validation builds are stuck in the 'Waiting for an available agent' state for hours.",
     question: "Where does an administrator purchase or configure additional concurrent build pipelines?",
     options: [
-      { id: 'A', text: "In the Azure Storage account" },
-      { id: 'B', text: "Under project work items" },
-      { id: 'C', text: "Organization Settings → Pipelines → Parallel jobs" },
-      { id: 'D', text: "In the git branch policies" }
+      { id: 'A', text: "Project Settings, then Agent pools, then Capabilities" },
+      { id: 'B', text: "Organization Settings, then Billing, then Storage limits" },
+      { id: 'C', text: "Organization Settings, then Pipelines, then Parallel jobs" },
+      { id: 'D', text: "Project Settings, then Repositories, then Branch policies" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -199,7 +199,7 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     question: "A .NET build pipeline needs to restore private packages from an Azure Artifacts feed within the same organization. Which task configures the NuGet credential provider?",
     options: [
       { id: 'A', text: "NuGetToolInstaller@1" },
-      { id: 'B', text: "CopyFiles@2 moving the playbook onto each target machine" },
+      { id: 'B', text: "The `CopyFiles@2` task, which copies the playbook to each machine in the deployment group" },
       { id: 'C', text: "DotNetCoreCLI@2 with no auth" },
       { id: 'D', text: "NuGetAuthenticate@1" }
     ],
@@ -220,9 +220,9 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     question: "Which task should be added at the beginning of the job to dynamically install the required runtime version?",
     options: [
       { id: 'A', text: "UseDotNet@2 with packageType: sdk and version: '8.0.x'" },
-      { id: 'B', text: "PowerShell task rebooting the machine" },
-      { id: 'C', text: "DotNetCoreCLI@2" },
-      { id: 'D', text: "Script task running apt-get update" }
+      { id: 'B', text: "DotNetCoreCLI@2 with command: restore and a global.json" },
+      { id: 'C', text: "NuGetToolInstaller@1 with versionSpec: '8.0.x'" },
+      { id: 'D', text: "Bash@3 running `apt-get install -y dotnet-sdk-8.0`" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -264,7 +264,7 @@ export const AZURE_AZ400_QUESTIONS_5 = [
       { id: 'A', text: "AzureCLI@2 running az acr import" },
       { id: 'B', text: "Docker@2 with command: 'buildAndPush' and containerRegistry service connection" },
       { id: 'C', text: "Bash@3 executing docker cli commands manually with plaintext credentials" },
-      { id: 'D', text: "CopyFiles@2 moving the playbook onto each target machine" }
+      { id: 'D', text: "The `CopyFiles@2` task, which copies the playbook to each machine in the deployment group" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,10 +471,10 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     scenario: "An infrastructure deployment step runs Azure CLI commands to configure Cosmos DB. The security architect recommends storing the script in version control rather than inline YAML.",
     question: "Which configuration on AzureCLI@2 executes a checked-out script file?",
     options: [
-      { id: 'A', text: "scriptType: bash with inlineScript running the commands directly" },
+      { id: 'A', text: "scriptType: bash, scriptLocation: inlineScript, inlineScript: 'bash scripts/setup-db.sh'" },
       { id: 'B', text: "scriptType: bash, scriptLocation: scriptPath, scriptPath: '$(Build.SourcesDirectory)/scripts/setup-db.sh'" },
-      { id: 'C', text: "A Bash@3 task pointing at the same script path on the agent" },
-      { id: 'D', text: "scriptLocation: inlineScript, pasting the file contents into the YAML" }
+      { id: 'C', text: "scriptType: bash, scriptLocation: scriptPath, scriptPath: 'scripts/setup-db.sh', cwd: '$(Agent.TempDirectory)'" },
+      { id: 'D', text: "scriptType: pscore, scriptLocation: scriptPath, scriptPath: '$(Pipeline.Workspace)/scripts/setup-db.sh'" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -514,7 +514,7 @@ export const AZURE_AZ400_QUESTIONS_5 = [
     question: "How does an administrator grant the pipeline permission to use the agent pool?",
     options: [
       { id: 'A', text: "Make the developer an Azure subscription owner" },
-      { id: 'B', text: "Re-run the generator and diff the output directory by hand" },
+      { id: 'B', text: "Run `trivy image --severity CRITICAL myimage:tag` and publish the report as an artifact" },
       { id: 'C', text: "Authorize the pipeline on the agent pool" },
       { id: 'D', text: "Delete the agent pool" }
     ],
