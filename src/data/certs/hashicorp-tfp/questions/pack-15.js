@@ -10,7 +10,7 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Add a variable validation or a postcondition that warns when the deprecated argument is set." },
-      { id: 'B', text: "Remove the variable in the next minor release and note the change in the changelog." },
+      { id: 'B', text: "Remove the variable in the next minor release and note the change in the module's own changelog." },
       { id: 'C', text: "Keep the variable but ignore its value, so consumers migrate at their own pace." },
       { id: 'D', text: "Rename the variable and add a `moved` block so the old name still resolves." }
     ],
@@ -32,7 +32,7 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Add a variable validation or a postcondition that warns when the deprecated argument is set." },
       { id: 'B', text: "Rename the variable and add a `moved` block so the old name still resolves." },
-      { id: 'C', text: "Remove the variable in the next minor release and note the change in the changelog." },
+      { id: 'C', text: "Remove the variable in the next minor release and note the change in the module's own changelog." },
       { id: 'D', text: "Keep the variable but ignore its value, so consumers migrate at their own pace." }
     ],
     correctAnswers: ['A'],
@@ -53,7 +53,7 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Keep the variable but ignore its value, so consumers migrate at their own pace." },
       { id: 'B', text: "Add a variable validation or a postcondition that warns when the deprecated argument is set." },
-      { id: 'C', text: "Remove the variable in the next minor release and note the change in the changelog." },
+      { id: 'C', text: "Remove the variable in the next minor release and note the change in the module's own changelog." },
       { id: 'D', text: "Rename the variable and add a `moved` block so the old name still resolves." }
     ],
     correctAnswers: ['B'],
@@ -74,7 +74,7 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Rename the variable and add a `moved` block so the old name still resolves." },
       { id: 'B', text: "Keep the variable but ignore its value, so consumers migrate at their own pace." },
-      { id: 'C', text: "Remove the variable in the next minor release and note the change in the changelog." },
+      { id: 'C', text: "Remove the variable in the next minor release and note the change in the module's own changelog." },
       { id: 'D', text: "Add a variable validation or a postcondition that warns when the deprecated argument is set." }
     ],
     correctAnswers: ['D'],
@@ -94,7 +94,7 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Add a variable validation or a postcondition that warns when the deprecated argument is set." },
-      { id: 'B', text: "Remove the variable in the next minor release and note the change in the changelog." },
+      { id: 'B', text: "Remove the variable in the next minor release and note the change in the module's own changelog." },
       { id: 'C', text: "Keep the variable but ignore its value, so consumers migrate at their own pace." },
       { id: 'D', text: "Rename the variable and add a `moved` block so the old name still resolves." }
     ],
@@ -117,7 +117,7 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
       { id: 'A', text: "Keep one root module and separate the tiers with `-target` on each apply." },
       { id: 'B', text: "Split the estate into separate state boundaries for networking, data and compute." },
       { id: 'C', text: "Keep one state file per environment, holding every tier for that environment." },
-      { id: 'D', text: "Keep one root module and separate the tiers into distinct Terraform workspaces." }
+      { id: 'D', text: "Keep one root module and separate the tiers into distinct Terraform workspaces instead." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -136,7 +136,7 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
       { id: 'A', text: "Keep one state file per environment, holding every tier for that environment." },
-      { id: 'B', text: "Keep one root module and separate the tiers into distinct Terraform workspaces." },
+      { id: 'B', text: "Keep one root module and separate the tiers into distinct Terraform workspaces instead." },
       { id: 'C', text: "Keep one root module and separate the tiers with `-target` on each apply." },
       { id: 'D', text: "Split the estate into separate state boundaries for networking, data and compute." }
     ],
@@ -156,7 +156,7 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Blast Radius to prevent a minor update to an application DNS record from accidentally triggering recreation or locking on a production database cluster.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Keep one root module and separate the tiers into distinct Terraform workspaces." },
+      { id: 'A', text: "Keep one root module and separate the tiers into distinct Terraform workspaces instead." },
       { id: 'B', text: "Keep one state file per environment, holding every tier for that environment." },
       { id: 'C', text: "Split the estate into separate state boundaries for networking, data and compute." },
       { id: 'D', text: "Keep one root module and separate the tiers with `-target` on each apply." }
@@ -179,7 +179,7 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Split the estate into separate state boundaries for networking, data and compute." },
       { id: 'B', text: "Keep one root module and separate the tiers with `-target` on each apply." },
-      { id: 'C', text: "Keep one root module and separate the tiers into distinct Terraform workspaces." },
+      { id: 'C', text: "Keep one root module and separate the tiers into distinct Terraform workspaces instead." },
       { id: 'D', text: "Keep one state file per environment, holding every tier for that environment." }
     ],
     correctAnswers: ['A'],
@@ -200,7 +200,7 @@ export const HASHICORP_TFP_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Split the estate into separate state boundaries for networking, data and compute." },
       { id: 'B', text: "Keep one root module and separate the tiers with `-target` on each apply." },
-      { id: 'C', text: "Keep one root module and separate the tiers into distinct Terraform workspaces." },
+      { id: 'C', text: "Keep one root module and separate the tiers into distinct Terraform workspaces instead." },
       { id: 'D', text: "Keep one state file per environment, holding every tier for that environment." }
     ],
     correctAnswers: ['A'],

@@ -9,10 +9,10 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Module Providers to pass an aliased AWS provider configuration for `us-west-2` into a child module that provisions secondary disaster recovery resources.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Define a new `provider \"aws\"` block directly inside the child module code." },
+      { id: 'A', text: "Define a new `provider \"aws\"` block directly inside the child module's own code." },
       { id: 'B', text: "Child modules automatically detect and choose the correct cloud region." },
       { id: 'C', text: "Specify `providers = { aws = aws.west }` inside the `module` invocation block." },
-      { id: 'D', text: "Export environment variables before calling each child module." }
+      { id: 'D', text: "Export the environment variables before calling each of the child modules." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -31,9 +31,9 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
       { id: 'A', text: "Specify `providers = { aws = aws.west }` inside the `module` invocation block." },
-      { id: 'B', text: "Define a new `provider \"aws\"` block directly inside the child module code." },
+      { id: 'B', text: "Define a new `provider \"aws\"` block directly inside the child module's own code." },
       { id: 'C', text: "Child modules automatically detect and choose the correct cloud region." },
-      { id: 'D', text: "Export environment variables before calling each child module." }
+      { id: 'D', text: "Export the environment variables before calling each of the child modules." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -52,8 +52,8 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Specify `providers = { aws = aws.west }` inside the `module` invocation block." },
-      { id: 'B', text: "Export environment variables before calling each child module." },
-      { id: 'C', text: "Define a new `provider \"aws\"` block directly inside the child module code." },
+      { id: 'B', text: "Export the environment variables before calling each of the child modules." },
+      { id: 'C', text: "Define a new `provider \"aws\"` block directly inside the child module's own code." },
       { id: 'D', text: "Child modules automatically detect and choose the correct cloud region." }
     ],
     correctAnswers: ['A'],
@@ -73,8 +73,8 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Child modules automatically detect and choose the correct cloud region." },
-      { id: 'B', text: "Define a new `provider \"aws\"` block directly inside the child module code." },
-      { id: 'C', text: "Export environment variables before calling each child module." },
+      { id: 'B', text: "Define a new `provider \"aws\"` block directly inside the child module's own code." },
+      { id: 'C', text: "Export the environment variables before calling each of the child modules." },
       { id: 'D', text: "Specify `providers = { aws = aws.west }` inside the `module` invocation block." }
     ],
     correctAnswers: ['D'],
@@ -94,9 +94,9 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Specify `providers = { aws = aws.west }` inside the `module` invocation block." },
-      { id: 'B', text: "Define a new `provider \"aws\"` block directly inside the child module code." },
+      { id: 'B', text: "Define a new `provider \"aws\"` block directly inside the child module's own code." },
       { id: 'C', text: "Child modules automatically detect and choose the correct cloud region." },
-      { id: 'D', text: "Export environment variables before calling each child module." }
+      { id: 'D', text: "Export the environment variables before calling each of the child modules." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -220,7 +220,7 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Add a `check` block to the module so the assertions run on every plan and apply." },
-      { id: 'B', text: "Add a policy set in HCP Terraform that evaluates the plan against the same rules." },
+      { id: 'B', text: "Add a policy set in HCP Terraform that evaluates every plan against these same rules before apply." },
       { id: 'C', text: "Add a pipeline step that runs `terraform plan -json` and asserts on the output." },
       { id: 'D', text: "Add a `tests/*.tftest.hcl` file with `run` blocks at `command = plan` and `assert` conditions." }
     ],
@@ -241,7 +241,7 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
       { id: 'A', text: "Add a `tests/*.tftest.hcl` file with `run` blocks at `command = plan` and `assert` conditions." },
-      { id: 'B', text: "Add a policy set in HCP Terraform that evaluates the plan against the same rules." },
+      { id: 'B', text: "Add a policy set in HCP Terraform that evaluates every plan against these same rules before apply." },
       { id: 'C', text: "Add a `check` block to the module so the assertions run on every plan and apply." },
       { id: 'D', text: "Add a pipeline step that runs `terraform plan -json` and asserts on the output." }
     ],
@@ -263,7 +263,7 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Add a `check` block to the module so the assertions run on every plan and apply." },
       { id: 'B', text: "Add a `tests/*.tftest.hcl` file with `run` blocks at `command = plan` and `assert` conditions." },
-      { id: 'C', text: "Add a policy set in HCP Terraform that evaluates the plan against the same rules." },
+      { id: 'C', text: "Add a policy set in HCP Terraform that evaluates every plan against these same rules before apply." },
       { id: 'D', text: "Add a pipeline step that runs `terraform plan -json` and asserts on the output." }
     ],
     correctAnswers: ['B'],
@@ -282,7 +282,7 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Native Testing to validate that a reusable Terraform module correctly calculates CIDR subnets and sets resource tags without deploying real cloud resources.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Add a policy set in HCP Terraform that evaluates the plan against the same rules." },
+      { id: 'A', text: "Add a policy set in HCP Terraform that evaluates every plan against these same rules before apply." },
       { id: 'B', text: "Add a `check` block to the module so the assertions run on every plan and apply." },
       { id: 'C', text: "Add a `tests/*.tftest.hcl` file with `run` blocks at `command = plan` and `assert` conditions." },
       { id: 'D', text: "Add a pipeline step that runs `terraform plan -json` and asserts on the output." }
@@ -304,7 +304,7 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Add a `tests/*.tftest.hcl` file with `run` blocks at `command = plan` and `assert` conditions." },
-      { id: 'B', text: "Add a policy set in HCP Terraform that evaluates the plan against the same rules." },
+      { id: 'B', text: "Add a policy set in HCP Terraform that evaluates every plan against these same rules before apply." },
       { id: 'C', text: "Add a `check` block to the module so the assertions run on every plan and apply." },
       { id: 'D', text: "Add a pipeline step that runs `terraform plan -json` and asserts on the output." }
     ],
@@ -324,7 +324,7 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Mock Testing to run fast, cost-free automated unit tests for a Terraform module in a pull request CI pipeline without granting AWS credentials.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Use a read-only cloud credential in CI so the plan runs but nothing can be created." },
+      { id: 'A', text: "Use a read-only cloud credential in CI so the plan runs but nothing at all can be created." },
       { id: 'B', text: "Use `mock_provider \"aws\" {}` blocks in the `.tftest.hcl` files so no API call is made." },
       { id: 'C', text: "Use a local provider such as `null` in place of the cloud one for the test runs." },
       { id: 'D', text: "Use `command = plan` in the test runs, which never contacts the cloud provider." }
@@ -346,7 +346,7 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
       { id: 'A', text: "Use `mock_provider \"aws\" {}` blocks in the `.tftest.hcl` files so no API call is made." },
-      { id: 'B', text: "Use a read-only cloud credential in CI so the plan runs but nothing can be created." },
+      { id: 'B', text: "Use a read-only cloud credential in CI so the plan runs but nothing at all can be created." },
       { id: 'C', text: "Use `command = plan` in the test runs, which never contacts the cloud provider." },
       { id: 'D', text: "Use a local provider such as `null` in place of the cloud one for the test runs." }
     ],
@@ -369,7 +369,7 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
       { id: 'A', text: "Use a local provider such as `null` in place of the cloud one for the test runs." },
       { id: 'B', text: "Use `mock_provider \"aws\" {}` blocks in the `.tftest.hcl` files so no API call is made." },
       { id: 'C', text: "Use `command = plan` in the test runs, which never contacts the cloud provider." },
-      { id: 'D', text: "Use a read-only cloud credential in CI so the plan runs but nothing can be created." }
+      { id: 'D', text: "Use a read-only cloud credential in CI so the plan runs but nothing at all can be created." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -388,7 +388,7 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Use `mock_provider \"aws\" {}` blocks in the `.tftest.hcl` files so no API call is made." },
-      { id: 'B', text: "Use a read-only cloud credential in CI so the plan runs but nothing can be created." },
+      { id: 'B', text: "Use a read-only cloud credential in CI so the plan runs but nothing at all can be created." },
       { id: 'C', text: "Use `command = plan` in the test runs, which never contacts the cloud provider." },
       { id: 'D', text: "Use a local provider such as `null` in place of the cloud one for the test runs." }
     ],
@@ -408,7 +408,7 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Mock Testing to run fast, cost-free automated unit tests for a Terraform module in a pull request CI pipeline without granting AWS credentials.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Use a read-only cloud credential in CI so the plan runs but nothing can be created." },
+      { id: 'A', text: "Use a read-only cloud credential in CI so the plan runs but nothing at all can be created." },
       { id: 'B', text: "Use `mock_provider \"aws\" {}` blocks in the `.tftest.hcl` files so no API call is made." },
       { id: 'C', text: "Use a local provider such as `null` in place of the cloud one for the test runs." },
       { id: 'D', text: "Use `command = plan` in the test runs, which never contacts the cloud provider." }
