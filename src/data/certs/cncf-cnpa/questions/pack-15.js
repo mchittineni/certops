@@ -9,12 +9,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to enable application software engineers to focus on delivering business features rather than troubleshooting infrastructure plumbing.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
-      { id: 'A', text: "Introduce multiple redundant manual approval gates before developers can view test log files." },
-      { id: 'B', text: "Optimize Developer Experience (DevEx) by abstracting extraneous infrastructure cognitive load and providing intuitive self-service interfaces." },
-      { id: 'C', text: "Treat developer cognitive load as a non-issue that engineers should overcome individually." },
-      { id: 'D', text: "Force application engineers to manage physical data center racking and BGP routing protocols." }
+      { id: 'A', text: "Treat developer cognitive load as a non-issue that engineers should overcome individually." },
+      { id: 'B', text: "Introduce multiple redundant manual approval gates before developers can view test log files." },
+      { id: 'C', text: "Force application engineers to manage physical data center racking and BGP routing protocols." },
+      { id: 'D', text: "Optimize Developer Experience (DevEx) by abstracting extraneous infrastructure cognitive load and providing intuitive self-service interfaces." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Optimize Developer Experience (DevEx) by abstracting extraneous infrastructure cognitive load and providing intuitive self-service interfaces. A core tenet of platform engineering is optimizing DevEx by minimizing extraneous cognitive load. By providing curated abstractions and self-healing defaults, platforms allow developers to remain in a productive flow state delivering product features.",
     referenceUrl: "https://www.cncf.io/reports/cloud-native-platform-engineering-whitepaper/",
@@ -30,12 +30,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to enable application software engineers to focus on delivering business features rather than troubleshooting infrastructure plumbing.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
-      { id: 'A', text: "Treat developer cognitive load as a non-issue that engineers should overcome individually." },
-      { id: 'B', text: "Introduce multiple redundant manual approval gates before developers can view test log files." },
-      { id: 'C', text: "Optimize Developer Experience (DevEx) by abstracting extraneous infrastructure cognitive load and providing intuitive self-service interfaces." },
-      { id: 'D', text: "Force application engineers to manage physical data center racking and BGP routing protocols." }
+      { id: 'A', text: "Force application engineers to manage physical data center racking and BGP routing protocols." },
+      { id: 'B', text: "Optimize Developer Experience (DevEx) by abstracting extraneous infrastructure cognitive load and providing intuitive self-service interfaces." },
+      { id: 'C', text: "Treat developer cognitive load as a non-issue that engineers should overcome individually." },
+      { id: 'D', text: "Introduce multiple redundant manual approval gates before developers can view test log files." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Optimize Developer Experience (DevEx) by abstracting extraneous infrastructure cognitive load and providing intuitive self-service interfaces. A core tenet of platform engineering is optimizing DevEx by minimizing extraneous cognitive load. By providing curated abstractions and self-healing defaults, platforms allow developers to remain in a productive flow state delivering product features.",
     referenceUrl: "https://www.cncf.io/reports/cloud-native-platform-engineering-whitepaper/",
@@ -51,12 +51,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to enable application software engineers to focus on delivering business features rather than troubleshooting infrastructure plumbing.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
-      { id: 'A', text: "Introduce multiple redundant manual approval gates before developers can view test log files." },
+      { id: 'A', text: "Optimize Developer Experience (DevEx) by abstracting extraneous infrastructure cognitive load and providing intuitive self-service interfaces." },
       { id: 'B', text: "Force application engineers to manage physical data center racking and BGP routing protocols." },
-      { id: 'C', text: "Optimize Developer Experience (DevEx) by abstracting extraneous infrastructure cognitive load and providing intuitive self-service interfaces." },
+      { id: 'C', text: "Introduce multiple redundant manual approval gates before developers can view test log files." },
       { id: 'D', text: "Treat developer cognitive load as a non-issue that engineers should overcome individually." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Optimize Developer Experience (DevEx) by abstracting extraneous infrastructure cognitive load and providing intuitive self-service interfaces. A core tenet of platform engineering is optimizing DevEx by minimizing extraneous cognitive load. By providing curated abstractions and self-healing defaults, platforms allow developers to remain in a productive flow state delivering product features.",
     referenceUrl: "https://www.cncf.io/reports/cloud-native-platform-engineering-whitepaper/",
@@ -72,12 +72,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to enable application software engineers to focus on delivering business features rather than troubleshooting infrastructure plumbing.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Treat developer cognitive load as a non-issue that engineers should overcome individually." },
+      { id: 'A', text: "Introduce multiple redundant manual approval gates before developers can view test log files." },
       { id: 'B', text: "Force application engineers to manage physical data center racking and BGP routing protocols." },
-      { id: 'C', text: "Optimize Developer Experience (DevEx) by abstracting extraneous infrastructure cognitive load and providing intuitive self-service interfaces." },
-      { id: 'D', text: "Introduce multiple redundant manual approval gates before developers can view test log files." }
+      { id: 'C', text: "Treat developer cognitive load as a non-issue that engineers should overcome individually." },
+      { id: 'D', text: "Optimize Developer Experience (DevEx) by abstracting extraneous infrastructure cognitive load and providing intuitive self-service interfaces." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Optimize Developer Experience (DevEx) by abstracting extraneous infrastructure cognitive load and providing intuitive self-service interfaces. A core tenet of platform engineering is optimizing DevEx by minimizing extraneous cognitive load. By providing curated abstractions and self-healing defaults, platforms allow developers to remain in a productive flow state delivering product features.",
     referenceUrl: "https://www.cncf.io/reports/cloud-native-platform-engineering-whitepaper/",
@@ -93,12 +93,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to enable application software engineers to focus on delivering business features rather than troubleshooting infrastructure plumbing.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
-      { id: 'A', text: "Force application engineers to manage physical data center racking and BGP routing protocols." },
-      { id: 'B', text: "Optimize Developer Experience (DevEx) by abstracting extraneous infrastructure cognitive load and providing intuitive self-service interfaces." },
-      { id: 'C', text: "Treat developer cognitive load as a non-issue that engineers should overcome individually." },
-      { id: 'D', text: "Introduce multiple redundant manual approval gates before developers can view test log files." }
+      { id: 'A', text: "Optimize Developer Experience (DevEx) by abstracting extraneous infrastructure cognitive load and providing intuitive self-service interfaces." },
+      { id: 'B', text: "Force application engineers to manage physical data center racking and BGP routing protocols." },
+      { id: 'C', text: "Introduce multiple redundant manual approval gates before developers can view test log files." },
+      { id: 'D', text: "Treat developer cognitive load as a non-issue that engineers should overcome individually." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Optimize Developer Experience (DevEx) by abstracting extraneous infrastructure cognitive load and providing intuitive self-service interfaces. A core tenet of platform engineering is optimizing DevEx by minimizing extraneous cognitive load. By providing curated abstractions and self-healing defaults, platforms allow developers to remain in a productive flow state delivering product features.",
     referenceUrl: "https://www.cncf.io/reports/cloud-native-platform-engineering-whitepaper/",
@@ -114,12 +114,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to ensure developers automatically receive appropriate portal access and cluster namespaces based on their corporate team membership.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
-      { id: 'A', text: "Disable multi-factor authentication to simplify login forms." },
-      { id: 'B', text: "Federate the developer portal with corporate SSO (Okta, Azure AD) and map group claims to portal roles and namespace permissions." },
+      { id: 'A', text: "Create static local passwords on every individual server with no centralized identity federation." },
+      { id: 'B', text: "Disable multi-factor authentication to simplify login forms." },
       { id: 'C', text: "Allow all internal employees unrestricted administrative access to all production databases." },
-      { id: 'D', text: "Create static local passwords on every individual server with no centralized identity federation." }
+      { id: 'D', text: "Federate the developer portal with corporate SSO (Okta, Azure AD) and map group claims to portal roles and namespace permissions." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Federate the developer portal with corporate SSO (Okta, Azure AD) and map group claims to portal roles and namespace permissions. Enterprise developer platforms integrate with corporate Identity Providers (IdPs) via OIDC/SAML. Portal RBAC maps directory group memberships to platform roles, automatically provisioning namespace access, template permissions, and cloud roles upon login.",
     referenceUrl: "https://backstage.io/docs/auth/",
@@ -135,12 +135,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to ensure developers automatically receive appropriate portal access and cluster namespaces based on their corporate team membership.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
-      { id: 'A', text: "Allow all internal employees unrestricted administrative access to all production databases." },
-      { id: 'B', text: "Disable multi-factor authentication to simplify login forms." },
-      { id: 'C', text: "Create static local passwords on every individual server with no centralized identity federation." },
-      { id: 'D', text: "Federate the developer portal with corporate SSO (Okta, Azure AD) and map group claims to portal roles and namespace permissions." }
+      { id: 'A', text: "Create static local passwords on every individual server with no centralized identity federation." },
+      { id: 'B', text: "Federate the developer portal with corporate SSO (Okta, Azure AD) and map group claims to portal roles and namespace permissions." },
+      { id: 'C', text: "Disable multi-factor authentication to simplify login forms." },
+      { id: 'D', text: "Allow all internal employees unrestricted administrative access to all production databases." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Federate the developer portal with corporate SSO (Okta, Azure AD) and map group claims to portal roles and namespace permissions. Enterprise developer platforms integrate with corporate Identity Providers (IdPs) via OIDC/SAML. Portal RBAC maps directory group memberships to platform roles, automatically provisioning namespace access, template permissions, and cloud roles upon login.",
     referenceUrl: "https://backstage.io/docs/auth/",
@@ -156,12 +156,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to ensure developers automatically receive appropriate portal access and cluster namespaces based on their corporate team membership.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
-      { id: 'A', text: "Disable multi-factor authentication to simplify login forms." },
+      { id: 'A', text: "Allow all internal employees unrestricted administrative access to all production databases." },
       { id: 'B', text: "Create static local passwords on every individual server with no centralized identity federation." },
-      { id: 'C', text: "Federate the developer portal with corporate SSO (Okta, Azure AD) and map group claims to portal roles and namespace permissions." },
-      { id: 'D', text: "Allow all internal employees unrestricted administrative access to all production databases." }
+      { id: 'C', text: "Disable multi-factor authentication to simplify login forms." },
+      { id: 'D', text: "Federate the developer portal with corporate SSO (Okta, Azure AD) and map group claims to portal roles and namespace permissions." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Federate the developer portal with corporate SSO (Okta, Azure AD) and map group claims to portal roles and namespace permissions. Enterprise developer platforms integrate with corporate Identity Providers (IdPs) via OIDC/SAML. Portal RBAC maps directory group memberships to platform roles, automatically provisioning namespace access, template permissions, and cloud roles upon login.",
     referenceUrl: "https://backstage.io/docs/auth/",
@@ -177,12 +177,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to ensure developers automatically receive appropriate portal access and cluster namespaces based on their corporate team membership.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Create static local passwords on every individual server with no centralized identity federation." },
-      { id: 'B', text: "Allow all internal employees unrestricted administrative access to all production databases." },
-      { id: 'C', text: "Federate the developer portal with corporate SSO (Okta, Azure AD) and map group claims to portal roles and namespace permissions." },
+      { id: 'A', text: "Allow all internal employees unrestricted administrative access to all production databases." },
+      { id: 'B', text: "Federate the developer portal with corporate SSO (Okta, Azure AD) and map group claims to portal roles and namespace permissions." },
+      { id: 'C', text: "Create static local passwords on every individual server with no centralized identity federation." },
       { id: 'D', text: "Disable multi-factor authentication to simplify login forms." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Federate the developer portal with corporate SSO (Okta, Azure AD) and map group claims to portal roles and namespace permissions. Enterprise developer platforms integrate with corporate Identity Providers (IdPs) via OIDC/SAML. Portal RBAC maps directory group memberships to platform roles, automatically provisioning namespace access, template permissions, and cloud roles upon login.",
     referenceUrl: "https://backstage.io/docs/auth/",
@@ -198,12 +198,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to ensure developers automatically receive appropriate portal access and cluster namespaces based on their corporate team membership.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
-      { id: 'A', text: "Create static local passwords on every individual server with no centralized identity federation." },
-      { id: 'B', text: "Federate the developer portal with corporate SSO (Okta, Azure AD) and map group claims to portal roles and namespace permissions." },
-      { id: 'C', text: "Disable multi-factor authentication to simplify login forms." },
-      { id: 'D', text: "Allow all internal employees unrestricted administrative access to all production databases." }
+      { id: 'A', text: "Federate the developer portal with corporate SSO (Okta, Azure AD) and map group claims to portal roles and namespace permissions." },
+      { id: 'B', text: "Create static local passwords on every individual server with no centralized identity federation." },
+      { id: 'C', text: "Allow all internal employees unrestricted administrative access to all production databases." },
+      { id: 'D', text: "Disable multi-factor authentication to simplify login forms." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Federate the developer portal with corporate SSO (Okta, Azure AD) and map group claims to portal roles and namespace permissions. Enterprise developer platforms integrate with corporate Identity Providers (IdPs) via OIDC/SAML. Portal RBAC maps directory group memberships to platform roles, automatically provisioning namespace access, template permissions, and cloud roles upon login.",
     referenceUrl: "https://backstage.io/docs/auth/",
@@ -219,12 +219,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to manage base application manifests across multiple deployment environments (dev, staging, prod) without duplication.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
-      { id: 'A', text: "Manually edit production YAML files using terminal text editors during active deployments." },
-      { id: 'B', text: "Combine Helm for packaging third-party platform components with Kustomize overlays for patching environment-specific application manifests." },
-      { id: 'C', text: "Maintain completely separate, unlinked copies of raw Kubernetes YAML files for every single environment." },
+      { id: 'A', text: "Maintain completely separate, unlinked copies of raw Kubernetes YAML files for every single environment." },
+      { id: 'B', text: "Manually edit production YAML files using terminal text editors during active deployments." },
+      { id: 'C', text: "Combine Helm for packaging third-party platform components with Kustomize overlays for patching environment-specific application manifests." },
       { id: 'D', text: "Prohibit configuration parameterization across deployment environments." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Combine Helm for packaging third-party platform components with Kustomize overlays for patching environment-specific application manifests. Cloud-native platforms leverage Helm for packaging reusable parameterized applications and Kustomize for overlay-based declarative patching without templates. Combining both allows platform teams to maintain clean base manifests patched for each environment.",
     referenceUrl: "https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/",
@@ -240,12 +240,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to manage base application manifests across multiple deployment environments (dev, staging, prod) without duplication.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
-      { id: 'A', text: "Maintain completely separate, unlinked copies of raw Kubernetes YAML files for every single environment." },
-      { id: 'B', text: "Prohibit configuration parameterization across deployment environments." },
+      { id: 'A', text: "Prohibit configuration parameterization across deployment environments." },
+      { id: 'B', text: "Combine Helm for packaging third-party platform components with Kustomize overlays for patching environment-specific application manifests." },
       { id: 'C', text: "Manually edit production YAML files using terminal text editors during active deployments." },
-      { id: 'D', text: "Combine Helm for packaging third-party platform components with Kustomize overlays for patching environment-specific application manifests." }
+      { id: 'D', text: "Maintain completely separate, unlinked copies of raw Kubernetes YAML files for every single environment." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Combine Helm for packaging third-party platform components with Kustomize overlays for patching environment-specific application manifests. Cloud-native platforms leverage Helm for packaging reusable parameterized applications and Kustomize for overlay-based declarative patching without templates. Combining both allows platform teams to maintain clean base manifests patched for each environment.",
     referenceUrl: "https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/",
@@ -282,12 +282,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to manage base application manifests across multiple deployment environments (dev, staging, prod) without duplication.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Prohibit configuration parameterization across deployment environments." },
+      { id: 'A', text: "Combine Helm for packaging third-party platform components with Kustomize overlays for patching environment-specific application manifests." },
       { id: 'B', text: "Maintain completely separate, unlinked copies of raw Kubernetes YAML files for every single environment." },
       { id: 'C', text: "Manually edit production YAML files using terminal text editors during active deployments." },
-      { id: 'D', text: "Combine Helm for packaging third-party platform components with Kustomize overlays for patching environment-specific application manifests." }
+      { id: 'D', text: "Prohibit configuration parameterization across deployment environments." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Combine Helm for packaging third-party platform components with Kustomize overlays for patching environment-specific application manifests. Cloud-native platforms leverage Helm for packaging reusable parameterized applications and Kustomize for overlay-based declarative patching without templates. Combining both allows platform teams to maintain clean base manifests patched for each environment.",
     referenceUrl: "https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/",
@@ -303,12 +303,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to manage base application manifests across multiple deployment environments (dev, staging, prod) without duplication.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
-      { id: 'A', text: "Maintain completely separate, unlinked copies of raw Kubernetes YAML files for every single environment." },
-      { id: 'B', text: "Combine Helm for packaging third-party platform components with Kustomize overlays for patching environment-specific application manifests." },
-      { id: 'C', text: "Prohibit configuration parameterization across deployment environments." },
-      { id: 'D', text: "Manually edit production YAML files using terminal text editors during active deployments." }
+      { id: 'A', text: "Combine Helm for packaging third-party platform components with Kustomize overlays for patching environment-specific application manifests." },
+      { id: 'B', text: "Maintain completely separate, unlinked copies of raw Kubernetes YAML files for every single environment." },
+      { id: 'C', text: "Manually edit production YAML files using terminal text editors during active deployments." },
+      { id: 'D', text: "Prohibit configuration parameterization across deployment environments." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Combine Helm for packaging third-party platform components with Kustomize overlays for patching environment-specific application manifests. Cloud-native platforms leverage Helm for packaging reusable parameterized applications and Kustomize for overlay-based declarative patching without templates. Combining both allows platform teams to maintain clean base manifests patched for each environment.",
     referenceUrl: "https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/",
@@ -324,12 +324,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to enable a newly hired software engineer to run and test their team's microservices locally on day one without manual setup.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
-      { id: 'A', text: "Prohibit new engineers from accessing code repositories during their probationary period." },
-      { id: 'B', text: "Require new hires to spend their first month configuring operating system environment variables." },
-      { id: 'C', text: "Provide pre-configured Dev Containers or cloud development environments (e.g., Gitpod, GitHub Codespaces) with all dependencies pre-installed." },
-      { id: 'D', text: "Hand the new engineer a 40-page outdated wiki guide instructing them to install 20 incompatible CLI binaries manually." }
+      { id: 'A', text: "Hand the new engineer a 40-page outdated wiki guide instructing them to install 20 incompatible CLI binaries manually." },
+      { id: 'B', text: "Provide pre-configured Dev Containers or cloud development environments (e.g., Gitpod, GitHub Codespaces) with all dependencies pre-installed." },
+      { id: 'C', text: "Prohibit new engineers from accessing code repositories during their probationary period." },
+      { id: 'D', text: "Require new hires to spend their first month configuring operating system environment variables." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Provide pre-configured Dev Containers or cloud development environments (e.g., Gitpod, GitHub Codespaces) with all dependencies pre-installed. Platform engineering measures onboarding efficiency through 'Time to First Commit'. By leveraging Development Containers (Dev Containers) or cloud-hosted workspaces, new developers launch fully configured, reproducible development environments with one click.",
     referenceUrl: "https://containers.dev/",
@@ -345,12 +345,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "A large cloud-native organization coordinates hundreds of development teams deploying thousands of microservices daily across distributed multi-cluster fleets. The platform engineer needs to enable a newly hired software engineer to run and test their team's microservices locally on day one without manual setup.",
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
-      { id: 'A', text: "Hand the new engineer a 40-page outdated wiki guide instructing them to install 20 incompatible CLI binaries manually." },
-      { id: 'B', text: "Require new hires to spend their first month configuring operating system environment variables." },
-      { id: 'C', text: "Prohibit new engineers from accessing code repositories during their probationary period." },
-      { id: 'D', text: "Provide pre-configured Dev Containers or cloud development environments (e.g., Gitpod, GitHub Codespaces) with all dependencies pre-installed." }
+      { id: 'A', text: "Require new hires to spend their first month configuring operating system environment variables." },
+      { id: 'B', text: "Prohibit new engineers from accessing code repositories during their probationary period." },
+      { id: 'C', text: "Provide pre-configured Dev Containers or cloud development environments (e.g., Gitpod, GitHub Codespaces) with all dependencies pre-installed." },
+      { id: 'D', text: "Hand the new engineer a 40-page outdated wiki guide instructing them to install 20 incompatible CLI binaries manually." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Provide pre-configured Dev Containers or cloud development environments (e.g., Gitpod, GitHub Codespaces) with all dependencies pre-installed. Platform engineering measures onboarding efficiency through 'Time to First Commit'. By leveraging Development Containers (Dev Containers) or cloud-hosted workspaces, new developers launch fully configured, reproducible development environments with one click.",
     referenceUrl: "https://containers.dev/",
@@ -366,12 +366,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to enable a newly hired software engineer to run and test their team's microservices locally on day one without manual setup.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
-      { id: 'A', text: "Hand the new engineer a 40-page outdated wiki guide instructing them to install 20 incompatible CLI binaries manually." },
-      { id: 'B', text: "Require new hires to spend their first month configuring operating system environment variables." },
-      { id: 'C', text: "Provide pre-configured Dev Containers or cloud development environments (e.g., Gitpod, GitHub Codespaces) with all dependencies pre-installed." },
+      { id: 'A', text: "Require new hires to spend their first month configuring operating system environment variables." },
+      { id: 'B', text: "Provide pre-configured Dev Containers or cloud development environments (e.g., Gitpod, GitHub Codespaces) with all dependencies pre-installed." },
+      { id: 'C', text: "Hand the new engineer a 40-page outdated wiki guide instructing them to install 20 incompatible CLI binaries manually." },
       { id: 'D', text: "Prohibit new engineers from accessing code repositories during their probationary period." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Provide pre-configured Dev Containers or cloud development environments (e.g., Gitpod, GitHub Codespaces) with all dependencies pre-installed. Platform engineering measures onboarding efficiency through 'Time to First Commit'. By leveraging Development Containers (Dev Containers) or cloud-hosted workspaces, new developers launch fully configured, reproducible development environments with one click.",
     referenceUrl: "https://containers.dev/",
@@ -387,12 +387,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to enable a newly hired software engineer to run and test their team's microservices locally on day one without manual setup.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Require new hires to spend their first month configuring operating system environment variables." },
-      { id: 'B', text: "Prohibit new engineers from accessing code repositories during their probationary period." },
-      { id: 'C', text: "Hand the new engineer a 40-page outdated wiki guide instructing them to install 20 incompatible CLI binaries manually." },
-      { id: 'D', text: "Provide pre-configured Dev Containers or cloud development environments (e.g., Gitpod, GitHub Codespaces) with all dependencies pre-installed." }
+      { id: 'A', text: "Hand the new engineer a 40-page outdated wiki guide instructing them to install 20 incompatible CLI binaries manually." },
+      { id: 'B', text: "Provide pre-configured Dev Containers or cloud development environments (e.g., Gitpod, GitHub Codespaces) with all dependencies pre-installed." },
+      { id: 'C', text: "Prohibit new engineers from accessing code repositories during their probationary period." },
+      { id: 'D', text: "Require new hires to spend their first month configuring operating system environment variables." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Provide pre-configured Dev Containers or cloud development environments (e.g., Gitpod, GitHub Codespaces) with all dependencies pre-installed. Platform engineering measures onboarding efficiency through 'Time to First Commit'. By leveraging Development Containers (Dev Containers) or cloud-hosted workspaces, new developers launch fully configured, reproducible development environments with one click.",
     referenceUrl: "https://containers.dev/",
@@ -408,12 +408,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to enable a newly hired software engineer to run and test their team's microservices locally on day one without manual setup.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
-      { id: 'A', text: "Prohibit new engineers from accessing code repositories during their probationary period." },
+      { id: 'A', text: "Require new hires to spend their first month configuring operating system environment variables." },
       { id: 'B', text: "Hand the new engineer a 40-page outdated wiki guide instructing them to install 20 incompatible CLI binaries manually." },
-      { id: 'C', text: "Provide pre-configured Dev Containers or cloud development environments (e.g., Gitpod, GitHub Codespaces) with all dependencies pre-installed." },
-      { id: 'D', text: "Require new hires to spend their first month configuring operating system environment variables." }
+      { id: 'C', text: "Prohibit new engineers from accessing code repositories during their probationary period." },
+      { id: 'D', text: "Provide pre-configured Dev Containers or cloud development environments (e.g., Gitpod, GitHub Codespaces) with all dependencies pre-installed." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Provide pre-configured Dev Containers or cloud development environments (e.g., Gitpod, GitHub Codespaces) with all dependencies pre-installed. Platform engineering measures onboarding efficiency through 'Time to First Commit'. By leveraging Development Containers (Dev Containers) or cloud-hosted workspaces, new developers launch fully configured, reproducible development environments with one click.",
     referenceUrl: "https://containers.dev/",
@@ -429,12 +429,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "An enterprise platform engineering team is architecting an internal developer platform (IDP) to standardize infrastructure substrates, self-service portals, and delivery workflows across hybrid clouds. The platform engineer needs to guarantee that internal platform services (CI/CD runners, cluster APIs, registries) meet agreed reliability standards for engineering teams.",
     question: "Which architectural approach or platform engineering practice satisfies these enterprise IDP objectives?",
     options: [
-      { id: 'A', text: "Refuse to monitor internal deployment pipeline failures." },
-      { id: 'B', text: "Blame application developers whenever internal platform infrastructure crashes." },
-      { id: 'C', text: "Establish formal Service Level Objectives (SLOs) and error budgets for platform capabilities, measuring availability and pipeline runtimes." },
-      { id: 'D', text: "Ignore internal platform outages as long as customer-facing websites remain online." }
+      { id: 'A', text: "Establish formal Service Level Objectives (SLOs) and error budgets for platform capabilities, measuring availability and pipeline runtimes." },
+      { id: 'B', text: "Ignore internal platform outages as long as customer-facing websites remain online." },
+      { id: 'C', text: "Refuse to monitor internal deployment pipeline failures." },
+      { id: 'D', text: "Blame application developers whenever internal platform infrastructure crashes." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Establish formal Service Level Objectives (SLOs) and error budgets for platform capabilities, measuring availability and pipeline runtimes. A high-performing platform team establishes Service Level Objectives (SLOs) for platform services (e.g., 99.9% CI runner availability, &lt;5 min deployment time). These metrics ensure the platform remains reliable and accountable to its internal engineering customers.",
     referenceUrl: "https://sre.google/sre-book/service-level-objectives/",
@@ -451,9 +451,9 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     question: "Which platform substrate pattern or workflow automation handles this delivery scale effectively while preventing infrastructure bottlenecks?",
     options: [
       { id: 'A', text: "Establish formal Service Level Objectives (SLOs) and error budgets for platform capabilities, measuring availability and pipeline runtimes." },
-      { id: 'B', text: "Refuse to monitor internal deployment pipeline failures." },
-      { id: 'C', text: "Blame application developers whenever internal platform infrastructure crashes." },
-      { id: 'D', text: "Ignore internal platform outages as long as customer-facing websites remain online." }
+      { id: 'B', text: "Blame application developers whenever internal platform infrastructure crashes." },
+      { id: 'C', text: "Ignore internal platform outages as long as customer-facing websites remain online." },
+      { id: 'D', text: "Refuse to monitor internal deployment pipeline failures." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,12 +471,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "A platform security and compliance auditor requires cryptographic supply chain verification, policy-as-code admission control, and continuous audit trails. The platform engineer needs to guarantee that internal platform services (CI/CD runners, cluster APIs, registries) meet agreed reliability standards for engineering teams.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory governance controls?",
     options: [
-      { id: 'A', text: "Blame application developers whenever internal platform infrastructure crashes." },
-      { id: 'B', text: "Refuse to monitor internal deployment pipeline failures." },
-      { id: 'C', text: "Establish formal Service Level Objectives (SLOs) and error budgets for platform capabilities, measuring availability and pipeline runtimes." },
-      { id: 'D', text: "Ignore internal platform outages as long as customer-facing websites remain online." }
+      { id: 'A', text: "Ignore internal platform outages as long as customer-facing websites remain online." },
+      { id: 'B', text: "Establish formal Service Level Objectives (SLOs) and error budgets for platform capabilities, measuring availability and pipeline runtimes." },
+      { id: 'C', text: "Blame application developers whenever internal platform infrastructure crashes." },
+      { id: 'D', text: "Refuse to monitor internal deployment pipeline failures." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Establish formal Service Level Objectives (SLOs) and error budgets for platform capabilities, measuring availability and pipeline runtimes. A high-performing platform team establishes Service Level Objectives (SLOs) for platform services (e.g., 99.9% CI runner availability, &lt;5 min deployment time). These metrics ensure the platform remains reliable and accountable to its internal engineering customers.",
     referenceUrl: "https://sre.google/sre-book/service-level-objectives/",
@@ -492,12 +492,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "A platform team is establishing Golden Path starter kits, dev containers, and automated self-service capabilities to minimize developer cognitive load and eliminate ticket-based operations. The platform engineer needs to guarantee that internal platform services (CI/CD runners, cluster APIs, registries) meet agreed reliability standards for engineering teams.",
     question: "Which platform feature or DevEx practice empowers application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Blame application developers whenever internal platform infrastructure crashes." },
-      { id: 'B', text: "Refuse to monitor internal deployment pipeline failures." },
-      { id: 'C', text: "Ignore internal platform outages as long as customer-facing websites remain online." },
-      { id: 'D', text: "Establish formal Service Level Objectives (SLOs) and error budgets for platform capabilities, measuring availability and pipeline runtimes." }
+      { id: 'A', text: "Establish formal Service Level Objectives (SLOs) and error budgets for platform capabilities, measuring availability and pipeline runtimes." },
+      { id: 'B', text: "Ignore internal platform outages as long as customer-facing websites remain online." },
+      { id: 'C', text: "Refuse to monitor internal deployment pipeline failures." },
+      { id: 'D', text: "Blame application developers whenever internal platform infrastructure crashes." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Establish formal Service Level Objectives (SLOs) and error budgets for platform capabilities, measuring availability and pipeline runtimes. A high-performing platform team establishes Service Level Objectives (SLOs) for platform services (e.g., 99.9% CI runner availability, &lt;5 min deployment time). These metrics ensure the platform remains reliable and accountable to its internal engineering customers.",
     referenceUrl: "https://sre.google/sre-book/service-level-objectives/",
@@ -513,12 +513,12 @@ export const CNCF_CNPA_QUESTIONS_15 = [
     scenario: "A site reliability engineering team is operating platform substrates and optimizing system resilience, multi-window SLO monitoring, and cost allocation across Kubernetes clusters. The platform engineer needs to guarantee that internal platform services (CI/CD runners, cluster APIs, registries) meet agreed reliability standards for engineering teams.",
     question: "Which operational design or observability configuration guarantees resilient, cost-effective platform operation?",
     options: [
-      { id: 'A', text: "Ignore internal platform outages as long as customer-facing websites remain online." },
-      { id: 'B', text: "Blame application developers whenever internal platform infrastructure crashes." },
+      { id: 'A', text: "Blame application developers whenever internal platform infrastructure crashes." },
+      { id: 'B', text: "Establish formal Service Level Objectives (SLOs) and error budgets for platform capabilities, measuring availability and pipeline runtimes." },
       { id: 'C', text: "Refuse to monitor internal deployment pipeline failures." },
-      { id: 'D', text: "Establish formal Service Level Objectives (SLOs) and error budgets for platform capabilities, measuring availability and pipeline runtimes." }
+      { id: 'D', text: "Ignore internal platform outages as long as customer-facing websites remain online." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Establish formal Service Level Objectives (SLOs) and error budgets for platform capabilities, measuring availability and pipeline runtimes. A high-performing platform team establishes Service Level Objectives (SLOs) for platform services (e.g., 99.9% CI runner availability, &lt;5 min deployment time). These metrics ensure the platform remains reliable and accountable to its internal engineering customers.",
     referenceUrl: "https://sre.google/sre-book/service-level-objectives/",

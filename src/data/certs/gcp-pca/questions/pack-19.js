@@ -9,12 +9,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to manage multi-target progressive delivery to GKE and Cloud Run with automated promotion approvals, canaries, and one-click rollbacks.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy software by manually copying files over SSH sessions." },
-      { id: 'B', text: "Allow individual developers to push unverified containers directly to production servers." },
-      { id: 'C', text: "Write custom shell scripts executing kubectl apply in a sequential loop." },
-      { id: 'D', text: "Implement Google Cloud Deploy with delivery pipelines defining staging and production release targets." }
+      { id: 'A', text: "Implement Google Cloud Deploy with delivery pipelines defining staging and production release targets." },
+      { id: 'B', text: "Write custom shell scripts executing kubectl apply in a sequential loop." },
+      { id: 'C', text: "Allow individual developers to push unverified containers directly to production servers." },
+      { id: 'D', text: "Deploy software by manually copying files over SSH sessions." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implement Google Cloud Deploy with delivery pipelines defining staging and production release targets. Google Cloud Deploy is a managed, opinionated continuous delivery service that simplifies, automates, and accelerates release delivery to GKE, Anthos, and Cloud Run. It enforces structured promotion stages, mandatory human approval gates, audit trails, and instant rollbacks.",
     referenceUrl: "https://cloud.google.com/deploy/docs/overview",
@@ -30,12 +30,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to manage multi-target progressive delivery to GKE and Cloud Run with automated promotion approvals, canaries, and one-click rollbacks.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Write custom shell scripts executing kubectl apply in a sequential loop." },
-      { id: 'B', text: "Implement Google Cloud Deploy with delivery pipelines defining staging and production release targets." },
+      { id: 'A', text: "Implement Google Cloud Deploy with delivery pipelines defining staging and production release targets." },
+      { id: 'B', text: "Write custom shell scripts executing kubectl apply in a sequential loop." },
       { id: 'C', text: "Allow individual developers to push unverified containers directly to production servers." },
       { id: 'D', text: "Deploy software by manually copying files over SSH sessions." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implement Google Cloud Deploy with delivery pipelines defining staging and production release targets. Google Cloud Deploy is a managed, opinionated continuous delivery service that simplifies, automates, and accelerates release delivery to GKE, Anthos, and Cloud Run. It enforces structured promotion stages, mandatory human approval gates, audit trails, and instant rollbacks.",
     referenceUrl: "https://cloud.google.com/deploy/docs/overview",
@@ -51,12 +51,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to manage multi-target progressive delivery to GKE and Cloud Run with automated promotion approvals, canaries, and one-click rollbacks.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Write custom shell scripts executing kubectl apply in a sequential loop." },
-      { id: 'B', text: "Deploy software by manually copying files over SSH sessions." },
+      { id: 'A', text: "Deploy software by manually copying files over SSH sessions." },
+      { id: 'B', text: "Implement Google Cloud Deploy with delivery pipelines defining staging and production release targets." },
       { id: 'C', text: "Allow individual developers to push unverified containers directly to production servers." },
-      { id: 'D', text: "Implement Google Cloud Deploy with delivery pipelines defining staging and production release targets." }
+      { id: 'D', text: "Write custom shell scripts executing kubectl apply in a sequential loop." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement Google Cloud Deploy with delivery pipelines defining staging and production release targets. Google Cloud Deploy is a managed, opinionated continuous delivery service that simplifies, automates, and accelerates release delivery to GKE, Anthos, and Cloud Run. It enforces structured promotion stages, mandatory human approval gates, audit trails, and instant rollbacks.",
     referenceUrl: "https://cloud.google.com/deploy/docs/overview",
@@ -72,12 +72,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to manage multi-target progressive delivery to GKE and Cloud Run with automated promotion approvals, canaries, and one-click rollbacks.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Write custom shell scripts executing kubectl apply in a sequential loop." },
-      { id: 'B', text: "Deploy software by manually copying files over SSH sessions." },
-      { id: 'C', text: "Implement Google Cloud Deploy with delivery pipelines defining staging and production release targets." },
-      { id: 'D', text: "Allow individual developers to push unverified containers directly to production servers." }
+      { id: 'A', text: "Deploy software by manually copying files over SSH sessions." },
+      { id: 'B', text: "Allow individual developers to push unverified containers directly to production servers." },
+      { id: 'C', text: "Write custom shell scripts executing kubectl apply in a sequential loop." },
+      { id: 'D', text: "Implement Google Cloud Deploy with delivery pipelines defining staging and production release targets." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement Google Cloud Deploy with delivery pipelines defining staging and production release targets. Google Cloud Deploy is a managed, opinionated continuous delivery service that simplifies, automates, and accelerates release delivery to GKE, Anthos, and Cloud Run. It enforces structured promotion stages, mandatory human approval gates, audit trails, and instant rollbacks.",
     referenceUrl: "https://cloud.google.com/deploy/docs/overview",
@@ -94,9 +94,9 @@ export const GCP_PCA_QUESTIONS_19 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Implement Google Cloud Deploy with delivery pipelines defining staging and production release targets." },
-      { id: 'B', text: "Deploy software by manually copying files over SSH sessions." },
+      { id: 'B', text: "Write custom shell scripts executing kubectl apply in a sequential loop." },
       { id: 'C', text: "Allow individual developers to push unverified containers directly to production servers." },
-      { id: 'D', text: "Write custom shell scripts executing kubectl apply in a sequential loop." }
+      { id: 'D', text: "Deploy software by manually copying files over SSH sessions." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to migrate an on-premises PostgreSQL database to Cloud SQL with minimal downtime using continuous change data capture (CDC) replication.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Recreate database tables from memory in the new environment." },
-      { id: 'B', text: "Write custom ETL scripts in Python to copy records table by table." },
-      { id: 'C', text: "Take a full database dump, transfer it over slow broadband, and shut down on-premises systems for 72 hours." },
-      { id: 'D', text: "Use Database Migration Service (DMS) with continuous replication until cutover." }
+      { id: 'A', text: "Use Database Migration Service (DMS) with continuous replication until cutover." },
+      { id: 'B', text: "Take a full database dump, transfer it over slow broadband, and shut down on-premises systems for 72 hours." },
+      { id: 'C', text: "Write custom ETL scripts in Python to copy records table by table." },
+      { id: 'D', text: "Recreate database tables from memory in the new environment." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Use Database Migration Service (DMS) with continuous replication until cutover. Google Cloud Database Migration Service (DMS) simplifies and accelerates database migrations to Cloud SQL and AlloyDB. It uses native database replication capabilities (e.g. pglogical for PostgreSQL or binary logging for MySQL) to deliver high-fidelity, continuous replication with minimal cutover downtime.",
     referenceUrl: "https://cloud.google.com/database-migration",
@@ -135,12 +135,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to migrate an on-premises PostgreSQL database to Cloud SQL with minimal downtime using continuous change data capture (CDC) replication.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Take a full database dump, transfer it over slow broadband, and shut down on-premises systems for 72 hours." },
-      { id: 'B', text: "Write custom ETL scripts in Python to copy records table by table." },
-      { id: 'C', text: "Recreate database tables from memory in the new environment." },
-      { id: 'D', text: "Use Database Migration Service (DMS) with continuous replication until cutover." }
+      { id: 'A', text: "Write custom ETL scripts in Python to copy records table by table." },
+      { id: 'B', text: "Recreate database tables from memory in the new environment." },
+      { id: 'C', text: "Use Database Migration Service (DMS) with continuous replication until cutover." },
+      { id: 'D', text: "Take a full database dump, transfer it over slow broadband, and shut down on-premises systems for 72 hours." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use Database Migration Service (DMS) with continuous replication until cutover. Google Cloud Database Migration Service (DMS) simplifies and accelerates database migrations to Cloud SQL and AlloyDB. It uses native database replication capabilities (e.g. pglogical for PostgreSQL or binary logging for MySQL) to deliver high-fidelity, continuous replication with minimal cutover downtime.",
     referenceUrl: "https://cloud.google.com/database-migration",
@@ -156,12 +156,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to migrate an on-premises PostgreSQL database to Cloud SQL with minimal downtime using continuous change data capture (CDC) replication.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Write custom ETL scripts in Python to copy records table by table." },
-      { id: 'B', text: "Use Database Migration Service (DMS) with continuous replication until cutover." },
-      { id: 'C', text: "Recreate database tables from memory in the new environment." },
-      { id: 'D', text: "Take a full database dump, transfer it over slow broadband, and shut down on-premises systems for 72 hours." }
+      { id: 'A', text: "Recreate database tables from memory in the new environment." },
+      { id: 'B', text: "Write custom ETL scripts in Python to copy records table by table." },
+      { id: 'C', text: "Take a full database dump, transfer it over slow broadband, and shut down on-premises systems for 72 hours." },
+      { id: 'D', text: "Use Database Migration Service (DMS) with continuous replication until cutover." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use Database Migration Service (DMS) with continuous replication until cutover. Google Cloud Database Migration Service (DMS) simplifies and accelerates database migrations to Cloud SQL and AlloyDB. It uses native database replication capabilities (e.g. pglogical for PostgreSQL or binary logging for MySQL) to deliver high-fidelity, continuous replication with minimal cutover downtime.",
     referenceUrl: "https://cloud.google.com/database-migration",
@@ -178,9 +178,9 @@ export const GCP_PCA_QUESTIONS_19 = [
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
       { id: 'A', text: "Use Database Migration Service (DMS) with continuous replication until cutover." },
-      { id: 'B', text: "Write custom ETL scripts in Python to copy records table by table." },
-      { id: 'C', text: "Recreate database tables from memory in the new environment." },
-      { id: 'D', text: "Take a full database dump, transfer it over slow broadband, and shut down on-premises systems for 72 hours." }
+      { id: 'B', text: "Recreate database tables from memory in the new environment." },
+      { id: 'C', text: "Take a full database dump, transfer it over slow broadband, and shut down on-premises systems for 72 hours." },
+      { id: 'D', text: "Write custom ETL scripts in Python to copy records table by table." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,12 +219,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to transfer 500 terabytes of compliance archive files from Amazon S3 and on-premises POSIX file servers to Cloud Storage with automated checksum verification and bandwidth scheduling.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Download files one by one using a local desktop web browser." },
-      { id: 'B', text: "Deploy Storage Transfer Service with on-premises transfer agents and automated scheduling." },
+      { id: 'A', text: "Deploy Storage Transfer Service with on-premises transfer agents and automated scheduling." },
+      { id: 'B', text: "Download files one by one using a local desktop web browser." },
       { id: 'C', text: "Send physical portable hard drives via consumer courier mail services." },
       { id: 'D', text: "Write a custom bash loop running gsutil cp sequentially over a single laptop connection." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy Storage Transfer Service with on-premises transfer agents and automated scheduling. Storage Transfer Service provides secure, high-performance, automated data transfers between object stores (AWS S3, Azure Blob, other Cloud Storage buckets) and on-premises file systems into Cloud Storage, handling parallel data movement, retry logic, and end-to-end checksum verification.",
     referenceUrl: "https://cloud.google.com/storage-transfer/docs/overview",
@@ -240,12 +240,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to transfer 500 terabytes of compliance archive files from Amazon S3 and on-premises POSIX file servers to Cloud Storage with automated checksum verification and bandwidth scheduling.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Write a custom bash loop running gsutil cp sequentially over a single laptop connection." },
-      { id: 'B', text: "Deploy Storage Transfer Service with on-premises transfer agents and automated scheduling." },
+      { id: 'A', text: "Download files one by one using a local desktop web browser." },
+      { id: 'B', text: "Write a custom bash loop running gsutil cp sequentially over a single laptop connection." },
       { id: 'C', text: "Send physical portable hard drives via consumer courier mail services." },
-      { id: 'D', text: "Download files one by one using a local desktop web browser." }
+      { id: 'D', text: "Deploy Storage Transfer Service with on-premises transfer agents and automated scheduling." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Storage Transfer Service with on-premises transfer agents and automated scheduling. Storage Transfer Service provides secure, high-performance, automated data transfers between object stores (AWS S3, Azure Blob, other Cloud Storage buckets) and on-premises file systems into Cloud Storage, handling parallel data movement, retry logic, and end-to-end checksum verification.",
     referenceUrl: "https://cloud.google.com/storage-transfer/docs/overview",
@@ -261,12 +261,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to transfer 500 terabytes of compliance archive files from Amazon S3 and on-premises POSIX file servers to Cloud Storage with automated checksum verification and bandwidth scheduling.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Download files one by one using a local desktop web browser." },
-      { id: 'B', text: "Deploy Storage Transfer Service with on-premises transfer agents and automated scheduling." },
-      { id: 'C', text: "Write a custom bash loop running gsutil cp sequentially over a single laptop connection." },
-      { id: 'D', text: "Send physical portable hard drives via consumer courier mail services." }
+      { id: 'A', text: "Deploy Storage Transfer Service with on-premises transfer agents and automated scheduling." },
+      { id: 'B', text: "Download files one by one using a local desktop web browser." },
+      { id: 'C', text: "Send physical portable hard drives via consumer courier mail services." },
+      { id: 'D', text: "Write a custom bash loop running gsutil cp sequentially over a single laptop connection." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy Storage Transfer Service with on-premises transfer agents and automated scheduling. Storage Transfer Service provides secure, high-performance, automated data transfers between object stores (AWS S3, Azure Blob, other Cloud Storage buckets) and on-premises file systems into Cloud Storage, handling parallel data movement, retry logic, and end-to-end checksum verification.",
     referenceUrl: "https://cloud.google.com/storage-transfer/docs/overview",
@@ -282,12 +282,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to transfer 500 terabytes of compliance archive files from Amazon S3 and on-premises POSIX file servers to Cloud Storage with automated checksum verification and bandwidth scheduling.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Send physical portable hard drives via consumer courier mail services." },
-      { id: 'B', text: "Deploy Storage Transfer Service with on-premises transfer agents and automated scheduling." },
-      { id: 'C', text: "Write a custom bash loop running gsutil cp sequentially over a single laptop connection." },
-      { id: 'D', text: "Download files one by one using a local desktop web browser." }
+      { id: 'A', text: "Write a custom bash loop running gsutil cp sequentially over a single laptop connection." },
+      { id: 'B', text: "Send physical portable hard drives via consumer courier mail services." },
+      { id: 'C', text: "Download files one by one using a local desktop web browser." },
+      { id: 'D', text: "Deploy Storage Transfer Service with on-premises transfer agents and automated scheduling." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Storage Transfer Service with on-premises transfer agents and automated scheduling. Storage Transfer Service provides secure, high-performance, automated data transfers between object stores (AWS S3, Azure Blob, other Cloud Storage buckets) and on-premises file systems into Cloud Storage, handling parallel data movement, retry logic, and end-to-end checksum verification.",
     referenceUrl: "https://cloud.google.com/storage-transfer/docs/overview",
@@ -303,12 +303,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to transfer 500 terabytes of compliance archive files from Amazon S3 and on-premises POSIX file servers to Cloud Storage with automated checksum verification and bandwidth scheduling.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Send physical portable hard drives via consumer courier mail services." },
+      { id: 'A', text: "Write a custom bash loop running gsutil cp sequentially over a single laptop connection." },
       { id: 'B', text: "Download files one by one using a local desktop web browser." },
-      { id: 'C', text: "Write a custom bash loop running gsutil cp sequentially over a single laptop connection." },
-      { id: 'D', text: "Deploy Storage Transfer Service with on-premises transfer agents and automated scheduling." }
+      { id: 'C', text: "Deploy Storage Transfer Service with on-premises transfer agents and automated scheduling." },
+      { id: 'D', text: "Send physical portable hard drives via consumer courier mail services." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Storage Transfer Service with on-premises transfer agents and automated scheduling. Storage Transfer Service provides secure, high-performance, automated data transfers between object stores (AWS S3, Azure Blob, other Cloud Storage buckets) and on-premises file systems into Cloud Storage, handling parallel data movement, retry logic, and end-to-end checksum verification.",
     referenceUrl: "https://cloud.google.com/storage-transfer/docs/overview",
@@ -324,12 +324,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to migrate 100 enterprise Windows and Linux virtual machines running in on-premises VMware vSphere to Compute Engine with continuous background disk streaming and minimal cutover downtime.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Export VM disk images to USB thumb drives and upload via web browser." },
-      { id: 'B', text: "Decommission on-premises servers before starting the cloud migration." },
+      { id: 'A', text: "Decommission on-premises servers before starting the cloud migration." },
+      { id: 'B', text: "Deploy Migrate to Virtual Machines with continuous replication agents." },
       { id: 'C', text: "Re-install all 100 operating systems and configure all software packages manually." },
-      { id: 'D', text: "Deploy Migrate to Virtual Machines with continuous replication agents." }
+      { id: 'D', text: "Export VM disk images to USB thumb drives and upload via web browser." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Migrate to Virtual Machines with continuous replication agents. Migrate to Virtual Machines enables fast, low-risk migration of virtual and physical servers from on-premises VMware, AWS, or Azure into Compute Engine. It streams data in the background while workloads continue running, allowing non-disruptive testing and short cutover windows.",
     referenceUrl: "https://cloud.google.com/migrate/virtual-machines/docs/overview",
@@ -346,9 +346,9 @@ export const GCP_PCA_QUESTIONS_19 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy Migrate to Virtual Machines with continuous replication agents." },
-      { id: 'B', text: "Decommission on-premises servers before starting the cloud migration." },
+      { id: 'B', text: "Export VM disk images to USB thumb drives and upload via web browser." },
       { id: 'C', text: "Re-install all 100 operating systems and configure all software packages manually." },
-      { id: 'D', text: "Export VM disk images to USB thumb drives and upload via web browser." }
+      { id: 'D', text: "Decommission on-premises servers before starting the cloud migration." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to migrate 100 enterprise Windows and Linux virtual machines running in on-premises VMware vSphere to Compute Engine with continuous background disk streaming and minimal cutover downtime.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Decommission on-premises servers before starting the cloud migration." },
-      { id: 'B', text: "Re-install all 100 operating systems and configure all software packages manually." },
-      { id: 'C', text: "Deploy Migrate to Virtual Machines with continuous replication agents." },
-      { id: 'D', text: "Export VM disk images to USB thumb drives and upload via web browser." }
+      { id: 'A', text: "Export VM disk images to USB thumb drives and upload via web browser." },
+      { id: 'B', text: "Deploy Migrate to Virtual Machines with continuous replication agents." },
+      { id: 'C', text: "Decommission on-premises servers before starting the cloud migration." },
+      { id: 'D', text: "Re-install all 100 operating systems and configure all software packages manually." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Migrate to Virtual Machines with continuous replication agents. Migrate to Virtual Machines enables fast, low-risk migration of virtual and physical servers from on-premises VMware, AWS, or Azure into Compute Engine. It streams data in the background while workloads continue running, allowing non-disruptive testing and short cutover windows.",
     referenceUrl: "https://cloud.google.com/migrate/virtual-machines/docs/overview",
@@ -387,12 +387,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to migrate 100 enterprise Windows and Linux virtual machines running in on-premises VMware vSphere to Compute Engine with continuous background disk streaming and minimal cutover downtime.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Re-install all 100 operating systems and configure all software packages manually." },
+      { id: 'A', text: "Decommission on-premises servers before starting the cloud migration." },
       { id: 'B', text: "Export VM disk images to USB thumb drives and upload via web browser." },
-      { id: 'C', text: "Decommission on-premises servers before starting the cloud migration." },
-      { id: 'D', text: "Deploy Migrate to Virtual Machines with continuous replication agents." }
+      { id: 'C', text: "Deploy Migrate to Virtual Machines with continuous replication agents." },
+      { id: 'D', text: "Re-install all 100 operating systems and configure all software packages manually." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Migrate to Virtual Machines with continuous replication agents. Migrate to Virtual Machines enables fast, low-risk migration of virtual and physical servers from on-premises VMware, AWS, or Azure into Compute Engine. It streams data in the background while workloads continue running, allowing non-disruptive testing and short cutover windows.",
     referenceUrl: "https://cloud.google.com/migrate/virtual-machines/docs/overview",
@@ -408,12 +408,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to migrate 100 enterprise Windows and Linux virtual machines running in on-premises VMware vSphere to Compute Engine with continuous background disk streaming and minimal cutover downtime.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Export VM disk images to USB thumb drives and upload via web browser." },
-      { id: 'B', text: "Decommission on-premises servers before starting the cloud migration." },
+      { id: 'A', text: "Decommission on-premises servers before starting the cloud migration." },
+      { id: 'B', text: "Deploy Migrate to Virtual Machines with continuous replication agents." },
       { id: 'C', text: "Re-install all 100 operating systems and configure all software packages manually." },
-      { id: 'D', text: "Deploy Migrate to Virtual Machines with continuous replication agents." }
+      { id: 'D', text: "Export VM disk images to USB thumb drives and upload via web browser." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Migrate to Virtual Machines with continuous replication agents. Migrate to Virtual Machines enables fast, low-risk migration of virtual and physical servers from on-premises VMware, AWS, or Azure into Compute Engine. It streams data in the background while workloads continue running, allowing non-disruptive testing and short cutover windows.",
     referenceUrl: "https://cloud.google.com/migrate/virtual-machines/docs/overview",
@@ -431,8 +431,8 @@ export const GCP_PCA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Deploy the Apigee API Management platform." },
       { id: 'B', text: "Expose raw database ports directly to partner company networks over the internet." },
-      { id: 'C', text: "Write custom API throttling scripts inside application controller endpoints." },
-      { id: 'D', text: "Send API documentation via static PDF attachments in email." }
+      { id: 'C', text: "Send API documentation via static PDF attachments in email." },
+      { id: 'D', text: "Write custom API throttling scripts inside application controller endpoints." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -451,9 +451,9 @@ export const GCP_PCA_QUESTIONS_19 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy the Apigee API Management platform." },
-      { id: 'B', text: "Send API documentation via static PDF attachments in email." },
-      { id: 'C', text: "Write custom API throttling scripts inside application controller endpoints." },
-      { id: 'D', text: "Expose raw database ports directly to partner company networks over the internet." }
+      { id: 'B', text: "Write custom API throttling scripts inside application controller endpoints." },
+      { id: 'C', text: "Expose raw database ports directly to partner company networks over the internet." },
+      { id: 'D', text: "Send API documentation via static PDF attachments in email." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,12 +471,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to publish enterprise REST APIs to third-party partners, enforce OAuth authentication, track API monetization billing, and provide a self-service developer documentation portal.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Expose raw database ports directly to partner company networks over the internet." },
-      { id: 'B', text: "Write custom API throttling scripts inside application controller endpoints." },
+      { id: 'A', text: "Write custom API throttling scripts inside application controller endpoints." },
+      { id: 'B', text: "Deploy the Apigee API Management platform." },
       { id: 'C', text: "Send API documentation via static PDF attachments in email." },
-      { id: 'D', text: "Deploy the Apigee API Management platform." }
+      { id: 'D', text: "Expose raw database ports directly to partner company networks over the internet." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy the Apigee API Management platform. Apigee is Google Cloud's enterprise API management platform that allows API developers to design, secure, deploy, monitor, and scale APIs. It provides advanced traffic management, enterprise security (OAuth, SAML), developer portals, API analytics, and revenue monetization capabilities.",
     referenceUrl: "https://cloud.google.com/apigee/docs/api-platform/get-started/what-is-apigee",
@@ -492,12 +492,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to publish enterprise REST APIs to third-party partners, enforce OAuth authentication, track API monetization billing, and provide a self-service developer documentation portal.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Write custom API throttling scripts inside application controller endpoints." },
-      { id: 'B', text: "Send API documentation via static PDF attachments in email." },
-      { id: 'C', text: "Expose raw database ports directly to partner company networks over the internet." },
-      { id: 'D', text: "Deploy the Apigee API Management platform." }
+      { id: 'A', text: "Deploy the Apigee API Management platform." },
+      { id: 'B', text: "Expose raw database ports directly to partner company networks over the internet." },
+      { id: 'C', text: "Send API documentation via static PDF attachments in email." },
+      { id: 'D', text: "Write custom API throttling scripts inside application controller endpoints." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy the Apigee API Management platform. Apigee is Google Cloud's enterprise API management platform that allows API developers to design, secure, deploy, monitor, and scale APIs. It provides advanced traffic management, enterprise security (OAuth, SAML), developer portals, API analytics, and revenue monetization capabilities.",
     referenceUrl: "https://cloud.google.com/apigee/docs/api-platform/get-started/what-is-apigee",
@@ -513,12 +513,12 @@ export const GCP_PCA_QUESTIONS_19 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to publish enterprise REST APIs to third-party partners, enforce OAuth authentication, track API monetization billing, and provide a self-service developer documentation portal.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Send API documentation via static PDF attachments in email." },
+      { id: 'A', text: "Deploy the Apigee API Management platform." },
       { id: 'B', text: "Expose raw database ports directly to partner company networks over the internet." },
-      { id: 'C', text: "Deploy the Apigee API Management platform." },
+      { id: 'C', text: "Send API documentation via static PDF attachments in email." },
       { id: 'D', text: "Write custom API throttling scripts inside application controller endpoints." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy the Apigee API Management platform. Apigee is Google Cloud's enterprise API management platform that allows API developers to design, secure, deploy, monitor, and scale APIs. It provides advanced traffic management, enterprise security (OAuth, SAML), developer portals, API analytics, and revenue monetization capabilities.",
     referenceUrl: "https://cloud.google.com/apigee/docs/api-platform/get-started/what-is-apigee",

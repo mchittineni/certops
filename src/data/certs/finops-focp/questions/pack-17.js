@@ -9,12 +9,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to bridge the deep knowledge gap between financial accountants and software engineers across an enterprise.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
-      { id: 'A', text: "Prohibit cross-departmental training to keep job roles strictly siloed." },
-      { id: 'B', text: "Assume finance professionals already know how Kubernetes autoscaling and microservices work." },
-      { id: 'C', text: "Assume engineers intuitively understand corporate financial depreciation and amortization rules." },
-      { id: 'D', text: "Training both ways: cloud for finance, finance for engineers." }
+      { id: 'A', text: "Training both ways: cloud for finance, finance for engineers." },
+      { id: 'B', text: "Assume engineers intuitively understand corporate financial depreciation and amortization rules." },
+      { id: 'C', text: "Assume finance professionals already know how Kubernetes autoscaling and microservices work." },
+      { id: 'D', text: "Prohibit cross-departmental training to keep job roles strictly siloed." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implement structured FinOps training programs: educate finance teams on cloud elasticity and architecture, and train engineers on financial literacy. Educational enablement is a primary driver of FinOps culture. Finance teams learn technical cloud fundamentals (regions, compute vs storage, elasticity), while engineering teams learn financial concepts (amortization, fully blended rates, gross margins), creating a shared vocabulary.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -30,12 +30,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to bridge the deep knowledge gap between financial accountants and software engineers across an enterprise.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
-      { id: 'A', text: "Assume engineers intuitively understand corporate financial depreciation and amortization rules." },
-      { id: 'B', text: "Training both ways: cloud for finance, finance for engineers." },
-      { id: 'C', text: "Prohibit cross-departmental training to keep job roles strictly siloed." },
-      { id: 'D', text: "Assume finance professionals already know how Kubernetes autoscaling and microservices work." }
+      { id: 'A', text: "Training both ways: cloud for finance, finance for engineers." },
+      { id: 'B', text: "Assume engineers intuitively understand corporate financial depreciation and amortization rules." },
+      { id: 'C', text: "Assume finance professionals already know how Kubernetes autoscaling and microservices work." },
+      { id: 'D', text: "Prohibit cross-departmental training to keep job roles strictly siloed." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implement structured FinOps training programs: educate finance teams on cloud elasticity and architecture, and train engineers on financial literacy. Educational enablement is a primary driver of FinOps culture. Finance teams learn technical cloud fundamentals (regions, compute vs storage, elasticity), while engineering teams learn financial concepts (amortization, fully blended rates, gross margins), creating a shared vocabulary.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -51,12 +51,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to bridge the deep knowledge gap between financial accountants and software engineers across an enterprise.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
-      { id: 'A', text: "Assume finance professionals already know how Kubernetes autoscaling and microservices work." },
+      { id: 'A', text: "Training both ways: cloud for finance, finance for engineers." },
       { id: 'B', text: "Assume engineers intuitively understand corporate financial depreciation and amortization rules." },
-      { id: 'C', text: "Training both ways: cloud for finance, finance for engineers." },
+      { id: 'C', text: "Assume finance professionals already know how Kubernetes autoscaling and microservices work." },
       { id: 'D', text: "Prohibit cross-departmental training to keep job roles strictly siloed." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implement structured FinOps training programs: educate finance teams on cloud elasticity and architecture, and train engineers on financial literacy. Educational enablement is a primary driver of FinOps culture. Finance teams learn technical cloud fundamentals (regions, compute vs storage, elasticity), while engineering teams learn financial concepts (amortization, fully blended rates, gross margins), creating a shared vocabulary.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -73,8 +73,8 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
       { id: 'A', text: "Training both ways: cloud for finance, finance for engineers." },
-      { id: 'B', text: "Assume finance professionals already know how Kubernetes autoscaling and microservices work." },
-      { id: 'C', text: "Assume engineers intuitively understand corporate financial depreciation and amortization rules." },
+      { id: 'B', text: "Assume engineers intuitively understand corporate financial depreciation and amortization rules." },
+      { id: 'C', text: "Assume finance professionals already know how Kubernetes autoscaling and microservices work." },
       { id: 'D', text: "Prohibit cross-departmental training to keep job roles strictly siloed." }
     ],
     correctAnswers: ['A'],
@@ -93,12 +93,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to bridge the deep knowledge gap between financial accountants and software engineers across an enterprise.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
-      { id: 'A', text: "Assume engineers intuitively understand corporate financial depreciation and amortization rules." },
-      { id: 'B', text: "Prohibit cross-departmental training to keep job roles strictly siloed." },
+      { id: 'A', text: "Prohibit cross-departmental training to keep job roles strictly siloed." },
+      { id: 'B', text: "Training both ways: cloud for finance, finance for engineers." },
       { id: 'C', text: "Assume finance professionals already know how Kubernetes autoscaling and microservices work." },
-      { id: 'D', text: "Training both ways: cloud for finance, finance for engineers." }
+      { id: 'D', text: "Assume engineers intuitively understand corporate financial depreciation and amortization rules." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement structured FinOps training programs: educate finance teams on cloud elasticity and architecture, and train engineers on financial literacy. Educational enablement is a primary driver of FinOps culture. Finance teams learn technical cloud fundamentals (regions, compute vs storage, elasticity), while engineering teams learn financial concepts (amortization, fully blended rates, gross margins), creating a shared vocabulary.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -114,12 +114,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to clarify organizational ownership when an application experiences an unexpected $20,000 cloud spend spike over the weekend.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
-      { id: 'A', text: "Assume everyone in the company is equally responsible for every cloud cost overrun." },
-      { id: 'B', text: "Refuse to define accountability to avoid workplace conflict." },
-      { id: 'C', text: "A RACI: engineering responsible, product owner accountable." },
-      { id: 'D', text: "Blame whichever employee logged into the cloud console most recently without a defined governance matrix." }
+      { id: 'A', text: "A RACI: engineering responsible, product owner accountable." },
+      { id: 'B', text: "Blame whichever employee logged into the cloud console most recently without a defined governance matrix." },
+      { id: 'C', text: "Assume everyone in the company is equally responsible for every cloud cost overrun." },
+      { id: 'D', text: "Refuse to define accountability to avoid workplace conflict." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Establish a clear FinOps RACI matrix: Engineering is Responsible for remediation, the Product Owner is Accountable for budget, Finance is Consulted, Leadership is Informed. A FinOps RACI matrix defines clear governance across capabilities: Who is Responsible (does the work, e.g., engineers executing rightsizing), Accountable (owns the outcome/budget, e.g., Product Owner), Consulted (provides input, e.g., FinOps practitioner), and Informed (receives status, e.g., executive).",
     referenceUrl: "https://www.finops.org/framework/",
@@ -135,12 +135,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to clarify organizational ownership when an application experiences an unexpected $20,000 cloud spend spike over the weekend.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
-      { id: 'A', text: "Refuse to define accountability to avoid workplace conflict." },
-      { id: 'B', text: "A RACI: engineering responsible, product owner accountable." },
+      { id: 'A', text: "Blame whichever employee logged into the cloud console most recently without a defined governance matrix." },
+      { id: 'B', text: "Refuse to define accountability to avoid workplace conflict." },
       { id: 'C', text: "Assume everyone in the company is equally responsible for every cloud cost overrun." },
-      { id: 'D', text: "Blame whichever employee logged into the cloud console most recently without a defined governance matrix." }
+      { id: 'D', text: "A RACI: engineering responsible, product owner accountable." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Establish a clear FinOps RACI matrix: Engineering is Responsible for remediation, the Product Owner is Accountable for budget, Finance is Consulted, Leadership is Informed. A FinOps RACI matrix defines clear governance across capabilities: Who is Responsible (does the work, e.g., engineers executing rightsizing), Accountable (owns the outcome/budget, e.g., Product Owner), Consulted (provides input, e.g., FinOps practitioner), and Informed (receives status, e.g., executive).",
     referenceUrl: "https://www.finops.org/framework/",
@@ -156,12 +156,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to clarify organizational ownership when an application experiences an unexpected $20,000 cloud spend spike over the weekend.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
-      { id: 'A', text: "Assume everyone in the company is equally responsible for every cloud cost overrun." },
-      { id: 'B', text: "A RACI: engineering responsible, product owner accountable." },
-      { id: 'C', text: "Refuse to define accountability to avoid workplace conflict." },
-      { id: 'D', text: "Blame whichever employee logged into the cloud console most recently without a defined governance matrix." }
+      { id: 'A', text: "Refuse to define accountability to avoid workplace conflict." },
+      { id: 'B', text: "Assume everyone in the company is equally responsible for every cloud cost overrun." },
+      { id: 'C', text: "Blame whichever employee logged into the cloud console most recently without a defined governance matrix." },
+      { id: 'D', text: "A RACI: engineering responsible, product owner accountable." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Establish a clear FinOps RACI matrix: Engineering is Responsible for remediation, the Product Owner is Accountable for budget, Finance is Consulted, Leadership is Informed. A FinOps RACI matrix defines clear governance across capabilities: Who is Responsible (does the work, e.g., engineers executing rightsizing), Accountable (owns the outcome/budget, e.g., Product Owner), Consulted (provides input, e.g., FinOps practitioner), and Informed (receives status, e.g., executive).",
     referenceUrl: "https://www.finops.org/framework/",
@@ -177,12 +177,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to clarify organizational ownership when an application experiences an unexpected $20,000 cloud spend spike over the weekend.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
-      { id: 'A', text: "Refuse to define accountability to avoid workplace conflict." },
-      { id: 'B', text: "A RACI: engineering responsible, product owner accountable." },
+      { id: 'A', text: "Blame whichever employee logged into the cloud console most recently without a defined governance matrix." },
+      { id: 'B', text: "Refuse to define accountability to avoid workplace conflict." },
       { id: 'C', text: "Assume everyone in the company is equally responsible for every cloud cost overrun." },
-      { id: 'D', text: "Blame whichever employee logged into the cloud console most recently without a defined governance matrix." }
+      { id: 'D', text: "A RACI: engineering responsible, product owner accountable." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Establish a clear FinOps RACI matrix: Engineering is Responsible for remediation, the Product Owner is Accountable for budget, Finance is Consulted, Leadership is Informed. A FinOps RACI matrix defines clear governance across capabilities: Who is Responsible (does the work, e.g., engineers executing rightsizing), Accountable (owns the outcome/budget, e.g., Product Owner), Consulted (provides input, e.g., FinOps practitioner), and Informed (receives status, e.g., executive).",
     referenceUrl: "https://www.finops.org/framework/",
@@ -198,12 +198,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to clarify organizational ownership when an application experiences an unexpected $20,000 cloud spend spike over the weekend.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
-      { id: 'A', text: "Assume everyone in the company is equally responsible for every cloud cost overrun." },
-      { id: 'B', text: "A RACI: engineering responsible, product owner accountable." },
-      { id: 'C', text: "Blame whichever employee logged into the cloud console most recently without a defined governance matrix." },
+      { id: 'A', text: "Blame whichever employee logged into the cloud console most recently without a defined governance matrix." },
+      { id: 'B', text: "Assume everyone in the company is equally responsible for every cloud cost overrun." },
+      { id: 'C', text: "A RACI: engineering responsible, product owner accountable." },
       { id: 'D', text: "Refuse to define accountability to avoid workplace conflict." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Establish a clear FinOps RACI matrix: Engineering is Responsible for remediation, the Product Owner is Accountable for budget, Finance is Consulted, Leadership is Informed. A FinOps RACI matrix defines clear governance across capabilities: Who is Responsible (does the work, e.g., engineers executing rightsizing), Accountable (owns the outcome/budget, e.g., Product Owner), Consulted (provides input, e.g., FinOps practitioner), and Informed (receives status, e.g., executive).",
     referenceUrl: "https://www.finops.org/framework/",
@@ -219,12 +219,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to motivate autonomous engineering teams to proactively optimize their cloud infrastructure without resorting to mandates.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
-      { id: 'A', text: "Threaten to cancel developer bonuses whenever cloud spending increases during traffic surges." },
-      { id: 'B', text: "Mandate cost optimization through punitive corporate policy memos." },
+      { id: 'A', text: "Mandate cost optimization through punitive corporate policy memos." },
+      { id: 'B', text: "Leaderboards, hackathons and recognition for unit cost wins." },
       { id: 'C', text: "Create a public wall of shame listing developers who launched expensive test environments." },
-      { id: 'D', text: "Leaderboards, hackathons and recognition for unit cost wins." }
+      { id: 'D', text: "Threaten to cancel developer bonuses whenever cloud spending increases during traffic surges." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Introduce positive gamification and recognition: establish cost-efficiency leaderboards, host FinOps hackathons, and reward unit cost optimizations. Positive reinforcement drives cultural adoption. Mature FinOps organizations organize 'FinOps Hackathons' (dedicated sprint days for finding and eliminating waste) and publish internal efficiency leaderboards, celebrating teams that improve unit margins and reduce idle waste.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -240,12 +240,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to motivate autonomous engineering teams to proactively optimize their cloud infrastructure without resorting to mandates.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
-      { id: 'A', text: "Create a public wall of shame listing developers who launched expensive test environments." },
-      { id: 'B', text: "Mandate cost optimization through punitive corporate policy memos." },
-      { id: 'C', text: "Threaten to cancel developer bonuses whenever cloud spending increases during traffic surges." },
-      { id: 'D', text: "Leaderboards, hackathons and recognition for unit cost wins." }
+      { id: 'A', text: "Threaten to cancel developer bonuses whenever cloud spending increases during traffic surges." },
+      { id: 'B', text: "Leaderboards, hackathons and recognition for unit cost wins." },
+      { id: 'C', text: "Mandate cost optimization through punitive corporate policy memos." },
+      { id: 'D', text: "Create a public wall of shame listing developers who launched expensive test environments." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Introduce positive gamification and recognition: establish cost-efficiency leaderboards, host FinOps hackathons, and reward unit cost optimizations. Positive reinforcement drives cultural adoption. Mature FinOps organizations organize 'FinOps Hackathons' (dedicated sprint days for finding and eliminating waste) and publish internal efficiency leaderboards, celebrating teams that improve unit margins and reduce idle waste.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -261,12 +261,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to motivate autonomous engineering teams to proactively optimize their cloud infrastructure without resorting to mandates.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
-      { id: 'A', text: "Mandate cost optimization through punitive corporate policy memos." },
-      { id: 'B', text: "Leaderboards, hackathons and recognition for unit cost wins." },
+      { id: 'A', text: "Threaten to cancel developer bonuses whenever cloud spending increases during traffic surges." },
+      { id: 'B', text: "Mandate cost optimization through punitive corporate policy memos." },
       { id: 'C', text: "Create a public wall of shame listing developers who launched expensive test environments." },
-      { id: 'D', text: "Threaten to cancel developer bonuses whenever cloud spending increases during traffic surges." }
+      { id: 'D', text: "Leaderboards, hackathons and recognition for unit cost wins." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Introduce positive gamification and recognition: establish cost-efficiency leaderboards, host FinOps hackathons, and reward unit cost optimizations. Positive reinforcement drives cultural adoption. Mature FinOps organizations organize 'FinOps Hackathons' (dedicated sprint days for finding and eliminating waste) and publish internal efficiency leaderboards, celebrating teams that improve unit margins and reduce idle waste.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -282,12 +282,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to motivate autonomous engineering teams to proactively optimize their cloud infrastructure without resorting to mandates.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
-      { id: 'A', text: "Mandate cost optimization through punitive corporate policy memos." },
-      { id: 'B', text: "Create a public wall of shame listing developers who launched expensive test environments." },
-      { id: 'C', text: "Leaderboards, hackathons and recognition for unit cost wins." },
-      { id: 'D', text: "Threaten to cancel developer bonuses whenever cloud spending increases during traffic surges." }
+      { id: 'A', text: "Threaten to cancel developer bonuses whenever cloud spending increases during traffic surges." },
+      { id: 'B', text: "Leaderboards, hackathons and recognition for unit cost wins." },
+      { id: 'C', text: "Mandate cost optimization through punitive corporate policy memos." },
+      { id: 'D', text: "Create a public wall of shame listing developers who launched expensive test environments." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Introduce positive gamification and recognition: establish cost-efficiency leaderboards, host FinOps hackathons, and reward unit cost optimizations. Positive reinforcement drives cultural adoption. Mature FinOps organizations organize 'FinOps Hackathons' (dedicated sprint days for finding and eliminating waste) and publish internal efficiency leaderboards, celebrating teams that improve unit margins and reduce idle waste.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -303,12 +303,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to motivate autonomous engineering teams to proactively optimize their cloud infrastructure without resorting to mandates.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
-      { id: 'A', text: "Create a public wall of shame listing developers who launched expensive test environments." },
-      { id: 'B', text: "Leaderboards, hackathons and recognition for unit cost wins." },
-      { id: 'C', text: "Threaten to cancel developer bonuses whenever cloud spending increases during traffic surges." },
+      { id: 'A', text: "Threaten to cancel developer bonuses whenever cloud spending increases during traffic surges." },
+      { id: 'B', text: "Create a public wall of shame listing developers who launched expensive test environments." },
+      { id: 'C', text: "Leaderboards, hackathons and recognition for unit cost wins." },
       { id: 'D', text: "Mandate cost optimization through punitive corporate policy memos." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Introduce positive gamification and recognition: establish cost-efficiency leaderboards, host FinOps hackathons, and reward unit cost optimizations. Positive reinforcement drives cultural adoption. Mature FinOps organizations organize 'FinOps Hackathons' (dedicated sprint days for finding and eliminating waste) and publish internal efficiency leaderboards, celebrating teams that improve unit margins and reduce idle waste.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -324,12 +324,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "An enterprise executive leadership team is implementing FinOps to establish cross-functional financial accountability, decentralized ownership, and data-driven spending decisions. The FinOps practitioner needs to explain the difference between an unblended invoice rate and an effective amortized rate to a software engineering lead.",
     question: "Which core FinOps principle or organizational approach drives this cultural transformation effectively?",
     options: [
-      { id: 'A', text: "Claim that amortized rates are fake numbers made up by external tax auditors." },
+      { id: 'A', text: "Explain that unblended rates show cash charges in the hour billed, while amortized rates smooth upfront commitment fees over the full term across consuming workloads." },
       { id: 'B', text: "Tell the engineer that accounting rates are corporate secrets that developers are not allowed to know." },
-      { id: 'C', text: "Explain that unblended rates show cash charges in the hour billed, while amortized rates smooth upfront commitment fees over the full term across consuming workloads." },
+      { id: 'C', text: "Claim that amortized rates are fake numbers made up by external tax auditors." },
       { id: 'D', text: "Advise the engineer to ignore all rate discussions and focus strictly on server RAM consumption." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Explain that unblended rates show cash charges in the hour billed, while amortized rates smooth upfront commitment fees over the full term across consuming workloads. Finance and Engineering often speak different languages. Unblended rates represent the raw cash paid at a point in time (spiking when an upfront RI is purchased). Amortized rates distribute upfront commitment payments evenly across every hour of the commitment term, giving engineers an accurate picture of their true hourly cost.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -345,12 +345,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to explain the difference between an unblended invoice rate and an effective amortized rate to a software engineering lead.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
-      { id: 'A', text: "Claim that amortized rates are fake numbers made up by external tax auditors." },
-      { id: 'B', text: "Advise the engineer to ignore all rate discussions and focus strictly on server RAM consumption." },
-      { id: 'C', text: "Explain that unblended rates show cash charges in the hour billed, while amortized rates smooth upfront commitment fees over the full term across consuming workloads." },
-      { id: 'D', text: "Tell the engineer that accounting rates are corporate secrets that developers are not allowed to know." }
+      { id: 'A', text: "Explain that unblended rates show cash charges in the hour billed, while amortized rates smooth upfront commitment fees over the full term across consuming workloads." },
+      { id: 'B', text: "Tell the engineer that accounting rates are corporate secrets that developers are not allowed to know." },
+      { id: 'C', text: "Claim that amortized rates are fake numbers made up by external tax auditors." },
+      { id: 'D', text: "Advise the engineer to ignore all rate discussions and focus strictly on server RAM consumption." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Explain that unblended rates show cash charges in the hour billed, while amortized rates smooth upfront commitment fees over the full term across consuming workloads. Finance and Engineering often speak different languages. Unblended rates represent the raw cash paid at a point in time (spiking when an upfront RI is purchased). Amortized rates distribute upfront commitment payments evenly across every hour of the commitment term, giving engineers an accurate picture of their true hourly cost.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -368,8 +368,8 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Explain that unblended rates show cash charges in the hour billed, while amortized rates smooth upfront commitment fees over the full term across consuming workloads." },
       { id: 'B', text: "Tell the engineer that accounting rates are corporate secrets that developers are not allowed to know." },
-      { id: 'C', text: "Advise the engineer to ignore all rate discussions and focus strictly on server RAM consumption." },
-      { id: 'D', text: "Claim that amortized rates are fake numbers made up by external tax auditors." }
+      { id: 'C', text: "Claim that amortized rates are fake numbers made up by external tax auditors." },
+      { id: 'D', text: "Advise the engineer to ignore all rate discussions and focus strictly on server RAM consumption." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to explain the difference between an unblended invoice rate and an effective amortized rate to a software engineering lead.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
-      { id: 'A', text: "Claim that amortized rates are fake numbers made up by external tax auditors." },
-      { id: 'B', text: "Advise the engineer to ignore all rate discussions and focus strictly on server RAM consumption." },
-      { id: 'C', text: "Explain that unblended rates show cash charges in the hour billed, while amortized rates smooth upfront commitment fees over the full term across consuming workloads." },
-      { id: 'D', text: "Tell the engineer that accounting rates are corporate secrets that developers are not allowed to know." }
+      { id: 'A', text: "Explain that unblended rates show cash charges in the hour billed, while amortized rates smooth upfront commitment fees over the full term across consuming workloads." },
+      { id: 'B', text: "Tell the engineer that accounting rates are corporate secrets that developers are not allowed to know." },
+      { id: 'C', text: "Claim that amortized rates are fake numbers made up by external tax auditors." },
+      { id: 'D', text: "Advise the engineer to ignore all rate discussions and focus strictly on server RAM consumption." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Explain that unblended rates show cash charges in the hour billed, while amortized rates smooth upfront commitment fees over the full term across consuming workloads. Finance and Engineering often speak different languages. Unblended rates represent the raw cash paid at a point in time (spiking when an upfront RI is purchased). Amortized rates distribute upfront commitment payments evenly across every hour of the commitment term, giving engineers an accurate picture of their true hourly cost.",
     referenceUrl: "https://www.finops.org/framework/",
@@ -450,12 +450,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "A cloud platform engineering team is optimizing multi-cloud infrastructure spend, rightsizing overprovisioned compute, and eliminating zombie resources across development and production. The FinOps practitioner needs to attribute 95% of enterprise multi-cloud infrastructure spend accurately to specific business units, products, and cost centers.",
     question: "Which FinOps capability or technical optimization practice maximizes cost efficiency without sacrificing system reliability?",
     options: [
-      { id: 'A', text: "Leave 80% of cloud resources untagged and allocate all spend to general corporate overhead." },
-      { id: 'B', text: "Prohibit the use of tags to save cloud metadata storage space." },
-      { id: 'C', text: "Allow every development team to create arbitrary, case-sensitive tag names with conflicting spelling." },
-      { id: 'D', text: "Establish a standardized tagging policy (`CostCenter`, `Environment`, `Owner`, `Application`) enforced via automated policy-as-code admission rules." }
+      { id: 'A', text: "Allow every development team to create arbitrary, case-sensitive tag names with conflicting spelling." },
+      { id: 'B', text: "Establish a standardized tagging policy (`CostCenter`, `Environment`, `Owner`, `Application`) enforced via automated policy-as-code admission rules." },
+      { id: 'C', text: "Prohibit the use of tags to save cloud metadata storage space." },
+      { id: 'D', text: "Leave 80% of cloud resources untagged and allocate all spend to general corporate overhead." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Establish a standardized tagging policy (`CostCenter`, `Environment`, `Owner`, `Application`) enforced via automated policy-as-code admission rules. Cost allocation is the foundation of FinOps. A standardized tagging schema (`Env`, `App`, `Owner`, `CostCenter`) paired with account/subscription hierarchy maps infrastructure spend to business owners. Automated policy engines (AWS Tag Policies, Azure Policy) block untagged resource creation.",
     referenceUrl: "https://www.finops.org/framework/capabilities/cost-allocation/",
@@ -471,12 +471,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "A technology finance director is establishing granular cost allocation, metadata tagging governance, and normalized multi-cloud billing analytics via the FOCUS specification. The FinOps practitioner needs to attribute 95% of enterprise multi-cloud infrastructure spend accurately to specific business units, products, and cost centers.",
     question: "Which FinOps reporting mechanism or allocation strategy guarantees accurate cost attribution across business units?",
     options: [
-      { id: 'A', text: "Allow every development team to create arbitrary, case-sensitive tag names with conflicting spelling." },
-      { id: 'B', text: "Establish a standardized tagging policy (`CostCenter`, `Environment`, `Owner`, `Application`) enforced via automated policy-as-code admission rules." },
-      { id: 'C', text: "Prohibit the use of tags to save cloud metadata storage space." },
-      { id: 'D', text: "Leave 80% of cloud resources untagged and allocate all spend to general corporate overhead." }
+      { id: 'A', text: "Establish a standardized tagging policy (`CostCenter`, `Environment`, `Owner`, `Application`) enforced via automated policy-as-code admission rules." },
+      { id: 'B', text: "Allow every development team to create arbitrary, case-sensitive tag names with conflicting spelling." },
+      { id: 'C', text: "Leave 80% of cloud resources untagged and allocate all spend to general corporate overhead." },
+      { id: 'D', text: "Prohibit the use of tags to save cloud metadata storage space." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Establish a standardized tagging policy (`CostCenter`, `Environment`, `Owner`, `Application`) enforced via automated policy-as-code admission rules. Cost allocation is the foundation of FinOps. A standardized tagging schema (`Env`, `App`, `Owner`, `CostCenter`) paired with account/subscription hierarchy maps infrastructure spend to business owners. Automated policy engines (AWS Tag Policies, Azure Policy) block untagged resource creation.",
     referenceUrl: "https://www.finops.org/framework/capabilities/cost-allocation/",
@@ -492,12 +492,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "A digital product management group is aligning cloud infrastructure costs with product margins, unit economics, and adaptive driver-based rolling forecasts. The FinOps practitioner needs to attribute 95% of enterprise multi-cloud infrastructure spend accurately to specific business units, products, and cost centers.",
     question: "Which business metric or forecasting methodology demonstrates cloud financial value to executive stakeholders?",
     options: [
-      { id: 'A', text: "Prohibit the use of tags to save cloud metadata storage space." },
-      { id: 'B', text: "Leave 80% of cloud resources untagged and allocate all spend to general corporate overhead." },
-      { id: 'C', text: "Allow every development team to create arbitrary, case-sensitive tag names with conflicting spelling." },
-      { id: 'D', text: "Establish a standardized tagging policy (`CostCenter`, `Environment`, `Owner`, `Application`) enforced via automated policy-as-code admission rules." }
+      { id: 'A', text: "Establish a standardized tagging policy (`CostCenter`, `Environment`, `Owner`, `Application`) enforced via automated policy-as-code admission rules." },
+      { id: 'B', text: "Allow every development team to create arbitrary, case-sensitive tag names with conflicting spelling." },
+      { id: 'C', text: "Leave 80% of cloud resources untagged and allocate all spend to general corporate overhead." },
+      { id: 'D', text: "Prohibit the use of tags to save cloud metadata storage space." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Establish a standardized tagging policy (`CostCenter`, `Environment`, `Owner`, `Application`) enforced via automated policy-as-code admission rules. Cost allocation is the foundation of FinOps. A standardized tagging schema (`Env`, `App`, `Owner`, `CostCenter`) paired with account/subscription hierarchy maps infrastructure spend to business owners. Automated policy engines (AWS Tag Policies, Azure Policy) block untagged resource creation.",
     referenceUrl: "https://www.finops.org/framework/capabilities/cost-allocation/",
@@ -513,12 +513,12 @@ export const FINOPS_FOCP_QUESTIONS_17 = [
     scenario: "A cloud center of excellence (CCoE) is maturing enterprise FinOps from Crawl to Run, instituting automated policy-as-code guardrails, and managing commitment portfolios. The FinOps practitioner needs to attribute 95% of enterprise multi-cloud infrastructure spend accurately to specific business units, products, and cost centers.",
     question: "Which governance model or maturity milestone establishes continuous financial operational excellence?",
     options: [
-      { id: 'A', text: "Prohibit the use of tags to save cloud metadata storage space." },
+      { id: 'A', text: "Establish a standardized tagging policy (`CostCenter`, `Environment`, `Owner`, `Application`) enforced via automated policy-as-code admission rules." },
       { id: 'B', text: "Allow every development team to create arbitrary, case-sensitive tag names with conflicting spelling." },
       { id: 'C', text: "Leave 80% of cloud resources untagged and allocate all spend to general corporate overhead." },
-      { id: 'D', text: "Establish a standardized tagging policy (`CostCenter`, `Environment`, `Owner`, `Application`) enforced via automated policy-as-code admission rules." }
+      { id: 'D', text: "Prohibit the use of tags to save cloud metadata storage space." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Establish a standardized tagging policy (`CostCenter`, `Environment`, `Owner`, `Application`) enforced via automated policy-as-code admission rules. Cost allocation is the foundation of FinOps. A standardized tagging schema (`Env`, `App`, `Owner`, `CostCenter`) paired with account/subscription hierarchy maps infrastructure spend to business owners. Automated policy engines (AWS Tag Policies, Azure Policy) block untagged resource creation.",
     referenceUrl: "https://www.finops.org/framework/capabilities/cost-allocation/",

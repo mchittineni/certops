@@ -9,12 +9,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "An application reads product details from an Azure SQL Database. The application must check Azure Cache for Redis first. On a cache miss, it queries the database, caches the result with a TTL, and returns the data.",
     question: "Which architectural caching pattern is implemented here?",
     options: [
-      { id: 'A', text: "Write-Behind pattern" },
-      { id: 'B', text: "Refresh-Ahead pattern" },
-      { id: 'C', text: "Write-Through pattern" },
-      { id: 'D', text: "Cache-Aside pattern (Lazy Loading)" }
+      { id: 'A', text: "Cache-Aside pattern (Lazy Loading)" },
+      { id: 'B', text: "Write-Through pattern" },
+      { id: 'C', text: "Write-Behind pattern" },
+      { id: 'D', text: "Refresh-Ahead pattern" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "In the `Cache-Aside` pattern, application code explicitly manages the cache: querying the cache first, falling back to the database upon a cache miss, writing the fetched record into Redis with an expiration, and returning the result.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside",
@@ -30,12 +30,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "A developer is writing a C# web API using the `StackExchange.Redis` library to interact with Azure Cache for Redis.",
     question: "What is the recommended lifecycle and best practice for managing the ConnectionMultiplexer instance?",
     options: [
-      { id: 'A', text: "Create a static thread-local instance per thread" },
-      { id: 'B', text: "Create and share a single ConnectionMultiplexer instance as a singleton throughout the application lifetime" },
-      { id: 'C', text: "Instantiate a new ConnectionMultiplexer instance inside every HTTP request and dispose it" },
-      { id: 'D', text: "Store ConnectionMultiplexer in client browser cookies" }
+      { id: 'A', text: "Create and share a single ConnectionMultiplexer instance as a singleton throughout the application lifetime" },
+      { id: 'B', text: "Instantiate a new ConnectionMultiplexer instance inside every HTTP request and dispose it" },
+      { id: 'C', text: "Store ConnectionMultiplexer in client browser cookies" },
+      { id: 'D', text: "Create a static thread-local instance per thread" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "In `StackExchange.Redis`, the `ConnectionMultiplexer` is designed to be shared and reused across callers. It is fully thread-safe and multiplexes commands over a single underlying TCP connection. Creating a new instance per request exhausts socket connections and degrades performance.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache#connect-to-the-cache",
@@ -51,12 +51,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "A mission-critical financial application requires an in-memory cache with an SLA, automated primary-to-replica failover, data persistence, and Virtual Network (VNet) private isolation.",
     question: "Which Azure Cache for Redis tier provides Redis clustering, data persistence (RDB/AOF), and VNet hosting?",
     options: [
-      { id: 'A', text: "General Purpose tier" },
-      { id: 'B', text: "Premium tier" },
-      { id: 'C', text: "Basic tier (single node, no SLA)" },
-      { id: 'D', text: "Standard tier (two nodes, no VNet or persistence)" }
+      { id: 'A', text: "Premium tier" },
+      { id: 'B', text: "Basic tier (single node, no SLA)" },
+      { id: 'C', text: "Standard tier (two nodes, no VNet or persistence)" },
+      { id: 'D', text: "General Purpose tier" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Cache for Redis `Premium` tier provides high availability with replication, Redis clustering, data persistence (RDB snapshots and AOF logs), virtual network deployment, and higher network bandwidth. The Standard tier lacks clustering, persistence, and VNet integration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-overview#service-tiers",
@@ -72,12 +72,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "A developer configures data persistence on an Azure Cache for Redis Premium instance. The application requires point-in-time snapshot backups stored in an Azure Storage account.",
     question: "Which Redis persistence mode creates point-in-time snapshot files?",
     options: [
-      { id: 'A', text: "RDB (Redis Database) persistence" },
+      { id: 'A', text: "In-Memory Snapshotting alone" },
       { id: 'B', text: "AOF (Append-Only File) persistence" },
-      { id: 'C', text: "In-Memory Snapshotting alone" },
-      { id: 'D', text: "Redis Transaction Logging" }
+      { id: 'C', text: "Redis Transaction Logging" },
+      { id: 'D', text: "RDB (Redis Database) persistence" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Redis supports two persistence modes: `RDB` (creates point-in-time snapshots of the dataset at specified intervals and writes them to an Azure Storage Blob container) and `AOF` (logs every write operation to an append-only log). RDB is ideal for disaster recovery backups.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-how-to-premium-persistence",
@@ -93,12 +93,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "An Azure Cache for Redis instance reaches its memory ceiling. The developer wants Redis to automatically evict the least recently used keys, but only from keys configured with a Time to Live (TTL) expiration.",
     question: "Which maxmemory eviction policy should the developer configure?",
     options: [
-      { id: 'A', text: "noeviction" },
-      { id: 'B', text: "allkeys-random" },
-      { id: 'C', text: "allkeys-lru" },
-      { id: 'D', text: "volatile-lru" }
+      { id: 'A', text: "volatile-lru" },
+      { id: 'B', text: "allkeys-lru" },
+      { id: 'C', text: "noeviction" },
+      { id: 'D', text: "allkeys-random" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`volatile-lru` evicts the least recently used keys among those that have an expiration set. `allkeys-lru` evicts any least recently used key regardless of TTL. `noeviction` returns errors when memory is exhausted.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-configure#maxmemory-policy",
@@ -114,12 +114,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "An architect is choosing between Azure Front Door and Azure CDN. The application requires global Anycast routing, automated SSL offload, instant failover across multiple cloud regions, and Layer 7 Web Application Firewall (WAF).",
     question: "Which service is designed specifically as a global Layer 7 application accelerator and load balancer?",
     options: [
-      { id: 'A', text: "Azure Traffic Manager alone" },
-      { id: 'B', text: "Azure Application Gateway alone" },
-      { id: 'C', text: "Azure CDN Standard" },
-      { id: 'D', text: "Azure Front Door" }
+      { id: 'A', text: "Azure Front Door" },
+      { id: 'B', text: "Azure CDN Standard" },
+      { id: 'C', text: "Azure Traffic Manager alone" },
+      { id: 'D', text: "Azure Application Gateway alone" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Front Door is a global Layer 7 load balancer, application accelerator, and content delivery network. It uses Microsoft's global Anycast network to split TCP handshakes at the edge, provides instant multi-region failover, SSL offload, and integrated WAF protection.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-overview",
@@ -135,12 +135,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "A product image URL `https://cdn.contoso.com/images/shoe.jpg?size=small` and `https://cdn.contoso.com/images/shoe.jpg?size=large` deliver different image resolutions.",
     question: "Which caching query string behavior should the developer configure on the endpoint routing rule?",
     options: [
-      { id: 'A', text: "Standard query stripping" },
-      { id: 'B', text: "Bypass caching" },
-      { id: 'C', text: "Cache every unique URL" },
-      { id: 'D', text: "Ignore query strings" }
+      { id: 'A', text: "Cache every unique URL" },
+      { id: 'B', text: "Ignore query strings" },
+      { id: 'C', text: "Bypass caching" },
+      { id: 'D', text: "Standard query stripping" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "In Azure Front Door / CDN, setting Query String Caching to `Cache every unique URL` instructs edge servers to treat each unique query string variation as a distinct cached asset, ensuring `size=small` and `size=large` are cached separately.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-caching#query-string-caching",
@@ -156,12 +156,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "A marketing website needs to automatically redirect legacy HTTP requests from `/old-promo` to `https://contoso.com/new-campaign` with a 301 Permanent Redirect at the edge without reaching backend servers.",
     question: "Which Azure Front Door feature executes URL rewrites and HTTP redirects at edge locations?",
     options: [
-      { id: 'A', text: "Traffic Manager profiles" },
-      { id: 'B', text: "Health Probe settings" },
-      { id: 'C', text: "Azure Front Door Rules Engine" },
-      { id: 'D', text: "Origin Groups" }
+      { id: 'A', text: "Azure Front Door Rules Engine" },
+      { id: 'B', text: "Origin Groups" },
+      { id: 'C', text: "Health Probe settings" },
+      { id: 'D', text: "Traffic Manager profiles" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The Azure Front Door `Rules Engine` allows developers to customize how HTTP requests are handled at the edge. Rules evaluate request headers, paths, or query strings, and apply actions such as URL redirects (HTTP 301/302), URL rewrites, or custom response headers.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-rules-engine",
@@ -177,12 +177,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "A dynamic API cannot cache JSON responses because data changes every second. However, international mobile users in Asia and Europe experience high latency connecting to the US backend.",
     question: "How does Azure Front Door Dynamic Site Acceleration (DSA) improve latency for uncacheable dynamic requests?",
     options: [
-      { id: 'A', text: "By terminating TLS at the nearest edge location" },
+      { id: 'A', text: "By compressing JSON files using lossy audio codecs" },
       { id: 'B', text: "By caching dynamic data in memory for 24 hours" },
-      { id: 'C', text: "By deploying dedicated physical servers in every city" },
-      { id: 'D', text: "By compressing JSON files using lossy audio codecs" }
+      { id: 'C', text: "By terminating TLS at the nearest edge location" },
+      { id: 'D', text: "By deploying dedicated physical servers in every city" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Dynamic Site Acceleration (DSA) optimizes dynamic, non-cacheable traffic by terminating TCP handshakes at the edge PoP nearest to the user, using TCP route optimization, and routing traffic to the origin over pre-warmed, persistent TCP connections on Microsoft's private global backbone.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-routing-architecture",
@@ -199,9 +199,9 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     question: "Which action immediately removes the cached asset from all edge locations worldwide?",
     options: [
       { id: 'A', text: "Purge the cache for that asset path" },
-      { id: 'B', text: "Wait for the 7-day TTL to expire" },
-      { id: 'C', text: "Restart the backend origin server" },
-      { id: 'D', text: "Delete the Azure subscription and recreate it" }
+      { id: 'B', text: "Delete the Azure subscription and recreate it" },
+      { id: 'C', text: "Wait for the 7-day TTL to expire" },
+      { id: 'D', text: "Restart the backend origin server" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,12 +219,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "A developer tracks a user checkout event in Application Insights: `telemetryClient.TrackEvent('CheckoutCompleted', properties, metrics);`.",
     question: "What is the difference between the `properties` dictionary and the `metrics` dictionary in TrackEvent?",
     options: [
-      { id: 'A', text: "properties holds strings for filtering, metrics holds numbers" },
-      { id: 'B', text: "properties is only for timestamps; metrics is for error messages" },
+      { id: 'A', text: "properties is only for timestamps; metrics is for error messages" },
+      { id: 'B', text: "Both dictionaries are identical in functionality" },
       { id: 'C', text: "properties can only contain integers; metrics contains strings" },
-      { id: 'D', text: "Both dictionaries are identical in functionality" }
+      { id: 'D', text: "properties holds strings for filtering, metrics holds numbers" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "In `TrackEvent`, the `properties` dictionary (`IDictionary<string, string>`) holds dimensional metadata for slicing and grouping in Analytics. The `metrics` dictionary (`IDictionary<string, double>`) holds numeric values that can be averaged, summed, or graphed.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics#trackevent",
@@ -240,12 +240,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "An operations engineer receives an automated email from Application Insights stating that the failure rate for an API endpoint spiked abnormally compared to historical baselines.",
     question: "Which built-in Application Insights feature uses machine learning to detect proactive performance anomalies without manual alarm thresholds?",
     options: [
-      { id: 'A', text: "Continuous Profiler" },
-      { id: 'B', text: "Smart Detection (Failure Anomalies)" },
+      { id: 'A', text: "Smart Detection (Failure Anomalies)" },
+      { id: 'B', text: "Continuous Profiler" },
       { id: 'C', text: "Availability Web Tests" },
       { id: 'D', text: "Azure Advisor alone" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Application Insights `Smart Detection` uses machine learning algorithms to automatically analyze application telemetry. It identifies anomalies in failure rates, performance degradation, memory leaks, and trace degradation without requiring manual threshold configuration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/proactive-diagnostics",
@@ -261,12 +261,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "An enterprise security standard requires that all resource diagnostic logs (from Key Vault, App Service, and Cosmos DB) must be retained for 365 days in long-term cold storage.",
     question: "Which destination in Diagnostic Settings provides lowest-cost long-term retention?",
     options: [
-      { id: 'A', text: "An Azure Storage Account container" },
-      { id: 'B', text: "A Log Analytics workspace" },
-      { id: 'C', text: "An Azure Event Hub" },
+      { id: 'A', text: "A Log Analytics workspace" },
+      { id: 'B', text: "An Azure Event Hub" },
+      { id: 'C', text: "An Azure Storage Account container" },
       { id: 'D', text: "Application Insights" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "In Azure Monitor Diagnostic Settings, logs can be routed to three destinations: `Log Analytics workspace` (for interactive querying and alerting), `Event Hubs` (for real-time streaming to third-party SIEMs), and `Storage Account` (for low-cost, long-term compliance archiving).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings",
@@ -282,12 +282,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "A company wants to store security logs in Log Analytics for 2 years. Interactive querying is only required for the most recent 90 days.",
     question: "How should the workspace retention be configured to optimize storage costs?",
     options: [
-      { id: 'A', text: "90 days interactive and 730 days total" },
-      { id: 'B', text: "Set interactive retention to 730 days" },
+      { id: 'A', text: "Export logs to a local on-premises server" },
+      { id: 'B', text: "90 days interactive and 730 days total" },
       { id: 'C', text: "Delete logs older than 90 days" },
-      { id: 'D', text: "Export logs to a local on-premises server" }
+      { id: 'D', text: "Set interactive retention to 730 days" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure Log Analytics workspaces support two retention tiers: `Interactive retention` (typically 30-90 days, full analytical query performance) and `Archive retention` (up to 7 years, low-cost cold storage where data can be searched via search jobs or restored when needed).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-archive",
@@ -304,9 +304,9 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     question: "Which advanced caching capability invalidates local in-memory caches using Redis tracking?",
     options: [
       { id: 'A', text: "Client-Side Caching (Tracking / Invalidation Messages)" },
-      { id: 'B', text: "Manual polling loops" },
-      { id: 'C', text: "Redis Pub/Sub alone" },
-      { id: 'D', text: "Setting TTL to 1 millisecond" }
+      { id: 'B', text: "Redis Pub/Sub alone" },
+      { id: 'C', text: "Setting TTL to 1 millisecond" },
+      { id: 'D', text: "Manual polling loops" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "A public web application receives malicious HTTP payloads containing SQL injection strings in request query parameters.",
     question: "Which security service integrated with Azure Front Door inspects and blocks malicious Layer 7 traffic at the edge?",
     options: [
-      { id: 'A', text: "Network Security Groups on VMs" },
-      { id: 'B', text: "App Service IP Restrictions alone" },
-      { id: 'C', text: "Azure DDoS Protection Standard alone" },
-      { id: 'D', text: "Azure Web Application Firewall (WAF) on Azure Front Door" }
+      { id: 'A', text: "Azure Web Application Firewall (WAF) on Azure Front Door" },
+      { id: 'B', text: "Azure DDoS Protection Standard alone" },
+      { id: 'C', text: "Network Security Groups on VMs" },
+      { id: 'D', text: "App Service IP Restrictions alone" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure Web Application Firewall (WAF) can be deployed directly on Azure Front Door edge points of presence. It evaluates incoming requests against the Default Rule Set (DRS) based on OWASP Top 10 vulnerabilities (SQLi, XSS, RCE), blocking attacks at the edge before they reach backend origins.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/afds-overview",
@@ -345,12 +345,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "A developer is analyzing API response times over 7 days. The query must produce a regular, continuous time series array suitable for graphing, filling missing intervals with zero.",
     question: "Which KQL operator generates regularized time series arrays?",
     options: [
-      { id: 'A', text: "summarize" },
-      { id: 'B', text: "make-series" },
+      { id: 'A', text: "make-series" },
+      { id: 'B', text: "summarize" },
       { id: 'C', text: "project" },
       { id: 'D', text: "render" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `make-series` KQL operator generates a series of specified aggregated values along a specified axis (typically time). Unlike `summarize`, `make-series` automatically fills gaps with default values (such as 0), producing clean arrays for machine learning and charting.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/make-series-operator",
@@ -387,12 +387,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "An enterprise Redis cache dataset requires 200 GB of memory and 50,000 operations per second. A single Redis node cannot handle this workload.",
     question: "How does Redis clustering shard keys across multiple nodes?",
     options: [
-      { id: 'A', text: "By spreading 16,384 hash slots across primary nodes" },
-      { id: 'B', text: "By running a round-robin DNS server" },
+      { id: 'A', text: "By hashing keys into 100 fixed partitions" },
+      { id: 'B', text: "By spreading 16,384 hash slots across primary nodes" },
       { id: 'C', text: "By creating duplicate copies of every key on every node" },
-      { id: 'D', text: "By hashing keys into 100 fixed partitions" }
+      { id: 'D', text: "By running a round-robin DNS server" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Redis clustering partitions data horizontally across up to 10 shards (up to 500 shards in Enterprise). Every key is assigned to one of 16,384 logical hash slots (`CRC16(key) mod 16384`), and each node is responsible for a subset of the hash slots.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-how-to-premium-clustering",
@@ -429,12 +429,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "A developer is evaluating the architectural layers of Azure API Management (APIM).",
     question: "Which APIM component acts as the reverse proxy that accepts API calls, validates JWT tokens, enforces rate limits, and routes requests to backend services?",
     options: [
-      { id: 'A', text: "Azure Front Door" },
-      { id: 'B', text: "The API Gateway (Data Plane)" },
-      { id: 'C', text: "The Management Plane" },
-      { id: 'D', text: "The Developer Portal" }
+      { id: 'A', text: "The API Gateway (Data Plane)" },
+      { id: 'B', text: "The Management Plane" },
+      { id: 'C', text: "The Developer Portal" },
+      { id: 'D', text: "Azure Front Door" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure API Management consists of three core components: the `API Gateway` (data plane proxy that intercepts incoming calls, executes policies, and routes traffic), the `Management Plane` (administrative REST API and portal), and the `Developer Portal` (self-service API documentation and key management for consumers).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-key-concepts",
@@ -450,12 +450,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "In Azure API Management, an XML policy document defines transformations across the request and response pipeline.",
     question: "In which policy section should a developer modify request headers before the request is forwarded to the backend service?",
     options: [
-      { id: 'A', text: "The &lt;on-error&gt; section" },
-      { id: 'B', text: "The &lt;inbound&gt; section" },
-      { id: 'C', text: "The &lt;backend&gt; section" },
-      { id: 'D', text: "The &lt;outbound&gt; section" }
+      { id: 'A', text: "The &lt;inbound&gt; section" },
+      { id: 'B', text: "The &lt;backend&gt; section" },
+      { id: 'C', text: "The &lt;outbound&gt; section" },
+      { id: 'D', text: "The &lt;on-error&gt; section" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "APIM policies are divided into four sequential execution blocks: `&lt;inbound&gt;` (executes before request is forwarded to backend), `&lt;backend&gt;` (controls forwarding to backend), `&lt;outbound&gt;` (executes after receiving response from backend before returning to client), and `&lt;on-error&gt;` (executes if an exception occurs in any section).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies",
@@ -471,12 +471,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "A public weather API in API Management needs to limit each individual client application to a maximum of 100 requests per minute based on the caller's subscription key or client IP.",
     question: "Which APIM policy statement enforces key-based request rate limiting?",
     options: [
-      { id: 'A', text: "&lt;rate-limit-by-key calls='100' renewal-period='60' counter-key='@(context.Subscription.Key)' /&gt;" },
+      { id: 'A', text: "&lt;validate-jwt calls='100' /&gt;" },
       { id: 'B', text: "&lt;quota-by-key calls='100' renewal-period='60' /&gt;" },
-      { id: 'C', text: "&lt;throttle calls='100' /&gt;" },
-      { id: 'D', text: "&lt;validate-jwt calls='100' /&gt;" }
+      { id: 'C', text: "&lt;rate-limit-by-key calls='100' renewal-period='60' counter-key='@(context.Subscription.Key)' /&gt;" },
+      { id: 'D', text: "&lt;throttle calls='100' /&gt;" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The `&lt;rate-limit-by-key&gt;` policy tracks and enforces call rate limits per custom key (such as subscription key, IP address, or JWT claim) over a short renewal period (e.g. 60 seconds), returning an HTTP 429 Too Many Requests when the limit is breached.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/rate-limit-by-key-policy",
@@ -492,12 +492,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "An API Management instance receives requests with OAuth 2.0 access tokens. APIM must verify that the token was signed by Microsoft Entra ID and contains an audience claim matching the API's client ID.",
     question: "Which APIM policy validates JSON Web Tokens and enforces required claims?",
     options: [
-      { id: 'A', text: "&lt;check-header&gt;" },
-      { id: 'B', text: "&lt;validate-jwt&gt;" },
+      { id: 'A', text: "&lt;validate-jwt&gt;" },
+      { id: 'B', text: "&lt;check-header&gt;" },
       { id: 'C', text: "&lt;set-variable&gt;" },
       { id: 'D', text: "&lt;authenticate-basic&gt;" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `&lt;validate-jwt&gt;` policy validates the cryptographic signature, expiration dates, and required claims of incoming JWT tokens against openid-configuration metadata before routing requests to backend services.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/validate-jwt-policy",
@@ -513,12 +513,12 @@ export const AZURE_AZ204_QUESTIONS_8 = [
     scenario: "An API Management gateway exposes a public endpoint `/api/v1/customers/{id}`. The backend REST service expects the request at `/services/crm/customer-lookup?cid={id}`.",
     question: "Which APIM policy modifies the URL path and query parameters sent to the backend?",
     options: [
-      { id: 'A', text: "&lt;rewrite-uri template='/services/crm/customer-lookup?cid=@(context.Request.MatchedParameters[\"id\"])' /&gt;" },
-      { id: 'B', text: "&lt;set-header name='X-Original-URL' /&gt;" },
+      { id: 'A', text: "&lt;redirect-url /&gt;" },
+      { id: 'B', text: "&lt;rewrite-uri template='/services/crm/customer-lookup?cid=@(context.Request.MatchedParameters[\"id\"])' /&gt;" },
       { id: 'C', text: "&lt;forward-request /&gt;" },
-      { id: 'D', text: "&lt;redirect-url /&gt;" }
+      { id: 'D', text: "&lt;set-header name='X-Original-URL' /&gt;" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The `&lt;rewrite-uri&gt;` policy transforms the request URL path and query string before sending it to the backend service, decoupling the public API design from internal backend URL structures.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/rewrite-uri-policy",

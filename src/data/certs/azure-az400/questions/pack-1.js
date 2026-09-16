@@ -9,12 +9,12 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     scenario: "A software development division using Azure DevOps requires custom work item states, mandatory custom fields (such as 'Business Justification'), and tailored workflow rules for Product Backlog Items (PBIs). The default Scrum process template does not permit editing system states directly.",
     question: "What is the Microsoft-recommended approach to customize the work item workflow?",
     options: [
-      { id: 'A', text: "Switch the organization to the CMMI process template and disable all regulatory validation rules" },
-      { id: 'B', text: "Create an inherited process from the Scrum template and customize the states, fields, and rules in the inherited process" },
-      { id: 'C', text: "Export the XML template of the default Scrum process, edit the XML locally, and force-overwrite the system template via REST API" },
-      { id: 'D', text: "Instruct developers to document custom states in the work item HTML discussion thread instead" }
+      { id: 'A', text: "Create an inherited process from the Scrum template and customize the states, fields, and rules in the inherited process" },
+      { id: 'B', text: "Instruct developers to document custom states in the work item HTML discussion thread instead" },
+      { id: 'C', text: "Switch the organization to the CMMI process template and disable all regulatory validation rules" },
+      { id: 'D', text: "Export the XML template of the default Scrum process, edit the XML locally, and force-overwrite the system template via REST API" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "System process templates in Azure DevOps (Basic, Agile, Scrum, CMMI) are locked and read-only. To customize fields, states, rules, or work item types, administrators must create an inherited process derived from the base template, customize the inherited process, and change project associations to use it.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/organizations/settings/work/manage-process",
@@ -31,9 +31,9 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     question: "Which configuration in Azure Boards and Azure Repos ensures work items are linked automatically?",
     options: [
       { id: 'A', text: "Branch policies requiring linked work items, plus #ID mentions in commits" },
-      { id: 'B', text: "Disable Git pull requests and push commits directly to the main branch with manual ticket numbers" },
+      { id: 'B', text: "Require developers to take screenshots of completed work items and attach them to Git commit objects" },
       { id: 'C', text: "Export an Azure Boards query to CSV weekly and send it to the auditors" },
-      { id: 'D', text: "Require developers to take screenshots of completed work items and attach them to Git commit objects" }
+      { id: 'D', text: "Disable Git pull requests and push commits directly to the main branch with manual ticket numbers" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #1?",
     options: [
-      { id: 'A', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
-      { id: 'B', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'A', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'B', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
       { id: 'C', text: "Exporting weekly work item reports to static text files on shared file drives" },
       { id: 'D', text: "Granting Project Administrator rights to all external third-party guest users" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -72,12 +72,12 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #2?",
     options: [
-      { id: 'A', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'A', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
       { id: 'B', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'C', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'D', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" }
+      { id: 'C', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'D', text: "Granting Project Administrator rights to all external third-party guest users" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -93,12 +93,12 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #3?",
     options: [
-      { id: 'A', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'B', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
-      { id: 'C', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'D', text: "Disabling all automated pipeline notifications to reduce developer email volume" }
+      { id: 'A', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
+      { id: 'B', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'C', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'D', text: "Granting Project Administrator rights to all external third-party guest users" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -115,11 +115,11 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     question: "Which configuration best satisfies process objective #4?",
     options: [
       { id: 'A', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'C', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'D', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" }
+      { id: 'B', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'C', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
+      { id: 'D', text: "Exporting weekly work item reports to static text files on shared file drives" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -136,8 +136,8 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     question: "Which configuration best satisfies process objective #5?",
     options: [
       { id: 'A', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'C', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'B', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'C', text: "Exporting weekly work item reports to static text files on shared file drives" },
       { id: 'D', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" }
     ],
     correctAnswers: ['D'],
@@ -156,12 +156,12 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #6?",
     options: [
-      { id: 'A', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'B', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
+      { id: 'A', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
+      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
       { id: 'C', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'D', text: "Exporting weekly work item reports to static text files on shared file drives" }
+      { id: 'D', text: "Granting Project Administrator rights to all external third-party guest users" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -199,11 +199,11 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     question: "Which configuration best satisfies process objective #8?",
     options: [
       { id: 'A', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'B', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'C', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'D', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" }
+      { id: 'B', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'C', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
+      { id: 'D', text: "Granting Project Administrator rights to all external third-party guest users" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -219,8 +219,8 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #9?",
     options: [
-      { id: 'A', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'B', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'A', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
       { id: 'C', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
       { id: 'D', text: "Granting Project Administrator rights to all external third-party guest users" }
     ],
@@ -242,8 +242,8 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
       { id: 'B', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
-      { id: 'C', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'D', text: "Exporting weekly work item reports to static text files on shared file drives" }
+      { id: 'C', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'D', text: "Granting Project Administrator rights to all external third-party guest users" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,12 +261,12 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #11?",
     options: [
-      { id: 'A', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'C', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'D', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" }
+      { id: 'A', text: "Granting Project Administrator rights to all external third-party guest users" },
+      { id: 'B', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
+      { id: 'C', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'D', text: "Exporting weekly work item reports to static text files on shared file drives" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -282,12 +282,12 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #12?",
     options: [
-      { id: 'A', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'B', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
-      { id: 'C', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'D', text: "Exporting weekly work item reports to static text files on shared file drives" }
+      { id: 'A', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'B', text: "Granting Project Administrator rights to all external third-party guest users" },
+      { id: 'C', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
+      { id: 'D', text: "Disabling all automated pipeline notifications to reduce developer email volume" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -304,9 +304,9 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     question: "Which configuration best satisfies process objective #13?",
     options: [
       { id: 'A', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
-      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'C', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'D', text: "Granting Project Administrator rights to all external third-party guest users" }
+      { id: 'B', text: "Granting Project Administrator rights to all external third-party guest users" },
+      { id: 'C', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'D', text: "Disabling all automated pipeline notifications to reduce developer email volume" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #14?",
     options: [
-      { id: 'A', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'B', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'A', text: "Granting Project Administrator rights to all external third-party guest users" },
+      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
       { id: 'C', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
-      { id: 'D', text: "Granting Project Administrator rights to all external third-party guest users" }
+      { id: 'D', text: "Disabling all automated pipeline notifications to reduce developer email volume" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,12 +345,12 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #15?",
     options: [
-      { id: 'A', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'C', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
-      { id: 'D', text: "Granting Project Administrator rights to all external third-party guest users" }
+      { id: 'A', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'B', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'C', text: "Granting Project Administrator rights to all external third-party guest users" },
+      { id: 'D', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -367,8 +367,8 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     question: "Which configuration best satisfies process objective #16?",
     options: [
       { id: 'A', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'B', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'C', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'C', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
       { id: 'D', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" }
     ],
     correctAnswers: ['D'],
@@ -387,12 +387,12 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #17?",
     options: [
-      { id: 'A', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'B', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'C', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
+      { id: 'A', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
+      { id: 'B', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'C', text: "Granting Project Administrator rights to all external third-party guest users" },
       { id: 'D', text: "Exporting weekly work item reports to static text files on shared file drives" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -408,12 +408,12 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #18?",
     options: [
-      { id: 'A', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
-      { id: 'B', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'C', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'A', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'B', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
+      { id: 'C', text: "Granting Project Administrator rights to all external third-party guest users" },
       { id: 'D', text: "Exporting weekly work item reports to static text files on shared file drives" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -430,11 +430,11 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     question: "Which configuration best satisfies process objective #19?",
     options: [
       { id: 'A', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'C', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
-      { id: 'D', text: "Disabling all automated pipeline notifications to reduce developer email volume" }
+      { id: 'B', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
+      { id: 'C', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
+      { id: 'D', text: "Exporting weekly work item reports to static text files on shared file drives" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -452,10 +452,10 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
       { id: 'B', text: "Exporting weekly work item reports to static text files on shared file drives" },
-      { id: 'C', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
-      { id: 'D', text: "Granting Project Administrator rights to all external third-party guest users" }
+      { id: 'C', text: "Granting Project Administrator rights to all external third-party guest users" },
+      { id: 'D', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",
@@ -471,10 +471,10 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #21?",
     options: [
-      { id: 'A', text: "Granting Project Administrator rights to all external third-party guest users" },
+      { id: 'A', text: "Exporting weekly work item reports to static text files on shared file drives" },
       { id: 'B', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
-      { id: 'C', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'D', text: "Exporting weekly work item reports to static text files on shared file drives" }
+      { id: 'C', text: "Granting Project Administrator rights to all external third-party guest users" },
+      { id: 'D', text: "Disabling all automated pipeline notifications to reduce developer email volume" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -513,12 +513,12 @@ export const AZURE_AZ400_QUESTIONS_1 = [
     scenario: "A DevOps lead is standardizing team notification channels, sprint cadence, and cross-tool integrations between Azure DevOps and chat platforms.",
     question: "Which configuration best satisfies process objective #23?",
     options: [
-      { id: 'A', text: "Granting Project Administrator rights to all external third-party guest users" },
-      { id: 'B', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" },
+      { id: 'A', text: "Exporting weekly work item reports to static text files on shared file drives" },
+      { id: 'B', text: "Granting Project Administrator rights to all external third-party guest users" },
       { id: 'C', text: "Disabling all automated pipeline notifications to reduce developer email volume" },
-      { id: 'D', text: "Exporting weekly work item reports to static text files on shared file drives" }
+      { id: 'D', text: "Azure DevOps service hooks posting filtered events to Microsoft Teams" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configuring processes and communication in Azure DevOps focuses on establishing structured process templates, real-time service hook webhooks, and seamless cross-functional team collaboration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/service-hooks/overview",

@@ -9,12 +9,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Backup to configure daily automated backups of 20 Azure Virtual Machines with an operational recovery snapshot retention of 2 days and secondary vault retention of 30 days.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Write a custom script to take manual snapshots of managed disks every night." },
-      { id: 'B', text: "Deploy a third-party backup agent inside each VM writing to an external FTP server." },
-      { id: 'C', text: "Shut down virtual machines every evening to copy OS VHD files manually." },
-      { id: 'D', text: "Create a Backup Policy in an Azure Recovery Services Vault and apply it to the virtual machines." }
+      { id: 'A', text: "Deploy a third-party backup agent inside each VM writing to an external FTP server." },
+      { id: 'B', text: "Shut down virtual machines every evening to copy OS VHD files manually." },
+      { id: 'C', text: "Create a Backup Policy in an Azure Recovery Services Vault and apply it to the virtual machines." },
+      { id: 'D', text: "Write a custom script to take manual snapshots of managed disks every night." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a Backup Policy in an Azure Recovery Services Vault and apply it to the virtual machines. Azure Backup provides centralized data protection through Recovery Services Vaults. VM backup policies define backup schedules, instant recovery snapshot retention (local operational tier), and vault retention ranges (long-term compliance tier), coordinating application-consistent snapshots.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction",
@@ -30,12 +30,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure Backup to configure daily automated backups of 20 Azure Virtual Machines with an operational recovery snapshot retention of 2 days and secondary vault retention of 30 days.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Deploy a third-party backup agent inside each VM writing to an external FTP server." },
-      { id: 'B', text: "Shut down virtual machines every evening to copy OS VHD files manually." },
-      { id: 'C', text: "Create a Backup Policy in an Azure Recovery Services Vault and apply it to the virtual machines." },
-      { id: 'D', text: "Write a custom script to take manual snapshots of managed disks every night." }
+      { id: 'A', text: "Create a Backup Policy in an Azure Recovery Services Vault and apply it to the virtual machines." },
+      { id: 'B', text: "Write a custom script to take manual snapshots of managed disks every night." },
+      { id: 'C', text: "Deploy a third-party backup agent inside each VM writing to an external FTP server." },
+      { id: 'D', text: "Shut down virtual machines every evening to copy OS VHD files manually." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create a Backup Policy in an Azure Recovery Services Vault and apply it to the virtual machines. Azure Backup provides centralized data protection through Recovery Services Vaults. VM backup policies define backup schedules, instant recovery snapshot retention (local operational tier), and vault retention ranges (long-term compliance tier), coordinating application-consistent snapshots.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction",
@@ -51,12 +51,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Azure Backup to configure daily automated backups of 20 Azure Virtual Machines with an operational recovery snapshot retention of 2 days and secondary vault retention of 30 days.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Write a custom script to take manual snapshots of managed disks every night." },
-      { id: 'B', text: "Create a Backup Policy in an Azure Recovery Services Vault and apply it to the virtual machines." },
+      { id: 'A', text: "Create a Backup Policy in an Azure Recovery Services Vault and apply it to the virtual machines." },
+      { id: 'B', text: "Write a custom script to take manual snapshots of managed disks every night." },
       { id: 'C', text: "Deploy a third-party backup agent inside each VM writing to an external FTP server." },
       { id: 'D', text: "Shut down virtual machines every evening to copy OS VHD files manually." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create a Backup Policy in an Azure Recovery Services Vault and apply it to the virtual machines. Azure Backup provides centralized data protection through Recovery Services Vaults. VM backup policies define backup schedules, instant recovery snapshot retention (local operational tier), and vault retention ranges (long-term compliance tier), coordinating application-consistent snapshots.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction",
@@ -72,12 +72,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The administrator configures Azure Backup to configure daily automated backups of 20 Azure Virtual Machines with an operational recovery snapshot retention of 2 days and secondary vault retention of 30 days.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Deploy a third-party backup agent inside each VM writing to an external FTP server." },
-      { id: 'B', text: "Shut down virtual machines every evening to copy OS VHD files manually." },
-      { id: 'C', text: "Create a Backup Policy in an Azure Recovery Services Vault and apply it to the virtual machines." },
-      { id: 'D', text: "Write a custom script to take manual snapshots of managed disks every night." }
+      { id: 'A', text: "Create a Backup Policy in an Azure Recovery Services Vault and apply it to the virtual machines." },
+      { id: 'B', text: "Write a custom script to take manual snapshots of managed disks every night." },
+      { id: 'C', text: "Deploy a third-party backup agent inside each VM writing to an external FTP server." },
+      { id: 'D', text: "Shut down virtual machines every evening to copy OS VHD files manually." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create a Backup Policy in an Azure Recovery Services Vault and apply it to the virtual machines. Azure Backup provides centralized data protection through Recovery Services Vaults. VM backup policies define backup schedules, instant recovery snapshot retention (local operational tier), and vault retention ranges (long-term compliance tier), coordinating application-consistent snapshots.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction",
@@ -95,8 +95,8 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Create a Backup Policy in an Azure Recovery Services Vault and apply it to the virtual machines." },
       { id: 'B', text: "Write a custom script to take manual snapshots of managed disks every night." },
-      { id: 'C', text: "Shut down virtual machines every evening to copy OS VHD files manually." },
-      { id: 'D', text: "Deploy a third-party backup agent inside each VM writing to an external FTP server." }
+      { id: 'C', text: "Deploy a third-party backup agent inside each VM writing to an external FTP server." },
+      { id: 'D', text: "Shut down virtual machines every evening to copy OS VHD files manually." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Backup Security to prevent a compromised administrator credential from immediately and permanently deleting all VM recovery points in a Recovery Services Vault.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Store backup encryption passwords in an unencrypted Word document on a shared network drive." },
-      { id: 'B', text: "Disable backup alerting in Azure Monitor." },
-      { id: 'C', text: "Delete the Recovery Services Vault and rely solely on local disk caching." },
-      { id: 'D', text: "Enable Backup Soft Delete and configure Multi-User Authorization (MUA) with Resource Guard." }
+      { id: 'A', text: "Disable backup alerting in Azure Monitor." },
+      { id: 'B', text: "Delete the Recovery Services Vault and rely solely on local disk caching." },
+      { id: 'C', text: "Enable Backup Soft Delete and configure Multi-User Authorization (MUA) with Resource Guard." },
+      { id: 'D', text: "Store backup encryption passwords in an unencrypted Word document on a shared network drive." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Backup Soft Delete and configure Multi-User Authorization (MUA) with Resource Guard. Azure Backup soft delete retains deleted backup data for 14 additional days, allowing recovery if accidentally or maliciously deleted. Multi-User Authorization (MUA) adds an additional layer of protection using Azure Resource Guard, requiring approval from an external tenant or admin before critical backup actions can proceed.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-security-feature-cloud",
@@ -135,12 +135,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure Backup Security to prevent a compromised administrator credential from immediately and permanently deleting all VM recovery points in a Recovery Services Vault.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Disable backup alerting in Azure Monitor." },
-      { id: 'B', text: "Delete the Recovery Services Vault and rely solely on local disk caching." },
-      { id: 'C', text: "Enable Backup Soft Delete and configure Multi-User Authorization (MUA) with Resource Guard." },
-      { id: 'D', text: "Store backup encryption passwords in an unencrypted Word document on a shared network drive." }
+      { id: 'A', text: "Enable Backup Soft Delete and configure Multi-User Authorization (MUA) with Resource Guard." },
+      { id: 'B', text: "Store backup encryption passwords in an unencrypted Word document on a shared network drive." },
+      { id: 'C', text: "Disable backup alerting in Azure Monitor." },
+      { id: 'D', text: "Delete the Recovery Services Vault and rely solely on local disk caching." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Enable Backup Soft Delete and configure Multi-User Authorization (MUA) with Resource Guard. Azure Backup soft delete retains deleted backup data for 14 additional days, allowing recovery if accidentally or maliciously deleted. Multi-User Authorization (MUA) adds an additional layer of protection using Azure Resource Guard, requiring approval from an external tenant or admin before critical backup actions can proceed.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-security-feature-cloud",
@@ -156,12 +156,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Azure Backup Security to prevent a compromised administrator credential from immediately and permanently deleting all VM recovery points in a Recovery Services Vault.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Disable backup alerting in Azure Monitor." },
+      { id: 'A', text: "Delete the Recovery Services Vault and rely solely on local disk caching." },
       { id: 'B', text: "Store backup encryption passwords in an unencrypted Word document on a shared network drive." },
-      { id: 'C', text: "Delete the Recovery Services Vault and rely solely on local disk caching." },
-      { id: 'D', text: "Enable Backup Soft Delete and configure Multi-User Authorization (MUA) with Resource Guard." }
+      { id: 'C', text: "Enable Backup Soft Delete and configure Multi-User Authorization (MUA) with Resource Guard." },
+      { id: 'D', text: "Disable backup alerting in Azure Monitor." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Backup Soft Delete and configure Multi-User Authorization (MUA) with Resource Guard. Azure Backup soft delete retains deleted backup data for 14 additional days, allowing recovery if accidentally or maliciously deleted. Multi-User Authorization (MUA) adds an additional layer of protection using Azure Resource Guard, requiring approval from an external tenant or admin before critical backup actions can proceed.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-security-feature-cloud",
@@ -177,12 +177,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The administrator configures Azure Backup Security to prevent a compromised administrator credential from immediately and permanently deleting all VM recovery points in a Recovery Services Vault.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Disable backup alerting in Azure Monitor." },
-      { id: 'B', text: "Enable Backup Soft Delete and configure Multi-User Authorization (MUA) with Resource Guard." },
-      { id: 'C', text: "Delete the Recovery Services Vault and rely solely on local disk caching." },
-      { id: 'D', text: "Store backup encryption passwords in an unencrypted Word document on a shared network drive." }
+      { id: 'A', text: "Delete the Recovery Services Vault and rely solely on local disk caching." },
+      { id: 'B', text: "Disable backup alerting in Azure Monitor." },
+      { id: 'C', text: "Store backup encryption passwords in an unencrypted Word document on a shared network drive." },
+      { id: 'D', text: "Enable Backup Soft Delete and configure Multi-User Authorization (MUA) with Resource Guard." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable Backup Soft Delete and configure Multi-User Authorization (MUA) with Resource Guard. Azure Backup soft delete retains deleted backup data for 14 additional days, allowing recovery if accidentally or maliciously deleted. Multi-User Authorization (MUA) adds an additional layer of protection using Azure Resource Guard, requiring approval from an external tenant or admin before critical backup actions can proceed.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-security-feature-cloud",
@@ -198,12 +198,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure Backup Security to prevent a compromised administrator credential from immediately and permanently deleting all VM recovery points in a Recovery Services Vault.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Store backup encryption passwords in an unencrypted Word document on a shared network drive." },
-      { id: 'B', text: "Disable backup alerting in Azure Monitor." },
-      { id: 'C', text: "Delete the Recovery Services Vault and rely solely on local disk caching." },
-      { id: 'D', text: "Enable Backup Soft Delete and configure Multi-User Authorization (MUA) with Resource Guard." }
+      { id: 'A', text: "Disable backup alerting in Azure Monitor." },
+      { id: 'B', text: "Delete the Recovery Services Vault and rely solely on local disk caching." },
+      { id: 'C', text: "Enable Backup Soft Delete and configure Multi-User Authorization (MUA) with Resource Guard." },
+      { id: 'D', text: "Store backup encryption passwords in an unencrypted Word document on a shared network drive." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Backup Soft Delete and configure Multi-User Authorization (MUA) with Resource Guard. Azure Backup soft delete retains deleted backup data for 14 additional days, allowing recovery if accidentally or maliciously deleted. Multi-User Authorization (MUA) adds an additional layer of protection using Azure Resource Guard, requiring approval from an external tenant or admin before critical backup actions can proceed.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-security-feature-cloud",
@@ -219,12 +219,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Disaster Recovery to orchestrate the replication of production virtual machines to a secondary paired region and execute a test failover without disrupting ongoing production operations.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Initiate a full production failover that shuts down the primary datacenter during business hours." },
-      { id: 'B', text: "Copy the managed disk snapshots to the secondary region on a schedule." },
-      { id: 'C', text: "Recreate all virtual machines in the secondary region manually from memory." },
-      { id: 'D', text: "Configure Azure Site Recovery (ASR) replication and execute a Test Failover using an isolated test virtual network." }
+      { id: 'A', text: "Copy the managed disk snapshots to the secondary region on a schedule." },
+      { id: 'B', text: "Recreate all virtual machines in the secondary region manually from memory." },
+      { id: 'C', text: "Configure Azure Site Recovery (ASR) replication and execute a Test Failover using an isolated test virtual network." },
+      { id: 'D', text: "Initiate a full production failover that shuts down the primary datacenter during business hours." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure Azure Site Recovery (ASR) replication and execute a Test Failover using an isolated test virtual network. Azure Site Recovery (ASR) coordinates replication, failover, and recovery of Azure virtual machines and on-premises physical/virtual machines. ASR supports 'Test Failover', which deploys replicas into an isolated test virtual network to validate disaster recovery runbooks with zero impact on production.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-failover-failback",
@@ -240,12 +240,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure Disaster Recovery to orchestrate the replication of production virtual machines to a secondary paired region and execute a test failover without disrupting ongoing production operations.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Recreate all virtual machines in the secondary region manually from memory." },
+      { id: 'A', text: "Copy the managed disk snapshots to the secondary region on a schedule." },
       { id: 'B', text: "Initiate a full production failover that shuts down the primary datacenter during business hours." },
-      { id: 'C', text: "Configure Azure Site Recovery (ASR) replication and execute a Test Failover using an isolated test virtual network." },
-      { id: 'D', text: "Copy the managed disk snapshots to the secondary region on a schedule." }
+      { id: 'C', text: "Recreate all virtual machines in the secondary region manually from memory." },
+      { id: 'D', text: "Configure Azure Site Recovery (ASR) replication and execute a Test Failover using an isolated test virtual network." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure Azure Site Recovery (ASR) replication and execute a Test Failover using an isolated test virtual network. Azure Site Recovery (ASR) coordinates replication, failover, and recovery of Azure virtual machines and on-premises physical/virtual machines. ASR supports 'Test Failover', which deploys replicas into an isolated test virtual network to validate disaster recovery runbooks with zero impact on production.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-failover-failback",
@@ -261,12 +261,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Azure Disaster Recovery to orchestrate the replication of production virtual machines to a secondary paired region and execute a test failover without disrupting ongoing production operations.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Recreate all virtual machines in the secondary region manually from memory." },
-      { id: 'B', text: "Configure Azure Site Recovery (ASR) replication and execute a Test Failover using an isolated test virtual network." },
+      { id: 'A', text: "Initiate a full production failover that shuts down the primary datacenter during business hours." },
+      { id: 'B', text: "Recreate all virtual machines in the secondary region manually from memory." },
       { id: 'C', text: "Copy the managed disk snapshots to the secondary region on a schedule." },
-      { id: 'D', text: "Initiate a full production failover that shuts down the primary datacenter during business hours." }
+      { id: 'D', text: "Configure Azure Site Recovery (ASR) replication and execute a Test Failover using an isolated test virtual network." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure Azure Site Recovery (ASR) replication and execute a Test Failover using an isolated test virtual network. Azure Site Recovery (ASR) coordinates replication, failover, and recovery of Azure virtual machines and on-premises physical/virtual machines. ASR supports 'Test Failover', which deploys replicas into an isolated test virtual network to validate disaster recovery runbooks with zero impact on production.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-failover-failback",
@@ -282,12 +282,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The administrator configures Azure Disaster Recovery to orchestrate the replication of production virtual machines to a secondary paired region and execute a test failover without disrupting ongoing production operations.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Recreate all virtual machines in the secondary region manually from memory." },
-      { id: 'B', text: "Configure Azure Site Recovery (ASR) replication and execute a Test Failover using an isolated test virtual network." },
-      { id: 'C', text: "Initiate a full production failover that shuts down the primary datacenter during business hours." },
-      { id: 'D', text: "Copy the managed disk snapshots to the secondary region on a schedule." }
+      { id: 'A', text: "Copy the managed disk snapshots to the secondary region on a schedule." },
+      { id: 'B', text: "Recreate all virtual machines in the secondary region manually from memory." },
+      { id: 'C', text: "Configure Azure Site Recovery (ASR) replication and execute a Test Failover using an isolated test virtual network." },
+      { id: 'D', text: "Initiate a full production failover that shuts down the primary datacenter during business hours." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure Azure Site Recovery (ASR) replication and execute a Test Failover using an isolated test virtual network. Azure Site Recovery (ASR) coordinates replication, failover, and recovery of Azure virtual machines and on-premises physical/virtual machines. ASR supports 'Test Failover', which deploys replicas into an isolated test virtual network to validate disaster recovery runbooks with zero impact on production.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-failover-failback",
@@ -304,8 +304,8 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Configure Azure Site Recovery (ASR) replication and execute a Test Failover using an isolated test virtual network." },
-      { id: 'B', text: "Copy the managed disk snapshots to the secondary region on a schedule." },
-      { id: 'C', text: "Initiate a full production failover that shuts down the primary datacenter during business hours." },
+      { id: 'B', text: "Initiate a full production failover that shuts down the primary datacenter during business hours." },
+      { id: 'C', text: "Copy the managed disk snapshots to the secondary region on a schedule." },
       { id: 'D', text: "Recreate all virtual machines in the secondary region manually from memory." }
     ],
     correctAnswers: ['A'],
@@ -324,12 +324,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Optimization to identify oversized, idle virtual machines to reduce subscription spending and uncover security vulnerabilities against the Microsoft Cloud Security Benchmark.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Hire external consultants to review physical datacenter power consumption." },
+      { id: 'A', text: "Review actionable recommendations in the Cost and Security categories of Azure Advisor." },
       { id: 'B', text: "Read the per-VM CPU charts in the portal for each of the 200 machines." },
-      { id: 'C', text: "Review actionable recommendations in the Cost and Security categories of Azure Advisor." },
+      { id: 'C', text: "Hire external consultants to review physical datacenter power consumption." },
       { id: 'D', text: "Terminate all virtual machines with less than 16 CPU cores." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Review actionable recommendations in the Cost and Security categories of Azure Advisor. Azure Advisor analyzes resource configurations and usage telemetry to provide personalized, actionable recommendations across five categories: Reliability, Security, Performance, Cost, and Operational Excellence. It flags unattached disks, underutilized VMs, and compliance gaps.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/advisor/advisor-overview",
@@ -345,12 +345,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure Optimization to identify oversized, idle virtual machines to reduce subscription spending and uncover security vulnerabilities against the Microsoft Cloud Security Benchmark.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Hire external consultants to review physical datacenter power consumption." },
+      { id: 'A', text: "Review actionable recommendations in the Cost and Security categories of Azure Advisor." },
       { id: 'B', text: "Read the per-VM CPU charts in the portal for each of the 200 machines." },
-      { id: 'C', text: "Review actionable recommendations in the Cost and Security categories of Azure Advisor." },
+      { id: 'C', text: "Hire external consultants to review physical datacenter power consumption." },
       { id: 'D', text: "Terminate all virtual machines with less than 16 CPU cores." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Review actionable recommendations in the Cost and Security categories of Azure Advisor. Azure Advisor analyzes resource configurations and usage telemetry to provide personalized, actionable recommendations across five categories: Reliability, Security, Performance, Cost, and Operational Excellence. It flags unattached disks, underutilized VMs, and compliance gaps.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/advisor/advisor-overview",
@@ -387,12 +387,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The administrator configures Azure Optimization to identify oversized, idle virtual machines to reduce subscription spending and uncover security vulnerabilities against the Microsoft Cloud Security Benchmark.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Hire external consultants to review physical datacenter power consumption." },
-      { id: 'B', text: "Terminate all virtual machines with less than 16 CPU cores." },
-      { id: 'C', text: "Read the per-VM CPU charts in the portal for each of the 200 machines." },
-      { id: 'D', text: "Review actionable recommendations in the Cost and Security categories of Azure Advisor." }
+      { id: 'A', text: "Read the per-VM CPU charts in the portal for each of the 200 machines." },
+      { id: 'B', text: "Review actionable recommendations in the Cost and Security categories of Azure Advisor." },
+      { id: 'C', text: "Terminate all virtual machines with less than 16 CPU cores." },
+      { id: 'D', text: "Hire external consultants to review physical datacenter power consumption." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Review actionable recommendations in the Cost and Security categories of Azure Advisor. Azure Advisor analyzes resource configurations and usage telemetry to provide personalized, actionable recommendations across five categories: Reliability, Security, Performance, Cost, and Operational Excellence. It flags unattached disks, underutilized VMs, and compliance gaps.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/advisor/advisor-overview",
@@ -408,12 +408,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure Optimization to identify oversized, idle virtual machines to reduce subscription spending and uncover security vulnerabilities against the Microsoft Cloud Security Benchmark.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Read the per-VM CPU charts in the portal for each of the 200 machines." },
-      { id: 'B', text: "Terminate all virtual machines with less than 16 CPU cores." },
+      { id: 'A', text: "Terminate all virtual machines with less than 16 CPU cores." },
+      { id: 'B', text: "Review actionable recommendations in the Cost and Security categories of Azure Advisor." },
       { id: 'C', text: "Hire external consultants to review physical datacenter power consumption." },
-      { id: 'D', text: "Review actionable recommendations in the Cost and Security categories of Azure Advisor." }
+      { id: 'D', text: "Read the per-VM CPU charts in the portal for each of the 200 machines." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Review actionable recommendations in the Cost and Security categories of Azure Advisor. Azure Advisor analyzes resource configurations and usage telemetry to provide personalized, actionable recommendations across five categories: Reliability, Security, Performance, Cost, and Operational Excellence. It flags unattached disks, underutilized VMs, and compliance gaps.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/advisor/advisor-overview",
@@ -429,12 +429,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Patch Management to schedule, manage, and assess operating system security updates and hotfixes across Windows and Linux virtual machines in Azure and hybrid environments without deploying WSUS.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Instruct individual server administrators to manually click Windows Update on each server monthly." },
-      { id: 'B', text: "Re-image all virtual machines from scratch every weekend." },
-      { id: 'C', text: "Deploy Azure Update Manager to assess update status and configure periodic patching maintenance windows." },
-      { id: 'D', text: "Disable operating system updates entirely to prevent reboots." }
+      { id: 'A', text: "Re-image all virtual machines from scratch every weekend." },
+      { id: 'B', text: "Disable operating system updates entirely to prevent reboots." },
+      { id: 'C', text: "Instruct individual server administrators to manually click Windows Update on each server monthly." },
+      { id: 'D', text: "Deploy Azure Update Manager to assess update status and configure periodic patching maintenance windows." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Azure Update Manager to assess update status and configure periodic patching maintenance windows. Azure Update Manager is a unified native management tool to oversee and manage updates for Windows and Linux machines across Azure, on-premises, and other cloud platforms (via Azure Arc). It enables compliance tracking, on-demand updates, and scheduled maintenance windows without requiring agents.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/update-manager/overview",
@@ -450,12 +450,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure Patch Management to schedule, manage, and assess operating system security updates and hotfixes across Windows and Linux virtual machines in Azure and hybrid environments without deploying WSUS.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Re-image all virtual machines from scratch every weekend." },
-      { id: 'B', text: "Deploy Azure Update Manager to assess update status and configure periodic patching maintenance windows." },
-      { id: 'C', text: "Instruct individual server administrators to manually click Windows Update on each server monthly." },
-      { id: 'D', text: "Disable operating system updates entirely to prevent reboots." }
+      { id: 'A', text: "Disable operating system updates entirely to prevent reboots." },
+      { id: 'B', text: "Re-image all virtual machines from scratch every weekend." },
+      { id: 'C', text: "Deploy Azure Update Manager to assess update status and configure periodic patching maintenance windows." },
+      { id: 'D', text: "Instruct individual server administrators to manually click Windows Update on each server monthly." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Azure Update Manager to assess update status and configure periodic patching maintenance windows. Azure Update Manager is a unified native management tool to oversee and manage updates for Windows and Linux machines across Azure, on-premises, and other cloud platforms (via Azure Arc). It enables compliance tracking, on-demand updates, and scheduled maintenance windows without requiring agents.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/update-manager/overview",
@@ -472,9 +472,9 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Deploy Azure Update Manager to assess update status and configure periodic patching maintenance windows." },
-      { id: 'B', text: "Re-image all virtual machines from scratch every weekend." },
-      { id: 'C', text: "Instruct individual server administrators to manually click Windows Update on each server monthly." },
-      { id: 'D', text: "Disable operating system updates entirely to prevent reboots." }
+      { id: 'B', text: "Disable operating system updates entirely to prevent reboots." },
+      { id: 'C', text: "Re-image all virtual machines from scratch every weekend." },
+      { id: 'D', text: "Instruct individual server administrators to manually click Windows Update on each server monthly." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The administrator configures Azure Patch Management to schedule, manage, and assess operating system security updates and hotfixes across Windows and Linux virtual machines in Azure and hybrid environments without deploying WSUS.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Instruct individual server administrators to manually click Windows Update on each server monthly." },
-      { id: 'B', text: "Deploy Azure Update Manager to assess update status and configure periodic patching maintenance windows." },
-      { id: 'C', text: "Re-image all virtual machines from scratch every weekend." },
-      { id: 'D', text: "Disable operating system updates entirely to prevent reboots." }
+      { id: 'A', text: "Deploy Azure Update Manager to assess update status and configure periodic patching maintenance windows." },
+      { id: 'B', text: "Instruct individual server administrators to manually click Windows Update on each server monthly." },
+      { id: 'C', text: "Disable operating system updates entirely to prevent reboots." },
+      { id: 'D', text: "Re-image all virtual machines from scratch every weekend." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy Azure Update Manager to assess update status and configure periodic patching maintenance windows. Azure Update Manager is a unified native management tool to oversee and manage updates for Windows and Linux machines across Azure, on-premises, and other cloud platforms (via Azure Arc). It enables compliance tracking, on-demand updates, and scheduled maintenance windows without requiring agents.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/update-manager/overview",
@@ -513,12 +513,12 @@ export const AZURE_AZ104_QUESTIONS_20 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure Patch Management to schedule, manage, and assess operating system security updates and hotfixes across Windows and Linux virtual machines in Azure and hybrid environments without deploying WSUS.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Instruct individual server administrators to manually click Windows Update on each server monthly." },
-      { id: 'B', text: "Re-image all virtual machines from scratch every weekend." },
+      { id: 'A', text: "Re-image all virtual machines from scratch every weekend." },
+      { id: 'B', text: "Deploy Azure Update Manager to assess update status and configure periodic patching maintenance windows." },
       { id: 'C', text: "Disable operating system updates entirely to prevent reboots." },
-      { id: 'D', text: "Deploy Azure Update Manager to assess update status and configure periodic patching maintenance windows." }
+      { id: 'D', text: "Instruct individual server administrators to manually click Windows Update on each server monthly." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Azure Update Manager to assess update status and configure periodic patching maintenance windows. Azure Update Manager is a unified native management tool to oversee and manage updates for Windows and Linux machines across Azure, on-premises, and other cloud platforms (via Azure Arc). It enables compliance tracking, on-demand updates, and scheduled maintenance windows without requiring agents.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/update-manager/overview",

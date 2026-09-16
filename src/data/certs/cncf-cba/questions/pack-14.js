@@ -9,12 +9,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to model a complex microservice ecosystem showing high-level business boundaries and constituent services.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Model everything as a `Component` and express the grouping through `metadata.tags` instead." },
+      { id: 'A', text: "Nest the components several levels deep with `spec.subcomponentOf` rather than declaring systems at all, letting the hierarchy emerge from those links." },
       { id: 'B', text: "Create a `Group` entity for each business area and attach the components to it through `spec.owner`." },
-      { id: 'C', text: "Define high-level `Domain` entities containing `System` entities, which encompass `Component`, `API`, and `Resource` entities." },
-      { id: 'D', text: "Nest the components several levels deep with `spec.subcomponentOf` rather than declaring systems at all, letting the hierarchy emerge from those links." }
+      { id: 'C', text: "Model everything as a `Component` and express the grouping through `metadata.tags` instead." },
+      { id: 'D', text: "Define high-level `Domain` entities containing `System` entities, which encompass `Component`, `API`, and `Resource` entities." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Define high-level `Domain` entities containing `System` entities, which encompass `Component`, `API`, and `Resource` entities. The Backstage Catalog establishes an ecosystem taxonomy: `Domain` groups related `System` entities; `System` groups constituent `Component` (services, apps), `API` (interfaces), and `Resource` (databases, queues) entities, creating clear architectural context. Tags are free-form strings that build no relations, so nothing can be traversed from them; `spec.owner` records who is accountable for a component, which is a different axis from which system it belongs to and leaves cross-team systems unmodelled; and `subcomponentOf` describes a part-of relationship inside one component rather than the system boundary that groups several.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/system-model",
@@ -30,12 +30,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer needs to model a complex microservice ecosystem showing high-level business boundaries and constituent services.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention?",
     options: [
-      { id: 'A', text: "Model everything as a `Component` and express the grouping through `metadata.tags` instead." },
-      { id: 'B', text: "Define high-level `Domain` entities containing `System` entities, which encompass `Component`, `API`, and `Resource` entities." },
-      { id: 'C', text: "Create a `Group` entity for each business area and attach the components to it through `spec.owner`." },
-      { id: 'D', text: "Nest the components several levels deep with `spec.subcomponentOf` rather than declaring systems at all, letting the hierarchy emerge from those links." }
+      { id: 'A', text: "Nest the components several levels deep with `spec.subcomponentOf` rather than declaring systems at all, letting the hierarchy emerge from those links." },
+      { id: 'B', text: "Model everything as a `Component` and express the grouping through `metadata.tags` instead." },
+      { id: 'C', text: "Define high-level `Domain` entities containing `System` entities, which encompass `Component`, `API`, and `Resource` entities." },
+      { id: 'D', text: "Create a `Group` entity for each business area and attach the components to it through `spec.owner`." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Define high-level `Domain` entities containing `System` entities, which encompass `Component`, `API`, and `Resource` entities. The Backstage Catalog establishes an ecosystem taxonomy: `Domain` groups related `System` entities; `System` groups constituent `Component` (services, apps), `API` (interfaces), and `Resource` (databases, queues) entities, creating clear architectural context. Tags are free-form strings that build no relations, so nothing can be traversed from them; `spec.owner` records who is accountable for a component, which is a different axis from which system it belongs to and leaves cross-team systems unmodelled; and `subcomponentOf` describes a part-of relationship inside one component rather than the system boundary that groups several.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/system-model",
@@ -51,12 +51,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer needs to model a complex microservice ecosystem showing high-level business boundaries and constituent services.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls?",
     options: [
-      { id: 'A', text: "Create a `Group` entity for each business area and attach the components to it through `spec.owner`." },
-      { id: 'B', text: "Define high-level `Domain` entities containing `System` entities, which encompass `Component`, `API`, and `Resource` entities." },
+      { id: 'A', text: "Define high-level `Domain` entities containing `System` entities, which encompass `Component`, `API`, and `Resource` entities." },
+      { id: 'B', text: "Create a `Group` entity for each business area and attach the components to it through `spec.owner`." },
       { id: 'C', text: "Nest the components several levels deep with `spec.subcomponentOf` rather than declaring systems at all, letting the hierarchy emerge from those links." },
       { id: 'D', text: "Model everything as a `Component` and express the grouping through `metadata.tags` instead." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Define high-level `Domain` entities containing `System` entities, which encompass `Component`, `API`, and `Resource` entities. The Backstage Catalog establishes an ecosystem taxonomy: `Domain` groups related `System` entities; `System` groups constituent `Component` (services, apps), `API` (interfaces), and `Resource` (databases, queues) entities, creating clear architectural context. Tags are free-form strings that build no relations, so nothing can be traversed from them; `spec.owner` records who is accountable for a component, which is a different axis from which system it belongs to and leaves cross-team systems unmodelled; and `subcomponentOf` describes a part-of relationship inside one component rather than the system boundary that groups several.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/system-model",
@@ -73,9 +73,9 @@ export const CNCF_CBA_QUESTIONS_14 = [
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
       { id: 'A', text: "Define high-level `Domain` entities containing `System` entities, which encompass `Component`, `API`, and `Resource` entities." },
-      { id: 'B', text: "Nest the components several levels deep with `spec.subcomponentOf` rather than declaring systems at all, letting the hierarchy emerge from those links." },
-      { id: 'C', text: "Model everything as a `Component` and express the grouping through `metadata.tags` instead." },
-      { id: 'D', text: "Create a `Group` entity for each business area and attach the components to it through `spec.owner`." }
+      { id: 'B', text: "Model everything as a `Component` and express the grouping through `metadata.tags` instead." },
+      { id: 'C', text: "Create a `Group` entity for each business area and attach the components to it through `spec.owner`." },
+      { id: 'D', text: "Nest the components several levels deep with `spec.subcomponentOf` rather than declaring systems at all, letting the hierarchy emerge from those links." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,12 +93,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer needs to model a complex microservice ecosystem showing high-level business boundaries and constituent services.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
-      { id: 'A', text: "Nest the components several levels deep with `spec.subcomponentOf` rather than declaring systems at all, letting the hierarchy emerge from those links." },
-      { id: 'B', text: "Model everything as a `Component` and express the grouping through `metadata.tags` instead." },
-      { id: 'C', text: "Define high-level `Domain` entities containing `System` entities, which encompass `Component`, `API`, and `Resource` entities." },
-      { id: 'D', text: "Create a `Group` entity for each business area and attach the components to it through `spec.owner`." }
+      { id: 'A', text: "Define high-level `Domain` entities containing `System` entities, which encompass `Component`, `API`, and `Resource` entities." },
+      { id: 'B', text: "Create a `Group` entity for each business area and attach the components to it through `spec.owner`." },
+      { id: 'C', text: "Nest the components several levels deep with `spec.subcomponentOf` rather than declaring systems at all, letting the hierarchy emerge from those links." },
+      { id: 'D', text: "Model everything as a `Component` and express the grouping through `metadata.tags` instead." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Define high-level `Domain` entities containing `System` entities, which encompass `Component`, `API`, and `Resource` entities. The Backstage Catalog establishes an ecosystem taxonomy: `Domain` groups related `System` entities; `System` groups constituent `Component` (services, apps), `API` (interfaces), and `Resource` (databases, queues) entities, creating clear architectural context. Tags are free-form strings that build no relations, so nothing can be traversed from them; `spec.owner` records who is accountable for a component, which is a different axis from which system it belongs to and leaves cross-team systems unmodelled; and `subcomponentOf` describes a part-of relationship inside one component rather than the system boundary that groups several.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/system-model",
@@ -114,12 +114,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to register a microservice into the Backstage catalog alongside its source code repository declaratively.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Register the component by POSTing the entity to the catalog REST API as part of the build pipeline." },
-      { id: 'B', text: "Declare the entity inline in `app-config.yaml` beneath the `catalog.locations` block, keeping every service's metadata in one place." },
+      { id: 'A', text: "Declare the entity inline in `app-config.yaml` beneath the `catalog.locations` block, keeping every service's metadata in one place." },
+      { id: 'B', text: "Create a `catalog-info.yaml` in the repository root with `apiVersion: backstage.io/v1alpha1`, `kind: Component`, and a valid `metadata` and `spec` block." },
       { id: 'C', text: "Name the file `backstage.yaml` at the repository root and let the discovery processor find it by convention, keeping the same `metadata` and `spec` blocks inside it." },
-      { id: 'D', text: "Create a `catalog-info.yaml` in the repository root with `apiVersion: backstage.io/v1alpha1`, `kind: Component`, and a valid `metadata` and `spec` block." }
+      { id: 'D', text: "Register the component by POSTing the entity to the catalog REST API as part of the build pipeline." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a `catalog-info.yaml` in the repository root with `apiVersion: backstage.io/v1alpha1`, `kind: Component`, and a valid `metadata` and `spec` block. Software Catalog metadata is defined declaratively using `catalog-info.yaml` files adhering to `apiVersion: backstage.io/v1alpha1`. Each file specifies `kind`, `metadata` (name, annotations, tags), and `spec` (type, lifecycle, owner, system). The catalog API serves entities but does not accept them as writes, because the catalog is a projection of what the locations declare; an inline entity in the config is real but moves ownership of the metadata away from the team that owns the code; and the discovery processors look for `catalog-info.yaml`, so a differently named file is simply never read.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/descriptor-format",
@@ -135,12 +135,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer needs to register a microservice into the Backstage catalog alongside its source code repository declaratively.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention?",
     options: [
-      { id: 'A', text: "Register the component by POSTing the entity to the catalog REST API as part of the build pipeline." },
-      { id: 'B', text: "Declare the entity inline in `app-config.yaml` beneath the `catalog.locations` block, keeping every service's metadata in one place." },
-      { id: 'C', text: "Create a `catalog-info.yaml` in the repository root with `apiVersion: backstage.io/v1alpha1`, `kind: Component`, and a valid `metadata` and `spec` block." },
-      { id: 'D', text: "Name the file `backstage.yaml` at the repository root and let the discovery processor find it by convention, keeping the same `metadata` and `spec` blocks inside it." }
+      { id: 'A', text: "Declare the entity inline in `app-config.yaml` beneath the `catalog.locations` block, keeping every service's metadata in one place." },
+      { id: 'B', text: "Name the file `backstage.yaml` at the repository root and let the discovery processor find it by convention, keeping the same `metadata` and `spec` blocks inside it." },
+      { id: 'C', text: "Register the component by POSTing the entity to the catalog REST API as part of the build pipeline." },
+      { id: 'D', text: "Create a `catalog-info.yaml` in the repository root with `apiVersion: backstage.io/v1alpha1`, `kind: Component`, and a valid `metadata` and `spec` block." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a `catalog-info.yaml` in the repository root with `apiVersion: backstage.io/v1alpha1`, `kind: Component`, and a valid `metadata` and `spec` block. Software Catalog metadata is defined declaratively using `catalog-info.yaml` files adhering to `apiVersion: backstage.io/v1alpha1`. Each file specifies `kind`, `metadata` (name, annotations, tags), and `spec` (type, lifecycle, owner, system). The catalog API serves entities but does not accept them as writes, because the catalog is a projection of what the locations declare; an inline entity in the config is real but moves ownership of the metadata away from the team that owns the code; and the discovery processors look for `catalog-info.yaml`, so a differently named file is simply never read.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/descriptor-format",
@@ -156,12 +156,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer needs to register a microservice into the Backstage catalog alongside its source code repository declaratively.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls?",
     options: [
-      { id: 'A', text: "Register the component by POSTing the entity to the catalog REST API as part of the build pipeline." },
-      { id: 'B', text: "Name the file `backstage.yaml` at the repository root and let the discovery processor find it by convention, keeping the same `metadata` and `spec` blocks inside it." },
-      { id: 'C', text: "Declare the entity inline in `app-config.yaml` beneath the `catalog.locations` block, keeping every service's metadata in one place." },
-      { id: 'D', text: "Create a `catalog-info.yaml` in the repository root with `apiVersion: backstage.io/v1alpha1`, `kind: Component`, and a valid `metadata` and `spec` block." }
+      { id: 'A', text: "Name the file `backstage.yaml` at the repository root and let the discovery processor find it by convention, keeping the same `metadata` and `spec` blocks inside it." },
+      { id: 'B', text: "Declare the entity inline in `app-config.yaml` beneath the `catalog.locations` block, keeping every service's metadata in one place." },
+      { id: 'C', text: "Create a `catalog-info.yaml` in the repository root with `apiVersion: backstage.io/v1alpha1`, `kind: Component`, and a valid `metadata` and `spec` block." },
+      { id: 'D', text: "Register the component by POSTing the entity to the catalog REST API as part of the build pipeline." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a `catalog-info.yaml` in the repository root with `apiVersion: backstage.io/v1alpha1`, `kind: Component`, and a valid `metadata` and `spec` block. Software Catalog metadata is defined declaratively using `catalog-info.yaml` files adhering to `apiVersion: backstage.io/v1alpha1`. Each file specifies `kind`, `metadata` (name, annotations, tags), and `spec` (type, lifecycle, owner, system). The catalog API serves entities but does not accept them as writes, because the catalog is a projection of what the locations declare; an inline entity in the config is real but moves ownership of the metadata away from the team that owns the code; and the discovery processors look for `catalog-info.yaml`, so a differently named file is simply never read.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/descriptor-format",
@@ -177,12 +177,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer needs to register a microservice into the Backstage catalog alongside its source code repository declaratively.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
-      { id: 'A', text: "Register the component by POSTing the entity to the catalog REST API as part of the build pipeline." },
-      { id: 'B', text: "Name the file `backstage.yaml` at the repository root and let the discovery processor find it by convention, keeping the same `metadata` and `spec` blocks inside it." },
-      { id: 'C', text: "Create a `catalog-info.yaml` in the repository root with `apiVersion: backstage.io/v1alpha1`, `kind: Component`, and a valid `metadata` and `spec` block." },
+      { id: 'A', text: "Name the file `backstage.yaml` at the repository root and let the discovery processor find it by convention, keeping the same `metadata` and `spec` blocks inside it." },
+      { id: 'B', text: "Create a `catalog-info.yaml` in the repository root with `apiVersion: backstage.io/v1alpha1`, `kind: Component`, and a valid `metadata` and `spec` block." },
+      { id: 'C', text: "Register the component by POSTing the entity to the catalog REST API as part of the build pipeline." },
       { id: 'D', text: "Declare the entity inline in `app-config.yaml` beneath the `catalog.locations` block, keeping every service's metadata in one place." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a `catalog-info.yaml` in the repository root with `apiVersion: backstage.io/v1alpha1`, `kind: Component`, and a valid `metadata` and `spec` block. Software Catalog metadata is defined declaratively using `catalog-info.yaml` files adhering to `apiVersion: backstage.io/v1alpha1`. Each file specifies `kind`, `metadata` (name, annotations, tags), and `spec` (type, lifecycle, owner, system). The catalog API serves entities but does not accept them as writes, because the catalog is a projection of what the locations declare; an inline entity in the config is real but moves ownership of the metadata away from the team that owns the code; and the discovery processors look for `catalog-info.yaml`, so a differently named file is simply never read.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/descriptor-format",
@@ -198,12 +198,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer needs to register a microservice into the Backstage catalog alongside its source code repository declaratively.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
-      { id: 'A', text: "Declare the entity inline in `app-config.yaml` beneath the `catalog.locations` block, keeping every service's metadata in one place." },
-      { id: 'B', text: "Name the file `backstage.yaml` at the repository root and let the discovery processor find it by convention, keeping the same `metadata` and `spec` blocks inside it." },
-      { id: 'C', text: "Register the component by POSTing the entity to the catalog REST API as part of the build pipeline." },
-      { id: 'D', text: "Create a `catalog-info.yaml` in the repository root with `apiVersion: backstage.io/v1alpha1`, `kind: Component`, and a valid `metadata` and `spec` block." }
+      { id: 'A', text: "Create a `catalog-info.yaml` in the repository root with `apiVersion: backstage.io/v1alpha1`, `kind: Component`, and a valid `metadata` and `spec` block." },
+      { id: 'B', text: "Register the component by POSTing the entity to the catalog REST API as part of the build pipeline." },
+      { id: 'C', text: "Name the file `backstage.yaml` at the repository root and let the discovery processor find it by convention, keeping the same `metadata` and `spec` blocks inside it." },
+      { id: 'D', text: "Declare the entity inline in `app-config.yaml` beneath the `catalog.locations` block, keeping every service's metadata in one place." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create a `catalog-info.yaml` in the repository root with `apiVersion: backstage.io/v1alpha1`, `kind: Component`, and a valid `metadata` and `spec` block. Software Catalog metadata is defined declaratively using `catalog-info.yaml` files adhering to `apiVersion: backstage.io/v1alpha1`. Each file specifies `kind`, `metadata` (name, annotations, tags), and `spec` (type, lifecycle, owner, system). The catalog API serves entities but does not accept them as writes, because the catalog is a projection of what the locations declare; an inline entity in the config is real but moves ownership of the metadata away from the team that owns the code; and the discovery processors look for `catalog-info.yaml`, so a differently named file is simply never read.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/descriptor-format",
@@ -219,12 +219,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to distinguish an active production backend REST API service from an experimental client-side web application in the catalog.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Record the type and lifecycle as `metadata.tags`, for instance `service` and `production`, so both appear as chips on the entity page." },
+      { id: 'A', text: "Mark the experimental app as `spec.lifecycle: deprecated` so that it is hidden from the default catalog view until the team is ready to promote it." },
       { id: 'B', text: "Set `spec.type: production` and `spec.lifecycle: service`, following the order the portal displays them in." },
-      { id: 'C', text: "Set `spec.type: service` with `spec.lifecycle: production` for the backend API, and `spec.type: website` with `spec.lifecycle: experimental` for the app." },
-      { id: 'D', text: "Mark the experimental app as `spec.lifecycle: deprecated` so that it is hidden from the default catalog view until the team is ready to promote it." }
+      { id: 'C', text: "Record the type and lifecycle as `metadata.tags`, for instance `service` and `production`, so both appear as chips on the entity page." },
+      { id: 'D', text: "Set `spec.type: service` with `spec.lifecycle: production` for the backend API, and `spec.type: website` with `spec.lifecycle: experimental` for the app." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set `spec.type: service` with `spec.lifecycle: production` for the backend API, and `spec.type: website` with `spec.lifecycle: experimental` for the app. Backstage `Component` entities categorize software via `spec.type` (e.g., `service`, `website`, `library`) and reflect operational maturity via `spec.lifecycle` (`experimental`, `production`, `deprecated`), giving engineers immediate visibility into component status. Tags cannot be filtered on as typed fields, so the catalog's type and lifecycle facets stay empty; swapping the two values passes schema validation because both are free-form strings, which is precisely why the mistake survives to production and misleads every reader; and `deprecated` tells engineers to stop using something rather than that it is new.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component",
@@ -240,12 +240,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer needs to distinguish an active production backend REST API service from an experimental client-side web application in the catalog.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention?",
     options: [
-      { id: 'A', text: "Mark the experimental app as `spec.lifecycle: deprecated` so that it is hidden from the default catalog view until the team is ready to promote it." },
-      { id: 'B', text: "Record the type and lifecycle as `metadata.tags`, for instance `service` and `production`, so both appear as chips on the entity page." },
-      { id: 'C', text: "Set `spec.type: service` with `spec.lifecycle: production` for the backend API, and `spec.type: website` with `spec.lifecycle: experimental` for the app." },
-      { id: 'D', text: "Set `spec.type: production` and `spec.lifecycle: service`, following the order the portal displays them in." }
+      { id: 'A', text: "Set `spec.type: service` with `spec.lifecycle: production` for the backend API, and `spec.type: website` with `spec.lifecycle: experimental` for the app." },
+      { id: 'B', text: "Set `spec.type: production` and `spec.lifecycle: service`, following the order the portal displays them in." },
+      { id: 'C', text: "Mark the experimental app as `spec.lifecycle: deprecated` so that it is hidden from the default catalog view until the team is ready to promote it." },
+      { id: 'D', text: "Record the type and lifecycle as `metadata.tags`, for instance `service` and `production`, so both appear as chips on the entity page." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Set `spec.type: service` with `spec.lifecycle: production` for the backend API, and `spec.type: website` with `spec.lifecycle: experimental` for the app. Backstage `Component` entities categorize software via `spec.type` (e.g., `service`, `website`, `library`) and reflect operational maturity via `spec.lifecycle` (`experimental`, `production`, `deprecated`), giving engineers immediate visibility into component status. Tags cannot be filtered on as typed fields, so the catalog's type and lifecycle facets stay empty; swapping the two values passes schema validation because both are free-form strings, which is precisely why the mistake survives to production and misleads every reader; and `deprecated` tells engineers to stop using something rather than that it is new.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component",
@@ -261,12 +261,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer needs to distinguish an active production backend REST API service from an experimental client-side web application in the catalog.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls?",
     options: [
-      { id: 'A', text: "Record the type and lifecycle as `metadata.tags`, for instance `service` and `production`, so both appear as chips on the entity page." },
+      { id: 'A', text: "Set `spec.type: service` with `spec.lifecycle: production` for the backend API, and `spec.type: website` with `spec.lifecycle: experimental` for the app." },
       { id: 'B', text: "Set `spec.type: production` and `spec.lifecycle: service`, following the order the portal displays them in." },
       { id: 'C', text: "Mark the experimental app as `spec.lifecycle: deprecated` so that it is hidden from the default catalog view until the team is ready to promote it." },
-      { id: 'D', text: "Set `spec.type: service` with `spec.lifecycle: production` for the backend API, and `spec.type: website` with `spec.lifecycle: experimental` for the app." }
+      { id: 'D', text: "Record the type and lifecycle as `metadata.tags`, for instance `service` and `production`, so both appear as chips on the entity page." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Set `spec.type: service` with `spec.lifecycle: production` for the backend API, and `spec.type: website` with `spec.lifecycle: experimental` for the app. Backstage `Component` entities categorize software via `spec.type` (e.g., `service`, `website`, `library`) and reflect operational maturity via `spec.lifecycle` (`experimental`, `production`, `deprecated`), giving engineers immediate visibility into component status. Tags cannot be filtered on as typed fields, so the catalog's type and lifecycle facets stay empty; swapping the two values passes schema validation because both are free-form strings, which is precisely why the mistake survives to production and misleads every reader; and `deprecated` tells engineers to stop using something rather than that it is new.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component",
@@ -282,12 +282,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer needs to distinguish an active production backend REST API service from an experimental client-side web application in the catalog.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
-      { id: 'A', text: "Set `spec.type: production` and `spec.lifecycle: service`, following the order the portal displays them in." },
-      { id: 'B', text: "Mark the experimental app as `spec.lifecycle: deprecated` so that it is hidden from the default catalog view until the team is ready to promote it." },
-      { id: 'C', text: "Record the type and lifecycle as `metadata.tags`, for instance `service` and `production`, so both appear as chips on the entity page." },
-      { id: 'D', text: "Set `spec.type: service` with `spec.lifecycle: production` for the backend API, and `spec.type: website` with `spec.lifecycle: experimental` for the app." }
+      { id: 'A', text: "Mark the experimental app as `spec.lifecycle: deprecated` so that it is hidden from the default catalog view until the team is ready to promote it." },
+      { id: 'B', text: "Record the type and lifecycle as `metadata.tags`, for instance `service` and `production`, so both appear as chips on the entity page." },
+      { id: 'C', text: "Set `spec.type: service` with `spec.lifecycle: production` for the backend API, and `spec.type: website` with `spec.lifecycle: experimental` for the app." },
+      { id: 'D', text: "Set `spec.type: production` and `spec.lifecycle: service`, following the order the portal displays them in." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Set `spec.type: service` with `spec.lifecycle: production` for the backend API, and `spec.type: website` with `spec.lifecycle: experimental` for the app. Backstage `Component` entities categorize software via `spec.type` (e.g., `service`, `website`, `library`) and reflect operational maturity via `spec.lifecycle` (`experimental`, `production`, `deprecated`), giving engineers immediate visibility into component status. Tags cannot be filtered on as typed fields, so the catalog's type and lifecycle facets stay empty; swapping the two values passes schema validation because both are free-form strings, which is precisely why the mistake survives to production and misleads every reader; and `deprecated` tells engineers to stop using something rather than that it is new.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component",
@@ -304,8 +304,8 @@ export const CNCF_CBA_QUESTIONS_14 = [
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
       { id: 'A', text: "Set `spec.type: service` with `spec.lifecycle: production` for the backend API, and `spec.type: website` with `spec.lifecycle: experimental` for the app." },
-      { id: 'B', text: "Mark the experimental app as `spec.lifecycle: deprecated` so that it is hidden from the default catalog view until the team is ready to promote it." },
-      { id: 'C', text: "Set `spec.type: production` and `spec.lifecycle: service`, following the order the portal displays them in." },
+      { id: 'B', text: "Set `spec.type: production` and `spec.lifecycle: service`, following the order the portal displays them in." },
+      { id: 'C', text: "Mark the experimental app as `spec.lifecycle: deprecated` so that it is hidden from the default catalog view until the team is ready to promote it." },
       { id: 'D', text: "Record the type and lifecycle as `metadata.tags`, for instance `service` and `production`, so both appear as chips on the entity page." }
     ],
     correctAnswers: ['A'],
@@ -324,12 +324,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to ensure every registered service has a clearly designated engineering team responsible for on-call support and vulnerabilities.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Point `spec.owner` at the `User` entity of the engineer who created the component." },
-      { id: 'B', text: "Record the owning team in `metadata.annotations` under a custom `company.com/owner` key." },
-      { id: 'C', text: "Set `spec.owner` to the plain team name `payments-team`, without the `group:default/` prefix that the catalog expects." },
-      { id: 'D', text: "Set `spec.owner` on components to reference a valid `Group` entity ref (e.g., `group:default/payments-team`)." }
+      { id: 'A', text: "Set `spec.owner` to the plain team name `payments-team`, without the `group:default/` prefix that the catalog expects." },
+      { id: 'B', text: "Set `spec.owner` on components to reference a valid `Group` entity ref (e.g., `group:default/payments-team`)." },
+      { id: 'C', text: "Record the owning team in `metadata.annotations` under a custom `company.com/owner` key." },
+      { id: 'D', text: "Point `spec.owner` at the `User` entity of the engineer who created the component." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Set `spec.owner` on components to reference a valid `Group` entity ref (e.g., `group:default/payments-team`). Backstage enforces software ownership by linking entities to `Group` (or `User`) entities via `spec.owner`. This populates the `ownedBy` and `ownerOf` relations, enabling automated triage, notification routing, and access control. Naming an individual owner means the entity is orphaned the day that person changes team; a custom annotation is a string the catalog never turns into an `ownedBy` relation, so ownership queries and triage routing cannot use it; and an unqualified name is resolved against the default kind and namespace, which quietly produces a reference to a `Component` that does not exist.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/descriptor-format#kind-group",
@@ -347,8 +347,8 @@ export const CNCF_CBA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Set `spec.owner` on components to reference a valid `Group` entity ref (e.g., `group:default/payments-team`)." },
       { id: 'B', text: "Set `spec.owner` to the plain team name `payments-team`, without the `group:default/` prefix that the catalog expects." },
-      { id: 'C', text: "Record the owning team in `metadata.annotations` under a custom `company.com/owner` key." },
-      { id: 'D', text: "Point `spec.owner` at the `User` entity of the engineer who created the component." }
+      { id: 'C', text: "Point `spec.owner` at the `User` entity of the engineer who created the component." },
+      { id: 'D', text: "Record the owning team in `metadata.annotations` under a custom `company.com/owner` key." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "A platform security auditor requires strict role-based access control, cryptographic service communication, and audit logging across the internal developer portal. The platform engineer needs to ensure every registered service has a clearly designated engineering team responsible for on-call support and vulnerabilities.",
     question: "Which Backstage security mechanism or configuration satisfies these compliance controls?",
     options: [
-      { id: 'A', text: "Point `spec.owner` at the `User` entity of the engineer who created the component." },
-      { id: 'B', text: "Set `spec.owner` on components to reference a valid `Group` entity ref (e.g., `group:default/payments-team`)." },
-      { id: 'C', text: "Record the owning team in `metadata.annotations` under a custom `company.com/owner` key." },
-      { id: 'D', text: "Set `spec.owner` to the plain team name `payments-team`, without the `group:default/` prefix that the catalog expects." }
+      { id: 'A', text: "Record the owning team in `metadata.annotations` under a custom `company.com/owner` key." },
+      { id: 'B', text: "Point `spec.owner` at the `User` entity of the engineer who created the component." },
+      { id: 'C', text: "Set `spec.owner` to the plain team name `payments-team`, without the `group:default/` prefix that the catalog expects." },
+      { id: 'D', text: "Set `spec.owner` on components to reference a valid `Group` entity ref (e.g., `group:default/payments-team`)." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set `spec.owner` on components to reference a valid `Group` entity ref (e.g., `group:default/payments-team`). Backstage enforces software ownership by linking entities to `Group` (or `User`) entities via `spec.owner`. This populates the `ownedBy` and `ownerOf` relations, enabling automated triage, notification routing, and access control. Naming an individual owner means the entity is orphaned the day that person changes team; a custom annotation is a string the catalog never turns into an `ownedBy` relation, so ownership queries and triage routing cannot use it; and an unqualified name is resolved against the default kind and namespace, which quietly produces a reference to a `Component` that does not exist.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/descriptor-format#kind-group",
@@ -387,12 +387,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer needs to ensure every registered service has a clearly designated engineering team responsible for on-call support and vulnerabilities.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
-      { id: 'A', text: "Set `spec.owner` to the plain team name `payments-team`, without the `group:default/` prefix that the catalog expects." },
-      { id: 'B', text: "Record the owning team in `metadata.annotations` under a custom `company.com/owner` key." },
-      { id: 'C', text: "Set `spec.owner` on components to reference a valid `Group` entity ref (e.g., `group:default/payments-team`)." },
-      { id: 'D', text: "Point `spec.owner` at the `User` entity of the engineer who created the component." }
+      { id: 'A', text: "Record the owning team in `metadata.annotations` under a custom `company.com/owner` key." },
+      { id: 'B', text: "Point `spec.owner` at the `User` entity of the engineer who created the component." },
+      { id: 'C', text: "Set `spec.owner` to the plain team name `payments-team`, without the `group:default/` prefix that the catalog expects." },
+      { id: 'D', text: "Set `spec.owner` on components to reference a valid `Group` entity ref (e.g., `group:default/payments-team`)." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Set `spec.owner` on components to reference a valid `Group` entity ref (e.g., `group:default/payments-team`). Backstage enforces software ownership by linking entities to `Group` (or `User`) entities via `spec.owner`. This populates the `ownedBy` and `ownerOf` relations, enabling automated triage, notification routing, and access control. Naming an individual owner means the entity is orphaned the day that person changes team; a custom annotation is a string the catalog never turns into an `ownedBy` relation, so ownership queries and triage routing cannot use it; and an unqualified name is resolved against the default kind and namespace, which quietly produces a reference to a `Component` that does not exist.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/descriptor-format#kind-group",
@@ -410,8 +410,8 @@ export const CNCF_CBA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Set `spec.owner` on components to reference a valid `Group` entity ref (e.g., `group:default/payments-team`)." },
       { id: 'B', text: "Set `spec.owner` to the plain team name `payments-team`, without the `group:default/` prefix that the catalog expects." },
-      { id: 'C', text: "Record the owning team in `metadata.annotations` under a custom `company.com/owner` key." },
-      { id: 'D', text: "Point `spec.owner` at the `User` entity of the engineer who created the component." }
+      { id: 'C', text: "Point `spec.owner` at the `User` entity of the engineer who created the component." },
+      { id: 'D', text: "Record the owning team in `metadata.annotations` under a custom `company.com/owner` key." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "An enterprise developer experience team is architecting an internal developer portal to standardize service catalogs, software scaffolding, and documentation across hundreds of teams. The platform engineer needs to document and visualize REST API contracts between consuming frontend clients and producing backend microservices.",
     question: "Which architectural approach or Backstage configuration satisfies these enterprise portal objectives?",
     options: [
-      { id: 'A', text: "Attach the OpenAPI document to the component with a `backstage.io/definition-at-location` annotation and no `API` entity, rendering it on that component's own page." },
-      { id: 'B', text: "Model the interface as a `Resource` with `spec.type: api` and connect it using `spec.dependsOn`." },
-      { id: 'C', text: "Create an `API` entity with `spec.type: openapi` embedding the OpenAPI spec, and link it via `providesApis` and `consumesApis` on components." },
-      { id: 'D', text: "Describe the endpoints the service consumes as free text in the component's description field, listing one URL per line." }
+      { id: 'A', text: "Model the interface as a `Resource` with `spec.type: api` and connect it using `spec.dependsOn`." },
+      { id: 'B', text: "Describe the endpoints the service consumes as free text in the component's description field, listing one URL per line." },
+      { id: 'C', text: "Attach the OpenAPI document to the component with a `backstage.io/definition-at-location` annotation and no `API` entity, rendering it on that component's own page." },
+      { id: 'D', text: "Create an `API` entity with `spec.type: openapi` embedding the OpenAPI spec, and link it via `providesApis` and `consumesApis` on components." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create an `API` entity with `spec.type: openapi` embedding the OpenAPI spec, and link it via `providesApis` and `consumesApis` on components. The `API` entity represents bounded interface contracts (OpenAPI, AsyncAPI, GraphQL, gRPC). Components declare `spec.providesApis` to document interfaces they expose and `spec.consumesApis` for interfaces they call, creating a searchable API registry. An annotation renders the document on one component's page but creates no entity, so nothing else can declare that it consumes the interface; a `Resource` models infrastructure the component depends on rather than a contract it exposes, so the `apiProvidedBy` relations never form; and free text is invisible to the dependency graph entirely.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api",
@@ -450,12 +450,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "A large engineering organization manages tens of thousands of microservices, APIs, and infrastructure components across hybrid cloud environments. The platform engineer needs to document and visualize REST API contracts between consuming frontend clients and producing backend microservices.",
     question: "Which Backstage catalog pattern or ingestion configuration handles this volume efficiently while preventing database contention?",
     options: [
-      { id: 'A', text: "Describe the endpoints the service consumes as free text in the component's description field, listing one URL per line." },
+      { id: 'A', text: "Create an `API` entity with `spec.type: openapi` embedding the OpenAPI spec, and link it via `providesApis` and `consumesApis` on components." },
       { id: 'B', text: "Attach the OpenAPI document to the component with a `backstage.io/definition-at-location` annotation and no `API` entity, rendering it on that component's own page." },
-      { id: 'C', text: "Create an `API` entity with `spec.type: openapi` embedding the OpenAPI spec, and link it via `providesApis` and `consumesApis` on components." },
+      { id: 'C', text: "Describe the endpoints the service consumes as free text in the component's description field, listing one URL per line." },
       { id: 'D', text: "Model the interface as a `Resource` with `spec.type: api` and connect it using `spec.dependsOn`." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create an `API` entity with `spec.type: openapi` embedding the OpenAPI spec, and link it via `providesApis` and `consumesApis` on components. The `API` entity represents bounded interface contracts (OpenAPI, AsyncAPI, GraphQL, gRPC). Components declare `spec.providesApis` to document interfaces they expose and `spec.consumesApis` for interfaces they call, creating a searchable API registry. An annotation renders the document on one component's page but creates no entity, so nothing else can declare that it consumes the interface; a `Resource` models infrastructure the component depends on rather than a contract it exposes, so the `apiProvidedBy` relations never form; and free text is invisible to the dependency graph entirely.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api",
@@ -492,12 +492,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "A platform engineering team is establishing Golden Path templates and automated scaffolding workflows to accelerate developer onboarding and eliminate delivery friction. The platform engineer needs to document and visualize REST API contracts between consuming frontend clients and producing backend microservices.",
     question: "Which Backstage scaffolder practice or template feature enables developers to self-serve new projects safely?",
     options: [
-      { id: 'A', text: "Model the interface as a `Resource` with `spec.type: api` and connect it using `spec.dependsOn`." },
-      { id: 'B', text: "Describe the endpoints the service consumes as free text in the component's description field, listing one URL per line." },
-      { id: 'C', text: "Attach the OpenAPI document to the component with a `backstage.io/definition-at-location` annotation and no `API` entity, rendering it on that component's own page." },
-      { id: 'D', text: "Create an `API` entity with `spec.type: openapi` embedding the OpenAPI spec, and link it via `providesApis` and `consumesApis` on components." }
+      { id: 'A', text: "Create an `API` entity with `spec.type: openapi` embedding the OpenAPI spec, and link it via `providesApis` and `consumesApis` on components." },
+      { id: 'B', text: "Attach the OpenAPI document to the component with a `backstage.io/definition-at-location` annotation and no `API` entity, rendering it on that component's own page." },
+      { id: 'C', text: "Describe the endpoints the service consumes as free text in the component's description field, listing one URL per line." },
+      { id: 'D', text: "Model the interface as a `Resource` with `spec.type: api` and connect it using `spec.dependsOn`." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create an `API` entity with `spec.type: openapi` embedding the OpenAPI spec, and link it via `providesApis` and `consumesApis` on components. The `API` entity represents bounded interface contracts (OpenAPI, AsyncAPI, GraphQL, gRPC). Components declare `spec.providesApis` to document interfaces they expose and `spec.consumesApis` for interfaces they call, creating a searchable API registry. An annotation renders the document on one component's page but creates no entity, so nothing else can declare that it consumes the interface; a `Resource` models infrastructure the component depends on rather than a contract it exposes, so the `apiProvidedBy` relations never form; and free text is invisible to the dependency graph entirely.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api",
@@ -513,12 +513,12 @@ export const CNCF_CBA_QUESTIONS_14 = [
     scenario: "A site reliability engineering team is operating Backstage on Kubernetes and optimizing system resilience, health monitoring, and documentation publishing pipelines. The platform engineer needs to document and visualize REST API contracts between consuming frontend clients and producing backend microservices.",
     question: "Which operational design or plugin architecture guarantees high availability and reliable portal performance?",
     options: [
-      { id: 'A', text: "Attach the OpenAPI document to the component with a `backstage.io/definition-at-location` annotation and no `API` entity, rendering it on that component's own page." },
-      { id: 'B', text: "Create an `API` entity with `spec.type: openapi` embedding the OpenAPI spec, and link it via `providesApis` and `consumesApis` on components." },
-      { id: 'C', text: "Model the interface as a `Resource` with `spec.type: api` and connect it using `spec.dependsOn`." },
-      { id: 'D', text: "Describe the endpoints the service consumes as free text in the component's description field, listing one URL per line." }
+      { id: 'A', text: "Create an `API` entity with `spec.type: openapi` embedding the OpenAPI spec, and link it via `providesApis` and `consumesApis` on components." },
+      { id: 'B', text: "Attach the OpenAPI document to the component with a `backstage.io/definition-at-location` annotation and no `API` entity, rendering it on that component's own page." },
+      { id: 'C', text: "Describe the endpoints the service consumes as free text in the component's description field, listing one URL per line." },
+      { id: 'D', text: "Model the interface as a `Resource` with `spec.type: api` and connect it using `spec.dependsOn`." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create an `API` entity with `spec.type: openapi` embedding the OpenAPI spec, and link it via `providesApis` and `consumesApis` on components. The `API` entity represents bounded interface contracts (OpenAPI, AsyncAPI, GraphQL, gRPC). Components declare `spec.providesApis` to document interfaces they expose and `spec.consumesApis` for interfaces they call, creating a searchable API registry. An annotation renders the document on one component's page but creates no entity, so nothing else can declare that it consumes the interface; a `Resource` models infrastructure the component depends on rather than a contract it exposes, so the `apiProvidedBy` relations never form; and free text is invisible to the dependency graph entirely.",
     referenceUrl: "https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api",

@@ -9,12 +9,12 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Microsoft Graph API to grant a daemon background synchronization service permission to read all user calendar events across an entire tenant without any user being signed in.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Assign the Azure Contributor role on the tenant subscription to the daemon." },
+      { id: 'A', text: "Grant Microsoft Graph Application permissions (Calendars.Read) with admin consent." },
       { id: 'B', text: "Grant Microsoft Graph Delegated permissions (Calendars.Read) requiring an interactive user login." },
       { id: 'C', text: "Share an individual employee's personal user credentials with the daemon service." },
-      { id: 'D', text: "Grant Microsoft Graph Application permissions (Calendars.Read) with admin consent." }
+      { id: 'D', text: "Assign the Azure Contributor role on the tenant subscription to the daemon." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Grant Microsoft Graph Application permissions (Calendars.Read) with admin consent. Microsoft Graph supports two types of permissions: Delegated permissions (used by apps that have a signed-in user present, where access is scoped to what the user can do) and Application permissions (used by background services or daemons running without a signed-in user, requiring tenant administrator consent).",
     referenceUrl: "https://learn.microsoft.com/en-us/graph/permissions-overview",
@@ -30,12 +30,12 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Microsoft Graph API to grant a daemon background synchronization service permission to read all user calendar events across an entire tenant without any user being signed in.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Grant Microsoft Graph Delegated permissions (Calendars.Read) requiring an interactive user login." },
-      { id: 'B', text: "Grant Microsoft Graph Application permissions (Calendars.Read) with admin consent." },
+      { id: 'A', text: "Grant Microsoft Graph Application permissions (Calendars.Read) with admin consent." },
+      { id: 'B', text: "Grant Microsoft Graph Delegated permissions (Calendars.Read) requiring an interactive user login." },
       { id: 'C', text: "Share an individual employee's personal user credentials with the daemon service." },
       { id: 'D', text: "Assign the Azure Contributor role on the tenant subscription to the daemon." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Grant Microsoft Graph Application permissions (Calendars.Read) with admin consent. Microsoft Graph supports two types of permissions: Delegated permissions (used by apps that have a signed-in user present, where access is scoped to what the user can do) and Application permissions (used by background services or daemons running without a signed-in user, requiring tenant administrator consent).",
     referenceUrl: "https://learn.microsoft.com/en-us/graph/permissions-overview",
@@ -51,12 +51,12 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The developer evaluates Microsoft Graph API to grant a daemon background synchronization service permission to read all user calendar events across an entire tenant without any user being signed in.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Assign the Azure Contributor role on the tenant subscription to the daemon." },
+      { id: 'A', text: "Grant Microsoft Graph Application permissions (Calendars.Read) with admin consent." },
       { id: 'B', text: "Grant Microsoft Graph Delegated permissions (Calendars.Read) requiring an interactive user login." },
       { id: 'C', text: "Share an individual employee's personal user credentials with the daemon service." },
-      { id: 'D', text: "Grant Microsoft Graph Application permissions (Calendars.Read) with admin consent." }
+      { id: 'D', text: "Assign the Azure Contributor role on the tenant subscription to the daemon." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Grant Microsoft Graph Application permissions (Calendars.Read) with admin consent. Microsoft Graph supports two types of permissions: Delegated permissions (used by apps that have a signed-in user present, where access is scoped to what the user can do) and Application permissions (used by background services or daemons running without a signed-in user, requiring tenant administrator consent).",
     referenceUrl: "https://learn.microsoft.com/en-us/graph/permissions-overview",
@@ -72,12 +72,12 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Microsoft Graph API to grant a daemon background synchronization service permission to read all user calendar events across an entire tenant without any user being signed in.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Share an individual employee's personal user credentials with the daemon service." },
+      { id: 'A', text: "Grant Microsoft Graph Application permissions (Calendars.Read) with admin consent." },
       { id: 'B', text: "Grant Microsoft Graph Delegated permissions (Calendars.Read) requiring an interactive user login." },
-      { id: 'C', text: "Grant Microsoft Graph Application permissions (Calendars.Read) with admin consent." },
+      { id: 'C', text: "Share an individual employee's personal user credentials with the daemon service." },
       { id: 'D', text: "Assign the Azure Contributor role on the tenant subscription to the daemon." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Grant Microsoft Graph Application permissions (Calendars.Read) with admin consent. Microsoft Graph supports two types of permissions: Delegated permissions (used by apps that have a signed-in user present, where access is scoped to what the user can do) and Application permissions (used by background services or daemons running without a signed-in user, requiring tenant administrator consent).",
     referenceUrl: "https://learn.microsoft.com/en-us/graph/permissions-overview",
@@ -95,8 +95,8 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Grant Microsoft Graph Application permissions (Calendars.Read) with admin consent." },
       { id: 'B', text: "Grant Microsoft Graph Delegated permissions (Calendars.Read) requiring an interactive user login." },
-      { id: 'C', text: "Assign the Azure Contributor role on the tenant subscription to the daemon." },
-      { id: 'D', text: "Share an individual employee's personal user credentials with the daemon service." }
+      { id: 'C', text: "Share an individual employee's personal user credentials with the daemon service." },
+      { id: 'D', text: "Assign the Azure Contributor role on the tenant subscription to the daemon." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,12 +135,12 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Azure Managed Identities to allow multiple independent Azure Virtual Machines and App Services to share a single common identity for accessing Azure Key Vault.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Create a local Windows administrator user on each virtual machine." },
-      { id: 'B', text: "Store Key Vault access credentials in plaintext application configuration files." },
-      { id: 'C', text: "Enable System-Assigned Managed Identities on each resource and manage separate role assignments on each." },
-      { id: 'D', text: "Create a User-Assigned Managed Identity, grant it Key Vault access, and assign it to the VMs and App Services." }
+      { id: 'A', text: "Create a User-Assigned Managed Identity, grant it Key Vault access, and assign it to the VMs and App Services." },
+      { id: 'B', text: "Enable System-Assigned Managed Identities on each resource and manage separate role assignments on each." },
+      { id: 'C', text: "Store Key Vault access credentials in plaintext application configuration files." },
+      { id: 'D', text: "Create a local Windows administrator user on each virtual machine." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create a User-Assigned Managed Identity, grant it Key Vault access, and assign it to the VMs and App Services. A System-Assigned Managed Identity is tied directly to the lifecycle of a single Azure resource (deleted when the resource is deleted). A User-Assigned Managed Identity is created as an independent Azure resource that can be assigned to multiple Azure resources, simplifying permission management.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview",
@@ -157,9 +157,9 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Create a User-Assigned Managed Identity, grant it Key Vault access, and assign it to the VMs and App Services." },
-      { id: 'B', text: "Store Key Vault access credentials in plaintext application configuration files." },
-      { id: 'C', text: "Create a local Windows administrator user on each virtual machine." },
-      { id: 'D', text: "Enable System-Assigned Managed Identities on each resource and manage separate role assignments on each." }
+      { id: 'B', text: "Create a local Windows administrator user on each virtual machine." },
+      { id: 'C', text: "Enable System-Assigned Managed Identities on each resource and manage separate role assignments on each." },
+      { id: 'D', text: "Store Key Vault access credentials in plaintext application configuration files." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -179,8 +179,8 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Create a User-Assigned Managed Identity, grant it Key Vault access, and assign it to the VMs and App Services." },
       { id: 'B', text: "Enable System-Assigned Managed Identities on each resource and manage separate role assignments on each." },
-      { id: 'C', text: "Create a local Windows administrator user on each virtual machine." },
-      { id: 'D', text: "Store Key Vault access credentials in plaintext application configuration files." }
+      { id: 'C', text: "Store Key Vault access credentials in plaintext application configuration files." },
+      { id: 'D', text: "Create a local Windows administrator user on each virtual machine." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The developer evaluates Azure Managed Identities to allow multiple independent Azure Virtual Machines and App Services to share a single common identity for accessing Azure Key Vault.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Create a local Windows administrator user on each virtual machine." },
+      { id: 'A', text: "Create a User-Assigned Managed Identity, grant it Key Vault access, and assign it to the VMs and App Services." },
       { id: 'B', text: "Enable System-Assigned Managed Identities on each resource and manage separate role assignments on each." },
       { id: 'C', text: "Store Key Vault access credentials in plaintext application configuration files." },
-      { id: 'D', text: "Create a User-Assigned Managed Identity, grant it Key Vault access, and assign it to the VMs and App Services." }
+      { id: 'D', text: "Create a local Windows administrator user on each virtual machine." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create a User-Assigned Managed Identity, grant it Key Vault access, and assign it to the VMs and App Services. A System-Assigned Managed Identity is tied directly to the lifecycle of a single Azure resource (deleted when the resource is deleted). A User-Assigned Managed Identity is created as an independent Azure resource that can be assigned to multiple Azure resources, simplifying permission management.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview",
@@ -221,8 +221,8 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Key Vault secrets for connection strings, keys for crypto, certificates for TLS." },
       { id: 'B', text: "Store all cryptographic private keys and database passwords in unencrypted Git repositories." },
-      { id: 'C', text: "Store connection strings in an unencrypted Azure Storage blob container." },
-      { id: 'D', text: "Embed RSA private keys in public JavaScript frontend bundles." }
+      { id: 'C', text: "Embed RSA private keys in public JavaScript frontend bundles." },
+      { id: 'D', text: "Store connection strings in an unencrypted Azure Storage blob container." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -241,8 +241,8 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Key Vault secrets for connection strings, keys for crypto, certificates for TLS." },
-      { id: 'B', text: "Embed RSA private keys in public JavaScript frontend bundles." },
-      { id: 'C', text: "Store all cryptographic private keys and database passwords in unencrypted Git repositories." },
+      { id: 'B', text: "Store all cryptographic private keys and database passwords in unencrypted Git repositories." },
+      { id: 'C', text: "Embed RSA private keys in public JavaScript frontend bundles." },
       { id: 'D', text: "Store connection strings in an unencrypted Azure Storage blob container." }
     ],
     correctAnswers: ['A'],
@@ -261,12 +261,12 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The developer evaluates Azure Key Vault to securely store database connection strings, perform cryptographic signing using hardware-protected RSA keys, and manage X.509 SSL certificates.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Store all cryptographic private keys and database passwords in unencrypted Git repositories." },
-      { id: 'B', text: "Embed RSA private keys in public JavaScript frontend bundles." },
-      { id: 'C', text: "Key Vault secrets for connection strings, keys for crypto, certificates for TLS." },
+      { id: 'A', text: "Embed RSA private keys in public JavaScript frontend bundles." },
+      { id: 'B', text: "Key Vault secrets for connection strings, keys for crypto, certificates for TLS." },
+      { id: 'C', text: "Store all cryptographic private keys and database passwords in unencrypted Git repositories." },
       { id: 'D', text: "Store connection strings in an unencrypted Azure Storage blob container." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Utilize Azure Key Vault Secrets for connection strings, Keys for cryptographic operations, and Certificates for SSL/TLS. Azure Key Vault provides centralized management of application secrets, encryption keys, and TLS/SSL certificates. Secrets store sensitive text strings, Keys provide hardware-protected cryptographic operations (signing, decrypting), and Certificates manage the lifecycle of X.509 certificates.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates",
@@ -284,8 +284,8 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Key Vault secrets for connection strings, keys for crypto, certificates for TLS." },
       { id: 'B', text: "Store all cryptographic private keys and database passwords in unencrypted Git repositories." },
-      { id: 'C', text: "Store connection strings in an unencrypted Azure Storage blob container." },
-      { id: 'D', text: "Embed RSA private keys in public JavaScript frontend bundles." }
+      { id: 'C', text: "Embed RSA private keys in public JavaScript frontend bundles." },
+      { id: 'D', text: "Store connection strings in an unencrypted Azure Storage blob container." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,12 +303,12 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The developer evaluates Azure Key Vault to securely store database connection strings, perform cryptographic signing using hardware-protected RSA keys, and manage X.509 SSL certificates.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Embed RSA private keys in public JavaScript frontend bundles." },
-      { id: 'B', text: "Store connection strings in an unencrypted Azure Storage blob container." },
-      { id: 'C', text: "Store all cryptographic private keys and database passwords in unencrypted Git repositories." },
-      { id: 'D', text: "Key Vault secrets for connection strings, keys for crypto, certificates for TLS." }
+      { id: 'A', text: "Store all cryptographic private keys and database passwords in unencrypted Git repositories." },
+      { id: 'B', text: "Key Vault secrets for connection strings, keys for crypto, certificates for TLS." },
+      { id: 'C', text: "Store connection strings in an unencrypted Azure Storage blob container." },
+      { id: 'D', text: "Embed RSA private keys in public JavaScript frontend bundles." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Utilize Azure Key Vault Secrets for connection strings, Keys for cryptographic operations, and Certificates for SSL/TLS. Azure Key Vault provides centralized management of application secrets, encryption keys, and TLS/SSL certificates. Secrets store sensitive text strings, Keys provide hardware-protected cryptographic operations (signing, decrypting), and Certificates manage the lifecycle of X.509 certificates.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates",
@@ -324,12 +324,12 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure Key Vault to grant an application permission to read secrets from Key Vault using fine-grained Azure RBAC role assignments rather than legacy vault access policies.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Share the Key Vault administrator password with the application development team." },
+      { id: 'A', text: "Disable access controls on Key Vault to allow unauthenticated API queries." },
       { id: 'B', text: "Configure a legacy Key Vault access policy granting full purge and backup permissions." },
-      { id: 'C', text: "Disable access controls on Key Vault to allow unauthenticated API queries." },
-      { id: 'D', text: "Use the Azure RBAC permission model and assign Key Vault Secrets User." }
+      { id: 'C', text: "Use the Azure RBAC permission model and assign Key Vault Secrets User." },
+      { id: 'D', text: "Share the Key Vault administrator password with the application development team." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable the Azure role-based access control (Azure RBAC) permission model on Key Vault and assign 'Key Vault Secrets User'. Azure Key Vault supports two authorization systems: Vault Access Policies (legacy model granting permissions at the whole-vault level) and Azure RBAC (recommended model providing granular permissions at subscription, resource group, vault, or individual key/secret scopes).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide",
@@ -345,12 +345,12 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Azure Key Vault to grant an application permission to read secrets from Key Vault using fine-grained Azure RBAC role assignments rather than legacy vault access policies.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Configure a legacy Key Vault access policy granting full purge and backup permissions." },
-      { id: 'B', text: "Use the Azure RBAC permission model and assign Key Vault Secrets User." },
+      { id: 'A', text: "Use the Azure RBAC permission model and assign Key Vault Secrets User." },
+      { id: 'B', text: "Configure a legacy Key Vault access policy granting full purge and backup permissions." },
       { id: 'C', text: "Share the Key Vault administrator password with the application development team." },
       { id: 'D', text: "Disable access controls on Key Vault to allow unauthenticated API queries." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Enable the Azure role-based access control (Azure RBAC) permission model on Key Vault and assign 'Key Vault Secrets User'. Azure Key Vault supports two authorization systems: Vault Access Policies (legacy model granting permissions at the whole-vault level) and Azure RBAC (recommended model providing granular permissions at subscription, resource group, vault, or individual key/secret scopes).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide",
@@ -366,12 +366,12 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The developer evaluates Azure Key Vault to grant an application permission to read secrets from Key Vault using fine-grained Azure RBAC role assignments rather than legacy vault access policies.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Disable access controls on Key Vault to allow unauthenticated API queries." },
+      { id: 'A', text: "Use the Azure RBAC permission model and assign Key Vault Secrets User." },
       { id: 'B', text: "Configure a legacy Key Vault access policy granting full purge and backup permissions." },
       { id: 'C', text: "Share the Key Vault administrator password with the application development team." },
-      { id: 'D', text: "Use the Azure RBAC permission model and assign Key Vault Secrets User." }
+      { id: 'D', text: "Disable access controls on Key Vault to allow unauthenticated API queries." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Enable the Azure role-based access control (Azure RBAC) permission model on Key Vault and assign 'Key Vault Secrets User'. Azure Key Vault supports two authorization systems: Vault Access Policies (legacy model granting permissions at the whole-vault level) and Azure RBAC (recommended model providing granular permissions at subscription, resource group, vault, or individual key/secret scopes).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide",
@@ -387,12 +387,12 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure Key Vault to grant an application permission to read secrets from Key Vault using fine-grained Azure RBAC role assignments rather than legacy vault access policies.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Disable access controls on Key Vault to allow unauthenticated API queries." },
+      { id: 'A', text: "Use the Azure RBAC permission model and assign Key Vault Secrets User." },
       { id: 'B', text: "Configure a legacy Key Vault access policy granting full purge and backup permissions." },
       { id: 'C', text: "Share the Key Vault administrator password with the application development team." },
-      { id: 'D', text: "Use the Azure RBAC permission model and assign Key Vault Secrets User." }
+      { id: 'D', text: "Disable access controls on Key Vault to allow unauthenticated API queries." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Enable the Azure role-based access control (Azure RBAC) permission model on Key Vault and assign 'Key Vault Secrets User'. Azure Key Vault supports two authorization systems: Vault Access Policies (legacy model granting permissions at the whole-vault level) and Azure RBAC (recommended model providing granular permissions at subscription, resource group, vault, or individual key/secret scopes).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide",
@@ -429,12 +429,12 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The developer evaluates Azure App Configuration to centralize application feature flags and settings in Azure App Configuration while seamlessly referencing database passwords securely stored in Azure Key Vault.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Store the secrets as plain App Configuration values and restrict access with RBAC." },
+      { id: 'A', text: "Store feature flags in an unmanaged SQL Server table requiring manual database updates." },
       { id: 'B', text: "Copy and paste Key Vault passwords directly into App Configuration plaintext key values." },
-      { id: 'C', text: "Store feature flags in an unmanaged SQL Server table requiring manual database updates." },
-      { id: 'D', text: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax." }
+      { id: 'C', text: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax." },
+      { id: 'D', text: "Store the secrets as plain App Configuration values and restrict access with RBAC." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax. Azure App Configuration centralizes application settings and feature flags. By creating Key Vault references using the `@Microsoft.KeyVault(...)` URI syntax, applications consume both general settings and secured secrets through a single client provider without duplicating secrets.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-app-configuration/use-key-vault-references-dotnet-core",
@@ -450,12 +450,12 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The developer evaluates Azure App Configuration to centralize application feature flags and settings in Azure App Configuration while seamlessly referencing database passwords securely stored in Azure Key Vault.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Copy and paste Key Vault passwords directly into App Configuration plaintext key values." },
-      { id: 'B', text: "Store feature flags in an unmanaged SQL Server table requiring manual database updates." },
+      { id: 'A', text: "Store feature flags in an unmanaged SQL Server table requiring manual database updates." },
+      { id: 'B', text: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax." },
       { id: 'C', text: "Store the secrets as plain App Configuration values and restrict access with RBAC." },
-      { id: 'D', text: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax." }
+      { id: 'D', text: "Copy and paste Key Vault passwords directly into App Configuration plaintext key values." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax. Azure App Configuration centralizes application settings and feature flags. By creating Key Vault references using the `@Microsoft.KeyVault(...)` URI syntax, applications consume both general settings and secured secrets through a single client provider without duplicating secrets.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-app-configuration/use-key-vault-references-dotnet-core",
@@ -472,9 +472,9 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax." },
-      { id: 'B', text: "Store feature flags in an unmanaged SQL Server table requiring manual database updates." },
+      { id: 'B', text: "Copy and paste Key Vault passwords directly into App Configuration plaintext key values." },
       { id: 'C', text: "Store the secrets as plain App Configuration values and restrict access with RBAC." },
-      { id: 'D', text: "Copy and paste Key Vault passwords directly into App Configuration plaintext key values." }
+      { id: 'D', text: "Store feature flags in an unmanaged SQL Server table requiring manual database updates." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The developer evaluates Azure App Configuration to centralize application feature flags and settings in Azure App Configuration while seamlessly referencing database passwords securely stored in Azure Key Vault.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Store the secrets as plain App Configuration values and restrict access with RBAC." },
-      { id: 'B', text: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax." },
-      { id: 'C', text: "Store feature flags in an unmanaged SQL Server table requiring manual database updates." },
-      { id: 'D', text: "Copy and paste Key Vault passwords directly into App Configuration plaintext key values." }
+      { id: 'A', text: "Store feature flags in an unmanaged SQL Server table requiring manual database updates." },
+      { id: 'B', text: "Store the secrets as plain App Configuration values and restrict access with RBAC." },
+      { id: 'C', text: "Copy and paste Key Vault passwords directly into App Configuration plaintext key values." },
+      { id: 'D', text: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax. Azure App Configuration centralizes application settings and feature flags. By creating Key Vault references using the `@Microsoft.KeyVault(...)` URI syntax, applications consume both general settings and secured secrets through a single client provider without duplicating secrets.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-app-configuration/use-key-vault-references-dotnet-core",
@@ -513,12 +513,12 @@ export const AZURE_AZ204_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The developer evaluates Azure App Configuration to centralize application feature flags and settings in Azure App Configuration while seamlessly referencing database passwords securely stored in Azure Key Vault.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Store the secrets as plain App Configuration values and restrict access with RBAC." },
+      { id: 'A', text: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax." },
       { id: 'B', text: "Copy and paste Key Vault passwords directly into App Configuration plaintext key values." },
-      { id: 'C', text: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax." },
+      { id: 'C', text: "Store the secrets as plain App Configuration values and restrict access with RBAC." },
       { id: 'D', text: "Store feature flags in an unmanaged SQL Server table requiring manual database updates." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Use Azure App Configuration with Key Vault References using the @Microsoft.KeyVault syntax. Azure App Configuration centralizes application settings and feature flags. By creating Key Vault references using the `@Microsoft.KeyVault(...)` URI syntax, applications consume both general settings and secured secrets through a single client provider without duplicating secrets.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-app-configuration/use-key-vault-references-dotnet-core",

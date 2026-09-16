@@ -9,12 +9,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to run sensitive workloads requiring physical hardware isolation and support existing per-core server software licenses (BYOL) on dedicated physical infrastructure.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy shared-core E2 virtual machines on public multi-tenant hardware." },
-      { id: 'B', text: "Provision sole-tenant nodes and dedicated node groups." },
-      { id: 'C', text: "Use serverless Cloud Functions for all processing." },
-      { id: 'D', text: "Deploy the workload into a shared Google App Engine environment." }
+      { id: 'A', text: "Provision sole-tenant nodes and dedicated node groups." },
+      { id: 'B', text: "Deploy shared-core E2 virtual machines on public multi-tenant hardware." },
+      { id: 'C', text: "Deploy the workload into a shared Google App Engine environment." },
+      { id: 'D', text: "Use serverless Cloud Functions for all processing." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Provision Compute Engine Sole-Tenant Nodes and schedule instances onto dedicated node groups. Sole-Tenant Nodes are physical Compute Engine servers dedicated entirely to hosting your organization's virtual machines. They provide hardware isolation for compliance, satisfy Bring-Your-Own-License (BYOL) requirements, and allow strict control over host maintenance timing.",
     referenceUrl: "https://cloud.google.com/compute/docs/nodes/sole-tenant-nodes",
@@ -30,12 +30,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to run sensitive workloads requiring physical hardware isolation and support existing per-core server software licenses (BYOL) on dedicated physical infrastructure.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Deploy shared-core E2 virtual machines on public multi-tenant hardware." },
-      { id: 'B', text: "Provision sole-tenant nodes and dedicated node groups." },
+      { id: 'A', text: "Provision sole-tenant nodes and dedicated node groups." },
+      { id: 'B', text: "Deploy shared-core E2 virtual machines on public multi-tenant hardware." },
       { id: 'C', text: "Deploy the workload into a shared Google App Engine environment." },
       { id: 'D', text: "Use serverless Cloud Functions for all processing." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Provision Compute Engine Sole-Tenant Nodes and schedule instances onto dedicated node groups. Sole-Tenant Nodes are physical Compute Engine servers dedicated entirely to hosting your organization's virtual machines. They provide hardware isolation for compliance, satisfy Bring-Your-Own-License (BYOL) requirements, and allow strict control over host maintenance timing.",
     referenceUrl: "https://cloud.google.com/compute/docs/nodes/sole-tenant-nodes",
@@ -51,12 +51,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to run sensitive workloads requiring physical hardware isolation and support existing per-core server software licenses (BYOL) on dedicated physical infrastructure.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy the workload into a shared Google App Engine environment." },
-      { id: 'B', text: "Provision sole-tenant nodes and dedicated node groups." },
-      { id: 'C', text: "Use serverless Cloud Functions for all processing." },
-      { id: 'D', text: "Deploy shared-core E2 virtual machines on public multi-tenant hardware." }
+      { id: 'A', text: "Use serverless Cloud Functions for all processing." },
+      { id: 'B', text: "Deploy the workload into a shared Google App Engine environment." },
+      { id: 'C', text: "Deploy shared-core E2 virtual machines on public multi-tenant hardware." },
+      { id: 'D', text: "Provision sole-tenant nodes and dedicated node groups." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Provision Compute Engine Sole-Tenant Nodes and schedule instances onto dedicated node groups. Sole-Tenant Nodes are physical Compute Engine servers dedicated entirely to hosting your organization's virtual machines. They provide hardware isolation for compliance, satisfy Bring-Your-Own-License (BYOL) requirements, and allow strict control over host maintenance timing.",
     referenceUrl: "https://cloud.google.com/compute/docs/nodes/sole-tenant-nodes",
@@ -72,12 +72,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to run sensitive workloads requiring physical hardware isolation and support existing per-core server software licenses (BYOL) on dedicated physical infrastructure.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Deploy the workload into a shared Google App Engine environment." },
-      { id: 'B', text: "Use serverless Cloud Functions for all processing." },
-      { id: 'C', text: "Deploy shared-core E2 virtual machines on public multi-tenant hardware." },
-      { id: 'D', text: "Provision sole-tenant nodes and dedicated node groups." }
+      { id: 'A', text: "Deploy shared-core E2 virtual machines on public multi-tenant hardware." },
+      { id: 'B', text: "Provision sole-tenant nodes and dedicated node groups." },
+      { id: 'C', text: "Use serverless Cloud Functions for all processing." },
+      { id: 'D', text: "Deploy the workload into a shared Google App Engine environment." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Provision Compute Engine Sole-Tenant Nodes and schedule instances onto dedicated node groups. Sole-Tenant Nodes are physical Compute Engine servers dedicated entirely to hosting your organization's virtual machines. They provide hardware isolation for compliance, satisfy Bring-Your-Own-License (BYOL) requirements, and allow strict control over host maintenance timing.",
     referenceUrl: "https://cloud.google.com/compute/docs/nodes/sole-tenant-nodes",
@@ -94,8 +94,8 @@ export const GCP_PCA_QUESTIONS_15 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Provision sole-tenant nodes and dedicated node groups." },
-      { id: 'B', text: "Deploy the workload into a shared Google App Engine environment." },
-      { id: 'C', text: "Deploy shared-core E2 virtual machines on public multi-tenant hardware." },
+      { id: 'B', text: "Deploy shared-core E2 virtual machines on public multi-tenant hardware." },
+      { id: 'C', text: "Deploy the workload into a shared Google App Engine environment." },
       { id: 'D', text: "Use serverless Cloud Functions for all processing." }
     ],
     correctAnswers: ['A'],
@@ -114,12 +114,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Rely on default client browser TLS negotiation." },
-      { id: 'B', text: "Configure SSL termination inside individual backend virtual machines." },
-      { id: 'C', text: "Disable HTTPS encryption and use cleartext HTTP traffic." },
-      { id: 'D', text: "Attach a custom SSL policy with a minimum of TLS 1.2." }
+      { id: 'A', text: "Configure SSL termination inside individual backend virtual machines." },
+      { id: 'B', text: "Disable HTTPS encryption and use cleartext HTTP traffic." },
+      { id: 'C', text: "Attach a custom SSL policy with a minimum of TLS 1.2." },
+      { id: 'D', text: "Rely on default client browser TLS negotiation." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a custom Cloud SSL Policy configured with a minimum TLS version of 1.2 and attach it to the load balancer target HTTPS proxy. Google Cloud SSL Policies allow administrators to control the SSL/TLS versions and cipher suites negotiated by External Application Load Balancers and SSL Proxy Load Balancers, enforcing modern security standards like TLS 1.2 or 1.3 across all public endpoints.",
     referenceUrl: "https://cloud.google.com/load-balancing/docs/ssl-policies-concepts",
@@ -135,12 +135,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Rely on default client browser TLS negotiation." },
-      { id: 'B', text: "Disable HTTPS encryption and use cleartext HTTP traffic." },
+      { id: 'A', text: "Disable HTTPS encryption and use cleartext HTTP traffic." },
+      { id: 'B', text: "Attach a custom SSL policy with a minimum of TLS 1.2." },
       { id: 'C', text: "Configure SSL termination inside individual backend virtual machines." },
-      { id: 'D', text: "Attach a custom SSL policy with a minimum of TLS 1.2." }
+      { id: 'D', text: "Rely on default client browser TLS negotiation." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a custom Cloud SSL Policy configured with a minimum TLS version of 1.2 and attach it to the load balancer target HTTPS proxy. Google Cloud SSL Policies allow administrators to control the SSL/TLS versions and cipher suites negotiated by External Application Load Balancers and SSL Proxy Load Balancers, enforcing modern security standards like TLS 1.2 or 1.3 across all public endpoints.",
     referenceUrl: "https://cloud.google.com/load-balancing/docs/ssl-policies-concepts",
@@ -156,12 +156,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Rely on default client browser TLS negotiation." },
-      { id: 'B', text: "Disable HTTPS encryption and use cleartext HTTP traffic." },
+      { id: 'A', text: "Disable HTTPS encryption and use cleartext HTTP traffic." },
+      { id: 'B', text: "Attach a custom SSL policy with a minimum of TLS 1.2." },
       { id: 'C', text: "Configure SSL termination inside individual backend virtual machines." },
-      { id: 'D', text: "Attach a custom SSL policy with a minimum of TLS 1.2." }
+      { id: 'D', text: "Rely on default client browser TLS negotiation." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a custom Cloud SSL Policy configured with a minimum TLS version of 1.2 and attach it to the load balancer target HTTPS proxy. Google Cloud SSL Policies allow administrators to control the SSL/TLS versions and cipher suites negotiated by External Application Load Balancers and SSL Proxy Load Balancers, enforcing modern security standards like TLS 1.2 or 1.3 across all public endpoints.",
     referenceUrl: "https://cloud.google.com/load-balancing/docs/ssl-policies-concepts",
@@ -177,12 +177,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Rely on default client browser TLS negotiation." },
-      { id: 'B', text: "Disable HTTPS encryption and use cleartext HTTP traffic." },
-      { id: 'C', text: "Attach a custom SSL policy with a minimum of TLS 1.2." },
-      { id: 'D', text: "Configure SSL termination inside individual backend virtual machines." }
+      { id: 'A', text: "Disable HTTPS encryption and use cleartext HTTP traffic." },
+      { id: 'B', text: "Configure SSL termination inside individual backend virtual machines." },
+      { id: 'C', text: "Rely on default client browser TLS negotiation." },
+      { id: 'D', text: "Attach a custom SSL policy with a minimum of TLS 1.2." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a custom Cloud SSL Policy configured with a minimum TLS version of 1.2 and attach it to the load balancer target HTTPS proxy. Google Cloud SSL Policies allow administrators to control the SSL/TLS versions and cipher suites negotiated by External Application Load Balancers and SSL Proxy Load Balancers, enforcing modern security standards like TLS 1.2 or 1.3 across all public endpoints.",
     referenceUrl: "https://cloud.google.com/load-balancing/docs/ssl-policies-concepts",
@@ -198,12 +198,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to enforce strict corporate cryptographic standards on an External Application Load Balancer, disabling TLS 1.0/1.1 and insecure cipher suites.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Configure SSL termination inside individual backend virtual machines." },
+      { id: 'A', text: "Disable HTTPS encryption and use cleartext HTTP traffic." },
       { id: 'B', text: "Rely on default client browser TLS negotiation." },
-      { id: 'C', text: "Disable HTTPS encryption and use cleartext HTTP traffic." },
-      { id: 'D', text: "Attach a custom SSL policy with a minimum of TLS 1.2." }
+      { id: 'C', text: "Attach a custom SSL policy with a minimum of TLS 1.2." },
+      { id: 'D', text: "Configure SSL termination inside individual backend virtual machines." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a custom Cloud SSL Policy configured with a minimum TLS version of 1.2 and attach it to the load balancer target HTTPS proxy. Google Cloud SSL Policies allow administrators to control the SSL/TLS versions and cipher suites negotiated by External Application Load Balancers and SSL Proxy Load Balancers, enforcing modern security standards like TLS 1.2 or 1.3 across all public endpoints.",
     referenceUrl: "https://cloud.google.com/load-balancing/docs/ssl-policies-concepts",
@@ -219,12 +219,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to grant a vendor temporary administrative access to restart Compute Engine instances in a specific project, valid only during working hours on weekdays and expiring in 30 days.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Grant the vendor permanent Owner permissions on the project." },
-      { id: 'B', text: "Share the corporate IT administrator's username and password with the vendor." },
-      { id: 'C', text: "Write a cron job to delete the vendor's user account from the system every evening." },
-      { id: 'D', text: "Configure an IAM policy binding with IAM Conditions evaluating request.time and date constraints." }
+      { id: 'A', text: "Share the corporate IT administrator's username and password with the vendor." },
+      { id: 'B', text: "Write a cron job to delete the vendor's user account from the system every evening." },
+      { id: 'C', text: "Configure an IAM policy binding with IAM Conditions evaluating request.time and date constraints." },
+      { id: 'D', text: "Grant the vendor permanent Owner permissions on the project." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure an IAM policy binding with IAM Conditions evaluating request.time and date constraints. IAM Conditions allow administrators to define conditional access controls in IAM role bindings based on attributes like request time, date, resource name, resource type, or IP address, enforcing time-bound and context-aware least privilege.",
     referenceUrl: "https://cloud.google.com/iam/docs/conditions-overview",
@@ -240,12 +240,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to grant a vendor temporary administrative access to restart Compute Engine instances in a specific project, valid only during working hours on weekdays and expiring in 30 days.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Share the corporate IT administrator's username and password with the vendor." },
+      { id: 'A', text: "Configure an IAM policy binding with IAM Conditions evaluating request.time and date constraints." },
       { id: 'B', text: "Grant the vendor permanent Owner permissions on the project." },
-      { id: 'C', text: "Configure an IAM policy binding with IAM Conditions evaluating request.time and date constraints." },
+      { id: 'C', text: "Share the corporate IT administrator's username and password with the vendor." },
       { id: 'D', text: "Write a cron job to delete the vendor's user account from the system every evening." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure an IAM policy binding with IAM Conditions evaluating request.time and date constraints. IAM Conditions allow administrators to define conditional access controls in IAM role bindings based on attributes like request time, date, resource name, resource type, or IP address, enforcing time-bound and context-aware least privilege.",
     referenceUrl: "https://cloud.google.com/iam/docs/conditions-overview",
@@ -261,12 +261,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud architect needs to grant a vendor temporary administrative access to restart Compute Engine instances in a specific project, valid only during working hours on weekdays and expiring in 30 days.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Write a cron job to delete the vendor's user account from the system every evening." },
+      { id: 'A', text: "Share the corporate IT administrator's username and password with the vendor." },
       { id: 'B', text: "Grant the vendor permanent Owner permissions on the project." },
-      { id: 'C', text: "Configure an IAM policy binding with IAM Conditions evaluating request.time and date constraints." },
-      { id: 'D', text: "Share the corporate IT administrator's username and password with the vendor." }
+      { id: 'C', text: "Write a cron job to delete the vendor's user account from the system every evening." },
+      { id: 'D', text: "Configure an IAM policy binding with IAM Conditions evaluating request.time and date constraints." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure an IAM policy binding with IAM Conditions evaluating request.time and date constraints. IAM Conditions allow administrators to define conditional access controls in IAM role bindings based on attributes like request time, date, resource name, resource type, or IP address, enforcing time-bound and context-aware least privilege.",
     referenceUrl: "https://cloud.google.com/iam/docs/conditions-overview",
@@ -282,12 +282,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud architect needs to grant a vendor temporary administrative access to restart Compute Engine instances in a specific project, valid only during working hours on weekdays and expiring in 30 days.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Share the corporate IT administrator's username and password with the vendor." },
-      { id: 'B', text: "Write a cron job to delete the vendor's user account from the system every evening." },
-      { id: 'C', text: "Grant the vendor permanent Owner permissions on the project." },
-      { id: 'D', text: "Configure an IAM policy binding with IAM Conditions evaluating request.time and date constraints." }
+      { id: 'A', text: "Grant the vendor permanent Owner permissions on the project." },
+      { id: 'B', text: "Configure an IAM policy binding with IAM Conditions evaluating request.time and date constraints." },
+      { id: 'C', text: "Write a cron job to delete the vendor's user account from the system every evening." },
+      { id: 'D', text: "Share the corporate IT administrator's username and password with the vendor." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure an IAM policy binding with IAM Conditions evaluating request.time and date constraints. IAM Conditions allow administrators to define conditional access controls in IAM role bindings based on attributes like request time, date, resource name, resource type, or IP address, enforcing time-bound and context-aware least privilege.",
     referenceUrl: "https://cloud.google.com/iam/docs/conditions-overview",
@@ -303,12 +303,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to grant a vendor temporary administrative access to restart Compute Engine instances in a specific project, valid only during working hours on weekdays and expiring in 30 days.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Share the corporate IT administrator's username and password with the vendor." },
-      { id: 'B', text: "Write a cron job to delete the vendor's user account from the system every evening." },
-      { id: 'C', text: "Configure an IAM policy binding with IAM Conditions evaluating request.time and date constraints." },
-      { id: 'D', text: "Grant the vendor permanent Owner permissions on the project." }
+      { id: 'A', text: "Configure an IAM policy binding with IAM Conditions evaluating request.time and date constraints." },
+      { id: 'B', text: "Grant the vendor permanent Owner permissions on the project." },
+      { id: 'C', text: "Share the corporate IT administrator's username and password with the vendor." },
+      { id: 'D', text: "Write a cron job to delete the vendor's user account from the system every evening." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure an IAM policy binding with IAM Conditions evaluating request.time and date constraints. IAM Conditions allow administrators to define conditional access controls in IAM role bindings based on attributes like request time, date, resource name, resource type, or IP address, enforcing time-bound and context-aware least privilege.",
     referenceUrl: "https://cloud.google.com/iam/docs/conditions-overview",
@@ -324,12 +324,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to encrypt 100 GB database backup files efficiently using client-side encryption while keeping root encryption keys secured inside Cloud KMS with automated 90-day rotation.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Disable encryption for files larger than 1 GB." },
-      { id: 'B', text: "Store encryption keys in plaintext in an unencrypted GitHub repository." },
-      { id: 'C', text: "Use envelope encryption, wrapping a local DEK with a KMS key." },
-      { id: 'D', text: "Transmit the entire 100 GB file directly to the Cloud KMS Encrypt API endpoint." }
+      { id: 'A', text: "Transmit the entire 100 GB file directly to the Cloud KMS Encrypt API endpoint." },
+      { id: 'B', text: "Use envelope encryption, wrapping a local DEK with a KMS key." },
+      { id: 'C', text: "Disable encryption for files larger than 1 GB." },
+      { id: 'D', text: "Store encryption keys in plaintext in an unencrypted GitHub repository." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement envelope encryption: generate a local Data Encryption Key (DEK), encrypt the data, encrypt the DEK with a Cloud KMS Key Encryption Key (KEK), and configure automated key rotation. Cloud KMS has a 64 KB payload limit for direct cryptographic operations. In envelope encryption, an application generates a fast local Data Encryption Key (DEK) to encrypt large data, and uses a Cloud KMS Key Encryption Key (KEK) to protect the DEK, combining high performance with managed key governance.",
     referenceUrl: "https://cloud.google.com/kms/docs/envelope-encryption",
@@ -345,12 +345,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to encrypt 100 GB database backup files efficiently using client-side encryption while keeping root encryption keys secured inside Cloud KMS with automated 90-day rotation.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Transmit the entire 100 GB file directly to the Cloud KMS Encrypt API endpoint." },
-      { id: 'B', text: "Store encryption keys in plaintext in an unencrypted GitHub repository." },
-      { id: 'C', text: "Disable encryption for files larger than 1 GB." },
-      { id: 'D', text: "Use envelope encryption, wrapping a local DEK with a KMS key." }
+      { id: 'A', text: "Store encryption keys in plaintext in an unencrypted GitHub repository." },
+      { id: 'B', text: "Disable encryption for files larger than 1 GB." },
+      { id: 'C', text: "Use envelope encryption, wrapping a local DEK with a KMS key." },
+      { id: 'D', text: "Transmit the entire 100 GB file directly to the Cloud KMS Encrypt API endpoint." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement envelope encryption: generate a local Data Encryption Key (DEK), encrypt the data, encrypt the DEK with a Cloud KMS Key Encryption Key (KEK), and configure automated key rotation. Cloud KMS has a 64 KB payload limit for direct cryptographic operations. In envelope encryption, an application generates a fast local Data Encryption Key (DEK) to encrypt large data, and uses a Cloud KMS Key Encryption Key (KEK) to protect the DEK, combining high performance with managed key governance.",
     referenceUrl: "https://cloud.google.com/kms/docs/envelope-encryption",
@@ -389,8 +389,8 @@ export const GCP_PCA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Use envelope encryption, wrapping a local DEK with a KMS key." },
       { id: 'B', text: "Transmit the entire 100 GB file directly to the Cloud KMS Encrypt API endpoint." },
-      { id: 'C', text: "Disable encryption for files larger than 1 GB." },
-      { id: 'D', text: "Store encryption keys in plaintext in an unencrypted GitHub repository." }
+      { id: 'C', text: "Store encryption keys in plaintext in an unencrypted GitHub repository." },
+      { id: 'D', text: "Disable encryption for files larger than 1 GB." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to encrypt 100 GB database backup files efficiently using client-side encryption while keeping root encryption keys secured inside Cloud KMS with automated 90-day rotation.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Store encryption keys in plaintext in an unencrypted GitHub repository." },
-      { id: 'B', text: "Disable encryption for files larger than 1 GB." },
-      { id: 'C', text: "Transmit the entire 100 GB file directly to the Cloud KMS Encrypt API endpoint." },
-      { id: 'D', text: "Use envelope encryption, wrapping a local DEK with a KMS key." }
+      { id: 'A', text: "Transmit the entire 100 GB file directly to the Cloud KMS Encrypt API endpoint." },
+      { id: 'B', text: "Use envelope encryption, wrapping a local DEK with a KMS key." },
+      { id: 'C', text: "Disable encryption for files larger than 1 GB." },
+      { id: 'D', text: "Store encryption keys in plaintext in an unencrypted GitHub repository." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement envelope encryption: generate a local Data Encryption Key (DEK), encrypt the data, encrypt the DEK with a Cloud KMS Key Encryption Key (KEK), and configure automated key rotation. Cloud KMS has a 64 KB payload limit for direct cryptographic operations. In envelope encryption, an application generates a fast local Data Encryption Key (DEK) to encrypt large data, and uses a Cloud KMS Key Encryption Key (KEK) to protect the DEK, combining high performance with managed key governance.",
     referenceUrl: "https://cloud.google.com/kms/docs/envelope-encryption",
@@ -429,12 +429,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud architect needs to allow an authorized BigQuery client in Project A inside a service perimeter to securely query a dataset in Project B located in a different perimeter without opening the perimeter to the internet.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Assign the Owner role to allUsers on both BigQuery datasets." },
-      { id: 'B', text: "Delete the VPC Service Controls service perimeter entirely." },
-      { id: 'C', text: "Add ingress and egress rules to the VPC SC perimeters." },
-      { id: 'D', text: "Export the BigQuery dataset to a public Cloud Storage bucket accessible to the internet." }
+      { id: 'A', text: "Export the BigQuery dataset to a public Cloud Storage bucket accessible to the internet." },
+      { id: 'B', text: "Add ingress and egress rules to the VPC SC perimeters." },
+      { id: 'C', text: "Assign the Owner role to allUsers on both BigQuery datasets." },
+      { id: 'D', text: "Delete the VPC Service Controls service perimeter entirely." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure an Ingress and Egress rule in the VPC Service Controls perimeters (or establish a Perimeter Bridge). VPC Service Controls perimeters strictly isolate project services. To allow legitimate cross-perimeter communication without compromising security boundaries, administrators configure perimeter Ingress/Egress rules specifying allowed sources, identities, and target methods.",
     referenceUrl: "https://cloud.google.com/vpc-service-controls/docs/ingress-egress-rules",
@@ -450,12 +450,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud architect needs to allow an authorized BigQuery client in Project A inside a service perimeter to securely query a dataset in Project B located in a different perimeter without opening the perimeter to the internet.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Delete the VPC Service Controls service perimeter entirely." },
+      { id: 'A', text: "Assign the Owner role to allUsers on both BigQuery datasets." },
       { id: 'B', text: "Export the BigQuery dataset to a public Cloud Storage bucket accessible to the internet." },
-      { id: 'C', text: "Assign the Owner role to allUsers on both BigQuery datasets." },
-      { id: 'D', text: "Add ingress and egress rules to the VPC SC perimeters." }
+      { id: 'C', text: "Add ingress and egress rules to the VPC SC perimeters." },
+      { id: 'D', text: "Delete the VPC Service Controls service perimeter entirely." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure an Ingress and Egress rule in the VPC Service Controls perimeters (or establish a Perimeter Bridge). VPC Service Controls perimeters strictly isolate project services. To allow legitimate cross-perimeter communication without compromising security boundaries, administrators configure perimeter Ingress/Egress rules specifying allowed sources, identities, and target methods.",
     referenceUrl: "https://cloud.google.com/vpc-service-controls/docs/ingress-egress-rules",
@@ -472,8 +472,8 @@ export const GCP_PCA_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Add ingress and egress rules to the VPC SC perimeters." },
-      { id: 'B', text: "Delete the VPC Service Controls service perimeter entirely." },
-      { id: 'C', text: "Export the BigQuery dataset to a public Cloud Storage bucket accessible to the internet." },
+      { id: 'B', text: "Export the BigQuery dataset to a public Cloud Storage bucket accessible to the internet." },
+      { id: 'C', text: "Delete the VPC Service Controls service perimeter entirely." },
       { id: 'D', text: "Assign the Owner role to allUsers on both BigQuery datasets." }
     ],
     correctAnswers: ['A'],
@@ -513,12 +513,12 @@ export const GCP_PCA_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud architect needs to allow an authorized BigQuery client in Project A inside a service perimeter to securely query a dataset in Project B located in a different perimeter without opening the perimeter to the internet.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Assign the Owner role to allUsers on both BigQuery datasets." },
-      { id: 'B', text: "Delete the VPC Service Controls service perimeter entirely." },
-      { id: 'C', text: "Add ingress and egress rules to the VPC SC perimeters." },
-      { id: 'D', text: "Export the BigQuery dataset to a public Cloud Storage bucket accessible to the internet." }
+      { id: 'A', text: "Export the BigQuery dataset to a public Cloud Storage bucket accessible to the internet." },
+      { id: 'B', text: "Add ingress and egress rules to the VPC SC perimeters." },
+      { id: 'C', text: "Assign the Owner role to allUsers on both BigQuery datasets." },
+      { id: 'D', text: "Delete the VPC Service Controls service perimeter entirely." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure an Ingress and Egress rule in the VPC Service Controls perimeters (or establish a Perimeter Bridge). VPC Service Controls perimeters strictly isolate project services. To allow legitimate cross-perimeter communication without compromising security boundaries, administrators configure perimeter Ingress/Egress rules specifying allowed sources, identities, and target methods.",
     referenceUrl: "https://cloud.google.com/vpc-service-controls/docs/ingress-egress-rules",

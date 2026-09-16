@@ -11,8 +11,8 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Put the database NICs in an ASG and reference it from the NSG rules." },
       { id: 'B', text: "List the 50 database VM private IP addresses in the NSG rule definition." },
-      { id: 'C', text: "Disable Network Security Groups and rely solely on Windows Defender firewall." },
-      { id: 'D', text: "Place all database VMs on a public internet-facing subnet." }
+      { id: 'C', text: "Place all database VMs on a public internet-facing subnet." },
+      { id: 'D', text: "Disable Network Security Groups and rely solely on Windows Defender firewall." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -31,8 +31,8 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Put the database NICs in an ASG and reference it from the NSG rules." },
-      { id: 'B', text: "Place all database VMs on a public internet-facing subnet." },
-      { id: 'C', text: "List the 50 database VM private IP addresses in the NSG rule definition." },
+      { id: 'B', text: "List the 50 database VM private IP addresses in the NSG rule definition." },
+      { id: 'C', text: "Place all database VMs on a public internet-facing subnet." },
       { id: 'D', text: "Disable Network Security Groups and rely solely on Windows Defender firewall." }
     ],
     correctAnswers: ['A'],
@@ -53,8 +53,8 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Put the database NICs in an ASG and reference it from the NSG rules." },
       { id: 'B', text: "List the 50 database VM private IP addresses in the NSG rule definition." },
-      { id: 'C', text: "Disable Network Security Groups and rely solely on Windows Defender firewall." },
-      { id: 'D', text: "Place all database VMs on a public internet-facing subnet." }
+      { id: 'C', text: "Place all database VMs on a public internet-facing subnet." },
+      { id: 'D', text: "Disable Network Security Groups and rely solely on Windows Defender firewall." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,12 +72,12 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The administrator configures Azure Network Security to apply uniform network filtering rules to all database virtual machines across multiple subnets without maintaining complex, error-prone lists of static IP addresses.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Disable Network Security Groups and rely solely on Windows Defender firewall." },
-      { id: 'B', text: "Place all database VMs on a public internet-facing subnet." },
-      { id: 'C', text: "List the 50 database VM private IP addresses in the NSG rule definition." },
-      { id: 'D', text: "Put the database NICs in an ASG and reference it from the NSG rules." }
+      { id: 'A', text: "Put the database NICs in an ASG and reference it from the NSG rules." },
+      { id: 'B', text: "List the 50 database VM private IP addresses in the NSG rule definition." },
+      { id: 'C', text: "Place all database VMs on a public internet-facing subnet." },
+      { id: 'D', text: "Disable Network Security Groups and rely solely on Windows Defender firewall." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Group the database VM network interfaces into an Application Security Group (ASG) and reference the ASG in NSG rules. Application Security Groups (ASGs) enable configuring network security as a natural extension of an application's structure. By grouping VM network interfaces into an ASG, administrators can define NSG rules that reference the ASG as source or destination, removing the need to manage dynamic IP addresses.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/application-security-groups",
@@ -94,8 +94,8 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Put the database NICs in an ASG and reference it from the NSG rules." },
-      { id: 'B', text: "Place all database VMs on a public internet-facing subnet." },
-      { id: 'C', text: "List the 50 database VM private IP addresses in the NSG rule definition." },
+      { id: 'B', text: "List the 50 database VM private IP addresses in the NSG rule definition." },
+      { id: 'C', text: "Place all database VMs on a public internet-facing subnet." },
       { id: 'D', text: "Disable Network Security Groups and rely solely on Windows Defender firewall." }
     ],
     correctAnswers: ['A'],
@@ -114,12 +114,12 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Network Routing to force all outbound internet traffic from a backend database subnet to route through a central firewall Network Virtual Appliance (NVA) for deep packet inspection.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Manually configure static IP routing tables inside the Windows guest operating system." },
-      { id: 'B', text: "Create a Route Table with a User-Defined Route for 0.0.0.0/0 targeting the NVA private IP as the Next Hop, and associate it with the subnet." },
-      { id: 'C', text: "Deploy an Azure Load Balancer with an outbound SNAT rule." },
-      { id: 'D', text: "Configure an Azure DNS private resolver pointing to the firewall appliance." }
+      { id: 'A', text: "Deploy an Azure Load Balancer with an outbound SNAT rule." },
+      { id: 'B', text: "Manually configure static IP routing tables inside the Windows guest operating system." },
+      { id: 'C', text: "Configure an Azure DNS private resolver pointing to the firewall appliance." },
+      { id: 'D', text: "Create a Route Table with a User-Defined Route for 0.0.0.0/0 targeting the NVA private IP as the Next Hop, and associate it with the subnet." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a Route Table with a User-Defined Route for 0.0.0.0/0 targeting the NVA private IP as the Next Hop, and associate it with the subnet. Azure automatically creates system default routes for each subnet. A User-Defined Route (UDR) in a custom Route Table overrides system routes. Setting a route for  with a next hop type of 'Virtual Appliance' forces all outbound internet traffic through the designated firewall IP.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
@@ -136,9 +136,9 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Create a Route Table with a User-Defined Route for 0.0.0.0/0 targeting the NVA private IP as the Next Hop, and associate it with the subnet." },
-      { id: 'B', text: "Deploy an Azure Load Balancer with an outbound SNAT rule." },
+      { id: 'B', text: "Configure an Azure DNS private resolver pointing to the firewall appliance." },
       { id: 'C', text: "Manually configure static IP routing tables inside the Windows guest operating system." },
-      { id: 'D', text: "Configure an Azure DNS private resolver pointing to the firewall appliance." }
+      { id: 'D', text: "Deploy an Azure Load Balancer with an outbound SNAT rule." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Azure Network Routing to force all outbound internet traffic from a backend database subnet to route through a central firewall Network Virtual Appliance (NVA) for deep packet inspection.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Configure an Azure DNS private resolver pointing to the firewall appliance." },
-      { id: 'B', text: "Deploy an Azure Load Balancer with an outbound SNAT rule." },
-      { id: 'C', text: "Create a Route Table with a User-Defined Route for 0.0.0.0/0 targeting the NVA private IP as the Next Hop, and associate it with the subnet." },
-      { id: 'D', text: "Manually configure static IP routing tables inside the Windows guest operating system." }
+      { id: 'A', text: "Deploy an Azure Load Balancer with an outbound SNAT rule." },
+      { id: 'B', text: "Manually configure static IP routing tables inside the Windows guest operating system." },
+      { id: 'C', text: "Configure an Azure DNS private resolver pointing to the firewall appliance." },
+      { id: 'D', text: "Create a Route Table with a User-Defined Route for 0.0.0.0/0 targeting the NVA private IP as the Next Hop, and associate it with the subnet." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a Route Table with a User-Defined Route for 0.0.0.0/0 targeting the NVA private IP as the Next Hop, and associate it with the subnet. Azure automatically creates system default routes for each subnet. A User-Defined Route (UDR) in a custom Route Table overrides system routes. Setting a route for  with a next hop type of 'Virtual Appliance' forces all outbound internet traffic through the designated firewall IP.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
@@ -177,12 +177,12 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The administrator configures Azure Network Routing to force all outbound internet traffic from a backend database subnet to route through a central firewall Network Virtual Appliance (NVA) for deep packet inspection.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Configure an Azure DNS private resolver pointing to the firewall appliance." },
-      { id: 'B', text: "Create a Route Table with a User-Defined Route for 0.0.0.0/0 targeting the NVA private IP as the Next Hop, and associate it with the subnet." },
+      { id: 'A', text: "Create a Route Table with a User-Defined Route for 0.0.0.0/0 targeting the NVA private IP as the Next Hop, and associate it with the subnet." },
+      { id: 'B', text: "Configure an Azure DNS private resolver pointing to the firewall appliance." },
       { id: 'C', text: "Manually configure static IP routing tables inside the Windows guest operating system." },
       { id: 'D', text: "Deploy an Azure Load Balancer with an outbound SNAT rule." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create a Route Table with a User-Defined Route for 0.0.0.0/0 targeting the NVA private IP as the Next Hop, and associate it with the subnet. Azure automatically creates system default routes for each subnet. A User-Defined Route (UDR) in a custom Route Table overrides system routes. Setting a route for  with a next hop type of 'Virtual Appliance' forces all outbound internet traffic through the designated firewall IP.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
@@ -198,12 +198,12 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure Network Routing to force all outbound internet traffic from a backend database subnet to route through a central firewall Network Virtual Appliance (NVA) for deep packet inspection.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Deploy an Azure Load Balancer with an outbound SNAT rule." },
+      { id: 'A', text: "Manually configure static IP routing tables inside the Windows guest operating system." },
       { id: 'B', text: "Configure an Azure DNS private resolver pointing to the firewall appliance." },
-      { id: 'C', text: "Create a Route Table with a User-Defined Route for 0.0.0.0/0 targeting the NVA private IP as the Next Hop, and associate it with the subnet." },
-      { id: 'D', text: "Manually configure static IP routing tables inside the Windows guest operating system." }
+      { id: 'C', text: "Deploy an Azure Load Balancer with an outbound SNAT rule." },
+      { id: 'D', text: "Create a Route Table with a User-Defined Route for 0.0.0.0/0 targeting the NVA private IP as the Next Hop, and associate it with the subnet." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a Route Table with a User-Defined Route for 0.0.0.0/0 targeting the NVA private IP as the Next Hop, and associate it with the subnet. Azure automatically creates system default routes for each subnet. A User-Defined Route (UDR) in a custom Route Table overrides system routes. Setting a route for  with a next hop type of 'Virtual Appliance' forces all outbound internet traffic through the designated firewall IP.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
@@ -219,12 +219,12 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Secure Management to provide secure RDP and SSH administration into Azure Virtual Machines directly via the Azure portal without assigning public IP addresses to the VMs.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Assign public IP addresses to every virtual machine and open port 3389 to the internet." },
-      { id: 'B', text: "Deploy an unmanaged Linux jump host VM with a public IP on the default subnet." },
-      { id: 'C', text: "Use an Azure Application Gateway to terminate SSH connections." },
-      { id: 'D', text: "Deploy Azure Bastion into a dedicated subnet named AzureBastionSubnet." }
+      { id: 'A', text: "Deploy an unmanaged Linux jump host VM with a public IP on the default subnet." },
+      { id: 'B', text: "Use an Azure Application Gateway to terminate SSH connections." },
+      { id: 'C', text: "Deploy Azure Bastion into a dedicated subnet named AzureBastionSubnet." },
+      { id: 'D', text: "Assign public IP addresses to every virtual machine and open port 3389 to the internet." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Azure Bastion into a dedicated subnet named AzureBastionSubnet. Azure Bastion is a fully managed Platform as a Service (PaaS) service that provides secure and seamless RDP and SSH connectivity to virtual machines directly over TLS via the Azure portal. Bastion requires a dedicated subnet named exactly  with at least a  prefix.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/bastion/bastion-overview",
@@ -241,9 +241,9 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Deploy Azure Bastion into a dedicated subnet named AzureBastionSubnet." },
-      { id: 'B', text: "Use an Azure Application Gateway to terminate SSH connections." },
-      { id: 'C', text: "Assign public IP addresses to every virtual machine and open port 3389 to the internet." },
-      { id: 'D', text: "Deploy an unmanaged Linux jump host VM with a public IP on the default subnet." }
+      { id: 'B', text: "Deploy an unmanaged Linux jump host VM with a public IP on the default subnet." },
+      { id: 'C', text: "Use an Azure Application Gateway to terminate SSH connections." },
+      { id: 'D', text: "Assign public IP addresses to every virtual machine and open port 3389 to the internet." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,12 +261,12 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The administrator configures Azure Secure Management to provide secure RDP and SSH administration into Azure Virtual Machines directly via the Azure portal without assigning public IP addresses to the VMs.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Use an Azure Application Gateway to terminate SSH connections." },
+      { id: 'A', text: "Deploy an unmanaged Linux jump host VM with a public IP on the default subnet." },
       { id: 'B', text: "Assign public IP addresses to every virtual machine and open port 3389 to the internet." },
-      { id: 'C', text: "Deploy Azure Bastion into a dedicated subnet named AzureBastionSubnet." },
-      { id: 'D', text: "Deploy an unmanaged Linux jump host VM with a public IP on the default subnet." }
+      { id: 'C', text: "Use an Azure Application Gateway to terminate SSH connections." },
+      { id: 'D', text: "Deploy Azure Bastion into a dedicated subnet named AzureBastionSubnet." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Azure Bastion into a dedicated subnet named AzureBastionSubnet. Azure Bastion is a fully managed Platform as a Service (PaaS) service that provides secure and seamless RDP and SSH connectivity to virtual machines directly over TLS via the Azure portal. Bastion requires a dedicated subnet named exactly  with at least a  prefix.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/bastion/bastion-overview",
@@ -303,12 +303,12 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The administrator configures Azure Secure Management to provide secure RDP and SSH administration into Azure Virtual Machines directly via the Azure portal without assigning public IP addresses to the VMs.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Deploy an unmanaged Linux jump host VM with a public IP on the default subnet." },
-      { id: 'B', text: "Use an Azure Application Gateway to terminate SSH connections." },
-      { id: 'C', text: "Assign public IP addresses to every virtual machine and open port 3389 to the internet." },
-      { id: 'D', text: "Deploy Azure Bastion into a dedicated subnet named AzureBastionSubnet." }
+      { id: 'A', text: "Assign public IP addresses to every virtual machine and open port 3389 to the internet." },
+      { id: 'B', text: "Deploy Azure Bastion into a dedicated subnet named AzureBastionSubnet." },
+      { id: 'C', text: "Use an Azure Application Gateway to terminate SSH connections." },
+      { id: 'D', text: "Deploy an unmanaged Linux jump host VM with a public IP on the default subnet." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Azure Bastion into a dedicated subnet named AzureBastionSubnet. Azure Bastion is a fully managed Platform as a Service (PaaS) service that provides secure and seamless RDP and SSH connectivity to virtual machines directly over TLS via the Azure portal. Bastion requires a dedicated subnet named exactly  with at least a  prefix.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/bastion/bastion-overview",
@@ -326,8 +326,8 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Create an Azure Private DNS Zone, link the VNets, and enable automatic registration." },
       { id: 'B', text: "Create public DNS A records on an external domain registrar with private RFC 1918 IP addresses." },
-      { id: 'C', text: "Deploy an Active Directory Domain Controller on every single subnet." },
-      { id: 'D', text: "Edit the local hosts file on every virtual machine manually." }
+      { id: 'C', text: "Edit the local hosts file on every virtual machine manually." },
+      { id: 'D', text: "Deploy an Active Directory Domain Controller on every single subnet." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,12 +345,12 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure DNS to resolve internal virtual machine hostnames (e.g. app.corp.internal) privately across multiple virtual networks without deploying dedicated DNS server VMs.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Edit the local hosts file on every virtual machine manually." },
-      { id: 'B', text: "Create an Azure Private DNS Zone, link the VNets, and enable automatic registration." },
-      { id: 'C', text: "Create public DNS A records on an external domain registrar with private RFC 1918 IP addresses." },
+      { id: 'A', text: "Create public DNS A records on an external domain registrar with private RFC 1918 IP addresses." },
+      { id: 'B', text: "Edit the local hosts file on every virtual machine manually." },
+      { id: 'C', text: "Create an Azure Private DNS Zone, link the VNets, and enable automatic registration." },
       { id: 'D', text: "Deploy an Active Directory Domain Controller on every single subnet." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create an Azure Private DNS Zone, link the VNets, and enable automatic registration. Azure Private DNS provides a reliable, secure DNS service for your virtual network. Private DNS zones manage and resolve domain names in the virtual network without the need for a custom DNS solution. Linking VNets to the zone enables name resolution, and auto-registration manages VM lifecycle records.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/dns/private-dns-overview",
@@ -367,9 +367,9 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Create an Azure Private DNS Zone, link the VNets, and enable automatic registration." },
-      { id: 'B', text: "Edit the local hosts file on every virtual machine manually." },
-      { id: 'C', text: "Deploy an Active Directory Domain Controller on every single subnet." },
-      { id: 'D', text: "Create public DNS A records on an external domain registrar with private RFC 1918 IP addresses." }
+      { id: 'B', text: "Deploy an Active Directory Domain Controller on every single subnet." },
+      { id: 'C', text: "Create public DNS A records on an external domain registrar with private RFC 1918 IP addresses." },
+      { id: 'D', text: "Edit the local hosts file on every virtual machine manually." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The administrator configures Azure DNS to resolve internal virtual machine hostnames (e.g. app.corp.internal) privately across multiple virtual networks without deploying dedicated DNS server VMs.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Deploy an Active Directory Domain Controller on every single subnet." },
-      { id: 'B', text: "Edit the local hosts file on every virtual machine manually." },
-      { id: 'C', text: "Create an Azure Private DNS Zone, link the VNets, and enable automatic registration." },
-      { id: 'D', text: "Create public DNS A records on an external domain registrar with private RFC 1918 IP addresses." }
+      { id: 'A', text: "Create public DNS A records on an external domain registrar with private RFC 1918 IP addresses." },
+      { id: 'B', text: "Create an Azure Private DNS Zone, link the VNets, and enable automatic registration." },
+      { id: 'C', text: "Deploy an Active Directory Domain Controller on every single subnet." },
+      { id: 'D', text: "Edit the local hosts file on every virtual machine manually." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create an Azure Private DNS Zone, link the VNets, and enable automatic registration. Azure Private DNS provides a reliable, secure DNS service for your virtual network. Private DNS zones manage and resolve domain names in the virtual network without the need for a custom DNS solution. Linking VNets to the zone enables name resolution, and auto-registration manages VM lifecycle records.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/dns/private-dns-overview",
@@ -409,9 +409,9 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Create an Azure Private DNS Zone, link the VNets, and enable automatic registration." },
-      { id: 'B', text: "Deploy an Active Directory Domain Controller on every single subnet." },
+      { id: 'B', text: "Create public DNS A records on an external domain registrar with private RFC 1918 IP addresses." },
       { id: 'C', text: "Edit the local hosts file on every virtual machine manually." },
-      { id: 'D', text: "Create public DNS A records on an external domain registrar with private RFC 1918 IP addresses." }
+      { id: 'D', text: "Deploy an Active Directory Domain Controller on every single subnet." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The administrator configures Azure Networking to secure an Azure SQL Database so traffic from a web subnet travels directly over the Microsoft backbone network to the database private service IP without public internet exposure.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy an on-premises ExpressRoute gateway to route database queries through an on-premises data center." },
-      { id: 'B', text: "Open the Azure SQL Database firewall to allow all 0.0.0.0 IP addresses." },
-      { id: 'C', text: "Enable a Virtual Network Service Endpoint for Microsoft.Sql on the web subnet." },
+      { id: 'A', text: "Open the Azure SQL Database firewall to allow all 0.0.0.0 IP addresses." },
+      { id: 'B', text: "Enable a Virtual Network Service Endpoint for Microsoft.Sql on the web subnet." },
+      { id: 'C', text: "Deploy an on-premises ExpressRoute gateway to route database queries through an on-premises data center." },
       { id: 'D', text: "Deploy an Azure Traffic Manager profile to route SQL connection queries." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable a Virtual Network Service Endpoint for Microsoft.Sql on the web subnet. Virtual Network (VNet) service endpoints extend your virtual network private address space and identity to Azure service resources over a direct connection on the Microsoft backbone network. This secures Azure service resources (like Azure SQL or Storage) directly to your virtual network.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview",
@@ -450,12 +450,12 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The administrator configures Azure Networking to secure an Azure SQL Database so traffic from a web subnet travels directly over the Microsoft backbone network to the database private service IP without public internet exposure.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Deploy an Azure Traffic Manager profile to route SQL connection queries." },
-      { id: 'B', text: "Open the Azure SQL Database firewall to allow all 0.0.0.0 IP addresses." },
-      { id: 'C', text: "Enable a Virtual Network Service Endpoint for Microsoft.Sql on the web subnet." },
-      { id: 'D', text: "Deploy an on-premises ExpressRoute gateway to route database queries through an on-premises data center." }
+      { id: 'A', text: "Deploy an on-premises ExpressRoute gateway to route database queries through an on-premises data center." },
+      { id: 'B', text: "Enable a Virtual Network Service Endpoint for Microsoft.Sql on the web subnet." },
+      { id: 'C', text: "Deploy an Azure Traffic Manager profile to route SQL connection queries." },
+      { id: 'D', text: "Open the Azure SQL Database firewall to allow all 0.0.0.0 IP addresses." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable a Virtual Network Service Endpoint for Microsoft.Sql on the web subnet. Virtual Network (VNet) service endpoints extend your virtual network private address space and identity to Azure service resources over a direct connection on the Microsoft backbone network. This secures Azure service resources (like Azure SQL or Storage) directly to your virtual network.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview",
@@ -472,9 +472,9 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Enable a Virtual Network Service Endpoint for Microsoft.Sql on the web subnet." },
-      { id: 'B', text: "Deploy an Azure Traffic Manager profile to route SQL connection queries." },
-      { id: 'C', text: "Deploy an on-premises ExpressRoute gateway to route database queries through an on-premises data center." },
-      { id: 'D', text: "Open the Azure SQL Database firewall to allow all 0.0.0.0 IP addresses." }
+      { id: 'B', text: "Open the Azure SQL Database firewall to allow all 0.0.0.0 IP addresses." },
+      { id: 'C', text: "Deploy an Azure Traffic Manager profile to route SQL connection queries." },
+      { id: 'D', text: "Deploy an on-premises ExpressRoute gateway to route database queries through an on-premises data center." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Microsoft Azure. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The administrator configures Azure Networking to secure an Azure SQL Database so traffic from a web subnet travels directly over the Microsoft backbone network to the database private service IP without public internet exposure.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Deploy an on-premises ExpressRoute gateway to route database queries through an on-premises data center." },
-      { id: 'B', text: "Open the Azure SQL Database firewall to allow all 0.0.0.0 IP addresses." },
-      { id: 'C', text: "Deploy an Azure Traffic Manager profile to route SQL connection queries." },
-      { id: 'D', text: "Enable a Virtual Network Service Endpoint for Microsoft.Sql on the web subnet." }
+      { id: 'A', text: "Open the Azure SQL Database firewall to allow all 0.0.0.0 IP addresses." },
+      { id: 'B', text: "Deploy an Azure Traffic Manager profile to route SQL connection queries." },
+      { id: 'C', text: "Enable a Virtual Network Service Endpoint for Microsoft.Sql on the web subnet." },
+      { id: 'D', text: "Deploy an on-premises ExpressRoute gateway to route database queries through an on-premises data center." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable a Virtual Network Service Endpoint for Microsoft.Sql on the web subnet. Virtual Network (VNet) service endpoints extend your virtual network private address space and identity to Azure service resources over a direct connection on the Microsoft backbone network. This secures Azure service resources (like Azure SQL or Storage) directly to your virtual network.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview",
@@ -514,8 +514,8 @@ export const AZURE_AZ104_QUESTIONS_17 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Enable a Virtual Network Service Endpoint for Microsoft.Sql on the web subnet." },
-      { id: 'B', text: "Open the Azure SQL Database firewall to allow all 0.0.0.0 IP addresses." },
-      { id: 'C', text: "Deploy an on-premises ExpressRoute gateway to route database queries through an on-premises data center." },
+      { id: 'B', text: "Deploy an on-premises ExpressRoute gateway to route database queries through an on-premises data center." },
+      { id: 'C', text: "Open the Azure SQL Database firewall to allow all 0.0.0.0 IP addresses." },
       { id: 'D', text: "Deploy an Azure Traffic Manager profile to route SQL connection queries." }
     ],
     correctAnswers: ['A'],

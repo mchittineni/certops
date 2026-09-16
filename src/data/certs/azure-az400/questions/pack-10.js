@@ -9,12 +9,12 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An architecture team wants to validate that their multi-region AKS application gracefully handles unexpected region failures before launching to public users.",
     question: "Which managed Azure service injects controlled fault experiments (like stopping VMs, inducing high CPU, network latency, or DNS outages) into cloud workloads?",
     options: [
-      { id: 'A', text: "Azure Chaos Studio" },
-      { id: 'B', text: "Azure Advisor" },
-      { id: 'C', text: "Azure Bastion" },
+      { id: 'A', text: "Azure Bastion" },
+      { id: 'B', text: "Azure Chaos Studio" },
+      { id: 'C', text: "Azure Advisor" },
       { id: 'D', text: "Azure Migrate" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure Chaos Studio is a fully managed chaos engineering platform that orchestrates controlled experiments, injecting deliberate infrastructure and application faults into cloud resources to measure resilience and uncover architectural weaknesses.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/chaos-studio/chaos-studio-overview",
@@ -30,12 +30,12 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "In Azure Chaos Studio, what is the difference between Service-Direct faults and Agent-Based faults?",
     options: [
-      { id: 'A', text: "Service-direct faults run against Resource Manager; agent-based need a guest agent" },
-      { id: 'B', text: "Agent-based faults cannot be automated from a pipeline task" },
+      { id: 'A', text: "Service-Direct faults only run on Windows; Agent-Based only run on Linux" },
+      { id: 'B', text: "Service-direct faults run against Resource Manager; agent-based need a guest agent" },
       { id: 'C', text: "There is no difference between agent and service faults" },
-      { id: 'D', text: "Service-Direct faults only run on Windows; Agent-Based only run on Linux" }
+      { id: 'D', text: "Agent-based faults cannot be automated from a pipeline task" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Service-direct faults act on the Azure infrastructure plane via ARM (e.g. stopping a VM or severing network routes). Agent-based faults run inside the guest OS via the Chaos Studio agent, allowing in-guest stress testing (CPU, memory, disk I/O).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/chaos-studio/chaos-studio-fault-providers",
@@ -52,11 +52,11 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     question: "In Site Reliability Engineering (SRE) practice, what is the relationship between an SLI, an SLO, and an SLA?",
     options: [
       { id: 'A', text: "An SLA is internal; an SLO is external" },
-      { id: 'B', text: "An SLI is the measurement, an SLO the internal target, an SLA the external contract" },
-      { id: 'C', text: "They all describe the exact same concept" },
-      { id: 'D', text: "An SLI is a legal document" }
+      { id: 'B', text: "An SLI is a legal document" },
+      { id: 'C', text: "An SLI is the measurement, an SLO the internal target, an SLA the external contract" },
+      { id: 'D', text: "They all describe the exact same concept" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "In SRE: a Service Level Indicator (SLI) is a quantifiable metric of service behavior. A Service Level Objective (SLO) is the agreed internal reliability target. A Service Level Agreement (SLA) is the external business agreement carrying financial penalties.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/well-architected/reliability/metrics",
@@ -72,12 +72,12 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "A service maintains an SLO of 99.9% availability per calendar month, leaving an 'Error Budget' of 0.1% (approximately 43 minutes of downtime per month).",
     question: "How should engineering teams use their remaining Error Budget to guide software releases?",
     options: [
-      { id: 'A', text: "With budget left, release freely; once it is spent, pause features for stability" },
-      { id: 'B', text: "Error budgets cannot be calculated in cloud systems" },
-      { id: 'C', text: "Error budgets dictate how much money developers can spend on lunches" },
+      { id: 'A', text: "Error budgets dictate how much money developers can spend on lunches" },
+      { id: 'B', text: "With budget left, release freely; once it is spent, pause features for stability" },
+      { id: 'C', text: "Error budgets cannot be calculated in cloud systems" },
       { id: 'D', text: "Exhausted error budgets require firing the development team" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Error Budgets balance reliability and velocity. When a system is within its error budget, product teams deploy features rapidly. When the error budget is depleted, deployments freeze to focus on technical debt and resilience engineering.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/well-architected/reliability/metrics",
@@ -95,8 +95,8 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "cat exceptions.log | grep error | head -5" },
       { id: 'B', text: "exceptions | where timestamp > ago(24h) | summarize count() by type | top 5 by count_ desc" },
-      { id: 'C', text: "exceptions | where timestamp > ago(24h) | count by type" },
-      { id: 'D', text: "SELECT TOP 5 * FROM exceptions WHERE date = today" }
+      { id: 'C', text: "SELECT TOP 5 * FROM exceptions WHERE date = today" },
+      { id: 'D', text: "exceptions | where timestamp > ago(24h) | count by type" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -135,12 +135,12 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "Without configuring any custom alert rules, a development team receives an email stating: 'Abnormal rise in failed request rate for POST /api/checkout'.",
     question: "Which built-in Application Insights capability uses machine learning to detect unexpected performance regressions automatically?",
     options: [
-      { id: 'A', text: "Manual Ping test" },
-      { id: 'B', text: "Smart Detection" },
-      { id: 'C', text: "Azure Advisor" },
-      { id: 'D', text: "Service Health" }
+      { id: 'A', text: "Service Health" },
+      { id: 'B', text: "Manual Ping test" },
+      { id: 'C', text: "Smart Detection" },
+      { id: 'D', text: "Azure Advisor" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Smart Detection in Application Insights uses proactive machine learning analytics to continuously analyze application telemetry, automatically warning teams about abnormal failure rates, memory leaks, and degradation without manual rule configuration.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/proactive-diagnostics",
@@ -157,8 +157,8 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     question: "Microsoft officially deprecated the legacy Log Analytics agent (MMA / OMS). What is the modern unified agent for collecting guest OS telemetry across Windows and Linux VMs?",
     options: [
       { id: 'A', text: "Network Watcher Agent" },
-      { id: 'B', text: "Diagnostic Extension (WAD)" },
-      { id: 'C', text: "Azure Bastion Agent" },
+      { id: 'B', text: "Azure Bastion Agent" },
+      { id: 'C', text: "Diagnostic Extension (WAD)" },
       { id: 'D', text: "Azure Monitor Agent (AMA)" }
     ],
     correctAnswers: ['D'],
@@ -177,12 +177,12 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An administrator wants to collect security event logs from 500 virtual machines, but only ingest high-priority Event IDs (4624, 4625) to control ingestion costs.",
     question: "Which Azure Monitor mechanism centrally defines what telemetry is collected from VMs using XPath queries?",
     options: [
-      { id: 'A', text: "Editing text files on every VM" },
-      { id: 'B', text: "Azure DNS configuration" },
-      { id: 'C', text: "Data Collection Rules (DCRs)" },
-      { id: 'D', text: "Local Group Policy" }
+      { id: 'A', text: "Local Group Policy" },
+      { id: 'B', text: "Data Collection Rules (DCRs)" },
+      { id: 'C', text: "Azure DNS configuration" },
+      { id: 'D', text: "Editing text files on every VM" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Data Collection Rules (DCRs) define the telemetry collection pipeline for the Azure Monitor Agent (AMA). DCRs use XPath filtering to select specific event IDs and performance counters centrally without modifying individual VMs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-overview",
@@ -198,9 +198,9 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "A security team mandates that all Azure Key Vault audit access events and Azure Firewall network logs must be streamed to an event hub for SIEM ingestion and archived in a storage account.",
     question: "Which Azure feature routes resource platform logs to external destinations?",
     options: [
-      { id: 'A', text: "Network Security Groups" },
+      { id: 'A', text: "Azure Backup" },
       { id: 'B', text: "Diagnostic Settings" },
-      { id: 'C', text: "Azure Backup" },
+      { id: 'C', text: "Network Security Groups" },
       { id: 'D', text: "Resource Locks" }
     ],
     correctAnswers: ['B'],
@@ -219,9 +219,9 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "A developer discovers that a production virtual network was deleted yesterday. Where can an administrator audit who deleted the resource, from what IP address, and at what timestamp?",
     options: [
-      { id: 'A', text: "Azure Service Health" },
-      { id: 'B', text: "Application Insights Failures" },
-      { id: 'C', text: "Azure Advisor" },
+      { id: 'A', text: "Application Insights Failures" },
+      { id: 'B', text: "Azure Advisor" },
+      { id: 'C', text: "Azure Service Health" },
       { id: 'D', text: "Azure Activity Log" }
     ],
     correctAnswers: ['D'],
@@ -240,12 +240,12 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "During a Severity 1 incident, if the primary on-call SRE does not acknowledge a PagerDuty or Opsgenie alert within 5 minutes, how should the alert system respond?",
     options: [
-      { id: 'A', text: "Automatically escalate the alert to the secondary on-call engineer and incident commander" },
-      { id: 'B', text: "Page the same on-call engineer again after another interval" },
-      { id: 'C', text: "Auto-resolve the alert and open a low-priority ticket" },
-      { id: 'D', text: "Notify the wider engineering channel and wait for a volunteer" }
+      { id: 'A', text: "Notify the wider engineering channel and wait for a volunteer" },
+      { id: 'B', text: "Auto-resolve the alert and open a low-priority ticket" },
+      { id: 'C', text: "Page the same on-call engineer again after another interval" },
+      { id: 'D', text: "Automatically escalate the alert to the secondary on-call engineer and incident commander" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Modern on-call notification systems integrate with Azure Monitor Action Groups (via webhooks) to enforce automated escalation policies: escalating unacknowledged alerts from primary to secondary engineers to safeguard incident SLAs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups",
@@ -261,12 +261,12 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "What is the primary purpose of establishing Continuous Feedback loops between production operations and agile development sprints?",
     options: [
-      { id: 'A', text: "Using production telemetry to prioritize the backlog and iterate quickly" },
-      { id: 'B', text: "Reporting telemetry to leadership in a monthly summary deck" },
-      { id: 'C', text: "Letting operations own the telemetry and raise tickets from it" },
+      { id: 'A', text: "Reporting telemetry to leadership in a monthly summary deck" },
+      { id: 'B', text: "Letting operations own the telemetry and raise tickets from it" },
+      { id: 'C', text: "Using production telemetry to prioritize the backlog and iterate quickly" },
       { id: 'D', text: "Reviewing telemetry only during quarterly planning sessions" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Continuous Feedback connects production telemetry back to development. Crash analytics, user journey bottlenecks, and performance traces directly feed user stories and bug fixes into sprint backlogs, completing the DevOps loop.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/continuous-feedback",
@@ -282,12 +282,12 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "An engineering organization tracks key SRE operational health metrics. What do MTTD and MTTR measure?",
     options: [
-      { id: 'A', text: "MTTD measures deployment speed; MTTR measures build speed" },
-      { id: 'B', text: "MTTD and MTTR both measure time from onset to restoration" },
-      { id: 'C', text: "MTTD applies only to databases; MTTR applies only to networks" },
-      { id: 'D', text: "MTTD is onset to awareness; MTTR is detection to restoration" }
+      { id: 'A', text: "MTTD is onset to awareness; MTTR is detection to restoration" },
+      { id: 'B', text: "MTTD applies only to databases; MTTR applies only to networks" },
+      { id: 'C', text: "MTTD and MTTR both measure time from onset to restoration" },
+      { id: 'D', text: "MTTD measures deployment speed; MTTR measures build speed" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Mean Time to Detect (MTTD) quantifies monitoring effectiveness (how fast anomalies are caught). Mean Time to Resolve / Remediate (MTTR) quantifies operational resilience (how fast teams restore service following an outage).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/well-architected/reliability/metrics",
@@ -303,12 +303,12 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "Following a major production outage caused by a configuration typo, an engineering team conducts a post-incident retrospective.",
     question: "What is the foundational principle of a Blameless Post-Mortem in DevOps culture?",
     options: [
-      { id: 'A', text: "Reporting the incident only to the team that caused it" },
-      { id: 'B', text: "Focusing on systemic gaps and guardrails rather than individual blame" },
-      { id: 'C', text: "Recording who made the change so the pattern can be tracked" },
-      { id: 'D', text: "Keeping the write-up private to the responding team" }
+      { id: 'A', text: "Recording who made the change so the pattern can be tracked" },
+      { id: 'B', text: "Reporting the incident only to the team that caused it" },
+      { id: 'C', text: "Keeping the write-up private to the responding team" },
+      { id: 'D', text: "Focusing on systemic gaps and guardrails rather than individual blame" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Blameless post-mortems assume human error is a symptom of flawed systems, not the root cause. Removing fear of punishment encourages transparent disclosure and fosters improvements in automated safeguards, testing, and observability.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/incident-management",
@@ -324,12 +324,12 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "A product team wants to analyze whether users who utilized a new AI feature in their first week have higher 30-day retention rates than users who did not.",
     question: "Which Application Insights analytics feature groups users based on common behavioral attributes?",
     options: [
-      { id: 'A', text: "User Flows" },
-      { id: 'B', text: "Live Metrics" },
-      { id: 'C', text: "Cohorts" },
+      { id: 'A', text: "Cohorts" },
+      { id: 'B', text: "User Flows" },
+      { id: 'C', text: "Live Metrics" },
       { id: 'D', text: "Impact" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Cohorts in Application Insights group users, sessions, or operations based on shared properties or behaviors, enabling comparative retention analysis and long-term engagement studies across user segments.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/usage-cohorts",
@@ -345,12 +345,12 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An architect wants to prove mathematically whether slow page load times (e.g. latency > 3 seconds) directly cause real users to abandon their shopping carts.",
     question: "Which Application Insights analysis tool measures how application performance dimensions affect user conversion rates?",
     options: [
-      { id: 'A', text: "Live Metrics" },
-      { id: 'B', text: "Impact analysis" },
-      { id: 'C', text: "Smart Detection" },
-      { id: 'D', text: "Application Map" }
+      { id: 'A', text: "Smart Detection" },
+      { id: 'B', text: "Live Metrics" },
+      { id: 'C', text: "Application Map" },
+      { id: 'D', text: "Impact analysis" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The Impact tool in Application Insights analyzes how page load times or custom telemetry dimensions correlate with user engagement, providing visual regression graphs showing whether slow speeds reduce feature usage.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/usage-impact",
@@ -366,12 +366,12 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "A KQL query interrogating a 50 TB Log Analytics workspace takes 3 minutes to execute and consumes excessive compute resources.",
     question: "What are the two most effective KQL optimization practices to accelerate query execution?",
     options: [
-      { id: 'A', text: "Run the query unfiltered and narrow the results afterwards" },
+      { id: 'A', text: "Filter on TimeGenerated early and project only the columns needed" },
       { id: 'B', text: "Export the full result set and filter it in a spreadsheet" },
-      { id: 'C', text: "Filter on TimeGenerated early and project only the columns needed" },
+      { id: 'C', text: "Run the query unfiltered and narrow the results afterwards" },
       { id: 'D', text: "Sort with order by before filtering on TimeGenerated" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Optimizing KQL queries requires placing the `TimeGenerated` filter at the earliest possible pipe to prune data partitions, and using `project` to discard unneeded columns, reducing disk read I/O and accelerating query execution.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/query-optimization",
@@ -387,12 +387,12 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "A retail backend needs to track business KPIs (e.g. 'OrderPlaced', 'RevenueAmount') directly from C# code and correlate them with operational traces.",
     question: "Which telemetry client method records custom business events in Application Insights?",
     options: [
-      { id: 'A', text: "Database INSERT statement" },
-      { id: 'B', text: "Console.WriteLine()" },
-      { id: 'C', text: "TelemetryClient.TrackEvent('OrderPlaced', properties, metrics)" },
+      { id: 'A', text: "Console.WriteLine()" },
+      { id: 'B', text: "TelemetryClient.TrackEvent('OrderPlaced', properties, metrics)" },
+      { id: 'C', text: "Database INSERT statement" },
       { id: 'D', text: "System.Diagnostics.Trace.WriteLine()" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The Application Insights SDK `TelemetryClient` provides dedicated methods (such as `TrackEvent()`, `TrackMetric()`, and `TrackDependency()`) to send custom business and operational telemetry into Log Analytics.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics",
@@ -409,11 +409,11 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     question: "When a web server virtual machine runs out of disk space (disk free < 5%), how can an Azure Monitor alert rule automatically trigger a script to clean up temporary log files without human intervention?",
     options: [
       { id: 'A', text: "Send an email to the on-call distribution list for triage" },
-      { id: 'B', text: "Scale the App Service plan up whenever the alert fires" },
-      { id: 'C', text: "Configure the Alert Action Group to invoke an Azure Automation Runbook or Azure Logic App" },
+      { id: 'B', text: "Configure the Alert Action Group to invoke an Azure Automation Runbook or Azure Logic App" },
+      { id: 'C', text: "Scale the App Service plan up whenever the alert fires" },
       { id: 'D', text: "Open a ticket for an engineer to clear the disk manually" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Action Groups can invoke Azure Automation Runbooks, Logic Apps, or Azure Functions when an alert fires. This enables self-healing systems that automatically clear temp directories or restart services upon failure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups",
@@ -429,9 +429,9 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "A company ingests 5 terabytes of high-volume, low-value debugging logs daily. They rarely query these logs, but need them stored for 30 days for potential incident investigations at minimal cost.",
     question: "Which Log Analytics table plan reduces ingestion costs by over 50% for high-volume debugging logs?",
     options: [
-      { id: 'A', text: "Analytics Logs table plan" },
+      { id: 'A', text: "Dedicated Cluster plan" },
       { id: 'B', text: "Basic Logs table plan" },
-      { id: 'C', text: "Dedicated Cluster plan" },
+      { id: 'C', text: "Analytics Logs table plan" },
       { id: 'D', text: "Archive plan only" }
     ],
     correctAnswers: ['B'],
@@ -450,12 +450,12 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "According to the Google SRE handbook and Azure monitoring guidance, what are the 'Four Golden Signals' of system health?",
     options: [
-      { id: 'A', text: "CPU, Memory, Disk, and Network" },
+      { id: 'A', text: "Latency, Traffic, Errors, and Saturation" },
       { id: 'B', text: "Input, Output, Storage, and Processing" },
       { id: 'C', text: "Build, Test, Release, and Deploy" },
-      { id: 'D', text: "Latency, Traffic, Errors, and Saturation" }
+      { id: 'D', text: "CPU, Memory, Disk, and Network" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The Four Golden Signals are: 1. Latency (time taken to service a request), 2. Traffic (demand/throughput), 3. Errors (failure rate), and 4. Saturation (how full system resources are, such as memory or thread pool capacity).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/best-practices/monitoring",
@@ -471,12 +471,12 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "A cloud architect needs to run a sub-second KQL query across 2,000 Azure subscriptions to find every Virtual Machine that lacks a specific compliance tag.",
     question: "Which Azure service provides ultra-fast, fleet-wide governance and inventory querying?",
     options: [
-      { id: 'A', text: "Azure Resource Graph (ARG)" },
+      { id: 'A', text: "Azure Cost Management" },
       { id: 'B', text: "Azure Advisor" },
-      { id: 'C', text: "Azure Cost Management" },
-      { id: 'D', text: "Azure Monitor Log Analytics" }
+      { id: 'C', text: "Azure Monitor Log Analytics" },
+      { id: 'D', text: "Azure Resource Graph (ARG)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Resource Graph (ARG) is an Azure service designed to extend Azure Resource Management by providing efficient and performant resource exploration across all subscriptions and management groups using KQL queries.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/resource-graph/overview",
@@ -492,12 +492,12 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "Following a major post-incident review, the SRE team identifies 3 systemic failure points that require architectural remediation.",
     question: "How should these remediation action items be managed to guarantee they are prioritized before new features?",
     options: [
-      { id: 'A', text: "Write them on a whiteboard in the meeting room" },
+      { id: 'A', text: "Create high-priority work items (User Stories or Tasks) in Azure Boards, tag them as 'Post-Mortem Action Items', and prioritize them into the upcoming sprint backlog" },
       { id: 'B', text: "Store them in personal notes" },
-      { id: 'C', text: "Create high-priority work items (User Stories or Tasks) in Azure Boards, tag them as 'Post-Mortem Action Items', and prioritize them into the upcoming sprint backlog" },
+      { id: 'C', text: "Write them on a whiteboard in the meeting room" },
       { id: 'D', text: "Assume the failure will not recur" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Remediation action items from post-mortems must be logged as first-class work items in Azure Boards and prioritized in immediate sprint backlogs. Treating reliability debt on par with new feature delivery prevents recurring outages.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/incident-management",
@@ -513,12 +513,12 @@ export const AZURE_AZ400_QUESTIONS_10 = [
     scenario: "An enterprise DevOps engineering team is designing DevSecOps governance, infrastructure automation, and instrumentation strategies on Microsoft Azure.",
     question: "What foundational principle summarizes the goal of the Microsoft Certified: DevOps Engineer Expert role?",
     options: [
-      { id: 'A', text: "DevOps replaces human developers with automated scripts entirely" },
-      { id: 'B', text: "DevOps is a software tool purchased from Microsoft" },
-      { id: 'C', text: "DevOps eliminates the need for software testing" },
-      { id: 'D', text: "DevOps is the union of people, process, and products to enable continuous delivery of value to end users" }
+      { id: 'A', text: "DevOps is the union of people, process, and products to enable continuous delivery of value to end users" },
+      { id: 'B', text: "DevOps eliminates the need for software testing" },
+      { id: 'C', text: "DevOps is a software tool purchased from Microsoft" },
+      { id: 'D', text: "DevOps replaces human developers with automated scripts entirely" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "As defined by Microsoft: 'DevOps is the union of people, process, and products to enable continuous delivery of value to our end users.' It bridges development and operations to innovate rapidly, reliably, and securely.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/learn/what-is-devops",

@@ -9,12 +9,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Instruct developers to email zipped code folders to the core team." },
-      { id: 'B', text: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests." },
-      { id: 'C', text: "Grant full contributor write permissions on the central repository to all enterprise employees." },
+      { id: 'A', text: "Grant full contributor write permissions on the central repository to all enterprise employees." },
+      { id: 'B', text: "Instruct developers to email zipped code folders to the core team." },
+      { id: 'C', text: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests." },
       { id: 'D', text: "Keep the core repository strictly private and prohibit contributions from other teams." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests. Forking is the foundation of open-source and InnerSource collaboration. Developers create an independent copy (fork) of the repository, develop features in their own isolated space, and submit cross-repo pull requests to the upstream repo, allowing audited contributions without granting direct write access.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/git/forks",
@@ -30,12 +30,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Keep the core repository strictly private and prohibit contributions from other teams." },
-      { id: 'B', text: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests." },
-      { id: 'C', text: "Grant full contributor write permissions on the central repository to all enterprise employees." },
-      { id: 'D', text: "Instruct developers to email zipped code folders to the core team." }
+      { id: 'A', text: "Instruct developers to email zipped code folders to the core team." },
+      { id: 'B', text: "Keep the core repository strictly private and prohibit contributions from other teams." },
+      { id: 'C', text: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests." },
+      { id: 'D', text: "Grant full contributor write permissions on the central repository to all enterprise employees." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests. Forking is the foundation of open-source and InnerSource collaboration. Developers create an independent copy (fork) of the repository, develop features in their own isolated space, and submit cross-repo pull requests to the upstream repo, allowing audited contributions without granting direct write access.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/git/forks",
@@ -51,12 +51,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Instruct developers to email zipped code folders to the core team." },
-      { id: 'B', text: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests." },
-      { id: 'C', text: "Grant full contributor write permissions on the central repository to all enterprise employees." },
+      { id: 'A', text: "Grant full contributor write permissions on the central repository to all enterprise employees." },
+      { id: 'B', text: "Instruct developers to email zipped code folders to the core team." },
+      { id: 'C', text: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests." },
       { id: 'D', text: "Keep the core repository strictly private and prohibit contributions from other teams." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests. Forking is the foundation of open-source and InnerSource collaboration. Developers create an independent copy (fork) of the repository, develop features in their own isolated space, and submit cross-repo pull requests to the upstream repo, allowing audited contributions without granting direct write access.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/git/forks",
@@ -72,12 +72,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Keep the core repository strictly private and prohibit contributions from other teams." },
-      { id: 'B', text: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests." },
+      { id: 'A', text: "Grant full contributor write permissions on the central repository to all enterprise employees." },
+      { id: 'B', text: "Keep the core repository strictly private and prohibit contributions from other teams." },
       { id: 'C', text: "Instruct developers to email zipped code folders to the core team." },
-      { id: 'D', text: "Grant full contributor write permissions on the central repository to all enterprise employees." }
+      { id: 'D', text: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests. Forking is the foundation of open-source and InnerSource collaboration. Developers create an independent copy (fork) of the repository, develop features in their own isolated space, and submit cross-repo pull requests to the upstream repo, allowing audited contributions without granting direct write access.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/git/forks",
@@ -93,12 +93,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to allow developers across multiple departments to contribute enhancements to a shared core platform repository without granting them direct write or branch creation access.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Instruct developers to email zipped code folders to the core team." },
+      { id: 'A', text: "Keep the core repository strictly private and prohibit contributions from other teams." },
       { id: 'B', text: "Grant full contributor write permissions on the central repository to all enterprise employees." },
-      { id: 'C', text: "Keep the core repository strictly private and prohibit contributions from other teams." },
-      { id: 'D', text: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests." }
+      { id: 'C', text: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests." },
+      { id: 'D', text: "Instruct developers to email zipped code folders to the core team." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a forking workflow where developers fork the central repository into their own project, make modifications, and submit cross-repository pull requests. Forking is the foundation of open-source and InnerSource collaboration. Developers create an independent copy (fork) of the repository, develop features in their own isolated space, and submit cross-repo pull requests to the upstream repo, allowing audited contributions without granting direct write access.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/repos/git/forks",
@@ -114,12 +114,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to author an enterprise CI/CD pipeline with distinct build, staging deployment, and production deployment stages governed by dependencies.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Put all build and deployment tasks into a single monolithic script with no stages." },
-      { id: 'B', text: "Avoid using YAML and write batch files executed locally on developer machines." },
-      { id: 'C', text: "Define an Azure Pipelines YAML file using `stages`, `jobs`, and `steps` hierarchy with `dependsOn` declarations linking sequential stages." },
-      { id: 'D', text: "Create three completely disconnected Classic release pipelines in the web UI." }
+      { id: 'A', text: "Define an Azure Pipelines YAML file using `stages`, `jobs`, and `steps` hierarchy with `dependsOn` declarations linking sequential stages." },
+      { id: 'B', text: "Create three completely disconnected Classic release pipelines in the web UI." },
+      { id: 'C', text: "Put all build and deployment tasks into a single monolithic script with no stages." },
+      { id: 'D', text: "Avoid using YAML and write batch files executed locally on developer machines." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Define an Azure Pipelines YAML file using `stages`, `jobs`, and `steps` hierarchy with `dependsOn` declarations linking sequential stages. Azure Pipelines YAML uses a clean hierarchy: `stages` (major milestones like Build, Test, Deploy), `jobs` (units of work executed on specific agent pools), and `steps` (tasks or scripts). Defining `dependsOn` between stages controls execution flow and enables environment-specific governance.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/stages",
@@ -136,9 +136,9 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
       { id: 'A', text: "Define an Azure Pipelines YAML file using `stages`, `jobs`, and `steps` hierarchy with `dependsOn` declarations linking sequential stages." },
-      { id: 'B', text: "Avoid using YAML and write batch files executed locally on developer machines." },
-      { id: 'C', text: "Create three completely disconnected Classic release pipelines in the web UI." },
-      { id: 'D', text: "Put all build and deployment tasks into a single monolithic script with no stages." }
+      { id: 'B', text: "Put all build and deployment tasks into a single monolithic script with no stages." },
+      { id: 'C', text: "Avoid using YAML and write batch files executed locally on developer machines." },
+      { id: 'D', text: "Create three completely disconnected Classic release pipelines in the web UI." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -157,8 +157,8 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
       { id: 'A', text: "Define an Azure Pipelines YAML file using `stages`, `jobs`, and `steps` hierarchy with `dependsOn` declarations linking sequential stages." },
-      { id: 'B', text: "Put all build and deployment tasks into a single monolithic script with no stages." },
-      { id: 'C', text: "Create three completely disconnected Classic release pipelines in the web UI." },
+      { id: 'B', text: "Create three completely disconnected Classic release pipelines in the web UI." },
+      { id: 'C', text: "Put all build and deployment tasks into a single monolithic script with no stages." },
       { id: 'D', text: "Avoid using YAML and write batch files executed locally on developer machines." }
     ],
     correctAnswers: ['A'],
@@ -178,8 +178,8 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
       { id: 'A', text: "Define an Azure Pipelines YAML file using `stages`, `jobs`, and `steps` hierarchy with `dependsOn` declarations linking sequential stages." },
-      { id: 'B', text: "Put all build and deployment tasks into a single monolithic script with no stages." },
-      { id: 'C', text: "Create three completely disconnected Classic release pipelines in the web UI." },
+      { id: 'B', text: "Create three completely disconnected Classic release pipelines in the web UI." },
+      { id: 'C', text: "Put all build and deployment tasks into a single monolithic script with no stages." },
       { id: 'D', text: "Avoid using YAML and write batch files executed locally on developer machines." }
     ],
     correctAnswers: ['A'],
@@ -198,12 +198,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to author an enterprise CI/CD pipeline with distinct build, staging deployment, and production deployment stages governed by dependencies.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Create three completely disconnected Classic release pipelines in the web UI." },
-      { id: 'B', text: "Avoid using YAML and write batch files executed locally on developer machines." },
-      { id: 'C', text: "Define an Azure Pipelines YAML file using `stages`, `jobs`, and `steps` hierarchy with `dependsOn` declarations linking sequential stages." },
-      { id: 'D', text: "Put all build and deployment tasks into a single monolithic script with no stages." }
+      { id: 'A', text: "Avoid using YAML and write batch files executed locally on developer machines." },
+      { id: 'B', text: "Put all build and deployment tasks into a single monolithic script with no stages." },
+      { id: 'C', text: "Create three completely disconnected Classic release pipelines in the web UI." },
+      { id: 'D', text: "Define an Azure Pipelines YAML file using `stages`, `jobs`, and `steps` hierarchy with `dependsOn` declarations linking sequential stages." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Define an Azure Pipelines YAML file using `stages`, `jobs`, and `steps` hierarchy with `dependsOn` declarations linking sequential stages. Azure Pipelines YAML uses a clean hierarchy: `stages` (major milestones like Build, Test, Deploy), `jobs` (units of work executed on specific agent pools), and `steps` (tasks or scripts). Defining `dependsOn` between stages controls execution flow and enables environment-specific governance.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/stages",
@@ -219,12 +219,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to run build pipelines that require direct private network line-of-sight to on-premises database servers and custom licensed compilers.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Perform builds manually on an engineer's desktop without build agents." },
-      { id: 'B', text: "Expose on-premises databases directly over the public internet without firewalls." },
-      { id: 'C', text: "Use Microsoft-Hosted agents which run on public Azure networks without on-premises connectivity." },
-      { id: 'D', text: "Deploy Self-Hosted Azure DevOps Agents inside the private network configured in a dedicated Agent Pool." }
+      { id: 'A', text: "Deploy Self-Hosted Azure DevOps Agents inside the private network configured in a dedicated Agent Pool." },
+      { id: 'B', text: "Use Microsoft-Hosted agents which run on public Azure networks without on-premises connectivity." },
+      { id: 'C', text: "Expose on-premises databases directly over the public internet without firewalls." },
+      { id: 'D', text: "Perform builds manually on an engineer's desktop without build agents." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy Self-Hosted Azure DevOps Agents inside the private network configured in a dedicated Agent Pool. Microsoft-Hosted agents provide clean, disposable VMs maintained by Microsoft. Self-Hosted agents run on customer-managed infrastructure (VMs, containers) and provide direct access to private corporate networks, persistent caching, and specialized software or hardware configurations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents",
@@ -240,12 +240,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to run build pipelines that require direct private network line-of-sight to on-premises database servers and custom licensed compilers.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Use Microsoft-Hosted agents which run on public Azure networks without on-premises connectivity." },
-      { id: 'B', text: "Expose on-premises databases directly over the public internet without firewalls." },
-      { id: 'C', text: "Perform builds manually on an engineer's desktop without build agents." },
-      { id: 'D', text: "Deploy Self-Hosted Azure DevOps Agents inside the private network configured in a dedicated Agent Pool." }
+      { id: 'A', text: "Expose on-premises databases directly over the public internet without firewalls." },
+      { id: 'B', text: "Perform builds manually on an engineer's desktop without build agents." },
+      { id: 'C', text: "Deploy Self-Hosted Azure DevOps Agents inside the private network configured in a dedicated Agent Pool." },
+      { id: 'D', text: "Use Microsoft-Hosted agents which run on public Azure networks without on-premises connectivity." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Self-Hosted Azure DevOps Agents inside the private network configured in a dedicated Agent Pool. Microsoft-Hosted agents provide clean, disposable VMs maintained by Microsoft. Self-Hosted agents run on customer-managed infrastructure (VMs, containers) and provide direct access to private corporate networks, persistent caching, and specialized software or hardware configurations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents",
@@ -261,12 +261,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to run build pipelines that require direct private network line-of-sight to on-premises database servers and custom licensed compilers.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Perform builds manually on an engineer's desktop without build agents." },
-      { id: 'B', text: "Deploy Self-Hosted Azure DevOps Agents inside the private network configured in a dedicated Agent Pool." },
-      { id: 'C', text: "Use Microsoft-Hosted agents which run on public Azure networks without on-premises connectivity." },
-      { id: 'D', text: "Expose on-premises databases directly over the public internet without firewalls." }
+      { id: 'A', text: "Expose on-premises databases directly over the public internet without firewalls." },
+      { id: 'B', text: "Perform builds manually on an engineer's desktop without build agents." },
+      { id: 'C', text: "Deploy Self-Hosted Azure DevOps Agents inside the private network configured in a dedicated Agent Pool." },
+      { id: 'D', text: "Use Microsoft-Hosted agents which run on public Azure networks without on-premises connectivity." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Self-Hosted Azure DevOps Agents inside the private network configured in a dedicated Agent Pool. Microsoft-Hosted agents provide clean, disposable VMs maintained by Microsoft. Self-Hosted agents run on customer-managed infrastructure (VMs, containers) and provide direct access to private corporate networks, persistent caching, and specialized software or hardware configurations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents",
@@ -282,12 +282,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to run build pipelines that require direct private network line-of-sight to on-premises database servers and custom licensed compilers.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Perform builds manually on an engineer's desktop without build agents." },
-      { id: 'B', text: "Expose on-premises databases directly over the public internet without firewalls." },
-      { id: 'C', text: "Use Microsoft-Hosted agents which run on public Azure networks without on-premises connectivity." },
-      { id: 'D', text: "Deploy Self-Hosted Azure DevOps Agents inside the private network configured in a dedicated Agent Pool." }
+      { id: 'A', text: "Deploy Self-Hosted Azure DevOps Agents inside the private network configured in a dedicated Agent Pool." },
+      { id: 'B', text: "Use Microsoft-Hosted agents which run on public Azure networks without on-premises connectivity." },
+      { id: 'C', text: "Expose on-premises databases directly over the public internet without firewalls." },
+      { id: 'D', text: "Perform builds manually on an engineer's desktop without build agents." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy Self-Hosted Azure DevOps Agents inside the private network configured in a dedicated Agent Pool. Microsoft-Hosted agents provide clean, disposable VMs maintained by Microsoft. Self-Hosted agents run on customer-managed infrastructure (VMs, containers) and provide direct access to private corporate networks, persistent caching, and specialized software or hardware configurations.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents",
@@ -304,9 +304,9 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Deploy Self-Hosted Azure DevOps Agents inside the private network configured in a dedicated Agent Pool." },
-      { id: 'B', text: "Perform builds manually on an engineer's desktop without build agents." },
-      { id: 'C', text: "Use Microsoft-Hosted agents which run on public Azure networks without on-premises connectivity." },
-      { id: 'D', text: "Expose on-premises databases directly over the public internet without firewalls." }
+      { id: 'B', text: "Expose on-premises databases directly over the public internet without firewalls." },
+      { id: 'C', text: "Perform builds manually on an engineer's desktop without build agents." },
+      { id: 'D', text: "Use Microsoft-Hosted agents which run on public Azure networks without on-premises connectivity." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Manually assign jobs to specific agent IP addresses in the console." },
+      { id: 'A', text: "Install Xcode on Windows Server agents." },
       { id: 'B', text: "Submit the job to a random agent pool and let it fail repeatedly until it lands on a Mac." },
-      { id: 'C', text: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool." },
-      { id: 'D', text: "Install Xcode on Windows Server agents." }
+      { id: 'C', text: "Manually assign jobs to specific agent IP addresses in the console." },
+      { id: 'D', text: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool. Agent demands match required tools or hardware against the capabilities reported by agents in an Agent Pool. Specifying `demands` in a pipeline job ensures the Azure DevOps scheduler routes the job exclusively to agents that possess the necessary software (e.g., Docker, JDK, Xcode).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/demands",
@@ -345,12 +345,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Install Xcode on Windows Server agents." },
-      { id: 'B', text: "Manually assign jobs to specific agent IP addresses in the console." },
-      { id: 'C', text: "Submit the job to a random agent pool and let it fail repeatedly until it lands on a Mac." },
-      { id: 'D', text: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool." }
+      { id: 'A', text: "Submit the job to a random agent pool and let it fail repeatedly until it lands on a Mac." },
+      { id: 'B', text: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool." },
+      { id: 'C', text: "Manually assign jobs to specific agent IP addresses in the console." },
+      { id: 'D', text: "Install Xcode on Windows Server agents." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool. Agent demands match required tools or hardware against the capabilities reported by agents in an Agent Pool. Specifying `demands` in a pipeline job ensures the Azure DevOps scheduler routes the job exclusively to agents that possess the necessary software (e.g., Docker, JDK, Xcode).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/demands",
@@ -366,12 +366,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Install Xcode on Windows Server agents." },
-      { id: 'B', text: "Manually assign jobs to specific agent IP addresses in the console." },
-      { id: 'C', text: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool." },
-      { id: 'D', text: "Submit the job to a random agent pool and let it fail repeatedly until it lands on a Mac." }
+      { id: 'A', text: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool." },
+      { id: 'B', text: "Submit the job to a random agent pool and let it fail repeatedly until it lands on a Mac." },
+      { id: 'C', text: "Install Xcode on Windows Server agents." },
+      { id: 'D', text: "Manually assign jobs to specific agent IP addresses in the console." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool. Agent demands match required tools or hardware against the capabilities reported by agents in an Agent Pool. Specifying `demands` in a pipeline job ensures the Azure DevOps scheduler routes the job exclusively to agents that possess the necessary software (e.g., Docker, JDK, Xcode).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/demands",
@@ -387,12 +387,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Install Xcode on Windows Server agents." },
-      { id: 'B', text: "Manually assign jobs to specific agent IP addresses in the console." },
-      { id: 'C', text: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool." },
-      { id: 'D', text: "Submit the job to a random agent pool and let it fail repeatedly until it lands on a Mac." }
+      { id: 'A', text: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool." },
+      { id: 'B', text: "Submit the job to a random agent pool and let it fail repeatedly until it lands on a Mac." },
+      { id: 'C', text: "Install Xcode on Windows Server agents." },
+      { id: 'D', text: "Manually assign jobs to specific agent IP addresses in the console." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool. Agent demands match required tools or hardware against the capabilities reported by agents in an Agent Pool. Specifying `demands` in a pipeline job ensures the Azure DevOps scheduler routes the job exclusively to agents that possess the necessary software (e.g., Docker, JDK, Xcode).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/demands",
@@ -408,12 +408,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to route a specialized iOS build job to only those self-hosted build agents that have Xcode and macOS installed.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Install Xcode on Windows Server agents." },
+      { id: 'A', text: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool." },
       { id: 'B', text: "Submit the job to a random agent pool and let it fail repeatedly until it lands on a Mac." },
-      { id: 'C', text: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool." },
+      { id: 'C', text: "Install Xcode on Windows Server agents." },
       { id: 'D', text: "Manually assign jobs to specific agent IP addresses in the console." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Specify `demands` in the YAML job definition (e.g., `demands: [xcode, macOS]`) matching system or user-defined capabilities on the target agent pool. Agent demands match required tools or hardware against the capabilities reported by agents in an Agent Pool. Specifying `demands` in a pipeline job ensures the Azure DevOps scheduler routes the job exclusively to agents that possess the necessary software (e.g., Docker, JDK, Xcode).",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/demands",
@@ -431,8 +431,8 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Specify `container: &lt;image-name&gt;` at the job level in the Azure Pipelines YAML file." },
       { id: 'B', text: "Install Docker manually inside a shell script and run `docker run` commands with volume mounts." },
-      { id: 'C', text: "Require all developers to install identical build tools on their personal workstations." },
-      { id: 'D', text: "Reimage the physical build agent VM before every build." }
+      { id: 'C', text: "Reimage the physical build agent VM before every build." },
+      { id: 'D', text: "Require all developers to install identical build tools on their personal workstations." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,12 +450,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to execute build and test steps inside an isolated, customized Linux container image without installing dependencies on the underlying host build agent.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Require all developers to install identical build tools on their personal workstations." },
-      { id: 'B', text: "Specify `container: &lt;image-name&gt;` at the job level in the Azure Pipelines YAML file." },
+      { id: 'A', text: "Install Docker manually inside a shell script and run `docker run` commands with volume mounts." },
+      { id: 'B', text: "Require all developers to install identical build tools on their personal workstations." },
       { id: 'C', text: "Reimage the physical build agent VM before every build." },
-      { id: 'D', text: "Install Docker manually inside a shell script and run `docker run` commands with volume mounts." }
+      { id: 'D', text: "Specify `container: &lt;image-name&gt;` at the job level in the Azure Pipelines YAML file." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Specify `container: &lt;image-name&gt;` at the job level in the Azure Pipelines YAML file. Azure Pipelines allows jobs to execute inside a container by specifying `container: &lt;image&gt;`. The agent pulls the specified container image, mounts the workspace, and runs all job steps inside the container environment, ensuring clean, consistent, and reproducible build tooling.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/container-phases",
@@ -471,12 +471,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to execute build and test steps inside an isolated, customized Linux container image without installing dependencies on the underlying host build agent.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Install Docker manually inside a shell script and run `docker run` commands with volume mounts." },
-      { id: 'B', text: "Require all developers to install identical build tools on their personal workstations." },
+      { id: 'A', text: "Require all developers to install identical build tools on their personal workstations." },
+      { id: 'B', text: "Specify `container: &lt;image-name&gt;` at the job level in the Azure Pipelines YAML file." },
       { id: 'C', text: "Reimage the physical build agent VM before every build." },
-      { id: 'D', text: "Specify `container: &lt;image-name&gt;` at the job level in the Azure Pipelines YAML file." }
+      { id: 'D', text: "Install Docker manually inside a shell script and run `docker run` commands with volume mounts." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Specify `container: &lt;image-name&gt;` at the job level in the Azure Pipelines YAML file. Azure Pipelines allows jobs to execute inside a container by specifying `container: &lt;image&gt;`. The agent pulls the specified container image, mounts the workspace, and runs all job steps inside the container environment, ensuring clean, consistent, and reproducible build tooling.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/container-phases",
@@ -492,12 +492,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to execute build and test steps inside an isolated, customized Linux container image without installing dependencies on the underlying host build agent.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Require all developers to install identical build tools on their personal workstations." },
+      { id: 'A', text: "Reimage the physical build agent VM before every build." },
       { id: 'B', text: "Install Docker manually inside a shell script and run `docker run` commands with volume mounts." },
-      { id: 'C', text: "Specify `container: &lt;image-name&gt;` at the job level in the Azure Pipelines YAML file." },
-      { id: 'D', text: "Reimage the physical build agent VM before every build." }
+      { id: 'C', text: "Require all developers to install identical build tools on their personal workstations." },
+      { id: 'D', text: "Specify `container: &lt;image-name&gt;` at the job level in the Azure Pipelines YAML file." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Specify `container: &lt;image-name&gt;` at the job level in the Azure Pipelines YAML file. Azure Pipelines allows jobs to execute inside a container by specifying `container: &lt;image&gt;`. The agent pulls the specified container image, mounts the workspace, and runs all job steps inside the container environment, ensuring clean, consistent, and reproducible build tooling.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/container-phases",
@@ -513,12 +513,12 @@ export const AZURE_AZ400_QUESTIONS_14 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to execute build and test steps inside an isolated, customized Linux container image without installing dependencies on the underlying host build agent.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Reimage the physical build agent VM before every build." },
+      { id: 'A', text: "Specify `container: &lt;image-name&gt;` at the job level in the Azure Pipelines YAML file." },
       { id: 'B', text: "Install Docker manually inside a shell script and run `docker run` commands with volume mounts." },
-      { id: 'C', text: "Specify `container: &lt;image-name&gt;` at the job level in the Azure Pipelines YAML file." },
+      { id: 'C', text: "Reimage the physical build agent VM before every build." },
       { id: 'D', text: "Require all developers to install identical build tools on their personal workstations." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Specify `container: &lt;image-name&gt;` at the job level in the Azure Pipelines YAML file. Azure Pipelines allows jobs to execute inside a container by specifying `container: &lt;image&gt;`. The agent pulls the specified container image, mounts the workspace, and runs all job steps inside the container environment, ensuring clean, consistent, and reproducible build tooling.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/container-phases",

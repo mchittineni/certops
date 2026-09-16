@@ -9,12 +9,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on Amazon RDS to achieve automated failover under 35 seconds combined with read capacity across multiple Availability Zones without creating separate read replicas.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
-      { id: 'A', text: "Deploy an Amazon RDS Single-AZ instance with asynchronous cross-region read replicas." },
-      { id: 'B', text: "An RDS Multi-AZ DB cluster with two readable standbys across three AZs." },
-      { id: 'C', text: "Deploy DynamoDB Accelerator (DAX) in front of an RDS PostgreSQL instance." },
-      { id: 'D', text: "Deploy an Amazon RDS Multi-AZ DB Instance with one non-readable standby instance." }
+      { id: 'A', text: "Deploy DynamoDB Accelerator (DAX) in front of an RDS PostgreSQL instance." },
+      { id: 'B', text: "Deploy an Amazon RDS Single-AZ instance with asynchronous cross-region read replicas." },
+      { id: 'C', text: "Deploy an Amazon RDS Multi-AZ DB Instance with one non-readable standby instance." },
+      { id: 'D', text: "An RDS Multi-AZ DB cluster with two readable standbys across three AZs." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy an Amazon RDS Multi-AZ DB Cluster with one primary writer and two readable standby database instances across three Availability Zones. RDS Multi-AZ DB Clusters deploy one primary writer and two readable standby instances across three Availability Zones. This architecture supports transaction commit latency up to 2x faster than traditional Multi-AZ DB instances, delivers automated failovers typically under 35 seconds, and allows the two standbys to serve read traffic without creating separate read replicas.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html",
@@ -30,12 +30,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on Amazon RDS to achieve automated failover under 35 seconds combined with read capacity across multiple Availability Zones without creating separate read replicas.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
-      { id: 'A', text: "Deploy an Amazon RDS Single-AZ instance with asynchronous cross-region read replicas." },
-      { id: 'B', text: "Deploy DynamoDB Accelerator (DAX) in front of an RDS PostgreSQL instance." },
-      { id: 'C', text: "An RDS Multi-AZ DB cluster with two readable standbys across three AZs." },
-      { id: 'D', text: "Deploy an Amazon RDS Multi-AZ DB Instance with one non-readable standby instance." }
+      { id: 'A', text: "An RDS Multi-AZ DB cluster with two readable standbys across three AZs." },
+      { id: 'B', text: "Deploy an Amazon RDS Multi-AZ DB Instance with one non-readable standby instance." },
+      { id: 'C', text: "Deploy an Amazon RDS Single-AZ instance with asynchronous cross-region read replicas." },
+      { id: 'D', text: "Deploy DynamoDB Accelerator (DAX) in front of an RDS PostgreSQL instance." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy an Amazon RDS Multi-AZ DB Cluster with one primary writer and two readable standby database instances across three Availability Zones. RDS Multi-AZ DB Clusters deploy one primary writer and two readable standby instances across three Availability Zones. This architecture supports transaction commit latency up to 2x faster than traditional Multi-AZ DB instances, delivers automated failovers typically under 35 seconds, and allows the two standbys to serve read traffic without creating separate read replicas.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html",
@@ -51,12 +51,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on Amazon RDS to achieve automated failover under 35 seconds combined with read capacity across multiple Availability Zones without creating separate read replicas.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy an Amazon RDS Multi-AZ DB Instance with one non-readable standby instance." },
-      { id: 'B', text: "An RDS Multi-AZ DB cluster with two readable standbys across three AZs." },
-      { id: 'C', text: "Deploy DynamoDB Accelerator (DAX) in front of an RDS PostgreSQL instance." },
-      { id: 'D', text: "Deploy an Amazon RDS Single-AZ instance with asynchronous cross-region read replicas." }
+      { id: 'A', text: "An RDS Multi-AZ DB cluster with two readable standbys across three AZs." },
+      { id: 'B', text: "Deploy an Amazon RDS Multi-AZ DB Instance with one non-readable standby instance." },
+      { id: 'C', text: "Deploy an Amazon RDS Single-AZ instance with asynchronous cross-region read replicas." },
+      { id: 'D', text: "Deploy DynamoDB Accelerator (DAX) in front of an RDS PostgreSQL instance." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy an Amazon RDS Multi-AZ DB Cluster with one primary writer and two readable standby database instances across three Availability Zones. RDS Multi-AZ DB Clusters deploy one primary writer and two readable standby instances across three Availability Zones. This architecture supports transaction commit latency up to 2x faster than traditional Multi-AZ DB instances, delivers automated failovers typically under 35 seconds, and allows the two standbys to serve read traffic without creating separate read replicas.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html",
@@ -72,12 +72,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "An enterprise is migrating enterprise workloads from on-premises data centers to AWS. The architecture must integrate existing operational processes while leveraging cloud-native managed services to minimize operational complexity. The system relies on Amazon RDS to achieve automated failover under 35 seconds combined with read capacity across multiple Availability Zones without creating separate read replicas.",
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
-      { id: 'A', text: "Deploy an Amazon RDS Single-AZ instance with asynchronous cross-region read replicas." },
-      { id: 'B', text: "An RDS Multi-AZ DB cluster with two readable standbys across three AZs." },
-      { id: 'C', text: "Deploy DynamoDB Accelerator (DAX) in front of an RDS PostgreSQL instance." },
-      { id: 'D', text: "Deploy an Amazon RDS Multi-AZ DB Instance with one non-readable standby instance." }
+      { id: 'A', text: "Deploy DynamoDB Accelerator (DAX) in front of an RDS PostgreSQL instance." },
+      { id: 'B', text: "Deploy an Amazon RDS Single-AZ instance with asynchronous cross-region read replicas." },
+      { id: 'C', text: "Deploy an Amazon RDS Multi-AZ DB Instance with one non-readable standby instance." },
+      { id: 'D', text: "An RDS Multi-AZ DB cluster with two readable standbys across three AZs." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy an Amazon RDS Multi-AZ DB Cluster with one primary writer and two readable standby database instances across three Availability Zones. RDS Multi-AZ DB Clusters deploy one primary writer and two readable standby instances across three Availability Zones. This architecture supports transaction commit latency up to 2x faster than traditional Multi-AZ DB instances, delivers automated failovers typically under 35 seconds, and allows the two standbys to serve read traffic without creating separate read replicas.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html",
@@ -94,9 +94,9 @@ export const AWS_SAA_QUESTIONS_13 = [
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
       { id: 'A', text: "An RDS Multi-AZ DB cluster with two readable standbys across three AZs." },
-      { id: 'B', text: "Deploy DynamoDB Accelerator (DAX) in front of an RDS PostgreSQL instance." },
-      { id: 'C', text: "Deploy an Amazon RDS Multi-AZ DB Instance with one non-readable standby instance." },
-      { id: 'D', text: "Deploy an Amazon RDS Single-AZ instance with asynchronous cross-region read replicas." }
+      { id: 'B', text: "Deploy an Amazon RDS Single-AZ instance with asynchronous cross-region read replicas." },
+      { id: 'C', text: "Deploy DynamoDB Accelerator (DAX) in front of an RDS PostgreSQL instance." },
+      { id: 'D', text: "Deploy an Amazon RDS Multi-AZ DB Instance with one non-readable standby instance." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on Amazon VPC to prevent an Availability Zone outage from severing outbound internet connectivity for workloads in private subnets across the entire VPC.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
-      { id: 'A', text: "Deploy an egress-only internet gateway in AZ-b and enable cross-zone load balancing." },
-      { id: 'B', text: "A NAT gateway per AZ, with each private subnet routed to its own." },
-      { id: 'C', text: "Deploy a single NAT Gateway in AZ-a and configure route tables in all private subnets to point to it." },
+      { id: 'A', text: "Deploy a single NAT Gateway in AZ-a and configure route tables in all private subnets to point to it." },
+      { id: 'B', text: "Deploy an egress-only internet gateway in AZ-b and enable cross-zone load balancing." },
+      { id: 'C', text: "A NAT gateway per AZ, with each private subnet routed to its own." },
       { id: 'D', text: "Attach an Internet Gateway directly to the private subnets without public IP addresses." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy a dedicated NAT Gateway in the public subnet of each Availability Zone and configure private subnet route tables to route to the NAT Gateway in their own zone. A NAT Gateway is an Availability Zone-redundant service within its specific zone, but it is not resilient to an entire AZ failure if other zones route through it. High availability best practices mandate deploying one NAT Gateway per AZ and configuring each private subnet route table to point to the NAT Gateway in its own zone.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-architecture",
@@ -136,9 +136,9 @@ export const AWS_SAA_QUESTIONS_13 = [
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
       { id: 'A', text: "A NAT gateway per AZ, with each private subnet routed to its own." },
-      { id: 'B', text: "Attach an Internet Gateway directly to the private subnets without public IP addresses." },
+      { id: 'B', text: "Deploy a single NAT Gateway in AZ-a and configure route tables in all private subnets to point to it." },
       { id: 'C', text: "Deploy an egress-only internet gateway in AZ-b and enable cross-zone load balancing." },
-      { id: 'D', text: "Deploy a single NAT Gateway in AZ-a and configure route tables in all private subnets to point to it." }
+      { id: 'D', text: "Attach an Internet Gateway directly to the private subnets without public IP addresses." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -157,9 +157,9 @@ export const AWS_SAA_QUESTIONS_13 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "A NAT gateway per AZ, with each private subnet routed to its own." },
-      { id: 'B', text: "Attach an Internet Gateway directly to the private subnets without public IP addresses." },
-      { id: 'C', text: "Deploy a single NAT Gateway in AZ-a and configure route tables in all private subnets to point to it." },
-      { id: 'D', text: "Deploy an egress-only internet gateway in AZ-b and enable cross-zone load balancing." }
+      { id: 'B', text: "Deploy an egress-only internet gateway in AZ-b and enable cross-zone load balancing." },
+      { id: 'C', text: "Attach an Internet Gateway directly to the private subnets without public IP addresses." },
+      { id: 'D', text: "Deploy a single NAT Gateway in AZ-a and configure route tables in all private subnets to point to it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,12 +177,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "An enterprise is migrating enterprise workloads from on-premises data centers to AWS. The architecture must integrate existing operational processes while leveraging cloud-native managed services to minimize operational complexity. The system relies on Amazon VPC to prevent an Availability Zone outage from severing outbound internet connectivity for workloads in private subnets across the entire VPC.",
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
-      { id: 'A', text: "Deploy a single NAT Gateway in AZ-a and configure route tables in all private subnets to point to it." },
-      { id: 'B', text: "Deploy an egress-only internet gateway in AZ-b and enable cross-zone load balancing." },
-      { id: 'C', text: "Attach an Internet Gateway directly to the private subnets without public IP addresses." },
-      { id: 'D', text: "A NAT gateway per AZ, with each private subnet routed to its own." }
+      { id: 'A', text: "Deploy an egress-only internet gateway in AZ-b and enable cross-zone load balancing." },
+      { id: 'B', text: "Attach an Internet Gateway directly to the private subnets without public IP addresses." },
+      { id: 'C', text: "A NAT gateway per AZ, with each private subnet routed to its own." },
+      { id: 'D', text: "Deploy a single NAT Gateway in AZ-a and configure route tables in all private subnets to point to it." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy a dedicated NAT Gateway in the public subnet of each Availability Zone and configure private subnet route tables to route to the NAT Gateway in their own zone. A NAT Gateway is an Availability Zone-redundant service within its specific zone, but it is not resilient to an entire AZ failure if other zones route through it. High availability best practices mandate deploying one NAT Gateway per AZ and configuring each private subnet route table to point to the NAT Gateway in its own zone.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-architecture",
@@ -198,12 +198,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on Amazon VPC to prevent an Availability Zone outage from severing outbound internet connectivity for workloads in private subnets across the entire VPC.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
-      { id: 'A', text: "Deploy a single NAT Gateway in AZ-a and configure route tables in all private subnets to point to it." },
-      { id: 'B', text: "Attach an Internet Gateway directly to the private subnets without public IP addresses." },
-      { id: 'C', text: "A NAT gateway per AZ, with each private subnet routed to its own." },
-      { id: 'D', text: "Deploy an egress-only internet gateway in AZ-b and enable cross-zone load balancing." }
+      { id: 'A', text: "Attach an Internet Gateway directly to the private subnets without public IP addresses." },
+      { id: 'B', text: "Deploy an egress-only internet gateway in AZ-b and enable cross-zone load balancing." },
+      { id: 'C', text: "Deploy a single NAT Gateway in AZ-a and configure route tables in all private subnets to point to it." },
+      { id: 'D', text: "A NAT gateway per AZ, with each private subnet routed to its own." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy a dedicated NAT Gateway in the public subnet of each Availability Zone and configure private subnet route tables to route to the NAT Gateway in their own zone. A NAT Gateway is an Availability Zone-redundant service within its specific zone, but it is not resilient to an entire AZ failure if other zones route through it. High availability best practices mandate deploying one NAT Gateway per AZ and configuring each private subnet route table to point to the NAT Gateway in its own zone.",
     referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-architecture",
@@ -219,12 +219,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on AWS Step Functions to orchestrate large-scale parallel processing of tens of thousands of image files stored in Amazon S3 with controlled maximum concurrency to protect downstream databases.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
-      { id: 'A', text: "Deploy an AWS Lambda function executing an internal asyncio thread pool iterating over all S3 keys." },
-      { id: 'B', text: "A Step Functions Distributed Map over S3 with a maxConcurrency limit." },
+      { id: 'A', text: "A Step Functions Distributed Map over S3 with a maxConcurrency limit." },
+      { id: 'B', text: "Deploy an AWS Lambda function executing an internal asyncio thread pool iterating over all S3 keys." },
       { id: 'C', text: "Configure an Amazon SQS standard queue triggering Lambda with batch size set to 10,000." },
       { id: 'D', text: "Configure an Amazon EventBridge rule triggering concurrent Lambda executions simultaneously without throttling." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure an AWS Step Functions state machine with a Distributed Map state referencing Amazon S3 as the data source and defining a maxConcurrency limit. Step Functions Distributed Map state is designed for high-concurrency serverless data processing directly from S3. It can orchestrate up to 10,000 parallel executions, batch inputs, and enforce strict maximum concurrency limits to protect downstream resources from overload.",
     referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/concepts-asl-use-map-state-distributed.html",
@@ -240,12 +240,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on AWS Step Functions to orchestrate large-scale parallel processing of tens of thousands of image files stored in Amazon S3 with controlled maximum concurrency to protect downstream databases.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
-      { id: 'A', text: "Configure an Amazon SQS standard queue triggering Lambda with batch size set to 10,000." },
-      { id: 'B', text: "Configure an Amazon EventBridge rule triggering concurrent Lambda executions simultaneously without throttling." },
-      { id: 'C', text: "Deploy an AWS Lambda function executing an internal asyncio thread pool iterating over all S3 keys." },
-      { id: 'D', text: "A Step Functions Distributed Map over S3 with a maxConcurrency limit." }
+      { id: 'A', text: "Deploy an AWS Lambda function executing an internal asyncio thread pool iterating over all S3 keys." },
+      { id: 'B', text: "A Step Functions Distributed Map over S3 with a maxConcurrency limit." },
+      { id: 'C', text: "Configure an Amazon EventBridge rule triggering concurrent Lambda executions simultaneously without throttling." },
+      { id: 'D', text: "Configure an Amazon SQS standard queue triggering Lambda with batch size set to 10,000." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure an AWS Step Functions state machine with a Distributed Map state referencing Amazon S3 as the data source and defining a maxConcurrency limit. Step Functions Distributed Map state is designed for high-concurrency serverless data processing directly from S3. It can orchestrate up to 10,000 parallel executions, batch inputs, and enforce strict maximum concurrency limits to protect downstream resources from overload.",
     referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/concepts-asl-use-map-state-distributed.html",
@@ -261,12 +261,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on AWS Step Functions to orchestrate large-scale parallel processing of tens of thousands of image files stored in Amazon S3 with controlled maximum concurrency to protect downstream databases.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Configure an Amazon EventBridge rule triggering concurrent Lambda executions simultaneously without throttling." },
-      { id: 'B', text: "Configure an Amazon SQS standard queue triggering Lambda with batch size set to 10,000." },
-      { id: 'C', text: "Deploy an AWS Lambda function executing an internal asyncio thread pool iterating over all S3 keys." },
-      { id: 'D', text: "A Step Functions Distributed Map over S3 with a maxConcurrency limit." }
+      { id: 'A', text: "A Step Functions Distributed Map over S3 with a maxConcurrency limit." },
+      { id: 'B', text: "Deploy an AWS Lambda function executing an internal asyncio thread pool iterating over all S3 keys." },
+      { id: 'C', text: "Configure an Amazon SQS standard queue triggering Lambda with batch size set to 10,000." },
+      { id: 'D', text: "Configure an Amazon EventBridge rule triggering concurrent Lambda executions simultaneously without throttling." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure an AWS Step Functions state machine with a Distributed Map state referencing Amazon S3 as the data source and defining a maxConcurrency limit. Step Functions Distributed Map state is designed for high-concurrency serverless data processing directly from S3. It can orchestrate up to 10,000 parallel executions, batch inputs, and enforce strict maximum concurrency limits to protect downstream resources from overload.",
     referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/concepts-asl-use-map-state-distributed.html",
@@ -283,9 +283,9 @@ export const AWS_SAA_QUESTIONS_13 = [
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
       { id: 'A', text: "A Step Functions Distributed Map over S3 with a maxConcurrency limit." },
-      { id: 'B', text: "Configure an Amazon SQS standard queue triggering Lambda with batch size set to 10,000." },
-      { id: 'C', text: "Configure an Amazon EventBridge rule triggering concurrent Lambda executions simultaneously without throttling." },
-      { id: 'D', text: "Deploy an AWS Lambda function executing an internal asyncio thread pool iterating over all S3 keys." }
+      { id: 'B', text: "Configure an Amazon EventBridge rule triggering concurrent Lambda executions simultaneously without throttling." },
+      { id: 'C', text: "Deploy an AWS Lambda function executing an internal asyncio thread pool iterating over all S3 keys." },
+      { id: 'D', text: "Configure an Amazon SQS standard queue triggering Lambda with batch size set to 10,000." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,12 +303,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on AWS Step Functions to orchestrate large-scale parallel processing of tens of thousands of image files stored in Amazon S3 with controlled maximum concurrency to protect downstream databases.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
-      { id: 'A', text: "Deploy an AWS Lambda function executing an internal asyncio thread pool iterating over all S3 keys." },
-      { id: 'B', text: "A Step Functions Distributed Map over S3 with a maxConcurrency limit." },
+      { id: 'A', text: "A Step Functions Distributed Map over S3 with a maxConcurrency limit." },
+      { id: 'B', text: "Deploy an AWS Lambda function executing an internal asyncio thread pool iterating over all S3 keys." },
       { id: 'C', text: "Configure an Amazon SQS standard queue triggering Lambda with batch size set to 10,000." },
       { id: 'D', text: "Configure an Amazon EventBridge rule triggering concurrent Lambda executions simultaneously without throttling." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure an AWS Step Functions state machine with a Distributed Map state referencing Amazon S3 as the data source and defining a maxConcurrency limit. Step Functions Distributed Map state is designed for high-concurrency serverless data processing directly from S3. It can orchestrate up to 10,000 parallel executions, batch inputs, and enforce strict maximum concurrency limits to protect downstream resources from overload.",
     referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/concepts-asl-use-map-state-distributed.html",
@@ -325,9 +325,9 @@ export const AWS_SAA_QUESTIONS_13 = [
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
       { id: 'A', text: "EFA-capable instances in one cluster placement group in an AZ." },
-      { id: 'B', text: "Deploy EC2 instances across multiple AWS Regions connected via VPC Peering." },
-      { id: 'C', text: "Launch EC2 instances into a Partition Placement Group with seven partitions." },
-      { id: 'D', text: "Deploy EC2 instances across multiple Availability Zones using a Spread Placement Group." }
+      { id: 'B', text: "Launch EC2 instances into a Partition Placement Group with seven partitions." },
+      { id: 'C', text: "Deploy EC2 instances across multiple Availability Zones using a Spread Placement Group." },
+      { id: 'D', text: "Deploy EC2 instances across multiple AWS Regions connected via VPC Peering." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -346,9 +346,9 @@ export const AWS_SAA_QUESTIONS_13 = [
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
       { id: 'A', text: "EFA-capable instances in one cluster placement group in an AZ." },
-      { id: 'B', text: "Launch EC2 instances into a Partition Placement Group with seven partitions." },
-      { id: 'C', text: "Deploy EC2 instances across multiple Availability Zones using a Spread Placement Group." },
-      { id: 'D', text: "Deploy EC2 instances across multiple AWS Regions connected via VPC Peering." }
+      { id: 'B', text: "Deploy EC2 instances across multiple AWS Regions connected via VPC Peering." },
+      { id: 'C', text: "Launch EC2 instances into a Partition Placement Group with seven partitions." },
+      { id: 'D', text: "Deploy EC2 instances across multiple Availability Zones using a Spread Placement Group." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on Amazon EC2 to achieve lowest possible inter-node network latency and maximum throughput for a tightly coupled High Performance Computing (HPC) simulation workload.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy EC2 instances across multiple Availability Zones using a Spread Placement Group." },
-      { id: 'B', text: "Launch EC2 instances into a Partition Placement Group with seven partitions." },
+      { id: 'A', text: "Launch EC2 instances into a Partition Placement Group with seven partitions." },
+      { id: 'B', text: "EFA-capable instances in one cluster placement group in an AZ." },
       { id: 'C', text: "Deploy EC2 instances across multiple AWS Regions connected via VPC Peering." },
-      { id: 'D', text: "EFA-capable instances in one cluster placement group in an AZ." }
+      { id: 'D', text: "Deploy EC2 instances across multiple Availability Zones using a Spread Placement Group." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Launch EC2 instances supporting Elastic Fabric Adapter (EFA) into a single Cluster Placement Group within an Availability Zone. A Cluster Placement Group packs instances close together inside an Availability Zone to achieve low-latency network performance up to 100 Gbps. Elastic Fabric Adapter (EFA) provides an OS-bypass network interface that allows HPC and machine learning applications to communicate directly with hardware, drastically reducing inter-node latency. Spread and partition placement groups separate instances across hardware racks.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html#placement-groups-cluster",
@@ -387,12 +387,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "An enterprise is migrating enterprise workloads from on-premises data centers to AWS. The architecture must integrate existing operational processes while leveraging cloud-native managed services to minimize operational complexity. The system relies on Amazon EC2 to achieve lowest possible inter-node network latency and maximum throughput for a tightly coupled High Performance Computing (HPC) simulation workload.",
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
-      { id: 'A', text: "Deploy EC2 instances across multiple Availability Zones using a Spread Placement Group." },
-      { id: 'B', text: "Deploy EC2 instances across multiple AWS Regions connected via VPC Peering." },
-      { id: 'C', text: "Launch EC2 instances into a Partition Placement Group with seven partitions." },
-      { id: 'D', text: "EFA-capable instances in one cluster placement group in an AZ." }
+      { id: 'A', text: "Deploy EC2 instances across multiple AWS Regions connected via VPC Peering." },
+      { id: 'B', text: "Launch EC2 instances into a Partition Placement Group with seven partitions." },
+      { id: 'C', text: "EFA-capable instances in one cluster placement group in an AZ." },
+      { id: 'D', text: "Deploy EC2 instances across multiple Availability Zones using a Spread Placement Group." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Launch EC2 instances supporting Elastic Fabric Adapter (EFA) into a single Cluster Placement Group within an Availability Zone. A Cluster Placement Group packs instances close together inside an Availability Zone to achieve low-latency network performance up to 100 Gbps. Elastic Fabric Adapter (EFA) provides an OS-bypass network interface that allows HPC and machine learning applications to communicate directly with hardware, drastically reducing inter-node latency. Spread and partition placement groups separate instances across hardware racks.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html#placement-groups-cluster",
@@ -408,12 +408,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on Amazon EC2 to achieve lowest possible inter-node network latency and maximum throughput for a tightly coupled High Performance Computing (HPC) simulation workload.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
-      { id: 'A', text: "Deploy EC2 instances across multiple AWS Regions connected via VPC Peering." },
-      { id: 'B', text: "EFA-capable instances in one cluster placement group in an AZ." },
-      { id: 'C', text: "Launch EC2 instances into a Partition Placement Group with seven partitions." },
-      { id: 'D', text: "Deploy EC2 instances across multiple Availability Zones using a Spread Placement Group." }
+      { id: 'A', text: "Launch EC2 instances into a Partition Placement Group with seven partitions." },
+      { id: 'B', text: "Deploy EC2 instances across multiple AWS Regions connected via VPC Peering." },
+      { id: 'C', text: "Deploy EC2 instances across multiple Availability Zones using a Spread Placement Group." },
+      { id: 'D', text: "EFA-capable instances in one cluster placement group in an AZ." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Launch EC2 instances supporting Elastic Fabric Adapter (EFA) into a single Cluster Placement Group within an Availability Zone. A Cluster Placement Group packs instances close together inside an Availability Zone to achieve low-latency network performance up to 100 Gbps. Elastic Fabric Adapter (EFA) provides an OS-bypass network interface that allows HPC and machine learning applications to communicate directly with hardware, drastically reducing inter-node latency. Spread and partition placement groups separate instances across hardware racks.",
     referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html#placement-groups-cluster",
@@ -429,12 +429,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on Amazon FSx to process compute-intensive machine learning datasets stored in Amazon S3 with sub-millisecond POSIX filesystem latency and automatic synchronization of updated results back to S3.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
-      { id: 'A', text: "Deploy Amazon EFS in General Purpose mode with default bursting throughput." },
-      { id: 'B', text: "FSx for Lustre linked to the bucket, exporting results back." },
+      { id: 'A', text: "Mount the Amazon S3 bucket directly onto EC2 instances using the S3FS-FUSE driver." },
+      { id: 'B', text: "Deploy Amazon EFS in General Purpose mode with default bursting throughput." },
       { id: 'C', text: "Copy the entire S3 dataset to EBS gp3 volumes on each EC2 instance at boot time." },
-      { id: 'D', text: "Mount the Amazon S3 bucket directly onto EC2 instances using the S3FS-FUSE driver." }
+      { id: 'D', text: "FSx for Lustre linked to the bucket, exporting results back." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Provision an Amazon FSx for Lustre file system linked to the Amazon S3 bucket, configure data repository integration, and export updated results back to S3. Amazon FSx for Lustre provides a high-performance POSIX file system designed for compute-intensive workloads such as machine learning and high-performance analytics. When linked to an S3 bucket, it automatically reads data on-demand and writes back results via data repository tasks with sub-millisecond latency. FUSE drivers introduce severe I/O bottlenecks and EBS local copying wastes time and capacity.",
     referenceUrl: "https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-fs-data-repository.html",
@@ -450,12 +450,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on Amazon FSx to process compute-intensive machine learning datasets stored in Amazon S3 with sub-millisecond POSIX filesystem latency and automatic synchronization of updated results back to S3.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
-      { id: 'A', text: "Copy the entire S3 dataset to EBS gp3 volumes on each EC2 instance at boot time." },
-      { id: 'B', text: "FSx for Lustre linked to the bucket, exporting results back." },
-      { id: 'C', text: "Mount the Amazon S3 bucket directly onto EC2 instances using the S3FS-FUSE driver." },
+      { id: 'A', text: "Mount the Amazon S3 bucket directly onto EC2 instances using the S3FS-FUSE driver." },
+      { id: 'B', text: "Copy the entire S3 dataset to EBS gp3 volumes on each EC2 instance at boot time." },
+      { id: 'C', text: "FSx for Lustre linked to the bucket, exporting results back." },
       { id: 'D', text: "Deploy Amazon EFS in General Purpose mode with default bursting throughput." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Provision an Amazon FSx for Lustre file system linked to the Amazon S3 bucket, configure data repository integration, and export updated results back to S3. Amazon FSx for Lustre provides a high-performance POSIX file system designed for compute-intensive workloads such as machine learning and high-performance analytics. When linked to an S3 bucket, it automatically reads data on-demand and writes back results via data repository tasks with sub-millisecond latency. FUSE drivers introduce severe I/O bottlenecks and EBS local copying wastes time and capacity.",
     referenceUrl: "https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-fs-data-repository.html",
@@ -471,12 +471,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on Amazon FSx to process compute-intensive machine learning datasets stored in Amazon S3 with sub-millisecond POSIX filesystem latency and automatic synchronization of updated results back to S3.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy Amazon EFS in General Purpose mode with default bursting throughput." },
+      { id: 'A', text: "Copy the entire S3 dataset to EBS gp3 volumes on each EC2 instance at boot time." },
       { id: 'B', text: "Mount the Amazon S3 bucket directly onto EC2 instances using the S3FS-FUSE driver." },
-      { id: 'C', text: "FSx for Lustre linked to the bucket, exporting results back." },
-      { id: 'D', text: "Copy the entire S3 dataset to EBS gp3 volumes on each EC2 instance at boot time." }
+      { id: 'C', text: "Deploy Amazon EFS in General Purpose mode with default bursting throughput." },
+      { id: 'D', text: "FSx for Lustre linked to the bucket, exporting results back." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Provision an Amazon FSx for Lustre file system linked to the Amazon S3 bucket, configure data repository integration, and export updated results back to S3. Amazon FSx for Lustre provides a high-performance POSIX file system designed for compute-intensive workloads such as machine learning and high-performance analytics. When linked to an S3 bucket, it automatically reads data on-demand and writes back results via data repository tasks with sub-millisecond latency. FUSE drivers introduce severe I/O bottlenecks and EBS local copying wastes time and capacity.",
     referenceUrl: "https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-fs-data-repository.html",
@@ -492,12 +492,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "An enterprise is migrating enterprise workloads from on-premises data centers to AWS. The architecture must integrate existing operational processes while leveraging cloud-native managed services to minimize operational complexity. The system relies on Amazon FSx to process compute-intensive machine learning datasets stored in Amazon S3 with sub-millisecond POSIX filesystem latency and automatic synchronization of updated results back to S3.",
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
-      { id: 'A', text: "Deploy Amazon EFS in General Purpose mode with default bursting throughput." },
+      { id: 'A', text: "FSx for Lustre linked to the bucket, exporting results back." },
       { id: 'B', text: "Mount the Amazon S3 bucket directly onto EC2 instances using the S3FS-FUSE driver." },
       { id: 'C', text: "Copy the entire S3 dataset to EBS gp3 volumes on each EC2 instance at boot time." },
-      { id: 'D', text: "FSx for Lustre linked to the bucket, exporting results back." }
+      { id: 'D', text: "Deploy Amazon EFS in General Purpose mode with default bursting throughput." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Provision an Amazon FSx for Lustre file system linked to the Amazon S3 bucket, configure data repository integration, and export updated results back to S3. Amazon FSx for Lustre provides a high-performance POSIX file system designed for compute-intensive workloads such as machine learning and high-performance analytics. When linked to an S3 bucket, it automatically reads data on-demand and writes back results via data repository tasks with sub-millisecond latency. FUSE drivers introduce severe I/O bottlenecks and EBS local copying wastes time and capacity.",
     referenceUrl: "https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-fs-data-repository.html",
@@ -513,12 +513,12 @@ export const AWS_SAA_QUESTIONS_13 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on Amazon FSx to process compute-intensive machine learning datasets stored in Amazon S3 with sub-millisecond POSIX filesystem latency and automatic synchronization of updated results back to S3.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
-      { id: 'A', text: "Mount the Amazon S3 bucket directly onto EC2 instances using the S3FS-FUSE driver." },
-      { id: 'B', text: "Deploy Amazon EFS in General Purpose mode with default bursting throughput." },
-      { id: 'C', text: "FSx for Lustre linked to the bucket, exporting results back." },
-      { id: 'D', text: "Copy the entire S3 dataset to EBS gp3 volumes on each EC2 instance at boot time." }
+      { id: 'A', text: "Deploy Amazon EFS in General Purpose mode with default bursting throughput." },
+      { id: 'B', text: "Copy the entire S3 dataset to EBS gp3 volumes on each EC2 instance at boot time." },
+      { id: 'C', text: "Mount the Amazon S3 bucket directly onto EC2 instances using the S3FS-FUSE driver." },
+      { id: 'D', text: "FSx for Lustre linked to the bucket, exporting results back." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Provision an Amazon FSx for Lustre file system linked to the Amazon S3 bucket, configure data repository integration, and export updated results back to S3. Amazon FSx for Lustre provides a high-performance POSIX file system designed for compute-intensive workloads such as machine learning and high-performance analytics. When linked to an S3 bucket, it automatically reads data on-demand and writes back results via data repository tasks with sub-millisecond latency. FUSE drivers introduce severe I/O bottlenecks and EBS local copying wastes time and capacity.",
     referenceUrl: "https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-fs-data-repository.html",

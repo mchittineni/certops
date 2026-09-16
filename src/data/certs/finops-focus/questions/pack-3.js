@@ -10,9 +10,9 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Query the standardized FOCUS 'Tags' dictionary column to extract cost allocation keys (e.g., 'Tags[\"cost_center\"]') uniformly across all providers." },
-      { id: 'B', text: "Query each provider's own tag columns and union the results, renaming the differing tag key spellings for each provider as part of the warehouse load step." },
+      { id: 'B', text: "Query 'ResourceName' and derive the cost owner from the naming convention that the platform team asks everyone to follow." },
       { id: 'C', text: "Query 'SubAccountId' and maintain a lookup table mapping accounts and subscriptions across to the team known to own each one." },
-      { id: 'D', text: "Query 'ResourceName' and derive the cost owner from the naming convention that the platform team asks everyone to follow." }
+      { id: 'D', text: "Query each provider's own tag columns and union the results, renaming the differing tag key spellings for each provider as part of the warehouse load step." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,12 +30,12 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     scenario: "A national hospital network requires strict cryptographic privacy, auditable access controls, and HIPAA compliance. The FinOps team is making cost data from several providers directly comparable in one warehouse. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Build an internal canonical billing schema and write one mapping per provider, maintaining each of those mappings by hand as that provider changes its export format over time." },
-      { id: 'B', text: "Adopt FOCUS as the vendor-neutral billing schema." },
-      { id: 'C', text: "Adopt a commercial cloud cost management platform and use that product's own normalised data model as the reporting layer for every cloud and SaaS provider." },
-      { id: 'D', text: "Load each provider's native export into its own table and have the FinOps team join them in the warehouse with views lining up comparable columns." }
+      { id: 'A', text: "Adopt a commercial cloud cost management platform and use that product's own normalised data model as the reporting layer for every cloud and SaaS provider." },
+      { id: 'B', text: "Load each provider's native export into its own table and have the FinOps team join them in the warehouse with views lining up comparable columns." },
+      { id: 'C', text: "Build an internal canonical billing schema and write one mapping per provider, maintaining each of those mappings by hand as that provider changes its export format over time." },
+      { id: 'D', text: "Adopt FOCUS as the vendor-neutral billing schema." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "FOCUS is an open specification that the providers themselves publish conforming exports against, so the normalisation is maintained upstream and a new service arrives already mapped. An internal canonical schema is the same idea without that leverage: every provider format change becomes local maintenance. A commercial platform does normalise, but the model belongs to the product and reporting has to move with it. Per-provider tables joined by views leave every new column and service to be reconciled by hand.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -51,12 +51,12 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     scenario: "An international retail marketplace prepares for 100x traffic surges with zero downtime and instant failover. The FinOps team is reconciling to the vendor invoice while charging teams a stable monthly figure. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use 'EffectiveCost' for the invoice reconciliation as well as the team chargeback so that one column is applied consistently everywhere." },
-      { id: 'B', text: "Use 'ContractedCost' for reconciling to the vendor invoice as well as for chargeback, since it reflects the negotiated rate." },
-      { id: 'C', text: "'BilledCost' for invoices, 'EffectiveCost' for chargeback." },
-      { id: 'D', text: "Use 'ListCost' for the chargeback so that teams see the undiscounted rate and the savings remain with the central FinOps function." }
+      { id: 'A', text: "Use 'ListCost' for the chargeback so that teams see the undiscounted rate and the savings remain with the central FinOps function." },
+      { id: 'B', text: "'BilledCost' for invoices, 'EffectiveCost' for chargeback." },
+      { id: 'C', text: "Use 'ContractedCost' for reconciling to the vendor invoice as well as for chargeback, since it reflects the negotiated rate." },
+      { id: 'D', text: "Use 'EffectiveCost' for the invoice reconciliation as well as the team chargeback so that one column is applied consistently everywhere." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "BilledCost is the charge that appears on the invoice for the period, so it is the only column that ties out to the cash, while EffectiveCost spreads a commitment purchase across the usage that consumed it, which is what makes a monthly team figure stable. Using EffectiveCost for reconciliation will not match the invoice in any month containing an upfront payment. ContractedCost carries the negotiated rate but no amortisation, so an upfront purchase still lands in a single month. Charging teams at ListCost bills them for a discount the organisation did receive.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -72,8 +72,8 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     scenario: "A self-driving automotive fleet streams terabytes of sensor telemetry requiring real-time distributed ingestion and anomaly detection. The FinOps team is splitting billing lines into consumption, commitment purchases, tax, and credits. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Query the 'ServiceCategory' column, which groups every usage line by the kind of service that it belongs to consistently across all of the supported providers." },
-      { id: 'B', text: "Query the 'ChargeClass' column, which marks whether billing lines are corrections applied to a previously invoiced period." },
+      { id: 'A', text: "Query the 'ChargeClass' column, which marks whether billing lines are corrections applied to a previously invoiced period." },
+      { id: 'B', text: "Query the 'ServiceCategory' column, which groups every usage line by the kind of service that it belongs to consistently across all of the supported providers." },
       { id: 'C', text: "Query the 'CommitmentDiscountStatus' column, which reports whether a line represents used or unused commitment capacity." },
       { id: 'D', text: "Query the 'ChargeCategory' column to segment billing lines into 'Usage', 'Purchase', 'Tax', 'Adjustment', and 'Credit' with standard subcategories." }
     ],
@@ -93,12 +93,12 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     scenario: "An enterprise cloud SaaS architecture mandates strict logical tenant isolation, data masking, and per-tenant resource quotas. The FinOps team is grouping spend by account and resource consistently across every provider. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Utilize standardized dimensions: 'ProviderName', 'BillingAccountId', 'SubAccountId', 'ResourceId', 'ResourceType', and 'RegionId'." },
-      { id: 'B', text: "Join each provider's native identifier columns, mapping LinkedAccountId, SubscriptionId, and project.id onto a shared key at query time." },
-      { id: 'C', text: "Use 'InvoiceIssuerName' and 'BillingAccountName' as the grouping keys, since together they identify who is being billed for each line." },
-      { id: 'D', text: "Use the 'Tags' column and require every team to tag its resources with the owning account and region so the hierarchy is readable." }
+      { id: 'A', text: "Join each provider's native identifier columns, mapping LinkedAccountId, SubscriptionId, and project.id onto a shared key at query time." },
+      { id: 'B', text: "Use 'InvoiceIssuerName' and 'BillingAccountName' as the grouping keys, since together they identify who is being billed for each line." },
+      { id: 'C', text: "Use the 'Tags' column and require every team to tag its resources with the owning account and region so the hierarchy is readable." },
+      { id: 'D', text: "Utilize standardized dimensions: 'ProviderName', 'BillingAccountId', 'SubAccountId', 'ResourceId', 'ResourceType', and 'RegionId'." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The FOCUS hierarchy columns are typed and populated by the provider, so one grouping expression works across clouds and keeps working as accounts are added. Mapping the native identifiers at query time reproduces those columns in every query that needs them and breaks when a provider renames a field. InvoiceIssuerName and BillingAccountName identify the billing relationship, which is not the same as the account a resource lives in, and names are not stable identifiers. Tags depend on teams applying them and are missing on exactly the untagged resources that most need attributing.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -115,11 +115,11 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Measure usage with 'ConsumedQuantity' and 'ConsumedUnit', which together record the metered amount of the resource that was actually used." },
-      { id: 'B', text: "Measure usage using 'PricingQuantity' and standardized 'PricingUnit' (e.g., 'Hour', 'Gigabyte-Month', 'Request') to compare unit rates directly." },
+      { id: 'B', text: "Divide 'EffectiveCost' by 'ContractedUnitPrice' on each line so that a comparable quantity is derived from the cost columns." },
       { id: 'C', text: "Compare the providers on 'ListUnitPrice' alone, since the public rate is the one unit figure each of them quotes the same way." },
-      { id: 'D', text: "Divide 'EffectiveCost' by 'ContractedUnitPrice' on each line so that a comparable quantity is derived from the cost columns." }
+      { id: 'D', text: "Measure usage using 'PricingQuantity' and standardized 'PricingUnit' (e.g., 'Hour', 'Gigabyte-Month', 'Request') to compare unit rates directly." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "PricingQuantity and PricingUnit describe the basis on which the line was actually priced, which is what makes a rate divided by a quantity meaningful. ConsumedQuantity and ConsumedUnit record metered consumption, and the two differ whenever pricing is blocked, so a thousand requests priced as one unit would distort the comparison. ListUnitPrice compares published rates rather than what the organisation paid. Deriving the quantity by dividing cost by unit price reconstructs PricingQuantity with rounding error and fails on any line where the price is zero.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -136,11 +136,11 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Compare 'ListCost' against 'BilledCost' so that the difference captures every single discount which reached the invoice during that particular month." },
-      { id: 'B', text: "Compare the contracted rate against 'ListUnitPrice' on each line and multiply that gap by the pricing quantity for every row." },
-      { id: 'C', text: "Compare 'ListCost' (public pricing), 'ContractedCost' (negotiated enterprise rate), and 'EffectiveCost' to quantify enterprise discount savings." },
-      { id: 'D', text: "Compare 'BilledCost' against 'EffectiveCost' so that the difference shows what the commitments contributed across the period." }
+      { id: 'B', text: "Compare 'BilledCost' against 'EffectiveCost' so that the difference shows what the commitments contributed across the period." },
+      { id: 'C', text: "Compare the contracted rate against 'ListUnitPrice' on each line and multiply that gap by the pricing quantity for every row." },
+      { id: 'D', text: "Compare 'ListCost' (public pricing), 'ContractedCost' (negotiated enterprise rate), and 'EffectiveCost' to quantify enterprise discount savings." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The three-way comparison isolates each source of value: list to contracted is what rate negotiation delivered, and contracted to effective is what commitment management delivered. Comparing list against billed conflates the two and is distorted in any month containing an upfront purchase. The per-unit price comparison recovers the negotiated rate discount accurately but misses commitments entirely. Billed against effective shows only the timing effect of amortisation, which is a presentation difference rather than a saving.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -156,12 +156,12 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     scenario: "A national telecom operator manages high-density network slices with automated scaling and sub-millisecond service mesh routing. The FinOps team is attributing every line of spend to the business owner that should carry it. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Query each provider's own tag columns and union the results, renaming the differing tag key spellings for each provider as part of the warehouse load step." },
+      { id: 'A', text: "Query the standardized FOCUS 'Tags' dictionary column to extract cost allocation keys (e.g., 'Tags[\"cost_center\"]') uniformly across all providers." },
       { id: 'B', text: "Query 'SubAccountId' and maintain a lookup table mapping accounts and subscriptions across to the team known to own each one." },
       { id: 'C', text: "Query 'ResourceName' and derive the cost owner from the naming convention that the platform team asks everyone to follow." },
-      { id: 'D', text: "Query the standardized FOCUS 'Tags' dictionary column to extract cost allocation keys (e.g., 'Tags[\"cost_center\"]') uniformly across all providers." }
+      { id: 'D', text: "Query each provider's own tag columns and union the results, renaming the differing tag key spellings for each provider as part of the warehouse load step." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "FOCUS normalises provider tags into one key-value column, so a single expression allocates spend across every cloud and survives a provider changing its export. Unioning the native tag columns achieves the same result but the union has to be revisited whenever a format changes. An account-to-team lookup is a legitimate and widely used strategy, though it is only as granular as the account boundary and cannot split a shared account. A naming convention is unenforceable in billing data, so it fails silently on every resource that ignores it.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -177,12 +177,12 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     scenario: "A smart electrical grid platform monitors millions of smart meters with low-latency time-series analysis and automated load shedding. The FinOps team is making cost data from several providers directly comparable in one warehouse. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Adopt FOCUS as the vendor-neutral billing schema." },
+      { id: 'A', text: "Load each provider's native export into its own table and have the FinOps team join them in the warehouse with views lining up comparable columns." },
       { id: 'B', text: "Build an internal canonical billing schema and write one mapping per provider, maintaining each of those mappings by hand as that provider changes its export format over time." },
-      { id: 'C', text: "Adopt a commercial cloud cost management platform and use that product's own normalised data model as the reporting layer for every cloud and SaaS provider." },
-      { id: 'D', text: "Load each provider's native export into its own table and have the FinOps team join them in the warehouse with views lining up comparable columns." }
+      { id: 'C', text: "Adopt FOCUS as the vendor-neutral billing schema." },
+      { id: 'D', text: "Adopt a commercial cloud cost management platform and use that product's own normalised data model as the reporting layer for every cloud and SaaS provider." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "FOCUS is an open specification that the providers themselves publish conforming exports against, so the normalisation is maintained upstream and a new service arrives already mapped. An internal canonical schema is the same idea without that leverage: every provider format change becomes local maintenance. A commercial platform does normalise, but the model belongs to the product and reporting has to move with it. Per-provider tables joined by views leave every new column and service to be reconciled by hand.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -198,12 +198,12 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     scenario: "A pharmaceutical distribution network tracks temperature-sensitive cargo with cryptographic provenance and automated breach alerts. The FinOps team is reconciling to the vendor invoice while charging teams a stable monthly figure. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use 'EffectiveCost' for the invoice reconciliation as well as the team chargeback so that one column is applied consistently everywhere." },
-      { id: 'B', text: "'BilledCost' for invoices, 'EffectiveCost' for chargeback." },
-      { id: 'C', text: "Use 'ContractedCost' for reconciling to the vendor invoice as well as for chargeback, since it reflects the negotiated rate." },
-      { id: 'D', text: "Use 'ListCost' for the chargeback so that teams see the undiscounted rate and the savings remain with the central FinOps function." }
+      { id: 'A', text: "'BilledCost' for invoices, 'EffectiveCost' for chargeback." },
+      { id: 'B', text: "Use 'EffectiveCost' for the invoice reconciliation as well as the team chargeback so that one column is applied consistently everywhere." },
+      { id: 'C', text: "Use 'ListCost' for the chargeback so that teams see the undiscounted rate and the savings remain with the central FinOps function." },
+      { id: 'D', text: "Use 'ContractedCost' for reconciling to the vendor invoice as well as for chargeback, since it reflects the negotiated rate." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "BilledCost is the charge that appears on the invoice for the period, so it is the only column that ties out to the cash, while EffectiveCost spreads a commitment purchase across the usage that consumed it, which is what makes a monthly team figure stable. Using EffectiveCost for reconciliation will not match the invoice in any month containing an upfront payment. ContractedCost carries the negotiated rate but no amortisation, so an upfront purchase still lands in a single month. Charging teams at ListCost bills them for a discount the organisation did receive.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -220,11 +220,11 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Query the 'ServiceCategory' column, which groups every usage line by the kind of service that it belongs to consistently across all of the supported providers." },
-      { id: 'B', text: "Query the 'ChargeClass' column, which marks whether billing lines are corrections applied to a previously invoiced period." },
-      { id: 'C', text: "Query the 'ChargeCategory' column to segment billing lines into 'Usage', 'Purchase', 'Tax', 'Adjustment', and 'Credit' with standard subcategories." },
-      { id: 'D', text: "Query the 'CommitmentDiscountStatus' column, which reports whether a line represents used or unused commitment capacity." }
+      { id: 'B', text: "Query the 'CommitmentDiscountStatus' column, which reports whether a line represents used or unused commitment capacity." },
+      { id: 'C', text: "Query the 'ChargeClass' column, which marks whether billing lines are corrections applied to a previously invoiced period." },
+      { id: 'D', text: "Query the 'ChargeCategory' column to segment billing lines into 'Usage', 'Purchase', 'Tax', 'Adjustment', and 'Credit' with standard subcategories." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "ChargeCategory is the column FOCUS defines for exactly this split, with a closed set of values so a query written once keeps working as providers add services. ServiceCategory answers a different question, grouping by what the service does rather than what kind of charge the line is. ChargeClass distinguishes a regular line from a correction to an earlier period, which is orthogonal to whether the charge is usage or tax. CommitmentDiscountStatus applies only to lines covered by a commitment and says nothing about tax, credits, or adjustments.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -242,10 +242,10 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "Join each provider's native identifier columns, mapping LinkedAccountId, SubscriptionId, and project.id onto a shared key at query time." },
       { id: 'B', text: "Use 'InvoiceIssuerName' and 'BillingAccountName' as the grouping keys, since together they identify who is being billed for each line." },
-      { id: 'C', text: "Use the 'Tags' column and require every team to tag its resources with the owning account and region so the hierarchy is readable." },
-      { id: 'D', text: "Utilize standardized dimensions: 'ProviderName', 'BillingAccountId', 'SubAccountId', 'ResourceId', 'ResourceType', and 'RegionId'." }
+      { id: 'C', text: "Utilize standardized dimensions: 'ProviderName', 'BillingAccountId', 'SubAccountId', 'ResourceId', 'ResourceType', and 'RegionId'." },
+      { id: 'D', text: "Use the 'Tags' column and require every team to tag its resources with the owning account and region so the hierarchy is readable." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "The FOCUS hierarchy columns are typed and populated by the provider, so one grouping expression works across clouds and keeps working as accounts are added. Mapping the native identifiers at query time reproduces those columns in every query that needs them and breaks when a provider renames a field. InvoiceIssuerName and BillingAccountName identify the billing relationship, which is not the same as the account a resource lives in, and names are not stable identifiers. Tags depend on teams applying them and are missing on exactly the untagged resources that most need attributing.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -261,12 +261,12 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The FinOps team is comparing the unit rate paid for equivalent resources on different providers. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Measure usage using 'PricingQuantity' and standardized 'PricingUnit' (e.g., 'Hour', 'Gigabyte-Month', 'Request') to compare unit rates directly." },
-      { id: 'B', text: "Measure usage with 'ConsumedQuantity' and 'ConsumedUnit', which together record the metered amount of the resource that was actually used." },
-      { id: 'C', text: "Compare the providers on 'ListUnitPrice' alone, since the public rate is the one unit figure each of them quotes the same way." },
-      { id: 'D', text: "Divide 'EffectiveCost' by 'ContractedUnitPrice' on each line so that a comparable quantity is derived from the cost columns." }
+      { id: 'A', text: "Measure usage with 'ConsumedQuantity' and 'ConsumedUnit', which together record the metered amount of the resource that was actually used." },
+      { id: 'B', text: "Divide 'EffectiveCost' by 'ContractedUnitPrice' on each line so that a comparable quantity is derived from the cost columns." },
+      { id: 'C', text: "Measure usage using 'PricingQuantity' and standardized 'PricingUnit' (e.g., 'Hour', 'Gigabyte-Month', 'Request') to compare unit rates directly." },
+      { id: 'D', text: "Compare the providers on 'ListUnitPrice' alone, since the public rate is the one unit figure each of them quotes the same way." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "PricingQuantity and PricingUnit describe the basis on which the line was actually priced, which is what makes a rate divided by a quantity meaningful. ConsumedQuantity and ConsumedUnit record metered consumption, and the two differ whenever pricing is blocked, so a thousand requests priced as one unit would distort the comparison. ListUnitPrice compares published rates rather than what the organisation paid. Deriving the quantity by dividing cost by unit price reconstructs PricingQuantity with rounding error and fails on any line where the price is zero.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -282,12 +282,12 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     scenario: "A real-time competitive gaming cluster orchestrates match sessions with regional matchmaking and anti-cheat validation. The FinOps team is separating the value delivered by rate negotiation from the value of commitments. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Compare 'ListCost' against 'BilledCost' so that the difference captures every single discount which reached the invoice during that particular month." },
-      { id: 'B', text: "Compare 'ListCost' (public pricing), 'ContractedCost' (negotiated enterprise rate), and 'EffectiveCost' to quantify enterprise discount savings." },
+      { id: 'A', text: "Compare 'BilledCost' against 'EffectiveCost' so that the difference shows what the commitments contributed across the period." },
+      { id: 'B', text: "Compare 'ListCost' against 'BilledCost' so that the difference captures every single discount which reached the invoice during that particular month." },
       { id: 'C', text: "Compare the contracted rate against 'ListUnitPrice' on each line and multiply that gap by the pricing quantity for every row." },
-      { id: 'D', text: "Compare 'BilledCost' against 'EffectiveCost' so that the difference shows what the commitments contributed across the period." }
+      { id: 'D', text: "Compare 'ListCost' (public pricing), 'ContractedCost' (negotiated enterprise rate), and 'EffectiveCost' to quantify enterprise discount savings." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The three-way comparison isolates each source of value: list to contracted is what rate negotiation delivered, and contracted to effective is what commitment management delivered. Comparing list against billed conflates the two and is distorted in any month containing an upfront purchase. The per-unit price comparison recovers the negotiated rate discount accurately but misses commitments entirely. Billed against effective shows only the timing effect of amortisation, which is a presentation difference rather than a saving.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -303,12 +303,12 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     scenario: "An actuarial underwriting platform executes Monte Carlo simulations across millions of policy holder records with parallel workers. The FinOps team is attributing every line of spend to the business owner that should carry it. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Query each provider's own tag columns and union the results, renaming the differing tag key spellings for each provider as part of the warehouse load step." },
-      { id: 'B', text: "Query 'SubAccountId' and maintain a lookup table mapping accounts and subscriptions across to the team known to own each one." },
-      { id: 'C', text: "Query the standardized FOCUS 'Tags' dictionary column to extract cost allocation keys (e.g., 'Tags[\"cost_center\"]') uniformly across all providers." },
-      { id: 'D', text: "Query 'ResourceName' and derive the cost owner from the naming convention that the platform team asks everyone to follow." }
+      { id: 'A', text: "Query 'SubAccountId' and maintain a lookup table mapping accounts and subscriptions across to the team known to own each one." },
+      { id: 'B', text: "Query the standardized FOCUS 'Tags' dictionary column to extract cost allocation keys (e.g., 'Tags[\"cost_center\"]') uniformly across all providers." },
+      { id: 'C', text: "Query 'ResourceName' and derive the cost owner from the naming convention that the platform team asks everyone to follow." },
+      { id: 'D', text: "Query each provider's own tag columns and union the results, renaming the differing tag key spellings for each provider as part of the warehouse load step." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "FOCUS normalises provider tags into one key-value column, so a single expression allocates spend across every cloud and survives a provider changing its export. Unioning the native tag columns achieves the same result but the union has to be revisited whenever a format changes. An account-to-team lookup is a legitimate and widely used strategy, though it is only as granular as the account boundary and cannot split a shared account. A naming convention is unenforceable in billing data, so it fails silently on every resource that ignores it.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -324,12 +324,12 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     scenario: "A global pharmaceutical research group manages double-blind clinical trial records with strict regulatory reporting and audit trails. The FinOps team is making cost data from several providers directly comparable in one warehouse. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Build an internal canonical billing schema and write one mapping per provider, maintaining each of those mappings by hand as that provider changes its export format over time." },
-      { id: 'B', text: "Adopt a commercial cloud cost management platform and use that product's own normalised data model as the reporting layer for every cloud and SaaS provider." },
-      { id: 'C', text: "Load each provider's native export into its own table and have the FinOps team join them in the warehouse with views lining up comparable columns." },
-      { id: 'D', text: "Adopt FOCUS as the vendor-neutral billing schema." }
+      { id: 'A', text: "Adopt a commercial cloud cost management platform and use that product's own normalised data model as the reporting layer for every cloud and SaaS provider." },
+      { id: 'B', text: "Adopt FOCUS as the vendor-neutral billing schema." },
+      { id: 'C', text: "Build an internal canonical billing schema and write one mapping per provider, maintaining each of those mappings by hand as that provider changes its export format over time." },
+      { id: 'D', text: "Load each provider's native export into its own table and have the FinOps team join them in the warehouse with views lining up comparable columns." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "FOCUS is an open specification that the providers themselves publish conforming exports against, so the normalisation is maintained upstream and a new service arrives already mapped. An internal canonical schema is the same idea without that leverage: every provider format change becomes local maintenance. A commercial platform does normalise, but the model belongs to the product and reporting has to move with it. Per-provider tables joined by views leave every new column and service to be reconciled by hand.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -346,9 +346,9 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "'BilledCost' for invoices, 'EffectiveCost' for chargeback." },
-      { id: 'B', text: "Use 'EffectiveCost' for the invoice reconciliation as well as the team chargeback so that one column is applied consistently everywhere." },
-      { id: 'C', text: "Use 'ContractedCost' for reconciling to the vendor invoice as well as for chargeback, since it reflects the negotiated rate." },
-      { id: 'D', text: "Use 'ListCost' for the chargeback so that teams see the undiscounted rate and the savings remain with the central FinOps function." }
+      { id: 'B', text: "Use 'ListCost' for the chargeback so that teams see the undiscounted rate and the savings remain with the central FinOps function." },
+      { id: 'C', text: "Use 'EffectiveCost' for the invoice reconciliation as well as the team chargeback so that one column is applied consistently everywhere." },
+      { id: 'D', text: "Use 'ContractedCost' for reconciling to the vendor invoice as well as for chargeback, since it reflects the negotiated rate." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     scenario: "A cross-border passport control gateway validates identity credentials with zero-knowledge cryptographic proofs. The FinOps team is splitting billing lines into consumption, commitment purchases, tax, and credits. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Query the 'ServiceCategory' column, which groups every usage line by the kind of service that it belongs to consistently across all of the supported providers." },
-      { id: 'B', text: "Query the 'ChargeCategory' column to segment billing lines into 'Usage', 'Purchase', 'Tax', 'Adjustment', and 'Credit' with standard subcategories." },
-      { id: 'C', text: "Query the 'ChargeClass' column, which marks whether billing lines are corrections applied to a previously invoiced period." },
-      { id: 'D', text: "Query the 'CommitmentDiscountStatus' column, which reports whether a line represents used or unused commitment capacity." }
+      { id: 'A', text: "Query the 'CommitmentDiscountStatus' column, which reports whether a line represents used or unused commitment capacity." },
+      { id: 'B', text: "Query the 'ServiceCategory' column, which groups every usage line by the kind of service that it belongs to consistently across all of the supported providers." },
+      { id: 'C', text: "Query the 'ChargeCategory' column to segment billing lines into 'Usage', 'Purchase', 'Tax', 'Adjustment', and 'Credit' with standard subcategories." },
+      { id: 'D', text: "Query the 'ChargeClass' column, which marks whether billing lines are corrections applied to a previously invoiced period." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "ChargeCategory is the column FOCUS defines for exactly this split, with a closed set of values so a query written once keeps working as providers add services. ServiceCategory answers a different question, grouping by what the service does rather than what kind of charge the line is. ChargeClass distinguishes a regular line from a correction to an earlier period, which is orthogonal to whether the charge is usage or tax. CommitmentDiscountStatus applies only to lines covered by a commitment and says nothing about tax, credits, or adjustments.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -387,12 +387,12 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     scenario: "A global law firm conducts regulatory discovery across millions of scanned legal filings with vector-enhanced semantic retrieval. The FinOps team is grouping spend by account and resource consistently across every provider. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Join each provider's native identifier columns, mapping LinkedAccountId, SubscriptionId, and project.id onto a shared key at query time." },
-      { id: 'B', text: "Use 'InvoiceIssuerName' and 'BillingAccountName' as the grouping keys, since together they identify who is being billed for each line." },
-      { id: 'C', text: "Utilize standardized dimensions: 'ProviderName', 'BillingAccountId', 'SubAccountId', 'ResourceId', 'ResourceType', and 'RegionId'." },
-      { id: 'D', text: "Use the 'Tags' column and require every team to tag its resources with the owning account and region so the hierarchy is readable." }
+      { id: 'A', text: "Use 'InvoiceIssuerName' and 'BillingAccountName' as the grouping keys, since together they identify who is being billed for each line." },
+      { id: 'B', text: "Use the 'Tags' column and require every team to tag its resources with the owning account and region so the hierarchy is readable." },
+      { id: 'C', text: "Join each provider's native identifier columns, mapping LinkedAccountId, SubscriptionId, and project.id onto a shared key at query time." },
+      { id: 'D', text: "Utilize standardized dimensions: 'ProviderName', 'BillingAccountId', 'SubAccountId', 'ResourceId', 'ResourceType', and 'RegionId'." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "The FOCUS hierarchy columns are typed and populated by the provider, so one grouping expression works across clouds and keeps working as accounts are added. Mapping the native identifiers at query time reproduces those columns in every query that needs them and breaks when a provider renames a field. InvoiceIssuerName and BillingAccountName identify the billing relationship, which is not the same as the account a resource lives in, and names are not stable identifiers. Tags depend on teams applying them and are missing on exactly the untagged resources that most need attributing.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -408,12 +408,12 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     scenario: "An advertising exchange processes 500,000 bids per second with a strict 20-millisecond SLA and distributed caching. The FinOps team is comparing the unit rate paid for equivalent resources on different providers. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Measure usage with 'ConsumedQuantity' and 'ConsumedUnit', which together record the metered amount of the resource that was actually used." },
-      { id: 'B', text: "Compare the providers on 'ListUnitPrice' alone, since the public rate is the one unit figure each of them quotes the same way." },
-      { id: 'C', text: "Divide 'EffectiveCost' by 'ContractedUnitPrice' on each line so that a comparable quantity is derived from the cost columns." },
-      { id: 'D', text: "Measure usage using 'PricingQuantity' and standardized 'PricingUnit' (e.g., 'Hour', 'Gigabyte-Month', 'Request') to compare unit rates directly." }
+      { id: 'A', text: "Divide 'EffectiveCost' by 'ContractedUnitPrice' on each line so that a comparable quantity is derived from the cost columns." },
+      { id: 'B', text: "Measure usage using 'PricingQuantity' and standardized 'PricingUnit' (e.g., 'Hour', 'Gigabyte-Month', 'Request') to compare unit rates directly." },
+      { id: 'C', text: "Compare the providers on 'ListUnitPrice' alone, since the public rate is the one unit figure each of them quotes the same way." },
+      { id: 'D', text: "Measure usage with 'ConsumedQuantity' and 'ConsumedUnit', which together record the metered amount of the resource that was actually used." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "PricingQuantity and PricingUnit describe the basis on which the line was actually priced, which is what makes a rate divided by a quantity meaningful. ConsumedQuantity and ConsumedUnit record metered consumption, and the two differ whenever pricing is blocked, so a thousand requests priced as one unit would distort the comparison. ListUnitPrice compares published rates rather than what the organisation paid. Deriving the quantity by dividing cost by unit price reconstructs PricingQuantity with rounding error and fails on any line where the price is zero.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -429,12 +429,12 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     scenario: "An agricultural drone fleet captures multispectral crop imagery with automated computer vision defect classification. The FinOps team is separating the value delivered by rate negotiation from the value of commitments. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Compare 'ListCost' (public pricing), 'ContractedCost' (negotiated enterprise rate), and 'EffectiveCost' to quantify enterprise discount savings." },
-      { id: 'B', text: "Compare 'ListCost' against 'BilledCost' so that the difference captures every single discount which reached the invoice during that particular month." },
-      { id: 'C', text: "Compare the contracted rate against 'ListUnitPrice' on each line and multiply that gap by the pricing quantity for every row." },
-      { id: 'D', text: "Compare 'BilledCost' against 'EffectiveCost' so that the difference shows what the commitments contributed across the period." }
+      { id: 'A', text: "Compare 'BilledCost' against 'EffectiveCost' so that the difference shows what the commitments contributed across the period." },
+      { id: 'B', text: "Compare 'ListCost' (public pricing), 'ContractedCost' (negotiated enterprise rate), and 'EffectiveCost' to quantify enterprise discount savings." },
+      { id: 'C', text: "Compare 'ListCost' against 'BilledCost' so that the difference captures every single discount which reached the invoice during that particular month." },
+      { id: 'D', text: "Compare the contracted rate against 'ListUnitPrice' on each line and multiply that gap by the pricing quantity for every row." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "The three-way comparison isolates each source of value: list to contracted is what rate negotiation delivered, and contracted to effective is what commitment management delivered. Comparing list against billed conflates the two and is distorted in any month containing an upfront purchase. The per-unit price comparison recovers the negotiated rate discount accurately but misses commitments entirely. Billed against effective shows only the timing effect of amortisation, which is a presentation difference rather than a saving.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -450,12 +450,12 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     scenario: "A semiconductor fabrication facility detects vibration harmonics on manufacturing robots to prevent unplanned downtime. The FinOps team is attributing every line of spend to the business owner that should carry it. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Query each provider's own tag columns and union the results, renaming the differing tag key spellings for each provider as part of the warehouse load step." },
-      { id: 'B', text: "Query the standardized FOCUS 'Tags' dictionary column to extract cost allocation keys (e.g., 'Tags[\"cost_center\"]') uniformly across all providers." },
-      { id: 'C', text: "Query 'SubAccountId' and maintain a lookup table mapping accounts and subscriptions across to the team known to own each one." },
-      { id: 'D', text: "Query 'ResourceName' and derive the cost owner from the naming convention that the platform team asks everyone to follow." }
+      { id: 'A', text: "Query 'SubAccountId' and maintain a lookup table mapping accounts and subscriptions across to the team known to own each one." },
+      { id: 'B', text: "Query each provider's own tag columns and union the results, renaming the differing tag key spellings for each provider as part of the warehouse load step." },
+      { id: 'C', text: "Query 'ResourceName' and derive the cost owner from the naming convention that the platform team asks everyone to follow." },
+      { id: 'D', text: "Query the standardized FOCUS 'Tags' dictionary column to extract cost allocation keys (e.g., 'Tags[\"cost_center\"]') uniformly across all providers." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "FOCUS normalises provider tags into one key-value column, so a single expression allocates spend across every cloud and survives a provider changing its export. Unioning the native tag columns achieves the same result but the union has to be revisited whenever a format changes. An account-to-team lookup is a legitimate and widely used strategy, though it is only as granular as the account boundary and cannot split a shared account. A naming convention is unenforceable in billing data, so it fails silently on every resource that ignores it.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -493,11 +493,11 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use 'EffectiveCost' for the invoice reconciliation as well as the team chargeback so that one column is applied consistently everywhere." },
-      { id: 'B', text: "Use 'ContractedCost' for reconciling to the vendor invoice as well as for chargeback, since it reflects the negotiated rate." },
+      { id: 'B', text: "'BilledCost' for invoices, 'EffectiveCost' for chargeback." },
       { id: 'C', text: "Use 'ListCost' for the chargeback so that teams see the undiscounted rate and the savings remain with the central FinOps function." },
-      { id: 'D', text: "'BilledCost' for invoices, 'EffectiveCost' for chargeback." }
+      { id: 'D', text: "Use 'ContractedCost' for reconciling to the vendor invoice as well as for chargeback, since it reflects the negotiated rate." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "BilledCost is the charge that appears on the invoice for the period, so it is the only column that ties out to the cash, while EffectiveCost spreads a commitment purchase across the usage that consumed it, which is what makes a monthly team figure stable. Using EffectiveCost for reconciliation will not match the invoice in any month containing an upfront payment. ContractedCost carries the negotiated rate but no amortisation, so an upfront purchase still lands in a single month. Charging teams at ListCost bills them for a discount the organisation did receive.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",
@@ -513,12 +513,12 @@ export const FINOPS_FOCUS_QUESTIONS_3 = [
     scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The FinOps team is splitting billing lines into consumption, commitment purchases, tax, and credits. The work is scoped to the pre-production environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Query the 'ChargeCategory' column to segment billing lines into 'Usage', 'Purchase', 'Tax', 'Adjustment', and 'Credit' with standard subcategories." },
-      { id: 'B', text: "Query the 'ServiceCategory' column, which groups every usage line by the kind of service that it belongs to consistently across all of the supported providers." },
+      { id: 'A', text: "Query the 'CommitmentDiscountStatus' column, which reports whether a line represents used or unused commitment capacity." },
+      { id: 'B', text: "Query the 'ChargeCategory' column to segment billing lines into 'Usage', 'Purchase', 'Tax', 'Adjustment', and 'Credit' with standard subcategories." },
       { id: 'C', text: "Query the 'ChargeClass' column, which marks whether billing lines are corrections applied to a previously invoiced period." },
-      { id: 'D', text: "Query the 'CommitmentDiscountStatus' column, which reports whether a line represents used or unused commitment capacity." }
+      { id: 'D', text: "Query the 'ServiceCategory' column, which groups every usage line by the kind of service that it belongs to consistently across all of the supported providers." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "ChargeCategory is the column FOCUS defines for exactly this split, with a closed set of values so a query written once keeps working as providers add services. ServiceCategory answers a different question, grouping by what the service does rather than what kind of charge the line is. ChargeClass distinguishes a regular line from a correction to an earlier period, which is orthogonal to whether the charge is usage or tax. CommitmentDiscountStatus applies only to lines covered by a commitment and says nothing about tax, credits, or adjustments.",
     referenceUrl: "https://www.finops.org/certification/focus-analyst/",

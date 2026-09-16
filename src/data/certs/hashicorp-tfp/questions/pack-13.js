@@ -10,9 +10,9 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Set `kms_key_id = var.enable_encryption ? var.kms_key_id : null` in the resource specification." },
-      { id: 'B', text: "Pass a dummy invalid KMS ARN when encryption is disabled." },
+      { id: 'B', text: "Set `kms_key_id = \"\"` passing an empty string that cloud APIs reject with validation errors." },
       { id: 'C', text: "Duplicate the entire resource block into two versions (encrypted and unencrypted)." },
-      { id: 'D', text: "Set `kms_key_id = \"\"` passing an empty string that cloud APIs reject with validation errors." }
+      { id: 'D', text: "Pass a dummy invalid KMS ARN when encryption is disabled." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -31,9 +31,9 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
       { id: 'A', text: "Set `kms_key_id = var.enable_encryption ? var.kms_key_id : null` in the resource specification." },
-      { id: 'B', text: "Duplicate the entire resource block into two versions (encrypted and unencrypted)." },
-      { id: 'C', text: "Pass a dummy invalid KMS ARN when encryption is disabled." },
-      { id: 'D', text: "Set `kms_key_id = \"\"` passing an empty string that cloud APIs reject with validation errors." }
+      { id: 'B', text: "Pass a dummy invalid KMS ARN when encryption is disabled." },
+      { id: 'C', text: "Set `kms_key_id = \"\"` passing an empty string that cloud APIs reject with validation errors." },
+      { id: 'D', text: "Duplicate the entire resource block into two versions (encrypted and unencrypted)." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Attribute Suppression to conditionally omit an optional configuration attribute (like `kms_key_id`) from a resource API call when encryption is disabled.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Pass a dummy invalid KMS ARN when encryption is disabled." },
+      { id: 'A', text: "Set `kms_key_id = var.enable_encryption ? var.kms_key_id : null` in the resource specification." },
       { id: 'B', text: "Set `kms_key_id = \"\"` passing an empty string that cloud APIs reject with validation errors." },
       { id: 'C', text: "Duplicate the entire resource block into two versions (encrypted and unencrypted)." },
-      { id: 'D', text: "Set `kms_key_id = var.enable_encryption ? var.kms_key_id : null` in the resource specification." }
+      { id: 'D', text: "Pass a dummy invalid KMS ARN when encryption is disabled." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Set `kms_key_id = var.enable_encryption ? var.kms_key_id : null` in the resource specification. In Terraform, assigning `null` to an argument is equivalent to omitting that argument entirely. This allows configurations to dynamically suppress optional parameters without duplicating entire resource definitions or passing invalid empty string values to cloud APIs.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/null",
@@ -72,12 +72,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Attribute Suppression to conditionally omit an optional configuration attribute (like `kms_key_id`) from a resource API call when encryption is disabled.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Pass a dummy invalid KMS ARN when encryption is disabled." },
-      { id: 'B', text: "Set `kms_key_id = var.enable_encryption ? var.kms_key_id : null` in the resource specification." },
-      { id: 'C', text: "Set `kms_key_id = \"\"` passing an empty string that cloud APIs reject with validation errors." },
-      { id: 'D', text: "Duplicate the entire resource block into two versions (encrypted and unencrypted)." }
+      { id: 'A', text: "Duplicate the entire resource block into two versions (encrypted and unencrypted)." },
+      { id: 'B', text: "Pass a dummy invalid KMS ARN when encryption is disabled." },
+      { id: 'C', text: "Set `kms_key_id = var.enable_encryption ? var.kms_key_id : null` in the resource specification." },
+      { id: 'D', text: "Set `kms_key_id = \"\"` passing an empty string that cloud APIs reject with validation errors." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Set `kms_key_id = var.enable_encryption ? var.kms_key_id : null` in the resource specification. In Terraform, assigning `null` to an argument is equivalent to omitting that argument entirely. This allows configurations to dynamically suppress optional parameters without duplicating entire resource definitions or passing invalid empty string values to cloud APIs.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/null",
@@ -93,12 +93,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Attribute Suppression to conditionally omit an optional configuration attribute (like `kms_key_id`) from a resource API call when encryption is disabled.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Duplicate the entire resource block into two versions (encrypted and unencrypted)." },
+      { id: 'A', text: "Set `kms_key_id = var.enable_encryption ? var.kms_key_id : null` in the resource specification." },
       { id: 'B', text: "Set `kms_key_id = \"\"` passing an empty string that cloud APIs reject with validation errors." },
-      { id: 'C', text: "Set `kms_key_id = var.enable_encryption ? var.kms_key_id : null` in the resource specification." },
+      { id: 'C', text: "Duplicate the entire resource block into two versions (encrypted and unencrypted)." },
       { id: 'D', text: "Pass a dummy invalid KMS ARN when encryption is disabled." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Set `kms_key_id = var.enable_encryption ? var.kms_key_id : null` in the resource specification. In Terraform, assigning `null` to an argument is equivalent to omitting that argument entirely. This allows configurations to dynamically suppress optional parameters without duplicating entire resource definitions or passing invalid empty string values to cloud APIs.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/expressions/null",
@@ -114,12 +114,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Encoding Functions to generate a complex AWS IAM policy document containing variable values without introducing JSON syntax or escaping errors.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Write raw JSON strings in heredoc blocks and manually escape all quotation marks." },
-      { id: 'B', text: "Hardcode static JSON strings without parameterization." },
-      { id: 'C', text: "Use `jsonencode()` with native HCL map and list structures rather than writing raw heredoc JSON strings with `${...}` interpolation." },
-      { id: 'D', text: "Generate JSON using an external Python script executed via local-exec." }
+      { id: 'A', text: "Hardcode static JSON strings without parameterization." },
+      { id: 'B', text: "Generate JSON using an external Python script executed via local-exec." },
+      { id: 'C', text: "Write raw JSON strings in heredoc blocks and manually escape all quotation marks." },
+      { id: 'D', text: "Use `jsonencode()` with native HCL map and list structures rather than writing raw heredoc JSON strings with `${...}` interpolation." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use `jsonencode()` with native HCL map and list structures rather than writing raw heredoc JSON strings with `${...}` interpolation. Authoring JSON policies via string concatenation in heredoc blocks is error-prone and vulnerable to syntax errors. Using `jsonencode()` allows authoring policies using native HCL syntax with type safety, ensuring Terraform serializes perfectly formatted, valid JSON payloads.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/functions/jsonencode",
@@ -135,12 +135,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Encoding Functions to generate a complex AWS IAM policy document containing variable values without introducing JSON syntax or escaping errors.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Generate JSON using an external Python script executed via local-exec." },
+      { id: 'A', text: "Use `jsonencode()` with native HCL map and list structures rather than writing raw heredoc JSON strings with `${...}` interpolation." },
       { id: 'B', text: "Write raw JSON strings in heredoc blocks and manually escape all quotation marks." },
-      { id: 'C', text: "Use `jsonencode()` with native HCL map and list structures rather than writing raw heredoc JSON strings with `${...}` interpolation." },
+      { id: 'C', text: "Generate JSON using an external Python script executed via local-exec." },
       { id: 'D', text: "Hardcode static JSON strings without parameterization." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Use `jsonencode()` with native HCL map and list structures rather than writing raw heredoc JSON strings with `${...}` interpolation. Authoring JSON policies via string concatenation in heredoc blocks is error-prone and vulnerable to syntax errors. Using `jsonencode()` allows authoring policies using native HCL syntax with type safety, ensuring Terraform serializes perfectly formatted, valid JSON payloads.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/functions/jsonencode",
@@ -156,12 +156,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Encoding Functions to generate a complex AWS IAM policy document containing variable values without introducing JSON syntax or escaping errors.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Hardcode static JSON strings without parameterization." },
-      { id: 'B', text: "Generate JSON using an external Python script executed via local-exec." },
-      { id: 'C', text: "Write raw JSON strings in heredoc blocks and manually escape all quotation marks." },
-      { id: 'D', text: "Use `jsonencode()` with native HCL map and list structures rather than writing raw heredoc JSON strings with `${...}` interpolation." }
+      { id: 'A', text: "Use `jsonencode()` with native HCL map and list structures rather than writing raw heredoc JSON strings with `${...}` interpolation." },
+      { id: 'B', text: "Write raw JSON strings in heredoc blocks and manually escape all quotation marks." },
+      { id: 'C', text: "Generate JSON using an external Python script executed via local-exec." },
+      { id: 'D', text: "Hardcode static JSON strings without parameterization." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Use `jsonencode()` with native HCL map and list structures rather than writing raw heredoc JSON strings with `${...}` interpolation. Authoring JSON policies via string concatenation in heredoc blocks is error-prone and vulnerable to syntax errors. Using `jsonencode()` allows authoring policies using native HCL syntax with type safety, ensuring Terraform serializes perfectly formatted, valid JSON payloads.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/functions/jsonencode",
@@ -177,12 +177,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Encoding Functions to generate a complex AWS IAM policy document containing variable values without introducing JSON syntax or escaping errors.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Generate JSON using an external Python script executed via local-exec." },
-      { id: 'B', text: "Hardcode static JSON strings without parameterization." },
-      { id: 'C', text: "Use `jsonencode()` with native HCL map and list structures rather than writing raw heredoc JSON strings with `${...}` interpolation." },
-      { id: 'D', text: "Write raw JSON strings in heredoc blocks and manually escape all quotation marks." }
+      { id: 'A', text: "Use `jsonencode()` with native HCL map and list structures rather than writing raw heredoc JSON strings with `${...}` interpolation." },
+      { id: 'B', text: "Write raw JSON strings in heredoc blocks and manually escape all quotation marks." },
+      { id: 'C', text: "Generate JSON using an external Python script executed via local-exec." },
+      { id: 'D', text: "Hardcode static JSON strings without parameterization." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Use `jsonencode()` with native HCL map and list structures rather than writing raw heredoc JSON strings with `${...}` interpolation. Authoring JSON policies via string concatenation in heredoc blocks is error-prone and vulnerable to syntax errors. Using `jsonencode()` allows authoring policies using native HCL syntax with type safety, ensuring Terraform serializes perfectly formatted, valid JSON payloads.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/functions/jsonencode",
@@ -198,12 +198,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Encoding Functions to generate a complex AWS IAM policy document containing variable values without introducing JSON syntax or escaping errors.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Write raw JSON strings in heredoc blocks and manually escape all quotation marks." },
-      { id: 'B', text: "Generate JSON using an external Python script executed via local-exec." },
-      { id: 'C', text: "Use `jsonencode()` with native HCL map and list structures rather than writing raw heredoc JSON strings with `${...}` interpolation." },
+      { id: 'A', text: "Generate JSON using an external Python script executed via local-exec." },
+      { id: 'B', text: "Use `jsonencode()` with native HCL map and list structures rather than writing raw heredoc JSON strings with `${...}` interpolation." },
+      { id: 'C', text: "Write raw JSON strings in heredoc blocks and manually escape all quotation marks." },
       { id: 'D', text: "Hardcode static JSON strings without parameterization." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use `jsonencode()` with native HCL map and list structures rather than writing raw heredoc JSON strings with `${...}` interpolation. Authoring JSON policies via string concatenation in heredoc blocks is error-prone and vulnerable to syntax errors. Using `jsonencode()` allows authoring policies using native HCL syntax with type safety, ensuring Terraform serializes perfectly formatted, valid JSON payloads.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/functions/jsonencode",
@@ -219,12 +219,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Module Design to design a reusable infrastructure module library for enterprise development teams without creating monolithic, inflexible modules.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Create a separate module for every single individual cloud resource." },
-      { id: 'B', text: "Prohibit modules and require all teams to write standalone flat resource manifests." },
-      { id: 'C', text: "Design small, composable modules focused on single infrastructure domains (e.g., networking, compute, database) that can be combined cleanly." },
-      { id: 'D', text: "Create a single monolithic 10,000-line module that provisions an entire company's infrastructure in one block." }
+      { id: 'A', text: "Create a single monolithic 10,000-line module that provisions an entire company's infrastructure in one block." },
+      { id: 'B', text: "Design small, composable modules focused on single infrastructure domains (e.g., networking, compute, database) that can be combined cleanly." },
+      { id: 'C', text: "Create a separate module for every single individual cloud resource." },
+      { id: 'D', text: "Prohibit modules and require all teams to write standalone flat resource manifests." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Design small, composable modules focused on single infrastructure domains (e.g., networking, compute, database) that can be combined cleanly. Effective module design follows software engineering principles: high cohesion and low coupling. Small, focused modules (single responsibility) are easily tested, versioned, and composed together, whereas monolithic modules become brittle and difficult to maintain.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop",
@@ -240,12 +240,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Module Design to design a reusable infrastructure module library for enterprise development teams without creating monolithic, inflexible modules.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Create a single monolithic 10,000-line module that provisions an entire company's infrastructure in one block." },
-      { id: 'B', text: "Prohibit modules and require all teams to write standalone flat resource manifests." },
-      { id: 'C', text: "Create a separate module for every single individual cloud resource." },
-      { id: 'D', text: "Design small, composable modules focused on single infrastructure domains (e.g., networking, compute, database) that can be combined cleanly." }
+      { id: 'A', text: "Prohibit modules and require all teams to write standalone flat resource manifests." },
+      { id: 'B', text: "Create a separate module for every single individual cloud resource." },
+      { id: 'C', text: "Design small, composable modules focused on single infrastructure domains (e.g., networking, compute, database) that can be combined cleanly." },
+      { id: 'D', text: "Create a single monolithic 10,000-line module that provisions an entire company's infrastructure in one block." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Design small, composable modules focused on single infrastructure domains (e.g., networking, compute, database) that can be combined cleanly. Effective module design follows software engineering principles: high cohesion and low coupling. Small, focused modules (single responsibility) are easily tested, versioned, and composed together, whereas monolithic modules become brittle and difficult to maintain.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop",
@@ -261,12 +261,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Module Design to design a reusable infrastructure module library for enterprise development teams without creating monolithic, inflexible modules.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Prohibit modules and require all teams to write standalone flat resource manifests." },
-      { id: 'B', text: "Create a separate module for every single individual cloud resource." },
-      { id: 'C', text: "Create a single monolithic 10,000-line module that provisions an entire company's infrastructure in one block." },
-      { id: 'D', text: "Design small, composable modules focused on single infrastructure domains (e.g., networking, compute, database) that can be combined cleanly." }
+      { id: 'A', text: "Create a single monolithic 10,000-line module that provisions an entire company's infrastructure in one block." },
+      { id: 'B', text: "Design small, composable modules focused on single infrastructure domains (e.g., networking, compute, database) that can be combined cleanly." },
+      { id: 'C', text: "Create a separate module for every single individual cloud resource." },
+      { id: 'D', text: "Prohibit modules and require all teams to write standalone flat resource manifests." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Design small, composable modules focused on single infrastructure domains (e.g., networking, compute, database) that can be combined cleanly. Effective module design follows software engineering principles: high cohesion and low coupling. Small, focused modules (single responsibility) are easily tested, versioned, and composed together, whereas monolithic modules become brittle and difficult to maintain.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop",
@@ -282,12 +282,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Module Design to design a reusable infrastructure module library for enterprise development teams without creating monolithic, inflexible modules.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Create a separate module for every single individual cloud resource." },
-      { id: 'B', text: "Prohibit modules and require all teams to write standalone flat resource manifests." },
-      { id: 'C', text: "Design small, composable modules focused on single infrastructure domains (e.g., networking, compute, database) that can be combined cleanly." },
-      { id: 'D', text: "Create a single monolithic 10,000-line module that provisions an entire company's infrastructure in one block." }
+      { id: 'A', text: "Create a single monolithic 10,000-line module that provisions an entire company's infrastructure in one block." },
+      { id: 'B', text: "Design small, composable modules focused on single infrastructure domains (e.g., networking, compute, database) that can be combined cleanly." },
+      { id: 'C', text: "Create a separate module for every single individual cloud resource." },
+      { id: 'D', text: "Prohibit modules and require all teams to write standalone flat resource manifests." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Design small, composable modules focused on single infrastructure domains (e.g., networking, compute, database) that can be combined cleanly. Effective module design follows software engineering principles: high cohesion and low coupling. Small, focused modules (single responsibility) are easily tested, versioned, and composed together, whereas monolithic modules become brittle and difficult to maintain.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop",
@@ -303,12 +303,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Module Design to design a reusable infrastructure module library for enterprise development teams without creating monolithic, inflexible modules.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Create a separate module for every single individual cloud resource." },
+      { id: 'A', text: "Design small, composable modules focused on single infrastructure domains (e.g., networking, compute, database) that can be combined cleanly." },
       { id: 'B', text: "Create a single monolithic 10,000-line module that provisions an entire company's infrastructure in one block." },
       { id: 'C', text: "Prohibit modules and require all teams to write standalone flat resource manifests." },
-      { id: 'D', text: "Design small, composable modules focused on single infrastructure domains (e.g., networking, compute, database) that can be combined cleanly." }
+      { id: 'D', text: "Create a separate module for every single individual cloud resource." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Design small, composable modules focused on single infrastructure domains (e.g., networking, compute, database) that can be combined cleanly. Effective module design follows software engineering principles: high cohesion and low coupling. Small, focused modules (single responsibility) are easily tested, versioned, and composed together, whereas monolithic modules become brittle and difficult to maintain.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop",
@@ -324,12 +324,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Private Registry to distribute an internal enterprise security module across 40 development teams with automated versioning and usage tracking.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Upload unversioned zip archives to an internal SharePoint drive." },
+      { id: 'A', text: "Send updated `.tf` files to developers via email." },
       { id: 'B', text: "Commit raw module files directly into every development repository branch." },
-      { id: 'C', text: "Connect the module's Git repository (`terraform-&lt;provider&gt;-&lt;name&gt;`) to the HCP Terraform Private Registry using semantic Git release tags (e.g., `v1.2.0`)." },
-      { id: 'D', text: "Send updated `.tf` files to developers via email." }
+      { id: 'C', text: "Upload unversioned zip archives to an internal SharePoint drive." },
+      { id: 'D', text: "Connect the module's Git repository (`terraform-&lt;provider&gt;-&lt;name&gt;`) to the HCP Terraform Private Registry using semantic Git release tags (e.g., `v1.2.0`)." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Connect the module's Git repository (`terraform-&lt;provider&gt;-&lt;name&gt;`) to the HCP Terraform Private Registry using semantic Git release tags (e.g., `v1.2.0`). The HCP Terraform Private Registry enforces naming conventions (`terraform-&lt;provider&gt;-&lt;name&gt;`) and integrates with Git repositories. Creating semantic Git release tags (`vX.Y.Z`) automatically publishes versioned modules, allowing consumers to pin stable releases and track deprecations.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/registry",
@@ -345,12 +345,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Private Registry to distribute an internal enterprise security module across 40 development teams with automated versioning and usage tracking.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Send updated `.tf` files to developers via email." },
+      { id: 'A', text: "Upload unversioned zip archives to an internal SharePoint drive." },
       { id: 'B', text: "Commit raw module files directly into every development repository branch." },
-      { id: 'C', text: "Upload unversioned zip archives to an internal SharePoint drive." },
-      { id: 'D', text: "Connect the module's Git repository (`terraform-&lt;provider&gt;-&lt;name&gt;`) to the HCP Terraform Private Registry using semantic Git release tags (e.g., `v1.2.0`)." }
+      { id: 'C', text: "Connect the module's Git repository (`terraform-&lt;provider&gt;-&lt;name&gt;`) to the HCP Terraform Private Registry using semantic Git release tags (e.g., `v1.2.0`)." },
+      { id: 'D', text: "Send updated `.tf` files to developers via email." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Connect the module's Git repository (`terraform-&lt;provider&gt;-&lt;name&gt;`) to the HCP Terraform Private Registry using semantic Git release tags (e.g., `v1.2.0`). The HCP Terraform Private Registry enforces naming conventions (`terraform-&lt;provider&gt;-&lt;name&gt;`) and integrates with Git repositories. Creating semantic Git release tags (`vX.Y.Z`) automatically publishes versioned modules, allowing consumers to pin stable releases and track deprecations.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/registry",
@@ -366,12 +366,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Private Registry to distribute an internal enterprise security module across 40 development teams with automated versioning and usage tracking.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Upload unversioned zip archives to an internal SharePoint drive." },
-      { id: 'B', text: "Connect the module's Git repository (`terraform-&lt;provider&gt;-&lt;name&gt;`) to the HCP Terraform Private Registry using semantic Git release tags (e.g., `v1.2.0`)." },
-      { id: 'C', text: "Commit raw module files directly into every development repository branch." },
-      { id: 'D', text: "Send updated `.tf` files to developers via email." }
+      { id: 'A', text: "Send updated `.tf` files to developers via email." },
+      { id: 'B', text: "Upload unversioned zip archives to an internal SharePoint drive." },
+      { id: 'C', text: "Connect the module's Git repository (`terraform-&lt;provider&gt;-&lt;name&gt;`) to the HCP Terraform Private Registry using semantic Git release tags (e.g., `v1.2.0`)." },
+      { id: 'D', text: "Commit raw module files directly into every development repository branch." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Connect the module's Git repository (`terraform-&lt;provider&gt;-&lt;name&gt;`) to the HCP Terraform Private Registry using semantic Git release tags (e.g., `v1.2.0`). The HCP Terraform Private Registry enforces naming conventions (`terraform-&lt;provider&gt;-&lt;name&gt;`) and integrates with Git repositories. Creating semantic Git release tags (`vX.Y.Z`) automatically publishes versioned modules, allowing consumers to pin stable releases and track deprecations.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/registry",
@@ -387,12 +387,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Private Registry to distribute an internal enterprise security module across 40 development teams with automated versioning and usage tracking.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Upload unversioned zip archives to an internal SharePoint drive." },
-      { id: 'B', text: "Send updated `.tf` files to developers via email." },
-      { id: 'C', text: "Commit raw module files directly into every development repository branch." },
-      { id: 'D', text: "Connect the module's Git repository (`terraform-&lt;provider&gt;-&lt;name&gt;`) to the HCP Terraform Private Registry using semantic Git release tags (e.g., `v1.2.0`)." }
+      { id: 'A', text: "Connect the module's Git repository (`terraform-&lt;provider&gt;-&lt;name&gt;`) to the HCP Terraform Private Registry using semantic Git release tags (e.g., `v1.2.0`)." },
+      { id: 'B', text: "Commit raw module files directly into every development repository branch." },
+      { id: 'C', text: "Send updated `.tf` files to developers via email." },
+      { id: 'D', text: "Upload unversioned zip archives to an internal SharePoint drive." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Connect the module's Git repository (`terraform-&lt;provider&gt;-&lt;name&gt;`) to the HCP Terraform Private Registry using semantic Git release tags (e.g., `v1.2.0`). The HCP Terraform Private Registry enforces naming conventions (`terraform-&lt;provider&gt;-&lt;name&gt;`) and integrates with Git repositories. Creating semantic Git release tags (`vX.Y.Z`) automatically publishes versioned modules, allowing consumers to pin stable releases and track deprecations.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/registry",
@@ -408,12 +408,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Private Registry to distribute an internal enterprise security module across 40 development teams with automated versioning and usage tracking.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Upload unversioned zip archives to an internal SharePoint drive." },
-      { id: 'B', text: "Send updated `.tf` files to developers via email." },
-      { id: 'C', text: "Connect the module's Git repository (`terraform-&lt;provider&gt;-&lt;name&gt;`) to the HCP Terraform Private Registry using semantic Git release tags (e.g., `v1.2.0`)." },
-      { id: 'D', text: "Commit raw module files directly into every development repository branch." }
+      { id: 'A', text: "Commit raw module files directly into every development repository branch." },
+      { id: 'B', text: "Connect the module's Git repository (`terraform-&lt;provider&gt;-&lt;name&gt;`) to the HCP Terraform Private Registry using semantic Git release tags (e.g., `v1.2.0`)." },
+      { id: 'C', text: "Upload unversioned zip archives to an internal SharePoint drive." },
+      { id: 'D', text: "Send updated `.tf` files to developers via email." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Connect the module's Git repository (`terraform-&lt;provider&gt;-&lt;name&gt;`) to the HCP Terraform Private Registry using semantic Git release tags (e.g., `v1.2.0`). The HCP Terraform Private Registry enforces naming conventions (`terraform-&lt;provider&gt;-&lt;name&gt;`) and integrates with Git repositories. Creating semantic Git release tags (`vX.Y.Z`) automatically publishes versioned modules, allowing consumers to pin stable releases and track deprecations.",
     referenceUrl: "https://developer.hashicorp.com/terraform/cloud-docs/registry",
@@ -429,12 +429,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Submodules to provide a primary VPC module with optional specialized submodules for Transit Gateway attachments and VPC peering.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Include all transit gateway code in the main root module and force all users to deploy it." },
-      { id: 'B', text: "Place optional architectural patterns in a `modules/` subfolder within the module repository (e.g., `modules/transit_gateway/`)." },
+      { id: 'A', text: "Place optional architectural patterns in a `modules/` subfolder within the module repository (e.g., `modules/transit_gateway/`)." },
+      { id: 'B', text: "Include all transit gateway code in the main root module and force all users to deploy it." },
       { id: 'C', text: "Create completely independent Git repositories with 90% duplicated VPC code." },
       { id: 'D', text: "Submodules are not supported in Terraform module structures." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Place optional architectural patterns in a `modules/` subfolder within the module repository (e.g., `modules/transit_gateway/`). Submodules reside in the `modules/` directory of a parent module repository. They allow module authors to provide optional or advanced variations of an architecture that consumers can call directly (`source = \"repo//modules/submodule\"`) without cluttering the primary module.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop/structure#nested-modules",
@@ -450,12 +450,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Submodules to provide a primary VPC module with optional specialized submodules for Transit Gateway attachments and VPC peering.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Create completely independent Git repositories with 90% duplicated VPC code." },
-      { id: 'B', text: "Place optional architectural patterns in a `modules/` subfolder within the module repository (e.g., `modules/transit_gateway/`)." },
-      { id: 'C', text: "Submodules are not supported in Terraform module structures." },
-      { id: 'D', text: "Include all transit gateway code in the main root module and force all users to deploy it." }
+      { id: 'A', text: "Submodules are not supported in Terraform module structures." },
+      { id: 'B', text: "Create completely independent Git repositories with 90% duplicated VPC code." },
+      { id: 'C', text: "Include all transit gateway code in the main root module and force all users to deploy it." },
+      { id: 'D', text: "Place optional architectural patterns in a `modules/` subfolder within the module repository (e.g., `modules/transit_gateway/`)." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Place optional architectural patterns in a `modules/` subfolder within the module repository (e.g., `modules/transit_gateway/`). Submodules reside in the `modules/` directory of a parent module repository. They allow module authors to provide optional or advanced variations of an architecture that consumers can call directly (`source = \"repo//modules/submodule\"`) without cluttering the primary module.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop/structure#nested-modules",
@@ -471,12 +471,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Submodules to provide a primary VPC module with optional specialized submodules for Transit Gateway attachments and VPC peering.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Submodules are not supported in Terraform module structures." },
-      { id: 'B', text: "Place optional architectural patterns in a `modules/` subfolder within the module repository (e.g., `modules/transit_gateway/`)." },
-      { id: 'C', text: "Include all transit gateway code in the main root module and force all users to deploy it." },
-      { id: 'D', text: "Create completely independent Git repositories with 90% duplicated VPC code." }
+      { id: 'A', text: "Create completely independent Git repositories with 90% duplicated VPC code." },
+      { id: 'B', text: "Submodules are not supported in Terraform module structures." },
+      { id: 'C', text: "Place optional architectural patterns in a `modules/` subfolder within the module repository (e.g., `modules/transit_gateway/`)." },
+      { id: 'D', text: "Include all transit gateway code in the main root module and force all users to deploy it." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Place optional architectural patterns in a `modules/` subfolder within the module repository (e.g., `modules/transit_gateway/`). Submodules reside in the `modules/` directory of a parent module repository. They allow module authors to provide optional or advanced variations of an architecture that consumers can call directly (`source = \"repo//modules/submodule\"`) without cluttering the primary module.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop/structure#nested-modules",
@@ -492,12 +492,12 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Submodules to provide a primary VPC module with optional specialized submodules for Transit Gateway attachments and VPC peering.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Include all transit gateway code in the main root module and force all users to deploy it." },
-      { id: 'B', text: "Submodules are not supported in Terraform module structures." },
+      { id: 'A', text: "Submodules are not supported in Terraform module structures." },
+      { id: 'B', text: "Place optional architectural patterns in a `modules/` subfolder within the module repository (e.g., `modules/transit_gateway/`)." },
       { id: 'C', text: "Create completely independent Git repositories with 90% duplicated VPC code." },
-      { id: 'D', text: "Place optional architectural patterns in a `modules/` subfolder within the module repository (e.g., `modules/transit_gateway/`)." }
+      { id: 'D', text: "Include all transit gateway code in the main root module and force all users to deploy it." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Place optional architectural patterns in a `modules/` subfolder within the module repository (e.g., `modules/transit_gateway/`). Submodules reside in the `modules/` directory of a parent module repository. They allow module authors to provide optional or advanced variations of an architecture that consumers can call directly (`source = \"repo//modules/submodule\"`) without cluttering the primary module.",
     referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop/structure#nested-modules",
@@ -514,9 +514,9 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Place optional architectural patterns in a `modules/` subfolder within the module repository (e.g., `modules/transit_gateway/`)." },
-      { id: 'B', text: "Submodules are not supported in Terraform module structures." },
-      { id: 'C', text: "Include all transit gateway code in the main root module and force all users to deploy it." },
-      { id: 'D', text: "Create completely independent Git repositories with 90% duplicated VPC code." }
+      { id: 'B', text: "Create completely independent Git repositories with 90% duplicated VPC code." },
+      { id: 'C', text: "Submodules are not supported in Terraform module structures." },
+      { id: 'D', text: "Include all transit gateway code in the main root module and force all users to deploy it." }
     ],
     correctAnswers: ['A'],
     type: "single",

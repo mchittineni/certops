@@ -9,12 +9,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on Amazon GuardDuty to detect unauthorized crypto-mining behavior or compromised EC2 instances and automatically isolate the compromised host from the network within seconds.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
-      { id: 'A', text: "Deploy AWS Systems Manager Patch Manager to scan the instance weekly." },
+      { id: 'A', text: "Configure an AWS WAF rule to block outgoing traffic from the compromised instance." },
       { id: 'B', text: "Configure Amazon CloudWatch Logs to tail instance syslog and trigger a manual administrator alert." },
-      { id: 'C', text: "Configure an AWS WAF rule to block outgoing traffic from the compromised instance." },
-      { id: 'D', text: "An EventBridge rule on the findings, invoking a Lambda that isolates the host." }
+      { id: 'C', text: "An EventBridge rule on the findings, invoking a Lambda that isolates the host." },
+      { id: 'D', text: "Deploy AWS Systems Manager Patch Manager to scan the instance weekly." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Amazon GuardDuty, create an Amazon EventBridge rule matching GuardDuty finding types, and invoke an AWS Lambda function to attach an isolating security group to the compromised instance. Amazon GuardDuty continuously analyzes VPC Flow Logs, DNS logs, and CloudTrail events using machine learning to detect compromised instances (such as crypto-mining activity). Integrating findings with EventBridge allows automated Lambda functions to take instant containment actions, such as replacing the instance security group with an isolation group.",
     referenceUrl: "https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html",
@@ -30,12 +30,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on Amazon GuardDuty to detect unauthorized crypto-mining behavior or compromised EC2 instances and automatically isolate the compromised host from the network within seconds.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
-      { id: 'A', text: "Configure Amazon CloudWatch Logs to tail instance syslog and trigger a manual administrator alert." },
-      { id: 'B', text: "Configure an AWS WAF rule to block outgoing traffic from the compromised instance." },
+      { id: 'A', text: "Configure an AWS WAF rule to block outgoing traffic from the compromised instance." },
+      { id: 'B', text: "An EventBridge rule on the findings, invoking a Lambda that isolates the host." },
       { id: 'C', text: "Deploy AWS Systems Manager Patch Manager to scan the instance weekly." },
-      { id: 'D', text: "An EventBridge rule on the findings, invoking a Lambda that isolates the host." }
+      { id: 'D', text: "Configure Amazon CloudWatch Logs to tail instance syslog and trigger a manual administrator alert." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Amazon GuardDuty, create an Amazon EventBridge rule matching GuardDuty finding types, and invoke an AWS Lambda function to attach an isolating security group to the compromised instance. Amazon GuardDuty continuously analyzes VPC Flow Logs, DNS logs, and CloudTrail events using machine learning to detect compromised instances (such as crypto-mining activity). Integrating findings with EventBridge allows automated Lambda functions to take instant containment actions, such as replacing the instance security group with an isolation group.",
     referenceUrl: "https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html",
@@ -51,12 +51,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on Amazon GuardDuty to detect unauthorized crypto-mining behavior or compromised EC2 instances and automatically isolate the compromised host from the network within seconds.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Configure an AWS WAF rule to block outgoing traffic from the compromised instance." },
+      { id: 'A', text: "An EventBridge rule on the findings, invoking a Lambda that isolates the host." },
       { id: 'B', text: "Configure Amazon CloudWatch Logs to tail instance syslog and trigger a manual administrator alert." },
       { id: 'C', text: "Deploy AWS Systems Manager Patch Manager to scan the instance weekly." },
-      { id: 'D', text: "An EventBridge rule on the findings, invoking a Lambda that isolates the host." }
+      { id: 'D', text: "Configure an AWS WAF rule to block outgoing traffic from the compromised instance." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Enable Amazon GuardDuty, create an Amazon EventBridge rule matching GuardDuty finding types, and invoke an AWS Lambda function to attach an isolating security group to the compromised instance. Amazon GuardDuty continuously analyzes VPC Flow Logs, DNS logs, and CloudTrail events using machine learning to detect compromised instances (such as crypto-mining activity). Integrating findings with EventBridge allows automated Lambda functions to take instant containment actions, such as replacing the instance security group with an isolation group.",
     referenceUrl: "https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html",
@@ -72,12 +72,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "An enterprise is migrating enterprise workloads from on-premises data centers to AWS. The architecture must integrate existing operational processes while leveraging cloud-native managed services to minimize operational complexity. The system relies on Amazon GuardDuty to detect unauthorized crypto-mining behavior or compromised EC2 instances and automatically isolate the compromised host from the network within seconds.",
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
-      { id: 'A', text: "Configure Amazon CloudWatch Logs to tail instance syslog and trigger a manual administrator alert." },
-      { id: 'B', text: "Deploy AWS Systems Manager Patch Manager to scan the instance weekly." },
-      { id: 'C', text: "An EventBridge rule on the findings, invoking a Lambda that isolates the host." },
+      { id: 'A', text: "Deploy AWS Systems Manager Patch Manager to scan the instance weekly." },
+      { id: 'B', text: "An EventBridge rule on the findings, invoking a Lambda that isolates the host." },
+      { id: 'C', text: "Configure Amazon CloudWatch Logs to tail instance syslog and trigger a manual administrator alert." },
       { id: 'D', text: "Configure an AWS WAF rule to block outgoing traffic from the compromised instance." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Amazon GuardDuty, create an Amazon EventBridge rule matching GuardDuty finding types, and invoke an AWS Lambda function to attach an isolating security group to the compromised instance. Amazon GuardDuty continuously analyzes VPC Flow Logs, DNS logs, and CloudTrail events using machine learning to detect compromised instances (such as crypto-mining activity). Integrating findings with EventBridge allows automated Lambda functions to take instant containment actions, such as replacing the instance security group with an isolation group.",
     referenceUrl: "https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html",
@@ -93,12 +93,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on Amazon GuardDuty to detect unauthorized crypto-mining behavior or compromised EC2 instances and automatically isolate the compromised host from the network within seconds.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
-      { id: 'A', text: "Configure Amazon CloudWatch Logs to tail instance syslog and trigger a manual administrator alert." },
-      { id: 'B', text: "Deploy AWS Systems Manager Patch Manager to scan the instance weekly." },
-      { id: 'C', text: "Configure an AWS WAF rule to block outgoing traffic from the compromised instance." },
-      { id: 'D', text: "An EventBridge rule on the findings, invoking a Lambda that isolates the host." }
+      { id: 'A', text: "Deploy AWS Systems Manager Patch Manager to scan the instance weekly." },
+      { id: 'B', text: "Configure an AWS WAF rule to block outgoing traffic from the compromised instance." },
+      { id: 'C', text: "An EventBridge rule on the findings, invoking a Lambda that isolates the host." },
+      { id: 'D', text: "Configure Amazon CloudWatch Logs to tail instance syslog and trigger a manual administrator alert." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Amazon GuardDuty, create an Amazon EventBridge rule matching GuardDuty finding types, and invoke an AWS Lambda function to attach an isolating security group to the compromised instance. Amazon GuardDuty continuously analyzes VPC Flow Logs, DNS logs, and CloudTrail events using machine learning to detect compromised instances (such as crypto-mining activity). Integrating findings with EventBridge allows automated Lambda functions to take instant containment actions, such as replacing the instance security group with an isolation group.",
     referenceUrl: "https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html",
@@ -114,12 +114,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on AWS Security Hub to aggregate security posture, monitor compliance against the CIS AWS Foundations Benchmark, and orchestrate automated remediation across all AWS accounts in an organization.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
-      { id: 'A', text: "Write custom python scripts querying AWS CloudTrail and AWS Config in each account." },
-      { id: 'B', text: "Configure Amazon Inspector in each account without multi-account aggregation." },
-      { id: 'C', text: "Security Hub delegated to a central account with the CIS benchmark on." },
-      { id: 'D', text: "Deploy AWS Trusted Advisor in each member account independently." }
+      { id: 'A', text: "Deploy AWS Trusted Advisor in each member account independently." },
+      { id: 'B', text: "Security Hub delegated to a central account with the CIS benchmark on." },
+      { id: 'C', text: "Write custom python scripts querying AWS CloudTrail and AWS Config in each account." },
+      { id: 'D', text: "Configure Amazon Inspector in each account without multi-account aggregation." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable AWS Security Hub across all member accounts delegated to a central security account, and activate the CIS AWS Foundations Benchmark standard. AWS Security Hub provides a single comprehensive view of security alerts and compliance status across all accounts in an organization. It continuously checks configurations against regulatory standards (such as CIS AWS Foundations Benchmark, PCI DSS, and NIST) and integrates with EventBridge for automated remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -136,9 +136,9 @@ export const AWS_SAA_QUESTIONS_18 = [
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
       { id: 'A', text: "Security Hub delegated to a central account with the CIS benchmark on." },
-      { id: 'B', text: "Write custom python scripts querying AWS CloudTrail and AWS Config in each account." },
-      { id: 'C', text: "Deploy AWS Trusted Advisor in each member account independently." },
-      { id: 'D', text: "Configure Amazon Inspector in each account without multi-account aggregation." }
+      { id: 'B', text: "Configure Amazon Inspector in each account without multi-account aggregation." },
+      { id: 'C', text: "Write custom python scripts querying AWS CloudTrail and AWS Config in each account." },
+      { id: 'D', text: "Deploy AWS Trusted Advisor in each member account independently." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on AWS Security Hub to aggregate security posture, monitor compliance against the CIS AWS Foundations Benchmark, and orchestrate automated remediation across all AWS accounts in an organization.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy AWS Trusted Advisor in each member account independently." },
-      { id: 'B', text: "Configure Amazon Inspector in each account without multi-account aggregation." },
-      { id: 'C', text: "Write custom python scripts querying AWS CloudTrail and AWS Config in each account." },
-      { id: 'D', text: "Security Hub delegated to a central account with the CIS benchmark on." }
+      { id: 'A', text: "Configure Amazon Inspector in each account without multi-account aggregation." },
+      { id: 'B', text: "Write custom python scripts querying AWS CloudTrail and AWS Config in each account." },
+      { id: 'C', text: "Security Hub delegated to a central account with the CIS benchmark on." },
+      { id: 'D', text: "Deploy AWS Trusted Advisor in each member account independently." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable AWS Security Hub across all member accounts delegated to a central security account, and activate the CIS AWS Foundations Benchmark standard. AWS Security Hub provides a single comprehensive view of security alerts and compliance status across all accounts in an organization. It continuously checks configurations against regulatory standards (such as CIS AWS Foundations Benchmark, PCI DSS, and NIST) and integrates with EventBridge for automated remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -177,12 +177,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "An enterprise is migrating enterprise workloads from on-premises data centers to AWS. The architecture must integrate existing operational processes while leveraging cloud-native managed services to minimize operational complexity. The system relies on AWS Security Hub to aggregate security posture, monitor compliance against the CIS AWS Foundations Benchmark, and orchestrate automated remediation across all AWS accounts in an organization.",
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
-      { id: 'A', text: "Deploy AWS Trusted Advisor in each member account independently." },
-      { id: 'B', text: "Security Hub delegated to a central account with the CIS benchmark on." },
+      { id: 'A', text: "Security Hub delegated to a central account with the CIS benchmark on." },
+      { id: 'B', text: "Deploy AWS Trusted Advisor in each member account independently." },
       { id: 'C', text: "Configure Amazon Inspector in each account without multi-account aggregation." },
       { id: 'D', text: "Write custom python scripts querying AWS CloudTrail and AWS Config in each account." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Enable AWS Security Hub across all member accounts delegated to a central security account, and activate the CIS AWS Foundations Benchmark standard. AWS Security Hub provides a single comprehensive view of security alerts and compliance status across all accounts in an organization. It continuously checks configurations against regulatory standards (such as CIS AWS Foundations Benchmark, PCI DSS, and NIST) and integrates with EventBridge for automated remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -198,12 +198,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on AWS Security Hub to aggregate security posture, monitor compliance against the CIS AWS Foundations Benchmark, and orchestrate automated remediation across all AWS accounts in an organization.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
-      { id: 'A', text: "Deploy AWS Trusted Advisor in each member account independently." },
-      { id: 'B', text: "Configure Amazon Inspector in each account without multi-account aggregation." },
-      { id: 'C', text: "Security Hub delegated to a central account with the CIS benchmark on." },
+      { id: 'A', text: "Configure Amazon Inspector in each account without multi-account aggregation." },
+      { id: 'B', text: "Security Hub delegated to a central account with the CIS benchmark on." },
+      { id: 'C', text: "Deploy AWS Trusted Advisor in each member account independently." },
       { id: 'D', text: "Write custom python scripts querying AWS CloudTrail and AWS Config in each account." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable AWS Security Hub across all member accounts delegated to a central security account, and activate the CIS AWS Foundations Benchmark standard. AWS Security Hub provides a single comprehensive view of security alerts and compliance status across all accounts in an organization. It continuously checks configurations against regulatory standards (such as CIS AWS Foundations Benchmark, PCI DSS, and NIST) and integrates with EventBridge for automated remediation.",
     referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
@@ -219,12 +219,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on Amazon Inspector to automatically scan container images pushed to Amazon ECR and running Amazon EC2 instances for software vulnerabilities (CVEs) and unintended network exposure.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
-      { id: 'A', text: "Deploy an open-source scanner inside an Amazon ECS task scheduled to run once a week." },
-      { id: 'B', text: "Configure Amazon GuardDuty to scan container image layers for package vulnerabilities." },
-      { id: 'C', text: "Configure AWS Config rules to monitor EC2 security group port configurations only." },
-      { id: 'D', text: "Inspector across the organization, scanning ECR and EC2 continuously." }
+      { id: 'A', text: "Configure Amazon GuardDuty to scan container image layers for package vulnerabilities." },
+      { id: 'B', text: "Configure AWS Config rules to monitor EC2 security group port configurations only." },
+      { id: 'C', text: "Inspector across the organization, scanning ECR and EC2 continuously." },
+      { id: 'D', text: "Deploy an open-source scanner inside an Amazon ECS task scheduled to run once a week." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable Amazon Inspector across the AWS Organization to automatically perform continuous vulnerability scanning of Amazon ECR repositories and Amazon EC2 instances. Amazon Inspector is an automated vulnerability management service that continually scans Amazon EC2 instances and container images in Amazon ECR for software vulnerabilities (CVEs) and unintended network accessibility. GuardDuty monitors runtime threats, not static package CVEs.",
     referenceUrl: "https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html",
@@ -240,12 +240,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on Amazon Inspector to automatically scan container images pushed to Amazon ECR and running Amazon EC2 instances for software vulnerabilities (CVEs) and unintended network exposure.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
-      { id: 'A', text: "Deploy an open-source scanner inside an Amazon ECS task scheduled to run once a week." },
-      { id: 'B', text: "Configure AWS Config rules to monitor EC2 security group port configurations only." },
-      { id: 'C', text: "Inspector across the organization, scanning ECR and EC2 continuously." },
-      { id: 'D', text: "Configure Amazon GuardDuty to scan container image layers for package vulnerabilities." }
+      { id: 'A', text: "Configure AWS Config rules to monitor EC2 security group port configurations only." },
+      { id: 'B', text: "Configure Amazon GuardDuty to scan container image layers for package vulnerabilities." },
+      { id: 'C', text: "Deploy an open-source scanner inside an Amazon ECS task scheduled to run once a week." },
+      { id: 'D', text: "Inspector across the organization, scanning ECR and EC2 continuously." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable Amazon Inspector across the AWS Organization to automatically perform continuous vulnerability scanning of Amazon ECR repositories and Amazon EC2 instances. Amazon Inspector is an automated vulnerability management service that continually scans Amazon EC2 instances and container images in Amazon ECR for software vulnerabilities (CVEs) and unintended network accessibility. GuardDuty monitors runtime threats, not static package CVEs.",
     referenceUrl: "https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html",
@@ -261,12 +261,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on Amazon Inspector to automatically scan container images pushed to Amazon ECR and running Amazon EC2 instances for software vulnerabilities (CVEs) and unintended network exposure.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy an open-source scanner inside an Amazon ECS task scheduled to run once a week." },
-      { id: 'B', text: "Configure AWS Config rules to monitor EC2 security group port configurations only." },
+      { id: 'A', text: "Configure AWS Config rules to monitor EC2 security group port configurations only." },
+      { id: 'B', text: "Inspector across the organization, scanning ECR and EC2 continuously." },
       { id: 'C', text: "Configure Amazon GuardDuty to scan container image layers for package vulnerabilities." },
-      { id: 'D', text: "Inspector across the organization, scanning ECR and EC2 continuously." }
+      { id: 'D', text: "Deploy an open-source scanner inside an Amazon ECS task scheduled to run once a week." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Amazon Inspector across the AWS Organization to automatically perform continuous vulnerability scanning of Amazon ECR repositories and Amazon EC2 instances. Amazon Inspector is an automated vulnerability management service that continually scans Amazon EC2 instances and container images in Amazon ECR for software vulnerabilities (CVEs) and unintended network accessibility. GuardDuty monitors runtime threats, not static package CVEs.",
     referenceUrl: "https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html",
@@ -282,12 +282,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "An enterprise is migrating enterprise workloads from on-premises data centers to AWS. The architecture must integrate existing operational processes while leveraging cloud-native managed services to minimize operational complexity. The system relies on Amazon Inspector to automatically scan container images pushed to Amazon ECR and running Amazon EC2 instances for software vulnerabilities (CVEs) and unintended network exposure.",
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
-      { id: 'A', text: "Deploy an open-source scanner inside an Amazon ECS task scheduled to run once a week." },
-      { id: 'B', text: "Configure AWS Config rules to monitor EC2 security group port configurations only." },
-      { id: 'C', text: "Inspector across the organization, scanning ECR and EC2 continuously." },
-      { id: 'D', text: "Configure Amazon GuardDuty to scan container image layers for package vulnerabilities." }
+      { id: 'A', text: "Configure AWS Config rules to monitor EC2 security group port configurations only." },
+      { id: 'B', text: "Configure Amazon GuardDuty to scan container image layers for package vulnerabilities." },
+      { id: 'C', text: "Deploy an open-source scanner inside an Amazon ECS task scheduled to run once a week." },
+      { id: 'D', text: "Inspector across the organization, scanning ECR and EC2 continuously." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Enable Amazon Inspector across the AWS Organization to automatically perform continuous vulnerability scanning of Amazon ECR repositories and Amazon EC2 instances. Amazon Inspector is an automated vulnerability management service that continually scans Amazon EC2 instances and container images in Amazon ECR for software vulnerabilities (CVEs) and unintended network accessibility. GuardDuty monitors runtime threats, not static package CVEs.",
     referenceUrl: "https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html",
@@ -324,12 +324,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on Amazon Cognito to protect user accounts against compromised credential attacks by evaluating sign-in risk levels and prompting for multi-factor authentication (MFA) on suspicious sign-ins.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
-      { id: 'A', text: "Write custom code inside an AWS Lambda pre-authentication trigger to query an external IP database synchronously." },
-      { id: 'B', text: "Cognito advanced security features with adaptive authentication for MFA." },
-      { id: 'C', text: "Configure Amazon Cognito Identity Pools with unauthenticated guest access enabled." },
-      { id: 'D', text: "Deploy an AWS WAF rate-based rule to block all IP addresses that submit more than 5 sign-in requests." }
+      { id: 'A', text: "Deploy an AWS WAF rate-based rule to block all IP addresses that submit more than 5 sign-in requests." },
+      { id: 'B', text: "Write custom code inside an AWS Lambda pre-authentication trigger to query an external IP database synchronously." },
+      { id: 'C', text: "Cognito advanced security features with adaptive authentication for MFA." },
+      { id: 'D', text: "Configure Amazon Cognito Identity Pools with unauthenticated guest access enabled." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enable advanced security features in Amazon Cognito User Pools and configure adaptive authentication to enforce MFA when risk is medium or high. Cognito User Pools advanced security features include adaptive authentication, which evaluates contextual signals (device fingerprint, IP reputation, location, time) to assess sign-in risk and automatically prompt for MFA or block compromised credential attempts without custom code.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html",
@@ -345,12 +345,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on Amazon Cognito to protect user accounts against compromised credential attacks by evaluating sign-in risk levels and prompting for multi-factor authentication (MFA) on suspicious sign-ins.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
-      { id: 'A', text: "Configure Amazon Cognito Identity Pools with unauthenticated guest access enabled." },
-      { id: 'B', text: "Write custom code inside an AWS Lambda pre-authentication trigger to query an external IP database synchronously." },
+      { id: 'A', text: "Write custom code inside an AWS Lambda pre-authentication trigger to query an external IP database synchronously." },
+      { id: 'B', text: "Cognito advanced security features with adaptive authentication for MFA." },
       { id: 'C', text: "Deploy an AWS WAF rate-based rule to block all IP addresses that submit more than 5 sign-in requests." },
-      { id: 'D', text: "Cognito advanced security features with adaptive authentication for MFA." }
+      { id: 'D', text: "Configure Amazon Cognito Identity Pools with unauthenticated guest access enabled." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable advanced security features in Amazon Cognito User Pools and configure adaptive authentication to enforce MFA when risk is medium or high. Cognito User Pools advanced security features include adaptive authentication, which evaluates contextual signals (device fingerprint, IP reputation, location, time) to assess sign-in risk and automatically prompt for MFA or block compromised credential attempts without custom code.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html",
@@ -366,12 +366,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on Amazon Cognito to protect user accounts against compromised credential attacks by evaluating sign-in risk levels and prompting for multi-factor authentication (MFA) on suspicious sign-ins.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy an AWS WAF rate-based rule to block all IP addresses that submit more than 5 sign-in requests." },
-      { id: 'B', text: "Write custom code inside an AWS Lambda pre-authentication trigger to query an external IP database synchronously." },
-      { id: 'C', text: "Configure Amazon Cognito Identity Pools with unauthenticated guest access enabled." },
-      { id: 'D', text: "Cognito advanced security features with adaptive authentication for MFA." }
+      { id: 'A', text: "Configure Amazon Cognito Identity Pools with unauthenticated guest access enabled." },
+      { id: 'B', text: "Cognito advanced security features with adaptive authentication for MFA." },
+      { id: 'C', text: "Write custom code inside an AWS Lambda pre-authentication trigger to query an external IP database synchronously." },
+      { id: 'D', text: "Deploy an AWS WAF rate-based rule to block all IP addresses that submit more than 5 sign-in requests." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable advanced security features in Amazon Cognito User Pools and configure adaptive authentication to enforce MFA when risk is medium or high. Cognito User Pools advanced security features include adaptive authentication, which evaluates contextual signals (device fingerprint, IP reputation, location, time) to assess sign-in risk and automatically prompt for MFA or block compromised credential attempts without custom code.",
     referenceUrl: "https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html",
@@ -409,9 +409,9 @@ export const AWS_SAA_QUESTIONS_18 = [
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
       { id: 'A', text: "Cognito advanced security features with adaptive authentication for MFA." },
-      { id: 'B', text: "Write custom code inside an AWS Lambda pre-authentication trigger to query an external IP database synchronously." },
-      { id: 'C', text: "Configure Amazon Cognito Identity Pools with unauthenticated guest access enabled." },
-      { id: 'D', text: "Deploy an AWS WAF rate-based rule to block all IP addresses that submit more than 5 sign-in requests." }
+      { id: 'B', text: "Deploy an AWS WAF rate-based rule to block all IP addresses that submit more than 5 sign-in requests." },
+      { id: 'C', text: "Write custom code inside an AWS Lambda pre-authentication trigger to query an external IP database synchronously." },
+      { id: 'D', text: "Configure Amazon Cognito Identity Pools with unauthenticated guest access enabled." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,12 +429,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A multinational enterprise operating mission-critical services requires a comprehensive disaster recovery and business continuity architecture. Regulatory standards dictate strict availability and failover guarantees during regional outages. The system relies on Amazon API Gateway to authenticate IoT devices and B2B partner applications using client X.509 certificates directly at the API Gateway custom domain level.",
     question: "Which architecture or service configuration satisfies these disaster recovery and regional resilience requirements?",
     options: [
-      { id: 'A', text: "Deploy an Amazon Cognito User Pool with client secret validation." },
+      { id: 'A', text: "An API Gateway custom domain with mTLS and the trust bundle in S3." },
       { id: 'B', text: "Deploy an AWS Lambda authorizer that parses client certificates passed in an HTTP Authorization header." },
       { id: 'C', text: "Configure an Application Load Balancer with basic authentication credentials." },
-      { id: 'D', text: "An API Gateway custom domain with mTLS and the trust bundle in S3." }
+      { id: 'D', text: "Deploy an Amazon Cognito User Pool with client secret validation." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure a custom domain name on Amazon API Gateway with mutual TLS (mTLS) enabled and upload the trusted CA certificate bundle to an Amazon S3 bucket. Amazon API Gateway supports mutual TLS (mTLS) authentication on custom domain names for REST and HTTP APIs. Client certificates are verified directly during the TLS handshake against a truststore stored in S3, authenticating clients before any API request processing begins.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mutual-tls.html",
@@ -450,12 +450,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A high-volume digital platform experiences sudden, unpredictable surges in user traffic during nationwide marketing campaigns. The engineering team must ensure the architecture scales seamlessly under high throughput while maintaining low latency. The system relies on Amazon API Gateway to authenticate IoT devices and B2B partner applications using client X.509 certificates directly at the API Gateway custom domain level.",
     question: "Which architectural approach should the solutions architect recommend to accommodate this scale?",
     options: [
-      { id: 'A', text: "Deploy an Amazon Cognito User Pool with client secret validation." },
-      { id: 'B', text: "Configure an Application Load Balancer with basic authentication credentials." },
-      { id: 'C', text: "An API Gateway custom domain with mTLS and the trust bundle in S3." },
-      { id: 'D', text: "Deploy an AWS Lambda authorizer that parses client certificates passed in an HTTP Authorization header." }
+      { id: 'A', text: "Deploy an AWS Lambda authorizer that parses client certificates passed in an HTTP Authorization header." },
+      { id: 'B', text: "An API Gateway custom domain with mTLS and the trust bundle in S3." },
+      { id: 'C', text: "Deploy an Amazon Cognito User Pool with client secret validation." },
+      { id: 'D', text: "Configure an Application Load Balancer with basic authentication credentials." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a custom domain name on Amazon API Gateway with mutual TLS (mTLS) enabled and upload the trusted CA certificate bundle to an Amazon S3 bucket. Amazon API Gateway supports mutual TLS (mTLS) authentication on custom domain names for REST and HTTP APIs. Client certificates are verified directly during the TLS handshake against a truststore stored in S3, authenticating clients before any API request processing begins.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mutual-tls.html",
@@ -471,12 +471,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A financial and healthcare organization must adhere to stringent regulatory compliance and auditing standards. Security auditors require strict enforcement of data protection, least privilege access, and automated governance. The system relies on Amazon API Gateway to authenticate IoT devices and B2B partner applications using client X.509 certificates directly at the API Gateway custom domain level.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy an Amazon Cognito User Pool with client secret validation." },
-      { id: 'B', text: "Configure an Application Load Balancer with basic authentication credentials." },
-      { id: 'C', text: "An API Gateway custom domain with mTLS and the trust bundle in S3." },
-      { id: 'D', text: "Deploy an AWS Lambda authorizer that parses client certificates passed in an HTTP Authorization header." }
+      { id: 'A', text: "Deploy an AWS Lambda authorizer that parses client certificates passed in an HTTP Authorization header." },
+      { id: 'B', text: "An API Gateway custom domain with mTLS and the trust bundle in S3." },
+      { id: 'C', text: "Deploy an Amazon Cognito User Pool with client secret validation." },
+      { id: 'D', text: "Configure an Application Load Balancer with basic authentication credentials." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure a custom domain name on Amazon API Gateway with mutual TLS (mTLS) enabled and upload the trusted CA certificate bundle to an Amazon S3 bucket. Amazon API Gateway supports mutual TLS (mTLS) authentication on custom domain names for REST and HTTP APIs. Client certificates are verified directly during the TLS handshake against a truststore stored in S3, authenticating clients before any API request processing begins.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mutual-tls.html",
@@ -492,12 +492,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "An enterprise is migrating enterprise workloads from on-premises data centers to AWS. The architecture must integrate existing operational processes while leveraging cloud-native managed services to minimize operational complexity. The system relies on Amazon API Gateway to authenticate IoT devices and B2B partner applications using client X.509 certificates directly at the API Gateway custom domain level.",
     question: "Which solution enables a robust, highly available architecture while minimizing ongoing operational overhead?",
     options: [
-      { id: 'A', text: "Deploy an Amazon Cognito User Pool with client secret validation." },
-      { id: 'B', text: "An API Gateway custom domain with mTLS and the trust bundle in S3." },
+      { id: 'A', text: "Deploy an AWS Lambda authorizer that parses client certificates passed in an HTTP Authorization header." },
+      { id: 'B', text: "Deploy an Amazon Cognito User Pool with client secret validation." },
       { id: 'C', text: "Configure an Application Load Balancer with basic authentication credentials." },
-      { id: 'D', text: "Deploy an AWS Lambda authorizer that parses client certificates passed in an HTTP Authorization header." }
+      { id: 'D', text: "An API Gateway custom domain with mTLS and the trust bundle in S3." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure a custom domain name on Amazon API Gateway with mutual TLS (mTLS) enabled and upload the trusted CA certificate bundle to an Amazon S3 bucket. Amazon API Gateway supports mutual TLS (mTLS) authentication on custom domain names for REST and HTTP APIs. Client certificates are verified directly during the TLS handshake against a truststore stored in S3, authenticating clients before any API request processing begins.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mutual-tls.html",
@@ -513,12 +513,12 @@ export const AWS_SAA_QUESTIONS_18 = [
     scenario: "A distributed microservices application experiences intermittent failures and resource saturation during peak operational windows. The solutions architect must eliminate single points of failure and establish automated recovery mechanisms. The system relies on Amazon API Gateway to authenticate IoT devices and B2B partner applications using client X.509 certificates directly at the API Gateway custom domain level.",
     question: "Which design pattern or service configuration eliminates single points of failure and provides automated recovery?",
     options: [
-      { id: 'A', text: "Deploy an AWS Lambda authorizer that parses client certificates passed in an HTTP Authorization header." },
-      { id: 'B', text: "Deploy an Amazon Cognito User Pool with client secret validation." },
-      { id: 'C', text: "An API Gateway custom domain with mTLS and the trust bundle in S3." },
-      { id: 'D', text: "Configure an Application Load Balancer with basic authentication credentials." }
+      { id: 'A', text: "Deploy an Amazon Cognito User Pool with client secret validation." },
+      { id: 'B', text: "Configure an Application Load Balancer with basic authentication credentials." },
+      { id: 'C', text: "Deploy an AWS Lambda authorizer that parses client certificates passed in an HTTP Authorization header." },
+      { id: 'D', text: "An API Gateway custom domain with mTLS and the trust bundle in S3." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure a custom domain name on Amazon API Gateway with mutual TLS (mTLS) enabled and upload the trusted CA certificate bundle to an Amazon S3 bucket. Amazon API Gateway supports mutual TLS (mTLS) authentication on custom domain names for REST and HTTP APIs. Client certificates are verified directly during the TLS handshake against a truststore stored in S3, authenticating clients before any API request processing begins.",
     referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mutual-tls.html",

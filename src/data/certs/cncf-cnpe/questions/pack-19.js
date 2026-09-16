@@ -9,12 +9,12 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to alert on-call platform engineers to severe service degradations immediately while suppressing false alarms caused by transient traffic spikes.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
-      { id: 'A', text: "Disable on-call paging entirely and check system status once a week on Monday morning." },
+      { id: 'A', text: "Implement multi-window multi-burn-rate alerting based on Google SRE principles, evaluating 1-hour (fast burn) and 6-hour (slow burn) rates." },
       { id: 'B', text: "Configure static alerts that trigger an on-call page whenever a single HTTP 500 error occurs anywhere in the cluster." },
-      { id: 'C', text: "Implement multi-window multi-burn-rate alerting based on Google SRE principles, evaluating 1-hour (fast burn) and 6-hour (slow burn) rates." },
+      { id: 'C', text: "Disable on-call paging entirely and check system status once a week on Monday morning." },
       { id: 'D', text: "Alert solely on CPU utilization percentages rather than customer-facing error rates." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implement multi-window multi-burn-rate alerting based on Google SRE principles, evaluating 1-hour (fast burn) and 6-hour (slow burn) rates. Google SRE multi-window multi-burn-rate alerting evaluates the rate at which an error budget is being consumed over multiple time windows (e.g., 2% budget consumed in 1 hour; 5% consumed in 6 hours). This prevents alert fatigue while rapidly paging engineers for catastrophic incidents.",
     referenceUrl: "https://sre.google/workbook/alerting-on-slos/",
@@ -30,12 +30,12 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to alert on-call platform engineers to severe service degradations immediately while suppressing false alarms caused by transient traffic spikes.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
-      { id: 'A', text: "Disable on-call paging entirely and check system status once a week on Monday morning." },
+      { id: 'A', text: "Implement multi-window multi-burn-rate alerting based on Google SRE principles, evaluating 1-hour (fast burn) and 6-hour (slow burn) rates." },
       { id: 'B', text: "Configure static alerts that trigger an on-call page whenever a single HTTP 500 error occurs anywhere in the cluster." },
-      { id: 'C', text: "Implement multi-window multi-burn-rate alerting based on Google SRE principles, evaluating 1-hour (fast burn) and 6-hour (slow burn) rates." },
+      { id: 'C', text: "Disable on-call paging entirely and check system status once a week on Monday morning." },
       { id: 'D', text: "Alert solely on CPU utilization percentages rather than customer-facing error rates." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implement multi-window multi-burn-rate alerting based on Google SRE principles, evaluating 1-hour (fast burn) and 6-hour (slow burn) rates. Google SRE multi-window multi-burn-rate alerting evaluates the rate at which an error budget is being consumed over multiple time windows (e.g., 2% budget consumed in 1 hour; 5% consumed in 6 hours). This prevents alert fatigue while rapidly paging engineers for catastrophic incidents.",
     referenceUrl: "https://sre.google/workbook/alerting-on-slos/",
@@ -51,12 +51,12 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to alert on-call platform engineers to severe service degradations immediately while suppressing false alarms caused by transient traffic spikes.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
-      { id: 'A', text: "Alert solely on CPU utilization percentages rather than customer-facing error rates." },
-      { id: 'B', text: "Implement multi-window multi-burn-rate alerting based on Google SRE principles, evaluating 1-hour (fast burn) and 6-hour (slow burn) rates." },
-      { id: 'C', text: "Configure static alerts that trigger an on-call page whenever a single HTTP 500 error occurs anywhere in the cluster." },
-      { id: 'D', text: "Disable on-call paging entirely and check system status once a week on Monday morning." }
+      { id: 'A', text: "Disable on-call paging entirely and check system status once a week on Monday morning." },
+      { id: 'B', text: "Alert solely on CPU utilization percentages rather than customer-facing error rates." },
+      { id: 'C', text: "Implement multi-window multi-burn-rate alerting based on Google SRE principles, evaluating 1-hour (fast burn) and 6-hour (slow burn) rates." },
+      { id: 'D', text: "Configure static alerts that trigger an on-call page whenever a single HTTP 500 error occurs anywhere in the cluster." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement multi-window multi-burn-rate alerting based on Google SRE principles, evaluating 1-hour (fast burn) and 6-hour (slow burn) rates. Google SRE multi-window multi-burn-rate alerting evaluates the rate at which an error budget is being consumed over multiple time windows (e.g., 2% budget consumed in 1 hour; 5% consumed in 6 hours). This prevents alert fatigue while rapidly paging engineers for catastrophic incidents.",
     referenceUrl: "https://sre.google/workbook/alerting-on-slos/",
@@ -72,12 +72,12 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to alert on-call platform engineers to severe service degradations immediately while suppressing false alarms caused by transient traffic spikes.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Configure static alerts that trigger an on-call page whenever a single HTTP 500 error occurs anywhere in the cluster." },
-      { id: 'B', text: "Disable on-call paging entirely and check system status once a week on Monday morning." },
-      { id: 'C', text: "Alert solely on CPU utilization percentages rather than customer-facing error rates." },
-      { id: 'D', text: "Implement multi-window multi-burn-rate alerting based on Google SRE principles, evaluating 1-hour (fast burn) and 6-hour (slow burn) rates." }
+      { id: 'A', text: "Disable on-call paging entirely and check system status once a week on Monday morning." },
+      { id: 'B', text: "Alert solely on CPU utilization percentages rather than customer-facing error rates." },
+      { id: 'C', text: "Implement multi-window multi-burn-rate alerting based on Google SRE principles, evaluating 1-hour (fast burn) and 6-hour (slow burn) rates." },
+      { id: 'D', text: "Configure static alerts that trigger an on-call page whenever a single HTTP 500 error occurs anywhere in the cluster." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Implement multi-window multi-burn-rate alerting based on Google SRE principles, evaluating 1-hour (fast burn) and 6-hour (slow burn) rates. Google SRE multi-window multi-burn-rate alerting evaluates the rate at which an error budget is being consumed over multiple time windows (e.g., 2% budget consumed in 1 hour; 5% consumed in 6 hours). This prevents alert fatigue while rapidly paging engineers for catastrophic incidents.",
     referenceUrl: "https://sre.google/workbook/alerting-on-slos/",
@@ -94,8 +94,8 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
       { id: 'A', text: "Implement multi-window multi-burn-rate alerting based on Google SRE principles, evaluating 1-hour (fast burn) and 6-hour (slow burn) rates." },
-      { id: 'B', text: "Disable on-call paging entirely and check system status once a week on Monday morning." },
-      { id: 'C', text: "Configure static alerts that trigger an on-call page whenever a single HTTP 500 error occurs anywhere in the cluster." },
+      { id: 'B', text: "Configure static alerts that trigger an on-call page whenever a single HTTP 500 error occurs anywhere in the cluster." },
+      { id: 'C', text: "Disable on-call paging entirely and check system status once a week on Monday morning." },
       { id: 'D', text: "Alert solely on CPU utilization percentages rather than customer-facing error rates." }
     ],
     correctAnswers: ['A'],
@@ -115,8 +115,8 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Deploy SPIRE to attest workload identity and issue short-lived cryptographic SPIFFE Verifiable Identity Documents (X.509 SVIDs)." },
-      { id: 'B', text: "Rely on IP address whitelisting across multi-tenant, dynamically scheduled container environments." },
-      { id: 'C', text: "Distribute permanent, unrotated API keys embedded in environment variables across all cloud servers." },
+      { id: 'B', text: "Distribute permanent, unrotated API keys embedded in environment variables across all cloud servers." },
+      { id: 'C', text: "Rely on IP address whitelisting across multi-tenant, dynamically scheduled container environments." },
       { id: 'D', text: "Disable TLS and authenticate services using unencrypted HTTP user-agent header strings." }
     ],
     correctAnswers: ['A'],
@@ -135,12 +135,12 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to authenticate microservices mutually across heterogeneous multi-cloud and on-premises environments without static API tokens.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
-      { id: 'A', text: "Disable TLS and authenticate services using unencrypted HTTP user-agent header strings." },
+      { id: 'A', text: "Rely on IP address whitelisting across multi-tenant, dynamically scheduled container environments." },
       { id: 'B', text: "Distribute permanent, unrotated API keys embedded in environment variables across all cloud servers." },
-      { id: 'C', text: "Deploy SPIRE to attest workload identity and issue short-lived cryptographic SPIFFE Verifiable Identity Documents (X.509 SVIDs)." },
-      { id: 'D', text: "Rely on IP address whitelisting across multi-tenant, dynamically scheduled container environments." }
+      { id: 'C', text: "Disable TLS and authenticate services using unencrypted HTTP user-agent header strings." },
+      { id: 'D', text: "Deploy SPIRE to attest workload identity and issue short-lived cryptographic SPIFFE Verifiable Identity Documents (X.509 SVIDs)." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy SPIRE to attest workload identity and issue short-lived cryptographic SPIFFE Verifiable Identity Documents (X.509 SVIDs). SPIFFE (Secure Production Identity Framework for Everyone) and its implementation SPIRE provide cryptographic workload identity. Workload attestation validates binary hashes, namespaces, and cgroups, issuing short-lived SVID certificates used for mutual TLS authentication.",
     referenceUrl: "https://spiffe.io/docs/latest/spire-about/",
@@ -157,9 +157,9 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Deploy SPIRE to attest workload identity and issue short-lived cryptographic SPIFFE Verifiable Identity Documents (X.509 SVIDs)." },
-      { id: 'B', text: "Disable TLS and authenticate services using unencrypted HTTP user-agent header strings." },
-      { id: 'C', text: "Distribute permanent, unrotated API keys embedded in environment variables across all cloud servers." },
-      { id: 'D', text: "Rely on IP address whitelisting across multi-tenant, dynamically scheduled container environments." }
+      { id: 'B', text: "Rely on IP address whitelisting across multi-tenant, dynamically scheduled container environments." },
+      { id: 'C', text: "Disable TLS and authenticate services using unencrypted HTTP user-agent header strings." },
+      { id: 'D', text: "Distribute permanent, unrotated API keys embedded in environment variables across all cloud servers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -178,9 +178,9 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Deploy SPIRE to attest workload identity and issue short-lived cryptographic SPIFFE Verifiable Identity Documents (X.509 SVIDs)." },
-      { id: 'B', text: "Disable TLS and authenticate services using unencrypted HTTP user-agent header strings." },
-      { id: 'C', text: "Distribute permanent, unrotated API keys embedded in environment variables across all cloud servers." },
-      { id: 'D', text: "Rely on IP address whitelisting across multi-tenant, dynamically scheduled container environments." }
+      { id: 'B', text: "Rely on IP address whitelisting across multi-tenant, dynamically scheduled container environments." },
+      { id: 'C', text: "Disable TLS and authenticate services using unencrypted HTTP user-agent header strings." },
+      { id: 'D', text: "Distribute permanent, unrotated API keys embedded in environment variables across all cloud servers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to authenticate microservices mutually across heterogeneous multi-cloud and on-premises environments without static API tokens.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
-      { id: 'A', text: "Rely on IP address whitelisting across multi-tenant, dynamically scheduled container environments." },
-      { id: 'B', text: "Deploy SPIRE to attest workload identity and issue short-lived cryptographic SPIFFE Verifiable Identity Documents (X.509 SVIDs)." },
-      { id: 'C', text: "Disable TLS and authenticate services using unencrypted HTTP user-agent header strings." },
-      { id: 'D', text: "Distribute permanent, unrotated API keys embedded in environment variables across all cloud servers." }
+      { id: 'A', text: "Disable TLS and authenticate services using unencrypted HTTP user-agent header strings." },
+      { id: 'B', text: "Rely on IP address whitelisting across multi-tenant, dynamically scheduled container environments." },
+      { id: 'C', text: "Distribute permanent, unrotated API keys embedded in environment variables across all cloud servers." },
+      { id: 'D', text: "Deploy SPIRE to attest workload identity and issue short-lived cryptographic SPIFFE Verifiable Identity Documents (X.509 SVIDs)." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy SPIRE to attest workload identity and issue short-lived cryptographic SPIFFE Verifiable Identity Documents (X.509 SVIDs). SPIFFE (Secure Production Identity Framework for Everyone) and its implementation SPIRE provide cryptographic workload identity. Workload attestation validates binary hashes, namespaces, and cgroups, issuing short-lived SVID certificates used for mutual TLS authentication.",
     referenceUrl: "https://spiffe.io/docs/latest/spire-about/",
@@ -219,12 +219,12 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     scenario: "An enterprise principal platform architect is designing a multi-cloud internal developer platform (IDP) substrate, custom control planes, and automated governance across global clusters. The platform engineer needs to guarantee that production container images were compiled from verified Git commits and successfully passed all mandatory security tests.",
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
-      { id: 'A', text: "Store cryptographic signing keys on public web servers." },
+      { id: 'A', text: "Disable admission controllers to accelerate pod startup speeds." },
       { id: 'B', text: "Permit clusters to run unsigned container images pulled from unauthenticated public registries." },
-      { id: 'C', text: "Disable admission controllers to accelerate pod startup speeds." },
-      { id: 'D', text: "Enforce in-toto cryptographic attestations and Cosign image verification via Kyverno or Gatekeeper admission controllers." }
+      { id: 'C', text: "Enforce in-toto cryptographic attestations and Cosign image verification via Kyverno or Gatekeeper admission controllers." },
+      { id: 'D', text: "Store cryptographic signing keys on public web servers." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Enforce in-toto cryptographic attestations and Cosign image verification via Kyverno or Gatekeeper admission controllers. Securing the software supply chain requires cryptographic attestation of the entire build lifecycle. Frameworks like in-toto and Sigstore Cosign generate cryptographically signed provenance metadata, which admission controllers verify before allowing images to execute in clusters.",
     referenceUrl: "https://in-toto.io/",
@@ -240,12 +240,12 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to guarantee that production container images were compiled from verified Git commits and successfully passed all mandatory security tests.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
-      { id: 'A', text: "Permit clusters to run unsigned container images pulled from unauthenticated public registries." },
-      { id: 'B', text: "Disable admission controllers to accelerate pod startup speeds." },
+      { id: 'A', text: "Disable admission controllers to accelerate pod startup speeds." },
+      { id: 'B', text: "Enforce in-toto cryptographic attestations and Cosign image verification via Kyverno or Gatekeeper admission controllers." },
       { id: 'C', text: "Store cryptographic signing keys on public web servers." },
-      { id: 'D', text: "Enforce in-toto cryptographic attestations and Cosign image verification via Kyverno or Gatekeeper admission controllers." }
+      { id: 'D', text: "Permit clusters to run unsigned container images pulled from unauthenticated public registries." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enforce in-toto cryptographic attestations and Cosign image verification via Kyverno or Gatekeeper admission controllers. Securing the software supply chain requires cryptographic attestation of the entire build lifecycle. Frameworks like in-toto and Sigstore Cosign generate cryptographically signed provenance metadata, which admission controllers verify before allowing images to execute in clusters.",
     referenceUrl: "https://in-toto.io/",
@@ -262,9 +262,9 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Enforce in-toto cryptographic attestations and Cosign image verification via Kyverno or Gatekeeper admission controllers." },
-      { id: 'B', text: "Disable admission controllers to accelerate pod startup speeds." },
-      { id: 'C', text: "Permit clusters to run unsigned container images pulled from unauthenticated public registries." },
-      { id: 'D', text: "Store cryptographic signing keys on public web servers." }
+      { id: 'B', text: "Store cryptographic signing keys on public web servers." },
+      { id: 'C', text: "Disable admission controllers to accelerate pod startup speeds." },
+      { id: 'D', text: "Permit clusters to run unsigned container images pulled from unauthenticated public registries." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -283,9 +283,9 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
       { id: 'A', text: "Enforce in-toto cryptographic attestations and Cosign image verification via Kyverno or Gatekeeper admission controllers." },
-      { id: 'B', text: "Disable admission controllers to accelerate pod startup speeds." },
+      { id: 'B', text: "Permit clusters to run unsigned container images pulled from unauthenticated public registries." },
       { id: 'C', text: "Store cryptographic signing keys on public web servers." },
-      { id: 'D', text: "Permit clusters to run unsigned container images pulled from unauthenticated public registries." }
+      { id: 'D', text: "Disable admission controllers to accelerate pod startup speeds." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,12 +303,12 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to guarantee that production container images were compiled from verified Git commits and successfully passed all mandatory security tests.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
-      { id: 'A', text: "Disable admission controllers to accelerate pod startup speeds." },
-      { id: 'B', text: "Store cryptographic signing keys on public web servers." },
-      { id: 'C', text: "Enforce in-toto cryptographic attestations and Cosign image verification via Kyverno or Gatekeeper admission controllers." },
-      { id: 'D', text: "Permit clusters to run unsigned container images pulled from unauthenticated public registries." }
+      { id: 'A', text: "Permit clusters to run unsigned container images pulled from unauthenticated public registries." },
+      { id: 'B', text: "Enforce in-toto cryptographic attestations and Cosign image verification via Kyverno or Gatekeeper admission controllers." },
+      { id: 'C', text: "Disable admission controllers to accelerate pod startup speeds." },
+      { id: 'D', text: "Store cryptographic signing keys on public web servers." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enforce in-toto cryptographic attestations and Cosign image verification via Kyverno or Gatekeeper admission controllers. Securing the software supply chain requires cryptographic attestation of the entire build lifecycle. Frameworks like in-toto and Sigstore Cosign generate cryptographically signed provenance metadata, which admission controllers verify before allowing images to execute in clusters.",
     referenceUrl: "https://in-toto.io/",
@@ -325,9 +325,9 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     question: "Which advanced architectural approach or platform engineering design satisfies these enterprise IDP objectives?",
     options: [
       { id: 'A', text: "Deploy Falco with eBPF probes to detect anomalous system calls, shell executions, and sensitive file modifications in real time." },
-      { id: 'B', text: "Grant containers `--privileged=true` access to simplify debugging for software developers." },
+      { id: 'B', text: "Scan source code repositories once a year and assume running containers can never be compromised." },
       { id: 'C', text: "Disable kernel auditing and ignore runtime container activity." },
-      { id: 'D', text: "Scan source code repositories once a year and assume running containers can never be compromised." }
+      { id: 'D', text: "Grant containers `--privileged=true` access to simplify debugging for software developers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -347,8 +347,8 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Deploy Falco with eBPF probes to detect anomalous system calls, shell executions, and sensitive file modifications in real time." },
       { id: 'B', text: "Scan source code repositories once a year and assume running containers can never be compromised." },
-      { id: 'C', text: "Grant containers `--privileged=true` access to simplify debugging for software developers." },
-      { id: 'D', text: "Disable kernel auditing and ignore runtime container activity." }
+      { id: 'C', text: "Disable kernel auditing and ignore runtime container activity." },
+      { id: 'D', text: "Grant containers `--privileged=true` access to simplify debugging for software developers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -367,9 +367,9 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
       { id: 'A', text: "Deploy Falco with eBPF probes to detect anomalous system calls, shell executions, and sensitive file modifications in real time." },
-      { id: 'B', text: "Grant containers `--privileged=true` access to simplify debugging for software developers." },
-      { id: 'C', text: "Scan source code repositories once a year and assume running containers can never be compromised." },
-      { id: 'D', text: "Disable kernel auditing and ignore runtime container activity." }
+      { id: 'B', text: "Disable kernel auditing and ignore runtime container activity." },
+      { id: 'C', text: "Grant containers `--privileged=true` access to simplify debugging for software developers." },
+      { id: 'D', text: "Scan source code repositories once a year and assume running containers can never be compromised." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to detect and alert when an attacker spawns an unauthorized interactive bash shell inside a production payment container.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Disable kernel auditing and ignore runtime container activity." },
-      { id: 'B', text: "Grant containers `--privileged=true` access to simplify debugging for software developers." },
-      { id: 'C', text: "Scan source code repositories once a year and assume running containers can never be compromised." },
-      { id: 'D', text: "Deploy Falco with eBPF probes to detect anomalous system calls, shell executions, and sensitive file modifications in real time." }
+      { id: 'A', text: "Scan source code repositories once a year and assume running containers can never be compromised." },
+      { id: 'B', text: "Deploy Falco with eBPF probes to detect anomalous system calls, shell executions, and sensitive file modifications in real time." },
+      { id: 'C', text: "Grant containers `--privileged=true` access to simplify debugging for software developers." },
+      { id: 'D', text: "Disable kernel auditing and ignore runtime container activity." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Deploy Falco with eBPF probes to detect anomalous system calls, shell executions, and sensitive file modifications in real time. CNCF Falco provides runtime threat detection by monitoring Linux kernel system calls via eBPF. It parses events against security rules (e.g., detecting shell spawning inside containers, unexpected network connections, or modifications to `/etc/shadow`) and emits alerts instantly.",
     referenceUrl: "https://falco.org/docs/",
@@ -408,12 +408,12 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to detect and alert when an attacker spawns an unauthorized interactive bash shell inside a production payment container.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
-      { id: 'A', text: "Disable kernel auditing and ignore runtime container activity." },
-      { id: 'B', text: "Deploy Falco with eBPF probes to detect anomalous system calls, shell executions, and sensitive file modifications in real time." },
-      { id: 'C', text: "Scan source code repositories once a year and assume running containers can never be compromised." },
+      { id: 'A', text: "Scan source code repositories once a year and assume running containers can never be compromised." },
+      { id: 'B', text: "Disable kernel auditing and ignore runtime container activity." },
+      { id: 'C', text: "Deploy Falco with eBPF probes to detect anomalous system calls, shell executions, and sensitive file modifications in real time." },
       { id: 'D', text: "Grant containers `--privileged=true` access to simplify debugging for software developers." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Falco with eBPF probes to detect anomalous system calls, shell executions, and sensitive file modifications in real time. CNCF Falco provides runtime threat detection by monitoring Linux kernel system calls via eBPF. It parses events against security rules (e.g., detecting shell spawning inside containers, unexpected network connections, or modifications to `/etc/shadow`) and emits alerts instantly.",
     referenceUrl: "https://falco.org/docs/",
@@ -431,8 +431,8 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "Deploy Kyverno with mutating policies that automatically inject required security contexts, drop capabilities, and set default resource requests." },
       { id: 'B', text: "Reject all developer deployments that omit security settings without offering automated remediation or clear documentation." },
-      { id: 'C', text: "Disable security contexts and run all production workloads with root host privileges." },
-      { id: 'D', text: "Require human platform engineers to manually edit every pod manifest before it is applied to the cluster." }
+      { id: 'C', text: "Require human platform engineers to manually edit every pod manifest before it is applied to the cluster." },
+      { id: 'D', text: "Disable security contexts and run all production workloads with root host privileges." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,12 +450,12 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     scenario: "A high-throughput platform organization orchestrates thousands of microservices and hundreds of Kubernetes clusters across multi-region cloud substrates. The platform engineer needs to automatically inject default resource limits and security contexts into pods that developers deploy without them.",
     question: "Which control plane pattern or composition architecture handles this operational scale effectively while preventing controller contention and state drift?",
     options: [
-      { id: 'A', text: "Require human platform engineers to manually edit every pod manifest before it is applied to the cluster." },
+      { id: 'A', text: "Deploy Kyverno with mutating policies that automatically inject required security contexts, drop capabilities, and set default resource requests." },
       { id: 'B', text: "Reject all developer deployments that omit security settings without offering automated remediation or clear documentation." },
-      { id: 'C', text: "Deploy Kyverno with mutating policies that automatically inject required security contexts, drop capabilities, and set default resource requests." },
+      { id: 'C', text: "Require human platform engineers to manually edit every pod manifest before it is applied to the cluster." },
       { id: 'D', text: "Disable security contexts and run all production workloads with root host privileges." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy Kyverno with mutating policies that automatically inject required security contexts, drop capabilities, and set default resource requests. CNCF Kyverno is a Kubernetes-native policy engine. Unlike OPA (which requires Rego), Kyverno policies are written in standard Kubernetes YAML. Kyverno validates manifests, generates resources, and mutates incoming pods (e.g., injecting `runAsNonRoot: true` or default resource limits).",
     referenceUrl: "https://kyverno.io/docs/introduction/",
@@ -471,12 +471,12 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     scenario: "A platform security architect requires cryptographic supply chain verification, kernel-level runtime anomaly detection, and zero-trust workload attestation. The platform engineer needs to automatically inject default resource limits and security contexts into pods that developers deploy without them.",
     question: "Which platform engineering pattern or security mechanism satisfies these mandatory zero-trust controls?",
     options: [
-      { id: 'A', text: "Require human platform engineers to manually edit every pod manifest before it is applied to the cluster." },
+      { id: 'A', text: "Disable security contexts and run all production workloads with root host privileges." },
       { id: 'B', text: "Reject all developer deployments that omit security settings without offering automated remediation or clear documentation." },
-      { id: 'C', text: "Disable security contexts and run all production workloads with root host privileges." },
-      { id: 'D', text: "Deploy Kyverno with mutating policies that automatically inject required security contexts, drop capabilities, and set default resource requests." }
+      { id: 'C', text: "Deploy Kyverno with mutating policies that automatically inject required security contexts, drop capabilities, and set default resource requests." },
+      { id: 'D', text: "Require human platform engineers to manually edit every pod manifest before it is applied to the cluster." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy Kyverno with mutating policies that automatically inject required security contexts, drop capabilities, and set default resource requests. CNCF Kyverno is a Kubernetes-native policy engine. Unlike OPA (which requires Rego), Kyverno policies are written in standard Kubernetes YAML. Kyverno validates manifests, generates resources, and mutates incoming pods (e.g., injecting `runAsNonRoot: true` or default resource limits).",
     referenceUrl: "https://kyverno.io/docs/introduction/",
@@ -492,12 +492,12 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     scenario: "A platform team is building advanced self-service automation, ephemeral environment orchestration, and automated dependency campaigns to maximize developer flow state. The platform engineer needs to automatically inject default resource limits and security contexts into pods that developers deploy without them.",
     question: "Which platform capability or automation workflow enables application teams to self-serve safely?",
     options: [
-      { id: 'A', text: "Disable security contexts and run all production workloads with root host privileges." },
-      { id: 'B', text: "Deploy Kyverno with mutating policies that automatically inject required security contexts, drop capabilities, and set default resource requests." },
+      { id: 'A', text: "Reject all developer deployments that omit security settings without offering automated remediation or clear documentation." },
+      { id: 'B', text: "Disable security contexts and run all production workloads with root host privileges." },
       { id: 'C', text: "Require human platform engineers to manually edit every pod manifest before it is applied to the cluster." },
-      { id: 'D', text: "Reject all developer deployments that omit security settings without offering automated remediation or clear documentation." }
+      { id: 'D', text: "Deploy Kyverno with mutating policies that automatically inject required security contexts, drop capabilities, and set default resource requests." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy Kyverno with mutating policies that automatically inject required security contexts, drop capabilities, and set default resource requests. CNCF Kyverno is a Kubernetes-native policy engine. Unlike OPA (which requires Rego), Kyverno policies are written in standard Kubernetes YAML. Kyverno validates manifests, generates resources, and mutates incoming pods (e.g., injecting `runAsNonRoot: true` or default resource limits).",
     referenceUrl: "https://kyverno.io/docs/introduction/",
@@ -513,12 +513,12 @@ export const CNCF_CNPE_QUESTIONS_19 = [
     scenario: "A platform reliability engineering team is optimizing multi-window error budget alerting, fault injection chaos experiments, and automated incident remediation across clusters. The platform engineer needs to automatically inject default resource limits and security contexts into pods that developers deploy without them.",
     question: "Which operational design or SRE configuration guarantees high availability and resilient platform evolution?",
     options: [
-      { id: 'A', text: "Reject all developer deployments that omit security settings without offering automated remediation or clear documentation." },
-      { id: 'B', text: "Deploy Kyverno with mutating policies that automatically inject required security contexts, drop capabilities, and set default resource requests." },
+      { id: 'A', text: "Deploy Kyverno with mutating policies that automatically inject required security contexts, drop capabilities, and set default resource requests." },
+      { id: 'B', text: "Reject all developer deployments that omit security settings without offering automated remediation or clear documentation." },
       { id: 'C', text: "Require human platform engineers to manually edit every pod manifest before it is applied to the cluster." },
       { id: 'D', text: "Disable security contexts and run all production workloads with root host privileges." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy Kyverno with mutating policies that automatically inject required security contexts, drop capabilities, and set default resource requests. CNCF Kyverno is a Kubernetes-native policy engine. Unlike OPA (which requires Rego), Kyverno policies are written in standard Kubernetes YAML. Kyverno validates manifests, generates resources, and mutates incoming pods (e.g., injecting `runAsNonRoot: true` or default resource limits).",
     referenceUrl: "https://kyverno.io/docs/introduction/",

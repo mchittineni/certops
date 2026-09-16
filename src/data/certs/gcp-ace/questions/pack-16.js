@@ -9,12 +9,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to create a regionally redundant Cloud Storage bucket in us-central1 with uniform access controls and object versioning enabled via CLI.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Create the bucket using an unencrypted local FTP client." },
-      { id: 'B', text: "Create the bucket with uniform access, then enable versioning." },
+      { id: 'A', text: "Create the bucket with uniform access, then enable versioning." },
+      { id: 'B', text: "Create the bucket using an unencrypted local FTP client." },
       { id: 'C', text: "Store files in an unformatted Compute Engine persistent disk." },
       { id: 'D', text: "Create a public Google Drive folder and share the link with the internet." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Execute 'gcloud storage buckets create gs://BUCKET_NAME --location=us-central1 --uniform-bucket-level-access' and enable versioning. The `gcloud storage` CLI manages Cloud Storage buckets and objects. Uniform bucket-level access unifies permissions using IAM policies exclusively (disabling ACLs on individual objects), while object versioning preserves historical copies of overwritten or deleted objects.",
     referenceUrl: "https://cloud.google.com/storage/docs/creating-buckets#storage-create-bucket-cli",
@@ -32,8 +32,8 @@ export const GCP_ACE_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Create the bucket with uniform access, then enable versioning." },
       { id: 'B', text: "Create the bucket using an unencrypted local FTP client." },
-      { id: 'C', text: "Create a public Google Drive folder and share the link with the internet." },
-      { id: 'D', text: "Store files in an unformatted Compute Engine persistent disk." }
+      { id: 'C', text: "Store files in an unformatted Compute Engine persistent disk." },
+      { id: 'D', text: "Create a public Google Drive folder and share the link with the internet." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to create a regionally redundant Cloud Storage bucket in us-central1 with uniform access controls and object versioning enabled via CLI.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Create a public Google Drive folder and share the link with the internet." },
-      { id: 'B', text: "Create the bucket with uniform access, then enable versioning." },
-      { id: 'C', text: "Create the bucket using an unencrypted local FTP client." },
-      { id: 'D', text: "Store files in an unformatted Compute Engine persistent disk." }
+      { id: 'A', text: "Store files in an unformatted Compute Engine persistent disk." },
+      { id: 'B', text: "Create a public Google Drive folder and share the link with the internet." },
+      { id: 'C', text: "Create the bucket with uniform access, then enable versioning." },
+      { id: 'D', text: "Create the bucket using an unencrypted local FTP client." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Execute 'gcloud storage buckets create gs://BUCKET_NAME --location=us-central1 --uniform-bucket-level-access' and enable versioning. The `gcloud storage` CLI manages Cloud Storage buckets and objects. Uniform bucket-level access unifies permissions using IAM policies exclusively (disabling ACLs on individual objects), while object versioning preserves historical copies of overwritten or deleted objects.",
     referenceUrl: "https://cloud.google.com/storage/docs/creating-buckets#storage-create-bucket-cli",
@@ -72,12 +72,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to create a regionally redundant Cloud Storage bucket in us-central1 with uniform access controls and object versioning enabled via CLI.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Create a public Google Drive folder and share the link with the internet." },
-      { id: 'B', text: "Store files in an unformatted Compute Engine persistent disk." },
-      { id: 'C', text: "Create the bucket using an unencrypted local FTP client." },
-      { id: 'D', text: "Create the bucket with uniform access, then enable versioning." }
+      { id: 'A', text: "Create the bucket with uniform access, then enable versioning." },
+      { id: 'B', text: "Create the bucket using an unencrypted local FTP client." },
+      { id: 'C', text: "Store files in an unformatted Compute Engine persistent disk." },
+      { id: 'D', text: "Create a public Google Drive folder and share the link with the internet." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Execute 'gcloud storage buckets create gs://BUCKET_NAME --location=us-central1 --uniform-bucket-level-access' and enable versioning. The `gcloud storage` CLI manages Cloud Storage buckets and objects. Uniform bucket-level access unifies permissions using IAM policies exclusively (disabling ACLs on individual objects), while object versioning preserves historical copies of overwritten or deleted objects.",
     referenceUrl: "https://cloud.google.com/storage/docs/creating-buckets#storage-create-bucket-cli",
@@ -94,9 +94,9 @@ export const GCP_ACE_QUESTIONS_16 = [
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
       { id: 'A', text: "Create the bucket with uniform access, then enable versioning." },
-      { id: 'B', text: "Store files in an unformatted Compute Engine persistent disk." },
-      { id: 'C', text: "Create a public Google Drive folder and share the link with the internet." },
-      { id: 'D', text: "Create the bucket using an unencrypted local FTP client." }
+      { id: 'B', text: "Create a public Google Drive folder and share the link with the internet." },
+      { id: 'C', text: "Create the bucket using an unencrypted local FTP client." },
+      { id: 'D', text: "Store files in an unformatted Compute Engine persistent disk." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to deploy a fully managed PostgreSQL database on Cloud SQL configured with private IP connectivity to a designated VPC without public internet exposure.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Use Cloud Bigtable for relational SQL queries." },
-      { id: 'B', text: "Deploy a local SQLite database file on an NFS share." },
-      { id: 'C', text: "Install PostgreSQL on a Compute Engine VM and assign a public IP address." },
-      { id: 'D', text: "Create the instance with private network flags and automated backups." }
+      { id: 'A', text: "Create the instance with private network flags and automated backups." },
+      { id: 'B', text: "Install PostgreSQL on a Compute Engine VM and assign a public IP address." },
+      { id: 'C', text: "Deploy a local SQLite database file on an NFS share." },
+      { id: 'D', text: "Use Cloud Bigtable for relational SQL queries." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Execute 'gcloud sql instances create' specifying private network flags and enabling automated backups. Cloud SQL instances can be created with Private IP addresses using Private Services Access (VPC peering between your VPC and Google's managed services network). This ensures database connections never leave Google's internal network fabric.",
     referenceUrl: "https://cloud.google.com/sql/docs/postgres/configure-private-ip",
@@ -136,9 +136,9 @@ export const GCP_ACE_QUESTIONS_16 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Create the instance with private network flags and automated backups." },
-      { id: 'B', text: "Use Cloud Bigtable for relational SQL queries." },
+      { id: 'B', text: "Install PostgreSQL on a Compute Engine VM and assign a public IP address." },
       { id: 'C', text: "Deploy a local SQLite database file on an NFS share." },
-      { id: 'D', text: "Install PostgreSQL on a Compute Engine VM and assign a public IP address." }
+      { id: 'D', text: "Use Cloud Bigtable for relational SQL queries." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to deploy a fully managed PostgreSQL database on Cloud SQL configured with private IP connectivity to a designated VPC without public internet exposure.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy a local SQLite database file on an NFS share." },
+      { id: 'A', text: "Use Cloud Bigtable for relational SQL queries." },
       { id: 'B', text: "Install PostgreSQL on a Compute Engine VM and assign a public IP address." },
-      { id: 'C', text: "Use Cloud Bigtable for relational SQL queries." },
-      { id: 'D', text: "Create the instance with private network flags and automated backups." }
+      { id: 'C', text: "Create the instance with private network flags and automated backups." },
+      { id: 'D', text: "Deploy a local SQLite database file on an NFS share." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Execute 'gcloud sql instances create' specifying private network flags and enabling automated backups. Cloud SQL instances can be created with Private IP addresses using Private Services Access (VPC peering between your VPC and Google's managed services network). This ensures database connections never leave Google's internal network fabric.",
     referenceUrl: "https://cloud.google.com/sql/docs/postgres/configure-private-ip",
@@ -177,12 +177,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to deploy a fully managed PostgreSQL database on Cloud SQL configured with private IP connectivity to a designated VPC without public internet exposure.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Deploy a local SQLite database file on an NFS share." },
-      { id: 'B', text: "Create the instance with private network flags and automated backups." },
-      { id: 'C', text: "Install PostgreSQL on a Compute Engine VM and assign a public IP address." },
+      { id: 'A', text: "Install PostgreSQL on a Compute Engine VM and assign a public IP address." },
+      { id: 'B', text: "Deploy a local SQLite database file on an NFS share." },
+      { id: 'C', text: "Create the instance with private network flags and automated backups." },
       { id: 'D', text: "Use Cloud Bigtable for relational SQL queries." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Execute 'gcloud sql instances create' specifying private network flags and enabling automated backups. Cloud SQL instances can be created with Private IP addresses using Private Services Access (VPC peering between your VPC and Google's managed services network). This ensures database connections never leave Google's internal network fabric.",
     referenceUrl: "https://cloud.google.com/sql/docs/postgres/configure-private-ip",
@@ -198,12 +198,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to deploy a fully managed PostgreSQL database on Cloud SQL configured with private IP connectivity to a designated VPC without public internet exposure.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Use Cloud Bigtable for relational SQL queries." },
+      { id: 'A', text: "Create the instance with private network flags and automated backups." },
       { id: 'B', text: "Install PostgreSQL on a Compute Engine VM and assign a public IP address." },
       { id: 'C', text: "Deploy a local SQLite database file on an NFS share." },
-      { id: 'D', text: "Create the instance with private network flags and automated backups." }
+      { id: 'D', text: "Use Cloud Bigtable for relational SQL queries." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Execute 'gcloud sql instances create' specifying private network flags and enabling automated backups. Cloud SQL instances can be created with Private IP addresses using Private Services Access (VPC peering between your VPC and Google's managed services network). This ensures database connections never leave Google's internal network fabric.",
     referenceUrl: "https://cloud.google.com/sql/docs/postgres/configure-private-ip",
@@ -219,12 +219,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to create a secure enterprise Virtual Private Cloud (VPC) network with custom subnets in us-east1 and europe-west1, ensuring no default auto-mode subnets are created.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy all servers into the legacy default VPC network." },
-      { id: 'B', text: "Create a custom-mode VPC with --subnet-mode=custom and add subnets." },
-      { id: 'C', text: "Create an Auto Mode VPC network that automatically creates subnets in every global region." },
+      { id: 'A', text: "Create an Auto Mode VPC network that automatically creates subnets in every global region." },
+      { id: 'B', text: "Deploy all servers into the legacy default VPC network." },
+      { id: 'C', text: "Create a custom-mode VPC with --subnet-mode=custom and add subnets." },
       { id: 'D', text: "Connect virtual machines using public internet IP addresses without a VPC." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a Custom Mode VPC network using 'gcloud compute networks create --subnet-mode=custom' and add defined subnets. A custom mode VPC network gives administrators complete control over IP address ranges and regional subnets, preventing IP overlapping conflicts when connecting to on-premises networks via Cloud VPN or Cloud Interconnect. Auto mode subnets should be avoided in enterprise production.",
     referenceUrl: "https://cloud.google.com/vpc/docs/using-vpc#create-custom-network",
@@ -240,12 +240,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to create a secure enterprise Virtual Private Cloud (VPC) network with custom subnets in us-east1 and europe-west1, ensuring no default auto-mode subnets are created.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Connect virtual machines using public internet IP addresses without a VPC." },
-      { id: 'B', text: "Create a custom-mode VPC with --subnet-mode=custom and add subnets." },
-      { id: 'C', text: "Create an Auto Mode VPC network that automatically creates subnets in every global region." },
-      { id: 'D', text: "Deploy all servers into the legacy default VPC network." }
+      { id: 'A', text: "Deploy all servers into the legacy default VPC network." },
+      { id: 'B', text: "Connect virtual machines using public internet IP addresses without a VPC." },
+      { id: 'C', text: "Create a custom-mode VPC with --subnet-mode=custom and add subnets." },
+      { id: 'D', text: "Create an Auto Mode VPC network that automatically creates subnets in every global region." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a Custom Mode VPC network using 'gcloud compute networks create --subnet-mode=custom' and add defined subnets. A custom mode VPC network gives administrators complete control over IP address ranges and regional subnets, preventing IP overlapping conflicts when connecting to on-premises networks via Cloud VPN or Cloud Interconnect. Auto mode subnets should be avoided in enterprise production.",
     referenceUrl: "https://cloud.google.com/vpc/docs/using-vpc#create-custom-network",
@@ -261,12 +261,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to create a secure enterprise Virtual Private Cloud (VPC) network with custom subnets in us-east1 and europe-west1, ensuring no default auto-mode subnets are created.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy all servers into the legacy default VPC network." },
-      { id: 'B', text: "Create a custom-mode VPC with --subnet-mode=custom and add subnets." },
-      { id: 'C', text: "Create an Auto Mode VPC network that automatically creates subnets in every global region." },
+      { id: 'A', text: "Create an Auto Mode VPC network that automatically creates subnets in every global region." },
+      { id: 'B', text: "Deploy all servers into the legacy default VPC network." },
+      { id: 'C', text: "Create a custom-mode VPC with --subnet-mode=custom and add subnets." },
       { id: 'D', text: "Connect virtual machines using public internet IP addresses without a VPC." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a Custom Mode VPC network using 'gcloud compute networks create --subnet-mode=custom' and add defined subnets. A custom mode VPC network gives administrators complete control over IP address ranges and regional subnets, preventing IP overlapping conflicts when connecting to on-premises networks via Cloud VPN or Cloud Interconnect. Auto mode subnets should be avoided in enterprise production.",
     referenceUrl: "https://cloud.google.com/vpc/docs/using-vpc#create-custom-network",
@@ -282,12 +282,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to create a secure enterprise Virtual Private Cloud (VPC) network with custom subnets in us-east1 and europe-west1, ensuring no default auto-mode subnets are created.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Deploy all servers into the legacy default VPC network." },
-      { id: 'B', text: "Connect virtual machines using public internet IP addresses without a VPC." },
-      { id: 'C', text: "Create an Auto Mode VPC network that automatically creates subnets in every global region." },
-      { id: 'D', text: "Create a custom-mode VPC with --subnet-mode=custom and add subnets." }
+      { id: 'A', text: "Create an Auto Mode VPC network that automatically creates subnets in every global region." },
+      { id: 'B', text: "Create a custom-mode VPC with --subnet-mode=custom and add subnets." },
+      { id: 'C', text: "Connect virtual machines using public internet IP addresses without a VPC." },
+      { id: 'D', text: "Deploy all servers into the legacy default VPC network." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Custom Mode VPC network using 'gcloud compute networks create --subnet-mode=custom' and add defined subnets. A custom mode VPC network gives administrators complete control over IP address ranges and regional subnets, preventing IP overlapping conflicts when connecting to on-premises networks via Cloud VPN or Cloud Interconnect. Auto mode subnets should be avoided in enterprise production.",
     referenceUrl: "https://cloud.google.com/vpc/docs/using-vpc#create-custom-network",
@@ -303,12 +303,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to create a secure enterprise Virtual Private Cloud (VPC) network with custom subnets in us-east1 and europe-west1, ensuring no default auto-mode subnets are created.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Create an Auto Mode VPC network that automatically creates subnets in every global region." },
-      { id: 'B', text: "Connect virtual machines using public internet IP addresses without a VPC." },
+      { id: 'A', text: "Connect virtual machines using public internet IP addresses without a VPC." },
+      { id: 'B', text: "Create a custom-mode VPC with --subnet-mode=custom and add subnets." },
       { id: 'C', text: "Deploy all servers into the legacy default VPC network." },
-      { id: 'D', text: "Create a custom-mode VPC with --subnet-mode=custom and add subnets." }
+      { id: 'D', text: "Create an Auto Mode VPC network that automatically creates subnets in every global region." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Custom Mode VPC network using 'gcloud compute networks create --subnet-mode=custom' and add defined subnets. A custom mode VPC network gives administrators complete control over IP address ranges and regional subnets, preventing IP overlapping conflicts when connecting to on-premises networks via Cloud VPN or Cloud Interconnect. Auto mode subnets should be avoided in enterprise production.",
     referenceUrl: "https://cloud.google.com/vpc/docs/using-vpc#create-custom-network",
@@ -324,12 +324,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to allow inbound HTTPS (port 443) traffic from the public internet only to frontend web server VMs that possess the network tag 'web-frontend'.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Rely on client operating system software firewalls alone." },
-      { id: 'B', text: "An ingress rule for tcp:443 from anywhere to the web-frontend tag." },
+      { id: 'A', text: "Allow all inbound TCP traffic on all ports across the entire virtual network." },
+      { id: 'B', text: "Rely on client operating system software firewalls alone." },
       { id: 'C', text: "Delete the default-deny-all-ingress firewall rule." },
-      { id: 'D', text: "Allow all inbound TCP traffic on all ports across the entire virtual network." }
+      { id: 'D', text: "An ingress rule for tcp:443 from anywhere to the web-frontend tag." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a VPC ingress firewall rule with target-tags='web-frontend', source-ranges='0.0.0.0/0', and allow=tcp:443. Google Cloud VPC firewall rules apply at the VM network interface level. By utilizing `target-tags`, rules apply specifically to VMs carrying that tag, decoupling network security policy from dynamic IP address assignments.",
     referenceUrl: "https://cloud.google.com/firewall/docs/using-firewalls",
@@ -345,12 +345,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to allow inbound HTTPS (port 443) traffic from the public internet only to frontend web server VMs that possess the network tag 'web-frontend'.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Allow all inbound TCP traffic on all ports across the entire virtual network." },
-      { id: 'B', text: "Delete the default-deny-all-ingress firewall rule." },
-      { id: 'C', text: "Rely on client operating system software firewalls alone." },
-      { id: 'D', text: "An ingress rule for tcp:443 from anywhere to the web-frontend tag." }
+      { id: 'A', text: "Delete the default-deny-all-ingress firewall rule." },
+      { id: 'B', text: "Rely on client operating system software firewalls alone." },
+      { id: 'C', text: "An ingress rule for tcp:443 from anywhere to the web-frontend tag." },
+      { id: 'D', text: "Allow all inbound TCP traffic on all ports across the entire virtual network." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a VPC ingress firewall rule with target-tags='web-frontend', source-ranges='0.0.0.0/0', and allow=tcp:443. Google Cloud VPC firewall rules apply at the VM network interface level. By utilizing `target-tags`, rules apply specifically to VMs carrying that tag, decoupling network security policy from dynamic IP address assignments.",
     referenceUrl: "https://cloud.google.com/firewall/docs/using-firewalls",
@@ -366,12 +366,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to allow inbound HTTPS (port 443) traffic from the public internet only to frontend web server VMs that possess the network tag 'web-frontend'.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Rely on client operating system software firewalls alone." },
-      { id: 'B', text: "An ingress rule for tcp:443 from anywhere to the web-frontend tag." },
+      { id: 'A', text: "Allow all inbound TCP traffic on all ports across the entire virtual network." },
+      { id: 'B', text: "Rely on client operating system software firewalls alone." },
       { id: 'C', text: "Delete the default-deny-all-ingress firewall rule." },
-      { id: 'D', text: "Allow all inbound TCP traffic on all ports across the entire virtual network." }
+      { id: 'D', text: "An ingress rule for tcp:443 from anywhere to the web-frontend tag." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a VPC ingress firewall rule with target-tags='web-frontend', source-ranges='0.0.0.0/0', and allow=tcp:443. Google Cloud VPC firewall rules apply at the VM network interface level. By utilizing `target-tags`, rules apply specifically to VMs carrying that tag, decoupling network security policy from dynamic IP address assignments.",
     referenceUrl: "https://cloud.google.com/firewall/docs/using-firewalls",
@@ -387,12 +387,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to allow inbound HTTPS (port 443) traffic from the public internet only to frontend web server VMs that possess the network tag 'web-frontend'.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Delete the default-deny-all-ingress firewall rule." },
+      { id: 'A', text: "Rely on client operating system software firewalls alone." },
       { id: 'B', text: "Allow all inbound TCP traffic on all ports across the entire virtual network." },
-      { id: 'C', text: "Rely on client operating system software firewalls alone." },
-      { id: 'D', text: "An ingress rule for tcp:443 from anywhere to the web-frontend tag." }
+      { id: 'C', text: "An ingress rule for tcp:443 from anywhere to the web-frontend tag." },
+      { id: 'D', text: "Delete the default-deny-all-ingress firewall rule." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a VPC ingress firewall rule with target-tags='web-frontend', source-ranges='0.0.0.0/0', and allow=tcp:443. Google Cloud VPC firewall rules apply at the VM network interface level. By utilizing `target-tags`, rules apply specifically to VMs carrying that tag, decoupling network security policy from dynamic IP address assignments.",
     referenceUrl: "https://cloud.google.com/firewall/docs/using-firewalls",
@@ -408,12 +408,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The cloud engineer needs to allow inbound HTTPS (port 443) traffic from the public internet only to frontend web server VMs that possess the network tag 'web-frontend'.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Rely on client operating system software firewalls alone." },
-      { id: 'B', text: "Delete the default-deny-all-ingress firewall rule." },
-      { id: 'C', text: "Allow all inbound TCP traffic on all ports across the entire virtual network." },
-      { id: 'D', text: "An ingress rule for tcp:443 from anywhere to the web-frontend tag." }
+      { id: 'A', text: "An ingress rule for tcp:443 from anywhere to the web-frontend tag." },
+      { id: 'B', text: "Allow all inbound TCP traffic on all ports across the entire virtual network." },
+      { id: 'C', text: "Delete the default-deny-all-ingress firewall rule." },
+      { id: 'D', text: "Rely on client operating system software firewalls alone." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create a VPC ingress firewall rule with target-tags='web-frontend', source-ranges='0.0.0.0/0', and allow=tcp:443. Google Cloud VPC firewall rules apply at the VM network interface level. By utilizing `target-tags`, rules apply specifically to VMs carrying that tag, decoupling network security policy from dynamic IP address assignments.",
     referenceUrl: "https://cloud.google.com/firewall/docs/using-firewalls",
@@ -429,12 +429,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The cloud engineer needs to resolve custom internal hostnames (e.g. db.corp.internal) privately across multiple VPC networks without exposing records to the public internet.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Edit the /etc/hosts file on every virtual machine manually using SSH." },
-      { id: 'B', text: "Deploy a standalone BIND9 DNS server on a single Compute Engine VM." },
-      { id: 'C', text: "Register public DNS records on an external domain registrar with internal RFC 1918 IPs." },
-      { id: 'D', text: "Create a Cloud DNS managed private zone, specify the DNS name, and bind the allowed VPC networks." }
+      { id: 'A', text: "Register public DNS records on an external domain registrar with internal RFC 1918 IPs." },
+      { id: 'B', text: "Create a Cloud DNS managed private zone, specify the DNS name, and bind the allowed VPC networks." },
+      { id: 'C', text: "Deploy a standalone BIND9 DNS server on a single Compute Engine VM." },
+      { id: 'D', text: "Edit the /etc/hosts file on every virtual machine manually using SSH." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Cloud DNS managed private zone, specify the DNS name, and bind the allowed VPC networks. Cloud DNS private zones provide high-availability, low-latency internal domain name resolution within specified VPC networks without exposing private infrastructure details to the public internet or requiring custom DNS server maintenance.",
     referenceUrl: "https://cloud.google.com/dns/docs/zones/private-zones",
@@ -450,12 +450,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The cloud engineer needs to resolve custom internal hostnames (e.g. db.corp.internal) privately across multiple VPC networks without exposing records to the public internet.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Edit the /etc/hosts file on every virtual machine manually using SSH." },
-      { id: 'B', text: "Create a Cloud DNS managed private zone, specify the DNS name, and bind the allowed VPC networks." },
-      { id: 'C', text: "Register public DNS records on an external domain registrar with internal RFC 1918 IPs." },
+      { id: 'A', text: "Register public DNS records on an external domain registrar with internal RFC 1918 IPs." },
+      { id: 'B', text: "Edit the /etc/hosts file on every virtual machine manually using SSH." },
+      { id: 'C', text: "Create a Cloud DNS managed private zone, specify the DNS name, and bind the allowed VPC networks." },
       { id: 'D', text: "Deploy a standalone BIND9 DNS server on a single Compute Engine VM." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create a Cloud DNS managed private zone, specify the DNS name, and bind the allowed VPC networks. Cloud DNS private zones provide high-availability, low-latency internal domain name resolution within specified VPC networks without exposing private infrastructure details to the public internet or requiring custom DNS server maintenance.",
     referenceUrl: "https://cloud.google.com/dns/docs/zones/private-zones",
@@ -471,12 +471,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The cloud engineer needs to resolve custom internal hostnames (e.g. db.corp.internal) privately across multiple VPC networks without exposing records to the public internet.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Edit the /etc/hosts file on every virtual machine manually using SSH." },
-      { id: 'B', text: "Deploy a standalone BIND9 DNS server on a single Compute Engine VM." },
-      { id: 'C', text: "Register public DNS records on an external domain registrar with internal RFC 1918 IPs." },
-      { id: 'D', text: "Create a Cloud DNS managed private zone, specify the DNS name, and bind the allowed VPC networks." }
+      { id: 'A', text: "Register public DNS records on an external domain registrar with internal RFC 1918 IPs." },
+      { id: 'B', text: "Create a Cloud DNS managed private zone, specify the DNS name, and bind the allowed VPC networks." },
+      { id: 'C', text: "Deploy a standalone BIND9 DNS server on a single Compute Engine VM." },
+      { id: 'D', text: "Edit the /etc/hosts file on every virtual machine manually using SSH." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Create a Cloud DNS managed private zone, specify the DNS name, and bind the allowed VPC networks. Cloud DNS private zones provide high-availability, low-latency internal domain name resolution within specified VPC networks without exposing private infrastructure details to the public internet or requiring custom DNS server maintenance.",
     referenceUrl: "https://cloud.google.com/dns/docs/zones/private-zones",
@@ -492,12 +492,12 @@ export const GCP_ACE_QUESTIONS_16 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The cloud engineer needs to resolve custom internal hostnames (e.g. db.corp.internal) privately across multiple VPC networks without exposing records to the public internet.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Deploy a standalone BIND9 DNS server on a single Compute Engine VM." },
+      { id: 'A', text: "Edit the /etc/hosts file on every virtual machine manually using SSH." },
       { id: 'B', text: "Register public DNS records on an external domain registrar with internal RFC 1918 IPs." },
-      { id: 'C', text: "Create a Cloud DNS managed private zone, specify the DNS name, and bind the allowed VPC networks." },
-      { id: 'D', text: "Edit the /etc/hosts file on every virtual machine manually using SSH." }
+      { id: 'C', text: "Deploy a standalone BIND9 DNS server on a single Compute Engine VM." },
+      { id: 'D', text: "Create a Cloud DNS managed private zone, specify the DNS name, and bind the allowed VPC networks." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create a Cloud DNS managed private zone, specify the DNS name, and bind the allowed VPC networks. Cloud DNS private zones provide high-availability, low-latency internal domain name resolution within specified VPC networks without exposing private infrastructure details to the public internet or requiring custom DNS server maintenance.",
     referenceUrl: "https://cloud.google.com/dns/docs/zones/private-zones",

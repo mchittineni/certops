@@ -9,12 +9,12 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "A quantitative trading desk requires microsecond secrets delivery, zero packet loss, and deterministic authentication guarantees. The ML engineering team is hosting thousands of per-customer models that are each invoked only occasionally. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Deploy a SageMaker Multi-Model Endpoint (MME) to host thousands of distinct customer models on a shared compute instance pool, loading models dynamically from S3." },
-      { id: 'B', text: "Deploy a SageMaker multi-container endpoint so that several containers sit behind the one endpoint and each request names the container it wants invoked." },
-      { id: 'C', text: "Deploy a single endpoint with several production variants and route each customer's traffic to whichever variant is holding their own model." },
-      { id: 'D', text: "Deploy a separate Serverless Inference endpoint for every customer so that idle models cost nothing at all between their invocations." }
+      { id: 'A', text: "Deploy a SageMaker multi-container endpoint so that several containers sit behind the one endpoint and each request names the container it wants invoked." },
+      { id: 'B', text: "Deploy a SageMaker Multi-Model Endpoint (MME) to host thousands of distinct customer models on a shared compute instance pool, loading models dynamically from S3." },
+      { id: 'C', text: "Deploy a separate Serverless Inference endpoint for every customer so that idle models cost nothing at all between their invocations." },
+      { id: 'D', text: "Deploy a single endpoint with several production variants and route each customer's traffic to whichever variant is holding their own model." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A multi-model endpoint keeps the models in S3 and pages them into a shared instance pool on demand, so cost tracks the working set rather than the catalogue, which is what thousands of cold models require. Multi-container endpoints host a small fixed number of containers, capped well below this scale. Production variants exist to split traffic across versions of one model for A/B tests and canaries, not to address models by customer. Per-customer serverless endpoints do idle at zero cost but run into the account's endpoint limits long before thousands.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -30,12 +30,12 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "A national hospital network requires strict cryptographic privacy, auditable access controls, and HIPAA compliance. The ML engineering team is replacing the model behind a live endpoint with automatic withdrawal if it misbehaves. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Deploy the new model as a second production variant on the endpoint and shift the variant weights across gradually while watching the metrics." },
-      { id: 'B', text: "Configure deployment guardrails using Canary or Linear traffic shifting with automated rollback triggered by CloudWatch 5xx error or latency alarms." },
-      { id: 'C', text: "Deploy the new model as a shadow variant so that it receives a copy of production traffic without any response being returned to callers." },
-      { id: 'D', text: "Deploy the new model onto a second endpoint and move the traffic across at the DNS or application layer once it appears healthy." }
+      { id: 'A', text: "Deploy the new model onto a second endpoint and move the traffic across at the DNS or application layer once it appears healthy." },
+      { id: 'B', text: "Deploy the new model as a shadow variant so that it receives a copy of production traffic without any response being returned to callers." },
+      { id: 'C', text: "Configure deployment guardrails using Canary or Linear traffic shifting with automated rollback triggered by CloudWatch 5xx error or latency alarms." },
+      { id: 'D', text: "Deploy the new model as a second production variant on the endpoint and shift the variant weights across gradually while watching the metrics." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deployment guardrails perform the shift and, crucially, the rollback automatically against CloudWatch alarms, so a bad model is withdrawn even at three in the morning with nobody watching. Shifting production variant weights achieves the same gradual exposure but the rollback is a manual weight change once somebody notices. Shadow variants are excellent for validating a candidate against real traffic and never serve a single user, so they cannot complete the update. A second endpoint with DNS cutover works but places the traffic control and the rollback outside SageMaker entirely.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -52,11 +52,11 @@ export const AWS_MLA_QUESTIONS_16 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Define an AWS Step Functions state machine that calls each of the SageMaker APIs in turn using the optimised service integrations that it already provides." },
-      { id: 'B', text: "Define an Amazon MWAA DAG running Apache Airflow that submits each SageMaker job in the workflow as an individual task." },
-      { id: 'C', text: "Define a SageMaker Pipeline combining ProcessingStep, TrainingStep, ModelStep, and ConditionStep to automate model retraining and registry promotion." },
-      { id: 'D', text: "Define an EventBridge rule on a schedule that starts the training job and a Lambda function that registers whichever model results." }
+      { id: 'B', text: "Define an EventBridge rule on a schedule that starts the training job and a Lambda function that registers whichever model results." },
+      { id: 'C', text: "Define an Amazon MWAA DAG running Apache Airflow that submits each SageMaker job in the workflow as an individual task." },
+      { id: 'D', text: "Define a SageMaker Pipeline combining ProcessingStep, TrainingStep, ModelStep, and ConditionStep to automate model retraining and registry promotion." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "SageMaker Pipelines is native to the platform, so every step records lineage, repeated steps are cached, and a ConditionStep gates registry promotion on the evaluation metric without any extra service. Step Functions and MWAA both orchestrate the same jobs correctly and are the right answer when the workflow spans well beyond ML, at the cost of tracking lineage and caching separately. A scheduled rule with a Lambda handles one linear path and offers neither the conditional promotion nor the lineage this requires.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -72,12 +72,12 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "A self-driving automotive fleet streams terabytes of sensor telemetry requiring real-time distributed ingestion and anomaly detection. The ML engineering team is serving requests that arrive individually, carry large payloads, and take minutes to process. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use Batch Transform to score the payloads, since it reads the large objects straight from S3 without any endpoint that has to be kept running between jobs." },
+      { id: 'A', text: "Use a Real-Time Endpoint behind an SQS queue with a Lambda consumer that invokes the endpoint once for each queued payload." },
       { id: 'B', text: "Use Serverless Inference so that the endpoint scales down to zero between requests and the large payloads are handled as they arrive." },
-      { id: 'C', text: "Use a Real-Time Endpoint behind an SQS queue with a Lambda consumer that invokes the endpoint once for each queued payload." },
-      { id: 'D', text: "Use Asynchronous Inference for large payloads up to 1GB and processing times up to 1 hour, or Real-Time Endpoints for sub-second interactive latency." }
+      { id: 'C', text: "Use Asynchronous Inference for large payloads up to 1GB and processing times up to 1 hour, or Real-Time Endpoints for sub-second interactive latency." },
+      { id: 'D', text: "Use Batch Transform to score the payloads, since it reads the large objects straight from S3 without any endpoint that has to be kept running between jobs." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Asynchronous Inference is built for this shape: the request is queued, the payload can reach a gigabyte, the job may run for an hour, and the caller is notified rather than waiting on a connection. Batch Transform handles the size comfortably but is designed for a set of records processed together, not requests arriving one at a time. Serverless Inference has much smaller payload and timeout limits and cold-starts on infrequent traffic. Queue plus Lambda rebuilds the asynchronous pattern by hand and still runs into the endpoint's own request timeout.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -114,12 +114,12 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "A global video streaming service distributes high-bitrate live media with distributed edge caching and tokenized DRM protection. The ML engineering team is replacing the model behind a live endpoint with automatic withdrawal if it misbehaves. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Deploy the new model as a second production variant on the endpoint and shift the variant weights across gradually while watching the metrics." },
-      { id: 'B', text: "Configure deployment guardrails using Canary or Linear traffic shifting with automated rollback triggered by CloudWatch 5xx error or latency alarms." },
-      { id: 'C', text: "Deploy the new model as a shadow variant so that it receives a copy of production traffic without any response being returned to callers." },
-      { id: 'D', text: "Deploy the new model onto a second endpoint and move the traffic across at the DNS or application layer once it appears healthy." }
+      { id: 'A', text: "Deploy the new model onto a second endpoint and move the traffic across at the DNS or application layer once it appears healthy." },
+      { id: 'B', text: "Deploy the new model as a shadow variant so that it receives a copy of production traffic without any response being returned to callers." },
+      { id: 'C', text: "Deploy the new model as a second production variant on the endpoint and shift the variant weights across gradually while watching the metrics." },
+      { id: 'D', text: "Configure deployment guardrails using Canary or Linear traffic shifting with automated rollback triggered by CloudWatch 5xx error or latency alarms." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deployment guardrails perform the shift and, crucially, the rollback automatically against CloudWatch alarms, so a bad model is withdrawn even at three in the morning with nobody watching. Shifting production variant weights achieves the same gradual exposure but the rollback is a manual weight change once somebody notices. Shadow variants are excellent for validating a candidate against real traffic and never serve a single user, so they cannot complete the update. A second endpoint with DNS cutover works but places the traffic control and the rollback outside SageMaker entirely.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -135,10 +135,10 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "An aerospace telemetry platform processes orbital downlinks with fault-tolerant queuing and asynchronous edge processing. The ML engineering team is automating retraining from data preparation through evaluation to a registered model. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Define an AWS Step Functions state machine that calls each of the SageMaker APIs in turn using the optimised service integrations that it already provides." },
+      { id: 'A', text: "Define an EventBridge rule on a schedule that starts the training job and a Lambda function that registers whichever model results." },
       { id: 'B', text: "Define an Amazon MWAA DAG running Apache Airflow that submits each SageMaker job in the workflow as an individual task." },
       { id: 'C', text: "Define a SageMaker Pipeline combining ProcessingStep, TrainingStep, ModelStep, and ConditionStep to automate model retraining and registry promotion." },
-      { id: 'D', text: "Define an EventBridge rule on a schedule that starts the training job and a Lambda function that registers whichever model results." }
+      { id: 'D', text: "Define an AWS Step Functions state machine that calls each of the SageMaker APIs in turn using the optimised service integrations that it already provides." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,12 +156,12 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "A national telecom operator manages high-density network slices with automated scaling and sub-millisecond service mesh routing. The ML engineering team is serving requests that arrive individually, carry large payloads, and take minutes to process. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use Batch Transform to score the payloads, since it reads the large objects straight from S3 without any endpoint that has to be kept running between jobs." },
+      { id: 'A', text: "Use a Real-Time Endpoint behind an SQS queue with a Lambda consumer that invokes the endpoint once for each queued payload." },
       { id: 'B', text: "Use Serverless Inference so that the endpoint scales down to zero between requests and the large payloads are handled as they arrive." },
-      { id: 'C', text: "Use a Real-Time Endpoint behind an SQS queue with a Lambda consumer that invokes the endpoint once for each queued payload." },
-      { id: 'D', text: "Use Asynchronous Inference for large payloads up to 1GB and processing times up to 1 hour, or Real-Time Endpoints for sub-second interactive latency." }
+      { id: 'C', text: "Use Asynchronous Inference for large payloads up to 1GB and processing times up to 1 hour, or Real-Time Endpoints for sub-second interactive latency." },
+      { id: 'D', text: "Use Batch Transform to score the payloads, since it reads the large objects straight from S3 without any endpoint that has to be kept running between jobs." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Asynchronous Inference is built for this shape: the request is queued, the payload can reach a gigabyte, the job may run for an hour, and the caller is notified rather than waiting on a connection. Batch Transform handles the size comfortably but is designed for a set of records processed together, not requests arriving one at a time. Serverless Inference has much smaller payload and timeout limits and cold-starts on infrequent traffic. Queue plus Lambda rebuilds the asynchronous pattern by hand and still runs into the endpoint's own request timeout.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -177,12 +177,12 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "A smart electrical grid platform monitors millions of smart meters with low-latency time-series analysis and automated load shedding. The ML engineering team is hosting thousands of per-customer models that are each invoked only occasionally. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Deploy a SageMaker Multi-Model Endpoint (MME) to host thousands of distinct customer models on a shared compute instance pool, loading models dynamically from S3." },
-      { id: 'B', text: "Deploy a SageMaker multi-container endpoint so that several containers sit behind the one endpoint and each request names the container it wants invoked." },
-      { id: 'C', text: "Deploy a single endpoint with several production variants and route each customer's traffic to whichever variant is holding their own model." },
-      { id: 'D', text: "Deploy a separate Serverless Inference endpoint for every customer so that idle models cost nothing at all between their invocations." }
+      { id: 'A', text: "Deploy a SageMaker multi-container endpoint so that several containers sit behind the one endpoint and each request names the container it wants invoked." },
+      { id: 'B', text: "Deploy a separate Serverless Inference endpoint for every customer so that idle models cost nothing at all between their invocations." },
+      { id: 'C', text: "Deploy a SageMaker Multi-Model Endpoint (MME) to host thousands of distinct customer models on a shared compute instance pool, loading models dynamically from S3." },
+      { id: 'D', text: "Deploy a single endpoint with several production variants and route each customer's traffic to whichever variant is holding their own model." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A multi-model endpoint keeps the models in S3 and pages them into a shared instance pool on demand, so cost tracks the working set rather than the catalogue, which is what thousands of cold models require. Multi-container endpoints host a small fixed number of containers, capped well below this scale. Production variants exist to split traffic across versions of one model for A/B tests and canaries, not to address models by customer. Per-customer serverless endpoints do idle at zero cost but run into the account's endpoint limits long before thousands.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -199,11 +199,11 @@ export const AWS_MLA_QUESTIONS_16 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Deploy the new model as a second production variant on the endpoint and shift the variant weights across gradually while watching the metrics." },
-      { id: 'B', text: "Configure deployment guardrails using Canary or Linear traffic shifting with automated rollback triggered by CloudWatch 5xx error or latency alarms." },
-      { id: 'C', text: "Deploy the new model as a shadow variant so that it receives a copy of production traffic without any response being returned to callers." },
-      { id: 'D', text: "Deploy the new model onto a second endpoint and move the traffic across at the DNS or application layer once it appears healthy." }
+      { id: 'B', text: "Deploy the new model onto a second endpoint and move the traffic across at the DNS or application layer once it appears healthy." },
+      { id: 'C', text: "Configure deployment guardrails using Canary or Linear traffic shifting with automated rollback triggered by CloudWatch 5xx error or latency alarms." },
+      { id: 'D', text: "Deploy the new model as a shadow variant so that it receives a copy of production traffic without any response being returned to callers." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deployment guardrails perform the shift and, crucially, the rollback automatically against CloudWatch alarms, so a bad model is withdrawn even at three in the morning with nobody watching. Shifting production variant weights achieves the same gradual exposure but the rollback is a manual weight change once somebody notices. Shadow variants are excellent for validating a candidate against real traffic and never serve a single user, so they cannot complete the update. A second endpoint with DNS cutover works but places the traffic control and the rollback outside SageMaker entirely.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -219,12 +219,12 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "A central banking consortium enforces ACID consistency, immutable transaction audit trails, and automated reconciliation. The ML engineering team is automating retraining from data preparation through evaluation to a registered model. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Define an AWS Step Functions state machine that calls each of the SageMaker APIs in turn using the optimised service integrations that it already provides." },
-      { id: 'B', text: "Define an Amazon MWAA DAG running Apache Airflow that submits each SageMaker job in the workflow as an individual task." },
-      { id: 'C', text: "Define a SageMaker Pipeline combining ProcessingStep, TrainingStep, ModelStep, and ConditionStep to automate model retraining and registry promotion." },
-      { id: 'D', text: "Define an EventBridge rule on a schedule that starts the training job and a Lambda function that registers whichever model results." }
+      { id: 'A', text: "Define an Amazon MWAA DAG running Apache Airflow that submits each SageMaker job in the workflow as an individual task." },
+      { id: 'B', text: "Define an AWS Step Functions state machine that calls each of the SageMaker APIs in turn using the optimised service integrations that it already provides." },
+      { id: 'C', text: "Define an EventBridge rule on a schedule that starts the training job and a Lambda function that registers whichever model results." },
+      { id: 'D', text: "Define a SageMaker Pipeline combining ProcessingStep, TrainingStep, ModelStep, and ConditionStep to automate model retraining and registry promotion." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "SageMaker Pipelines is native to the platform, so every step records lineage, repeated steps are cached, and a ConditionStep gates registry promotion on the evaluation metric without any extra service. Step Functions and MWAA both orchestrate the same jobs correctly and are the right answer when the workflow spans well beyond ML, at the cost of tracking lineage and caching separately. A scheduled rule with a Lambda handles one linear path and offers neither the conditional promotion nor the lineage this requires.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -240,12 +240,12 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "A genomics laboratory processes petabyte-scale FASTQ files with distributed batch computing and high-throughput POSIX storage. The ML engineering team is serving requests that arrive individually, carry large payloads, and take minutes to process. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use Batch Transform to score the payloads, since it reads the large objects straight from S3 without any endpoint that has to be kept running between jobs." },
-      { id: 'B', text: "Use Serverless Inference so that the endpoint scales down to zero between requests and the large payloads are handled as they arrive." },
-      { id: 'C', text: "Use a Real-Time Endpoint behind an SQS queue with a Lambda consumer that invokes the endpoint once for each queued payload." },
-      { id: 'D', text: "Use Asynchronous Inference for large payloads up to 1GB and processing times up to 1 hour, or Real-Time Endpoints for sub-second interactive latency." }
+      { id: 'A', text: "Use Serverless Inference so that the endpoint scales down to zero between requests and the large payloads are handled as they arrive." },
+      { id: 'B', text: "Use a Real-Time Endpoint behind an SQS queue with a Lambda consumer that invokes the endpoint once for each queued payload." },
+      { id: 'C', text: "Use Asynchronous Inference for large payloads up to 1GB and processing times up to 1 hour, or Real-Time Endpoints for sub-second interactive latency." },
+      { id: 'D', text: "Use Batch Transform to score the payloads, since it reads the large objects straight from S3 without any endpoint that has to be kept running between jobs." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Asynchronous Inference is built for this shape: the request is queued, the payload can reach a gigabyte, the job may run for an hour, and the caller is notified rather than waiting on a connection. Batch Transform handles the size comfortably but is designed for a set of records processed together, not requests arriving one at a time. Serverless Inference has much smaller payload and timeout limits and cold-starts on infrequent traffic. Queue plus Lambda rebuilds the asynchronous pattern by hand and still runs into the endpoint's own request timeout.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -262,9 +262,9 @@ export const AWS_MLA_QUESTIONS_16 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Deploy a SageMaker Multi-Model Endpoint (MME) to host thousands of distinct customer models on a shared compute instance pool, loading models dynamically from S3." },
-      { id: 'B', text: "Deploy a SageMaker multi-container endpoint so that several containers sit behind the one endpoint and each request names the container it wants invoked." },
-      { id: 'C', text: "Deploy a single endpoint with several production variants and route each customer's traffic to whichever variant is holding their own model." },
-      { id: 'D', text: "Deploy a separate Serverless Inference endpoint for every customer so that idle models cost nothing at all between their invocations." }
+      { id: 'B', text: "Deploy a single endpoint with several production variants and route each customer's traffic to whichever variant is holding their own model." },
+      { id: 'C', text: "Deploy a separate Serverless Inference endpoint for every customer so that idle models cost nothing at all between their invocations." },
+      { id: 'D', text: "Deploy a SageMaker multi-container endpoint so that several containers sit behind the one endpoint and each request names the container it wants invoked." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -283,11 +283,11 @@ export const AWS_MLA_QUESTIONS_16 = [
     question: "Which approach best meets these requirements?",
     options: [
       { id: 'A', text: "Deploy the new model as a second production variant on the endpoint and shift the variant weights across gradually while watching the metrics." },
-      { id: 'B', text: "Configure deployment guardrails using Canary or Linear traffic shifting with automated rollback triggered by CloudWatch 5xx error or latency alarms." },
-      { id: 'C', text: "Deploy the new model as a shadow variant so that it receives a copy of production traffic without any response being returned to callers." },
+      { id: 'B', text: "Deploy the new model as a shadow variant so that it receives a copy of production traffic without any response being returned to callers." },
+      { id: 'C', text: "Configure deployment guardrails using Canary or Linear traffic shifting with automated rollback triggered by CloudWatch 5xx error or latency alarms." },
       { id: 'D', text: "Deploy the new model onto a second endpoint and move the traffic across at the DNS or application layer once it appears healthy." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deployment guardrails perform the shift and, crucially, the rollback automatically against CloudWatch alarms, so a bad model is withdrawn even at three in the morning with nobody watching. Shifting production variant weights achieves the same gradual exposure but the rollback is a manual weight change once somebody notices. Shadow variants are excellent for validating a candidate against real traffic and never serve a single user, so they cannot complete the update. A second endpoint with DNS cutover works but places the traffic control and the rollback outside SageMaker entirely.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -303,10 +303,10 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "An actuarial underwriting platform executes Monte Carlo simulations across millions of policy holder records with parallel workers. The ML engineering team is automating retraining from data preparation through evaluation to a registered model. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Define an AWS Step Functions state machine that calls each of the SageMaker APIs in turn using the optimised service integrations that it already provides." },
-      { id: 'B', text: "Define an Amazon MWAA DAG running Apache Airflow that submits each SageMaker job in the workflow as an individual task." },
+      { id: 'A', text: "Define an EventBridge rule on a schedule that starts the training job and a Lambda function that registers whichever model results." },
+      { id: 'B', text: "Define an AWS Step Functions state machine that calls each of the SageMaker APIs in turn using the optimised service integrations that it already provides." },
       { id: 'C', text: "Define a SageMaker Pipeline combining ProcessingStep, TrainingStep, ModelStep, and ConditionStep to automate model retraining and registry promotion." },
-      { id: 'D', text: "Define an EventBridge rule on a schedule that starts the training job and a Lambda function that registers whichever model results." }
+      { id: 'D', text: "Define an Amazon MWAA DAG running Apache Airflow that submits each SageMaker job in the workflow as an individual task." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,9 +324,9 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "A global pharmaceutical research group manages double-blind clinical trial records with strict regulatory reporting and audit trails. The ML engineering team is serving requests that arrive individually, carry large payloads, and take minutes to process. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use Batch Transform to score the payloads, since it reads the large objects straight from S3 without any endpoint that has to be kept running between jobs." },
-      { id: 'B', text: "Use Serverless Inference so that the endpoint scales down to zero between requests and the large payloads are handled as they arrive." },
-      { id: 'C', text: "Use a Real-Time Endpoint behind an SQS queue with a Lambda consumer that invokes the endpoint once for each queued payload." },
+      { id: 'A', text: "Use a Real-Time Endpoint behind an SQS queue with a Lambda consumer that invokes the endpoint once for each queued payload." },
+      { id: 'B', text: "Use Batch Transform to score the payloads, since it reads the large objects straight from S3 without any endpoint that has to be kept running between jobs." },
+      { id: 'C', text: "Use Serverless Inference so that the endpoint scales down to zero between requests and the large payloads are handled as they arrive." },
       { id: 'D', text: "Use Asynchronous Inference for large payloads up to 1GB and processing times up to 1 hour, or Real-Time Endpoints for sub-second interactive latency." }
     ],
     correctAnswers: ['D'],
@@ -345,12 +345,12 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "A metropolitan transit authority optimizes urban traffic signals with real-time video analytics and edge inference. The ML engineering team is hosting thousands of per-customer models that are each invoked only occasionally. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Deploy a SageMaker Multi-Model Endpoint (MME) to host thousands of distinct customer models on a shared compute instance pool, loading models dynamically from S3." },
+      { id: 'A', text: "Deploy a single endpoint with several production variants and route each customer's traffic to whichever variant is holding their own model." },
       { id: 'B', text: "Deploy a SageMaker multi-container endpoint so that several containers sit behind the one endpoint and each request names the container it wants invoked." },
-      { id: 'C', text: "Deploy a single endpoint with several production variants and route each customer's traffic to whichever variant is holding their own model." },
+      { id: 'C', text: "Deploy a SageMaker Multi-Model Endpoint (MME) to host thousands of distinct customer models on a shared compute instance pool, loading models dynamically from S3." },
       { id: 'D', text: "Deploy a separate Serverless Inference endpoint for every customer so that idle models cost nothing at all between their invocations." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A multi-model endpoint keeps the models in S3 and pages them into a shared instance pool on demand, so cost tracks the working set rather than the catalogue, which is what thousands of cold models require. Multi-container endpoints host a small fixed number of containers, capped well below this scale. Production variants exist to split traffic across versions of one model for A/B tests and canaries, not to address models by customer. Per-customer serverless endpoints do idle at zero cost but run into the account's endpoint limits long before thousands.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -366,12 +366,12 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "A cross-border passport control gateway validates identity credentials with zero-knowledge cryptographic proofs. The ML engineering team is replacing the model behind a live endpoint with automatic withdrawal if it misbehaves. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Deploy the new model as a second production variant on the endpoint and shift the variant weights across gradually while watching the metrics." },
-      { id: 'B', text: "Configure deployment guardrails using Canary or Linear traffic shifting with automated rollback triggered by CloudWatch 5xx error or latency alarms." },
-      { id: 'C', text: "Deploy the new model as a shadow variant so that it receives a copy of production traffic without any response being returned to callers." },
+      { id: 'A', text: "Deploy the new model as a shadow variant so that it receives a copy of production traffic without any response being returned to callers." },
+      { id: 'B', text: "Deploy the new model as a second production variant on the endpoint and shift the variant weights across gradually while watching the metrics." },
+      { id: 'C', text: "Configure deployment guardrails using Canary or Linear traffic shifting with automated rollback triggered by CloudWatch 5xx error or latency alarms." },
       { id: 'D', text: "Deploy the new model onto a second endpoint and move the traffic across at the DNS or application layer once it appears healthy." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deployment guardrails perform the shift and, crucially, the rollback automatically against CloudWatch alarms, so a bad model is withdrawn even at three in the morning with nobody watching. Shifting production variant weights achieves the same gradual exposure but the rollback is a manual weight change once somebody notices. Shadow variants are excellent for validating a candidate against real traffic and never serve a single user, so they cannot complete the update. A second endpoint with DNS cutover works but places the traffic control and the rollback outside SageMaker entirely.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -387,10 +387,10 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "A global law firm conducts regulatory discovery across millions of scanned legal filings with vector-enhanced semantic retrieval. The ML engineering team is automating retraining from data preparation through evaluation to a registered model. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Define an AWS Step Functions state machine that calls each of the SageMaker APIs in turn using the optimised service integrations that it already provides." },
-      { id: 'B', text: "Define an Amazon MWAA DAG running Apache Airflow that submits each SageMaker job in the workflow as an individual task." },
+      { id: 'A', text: "Define an Amazon MWAA DAG running Apache Airflow that submits each SageMaker job in the workflow as an individual task." },
+      { id: 'B', text: "Define an EventBridge rule on a schedule that starts the training job and a Lambda function that registers whichever model results." },
       { id: 'C', text: "Define a SageMaker Pipeline combining ProcessingStep, TrainingStep, ModelStep, and ConditionStep to automate model retraining and registry promotion." },
-      { id: 'D', text: "Define an EventBridge rule on a schedule that starts the training job and a Lambda function that registers whichever model results." }
+      { id: 'D', text: "Define an AWS Step Functions state machine that calls each of the SageMaker APIs in turn using the optimised service integrations that it already provides." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -408,12 +408,12 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "An advertising exchange processes 500,000 bids per second with a strict 20-millisecond SLA and distributed caching. The ML engineering team is serving requests that arrive individually, carry large payloads, and take minutes to process. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use Batch Transform to score the payloads, since it reads the large objects straight from S3 without any endpoint that has to be kept running between jobs." },
-      { id: 'B', text: "Use Serverless Inference so that the endpoint scales down to zero between requests and the large payloads are handled as they arrive." },
-      { id: 'C', text: "Use a Real-Time Endpoint behind an SQS queue with a Lambda consumer that invokes the endpoint once for each queued payload." },
-      { id: 'D', text: "Use Asynchronous Inference for large payloads up to 1GB and processing times up to 1 hour, or Real-Time Endpoints for sub-second interactive latency." }
+      { id: 'A', text: "Use Asynchronous Inference for large payloads up to 1GB and processing times up to 1 hour, or Real-Time Endpoints for sub-second interactive latency." },
+      { id: 'B', text: "Use Batch Transform to score the payloads, since it reads the large objects straight from S3 without any endpoint that has to be kept running between jobs." },
+      { id: 'C', text: "Use Serverless Inference so that the endpoint scales down to zero between requests and the large payloads are handled as they arrive." },
+      { id: 'D', text: "Use a Real-Time Endpoint behind an SQS queue with a Lambda consumer that invokes the endpoint once for each queued payload." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Asynchronous Inference is built for this shape: the request is queued, the payload can reach a gigabyte, the job may run for an hour, and the caller is notified rather than waiting on a connection. Batch Transform handles the size comfortably but is designed for a set of records processed together, not requests arriving one at a time. Serverless Inference has much smaller payload and timeout limits and cold-starts on infrequent traffic. Queue plus Lambda rebuilds the asynchronous pattern by hand and still runs into the endpoint's own request timeout.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -429,12 +429,12 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "An agricultural drone fleet captures multispectral crop imagery with automated computer vision defect classification. The ML engineering team is hosting thousands of per-customer models that are each invoked only occasionally. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Deploy a SageMaker Multi-Model Endpoint (MME) to host thousands of distinct customer models on a shared compute instance pool, loading models dynamically from S3." },
-      { id: 'B', text: "Deploy a SageMaker multi-container endpoint so that several containers sit behind the one endpoint and each request names the container it wants invoked." },
-      { id: 'C', text: "Deploy a single endpoint with several production variants and route each customer's traffic to whichever variant is holding their own model." },
-      { id: 'D', text: "Deploy a separate Serverless Inference endpoint for every customer so that idle models cost nothing at all between their invocations." }
+      { id: 'A', text: "Deploy a SageMaker multi-container endpoint so that several containers sit behind the one endpoint and each request names the container it wants invoked." },
+      { id: 'B', text: "Deploy a separate Serverless Inference endpoint for every customer so that idle models cost nothing at all between their invocations." },
+      { id: 'C', text: "Deploy a SageMaker Multi-Model Endpoint (MME) to host thousands of distinct customer models on a shared compute instance pool, loading models dynamically from S3." },
+      { id: 'D', text: "Deploy a single endpoint with several production variants and route each customer's traffic to whichever variant is holding their own model." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A multi-model endpoint keeps the models in S3 and pages them into a shared instance pool on demand, so cost tracks the working set rather than the catalogue, which is what thousands of cold models require. Multi-container endpoints host a small fixed number of containers, capped well below this scale. Production variants exist to split traffic across versions of one model for A/B tests and canaries, not to address models by customer. Per-customer serverless endpoints do idle at zero cost but run into the account's endpoint limits long before thousands.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -450,10 +450,10 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "A semiconductor fabrication facility detects vibration harmonics on manufacturing robots to prevent unplanned downtime. The ML engineering team is replacing the model behind a live endpoint with automatic withdrawal if it misbehaves. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Deploy the new model as a second production variant on the endpoint and shift the variant weights across gradually while watching the metrics." },
+      { id: 'A', text: "Deploy the new model as a shadow variant so that it receives a copy of production traffic without any response being returned to callers." },
       { id: 'B', text: "Configure deployment guardrails using Canary or Linear traffic shifting with automated rollback triggered by CloudWatch 5xx error or latency alarms." },
-      { id: 'C', text: "Deploy the new model as a shadow variant so that it receives a copy of production traffic without any response being returned to callers." },
-      { id: 'D', text: "Deploy the new model onto a second endpoint and move the traffic across at the DNS or application layer once it appears healthy." }
+      { id: 'C', text: "Deploy the new model onto a second endpoint and move the traffic across at the DNS or application layer once it appears healthy." },
+      { id: 'D', text: "Deploy the new model as a second production variant on the endpoint and shift the variant weights across gradually while watching the metrics." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,12 +471,12 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "An online university platform enforces anti-plagiarism and biometric proctoring for high-stakes certification exams. The ML engineering team is automating retraining from data preparation through evaluation to a registered model. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Define an AWS Step Functions state machine that calls each of the SageMaker APIs in turn using the optimised service integrations that it already provides." },
+      { id: 'A', text: "Define an EventBridge rule on a schedule that starts the training job and a Lambda function that registers whichever model results." },
       { id: 'B', text: "Define an Amazon MWAA DAG running Apache Airflow that submits each SageMaker job in the workflow as an individual task." },
-      { id: 'C', text: "Define a SageMaker Pipeline combining ProcessingStep, TrainingStep, ModelStep, and ConditionStep to automate model retraining and registry promotion." },
-      { id: 'D', text: "Define an EventBridge rule on a schedule that starts the training job and a Lambda function that registers whichever model results." }
+      { id: 'C', text: "Define an AWS Step Functions state machine that calls each of the SageMaker APIs in turn using the optimised service integrations that it already provides." },
+      { id: 'D', text: "Define a SageMaker Pipeline combining ProcessingStep, TrainingStep, ModelStep, and ConditionStep to automate model retraining and registry promotion." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "SageMaker Pipelines is native to the platform, so every step records lineage, repeated steps are cached, and a ConditionStep gates registry promotion on the evaluation metric without any extra service. Step Functions and MWAA both orchestrate the same jobs correctly and are the right answer when the workflow spans well beyond ML, at the cost of tracking lineage and caching separately. A scheduled rule with a Lambda handles one linear path and offers neither the conditional promotion nor the lineage this requires.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -492,12 +492,12 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "A property appraisal engine fuses GIS parcel maps with real-time market transactions for automated valuation. The ML engineering team is serving requests that arrive individually, carry large payloads, and take minutes to process. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use Batch Transform to score the payloads, since it reads the large objects straight from S3 without any endpoint that has to be kept running between jobs." },
-      { id: 'B', text: "Use Serverless Inference so that the endpoint scales down to zero between requests and the large payloads are handled as they arrive." },
-      { id: 'C', text: "Use a Real-Time Endpoint behind an SQS queue with a Lambda consumer that invokes the endpoint once for each queued payload." },
-      { id: 'D', text: "Use Asynchronous Inference for large payloads up to 1GB and processing times up to 1 hour, or Real-Time Endpoints for sub-second interactive latency." }
+      { id: 'A', text: "Use Serverless Inference so that the endpoint scales down to zero between requests and the large payloads are handled as they arrive." },
+      { id: 'B', text: "Use a Real-Time Endpoint behind an SQS queue with a Lambda consumer that invokes the endpoint once for each queued payload." },
+      { id: 'C', text: "Use Asynchronous Inference for large payloads up to 1GB and processing times up to 1 hour, or Real-Time Endpoints for sub-second interactive latency." },
+      { id: 'D', text: "Use Batch Transform to score the payloads, since it reads the large objects straight from S3 without any endpoint that has to be kept running between jobs." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Asynchronous Inference is built for this shape: the request is queued, the payload can reach a gigabyte, the job may run for an hour, and the caller is notified rather than waiting on a connection. Batch Transform handles the size comfortably but is designed for a set of records processed together, not requests arriving one at a time. Serverless Inference has much smaller payload and timeout limits and cold-starts on infrequent traffic. Queue plus Lambda rebuilds the asynchronous pattern by hand and still runs into the endpoint's own request timeout.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
@@ -513,12 +513,12 @@ export const AWS_MLA_QUESTIONS_16 = [
     scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The ML engineering team is hosting thousands of per-customer models that are each invoked only occasionally. The work is scoped to the development environment.",
     question: "Which approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Deploy a SageMaker Multi-Model Endpoint (MME) to host thousands of distinct customer models on a shared compute instance pool, loading models dynamically from S3." },
-      { id: 'B', text: "Deploy a SageMaker multi-container endpoint so that several containers sit behind the one endpoint and each request names the container it wants invoked." },
-      { id: 'C', text: "Deploy a single endpoint with several production variants and route each customer's traffic to whichever variant is holding their own model." },
-      { id: 'D', text: "Deploy a separate Serverless Inference endpoint for every customer so that idle models cost nothing at all between their invocations." }
+      { id: 'A', text: "Deploy a single endpoint with several production variants and route each customer's traffic to whichever variant is holding their own model." },
+      { id: 'B', text: "Deploy a separate Serverless Inference endpoint for every customer so that idle models cost nothing at all between their invocations." },
+      { id: 'C', text: "Deploy a SageMaker multi-container endpoint so that several containers sit behind the one endpoint and each request names the container it wants invoked." },
+      { id: 'D', text: "Deploy a SageMaker Multi-Model Endpoint (MME) to host thousands of distinct customer models on a shared compute instance pool, loading models dynamically from S3." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A multi-model endpoint keeps the models in S3 and pages them into a shared instance pool on demand, so cost tracks the working set rather than the catalogue, which is what thousands of cold models require. Multi-container endpoints host a small fixed number of containers, capped well below this scale. Production variants exist to split traffic across versions of one model for A/B tests and canaries, not to address models by customer. Per-customer serverless endpoints do idle at zero cost but run into the account's endpoint limits long before thousands.",
     referenceUrl: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",

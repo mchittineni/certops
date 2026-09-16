@@ -10,8 +10,8 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
       { id: 'A', text: "Configure Cloud Monitoring Uptime Checks originating from diverse global regions to query service endpoints and validate HTTP status codes and response content." },
-      { id: 'B', text: "Rely exclusively on internal server self-reported heartbeat files stored on local disks." },
-      { id: 'C', text: "Execute curl commands from an engineer's laptop running on home broadband once every morning." },
+      { id: 'B', text: "Execute curl commands from an engineer's laptop running on home broadband once every morning." },
+      { id: 'C', text: "Rely exclusively on internal server self-reported heartbeat files stored on local disks." },
       { id: 'D', text: "Assume the service is healthy globally as long as the database primary instance is powered on." }
     ],
     correctAnswers: ['A'],
@@ -30,12 +30,12 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     scenario: "A high-throughput Google Cloud application experiences unpredictable bursts of traffic and transactional demands from global users. The DevOps team evaluates Availability Monitoring to verify availability and latency of public web applications from multiple geographic locations globally using managed Google Cloud infrastructure.",
     question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention?",
     options: [
-      { id: 'A', text: "Rely exclusively on internal server self-reported heartbeat files stored on local disks." },
-      { id: 'B', text: "Configure Cloud Monitoring Uptime Checks originating from diverse global regions to query service endpoints and validate HTTP status codes and response content." },
-      { id: 'C', text: "Assume the service is healthy globally as long as the database primary instance is powered on." },
-      { id: 'D', text: "Execute curl commands from an engineer's laptop running on home broadband once every morning." }
+      { id: 'A', text: "Assume the service is healthy globally as long as the database primary instance is powered on." },
+      { id: 'B', text: "Rely exclusively on internal server self-reported heartbeat files stored on local disks." },
+      { id: 'C', text: "Execute curl commands from an engineer's laptop running on home broadband once every morning." },
+      { id: 'D', text: "Configure Cloud Monitoring Uptime Checks originating from diverse global regions to query service endpoints and validate HTTP status codes and response content." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure Cloud Monitoring Uptime Checks originating from diverse global regions to query service endpoints and validate HTTP status codes and response content. Cloud Monitoring Uptime Checks test public endpoints from multiple regions around the world at regular intervals (e.g., every 1 to 5 minutes). They verify reachability, response time, and payload content from an external perspective, alerting teams to regional routing or CDN failures.",
     referenceUrl: "https://cloud.google.com/monitoring/uptime-checks",
@@ -51,12 +51,12 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires automated verification of system integrity, secret isolation, and governance across all continuous delivery pipelines. The DevOps team evaluates Availability Monitoring to verify availability and latency of public web applications from multiple geographic locations globally using managed Google Cloud infrastructure.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Assume the service is healthy globally as long as the database primary instance is powered on." },
-      { id: 'B', text: "Rely exclusively on internal server self-reported heartbeat files stored on local disks." },
-      { id: 'C', text: "Configure Cloud Monitoring Uptime Checks originating from diverse global regions to query service endpoints and validate HTTP status codes and response content." },
-      { id: 'D', text: "Execute curl commands from an engineer's laptop running on home broadband once every morning." }
+      { id: 'A', text: "Execute curl commands from an engineer's laptop running on home broadband once every morning." },
+      { id: 'B', text: "Configure Cloud Monitoring Uptime Checks originating from diverse global regions to query service endpoints and validate HTTP status codes and response content." },
+      { id: 'C', text: "Assume the service is healthy globally as long as the database primary instance is powered on." },
+      { id: 'D', text: "Rely exclusively on internal server self-reported heartbeat files stored on local disks." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Configure Cloud Monitoring Uptime Checks originating from diverse global regions to query service endpoints and validate HTTP status codes and response content. Cloud Monitoring Uptime Checks test public endpoints from multiple regions around the world at regular intervals (e.g., every 1 to 5 minutes). They verify reachability, response time, and payload content from an external perspective, alerting teams to regional routing or CDN failures.",
     referenceUrl: "https://cloud.google.com/monitoring/uptime-checks",
@@ -72,12 +72,12 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on Google Cloud. The DevOps team evaluates Availability Monitoring to verify availability and latency of public web applications from multiple geographic locations globally using managed Google Cloud infrastructure.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Execute curl commands from an engineer's laptop running on home broadband once every morning." },
-      { id: 'B', text: "Configure Cloud Monitoring Uptime Checks originating from diverse global regions to query service endpoints and validate HTTP status codes and response content." },
+      { id: 'A', text: "Configure Cloud Monitoring Uptime Checks originating from diverse global regions to query service endpoints and validate HTTP status codes and response content." },
+      { id: 'B', text: "Execute curl commands from an engineer's laptop running on home broadband once every morning." },
       { id: 'C', text: "Rely exclusively on internal server self-reported heartbeat files stored on local disks." },
       { id: 'D', text: "Assume the service is healthy globally as long as the database primary instance is powered on." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure Cloud Monitoring Uptime Checks originating from diverse global regions to query service endpoints and validate HTTP status codes and response content. Cloud Monitoring Uptime Checks test public endpoints from multiple regions around the world at regular intervals (e.g., every 1 to 5 minutes). They verify reachability, response time, and payload content from an external perspective, alerting teams to regional routing or CDN failures.",
     referenceUrl: "https://cloud.google.com/monitoring/uptime-checks",
@@ -93,12 +93,12 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate operational incident handling. The DevOps team evaluates Availability Monitoring to verify availability and latency of public web applications from multiple geographic locations globally using managed Google Cloud infrastructure.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability?",
     options: [
-      { id: 'A', text: "Rely exclusively on internal server self-reported heartbeat files stored on local disks." },
-      { id: 'B', text: "Configure Cloud Monitoring Uptime Checks originating from diverse global regions to query service endpoints and validate HTTP status codes and response content." },
-      { id: 'C', text: "Execute curl commands from an engineer's laptop running on home broadband once every morning." },
+      { id: 'A', text: "Execute curl commands from an engineer's laptop running on home broadband once every morning." },
+      { id: 'B', text: "Rely exclusively on internal server self-reported heartbeat files stored on local disks." },
+      { id: 'C', text: "Configure Cloud Monitoring Uptime Checks originating from diverse global regions to query service endpoints and validate HTTP status codes and response content." },
       { id: 'D', text: "Assume the service is healthy globally as long as the database primary instance is powered on." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure Cloud Monitoring Uptime Checks originating from diverse global regions to query service endpoints and validate HTTP status codes and response content. Cloud Monitoring Uptime Checks test public endpoints from multiple regions around the world at regular intervals (e.g., every 1 to 5 minutes). They verify reachability, response time, and payload content from an external perspective, alerting teams to regional routing or CDN failures.",
     referenceUrl: "https://cloud.google.com/monitoring/uptime-checks",
@@ -114,12 +114,12 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     scenario: "An enterprise SRE organization is establishing operational continuity guidelines and high-availability architecture for its Google Cloud services. The DevOps team evaluates Log-Based Metrics to generate time-series metric data and alert conditions based on specific regex patterns and status codes appearing in Cloud Logging streams.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Ignore application logs and monitor only physical hypervisor memory consumption." },
+      { id: 'A', text: "Require software developers to parse JSON logs in production environments using ad-hoc terminal pipes." },
       { id: 'B', text: "Write a batch script that downloads all raw log files each night and calculates error counts using grep." },
-      { id: 'C', text: "Create Log-based Metrics (counter or distribution) in Cloud Logging matching the log filter query, then configure Cloud Monitoring alerts on the generated metric." },
-      { id: 'D', text: "Require software developers to parse JSON logs in production environments using ad-hoc terminal pipes." }
+      { id: 'C', text: "Ignore application logs and monitor only physical hypervisor memory consumption." },
+      { id: 'D', text: "Create Log-based Metrics (counter or distribution) in Cloud Logging matching the log filter query, then configure Cloud Monitoring alerts on the generated metric." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create Log-based Metrics (counter or distribution) in Cloud Logging matching the log filter query, then configure Cloud Monitoring alerts on the generated metric. Log-based metrics in Cloud Logging convert real-time log message patterns into time-series metrics. Counter metrics track occurrences (such as specific HTTP error codes or security violations), while distribution metrics record extracted numeric values (such as processing latencies) for alerting.",
     referenceUrl: "https://cloud.google.com/logging/docs/logs-based-metrics",
@@ -135,12 +135,12 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     scenario: "A high-throughput Google Cloud application experiences unpredictable bursts of traffic and transactional demands from global users. The DevOps team evaluates Log-Based Metrics to generate time-series metric data and alert conditions based on specific regex patterns and status codes appearing in Cloud Logging streams.",
     question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention?",
     options: [
-      { id: 'A', text: "Require software developers to parse JSON logs in production environments using ad-hoc terminal pipes." },
-      { id: 'B', text: "Ignore application logs and monitor only physical hypervisor memory consumption." },
-      { id: 'C', text: "Create Log-based Metrics (counter or distribution) in Cloud Logging matching the log filter query, then configure Cloud Monitoring alerts on the generated metric." },
-      { id: 'D', text: "Write a batch script that downloads all raw log files each night and calculates error counts using grep." }
+      { id: 'A', text: "Create Log-based Metrics (counter or distribution) in Cloud Logging matching the log filter query, then configure Cloud Monitoring alerts on the generated metric." },
+      { id: 'B', text: "Write a batch script that downloads all raw log files each night and calculates error counts using grep." },
+      { id: 'C', text: "Require software developers to parse JSON logs in production environments using ad-hoc terminal pipes." },
+      { id: 'D', text: "Ignore application logs and monitor only physical hypervisor memory consumption." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create Log-based Metrics (counter or distribution) in Cloud Logging matching the log filter query, then configure Cloud Monitoring alerts on the generated metric. Log-based metrics in Cloud Logging convert real-time log message patterns into time-series metrics. Counter metrics track occurrences (such as specific HTTP error codes or security violations), while distribution metrics record extracted numeric values (such as processing latencies) for alerting.",
     referenceUrl: "https://cloud.google.com/logging/docs/logs-based-metrics",
@@ -158,8 +158,8 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Create Log-based Metrics (counter or distribution) in Cloud Logging matching the log filter query, then configure Cloud Monitoring alerts on the generated metric." },
       { id: 'B', text: "Write a batch script that downloads all raw log files each night and calculates error counts using grep." },
-      { id: 'C', text: "Ignore application logs and monitor only physical hypervisor memory consumption." },
-      { id: 'D', text: "Require software developers to parse JSON logs in production environments using ad-hoc terminal pipes." }
+      { id: 'C', text: "Require software developers to parse JSON logs in production environments using ad-hoc terminal pipes." },
+      { id: 'D', text: "Ignore application logs and monitor only physical hypervisor memory consumption." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,12 +198,12 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate operational incident handling. The DevOps team evaluates Log-Based Metrics to generate time-series metric data and alert conditions based on specific regex patterns and status codes appearing in Cloud Logging streams.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability?",
     options: [
-      { id: 'A', text: "Require software developers to parse JSON logs in production environments using ad-hoc terminal pipes." },
+      { id: 'A', text: "Ignore application logs and monitor only physical hypervisor memory consumption." },
       { id: 'B', text: "Write a batch script that downloads all raw log files each night and calculates error counts using grep." },
-      { id: 'C', text: "Ignore application logs and monitor only physical hypervisor memory consumption." },
-      { id: 'D', text: "Create Log-based Metrics (counter or distribution) in Cloud Logging matching the log filter query, then configure Cloud Monitoring alerts on the generated metric." }
+      { id: 'C', text: "Create Log-based Metrics (counter or distribution) in Cloud Logging matching the log filter query, then configure Cloud Monitoring alerts on the generated metric." },
+      { id: 'D', text: "Require software developers to parse JSON logs in production environments using ad-hoc terminal pipes." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create Log-based Metrics (counter or distribution) in Cloud Logging matching the log filter query, then configure Cloud Monitoring alerts on the generated metric. Log-based metrics in Cloud Logging convert real-time log message patterns into time-series metrics. Counter metrics track occurrences (such as specific HTTP error codes or security violations), while distribution metrics record extracted numeric values (such as processing latencies) for alerting.",
     referenceUrl: "https://cloud.google.com/logging/docs/logs-based-metrics",
@@ -220,9 +220,9 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
       { id: 'A', text: "Instrument microservices with OpenTelemetry to propagate W3C trace context headers and export distributed spans to Cloud Trace for waterfall latency analysis." },
-      { id: 'B', text: "Restart all backend microservices simultaneously whenever any request takes longer than 500 milliseconds." },
-      { id: 'C', text: "Inspect individual service CPU graphs without correlating request identifiers across network boundaries." },
-      { id: 'D', text: "Add print statements across microservices and attempt to match timestamps manually across asynchronous clock drifts." }
+      { id: 'B', text: "Add print statements across microservices and attempt to match timestamps manually across asynchronous clock drifts." },
+      { id: 'C', text: "Restart all backend microservices simultaneously whenever any request takes longer than 500 milliseconds." },
+      { id: 'D', text: "Inspect individual service CPU graphs without correlating request identifiers across network boundaries." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,12 +240,12 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     scenario: "A high-throughput Google Cloud application experiences unpredictable bursts of traffic and transactional demands from global users. The DevOps team evaluates Distributed Tracing to diagnose which microservice in a complex multi-tier call graph is causing high latency spikes for end-user checkout requests.",
     question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention?",
     options: [
-      { id: 'A', text: "Add print statements across microservices and attempt to match timestamps manually across asynchronous clock drifts." },
+      { id: 'A', text: "Instrument microservices with OpenTelemetry to propagate W3C trace context headers and export distributed spans to Cloud Trace for waterfall latency analysis." },
       { id: 'B', text: "Inspect individual service CPU graphs without correlating request identifiers across network boundaries." },
-      { id: 'C', text: "Instrument microservices with OpenTelemetry to propagate W3C trace context headers and export distributed spans to Cloud Trace for waterfall latency analysis." },
+      { id: 'C', text: "Add print statements across microservices and attempt to match timestamps manually across asynchronous clock drifts." },
       { id: 'D', text: "Restart all backend microservices simultaneously whenever any request takes longer than 500 milliseconds." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Instrument microservices with OpenTelemetry to propagate W3C trace context headers and export distributed spans to Cloud Trace for waterfall latency analysis. Cloud Trace captures latency data and distributed call hierarchies. By propagating trace context (e.g., W3C TraceContext headers) across service boundaries, Cloud Trace constructs an end-to-end waterfall visualization showing the exact duration of each remote procedure call in a request path.",
     referenceUrl: "https://cloud.google.com/trace/docs/overview",
@@ -261,12 +261,12 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires automated verification of system integrity, secret isolation, and governance across all continuous delivery pipelines. The DevOps team evaluates Distributed Tracing to diagnose which microservice in a complex multi-tier call graph is causing high latency spikes for end-user checkout requests.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Restart all backend microservices simultaneously whenever any request takes longer than 500 milliseconds." },
-      { id: 'B', text: "Instrument microservices with OpenTelemetry to propagate W3C trace context headers and export distributed spans to Cloud Trace for waterfall latency analysis." },
+      { id: 'A', text: "Inspect individual service CPU graphs without correlating request identifiers across network boundaries." },
+      { id: 'B', text: "Restart all backend microservices simultaneously whenever any request takes longer than 500 milliseconds." },
       { id: 'C', text: "Add print statements across microservices and attempt to match timestamps manually across asynchronous clock drifts." },
-      { id: 'D', text: "Inspect individual service CPU graphs without correlating request identifiers across network boundaries." }
+      { id: 'D', text: "Instrument microservices with OpenTelemetry to propagate W3C trace context headers and export distributed spans to Cloud Trace for waterfall latency analysis." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Instrument microservices with OpenTelemetry to propagate W3C trace context headers and export distributed spans to Cloud Trace for waterfall latency analysis. Cloud Trace captures latency data and distributed call hierarchies. By propagating trace context (e.g., W3C TraceContext headers) across service boundaries, Cloud Trace constructs an end-to-end waterfall visualization showing the exact duration of each remote procedure call in a request path.",
     referenceUrl: "https://cloud.google.com/trace/docs/overview",
@@ -282,12 +282,12 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on Google Cloud. The DevOps team evaluates Distributed Tracing to diagnose which microservice in a complex multi-tier call graph is causing high latency spikes for end-user checkout requests.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Restart all backend microservices simultaneously whenever any request takes longer than 500 milliseconds." },
-      { id: 'B', text: "Instrument microservices with OpenTelemetry to propagate W3C trace context headers and export distributed spans to Cloud Trace for waterfall latency analysis." },
-      { id: 'C', text: "Inspect individual service CPU graphs without correlating request identifiers across network boundaries." },
-      { id: 'D', text: "Add print statements across microservices and attempt to match timestamps manually across asynchronous clock drifts." }
+      { id: 'A', text: "Add print statements across microservices and attempt to match timestamps manually across asynchronous clock drifts." },
+      { id: 'B', text: "Restart all backend microservices simultaneously whenever any request takes longer than 500 milliseconds." },
+      { id: 'C', text: "Instrument microservices with OpenTelemetry to propagate W3C trace context headers and export distributed spans to Cloud Trace for waterfall latency analysis." },
+      { id: 'D', text: "Inspect individual service CPU graphs without correlating request identifiers across network boundaries." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Instrument microservices with OpenTelemetry to propagate W3C trace context headers and export distributed spans to Cloud Trace for waterfall latency analysis. Cloud Trace captures latency data and distributed call hierarchies. By propagating trace context (e.g., W3C TraceContext headers) across service boundaries, Cloud Trace constructs an end-to-end waterfall visualization showing the exact duration of each remote procedure call in a request path.",
     referenceUrl: "https://cloud.google.com/trace/docs/overview",
@@ -304,9 +304,9 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability?",
     options: [
       { id: 'A', text: "Instrument microservices with OpenTelemetry to propagate W3C trace context headers and export distributed spans to Cloud Trace for waterfall latency analysis." },
-      { id: 'B', text: "Restart all backend microservices simultaneously whenever any request takes longer than 500 milliseconds." },
-      { id: 'C', text: "Inspect individual service CPU graphs without correlating request identifiers across network boundaries." },
-      { id: 'D', text: "Add print statements across microservices and attempt to match timestamps manually across asynchronous clock drifts." }
+      { id: 'B', text: "Add print statements across microservices and attempt to match timestamps manually across asynchronous clock drifts." },
+      { id: 'C', text: "Restart all backend microservices simultaneously whenever any request takes longer than 500 milliseconds." },
+      { id: 'D', text: "Inspect individual service CPU graphs without correlating request identifiers across network boundaries." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     scenario: "An enterprise SRE organization is establishing operational continuity guidelines and high-availability architecture for its Google Cloud services. The DevOps team evaluates Log Routing to route high-volume application logs to Cloud Storage for long-term multi-year compliance retention and security logs to BigQuery for SQL analytics.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Store all logs indefinitely in the default _Default log bucket without any retention or storage tier policies." },
-      { id: 'B', text: "Create Log Sinks in the Cloud Logging Log Router with inclusion/exclusion filters targeting a Cloud Storage bucket destination and a BigQuery dataset destination." },
-      { id: 'C', text: "Manually export logs weekly by exporting CSV files from the Cloud Console interface." },
+      { id: 'A', text: "Manually export logs weekly by exporting CSV files from the Cloud Console interface." },
+      { id: 'B', text: "Store all logs indefinitely in the default _Default log bucket without any retention or storage tier policies." },
+      { id: 'C', text: "Create Log Sinks in the Cloud Logging Log Router with inclusion/exclusion filters targeting a Cloud Storage bucket destination and a BigQuery dataset destination." },
       { id: 'D', text: "Stream all raw log records directly to Google Sheets using Apps Script." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Create Log Sinks in the Cloud Logging Log Router with inclusion/exclusion filters targeting a Cloud Storage bucket destination and a BigQuery dataset destination. The Cloud Logging Log Router evaluates every ingested log entry against sink filter criteria. Sinks can direct filtered subsets to destinations including Cloud Storage (low-cost long-term retention), BigQuery (analytical SQL queries), and Pub/Sub (real-time third-party SIEM ingestion).",
     referenceUrl: "https://cloud.google.com/logging/docs/routing/overview",
@@ -367,9 +367,9 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Create Log Sinks in the Cloud Logging Log Router with inclusion/exclusion filters targeting a Cloud Storage bucket destination and a BigQuery dataset destination." },
-      { id: 'B', text: "Stream all raw log records directly to Google Sheets using Apps Script." },
-      { id: 'C', text: "Manually export logs weekly by exporting CSV files from the Cloud Console interface." },
-      { id: 'D', text: "Store all logs indefinitely in the default _Default log bucket without any retention or storage tier policies." }
+      { id: 'B', text: "Store all logs indefinitely in the default _Default log bucket without any retention or storage tier policies." },
+      { id: 'C', text: "Stream all raw log records directly to Google Sheets using Apps Script." },
+      { id: 'D', text: "Manually export logs weekly by exporting CSV files from the Cloud Console interface." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,12 +387,12 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on Google Cloud. The DevOps team evaluates Log Routing to route high-volume application logs to Cloud Storage for long-term multi-year compliance retention and security logs to BigQuery for SQL analytics.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Manually export logs weekly by exporting CSV files from the Cloud Console interface." },
-      { id: 'B', text: "Create Log Sinks in the Cloud Logging Log Router with inclusion/exclusion filters targeting a Cloud Storage bucket destination and a BigQuery dataset destination." },
-      { id: 'C', text: "Stream all raw log records directly to Google Sheets using Apps Script." },
-      { id: 'D', text: "Store all logs indefinitely in the default _Default log bucket without any retention or storage tier policies." }
+      { id: 'A', text: "Create Log Sinks in the Cloud Logging Log Router with inclusion/exclusion filters targeting a Cloud Storage bucket destination and a BigQuery dataset destination." },
+      { id: 'B', text: "Manually export logs weekly by exporting CSV files from the Cloud Console interface." },
+      { id: 'C', text: "Store all logs indefinitely in the default _Default log bucket without any retention or storage tier policies." },
+      { id: 'D', text: "Stream all raw log records directly to Google Sheets using Apps Script." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Create Log Sinks in the Cloud Logging Log Router with inclusion/exclusion filters targeting a Cloud Storage bucket destination and a BigQuery dataset destination. The Cloud Logging Log Router evaluates every ingested log entry against sink filter criteria. Sinks can direct filtered subsets to destinations including Cloud Storage (low-cost long-term retention), BigQuery (analytical SQL queries), and Pub/Sub (real-time third-party SIEM ingestion).",
     referenceUrl: "https://cloud.google.com/logging/docs/routing/overview",
@@ -408,12 +408,12 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate operational incident handling. The DevOps team evaluates Log Routing to route high-volume application logs to Cloud Storage for long-term multi-year compliance retention and security logs to BigQuery for SQL analytics.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability?",
     options: [
-      { id: 'A', text: "Manually export logs weekly by exporting CSV files from the Cloud Console interface." },
-      { id: 'B', text: "Stream all raw log records directly to Google Sheets using Apps Script." },
-      { id: 'C', text: "Create Log Sinks in the Cloud Logging Log Router with inclusion/exclusion filters targeting a Cloud Storage bucket destination and a BigQuery dataset destination." },
-      { id: 'D', text: "Store all logs indefinitely in the default _Default log bucket without any retention or storage tier policies." }
+      { id: 'A', text: "Stream all raw log records directly to Google Sheets using Apps Script." },
+      { id: 'B', text: "Store all logs indefinitely in the default _Default log bucket without any retention or storage tier policies." },
+      { id: 'C', text: "Manually export logs weekly by exporting CSV files from the Cloud Console interface." },
+      { id: 'D', text: "Create Log Sinks in the Cloud Logging Log Router with inclusion/exclusion filters targeting a Cloud Storage bucket destination and a BigQuery dataset destination." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Create Log Sinks in the Cloud Logging Log Router with inclusion/exclusion filters targeting a Cloud Storage bucket destination and a BigQuery dataset destination. The Cloud Logging Log Router evaluates every ingested log entry against sink filter criteria. Sinks can direct filtered subsets to destinations including Cloud Storage (low-cost long-term retention), BigQuery (analytical SQL queries), and Pub/Sub (real-time third-party SIEM ingestion).",
     referenceUrl: "https://cloud.google.com/logging/docs/routing/overview",
@@ -429,12 +429,12 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     scenario: "An enterprise SRE organization is establishing operational continuity guidelines and high-availability architecture for its Google Cloud services. The DevOps team evaluates Prometheus Monitoring to collect and store Prometheus metrics from large-scale GKE clusters without managing self-hosted Prometheus servers, stateful sets, or long-term disk retention.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy a monolithic un-replicated Prometheus server with local ephemeral disk storage on a single GKE worker node." },
-      { id: 'B', text: "Enable Managed Service for Prometheus (GMP) on the GKE cluster and configure PodMonitoring custom resources to scrape application targets." },
+      { id: 'A', text: "Enable Managed Service for Prometheus (GMP) on the GKE cluster and configure PodMonitoring custom resources to scrape application targets." },
+      { id: 'B', text: "Deploy a monolithic un-replicated Prometheus server with local ephemeral disk storage on a single GKE worker node." },
       { id: 'C', text: "Convert all application metrics into standard text files and email them to the SRE mailing list." },
       { id: 'D', text: "Prohibit developers from publishing custom Prometheus metrics to prevent cluster resource consumption." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Enable Managed Service for Prometheus (GMP) on the GKE cluster and configure PodMonitoring custom resources to scrape application targets. Google Cloud Managed Service for Prometheus (GMP) is a fully managed, multi-cloud monitoring solution that ingests and evaluates Prometheus metrics. Enabling managed collection on GKE deploys lightweight node collectors that scrape targets defined by PodMonitoring resources and store data in Google's globally scalable backend.",
     referenceUrl: "https://cloud.google.com/stackdriver/docs/managed-prometheus",
@@ -450,12 +450,12 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     scenario: "A high-throughput Google Cloud application experiences unpredictable bursts of traffic and transactional demands from global users. The DevOps team evaluates Prometheus Monitoring to collect and store Prometheus metrics from large-scale GKE clusters without managing self-hosted Prometheus servers, stateful sets, or long-term disk retention.",
     question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention?",
     options: [
-      { id: 'A', text: "Deploy a monolithic un-replicated Prometheus server with local ephemeral disk storage on a single GKE worker node." },
-      { id: 'B', text: "Prohibit developers from publishing custom Prometheus metrics to prevent cluster resource consumption." },
+      { id: 'A', text: "Prohibit developers from publishing custom Prometheus metrics to prevent cluster resource consumption." },
+      { id: 'B', text: "Enable Managed Service for Prometheus (GMP) on the GKE cluster and configure PodMonitoring custom resources to scrape application targets." },
       { id: 'C', text: "Convert all application metrics into standard text files and email them to the SRE mailing list." },
-      { id: 'D', text: "Enable Managed Service for Prometheus (GMP) on the GKE cluster and configure PodMonitoring custom resources to scrape application targets." }
+      { id: 'D', text: "Deploy a monolithic un-replicated Prometheus server with local ephemeral disk storage on a single GKE worker node." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Managed Service for Prometheus (GMP) on the GKE cluster and configure PodMonitoring custom resources to scrape application targets. Google Cloud Managed Service for Prometheus (GMP) is a fully managed, multi-cloud monitoring solution that ingests and evaluates Prometheus metrics. Enabling managed collection on GKE deploys lightweight node collectors that scrape targets defined by PodMonitoring resources and store data in Google's globally scalable backend.",
     referenceUrl: "https://cloud.google.com/stackdriver/docs/managed-prometheus",
@@ -472,9 +472,9 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Enable Managed Service for Prometheus (GMP) on the GKE cluster and configure PodMonitoring custom resources to scrape application targets." },
-      { id: 'B', text: "Prohibit developers from publishing custom Prometheus metrics to prevent cluster resource consumption." },
+      { id: 'B', text: "Deploy a monolithic un-replicated Prometheus server with local ephemeral disk storage on a single GKE worker node." },
       { id: 'C', text: "Convert all application metrics into standard text files and email them to the SRE mailing list." },
-      { id: 'D', text: "Deploy a monolithic un-replicated Prometheus server with local ephemeral disk storage on a single GKE worker node." }
+      { id: 'D', text: "Prohibit developers from publishing custom Prometheus metrics to prevent cluster resource consumption." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,12 +492,12 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on Google Cloud. The DevOps team evaluates Prometheus Monitoring to collect and store Prometheus metrics from large-scale GKE clusters without managing self-hosted Prometheus servers, stateful sets, or long-term disk retention.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Convert all application metrics into standard text files and email them to the SRE mailing list." },
-      { id: 'B', text: "Prohibit developers from publishing custom Prometheus metrics to prevent cluster resource consumption." },
-      { id: 'C', text: "Deploy a monolithic un-replicated Prometheus server with local ephemeral disk storage on a single GKE worker node." },
-      { id: 'D', text: "Enable Managed Service for Prometheus (GMP) on the GKE cluster and configure PodMonitoring custom resources to scrape application targets." }
+      { id: 'A', text: "Deploy a monolithic un-replicated Prometheus server with local ephemeral disk storage on a single GKE worker node." },
+      { id: 'B', text: "Enable Managed Service for Prometheus (GMP) on the GKE cluster and configure PodMonitoring custom resources to scrape application targets." },
+      { id: 'C', text: "Prohibit developers from publishing custom Prometheus metrics to prevent cluster resource consumption." },
+      { id: 'D', text: "Convert all application metrics into standard text files and email them to the SRE mailing list." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Managed Service for Prometheus (GMP) on the GKE cluster and configure PodMonitoring custom resources to scrape application targets. Google Cloud Managed Service for Prometheus (GMP) is a fully managed, multi-cloud monitoring solution that ingests and evaluates Prometheus metrics. Enabling managed collection on GKE deploys lightweight node collectors that scrape targets defined by PodMonitoring resources and store data in Google's globally scalable backend.",
     referenceUrl: "https://cloud.google.com/stackdriver/docs/managed-prometheus",
@@ -513,12 +513,12 @@ export const GCP_PCDOE_QUESTIONS_16 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate operational incident handling. The DevOps team evaluates Prometheus Monitoring to collect and store Prometheus metrics from large-scale GKE clusters without managing self-hosted Prometheus servers, stateful sets, or long-term disk retention.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability?",
     options: [
-      { id: 'A', text: "Prohibit developers from publishing custom Prometheus metrics to prevent cluster resource consumption." },
-      { id: 'B', text: "Convert all application metrics into standard text files and email them to the SRE mailing list." },
-      { id: 'C', text: "Enable Managed Service for Prometheus (GMP) on the GKE cluster and configure PodMonitoring custom resources to scrape application targets." },
-      { id: 'D', text: "Deploy a monolithic un-replicated Prometheus server with local ephemeral disk storage on a single GKE worker node." }
+      { id: 'A', text: "Deploy a monolithic un-replicated Prometheus server with local ephemeral disk storage on a single GKE worker node." },
+      { id: 'B', text: "Enable Managed Service for Prometheus (GMP) on the GKE cluster and configure PodMonitoring custom resources to scrape application targets." },
+      { id: 'C', text: "Prohibit developers from publishing custom Prometheus metrics to prevent cluster resource consumption." },
+      { id: 'D', text: "Convert all application metrics into standard text files and email them to the SRE mailing list." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Enable Managed Service for Prometheus (GMP) on the GKE cluster and configure PodMonitoring custom resources to scrape application targets. Google Cloud Managed Service for Prometheus (GMP) is a fully managed, multi-cloud monitoring solution that ingests and evaluates Prometheus metrics. Enabling managed collection on GKE deploys lightweight node collectors that scrape targets defined by PodMonitoring resources and store data in Google's globally scalable backend.",
     referenceUrl: "https://cloud.google.com/stackdriver/docs/managed-prometheus",

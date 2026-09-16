@@ -10,8 +10,8 @@ export const GCP_PMLE_QUESTIONS_15 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Use TensorFlow Data Validation (TFDV) to infer a schema and detect anomalies between incoming data and the schema." },
-      { id: 'B', text: "Inspect incoming CSV files manually in a spreadsheet application." },
-      { id: 'C', text: "Write thousands of manual Python assert statements inside the production training script." },
+      { id: 'B', text: "Write thousands of manual Python assert statements inside the production training script." },
+      { id: 'C', text: "Inspect incoming CSV files manually in a spreadsheet application." },
       { id: 'D', text: "Ignore data format changes and allow model training to crash if errors occur." }
     ],
     correctAnswers: ['A'],
@@ -31,8 +31,8 @@ export const GCP_PMLE_QUESTIONS_15 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Use TensorFlow Data Validation (TFDV) to infer a schema and detect anomalies between incoming data and the schema." },
-      { id: 'B', text: "Inspect incoming CSV files manually in a spreadsheet application." },
-      { id: 'C', text: "Write thousands of manual Python assert statements inside the production training script." },
+      { id: 'B', text: "Write thousands of manual Python assert statements inside the production training script." },
+      { id: 'C', text: "Inspect incoming CSV files manually in a spreadsheet application." },
       { id: 'D', text: "Ignore data format changes and allow model training to crash if errors occur." }
     ],
     correctAnswers: ['A'],
@@ -52,8 +52,8 @@ export const GCP_PMLE_QUESTIONS_15 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Use TensorFlow Data Validation (TFDV) to infer a schema and detect anomalies between incoming data and the schema." },
-      { id: 'B', text: "Inspect incoming CSV files manually in a spreadsheet application." },
-      { id: 'C', text: "Write thousands of manual Python assert statements inside the production training script." },
+      { id: 'B', text: "Write thousands of manual Python assert statements inside the production training script." },
+      { id: 'C', text: "Inspect incoming CSV files manually in a spreadsheet application." },
       { id: 'D', text: "Ignore data format changes and allow model training to crash if errors occur." }
     ],
     correctAnswers: ['A'],
@@ -72,12 +72,12 @@ export const GCP_PMLE_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to automatically validate incoming daily training datasets against an established baseline schema to detect missing columns, invalid data types, and out-of-range values.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Write thousands of manual Python assert statements inside the production training script." },
-      { id: 'B', text: "Use TensorFlow Data Validation (TFDV) to infer a schema and detect anomalies between incoming data and the schema." },
-      { id: 'C', text: "Ignore data format changes and allow model training to crash if errors occur." },
-      { id: 'D', text: "Inspect incoming CSV files manually in a spreadsheet application." }
+      { id: 'A', text: "Use TensorFlow Data Validation (TFDV) to infer a schema and detect anomalies between incoming data and the schema." },
+      { id: 'B', text: "Write thousands of manual Python assert statements inside the production training script." },
+      { id: 'C', text: "Inspect incoming CSV files manually in a spreadsheet application." },
+      { id: 'D', text: "Ignore data format changes and allow model training to crash if errors occur." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Use TensorFlow Data Validation (TFDV) to infer a schema and detect anomalies between incoming data and the schema. TensorFlow Data Validation (TFDV) computes descriptive statistics, infers schema expectations, and detects data anomalies (such as missing features, unexpected string values, or out-of-range numbers) between baseline data and new incoming data batches in automated pipelines.",
     referenceUrl: "https://www.tensorflow.org/tfx/data_validation/get_started",
@@ -93,12 +93,12 @@ export const GCP_PMLE_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to automatically validate incoming daily training datasets against an established baseline schema to detect missing columns, invalid data types, and out-of-range values.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Inspect incoming CSV files manually in a spreadsheet application." },
-      { id: 'B', text: "Use TensorFlow Data Validation (TFDV) to infer a schema and detect anomalies between incoming data and the schema." },
-      { id: 'C', text: "Ignore data format changes and allow model training to crash if errors occur." },
-      { id: 'D', text: "Write thousands of manual Python assert statements inside the production training script." }
+      { id: 'A', text: "Ignore data format changes and allow model training to crash if errors occur." },
+      { id: 'B', text: "Inspect incoming CSV files manually in a spreadsheet application." },
+      { id: 'C', text: "Write thousands of manual Python assert statements inside the production training script." },
+      { id: 'D', text: "Use TensorFlow Data Validation (TFDV) to infer a schema and detect anomalies between incoming data and the schema." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Use TensorFlow Data Validation (TFDV) to infer a schema and detect anomalies between incoming data and the schema. TensorFlow Data Validation (TFDV) computes descriptive statistics, infers schema expectations, and detects data anomalies (such as missing features, unexpected string values, or out-of-range numbers) between baseline data and new incoming data batches in automated pipelines.",
     referenceUrl: "https://www.tensorflow.org/tfx/data_validation/get_started",
@@ -114,12 +114,12 @@ export const GCP_PMLE_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to allow non-technical business domain experts to visually explore, clean, and transform messy customer survey datasets without writing code.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Clean records by manually editing raw database tables in production." },
-      { id: 'B', text: "Require data engineers to schedule custom Spark jobs for simple column renames." },
-      { id: 'C', text: "Force business analysts to write compiled C++ data parsing scripts." },
-      { id: 'D', text: "Use Cloud Dataprep by Trifacta to visually explore distributions and generate transformation recipes." }
+      { id: 'A', text: "Force business analysts to write compiled C++ data parsing scripts." },
+      { id: 'B', text: "Use Cloud Dataprep by Trifacta to visually explore distributions and generate transformation recipes." },
+      { id: 'C', text: "Require data engineers to schedule custom Spark jobs for simple column renames." },
+      { id: 'D', text: "Clean records by manually editing raw database tables in production." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use Cloud Dataprep by Trifacta to visually explore distributions and generate transformation recipes. Cloud Dataprep by Trifacta is an intelligent visual cloud data service for exploring, cleaning, and preparing structured and unstructured data for analysis and machine learning. Its visual interface suggests automated transformation recipes based on interactive data samples.",
     referenceUrl: "https://cloud.google.com/dataprep/docs/quickstarts/quickstart-dataprep",
@@ -136,9 +136,9 @@ export const GCP_PMLE_QUESTIONS_15 = [
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
       { id: 'A', text: "Use Cloud Dataprep by Trifacta to visually explore distributions and generate transformation recipes." },
-      { id: 'B', text: "Require data engineers to schedule custom Spark jobs for simple column renames." },
-      { id: 'C', text: "Force business analysts to write compiled C++ data parsing scripts." },
-      { id: 'D', text: "Clean records by manually editing raw database tables in production." }
+      { id: 'B', text: "Clean records by manually editing raw database tables in production." },
+      { id: 'C', text: "Require data engineers to schedule custom Spark jobs for simple column renames." },
+      { id: 'D', text: "Force business analysts to write compiled C++ data parsing scripts." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const GCP_PMLE_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to allow non-technical business domain experts to visually explore, clean, and transform messy customer survey datasets without writing code.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Require data engineers to schedule custom Spark jobs for simple column renames." },
-      { id: 'B', text: "Clean records by manually editing raw database tables in production." },
-      { id: 'C', text: "Use Cloud Dataprep by Trifacta to visually explore distributions and generate transformation recipes." },
-      { id: 'D', text: "Force business analysts to write compiled C++ data parsing scripts." }
+      { id: 'A', text: "Force business analysts to write compiled C++ data parsing scripts." },
+      { id: 'B', text: "Use Cloud Dataprep by Trifacta to visually explore distributions and generate transformation recipes." },
+      { id: 'C', text: "Require data engineers to schedule custom Spark jobs for simple column renames." },
+      { id: 'D', text: "Clean records by manually editing raw database tables in production." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use Cloud Dataprep by Trifacta to visually explore distributions and generate transformation recipes. Cloud Dataprep by Trifacta is an intelligent visual cloud data service for exploring, cleaning, and preparing structured and unstructured data for analysis and machine learning. Its visual interface suggests automated transformation recipes based on interactive data samples.",
     referenceUrl: "https://cloud.google.com/dataprep/docs/quickstarts/quickstart-dataprep",
@@ -177,12 +177,12 @@ export const GCP_PMLE_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to allow non-technical business domain experts to visually explore, clean, and transform messy customer survey datasets without writing code.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Require data engineers to schedule custom Spark jobs for simple column renames." },
-      { id: 'B', text: "Use Cloud Dataprep by Trifacta to visually explore distributions and generate transformation recipes." },
-      { id: 'C', text: "Force business analysts to write compiled C++ data parsing scripts." },
-      { id: 'D', text: "Clean records by manually editing raw database tables in production." }
+      { id: 'A', text: "Clean records by manually editing raw database tables in production." },
+      { id: 'B', text: "Require data engineers to schedule custom Spark jobs for simple column renames." },
+      { id: 'C', text: "Use Cloud Dataprep by Trifacta to visually explore distributions and generate transformation recipes." },
+      { id: 'D', text: "Force business analysts to write compiled C++ data parsing scripts." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Use Cloud Dataprep by Trifacta to visually explore distributions and generate transformation recipes. Cloud Dataprep by Trifacta is an intelligent visual cloud data service for exploring, cleaning, and preparing structured and unstructured data for analysis and machine learning. Its visual interface suggests automated transformation recipes based on interactive data samples.",
     referenceUrl: "https://cloud.google.com/dataprep/docs/quickstarts/quickstart-dataprep",
@@ -198,12 +198,12 @@ export const GCP_PMLE_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to allow non-technical business domain experts to visually explore, clean, and transform messy customer survey datasets without writing code.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Force business analysts to write compiled C++ data parsing scripts." },
-      { id: 'B', text: "Require data engineers to schedule custom Spark jobs for simple column renames." },
+      { id: 'A', text: "Require data engineers to schedule custom Spark jobs for simple column renames." },
+      { id: 'B', text: "Use Cloud Dataprep by Trifacta to visually explore distributions and generate transformation recipes." },
       { id: 'C', text: "Clean records by manually editing raw database tables in production." },
-      { id: 'D', text: "Use Cloud Dataprep by Trifacta to visually explore distributions and generate transformation recipes." }
+      { id: 'D', text: "Force business analysts to write compiled C++ data parsing scripts." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Use Cloud Dataprep by Trifacta to visually explore distributions and generate transformation recipes. Cloud Dataprep by Trifacta is an intelligent visual cloud data service for exploring, cleaning, and preparing structured and unstructured data for analysis and machine learning. Its visual interface suggests automated transformation recipes based on interactive data samples.",
     referenceUrl: "https://cloud.google.com/dataprep/docs/quickstarts/quickstart-dataprep",
@@ -220,9 +220,9 @@ export const GCP_PMLE_QUESTIONS_15 = [
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
       { id: 'A', text: "Build a custom Docker container image with dependencies, push to Artifact Registry, and submit a Vertex AI Custom Training job." },
-      { id: 'B', text: "Upload raw C++ source files directly to a Cloud Storage bucket and run a standard AutoML job." },
-      { id: 'C', text: "Run the training script on a developer laptop and email the weights file to team members." },
-      { id: 'D', text: "Deploy the code to Cloud Run with an HTTP endpoint." }
+      { id: 'B', text: "Deploy the code to Cloud Run with an HTTP endpoint." },
+      { id: 'C', text: "Upload raw C++ source files directly to a Cloud Storage bucket and run a standard AutoML job." },
+      { id: 'D', text: "Run the training script on a developer laptop and email the weights file to team members." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,12 +240,12 @@ export const GCP_PMLE_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to train a proprietary PyTorch model that depends on custom compiled C++ CUDA extensions and specialized GPU libraries on Vertex AI.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Deploy the code to Cloud Run with an HTTP endpoint." },
+      { id: 'A', text: "Upload raw C++ source files directly to a Cloud Storage bucket and run a standard AutoML job." },
       { id: 'B', text: "Run the training script on a developer laptop and email the weights file to team members." },
-      { id: 'C', text: "Upload raw C++ source files directly to a Cloud Storage bucket and run a standard AutoML job." },
-      { id: 'D', text: "Build a custom Docker container image with dependencies, push to Artifact Registry, and submit a Vertex AI Custom Training job." }
+      { id: 'C', text: "Build a custom Docker container image with dependencies, push to Artifact Registry, and submit a Vertex AI Custom Training job." },
+      { id: 'D', text: "Deploy the code to Cloud Run with an HTTP endpoint." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Build a custom Docker container image with dependencies, push to Artifact Registry, and submit a Vertex AI Custom Training job. Vertex AI Custom Training supports both pre-built containers (standard TensorFlow, PyTorch, Scikit-learn) and custom Docker containers. Using custom containers gives developers full control over dependencies, CUDA runtimes, and external libraries while Vertex AI orchestrates GPU provisioning.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/training/create-custom-container",
@@ -261,12 +261,12 @@ export const GCP_PMLE_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to train a proprietary PyTorch model that depends on custom compiled C++ CUDA extensions and specialized GPU libraries on Vertex AI.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Run the training script on a developer laptop and email the weights file to team members." },
-      { id: 'B', text: "Upload raw C++ source files directly to a Cloud Storage bucket and run a standard AutoML job." },
+      { id: 'A', text: "Upload raw C++ source files directly to a Cloud Storage bucket and run a standard AutoML job." },
+      { id: 'B', text: "Build a custom Docker container image with dependencies, push to Artifact Registry, and submit a Vertex AI Custom Training job." },
       { id: 'C', text: "Deploy the code to Cloud Run with an HTTP endpoint." },
-      { id: 'D', text: "Build a custom Docker container image with dependencies, push to Artifact Registry, and submit a Vertex AI Custom Training job." }
+      { id: 'D', text: "Run the training script on a developer laptop and email the weights file to team members." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Build a custom Docker container image with dependencies, push to Artifact Registry, and submit a Vertex AI Custom Training job. Vertex AI Custom Training supports both pre-built containers (standard TensorFlow, PyTorch, Scikit-learn) and custom Docker containers. Using custom containers gives developers full control over dependencies, CUDA runtimes, and external libraries while Vertex AI orchestrates GPU provisioning.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/training/create-custom-container",
@@ -282,12 +282,12 @@ export const GCP_PMLE_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to train a proprietary PyTorch model that depends on custom compiled C++ CUDA extensions and specialized GPU libraries on Vertex AI.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Deploy the code to Cloud Run with an HTTP endpoint." },
+      { id: 'A', text: "Build a custom Docker container image with dependencies, push to Artifact Registry, and submit a Vertex AI Custom Training job." },
       { id: 'B', text: "Run the training script on a developer laptop and email the weights file to team members." },
-      { id: 'C', text: "Build a custom Docker container image with dependencies, push to Artifact Registry, and submit a Vertex AI Custom Training job." },
+      { id: 'C', text: "Deploy the code to Cloud Run with an HTTP endpoint." },
       { id: 'D', text: "Upload raw C++ source files directly to a Cloud Storage bucket and run a standard AutoML job." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Build a custom Docker container image with dependencies, push to Artifact Registry, and submit a Vertex AI Custom Training job. Vertex AI Custom Training supports both pre-built containers (standard TensorFlow, PyTorch, Scikit-learn) and custom Docker containers. Using custom containers gives developers full control over dependencies, CUDA runtimes, and external libraries while Vertex AI orchestrates GPU provisioning.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/training/create-custom-container",
@@ -303,12 +303,12 @@ export const GCP_PMLE_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to train a proprietary PyTorch model that depends on custom compiled C++ CUDA extensions and specialized GPU libraries on Vertex AI.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Deploy the code to Cloud Run with an HTTP endpoint." },
-      { id: 'B', text: "Upload raw C++ source files directly to a Cloud Storage bucket and run a standard AutoML job." },
-      { id: 'C', text: "Run the training script on a developer laptop and email the weights file to team members." },
-      { id: 'D', text: "Build a custom Docker container image with dependencies, push to Artifact Registry, and submit a Vertex AI Custom Training job." }
+      { id: 'A', text: "Run the training script on a developer laptop and email the weights file to team members." },
+      { id: 'B', text: "Build a custom Docker container image with dependencies, push to Artifact Registry, and submit a Vertex AI Custom Training job." },
+      { id: 'C', text: "Upload raw C++ source files directly to a Cloud Storage bucket and run a standard AutoML job." },
+      { id: 'D', text: "Deploy the code to Cloud Run with an HTTP endpoint." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Build a custom Docker container image with dependencies, push to Artifact Registry, and submit a Vertex AI Custom Training job. Vertex AI Custom Training supports both pre-built containers (standard TensorFlow, PyTorch, Scikit-learn) and custom Docker containers. Using custom containers gives developers full control over dependencies, CUDA runtimes, and external libraries while Vertex AI orchestrates GPU provisioning.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/training/create-custom-container",
@@ -345,12 +345,12 @@ export const GCP_PMLE_QUESTIONS_15 = [
     scenario: "A rapidly growing technology startup experiences seasonal surges in user traffic and transactions. The management team requires architecture that scales seamlessly while maintaining performance and operational stability. The machine learning engineer needs to accelerate deep neural network training by distributing mini-batches across 8 GPUs on a single host machine in parallel.",
     question: "Which architectural approach should the team select to manage this demand efficiently?",
     options: [
-      { id: 'A', text: "Implement parameter server training over high-latency public internet connections." },
-      { id: 'B', text: "Train the model sequentially on one GPU with batch size 1." },
+      { id: 'A', text: "Train the model sequentially on one GPU with batch size 1." },
+      { id: 'B', text: "Implement tf.distribute.MirroredStrategy (synchronous data parallelism across multiple local GPUs)." },
       { id: 'C', text: "Run 8 separate independent Python training processes on separate machines without weight synchronization." },
-      { id: 'D', text: "Implement tf.distribute.MirroredStrategy (synchronous data parallelism across multiple local GPUs)." }
+      { id: 'D', text: "Implement parameter server training over high-latency public internet connections." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Implement tf.distribute.MirroredStrategy (synchronous data parallelism across multiple local GPUs). TensorFlow's `tf.distribute.MirroredStrategy` provides synchronous all-reduce data parallelism across multiple GPUs on a single host. Each GPU has a complete replica of the model, processes a slice of the input batch, and synchronizes gradients atomically using NVIDIA NCCL.",
     referenceUrl: "https://www.tensorflow.org/guide/distributed_training#mirroredstrategy",
@@ -366,12 +366,12 @@ export const GCP_PMLE_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to accelerate deep neural network training by distributing mini-batches across 8 GPUs on a single host machine in parallel.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Implement parameter server training over high-latency public internet connections." },
-      { id: 'B', text: "Implement tf.distribute.MirroredStrategy (synchronous data parallelism across multiple local GPUs)." },
-      { id: 'C', text: "Train the model sequentially on one GPU with batch size 1." },
-      { id: 'D', text: "Run 8 separate independent Python training processes on separate machines without weight synchronization." }
+      { id: 'A', text: "Implement tf.distribute.MirroredStrategy (synchronous data parallelism across multiple local GPUs)." },
+      { id: 'B', text: "Implement parameter server training over high-latency public internet connections." },
+      { id: 'C', text: "Run 8 separate independent Python training processes on separate machines without weight synchronization." },
+      { id: 'D', text: "Train the model sequentially on one GPU with batch size 1." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implement tf.distribute.MirroredStrategy (synchronous data parallelism across multiple local GPUs). TensorFlow's `tf.distribute.MirroredStrategy` provides synchronous all-reduce data parallelism across multiple GPUs on a single host. Each GPU has a complete replica of the model, processes a slice of the input batch, and synchronizes gradients atomically using NVIDIA NCCL.",
     referenceUrl: "https://www.tensorflow.org/guide/distributed_training#mirroredstrategy",
@@ -389,8 +389,8 @@ export const GCP_PMLE_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Implement tf.distribute.MirroredStrategy (synchronous data parallelism across multiple local GPUs)." },
       { id: 'B', text: "Implement parameter server training over high-latency public internet connections." },
-      { id: 'C', text: "Train the model sequentially on one GPU with batch size 1." },
-      { id: 'D', text: "Run 8 separate independent Python training processes on separate machines without weight synchronization." }
+      { id: 'C', text: "Run 8 separate independent Python training processes on separate machines without weight synchronization." },
+      { id: 'D', text: "Train the model sequentially on one GPU with batch size 1." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,12 +408,12 @@ export const GCP_PMLE_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to accelerate deep neural network training by distributing mini-batches across 8 GPUs on a single host machine in parallel.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Implement parameter server training over high-latency public internet connections." },
-      { id: 'B', text: "Train the model sequentially on one GPU with batch size 1." },
-      { id: 'C', text: "Implement tf.distribute.MirroredStrategy (synchronous data parallelism across multiple local GPUs)." },
-      { id: 'D', text: "Run 8 separate independent Python training processes on separate machines without weight synchronization." }
+      { id: 'A', text: "Train the model sequentially on one GPU with batch size 1." },
+      { id: 'B', text: "Run 8 separate independent Python training processes on separate machines without weight synchronization." },
+      { id: 'C', text: "Implement parameter server training over high-latency public internet connections." },
+      { id: 'D', text: "Implement tf.distribute.MirroredStrategy (synchronous data parallelism across multiple local GPUs)." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement tf.distribute.MirroredStrategy (synchronous data parallelism across multiple local GPUs). TensorFlow's `tf.distribute.MirroredStrategy` provides synchronous all-reduce data parallelism across multiple GPUs on a single host. Each GPU has a complete replica of the model, processes a slice of the input batch, and synchronizes gradients atomically using NVIDIA NCCL.",
     referenceUrl: "https://www.tensorflow.org/guide/distributed_training#mirroredstrategy",
@@ -429,12 +429,12 @@ export const GCP_PMLE_QUESTIONS_15 = [
     scenario: "An enterprise organization is establishing high-availability standards and operational continuity guidelines for its cloud systems. Business leaders mandate reliable and resilient operations across all operational domains. The machine learning engineer needs to find the optimal learning rate, batch size, and dropout rate for a deep neural network without brute-force grid searching.",
     question: "Which concept or service configuration satisfies these operational resilience objectives?",
     options: [
-      { id: 'A', text: "Generate hyperparameter values using a pseudo-random number generator without tracking outcomes." },
-      { id: 'B', text: "Configure a Vertex AI Hyperparameter Tuning job using Vertex AI Vizier with Bayesian optimization." },
-      { id: 'C', text: "Perform an exhaustive manual grid search across 10,000 combinations sequentially." },
-      { id: 'D', text: "Keep all hyperparameters at default values and train for 500 epochs." }
+      { id: 'A', text: "Keep all hyperparameters at default values and train for 500 epochs." },
+      { id: 'B', text: "Generate hyperparameter values using a pseudo-random number generator without tracking outcomes." },
+      { id: 'C', text: "Configure a Vertex AI Hyperparameter Tuning job using Vertex AI Vizier with Bayesian optimization." },
+      { id: 'D', text: "Perform an exhaustive manual grid search across 10,000 combinations sequentially." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Configure a Vertex AI Hyperparameter Tuning job using Vertex AI Vizier with Bayesian optimization. Vertex AI Hyperparameter Tuning leverages Vertex AI Vizier, an advanced black-box optimization service. Vizier uses Bayesian optimization to model the response surface, intelligently selecting future parameter trials based on historical evaluations to converge on optimal parameters rapidly.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/training/hyperparameter-tuning-overview",
@@ -452,8 +452,8 @@ export const GCP_PMLE_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Configure a Vertex AI Hyperparameter Tuning job using Vertex AI Vizier with Bayesian optimization." },
       { id: 'B', text: "Perform an exhaustive manual grid search across 10,000 combinations sequentially." },
-      { id: 'C', text: "Generate hyperparameter values using a pseudo-random number generator without tracking outcomes." },
-      { id: 'D', text: "Keep all hyperparameters at default values and train for 500 epochs." }
+      { id: 'C', text: "Keep all hyperparameters at default values and train for 500 epochs." },
+      { id: 'D', text: "Generate hyperparameter values using a pseudo-random number generator without tracking outcomes." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,12 +471,12 @@ export const GCP_PMLE_QUESTIONS_15 = [
     scenario: "A financial compliance and auditing department requires strict enforcement of data protection, access controls, and cloud governance policies across all systems. The machine learning engineer needs to find the optimal learning rate, batch size, and dropout rate for a deep neural network without brute-force grid searching.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Generate hyperparameter values using a pseudo-random number generator without tracking outcomes." },
+      { id: 'A', text: "Configure a Vertex AI Hyperparameter Tuning job using Vertex AI Vizier with Bayesian optimization." },
       { id: 'B', text: "Perform an exhaustive manual grid search across 10,000 combinations sequentially." },
       { id: 'C', text: "Keep all hyperparameters at default values and train for 500 epochs." },
-      { id: 'D', text: "Configure a Vertex AI Hyperparameter Tuning job using Vertex AI Vizier with Bayesian optimization." }
+      { id: 'D', text: "Generate hyperparameter values using a pseudo-random number generator without tracking outcomes." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure a Vertex AI Hyperparameter Tuning job using Vertex AI Vizier with Bayesian optimization. Vertex AI Hyperparameter Tuning leverages Vertex AI Vizier, an advanced black-box optimization service. Vizier uses Bayesian optimization to model the response surface, intelligently selecting future parameter trials based on historical evaluations to converge on optimal parameters rapidly.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/training/hyperparameter-tuning-overview",
@@ -492,12 +492,12 @@ export const GCP_PMLE_QUESTIONS_15 = [
     scenario: "An enterprise is migrating traditional on-premises data center operations to Google Cloud. The executive team wants to maximize efficiency, accelerate innovation, and minimize operational complexity. The machine learning engineer needs to find the optimal learning rate, batch size, and dropout rate for a deep neural network without brute-force grid searching.",
     question: "Which principle or solution enables the enterprise to achieve these cloud migration goals?",
     options: [
-      { id: 'A', text: "Keep all hyperparameters at default values and train for 500 epochs." },
-      { id: 'B', text: "Configure a Vertex AI Hyperparameter Tuning job using Vertex AI Vizier with Bayesian optimization." },
-      { id: 'C', text: "Generate hyperparameter values using a pseudo-random number generator without tracking outcomes." },
-      { id: 'D', text: "Perform an exhaustive manual grid search across 10,000 combinations sequentially." }
+      { id: 'A', text: "Generate hyperparameter values using a pseudo-random number generator without tracking outcomes." },
+      { id: 'B', text: "Keep all hyperparameters at default values and train for 500 epochs." },
+      { id: 'C', text: "Perform an exhaustive manual grid search across 10,000 combinations sequentially." },
+      { id: 'D', text: "Configure a Vertex AI Hyperparameter Tuning job using Vertex AI Vizier with Bayesian optimization." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Configure a Vertex AI Hyperparameter Tuning job using Vertex AI Vizier with Bayesian optimization. Vertex AI Hyperparameter Tuning leverages Vertex AI Vizier, an advanced black-box optimization service. Vizier uses Bayesian optimization to model the response surface, intelligently selecting future parameter trials based on historical evaluations to converge on optimal parameters rapidly.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/training/hyperparameter-tuning-overview",
@@ -513,12 +513,12 @@ export const GCP_PMLE_QUESTIONS_15 = [
     scenario: "An IT operations team is modernizing infrastructure to eliminate single points of failure, optimize spending, and automate infrastructure maintenance. The machine learning engineer needs to find the optimal learning rate, batch size, and dropout rate for a deep neural network without brute-force grid searching.",
     question: "Which design pattern or service configuration eliminates operational bottlenecks and delivers automated management?",
     options: [
-      { id: 'A', text: "Generate hyperparameter values using a pseudo-random number generator without tracking outcomes." },
+      { id: 'A', text: "Configure a Vertex AI Hyperparameter Tuning job using Vertex AI Vizier with Bayesian optimization." },
       { id: 'B', text: "Perform an exhaustive manual grid search across 10,000 combinations sequentially." },
       { id: 'C', text: "Keep all hyperparameters at default values and train for 500 epochs." },
-      { id: 'D', text: "Configure a Vertex AI Hyperparameter Tuning job using Vertex AI Vizier with Bayesian optimization." }
+      { id: 'D', text: "Generate hyperparameter values using a pseudo-random number generator without tracking outcomes." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Configure a Vertex AI Hyperparameter Tuning job using Vertex AI Vizier with Bayesian optimization. Vertex AI Hyperparameter Tuning leverages Vertex AI Vizier, an advanced black-box optimization service. Vizier uses Bayesian optimization to model the response surface, intelligently selecting future parameter trials based on historical evaluations to converge on optimal parameters rapidly.",
     referenceUrl: "https://cloud.google.com/vertex-ai/docs/training/hyperparameter-tuning-overview",

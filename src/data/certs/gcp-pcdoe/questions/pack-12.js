@@ -9,12 +9,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "An enterprise SRE organization is establishing operational continuity guidelines and high-availability architecture for its Google Cloud services. The DevOps team evaluates Traffic Management to maintain core payment transaction processing during an unprecedented 10x traffic spike by shedding non-critical user background tasks.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Allow all requests equal priority until the entire server cluster runs out of memory and crashes." },
-      { id: 'B', text: "Implement load shedding and graceful degradation: drop non-essential requests (e.g. recommendations) and prioritize critical transactions." },
+      { id: 'A', text: "Implement load shedding and graceful degradation: drop non-essential requests (e.g. recommendations) and prioritize critical transactions." },
+      { id: 'B', text: "Allow all requests equal priority until the entire server cluster runs out of memory and crashes." },
       { id: 'C', text: "Throttle all incoming traffic randomly without distinguishing between critical and non-critical operations." },
       { id: 'D', text: "Shut down all application servers until traffic subsides." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Implement load shedding and graceful degradation: drop non-essential requests (e.g. recommendations) and prioritize critical transactions. Graceful degradation and load shedding preserve core business functionality during extreme overload. By categorizing requests into critical and non-critical tiers, services shed low-priority background requests early to guarantee sufficient resources for revenue-generating transactions.",
     referenceUrl: "https://sre.google.com/sre-book/handling-overload/",
@@ -31,9 +31,9 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention?",
     options: [
       { id: 'A', text: "Implement load shedding and graceful degradation: drop non-essential requests (e.g. recommendations) and prioritize critical transactions." },
-      { id: 'B', text: "Shut down all application servers until traffic subsides." },
+      { id: 'B', text: "Allow all requests equal priority until the entire server cluster runs out of memory and crashes." },
       { id: 'C', text: "Throttle all incoming traffic randomly without distinguishing between critical and non-critical operations." },
-      { id: 'D', text: "Allow all requests equal priority until the entire server cluster runs out of memory and crashes." }
+      { id: 'D', text: "Shut down all application servers until traffic subsides." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -52,8 +52,8 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Implement load shedding and graceful degradation: drop non-essential requests (e.g. recommendations) and prioritize critical transactions." },
-      { id: 'B', text: "Throttle all incoming traffic randomly without distinguishing between critical and non-critical operations." },
-      { id: 'C', text: "Allow all requests equal priority until the entire server cluster runs out of memory and crashes." },
+      { id: 'B', text: "Allow all requests equal priority until the entire server cluster runs out of memory and crashes." },
+      { id: 'C', text: "Throttle all incoming traffic randomly without distinguishing between critical and non-critical operations." },
       { id: 'D', text: "Shut down all application servers until traffic subsides." }
     ],
     correctAnswers: ['A'],
@@ -73,8 +73,8 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Implement load shedding and graceful degradation: drop non-essential requests (e.g. recommendations) and prioritize critical transactions." },
-      { id: 'B', text: "Throttle all incoming traffic randomly without distinguishing between critical and non-critical operations." },
-      { id: 'C', text: "Allow all requests equal priority until the entire server cluster runs out of memory and crashes." },
+      { id: 'B', text: "Allow all requests equal priority until the entire server cluster runs out of memory and crashes." },
+      { id: 'C', text: "Throttle all incoming traffic randomly without distinguishing between critical and non-critical operations." },
       { id: 'D', text: "Shut down all application servers until traffic subsides." }
     ],
     correctAnswers: ['A'],
@@ -93,12 +93,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate operational incident handling. The DevOps team evaluates Traffic Management to maintain core payment transaction processing during an unprecedented 10x traffic spike by shedding non-critical user background tasks.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability?",
     options: [
-      { id: 'A', text: "Allow all requests equal priority until the entire server cluster runs out of memory and crashes." },
-      { id: 'B', text: "Shut down all application servers until traffic subsides." },
-      { id: 'C', text: "Implement load shedding and graceful degradation: drop non-essential requests (e.g. recommendations) and prioritize critical transactions." },
-      { id: 'D', text: "Throttle all incoming traffic randomly without distinguishing between critical and non-critical operations." }
+      { id: 'A', text: "Shut down all application servers until traffic subsides." },
+      { id: 'B', text: "Throttle all incoming traffic randomly without distinguishing between critical and non-critical operations." },
+      { id: 'C', text: "Allow all requests equal priority until the entire server cluster runs out of memory and crashes." },
+      { id: 'D', text: "Implement load shedding and graceful degradation: drop non-essential requests (e.g. recommendations) and prioritize critical transactions." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Implement load shedding and graceful degradation: drop non-essential requests (e.g. recommendations) and prioritize critical transactions. Graceful degradation and load shedding preserve core business functionality during extreme overload. By categorizing requests into critical and non-critical tiers, services shed low-priority background requests early to guarantee sufficient resources for revenue-generating transactions.",
     referenceUrl: "https://sre.google.com/sre-book/handling-overload/",
@@ -114,12 +114,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "An enterprise SRE organization is establishing operational continuity guidelines and high-availability architecture for its Google Cloud services. The DevOps team evaluates Capacity Management to prepare cloud infrastructure capacity for an upcoming national Black Friday e-commerce sales event expected to generate 500% normal peak traffic.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Rely entirely on default reactive autoscaling without verifying regional cloud quota limits." },
-      { id: 'B', text: "Order on-premises physical server racks 2 days before the sale begins." },
-      { id: 'C', text: "Throttle all user web traffic to 1 request per minute during the holiday weekend." },
-      { id: 'D', text: "Conduct load and stress testing, forecast inorganic demand spikes, and request quota increases in advance." }
+      { id: 'A', text: "Order on-premises physical server racks 2 days before the sale begins." },
+      { id: 'B', text: "Throttle all user web traffic to 1 request per minute during the holiday weekend." },
+      { id: 'C', text: "Conduct load and stress testing, forecast inorganic demand spikes, and request quota increases in advance." },
+      { id: 'D', text: "Rely entirely on default reactive autoscaling without verifying regional cloud quota limits." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Conduct load and stress testing, forecast inorganic demand spikes, and request quota increases in advance. Effective SRE capacity planning combines organic growth modeling with inorganic demand forecasting. Teams conduct synthetic stress tests to identify bottlenecks and proactively request cloud resource quota increases (vCPU, IP addresses, persistent disks) well ahead of marketing events.",
     referenceUrl: "https://sre.google/sre-book/capacity-planning/",
@@ -136,9 +136,9 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention?",
     options: [
       { id: 'A', text: "Conduct load and stress testing, forecast inorganic demand spikes, and request quota increases in advance." },
-      { id: 'B', text: "Order on-premises physical server racks 2 days before the sale begins." },
-      { id: 'C', text: "Throttle all user web traffic to 1 request per minute during the holiday weekend." },
-      { id: 'D', text: "Rely entirely on default reactive autoscaling without verifying regional cloud quota limits." }
+      { id: 'B', text: "Throttle all user web traffic to 1 request per minute during the holiday weekend." },
+      { id: 'C', text: "Rely entirely on default reactive autoscaling without verifying regional cloud quota limits." },
+      { id: 'D', text: "Order on-premises physical server racks 2 days before the sale begins." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires automated verification of system integrity, secret isolation, and governance across all continuous delivery pipelines. The DevOps team evaluates Capacity Management to prepare cloud infrastructure capacity for an upcoming national Black Friday e-commerce sales event expected to generate 500% normal peak traffic.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Throttle all user web traffic to 1 request per minute during the holiday weekend." },
-      { id: 'B', text: "Conduct load and stress testing, forecast inorganic demand spikes, and request quota increases in advance." },
-      { id: 'C', text: "Rely entirely on default reactive autoscaling without verifying regional cloud quota limits." },
-      { id: 'D', text: "Order on-premises physical server racks 2 days before the sale begins." }
+      { id: 'A', text: "Order on-premises physical server racks 2 days before the sale begins." },
+      { id: 'B', text: "Throttle all user web traffic to 1 request per minute during the holiday weekend." },
+      { id: 'C', text: "Conduct load and stress testing, forecast inorganic demand spikes, and request quota increases in advance." },
+      { id: 'D', text: "Rely entirely on default reactive autoscaling without verifying regional cloud quota limits." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Conduct load and stress testing, forecast inorganic demand spikes, and request quota increases in advance. Effective SRE capacity planning combines organic growth modeling with inorganic demand forecasting. Teams conduct synthetic stress tests to identify bottlenecks and proactively request cloud resource quota increases (vCPU, IP addresses, persistent disks) well ahead of marketing events.",
     referenceUrl: "https://sre.google/sre-book/capacity-planning/",
@@ -177,12 +177,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on Google Cloud. The DevOps team evaluates Capacity Management to prepare cloud infrastructure capacity for an upcoming national Black Friday e-commerce sales event expected to generate 500% normal peak traffic.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Order on-premises physical server racks 2 days before the sale begins." },
+      { id: 'A', text: "Conduct load and stress testing, forecast inorganic demand spikes, and request quota increases in advance." },
       { id: 'B', text: "Rely entirely on default reactive autoscaling without verifying regional cloud quota limits." },
-      { id: 'C', text: "Conduct load and stress testing, forecast inorganic demand spikes, and request quota increases in advance." },
+      { id: 'C', text: "Order on-premises physical server racks 2 days before the sale begins." },
       { id: 'D', text: "Throttle all user web traffic to 1 request per minute during the holiday weekend." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Conduct load and stress testing, forecast inorganic demand spikes, and request quota increases in advance. Effective SRE capacity planning combines organic growth modeling with inorganic demand forecasting. Teams conduct synthetic stress tests to identify bottlenecks and proactively request cloud resource quota increases (vCPU, IP addresses, persistent disks) well ahead of marketing events.",
     referenceUrl: "https://sre.google/sre-book/capacity-planning/",
@@ -198,12 +198,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate operational incident handling. The DevOps team evaluates Capacity Management to prepare cloud infrastructure capacity for an upcoming national Black Friday e-commerce sales event expected to generate 500% normal peak traffic.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability?",
     options: [
-      { id: 'A', text: "Rely entirely on default reactive autoscaling without verifying regional cloud quota limits." },
-      { id: 'B', text: "Order on-premises physical server racks 2 days before the sale begins." },
-      { id: 'C', text: "Throttle all user web traffic to 1 request per minute during the holiday weekend." },
-      { id: 'D', text: "Conduct load and stress testing, forecast inorganic demand spikes, and request quota increases in advance." }
+      { id: 'A', text: "Order on-premises physical server racks 2 days before the sale begins." },
+      { id: 'B', text: "Throttle all user web traffic to 1 request per minute during the holiday weekend." },
+      { id: 'C', text: "Conduct load and stress testing, forecast inorganic demand spikes, and request quota increases in advance." },
+      { id: 'D', text: "Rely entirely on default reactive autoscaling without verifying regional cloud quota limits." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Conduct load and stress testing, forecast inorganic demand spikes, and request quota increases in advance. Effective SRE capacity planning combines organic growth modeling with inorganic demand forecasting. Teams conduct synthetic stress tests to identify bottlenecks and proactively request cloud resource quota increases (vCPU, IP addresses, persistent disks) well ahead of marketing events.",
     referenceUrl: "https://sre.google/sre-book/capacity-planning/",
@@ -219,12 +219,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "An enterprise SRE organization is establishing operational continuity guidelines and high-availability architecture for its Google Cloud services. The DevOps team evaluates Continuous Delivery to automatically detect if a new software release introduces memory leaks or increased HTTP 500 errors on 2% of live production traffic and roll back immediately.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy the software update to 100% of production servers on Friday evening." },
-      { id: 'B', text: "Manually inspect raw log files on each server during the deployment window." },
-      { id: 'C', text: "Deploy a canary release alongside a baseline release and use automated metric analysis to trigger instant rollbacks upon regression." },
-      { id: 'D', text: "Ask users on social media to report if they experience software bugs." }
+      { id: 'A', text: "Manually inspect raw log files on each server during the deployment window." },
+      { id: 'B', text: "Ask users on social media to report if they experience software bugs." },
+      { id: 'C', text: "Deploy the software update to 100% of production servers on Friday evening." },
+      { id: 'D', text: "Deploy a canary release alongside a baseline release and use automated metric analysis to trigger instant rollbacks upon regression." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Deploy a canary release alongside a baseline release and use automated metric analysis to trigger instant rollbacks upon regression. Canary deployment analysis routes a small fraction of live user traffic to newly deployed instances (canary) while comparing error rates and latency against an identical baseline instance. Automated canary analysis halts the rollout and triggers instant rollbacks if anomalies are detected.",
     referenceUrl: "https://cloud.google.com/architecture/application-deployment-and-testing-strategies#canary_deployment",
@@ -240,12 +240,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "A high-throughput Google Cloud application experiences unpredictable bursts of traffic and transactional demands from global users. The DevOps team evaluates Continuous Delivery to automatically detect if a new software release introduces memory leaks or increased HTTP 500 errors on 2% of live production traffic and roll back immediately.",
     question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention?",
     options: [
-      { id: 'A', text: "Manually inspect raw log files on each server during the deployment window." },
-      { id: 'B', text: "Ask users on social media to report if they experience software bugs." },
-      { id: 'C', text: "Deploy the software update to 100% of production servers on Friday evening." },
-      { id: 'D', text: "Deploy a canary release alongside a baseline release and use automated metric analysis to trigger instant rollbacks upon regression." }
+      { id: 'A', text: "Deploy a canary release alongside a baseline release and use automated metric analysis to trigger instant rollbacks upon regression." },
+      { id: 'B', text: "Deploy the software update to 100% of production servers on Friday evening." },
+      { id: 'C', text: "Ask users on social media to report if they experience software bugs." },
+      { id: 'D', text: "Manually inspect raw log files on each server during the deployment window." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy a canary release alongside a baseline release and use automated metric analysis to trigger instant rollbacks upon regression. Canary deployment analysis routes a small fraction of live user traffic to newly deployed instances (canary) while comparing error rates and latency against an identical baseline instance. Automated canary analysis halts the rollout and triggers instant rollbacks if anomalies are detected.",
     referenceUrl: "https://cloud.google.com/architecture/application-deployment-and-testing-strategies#canary_deployment",
@@ -263,8 +263,8 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Deploy a canary release alongside a baseline release and use automated metric analysis to trigger instant rollbacks upon regression." },
       { id: 'B', text: "Deploy the software update to 100% of production servers on Friday evening." },
-      { id: 'C', text: "Manually inspect raw log files on each server during the deployment window." },
-      { id: 'D', text: "Ask users on social media to report if they experience software bugs." }
+      { id: 'C', text: "Ask users on social media to report if they experience software bugs." },
+      { id: 'D', text: "Manually inspect raw log files on each server during the deployment window." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,12 +282,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on Google Cloud. The DevOps team evaluates Continuous Delivery to automatically detect if a new software release introduces memory leaks or increased HTTP 500 errors on 2% of live production traffic and roll back immediately.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Manually inspect raw log files on each server during the deployment window." },
-      { id: 'B', text: "Ask users on social media to report if they experience software bugs." },
-      { id: 'C', text: "Deploy the software update to 100% of production servers on Friday evening." },
-      { id: 'D', text: "Deploy a canary release alongside a baseline release and use automated metric analysis to trigger instant rollbacks upon regression." }
+      { id: 'A', text: "Deploy a canary release alongside a baseline release and use automated metric analysis to trigger instant rollbacks upon regression." },
+      { id: 'B', text: "Deploy the software update to 100% of production servers on Friday evening." },
+      { id: 'C', text: "Ask users on social media to report if they experience software bugs." },
+      { id: 'D', text: "Manually inspect raw log files on each server during the deployment window." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deploy a canary release alongside a baseline release and use automated metric analysis to trigger instant rollbacks upon regression. Canary deployment analysis routes a small fraction of live user traffic to newly deployed instances (canary) while comparing error rates and latency against an identical baseline instance. Automated canary analysis halts the rollout and triggers instant rollbacks if anomalies are detected.",
     referenceUrl: "https://cloud.google.com/architecture/application-deployment-and-testing-strategies#canary_deployment",
@@ -303,12 +303,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate operational incident handling. The DevOps team evaluates Continuous Delivery to automatically detect if a new software release introduces memory leaks or increased HTTP 500 errors on 2% of live production traffic and roll back immediately.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability?",
     options: [
-      { id: 'A', text: "Deploy the software update to 100% of production servers on Friday evening." },
-      { id: 'B', text: "Ask users on social media to report if they experience software bugs." },
-      { id: 'C', text: "Manually inspect raw log files on each server during the deployment window." },
-      { id: 'D', text: "Deploy a canary release alongside a baseline release and use automated metric analysis to trigger instant rollbacks upon regression." }
+      { id: 'A', text: "Ask users on social media to report if they experience software bugs." },
+      { id: 'B', text: "Manually inspect raw log files on each server during the deployment window." },
+      { id: 'C', text: "Deploy a canary release alongside a baseline release and use automated metric analysis to trigger instant rollbacks upon regression." },
+      { id: 'D', text: "Deploy the software update to 100% of production servers on Friday evening." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deploy a canary release alongside a baseline release and use automated metric analysis to trigger instant rollbacks upon regression. Canary deployment analysis routes a small fraction of live user traffic to newly deployed instances (canary) while comparing error rates and latency against an identical baseline instance. Automated canary analysis halts the rollout and triggers instant rollbacks if anomalies are detected.",
     referenceUrl: "https://cloud.google.com/architecture/application-deployment-and-testing-strategies#canary_deployment",
@@ -324,12 +324,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "An enterprise SRE organization is establishing operational continuity guidelines and high-availability architecture for its Google Cloud services. The DevOps team evaluates Resilience Testing to validate that multi-region failover automation operates properly during real-world crises without waiting for an actual regional datacenter catastrophe.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Never test disaster recovery procedures to avoid risking service interruptions." },
+      { id: 'A', text: "Conduct scheduled Disaster Recovery Testing (DiRT) exercises and inject controlled failures into staging and production systems." },
       { id: 'B', text: "Assume multi-region failover scripts work based on whiteboard architectural designs." },
-      { id: 'C', text: "Conduct scheduled Disaster Recovery Testing (DiRT) exercises and inject controlled failures into staging and production systems." },
+      { id: 'C', text: "Never test disaster recovery procedures to avoid risking service interruptions." },
       { id: 'D', text: "Wait for a real earthquake or blackout to test disaster recovery plans for the first time." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Conduct scheduled Disaster Recovery Testing (DiRT) exercises and inject controlled failures into staging and production systems. Google Disaster Recovery Testing (DiRT) exercises deliberately introduce large-scale simulated failures (simulating fiber cuts, regional outages, power grid collapses) into production and staging systems to test organizational readiness, automated failover systems, and disaster runbooks.",
     referenceUrl: "https://cloud.google.com/blog/products/management-tools/why-you-should-run-a-disaster-recovery-test",
@@ -346,9 +346,9 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention?",
     options: [
       { id: 'A', text: "Conduct scheduled Disaster Recovery Testing (DiRT) exercises and inject controlled failures into staging and production systems." },
-      { id: 'B', text: "Wait for a real earthquake or blackout to test disaster recovery plans for the first time." },
+      { id: 'B', text: "Assume multi-region failover scripts work based on whiteboard architectural designs." },
       { id: 'C', text: "Never test disaster recovery procedures to avoid risking service interruptions." },
-      { id: 'D', text: "Assume multi-region failover scripts work based on whiteboard architectural designs." }
+      { id: 'D', text: "Wait for a real earthquake or blackout to test disaster recovery plans for the first time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,12 +366,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires automated verification of system integrity, secret isolation, and governance across all continuous delivery pipelines. The DevOps team evaluates Resilience Testing to validate that multi-region failover automation operates properly during real-world crises without waiting for an actual regional datacenter catastrophe.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Never test disaster recovery procedures to avoid risking service interruptions." },
-      { id: 'B', text: "Conduct scheduled Disaster Recovery Testing (DiRT) exercises and inject controlled failures into staging and production systems." },
-      { id: 'C', text: "Assume multi-region failover scripts work based on whiteboard architectural designs." },
+      { id: 'A', text: "Assume multi-region failover scripts work based on whiteboard architectural designs." },
+      { id: 'B', text: "Never test disaster recovery procedures to avoid risking service interruptions." },
+      { id: 'C', text: "Conduct scheduled Disaster Recovery Testing (DiRT) exercises and inject controlled failures into staging and production systems." },
       { id: 'D', text: "Wait for a real earthquake or blackout to test disaster recovery plans for the first time." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Conduct scheduled Disaster Recovery Testing (DiRT) exercises and inject controlled failures into staging and production systems. Google Disaster Recovery Testing (DiRT) exercises deliberately introduce large-scale simulated failures (simulating fiber cuts, regional outages, power grid collapses) into production and staging systems to test organizational readiness, automated failover systems, and disaster runbooks.",
     referenceUrl: "https://cloud.google.com/blog/products/management-tools/why-you-should-run-a-disaster-recovery-test",
@@ -387,12 +387,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on Google Cloud. The DevOps team evaluates Resilience Testing to validate that multi-region failover automation operates properly during real-world crises without waiting for an actual regional datacenter catastrophe.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Never test disaster recovery procedures to avoid risking service interruptions." },
-      { id: 'B', text: "Wait for a real earthquake or blackout to test disaster recovery plans for the first time." },
-      { id: 'C', text: "Conduct scheduled Disaster Recovery Testing (DiRT) exercises and inject controlled failures into staging and production systems." },
-      { id: 'D', text: "Assume multi-region failover scripts work based on whiteboard architectural designs." }
+      { id: 'A', text: "Conduct scheduled Disaster Recovery Testing (DiRT) exercises and inject controlled failures into staging and production systems." },
+      { id: 'B', text: "Assume multi-region failover scripts work based on whiteboard architectural designs." },
+      { id: 'C', text: "Never test disaster recovery procedures to avoid risking service interruptions." },
+      { id: 'D', text: "Wait for a real earthquake or blackout to test disaster recovery plans for the first time." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Conduct scheduled Disaster Recovery Testing (DiRT) exercises and inject controlled failures into staging and production systems. Google Disaster Recovery Testing (DiRT) exercises deliberately introduce large-scale simulated failures (simulating fiber cuts, regional outages, power grid collapses) into production and staging systems to test organizational readiness, automated failover systems, and disaster runbooks.",
     referenceUrl: "https://cloud.google.com/blog/products/management-tools/why-you-should-run-a-disaster-recovery-test",
@@ -408,12 +408,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate operational incident handling. The DevOps team evaluates Resilience Testing to validate that multi-region failover automation operates properly during real-world crises without waiting for an actual regional datacenter catastrophe.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability?",
     options: [
-      { id: 'A', text: "Wait for a real earthquake or blackout to test disaster recovery plans for the first time." },
-      { id: 'B', text: "Conduct scheduled Disaster Recovery Testing (DiRT) exercises and inject controlled failures into staging and production systems." },
-      { id: 'C', text: "Assume multi-region failover scripts work based on whiteboard architectural designs." },
-      { id: 'D', text: "Never test disaster recovery procedures to avoid risking service interruptions." }
+      { id: 'A', text: "Never test disaster recovery procedures to avoid risking service interruptions." },
+      { id: 'B', text: "Wait for a real earthquake or blackout to test disaster recovery plans for the first time." },
+      { id: 'C', text: "Conduct scheduled Disaster Recovery Testing (DiRT) exercises and inject controlled failures into staging and production systems." },
+      { id: 'D', text: "Assume multi-region failover scripts work based on whiteboard architectural designs." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Conduct scheduled Disaster Recovery Testing (DiRT) exercises and inject controlled failures into staging and production systems. Google Disaster Recovery Testing (DiRT) exercises deliberately introduce large-scale simulated failures (simulating fiber cuts, regional outages, power grid collapses) into production and staging systems to test organizational readiness, automated failover systems, and disaster runbooks.",
     referenceUrl: "https://cloud.google.com/blog/products/management-tools/why-you-should-run-a-disaster-recovery-test",
@@ -429,12 +429,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "An enterprise SRE organization is establishing operational continuity guidelines and high-availability architecture for its Google Cloud services. The DevOps team evaluates SRE Operations to mitigate severe on-call engineer burnout caused by hundreds of non-actionable alert pages firing every night.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Instruct on-call engineers to ignore their pagers and sleep through nighttime alerts." },
-      { id: 'B', text: "Require engineers to remain on-call 24 hours a day, 365 days a year without rotation." },
+      { id: 'A', text: "Require engineers to remain on-call 24 hours a day, 365 days a year without rotation." },
+      { id: 'B', text: "Audit alert rules: eliminate alerts that do not require immediate human action, convert non-urgent alerts into tickets, and enforce on-call paging limits." },
       { id: 'C', text: "Double the number of alerts to ensure no minor event is ever missed." },
-      { id: 'D', text: "Audit alert rules: eliminate alerts that do not require immediate human action, convert non-urgent alerts into tickets, and enforce on-call paging limits." }
+      { id: 'D', text: "Instruct on-call engineers to ignore their pagers and sleep through nighttime alerts." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Audit alert rules: eliminate alerts that do not require immediate human action, convert non-urgent alerts into tickets, and enforce on-call paging limits. Google SRE guidelines state that alerts must be strictly actionable, urgent, and represent real or imminent user impact. Alerts that do not require immediate manual intervention should be logged or turned into email digests/tickets, mitigating alert fatigue and preserving engineer focus.",
     referenceUrl: "https://sre.google/sre-book/being-on-call/",
@@ -450,12 +450,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "A high-throughput Google Cloud application experiences unpredictable bursts of traffic and transactional demands from global users. The DevOps team evaluates SRE Operations to mitigate severe on-call engineer burnout caused by hundreds of non-actionable alert pages firing every night.",
     question: "Which engineering approach should the DevOps team select to manage this demand reliably without manual intervention?",
     options: [
-      { id: 'A', text: "Require engineers to remain on-call 24 hours a day, 365 days a year without rotation." },
+      { id: 'A', text: "Double the number of alerts to ensure no minor event is ever missed." },
       { id: 'B', text: "Instruct on-call engineers to ignore their pagers and sleep through nighttime alerts." },
-      { id: 'C', text: "Audit alert rules: eliminate alerts that do not require immediate human action, convert non-urgent alerts into tickets, and enforce on-call paging limits." },
-      { id: 'D', text: "Double the number of alerts to ensure no minor event is ever missed." }
+      { id: 'C', text: "Require engineers to remain on-call 24 hours a day, 365 days a year without rotation." },
+      { id: 'D', text: "Audit alert rules: eliminate alerts that do not require immediate human action, convert non-urgent alerts into tickets, and enforce on-call paging limits." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Audit alert rules: eliminate alerts that do not require immediate human action, convert non-urgent alerts into tickets, and enforce on-call paging limits. Google SRE guidelines state that alerts must be strictly actionable, urgent, and represent real or imminent user impact. Alerts that do not require immediate manual intervention should be logged or turned into email digests/tickets, mitigating alert fatigue and preserving engineer focus.",
     referenceUrl: "https://sre.google/sre-book/being-on-call/",
@@ -471,12 +471,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires automated verification of system integrity, secret isolation, and governance across all continuous delivery pipelines. The DevOps team evaluates SRE Operations to mitigate severe on-call engineer burnout caused by hundreds of non-actionable alert pages firing every night.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "Instruct on-call engineers to ignore their pagers and sleep through nighttime alerts." },
-      { id: 'B', text: "Audit alert rules: eliminate alerts that do not require immediate human action, convert non-urgent alerts into tickets, and enforce on-call paging limits." },
-      { id: 'C', text: "Require engineers to remain on-call 24 hours a day, 365 days a year without rotation." },
-      { id: 'D', text: "Double the number of alerts to ensure no minor event is ever missed." }
+      { id: 'A', text: "Audit alert rules: eliminate alerts that do not require immediate human action, convert non-urgent alerts into tickets, and enforce on-call paging limits." },
+      { id: 'B', text: "Instruct on-call engineers to ignore their pagers and sleep through nighttime alerts." },
+      { id: 'C', text: "Double the number of alerts to ensure no minor event is ever missed." },
+      { id: 'D', text: "Require engineers to remain on-call 24 hours a day, 365 days a year without rotation." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Audit alert rules: eliminate alerts that do not require immediate human action, convert non-urgent alerts into tickets, and enforce on-call paging limits. Google SRE guidelines state that alerts must be strictly actionable, urgent, and represent real or imminent user impact. Alerts that do not require immediate manual intervention should be logged or turned into email digests/tickets, mitigating alert fatigue and preserving engineer focus.",
     referenceUrl: "https://sre.google/sre-book/being-on-call/",
@@ -492,12 +492,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on Google Cloud. The DevOps team evaluates SRE Operations to mitigate severe on-call engineer burnout caused by hundreds of non-actionable alert pages firing every night.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Require engineers to remain on-call 24 hours a day, 365 days a year without rotation." },
+      { id: 'A', text: "Audit alert rules: eliminate alerts that do not require immediate human action, convert non-urgent alerts into tickets, and enforce on-call paging limits." },
       { id: 'B', text: "Instruct on-call engineers to ignore their pagers and sleep through nighttime alerts." },
       { id: 'C', text: "Double the number of alerts to ensure no minor event is ever missed." },
-      { id: 'D', text: "Audit alert rules: eliminate alerts that do not require immediate human action, convert non-urgent alerts into tickets, and enforce on-call paging limits." }
+      { id: 'D', text: "Require engineers to remain on-call 24 hours a day, 365 days a year without rotation." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Audit alert rules: eliminate alerts that do not require immediate human action, convert non-urgent alerts into tickets, and enforce on-call paging limits. Google SRE guidelines state that alerts must be strictly actionable, urgent, and represent real or imminent user impact. Alerts that do not require immediate manual intervention should be logged or turned into email digests/tickets, mitigating alert fatigue and preserving engineer focus.",
     referenceUrl: "https://sre.google/sre-book/being-on-call/",
@@ -513,12 +513,12 @@ export const GCP_PCDOE_QUESTIONS_12 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate operational incident handling. The DevOps team evaluates SRE Operations to mitigate severe on-call engineer burnout caused by hundreds of non-actionable alert pages firing every night.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and ensures service stability?",
     options: [
-      { id: 'A', text: "Require engineers to remain on-call 24 hours a day, 365 days a year without rotation." },
+      { id: 'A', text: "Double the number of alerts to ensure no minor event is ever missed." },
       { id: 'B', text: "Instruct on-call engineers to ignore their pagers and sleep through nighttime alerts." },
-      { id: 'C', text: "Audit alert rules: eliminate alerts that do not require immediate human action, convert non-urgent alerts into tickets, and enforce on-call paging limits." },
-      { id: 'D', text: "Double the number of alerts to ensure no minor event is ever missed." }
+      { id: 'C', text: "Require engineers to remain on-call 24 hours a day, 365 days a year without rotation." },
+      { id: 'D', text: "Audit alert rules: eliminate alerts that do not require immediate human action, convert non-urgent alerts into tickets, and enforce on-call paging limits." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Audit alert rules: eliminate alerts that do not require immediate human action, convert non-urgent alerts into tickets, and enforce on-call paging limits. Google SRE guidelines state that alerts must be strictly actionable, urgent, and represent real or imminent user impact. Alerts that do not require immediate manual intervention should be logged or turned into email digests/tickets, mitigating alert fatigue and preserving engineer focus.",
     referenceUrl: "https://sre.google/sre-book/being-on-call/",

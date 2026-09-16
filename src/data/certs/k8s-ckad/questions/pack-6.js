@@ -10,9 +10,9 @@ export const K8S_CKAD_QUESTIONS_6 = [
     question: "Which kubectl command securely tunnels local port 5432 to the remote pod?",
     options: [
       { id: 'A', text: "kubectl port-forward pod/&lt;pod-name&gt; 5432:5432" },
-      { id: 'B', text: "kubectl proxy --port=5432" },
-      { id: 'C', text: "kubectl attach pod/&lt;pod-name&gt; -p 5432" },
-      { id: 'D', text: "kubectl exec -it &lt;pod-name&gt; -- nc" }
+      { id: 'B', text: "kubectl exec -it &lt;pod-name&gt; -- nc" },
+      { id: 'C', text: "kubectl proxy --port=5432" },
+      { id: 'D', text: "kubectl attach pod/&lt;pod-name&gt; -p 5432" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -31,9 +31,9 @@ export const K8S_CKAD_QUESTIONS_6 = [
     question: "Which kubectl command opens an interactive bash session inside the container?",
     options: [
       { id: 'A', text: "kubectl exec -it web-server-79d8f -c app -- /bin/bash" },
-      { id: 'B', text: "kubectl logs web-server-79d8f --shell" },
+      { id: 'B', text: "kubectl run web-server-79d8f -it -- /bin/bash" },
       { id: 'C', text: "kubectl attach web-server-79d8f -c app" },
-      { id: 'D', text: "kubectl run web-server-79d8f -it -- /bin/bash" }
+      { id: 'D', text: "kubectl logs web-server-79d8f --shell" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,12 +51,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "A worker node transitions to `NotReady` status. Pods scheduled on that node stop serving traffic.",
     question: "Which node daemon is responsible for reporting node health heartbeats to the control plane?",
     options: [
-      { id: 'A', text: "kube-proxy" },
-      { id: 'B', text: "kubelet" },
-      { id: 'C', text: "CoreDNS" },
-      { id: 'D', text: "kube-scheduler" }
+      { id: 'A', text: "kubelet" },
+      { id: 'B', text: "kube-proxy" },
+      { id: 'C', text: "kube-scheduler" },
+      { id: 'D', text: "CoreDNS" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `kubelet` is the primary node agent. It reports node status and heartbeats to the control plane API server. If the kubelet crashes, runs out of memory, or loses network connectivity, the control plane marks the node as `NotReady`.",
     referenceUrl: "https://kubernetes.io/docs/concepts/architecture/nodes/#condition",
@@ -72,12 +72,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "An enterprise uses an external Cloud Load Balancer (AWS ALB or Google Cloud NEG) that registers pod IPs directly. A pod passing its internal container readiness probe must not receive traffic until the external load balancer target group also reports it healthy.",
     question: "Which Pod-level configuration field defines custom conditions that must be satisfied before the pod is considered Ready?",
     options: [
-      { id: 'A', text: "spec.readinessGates" },
-      { id: 'B', text: "spec.startupProbe" },
-      { id: 'C', text: "spec.readinessProbe.external" },
+      { id: 'A', text: "spec.readinessProbe.external" },
+      { id: 'B', text: "spec.readinessGates" },
+      { id: 'C', text: "spec.startupProbe" },
       { id: 'D', text: "spec.tolerations" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "`readinessGates` allow pod authors to define custom condition types (e.g. `target-health.alb.ingress.k8s.aws`). The pod is not considered Ready (and endpoints are withheld) until both container readiness probes and all readinessGates evaluate to `True`.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-readiness-gate",
@@ -136,9 +136,9 @@ export const K8S_CKAD_QUESTIONS_6 = [
     question: "Which kubectl command extracts this information using JSONPath?",
     options: [
       { id: 'A', text: "kubectl get pods -n default -o jsonpath='{.items[*].status.podIP}'" },
-      { id: 'B', text: "kubectl get pods -n default -o yaml and read status.podIP by eye" },
-      { id: 'C', text: "kubectl describe pods -n default | grep IP to pull the addresses out" },
-      { id: 'D', text: "kubectl get pods -n default -o wide and read the IP column" }
+      { id: 'B', text: "kubectl describe pods -n default | grep IP to pull the addresses out" },
+      { id: 'C', text: "kubectl get pods -n default -o wide and read the IP column" },
+      { id: 'D', text: "kubectl get pods -n default -o yaml and read status.podIP by eye" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,12 +156,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "A developer wants a customized CLI table showing: `POD_NAME` and `NODE_NAME` for all pods in the cluster.",
     question: "Which kubectl option creates a custom tabular output?",
     options: [
-      { id: 'A', text: "kubectl get pods -o wide, which adds node and IP among other columns" },
+      { id: 'A', text: "kubectl get pods -o custom-columns=POD_NAME:.metadata.name,NODE_NAME:.spec.nodeName" },
       { id: 'B', text: "kubectl get pods -o json piped through jq to select the two fields" },
       { id: 'C', text: "kubectl get pods -o jsonpath over .metadata.name and .spec.nodeName" },
-      { id: 'D', text: "kubectl get pods -o custom-columns=POD_NAME:.metadata.name,NODE_NAME:.spec.nodeName" }
+      { id: 'D', text: "kubectl get pods -o wide, which adds node and IP among other columns" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`-o custom-columns=&lt;header&gt;:&lt;jsonpath&gt;,...` defines custom tabular column headers and mappings, producing clean, structured tables tailored for terminal inspection.",
     referenceUrl: "https://kubernetes.io/docs/reference/kubectl/overview/#custom-columns",
@@ -177,12 +177,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "An enterprise adopts OpenTelemetry for unified observability. Application pods emit distributed traces, metrics, and logs using OTLP protocol over gRPC.",
     question: "Which component receives OTLP telemetry from multiple pods, processes/enriches the data, and exports it to multiple backend APMs?",
     options: [
-      { id: 'A', text: "Metrics Server" },
-      { id: 'B', text: "Fluentd standalone" },
-      { id: 'C', text: "CoreDNS" },
-      { id: 'D', text: "An OpenTelemetry Collector" }
+      { id: 'A', text: "An OpenTelemetry Collector" },
+      { id: 'B', text: "CoreDNS" },
+      { id: 'C', text: "Metrics Server" },
+      { id: 'D', text: "Fluentd standalone" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The `OpenTelemetry Collector` offers a vendor-agnostic implementation on how to receive, process, and export telemetry data. Deployed as a DaemonSet or sidecar proxy, it buffers, filters, and transforms OTLP traces and metrics before forwarding to storage backends.",
     referenceUrl: "https://opentelemetry.io/docs/collector/",
@@ -198,12 +198,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "A developer checks a pod's status using `kubectl get pod` and `kubectl describe pod`.",
     question: "What is the fundamental difference between `Pod Phase` and `Container States` in the Kubernetes API?",
     options: [
-      { id: 'A', text: "Pod Phase applies only to Jobs; Container States apply to Deployments" },
-      { id: 'B', text: "Phase summarises the pod; container states track each container" },
-      { id: 'C', text: "There is no difference between Phase and State" },
-      { id: 'D', text: "Container States dictate node placement; Pod Phase controls networking" }
+      { id: 'A', text: "Phase summarises the pod; container states track each container" },
+      { id: 'B', text: "Pod Phase applies only to Jobs; Container States apply to Deployments" },
+      { id: 'C', text: "Container States dictate node placement; Pod Phase controls networking" },
+      { id: 'D', text: "There is no difference between Phase and State" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A Pod's `status.phase` is a high-level lifecycle category (`Pending`, `Running`, `Succeeded`, `Failed`, `Unknown`). Within `status.containerStatuses`, each container has fine-grained `state` information (`waiting`, `running`, `terminated`) including exact exit codes and reasons.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase",
@@ -219,12 +219,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "A pod fails to connect to a microservice named `order-service` in the same namespace.",
     question: "How can an engineer verify whether CoreDNS is resolving the service name correctly from inside a debug pod?",
     options: [
-      { id: 'A', text: "Run ping 8.8.8.8" },
-      { id: 'B', text: "Check the Docker daemon logs" },
-      { id: 'C', text: "nslookup order-service from a pod" },
-      { id: 'D', text: "Inspect /etc/hosts on the node" }
+      { id: 'A', text: "nslookup order-service from a pod" },
+      { id: 'B', text: "Run ping 8.8.8.8" },
+      { id: 'C', text: "Inspect /etc/hosts on the node" },
+      { id: 'D', text: "Check the Docker daemon logs" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Running `nslookup &lt;service-name&gt;` inside a pod tests CoreDNS service discovery. It queries the nameserver defined in `/etc/resolv.conf` (the CoreDNS ClusterIP) and verifies whether the service resolves to its expected cluster IP address.",
     referenceUrl: "https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/",
@@ -240,12 +240,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "A Kubernetes pod is scheduled for termination during a rolling update.",
     question: "What is the sequence of operating system signals sent to the container processes during shutdown?",
     options: [
-      { id: 'A', text: "SIGTERM, then SIGKILL after the grace period" },
-      { id: 'B', text: "Kubernetes sends SIGKILL immediately" },
-      { id: 'C', text: "Kubernetes sends SIGHUP, followed by SIGSTOP" },
+      { id: 'A', text: "Kubernetes sends SIGKILL immediately" },
+      { id: 'B', text: "Kubernetes sends SIGHUP, followed by SIGSTOP" },
+      { id: 'C', text: "SIGTERM, then SIGKILL after the grace period" },
       { id: 'D', text: "Kubernetes reboots the node" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Kubernetes enforces graceful termination: it first executes any defined `preStop` hook, then sends `SIGTERM` to allow the process to flush buffers and close connections. If the process does not terminate within `terminationGracePeriodSeconds` (default 30s), the kubelet sends `SIGKILL` to forcefully terminate it.",
     referenceUrl: "https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-termination",
@@ -261,12 +261,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "A legacy application takes an unpredictable amount of time to boot (between 60 and 180 seconds), but once running, it must respond to health checks within 2 seconds.",
     question: "How should the developer configure a startupProbe to accommodate up to 200 seconds of boot time with 10-second checks?",
     options: [
-      { id: 'A', text: "livenessProbe: { httpGet: { path: /healthz, port: 8080 }, initialDelaySeconds: 200 }" },
-      { id: 'B', text: "readinessProbe: { httpGet: { path: /healthz, port: 8080 }, timeoutSeconds: 200 }" },
-      { id: 'C', text: "startupProbe: { httpGet: { path: /healthz, port: 8080 }, periodSeconds: 200, failureThreshold: 1 }" },
-      { id: 'D', text: "startupProbe: { httpGet: { path: /healthz, port: 8080 }, periodSeconds: 10, failureThreshold: 20 }" }
+      { id: 'A', text: "startupProbe: { httpGet: { path: /healthz, port: 8080 }, periodSeconds: 10, failureThreshold: 20 }" },
+      { id: 'B', text: "startupProbe: { httpGet: { path: /healthz, port: 8080 }, periodSeconds: 200, failureThreshold: 1 }" },
+      { id: 'C', text: "livenessProbe: { httpGet: { path: /healthz, port: 8080 }, initialDelaySeconds: 200 }" },
+      { id: 'D', text: "readinessProbe: { httpGet: { path: /healthz, port: 8080 }, timeoutSeconds: 200 }" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Multiplying `periodSeconds: 10` by `failureThreshold: 20` yields a maximum startup window of 200 seconds (10s * 20 attempts = 200s). Once the startup probe succeeds, normal liveness checks take over with strict 2-second timeouts, combining boot tolerance with rapid failure detection.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes",
@@ -282,12 +282,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "A developer mounts a ConfigMap containing `nginx.conf` into `/etc/nginx` in a container. By default, mounting the volume erases all other default configuration files already present in `/etc/nginx`.",
     question: "Which volumeMount configuration injects only the specific `nginx.conf` file without overwriting other existing files in the directory?",
     options: [
-      { id: 'A', text: "mountOnly: nginx.conf" },
-      { id: 'B', text: "subPath: nginx.conf" },
-      { id: 'C', text: "mountPropagation: HostToContainer" },
-      { id: 'D', text: "readOnly: true alone" }
+      { id: 'A', text: "subPath: nginx.conf" },
+      { id: 'B', text: "mountPropagation: HostToContainer" },
+      { id: 'C', text: "readOnly: true alone" },
+      { id: 'D', text: "mountOnly: nginx.conf" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Using `subPath: nginx.conf` in a `volumeMount` mounts a single specific file from a ConfigMap or Secret volume directly into a container directory without masking or obliterating the other pre-existing files in that destination directory.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/volumes/#using-subpath",
@@ -324,12 +324,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "A web frontend pod only serves static HTML files and has no need to communicate with the Kubernetes API server. A security benchmark mandates disabling default API credential injection.",
     question: "Which setting prevents Kubernetes from automatically mounting API tokens at /var/run/secrets/kubernetes.io/serviceaccount?",
     options: [
-      { id: 'A', text: "serviceAccountName: none" },
-      { id: 'B', text: "securityContext: { unauthenticated: true }" },
-      { id: 'C', text: "disableToken: true" },
-      { id: 'D', text: "automountServiceAccountToken: false" }
+      { id: 'A', text: "automountServiceAccountToken: false" },
+      { id: 'B', text: "disableToken: true" },
+      { id: 'C', text: "serviceAccountName: none" },
+      { id: 'D', text: "securityContext: { unauthenticated: true }" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "By default, Kubernetes mounts a JWT API token and CA certificate into every pod at `/var/run/secrets/kubernetes.io/serviceaccount`. Setting `automountServiceAccountToken: false` on the Pod spec or ServiceAccount disables this credential injection.",
     referenceUrl: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#use-the-default-service-account-to-access-the-api-server",
@@ -345,12 +345,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "A security team defines permissions allowing an operator to list and delete Pods. The permissions must apply exclusively within the `development` namespace, not cluster-wide.",
     question: "Which RBAC resource should be created to define namespace-scoped permissions?",
     options: [
-      { id: 'A', text: "GlobalRole" },
-      { id: 'B', text: "Role (paired with a RoleBinding)" },
-      { id: 'C', text: "ClusterRole (paired with a ClusterRoleBinding)" },
-      { id: 'D', text: "ClusterRoleBinding alone" }
+      { id: 'A', text: "Role (paired with a RoleBinding)" },
+      { id: 'B', text: "ClusterRole (paired with a ClusterRoleBinding)" },
+      { id: 'C', text: "ClusterRoleBinding alone" },
+      { id: 'D', text: "GlobalRole" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A `Role` always defines permissions scoped to a single specific namespace. In contrast, a `ClusterRole` defines permissions for cluster-wide resources (like Nodes or PVs) or non-namespaced endpoints, or can be bound across namespaces.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole",
@@ -366,12 +366,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "An organization defines a standard `pod-reader` ClusterRole granting read permissions on pods. An administrator wants user `alice` to have these permissions, but only within the `marketing` namespace.",
     question: "How should the administrator bind the ClusterRole to user alice?",
     options: [
-      { id: 'A', text: "Create a ClusterRoleBinding" },
-      { id: 'B', text: "A RoleBinding in that namespace naming the ClusterRole" },
+      { id: 'A', text: "A RoleBinding in that namespace naming the ClusterRole" },
+      { id: 'B', text: "Create a ClusterRoleBinding" },
       { id: 'C', text: "Duplicate the ClusterRole as a Role manually" },
       { id: 'D', text: "ClusterRoles can only be used with ClusterRoleBindings" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A `RoleBinding` can reference a `ClusterRole` in its `roleRef`. When done, the permissions defined in the ClusterRole are granted to the subject exclusively within the namespace of the RoleBinding, allowing organizations to reuse standard ClusterRoles across namespaces.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding",
@@ -387,12 +387,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "A developer writes a custom controller that creates, updates, and deletes Deployments in the apps API group.",
     question: "Which RBAC apiGroups, resources, and verbs must be declared in the Role?",
     options: [
-      { id: 'A', text: "apiGroups: [''], resources: ['deployments'], verbs: ['create', 'update', 'delete', 'get']" },
-      { id: 'B', text: "apiGroups: ['apps'], resources: ['deployments'], verbs: ['create', 'update', 'delete', 'get', 'list', 'watch']" },
-      { id: 'C', text: "apiGroups: ['extensions'], resources: ['deployments'], verbs: ['create', 'update', 'delete']" },
+      { id: 'A', text: "apiGroups: ['apps'], resources: ['deployments'], verbs: ['create', 'update', 'delete']" },
+      { id: 'B', text: "apiGroups: [''], resources: ['deployments'], verbs: ['create', 'update', 'delete']" },
+      { id: 'C', text: "apiGroups: ['extensions'], resources: ['deployments'], verbs: ['create', 'patch', 'delete']" },
       { id: 'D', text: "apiGroups: ['apps'], resources: ['deployments/status'], verbs: ['create', 'update', 'delete']" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Deployments belong to the `apps` API group (`apiGroups: ['apps']`). Standard Kubernetes RBAC verbs are `get`, `list`, `watch`, `create`, `update`, `patch`, and `delete`. The core API group is represented as `\"\"`.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-example",
@@ -408,12 +408,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "Before running an automated pipeline, an engineer needs to test whether the `ci-deployer` ServiceAccount in namespace `staging` has permission to delete secrets.",
     question: "Which kubectl command verifies these permissions?",
     options: [
-      { id: 'A', text: "kubectl describe rolebinding -n staging to read what the account is bound to" },
-      { id: 'B', text: "kubectl auth can-i delete secrets -n staging --as=system:serviceaccount:staging:ci-deployer" },
-      { id: 'C', text: "kubectl get rolebindings -n staging -o yaml and match the subject by hand" },
-      { id: 'D', text: "kubectl auth can-i --list -n staging as the current user" }
+      { id: 'A', text: "kubectl auth can-i delete secrets -n staging --as=system:serviceaccount:staging:ci-deployer" },
+      { id: 'B', text: "kubectl auth can-i --list -n staging as the current user" },
+      { id: 'C', text: "kubectl describe rolebinding -n staging to read what the account is bound to" },
+      { id: 'D', text: "kubectl get rolebindings -n staging -o yaml and match the subject by hand" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`kubectl auth can-i &lt;verb&gt; &lt;resource&gt;` evaluates the authorization API. Adding `--as=&lt;principal&gt;` allows administrators to impersonate users or ServiceAccounts (`system:serviceaccount:&lt;namespace&gt;:&lt;name&gt;`) to verify permissions safely.",
     referenceUrl: "https://kubernetes.io/docs/reference/access-authn-authz/authorization/#checking-api-access",
@@ -429,12 +429,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "A cluster administrator must ensure that teams using the `dev-team-a` namespace do not consume more than 20 vCPUs and 40 GiB of memory across all their pods combined.",
     question: "Which Kubernetes resource enforces aggregate compute and object count limits per namespace?",
     options: [
-      { id: 'A', text: "PriorityClass" },
-      { id: 'B', text: "HorizontalPodAutoscaler" },
-      { id: 'C', text: "LimitRange" },
-      { id: 'D', text: "ResourceQuota" }
+      { id: 'A', text: "ResourceQuota" },
+      { id: 'B', text: "LimitRange" },
+      { id: 'C', text: "HorizontalPodAutoscaler" },
+      { id: 'D', text: "PriorityClass" }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "A `ResourceQuota` provides constraints that limit aggregate resource consumption per namespace. It can limit total CPU requests, CPU limits, memory, storage requests, and total count of objects (e.g. max 10 Services, 50 ConfigMaps).",
     referenceUrl: "https://kubernetes.io/docs/concepts/policy/resource-quotas/",
@@ -450,12 +450,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "In a multi-tenant namespace, developers frequently deploy pods without defining CPU or memory requests. When a ResourceQuota is applied, pods without requests are rejected by the API server.",
     question: "Which Kubernetes resource automatically assigns default CPU and memory requests and limits to containers created without them?",
     options: [
-      { id: 'A', text: "LimitRange" },
-      { id: 'B', text: "ResourceQuota" },
+      { id: 'A', text: "PodSecurityPolicy" },
+      { id: 'B', text: "LimitRange" },
       { id: 'C', text: "MutatingAdmissionWebhook alone" },
-      { id: 'D', text: "PodSecurityPolicy" }
+      { id: 'D', text: "ResourceQuota" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A `LimitRange` enforces min/max compute resource boundaries on individual pods or containers in a namespace. Crucially, it can specify `default` (limits) and `defaultRequest` (requests) automatically injected into containers that do not define them.",
     referenceUrl: "https://kubernetes.io/docs/concepts/policy/limit-range/",
@@ -471,12 +471,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "A distributed web application with 10 pods across multiple worker nodes requires shared read-write access to a single persistent storage filesystem (e.g. NFS or GlusterFS).",
     question: "Which PersistentVolume accessMode allows simultaneous read-write access by multiple nodes?",
     options: [
-      { id: 'A', text: "ReadWriteMany (RWX)" },
-      { id: 'B', text: "ReadWriteOnce (RWO)" },
-      { id: 'C', text: "ReadOnlyMany (ROX)" },
+      { id: 'A', text: "ReadWriteOnce (RWO)" },
+      { id: 'B', text: "ReadOnlyMany (ROX)" },
+      { id: 'C', text: "ReadWriteMany (RWX)" },
       { id: 'D', text: "ReadWriteOncePod (RWOP)" }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Kubernetes PVs support four access modes: `ReadWriteOnce` (RWO, mountable as read-write by a single node), `ReadOnlyMany` (ROX, mountable read-only by many nodes), `ReadWriteMany` (RWX, mountable as read-write by many nodes), and `ReadWriteOncePod` (RWOP, single pod).",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes",
@@ -492,12 +492,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "A stateful database requires strict exclusive disk access. The database disk must be accessible by only one single Pod across the entire cluster, even if another pod runs on the same node.",
     question: "Which PersistentVolume accessMode restricts access to a single pod?",
     options: [
-      { id: 'A', text: "ReadWriteOnce (RWO)" },
-      { id: 'B', text: "ReadWriteOncePod (RWOP)" },
+      { id: 'A', text: "ReadWriteOncePod (RWOP)" },
+      { id: 'B', text: "ReadWriteOnce (RWO)" },
       { id: 'C', text: "ReadWriteMany (RWX)" },
       { id: 'D', text: "ReadOnlyMany (ROX)" }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "`ReadWriteOncePod` (RWOP) restricts volume access to a single Pod across the entire cluster. In contrast, standard `ReadWriteOnce` (RWO) allows multiple pods running on the same node to mount the volume simultaneously.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes",
@@ -513,12 +513,12 @@ export const K8S_CKAD_QUESTIONS_6 = [
     scenario: "When a PersistentVolumeClaim (PVC) bound to an underlying PersistentVolume (PV) is deleted, the data on the underlying disk must be preserved for manual archiving and analysis.",
     question: "Which PersistentVolume reclaimPolicy keeps the underlying storage volume intact after PVC deletion?",
     options: [
-      { id: 'A', text: "persistentVolumeReclaimPolicy: Delete" },
-      { id: 'B', text: "persistentVolumeReclaimPolicy: Archive" },
-      { id: 'C', text: "persistentVolumeReclaimPolicy: Retain" },
-      { id: 'D', text: "persistentVolumeReclaimPolicy: Recycle" }
+      { id: 'A', text: "persistentVolumeReclaimPolicy: Retain" },
+      { id: 'B', text: "persistentVolumeReclaimPolicy: Delete" },
+      { id: 'C', text: "persistentVolumeReclaimPolicy: Recycle" },
+      { id: 'D', text: "persistentVolumeReclaimPolicy: Archive" }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Under `reclaimPolicy: Retain`, deleting a PVC leaves the PV and its underlying external storage asset intact. The PV transitions to `Released` status, preventing other claims from binding until an administrator manually cleans up or reclaims it.",
     referenceUrl: "https://kubernetes.io/docs/concepts/storage/persistent-volumes/#reclaiming",

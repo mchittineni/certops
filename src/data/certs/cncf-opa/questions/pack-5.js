@@ -9,12 +9,12 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "A quantitative trading desk requires microsecond secrets delivery, zero packet loss, and deterministic authentication guarantees. The policy team is rolling a policy change out to every running OPA instance without redeploying services. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Configure OPA to poll a central bundle service via the Bundle API, automatically downloading, validating, and activating signed policy tarballs in memory." },
+      { id: 'A', text: "Mount the policy directory from a shared volume and start OPA with the --watch flag so that it reloads the files when they change." },
       { id: 'B', text: "Push each change to every OPA instance through the REST Policy API so that the new rules apply immediately without waiting for a bundle poll interval to elapse." },
       { id: 'C', text: "Bake the policy bundle into the OPA container image centrally and roll the deployment so that each instance restarts on the new version." },
-      { id: 'D', text: "Mount the policy directory from a shared volume and start OPA with the --watch flag so that it reloads the files when they change." }
+      { id: 'D', text: "Configure OPA to poll a central bundle service via the Bundle API, automatically downloading, validating, and activating signed policy tarballs in memory." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Bundles are versioned, optionally signed, and activated atomically, and each instance reports the revision it is running through the status plugin, so a fleet-wide rollout is observable and verifiable. The REST Policy API pushes successfully but leaves no record of which revision any instance holds, and an instance that restarts loses the push entirely. Baking policy into the image ties every rule change to a container build and a rolling restart. The --watch flag reloads from local disk, which suits a developer laptop but offers no signing and no way to reach instances across a fleet.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -30,12 +30,12 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "A national hospital network requires strict cryptographic privacy, auditable access controls, and HIPAA compliance. The policy team is reconstructing after the fact exactly why a particular request was denied. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Run OPA with the --log-level debug flag so that evaluation detail for each query appears on the container's standard output." },
-      { id: 'B', text: "Enable OPA Decision Logs to export structured JSON records of every query, input payload, and decision result to central security analytics." },
-      { id: 'C', text: "Enable OPA's status plugin so that the central service receives bundle activation records and health information from every instance." },
-      { id: 'D', text: "Add a print() call inside each Rego rule so that the reason for a denial is written out to the OPA server log whenever that rule fires." }
+      { id: 'A', text: "Enable OPA's status plugin so that the central service receives bundle activation records and health information from every instance." },
+      { id: 'B', text: "Add a print() call inside each Rego rule so that the reason for a denial is written out to the OPA server log whenever that rule fires." },
+      { id: 'C', text: "Run OPA with the --log-level debug flag so that evaluation detail for each query appears on the container's standard output." },
+      { id: 'D', text: "Enable OPA Decision Logs to export structured JSON records of every query, input payload, and decision result to central security analytics." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Decision logs record the query, the full input, the result, and the bundle revision that produced it, which is exactly the set of facts needed to explain a past decision, and they can be masked and shipped to a SIEM. Debug logging prints evaluation detail but is unstructured, unmasked, and far too voluminous to leave enabled in production. The status plugin reports which bundle an instance is running and nothing about individual decisions. print() emits a line only where an author remembered to add one and carries no input or result alongside it.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -51,10 +51,10 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "An international retail marketplace prepares for 100x traffic surges with zero downtime and instant failover. The policy team is deciding where authorization decisions should be evaluated across a large service estate. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Run OPA as a central remote decision service that every application calls over the network, scaling the service horizontally behind a load balancer." },
+      { id: 'A', text: "Embed the OPA Go library directly in each service and evaluate policy in-process against the bundles it loads at startup." },
       { id: 'B', text: "Compile the Rego policies to WebAssembly and make the authorization decisions inside each application process using the OPA Wasm SDK." },
       { id: 'C', text: "Run OPA as a sidecar evaluating local policy bundles." },
-      { id: 'D', text: "Embed the OPA Go library directly in each service and evaluate policy in-process against the bundles it loads at startup." }
+      { id: 'D', text: "Run OPA as a central remote decision service that every application calls over the network, scaling the service horizontally behind a load balancer." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,12 +72,12 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "A self-driving automotive fleet streams terabytes of sensor telemetry requiring real-time distributed ingestion and anomaly detection. The policy team is expressing several independent conditions where satisfying any one of them should grant access. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Define one 'allow' rule whose body lists every condition on its own line, since the expressions inside a single rule body are combined by OPA as a logical OR when it is evaluated." },
-      { id: 'B', text: "Define a partial set rule such as 'allow[msg]' for each of them, granting access whenever the resulting set turns out to be non-empty." },
-      { id: 'C', text: "Define a single 'allow' rule and join the individual conditions with the 'or' keyword placed between each expression in the rule body." },
-      { id: 'D', text: "Define several rules with the same name; OPA combines them as OR." }
+      { id: 'A', text: "Define a partial set rule such as 'allow[msg]' for each of them, granting access whenever the resulting set turns out to be non-empty." },
+      { id: 'B', text: "Define one 'allow' rule whose body lists every condition on its own line, since the expressions inside a single rule body are combined by OPA as a logical OR when it is evaluated." },
+      { id: 'C', text: "Define several rules with the same name; OPA combines them as OR." },
+      { id: 'D', text: "Define a single 'allow' rule and join the individual conditions with the 'or' keyword placed between each expression in the rule body." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Several complete rules sharing a name are a disjunction: OPA tries each in turn and the rule is true as soon as one body holds. Expressions inside a single body are the opposite, a conjunction, so listing the conditions together demands all of them at once. Rego has no 'or' keyword, so that policy fails to parse. A partial set rule is valid Rego but changes the shape of the decision from a boolean to a set, which the enforcement point is not reading.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -93,12 +93,12 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "An enterprise cloud SaaS architecture mandates strict logical tenant isolation, data masking, and per-tenant resource quotas. The policy team is making sure a request that matches no rule is denied rather than left undefined. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Set 'default allow := false' and write explicit allow rules." },
-      { id: 'B', text: "Write the allow rules with no default at all and have every enforcement point treat an undefined decision result as though it were an explicit denial." },
-      { id: 'C', text: "Add a catch-all rule 'allow := false' after the other allow rules so that it applies when none of them match." },
-      { id: 'D', text: "Set 'default allow := false' inside each allow rule body so that every rule carries its own fallback value independently." }
+      { id: 'A', text: "Write the allow rules with no default at all and have every enforcement point treat an undefined decision result as though it were an explicit denial." },
+      { id: 'B', text: "Set 'default allow := false' inside each allow rule body so that every rule carries its own fallback value independently." },
+      { id: 'C', text: "Set 'default allow := false' and write explicit allow rules." },
+      { id: 'D', text: "Add a catch-all rule 'allow := false' after the other allow rules so that it applies when none of them match." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A default assignment gives the document a value whenever no rule body succeeds, so the policy itself guarantees the denial rather than delegating it. Relying on the caller to read undefined as deny works only while every caller does so, and a new integration that treats undefined as allow reopens the hole. A second unconditional 'allow := false' is a complete rule with a conflicting value and fails evaluation when another allow rule is also true, and 'default' is only legal at rule scope, not inside a body.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -114,12 +114,12 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "A global video streaming service distributes high-bitrate live media with distributed edge caching and tokenized DRM protection. The policy team is deriving a filtered collection from nested input inside a single rule. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use a partial set rule that assigns one element per matching input document and reference that rule from wherever the filtered collection is needed." },
-      { id: 'B', text: "Use a comprehension to build the filtered collection." },
-      { id: 'C', text: "Use the built-in 'filter' function with a predicate over input.users so that only the active matching elements are returned." },
+      { id: 'A', text: "Use the built-in 'filter' function with a predicate over input.users so that only the active matching elements are returned." },
+      { id: 'B', text: "Use a partial set rule that assigns one element per matching input document and reference that rule from wherever the filtered collection is needed." },
+      { id: 'C', text: "Use a comprehension to build the filtered collection." },
       { id: 'D', text: "Iterate with a 'for user in input.users' loop and append each matching element to a local variable as it is found." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A comprehension iterates, filters, and constructs the new collection as one expression whose value is local to the rule that needs it. A partial set rule is valid Rego and often the right choice, but it defines a document at package scope rather than a value inside the rule, so it is visible to every other rule and to the query. The other two options are not Rego at all: there is no 'filter' built-in, and the language has no imperative loop and no mutable local variable to append to.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -135,12 +135,12 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "An aerospace telemetry platform processes orbital downlinks with fault-tolerant queuing and asynchronous edge processing. The policy team is verifying that every branch of a policy behaves correctly before it reaches a cluster. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Create test rules prefixed with 'test_' and run 'opa eval' against each policy file in turn, comparing each printed result against the expected value recorded in CI." },
-      { id: 'B', text: "Write the expected decisions into a JSON fixture and run 'opa check' over the whole policy directory to compare them against it." },
-      { id: 'C', text: "Create test rules prefixed with 'test_' in dedicated test files and execute 'opa test --coverage' using the 'with' keyword to mock 'input' and 'data'." },
-      { id: 'D', text: "Run 'conftest verify' against the policy directory so that the Rego test files execute as part of the Conftest tooling." }
+      { id: 'A', text: "Run 'conftest verify' against the policy directory so that the Rego test files execute as part of the Conftest tooling." },
+      { id: 'B', text: "Create test rules prefixed with 'test_' and run 'opa eval' against each policy file in turn, comparing each printed result against the expected value recorded in CI." },
+      { id: 'C', text: "Write the expected decisions into a JSON fixture and run 'opa check' over the whole policy directory to compare them against it." },
+      { id: 'D', text: "Create test rules prefixed with 'test_' in dedicated test files and execute 'opa test --coverage' using the 'with' keyword to mock 'input' and 'data'." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "'opa test' is the built-in test runner: it discovers the 'test_' rules, lets each one substitute input and data with 'with', and reports which policy lines never executed so untested branches are visible. 'opa eval' evaluates a query and prints a result but has no notion of pass or fail, so a CI job cannot gate on it without extra scripting. 'opa check' only parses and type-checks and never evaluates anything. 'conftest verify' does run Rego tests, but it reports no coverage and pulls in a second tool to do what the OPA CLI already does.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -156,12 +156,12 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "A national telecom operator manages high-density network slices with automated scaling and sub-millisecond service mesh routing. The policy team is rolling a policy change out to every running OPA instance without redeploying services. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Push each change to every OPA instance through the REST Policy API so that the new rules apply immediately without waiting for a bundle poll interval to elapse." },
-      { id: 'B', text: "Bake the policy bundle into the OPA container image centrally and roll the deployment so that each instance restarts on the new version." },
-      { id: 'C', text: "Mount the policy directory from a shared volume and start OPA with the --watch flag so that it reloads the files when they change." },
-      { id: 'D', text: "Configure OPA to poll a central bundle service via the Bundle API, automatically downloading, validating, and activating signed policy tarballs in memory." }
+      { id: 'A', text: "Bake the policy bundle into the OPA container image centrally and roll the deployment so that each instance restarts on the new version." },
+      { id: 'B', text: "Configure OPA to poll a central bundle service via the Bundle API, automatically downloading, validating, and activating signed policy tarballs in memory." },
+      { id: 'C', text: "Push each change to every OPA instance through the REST Policy API so that the new rules apply immediately without waiting for a bundle poll interval to elapse." },
+      { id: 'D', text: "Mount the policy directory from a shared volume and start OPA with the --watch flag so that it reloads the files when they change." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Bundles are versioned, optionally signed, and activated atomically, and each instance reports the revision it is running through the status plugin, so a fleet-wide rollout is observable and verifiable. The REST Policy API pushes successfully but leaves no record of which revision any instance holds, and an instance that restarts loses the push entirely. Baking policy into the image ties every rule change to a container build and a rolling restart. The --watch flag reloads from local disk, which suits a developer laptop but offers no signing and no way to reach instances across a fleet.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -198,12 +198,12 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "A pharmaceutical distribution network tracks temperature-sensitive cargo with cryptographic provenance and automated breach alerts. The policy team is deciding where authorization decisions should be evaluated across a large service estate. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Run OPA as a central remote decision service that every application calls over the network, scaling the service horizontally behind a load balancer." },
-      { id: 'B', text: "Run OPA as a sidecar evaluating local policy bundles." },
-      { id: 'C', text: "Compile the Rego policies to WebAssembly and make the authorization decisions inside each application process using the OPA Wasm SDK." },
-      { id: 'D', text: "Embed the OPA Go library directly in each service and evaluate policy in-process against the bundles it loads at startup." }
+      { id: 'A', text: "Run OPA as a sidecar evaluating local policy bundles." },
+      { id: 'B', text: "Run OPA as a central remote decision service that every application calls over the network, scaling the service horizontally behind a load balancer." },
+      { id: 'C', text: "Embed the OPA Go library directly in each service and evaluate policy in-process against the bundles it loads at startup." },
+      { id: 'D', text: "Compile the Rego policies to WebAssembly and make the authorization decisions inside each application process using the OPA Wasm SDK." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Running OPA next to the workload keeps evaluation in local memory, so decisions stay sub-millisecond and a policy change reaches every instance through a bundle poll rather than a redeploy. A central decision service reintroduces a network hop on the request path and makes authorization an availability dependency for every caller. The Wasm and Go-library approaches both evaluate in-process but bind the policy to each service's build and language, so a policy change means rebuilding and shipping the applications themselves.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -220,11 +220,11 @@ export const CNCF_OPA_QUESTIONS_5 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Define one 'allow' rule whose body lists every condition on its own line, since the expressions inside a single rule body are combined by OPA as a logical OR when it is evaluated." },
-      { id: 'B', text: "Define a partial set rule such as 'allow[msg]' for each of them, granting access whenever the resulting set turns out to be non-empty." },
-      { id: 'C', text: "Define several rules with the same name; OPA combines them as OR." },
-      { id: 'D', text: "Define a single 'allow' rule and join the individual conditions with the 'or' keyword placed between each expression in the rule body." }
+      { id: 'B', text: "Define a single 'allow' rule and join the individual conditions with the 'or' keyword placed between each expression in the rule body." },
+      { id: 'C', text: "Define a partial set rule such as 'allow[msg]' for each of them, granting access whenever the resulting set turns out to be non-empty." },
+      { id: 'D', text: "Define several rules with the same name; OPA combines them as OR." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Several complete rules sharing a name are a disjunction: OPA tries each in turn and the rule is true as soon as one body holds. Expressions inside a single body are the opposite, a conjunction, so listing the conditions together demands all of them at once. Rego has no 'or' keyword, so that policy fails to parse. A partial set rule is valid Rego but changes the shape of the decision from a boolean to a set, which the enforcement point is not reading.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -240,12 +240,12 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "A genomics laboratory processes petabyte-scale FASTQ files with distributed batch computing and high-throughput POSIX storage. The policy team is making sure a request that matches no rule is denied rather than left undefined. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Write the allow rules with no default at all and have every enforcement point treat an undefined decision result as though it were an explicit denial." },
-      { id: 'B', text: "Add a catch-all rule 'allow := false' after the other allow rules so that it applies when none of them match." },
-      { id: 'C', text: "Set 'default allow := false' inside each allow rule body so that every rule carries its own fallback value independently." },
-      { id: 'D', text: "Set 'default allow := false' and write explicit allow rules." }
+      { id: 'A', text: "Add a catch-all rule 'allow := false' after the other allow rules so that it applies when none of them match." },
+      { id: 'B', text: "Set 'default allow := false' and write explicit allow rules." },
+      { id: 'C', text: "Write the allow rules with no default at all and have every enforcement point treat an undefined decision result as though it were an explicit denial." },
+      { id: 'D', text: "Set 'default allow := false' inside each allow rule body so that every rule carries its own fallback value independently." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A default assignment gives the document a value whenever no rule body succeeds, so the policy itself guarantees the denial rather than delegating it. Relying on the caller to read undefined as deny works only while every caller does so, and a new integration that treats undefined as allow reopens the hole. A second unconditional 'allow := false' is a complete rule with a conflicting value and fails evaluation when another allow rule is also true, and 'default' is only legal at rule scope, not inside a body.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -261,12 +261,12 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "A defense intelligence system enforces continuous mutual TLS authentication, strict least privilege, and non-repudiation. The policy team is deriving a filtered collection from nested input inside a single rule. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Use a comprehension to build the filtered collection." },
-      { id: 'B', text: "Use a partial set rule that assigns one element per matching input document and reference that rule from wherever the filtered collection is needed." },
+      { id: 'A', text: "Use a partial set rule that assigns one element per matching input document and reference that rule from wherever the filtered collection is needed." },
+      { id: 'B', text: "Iterate with a 'for user in input.users' loop and append each matching element to a local variable as it is found." },
       { id: 'C', text: "Use the built-in 'filter' function with a predicate over input.users so that only the active matching elements are returned." },
-      { id: 'D', text: "Iterate with a 'for user in input.users' loop and append each matching element to a local variable as it is found." }
+      { id: 'D', text: "Use a comprehension to build the filtered collection." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A comprehension iterates, filters, and constructs the new collection as one expression whose value is local to the rule that needs it. A partial set rule is valid Rego and often the right choice, but it defines a document at package scope rather than a value inside the rule, so it is visible to every other rule and to the query. The other two options are not Rego at all: there is no 'filter' built-in, and the language has no imperative loop and no mutable local variable to append to.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -284,8 +284,8 @@ export const CNCF_OPA_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Create test rules prefixed with 'test_' and run 'opa eval' against each policy file in turn, comparing each printed result against the expected value recorded in CI." },
       { id: 'B', text: "Create test rules prefixed with 'test_' in dedicated test files and execute 'opa test --coverage' using the 'with' keyword to mock 'input' and 'data'." },
-      { id: 'C', text: "Write the expected decisions into a JSON fixture and run 'opa check' over the whole policy directory to compare them against it." },
-      { id: 'D', text: "Run 'conftest verify' against the policy directory so that the Rego test files execute as part of the Conftest tooling." }
+      { id: 'C', text: "Run 'conftest verify' against the policy directory so that the Rego test files execute as part of the Conftest tooling." },
+      { id: 'D', text: "Write the expected decisions into a JSON fixture and run 'opa check' over the whole policy directory to compare them against it." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,12 +303,12 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "An actuarial underwriting platform executes Monte Carlo simulations across millions of policy holder records with parallel workers. The policy team is rolling a policy change out to every running OPA instance without redeploying services. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Push each change to every OPA instance through the REST Policy API so that the new rules apply immediately without waiting for a bundle poll interval to elapse." },
-      { id: 'B', text: "Bake the policy bundle into the OPA container image centrally and roll the deployment so that each instance restarts on the new version." },
-      { id: 'C', text: "Configure OPA to poll a central bundle service via the Bundle API, automatically downloading, validating, and activating signed policy tarballs in memory." },
-      { id: 'D', text: "Mount the policy directory from a shared volume and start OPA with the --watch flag so that it reloads the files when they change." }
+      { id: 'A', text: "Mount the policy directory from a shared volume and start OPA with the --watch flag so that it reloads the files when they change." },
+      { id: 'B', text: "Push each change to every OPA instance through the REST Policy API so that the new rules apply immediately without waiting for a bundle poll interval to elapse." },
+      { id: 'C', text: "Bake the policy bundle into the OPA container image centrally and roll the deployment so that each instance restarts on the new version." },
+      { id: 'D', text: "Configure OPA to poll a central bundle service via the Bundle API, automatically downloading, validating, and activating signed policy tarballs in memory." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Bundles are versioned, optionally signed, and activated atomically, and each instance reports the revision it is running through the status plugin, so a fleet-wide rollout is observable and verifiable. The REST Policy API pushes successfully but leaves no record of which revision any instance holds, and an instance that restarts loses the push entirely. Baking policy into the image ties every rule change to a container build and a rolling restart. The --watch flag reloads from local disk, which suits a developer laptop but offers no signing and no way to reach instances across a fleet.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -324,12 +324,12 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "A global pharmaceutical research group manages double-blind clinical trial records with strict regulatory reporting and audit trails. The policy team is reconstructing after the fact exactly why a particular request was denied. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Run OPA with the --log-level debug flag so that evaluation detail for each query appears on the container's standard output." },
-      { id: 'B', text: "Enable OPA's status plugin so that the central service receives bundle activation records and health information from every instance." },
-      { id: 'C', text: "Add a print() call inside each Rego rule so that the reason for a denial is written out to the OPA server log whenever that rule fires." },
-      { id: 'D', text: "Enable OPA Decision Logs to export structured JSON records of every query, input payload, and decision result to central security analytics." }
+      { id: 'A', text: "Enable OPA Decision Logs to export structured JSON records of every query, input payload, and decision result to central security analytics." },
+      { id: 'B', text: "Run OPA with the --log-level debug flag so that evaluation detail for each query appears on the container's standard output." },
+      { id: 'C', text: "Enable OPA's status plugin so that the central service receives bundle activation records and health information from every instance." },
+      { id: 'D', text: "Add a print() call inside each Rego rule so that the reason for a denial is written out to the OPA server log whenever that rule fires." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Decision logs record the query, the full input, the result, and the bundle revision that produced it, which is exactly the set of facts needed to explain a past decision, and they can be masked and shipped to a SIEM. Debug logging prints evaluation detail but is unstructured, unmasked, and far too voluminous to leave enabled in production. The status plugin reports which bundle an instance is running and nothing about individual decisions. print() emits a line only where an author remembered to add one and carries no input or result alongside it.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -345,12 +345,12 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "A metropolitan transit authority optimizes urban traffic signals with real-time video analytics and edge inference. The policy team is deciding where authorization decisions should be evaluated across a large service estate. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Run OPA as a sidecar evaluating local policy bundles." },
-      { id: 'B', text: "Run OPA as a central remote decision service that every application calls over the network, scaling the service horizontally behind a load balancer." },
+      { id: 'A', text: "Run OPA as a central remote decision service that every application calls over the network, scaling the service horizontally behind a load balancer." },
+      { id: 'B', text: "Run OPA as a sidecar evaluating local policy bundles." },
       { id: 'C', text: "Compile the Rego policies to WebAssembly and make the authorization decisions inside each application process using the OPA Wasm SDK." },
       { id: 'D', text: "Embed the OPA Go library directly in each service and evaluate policy in-process against the bundles it loads at startup." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Running OPA next to the workload keeps evaluation in local memory, so decisions stay sub-millisecond and a policy change reaches every instance through a bundle poll rather than a redeploy. A central decision service reintroduces a network hop on the request path and makes authorization an availability dependency for every caller. The Wasm and Go-library approaches both evaluate in-process but bind the policy to each service's build and language, so a policy change means rebuilding and shipping the applications themselves.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -367,11 +367,11 @@ export const CNCF_OPA_QUESTIONS_5 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Define one 'allow' rule whose body lists every condition on its own line, since the expressions inside a single rule body are combined by OPA as a logical OR when it is evaluated." },
-      { id: 'B', text: "Define several rules with the same name; OPA combines them as OR." },
-      { id: 'C', text: "Define a partial set rule such as 'allow[msg]' for each of them, granting access whenever the resulting set turns out to be non-empty." },
-      { id: 'D', text: "Define a single 'allow' rule and join the individual conditions with the 'or' keyword placed between each expression in the rule body." }
+      { id: 'B', text: "Define a single 'allow' rule and join the individual conditions with the 'or' keyword placed between each expression in the rule body." },
+      { id: 'C', text: "Define several rules with the same name; OPA combines them as OR." },
+      { id: 'D', text: "Define a partial set rule such as 'allow[msg]' for each of them, granting access whenever the resulting set turns out to be non-empty." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Several complete rules sharing a name are a disjunction: OPA tries each in turn and the rule is true as soon as one body holds. Expressions inside a single body are the opposite, a conjunction, so listing the conditions together demands all of them at once. Rego has no 'or' keyword, so that policy fails to parse. A partial set rule is valid Rego but changes the shape of the decision from a boolean to a set, which the enforcement point is not reading.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -387,12 +387,12 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "A global law firm conducts regulatory discovery across millions of scanned legal filings with vector-enhanced semantic retrieval. The policy team is making sure a request that matches no rule is denied rather than left undefined. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Write the allow rules with no default at all and have every enforcement point treat an undefined decision result as though it were an explicit denial." },
-      { id: 'B', text: "Add a catch-all rule 'allow := false' after the other allow rules so that it applies when none of them match." },
-      { id: 'C', text: "Set 'default allow := false' and write explicit allow rules." },
-      { id: 'D', text: "Set 'default allow := false' inside each allow rule body so that every rule carries its own fallback value independently." }
+      { id: 'A', text: "Set 'default allow := false' inside each allow rule body so that every rule carries its own fallback value independently." },
+      { id: 'B', text: "Write the allow rules with no default at all and have every enforcement point treat an undefined decision result as though it were an explicit denial." },
+      { id: 'C', text: "Add a catch-all rule 'allow := false' after the other allow rules so that it applies when none of them match." },
+      { id: 'D', text: "Set 'default allow := false' and write explicit allow rules." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A default assignment gives the document a value whenever no rule body succeeds, so the policy itself guarantees the denial rather than delegating it. Relying on the caller to read undefined as deny works only while every caller does so, and a new integration that treats undefined as allow reopens the hole. A second unconditional 'allow := false' is a complete rule with a conflicting value and fails evaluation when another allow rule is also true, and 'default' is only legal at rule scope, not inside a body.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -409,8 +409,8 @@ export const CNCF_OPA_QUESTIONS_5 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Use a partial set rule that assigns one element per matching input document and reference that rule from wherever the filtered collection is needed." },
-      { id: 'B', text: "Use the built-in 'filter' function with a predicate over input.users so that only the active matching elements are returned." },
-      { id: 'C', text: "Iterate with a 'for user in input.users' loop and append each matching element to a local variable as it is found." },
+      { id: 'B', text: "Iterate with a 'for user in input.users' loop and append each matching element to a local variable as it is found." },
+      { id: 'C', text: "Use the built-in 'filter' function with a predicate over input.users so that only the active matching elements are returned." },
       { id: 'D', text: "Use a comprehension to build the filtered collection." }
     ],
     correctAnswers: ['D'],
@@ -429,12 +429,12 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "An agricultural drone fleet captures multispectral crop imagery with automated computer vision defect classification. The policy team is verifying that every branch of a policy behaves correctly before it reaches a cluster. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Create test rules prefixed with 'test_' in dedicated test files and execute 'opa test --coverage' using the 'with' keyword to mock 'input' and 'data'." },
-      { id: 'B', text: "Create test rules prefixed with 'test_' and run 'opa eval' against each policy file in turn, comparing each printed result against the expected value recorded in CI." },
-      { id: 'C', text: "Write the expected decisions into a JSON fixture and run 'opa check' over the whole policy directory to compare them against it." },
-      { id: 'D', text: "Run 'conftest verify' against the policy directory so that the Rego test files execute as part of the Conftest tooling." }
+      { id: 'A', text: "Write the expected decisions into a JSON fixture and run 'opa check' over the whole policy directory to compare them against it." },
+      { id: 'B', text: "Run 'conftest verify' against the policy directory so that the Rego test files execute as part of the Conftest tooling." },
+      { id: 'C', text: "Create test rules prefixed with 'test_' in dedicated test files and execute 'opa test --coverage' using the 'with' keyword to mock 'input' and 'data'." },
+      { id: 'D', text: "Create test rules prefixed with 'test_' and run 'opa eval' against each policy file in turn, comparing each printed result against the expected value recorded in CI." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "'opa test' is the built-in test runner: it discovers the 'test_' rules, lets each one substitute input and data with 'with', and reports which policy lines never executed so untested branches are visible. 'opa eval' evaluates a query and prints a result but has no notion of pass or fail, so a CI job cannot gate on it without extra scripting. 'opa check' only parses and type-checks and never evaluates anything. 'conftest verify' does run Rego tests, but it reports no coverage and pulls in a second tool to do what the OPA CLI already does.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -451,11 +451,11 @@ export const CNCF_OPA_QUESTIONS_5 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Push each change to every OPA instance through the REST Policy API so that the new rules apply immediately without waiting for a bundle poll interval to elapse." },
-      { id: 'B', text: "Configure OPA to poll a central bundle service via the Bundle API, automatically downloading, validating, and activating signed policy tarballs in memory." },
-      { id: 'C', text: "Bake the policy bundle into the OPA container image centrally and roll the deployment so that each instance restarts on the new version." },
+      { id: 'B', text: "Bake the policy bundle into the OPA container image centrally and roll the deployment so that each instance restarts on the new version." },
+      { id: 'C', text: "Configure OPA to poll a central bundle service via the Bundle API, automatically downloading, validating, and activating signed policy tarballs in memory." },
       { id: 'D', text: "Mount the policy directory from a shared volume and start OPA with the --watch flag so that it reloads the files when they change." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Bundles are versioned, optionally signed, and activated atomically, and each instance reports the revision it is running through the status plugin, so a fleet-wide rollout is observable and verifiable. The REST Policy API pushes successfully but leaves no record of which revision any instance holds, and an instance that restarts loses the push entirely. Baking policy into the image ties every rule change to a container build and a rolling restart. The --watch flag reloads from local disk, which suits a developer laptop but offers no signing and no way to reach instances across a fleet.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -471,12 +471,12 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "An online university platform enforces anti-plagiarism and biometric proctoring for high-stakes certification exams. The policy team is reconstructing after the fact exactly why a particular request was denied. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Run OPA with the --log-level debug flag so that evaluation detail for each query appears on the container's standard output." },
-      { id: 'B', text: "Enable OPA's status plugin so that the central service receives bundle activation records and health information from every instance." },
-      { id: 'C', text: "Enable OPA Decision Logs to export structured JSON records of every query, input payload, and decision result to central security analytics." },
+      { id: 'A', text: "Enable OPA's status plugin so that the central service receives bundle activation records and health information from every instance." },
+      { id: 'B', text: "Enable OPA Decision Logs to export structured JSON records of every query, input payload, and decision result to central security analytics." },
+      { id: 'C', text: "Run OPA with the --log-level debug flag so that evaluation detail for each query appears on the container's standard output." },
       { id: 'D', text: "Add a print() call inside each Rego rule so that the reason for a denial is written out to the OPA server log whenever that rule fires." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Decision logs record the query, the full input, the result, and the bundle revision that produced it, which is exactly the set of facts needed to explain a past decision, and they can be masked and shipped to a SIEM. Debug logging prints evaluation detail but is unstructured, unmasked, and far too voluminous to leave enabled in production. The status plugin reports which bundle an instance is running and nothing about individual decisions. print() emits a line only where an author remembered to add one and carries no input or result alongside it.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -493,11 +493,11 @@ export const CNCF_OPA_QUESTIONS_5 = [
     question: "Which policy approach best meets these requirements?",
     options: [
       { id: 'A', text: "Run OPA as a central remote decision service that every application calls over the network, scaling the service horizontally behind a load balancer." },
-      { id: 'B', text: "Compile the Rego policies to WebAssembly and make the authorization decisions inside each application process using the OPA Wasm SDK." },
+      { id: 'B', text: "Run OPA as a sidecar evaluating local policy bundles." },
       { id: 'C', text: "Embed the OPA Go library directly in each service and evaluate policy in-process against the bundles it loads at startup." },
-      { id: 'D', text: "Run OPA as a sidecar evaluating local policy bundles." }
+      { id: 'D', text: "Compile the Rego policies to WebAssembly and make the authorization decisions inside each application process using the OPA Wasm SDK." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Running OPA next to the workload keeps evaluation in local memory, so decisions stay sub-millisecond and a policy change reaches every instance through a bundle poll rather than a redeploy. A central decision service reintroduces a network hop on the request path and makes authorization an availability dependency for every caller. The Wasm and Go-library approaches both evaluate in-process but bind the policy to each service's build and language, so a policy change means rebuilding and shipping the applications themselves.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",
@@ -513,12 +513,12 @@ export const CNCF_OPA_QUESTIONS_5 = [
     scenario: "A municipal 911 emergency response platform guarantees 99.999% uptime with multi-region hot-standby active failover. The policy team is expressing several independent conditions where satisfying any one of them should grant access. The work is scoped to a newly built secondary environment.",
     question: "Which policy approach best meets these requirements?",
     options: [
-      { id: 'A', text: "Define several rules with the same name; OPA combines them as OR." },
-      { id: 'B', text: "Define one 'allow' rule whose body lists every condition on its own line, since the expressions inside a single rule body are combined by OPA as a logical OR when it is evaluated." },
-      { id: 'C', text: "Define a partial set rule such as 'allow[msg]' for each of them, granting access whenever the resulting set turns out to be non-empty." },
-      { id: 'D', text: "Define a single 'allow' rule and join the individual conditions with the 'or' keyword placed between each expression in the rule body." }
+      { id: 'A', text: "Define a partial set rule such as 'allow[msg]' for each of them, granting access whenever the resulting set turns out to be non-empty." },
+      { id: 'B', text: "Define several rules with the same name; OPA combines them as OR." },
+      { id: 'C', text: "Define a single 'allow' rule and join the individual conditions with the 'or' keyword placed between each expression in the rule body." },
+      { id: 'D', text: "Define one 'allow' rule whose body lists every condition on its own line, since the expressions inside a single rule body are combined by OPA as a logical OR when it is evaluated." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Several complete rules sharing a name are a disjunction: OPA tries each in turn and the rule is true as soon as one body holds. Expressions inside a single body are the opposite, a conjunction, so listing the conditions together demands all of them at once. Rego has no 'or' keyword, so that policy fails to parse. A partial set rule is valid Rego but changes the shape of the decision from a boolean to a set, which the enforcement point is not reading.",
     referenceUrl: "https://www.cncf.io/certification/copaa/",

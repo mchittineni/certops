@@ -11,8 +11,8 @@ export const AWS_DVA_QUESTIONS_19 = [
     options: [
       { id: 'A', text: "An `AWS::CloudFormation::Stack` resource pointing at child templates." },
       { id: 'B', text: "Copy and paste all resource definitions into a single massive CloudFormation template." },
-      { id: 'C', text: "Write custom Python scripts to parse template YAML files locally." },
-      { id: 'D', text: "Deploy each component manually using the AWS CLI and pass output values in text files." }
+      { id: 'C', text: "Deploy each component manually using the AWS CLI and pass output values in text files." },
+      { id: 'D', text: "Write custom Python scripts to parse template YAML files locally." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,12 +30,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS CloudFormation to organize common architectural components (VPC networking, security groups, database tiers) into reusable, modular templates that avoid the 500-resource stack limit.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Deploy each component manually using the AWS CLI and pass output values in text files." },
-      { id: 'B', text: "An `AWS::CloudFormation::Stack` resource pointing at child templates." },
-      { id: 'C', text: "Copy and paste all resource definitions into a single massive CloudFormation template." },
+      { id: 'A', text: "Copy and paste all resource definitions into a single massive CloudFormation template." },
+      { id: 'B', text: "Deploy each component manually using the AWS CLI and pass output values in text files." },
+      { id: 'C', text: "An `AWS::CloudFormation::Stack` resource pointing at child templates." },
       { id: 'D', text: "Write custom Python scripts to parse template YAML files locally." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Declare an `AWS::CloudFormation::Stack` resource in the root template pointing to child template URLs in Amazon S3. Nested stacks allow CloudFormation templates to reference other templates stored in Amazon S3 as child stacks using the `AWS::CloudFormation::Stack` resource. This promotes pattern reusability, enforces separation of concerns across infrastructure layers, and avoids resource count limits.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html",
@@ -51,12 +51,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes AWS CloudFormation to organize common architectural components (VPC networking, security groups, database tiers) into reusable, modular templates that avoid the 500-resource stack limit.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Write custom Python scripts to parse template YAML files locally." },
+      { id: 'A', text: "An `AWS::CloudFormation::Stack` resource pointing at child templates." },
       { id: 'B', text: "Copy and paste all resource definitions into a single massive CloudFormation template." },
       { id: 'C', text: "Deploy each component manually using the AWS CLI and pass output values in text files." },
-      { id: 'D', text: "An `AWS::CloudFormation::Stack` resource pointing at child templates." }
+      { id: 'D', text: "Write custom Python scripts to parse template YAML files locally." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Declare an `AWS::CloudFormation::Stack` resource in the root template pointing to child template URLs in Amazon S3. Nested stacks allow CloudFormation templates to reference other templates stored in Amazon S3 as child stacks using the `AWS::CloudFormation::Stack` resource. This promotes pattern reusability, enforces separation of concerns across infrastructure layers, and avoids resource count limits.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html",
@@ -72,12 +72,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes AWS CloudFormation to organize common architectural components (VPC networking, security groups, database tiers) into reusable, modular templates that avoid the 500-resource stack limit.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
-      { id: 'A', text: "Copy and paste all resource definitions into a single massive CloudFormation template." },
-      { id: 'B', text: "An `AWS::CloudFormation::Stack` resource pointing at child templates." },
-      { id: 'C', text: "Write custom Python scripts to parse template YAML files locally." },
-      { id: 'D', text: "Deploy each component manually using the AWS CLI and pass output values in text files." }
+      { id: 'A', text: "An `AWS::CloudFormation::Stack` resource pointing at child templates." },
+      { id: 'B', text: "Copy and paste all resource definitions into a single massive CloudFormation template." },
+      { id: 'C', text: "Deploy each component manually using the AWS CLI and pass output values in text files." },
+      { id: 'D', text: "Write custom Python scripts to parse template YAML files locally." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Declare an `AWS::CloudFormation::Stack` resource in the root template pointing to child template URLs in Amazon S3. Nested stacks allow CloudFormation templates to reference other templates stored in Amazon S3 as child stacks using the `AWS::CloudFormation::Stack` resource. This promotes pattern reusability, enforces separation of concerns across infrastructure layers, and avoids resource count limits.",
     referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html",
@@ -94,8 +94,8 @@ export const AWS_DVA_QUESTIONS_19 = [
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "An `AWS::CloudFormation::Stack` resource pointing at child templates." },
-      { id: 'B', text: "Deploy each component manually using the AWS CLI and pass output values in text files." },
-      { id: 'C', text: "Copy and paste all resource definitions into a single massive CloudFormation template." },
+      { id: 'B', text: "Copy and paste all resource definitions into a single massive CloudFormation template." },
+      { id: 'C', text: "Deploy each component manually using the AWS CLI and pass output values in text files." },
       { id: 'D', text: "Write custom Python scripts to parse template YAML files locally." }
     ],
     correctAnswers: ['A'],
@@ -114,12 +114,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes AWS X-Ray to trace latency bottlenecks across distributed microservices and record granular timing for downstream HTTP calls and database queries.",
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
-      { id: 'A', text: "Print timestamps to standard output and tail CloudWatch Logs manually." },
-      { id: 'B', text: "Increase the CPU size of the EC2 instances to reduce latency." },
-      { id: 'C', text: "Configure an Application Load Balancer access log query in Athena." },
-      { id: 'D', text: "Use the X-Ray SDK to add subsegments around downstream calls." }
+      { id: 'A', text: "Increase the CPU size of the EC2 instances to reduce latency." },
+      { id: 'B', text: "Configure an Application Load Balancer access log query in Athena." },
+      { id: 'C', text: "Use the X-Ray SDK to add subsegments around downstream calls." },
+      { id: 'D', text: "Print timestamps to standard output and tail CloudWatch Logs manually." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Instrument application code using the AWS X-Ray SDK to create custom subsegments around downstream calls. The AWS X-Ray SDK intercepts incoming HTTP requests and creates segments. Developers use subsegments to record granular timing data, metadata, and error status for specific downstream HTTP calls, database operations, or custom code blocks, visualizing the complete call graph in the X-Ray service map.",
     referenceUrl: "https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-subsegments",
@@ -135,12 +135,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes AWS X-Ray to trace latency bottlenecks across distributed microservices and record granular timing for downstream HTTP calls and database queries.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Increase the CPU size of the EC2 instances to reduce latency." },
+      { id: 'A', text: "Configure an Application Load Balancer access log query in Athena." },
       { id: 'B', text: "Print timestamps to standard output and tail CloudWatch Logs manually." },
-      { id: 'C', text: "Configure an Application Load Balancer access log query in Athena." },
-      { id: 'D', text: "Use the X-Ray SDK to add subsegments around downstream calls." }
+      { id: 'C', text: "Use the X-Ray SDK to add subsegments around downstream calls." },
+      { id: 'D', text: "Increase the CPU size of the EC2 instances to reduce latency." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Instrument application code using the AWS X-Ray SDK to create custom subsegments around downstream calls. The AWS X-Ray SDK intercepts incoming HTTP requests and creates segments. Developers use subsegments to record granular timing data, metadata, and error status for specific downstream HTTP calls, database operations, or custom code blocks, visualizing the complete call graph in the X-Ray service map.",
     referenceUrl: "https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-subsegments",
@@ -156,12 +156,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes AWS X-Ray to trace latency bottlenecks across distributed microservices and record granular timing for downstream HTTP calls and database queries.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Print timestamps to standard output and tail CloudWatch Logs manually." },
-      { id: 'B', text: "Use the X-Ray SDK to add subsegments around downstream calls." },
+      { id: 'A', text: "Use the X-Ray SDK to add subsegments around downstream calls." },
+      { id: 'B', text: "Print timestamps to standard output and tail CloudWatch Logs manually." },
       { id: 'C', text: "Increase the CPU size of the EC2 instances to reduce latency." },
       { id: 'D', text: "Configure an Application Load Balancer access log query in Athena." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Instrument application code using the AWS X-Ray SDK to create custom subsegments around downstream calls. The AWS X-Ray SDK intercepts incoming HTTP requests and creates segments. Developers use subsegments to record granular timing data, metadata, and error status for specific downstream HTTP calls, database operations, or custom code blocks, visualizing the complete call graph in the X-Ray service map.",
     referenceUrl: "https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-subsegments",
@@ -177,12 +177,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes AWS X-Ray to trace latency bottlenecks across distributed microservices and record granular timing for downstream HTTP calls and database queries.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
-      { id: 'A', text: "Print timestamps to standard output and tail CloudWatch Logs manually." },
-      { id: 'B', text: "Increase the CPU size of the EC2 instances to reduce latency." },
-      { id: 'C', text: "Configure an Application Load Balancer access log query in Athena." },
-      { id: 'D', text: "Use the X-Ray SDK to add subsegments around downstream calls." }
+      { id: 'A', text: "Increase the CPU size of the EC2 instances to reduce latency." },
+      { id: 'B', text: "Configure an Application Load Balancer access log query in Athena." },
+      { id: 'C', text: "Use the X-Ray SDK to add subsegments around downstream calls." },
+      { id: 'D', text: "Print timestamps to standard output and tail CloudWatch Logs manually." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Instrument application code using the AWS X-Ray SDK to create custom subsegments around downstream calls. The AWS X-Ray SDK intercepts incoming HTTP requests and creates segments. Developers use subsegments to record granular timing data, metadata, and error status for specific downstream HTTP calls, database operations, or custom code blocks, visualizing the complete call graph in the X-Ray service map.",
     referenceUrl: "https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-subsegments",
@@ -199,8 +199,8 @@ export const AWS_DVA_QUESTIONS_19 = [
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Use the X-Ray SDK to add subsegments around downstream calls." },
-      { id: 'B', text: "Increase the CPU size of the EC2 instances to reduce latency." },
-      { id: 'C', text: "Print timestamps to standard output and tail CloudWatch Logs manually." },
+      { id: 'B', text: "Print timestamps to standard output and tail CloudWatch Logs manually." },
+      { id: 'C', text: "Increase the CPU size of the EC2 instances to reduce latency." },
       { id: 'D', text: "Configure an Application Load Balancer access log query in Athena." }
     ],
     correctAnswers: ['A'],
@@ -219,12 +219,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes AWS X-Ray to record business attributes (such as `customerId` and `orderTotal`) in distributed traces so that developers can filter and search traces using the X-Ray console search bar.",
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
-      { id: 'A', text: "Embed customer IDs in the HTTP user-agent header." },
-      { id: 'B', text: "Write customer IDs to standard error and search with CloudWatch Logs." },
-      { id: 'C', text: "Add X-Ray annotations with `putAnnotation()`, which are indexed for search." },
-      { id: 'D', text: "Add key-value pairs as X-Ray Metadata using `recorder.putMetadata()`, as metadata is indexed for search." }
+      { id: 'A', text: "Add key-value pairs as X-Ray Metadata using `recorder.putMetadata()`, as metadata is indexed for search." },
+      { id: 'B', text: "Add X-Ray annotations with `putAnnotation()`, which are indexed for search." },
+      { id: 'C', text: "Embed customer IDs in the HTTP user-agent header." },
+      { id: 'D', text: "Write customer IDs to standard error and search with CloudWatch Logs." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Add custom key-value pairs as X-Ray Annotations using `recorder.putAnnotation()`, as annotations are indexed for search queries. X-Ray Annotations are key-value pairs that are indexed by AWS X-Ray for use with filter expressions in the console and API. X-Ray Metadata consists of non-indexed key-value pairs that can contain any data type (including objects and arrays) but cannot be used to search or filter traces.",
     referenceUrl: "https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-annotations",
@@ -241,9 +241,9 @@ export const AWS_DVA_QUESTIONS_19 = [
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
       { id: 'A', text: "Add X-Ray annotations with `putAnnotation()`, which are indexed for search." },
-      { id: 'B', text: "Write customer IDs to standard error and search with CloudWatch Logs." },
-      { id: 'C', text: "Embed customer IDs in the HTTP user-agent header." },
-      { id: 'D', text: "Add key-value pairs as X-Ray Metadata using `recorder.putMetadata()`, as metadata is indexed for search." }
+      { id: 'B', text: "Embed customer IDs in the HTTP user-agent header." },
+      { id: 'C', text: "Add key-value pairs as X-Ray Metadata using `recorder.putMetadata()`, as metadata is indexed for search." },
+      { id: 'D', text: "Write customer IDs to standard error and search with CloudWatch Logs." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -262,8 +262,8 @@ export const AWS_DVA_QUESTIONS_19 = [
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
       { id: 'A', text: "Add X-Ray annotations with `putAnnotation()`, which are indexed for search." },
-      { id: 'B', text: "Write customer IDs to standard error and search with CloudWatch Logs." },
-      { id: 'C', text: "Add key-value pairs as X-Ray Metadata using `recorder.putMetadata()`, as metadata is indexed for search." },
+      { id: 'B', text: "Add key-value pairs as X-Ray Metadata using `recorder.putMetadata()`, as metadata is indexed for search." },
+      { id: 'C', text: "Write customer IDs to standard error and search with CloudWatch Logs." },
       { id: 'D', text: "Embed customer IDs in the HTTP user-agent header." }
     ],
     correctAnswers: ['A'],
@@ -282,12 +282,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes AWS X-Ray to record business attributes (such as `customerId` and `orderTotal`) in distributed traces so that developers can filter and search traces using the X-Ray console search bar.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
-      { id: 'A', text: "Embed customer IDs in the HTTP user-agent header." },
-      { id: 'B', text: "Write customer IDs to standard error and search with CloudWatch Logs." },
-      { id: 'C', text: "Add X-Ray annotations with `putAnnotation()`, which are indexed for search." },
-      { id: 'D', text: "Add key-value pairs as X-Ray Metadata using `recorder.putMetadata()`, as metadata is indexed for search." }
+      { id: 'A', text: "Add key-value pairs as X-Ray Metadata using `recorder.putMetadata()`, as metadata is indexed for search." },
+      { id: 'B', text: "Add X-Ray annotations with `putAnnotation()`, which are indexed for search." },
+      { id: 'C', text: "Embed customer IDs in the HTTP user-agent header." },
+      { id: 'D', text: "Write customer IDs to standard error and search with CloudWatch Logs." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Add custom key-value pairs as X-Ray Annotations using `recorder.putAnnotation()`, as annotations are indexed for search queries. X-Ray Annotations are key-value pairs that are indexed by AWS X-Ray for use with filter expressions in the console and API. X-Ray Metadata consists of non-indexed key-value pairs that can contain any data type (including objects and arrays) but cannot be used to search or filter traces.",
     referenceUrl: "https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-annotations",
@@ -304,9 +304,9 @@ export const AWS_DVA_QUESTIONS_19 = [
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
       { id: 'A', text: "Add X-Ray annotations with `putAnnotation()`, which are indexed for search." },
-      { id: 'B', text: "Embed customer IDs in the HTTP user-agent header." },
+      { id: 'B', text: "Add key-value pairs as X-Ray Metadata using `recorder.putMetadata()`, as metadata is indexed for search." },
       { id: 'C', text: "Write customer IDs to standard error and search with CloudWatch Logs." },
-      { id: 'D', text: "Add key-value pairs as X-Ray Metadata using `recorder.putMetadata()`, as metadata is indexed for search." }
+      { id: 'D', text: "Embed customer IDs in the HTTP user-agent header." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,12 +324,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes Amazon CloudWatch to generate high-resolution custom metrics from serverless Lambda functions asynchronously without making synchronous PutMetricData API calls.",
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
-      { id: 'A', text: "Configure an Amazon SQS queue to buffer metric payloads before sending to CloudWatch." },
-      { id: 'B', text: "Write structured JSON logs in the CloudWatch Embedded Metric Format." },
-      { id: 'C', text: "Make synchronous `cloudwatch.putMetricData()` API calls inside the Lambda handler function." },
-      { id: 'D', text: "Write metrics to an Amazon DynamoDB table and schedule an hourly export to CloudWatch." }
+      { id: 'A', text: "Write metrics to an Amazon DynamoDB table and schedule an hourly export to CloudWatch." },
+      { id: 'B', text: "Configure an Amazon SQS queue to buffer metric payloads before sending to CloudWatch." },
+      { id: 'C', text: "Write structured JSON logs in the CloudWatch Embedded Metric Format." },
+      { id: 'D', text: "Make synchronous `cloudwatch.putMetricData()` API calls inside the Lambda handler function." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Output structured JSON logs to standard output adhering to the CloudWatch Embedded Metric Format (EMF) specification. CloudWatch Embedded Metric Format (EMF) allows applications to generate custom metrics by simply outputting structured JSON to standard output. CloudWatch automatically extracts the metrics from the log stream asynchronously, eliminating the latency and cost of synchronous `PutMetricData` network API calls.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format.html",
@@ -345,12 +345,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes Amazon CloudWatch to generate high-resolution custom metrics from serverless Lambda functions asynchronously without making synchronous PutMetricData API calls.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Write metrics to an Amazon DynamoDB table and schedule an hourly export to CloudWatch." },
+      { id: 'A', text: "Write structured JSON logs in the CloudWatch Embedded Metric Format." },
       { id: 'B', text: "Make synchronous `cloudwatch.putMetricData()` API calls inside the Lambda handler function." },
-      { id: 'C', text: "Write structured JSON logs in the CloudWatch Embedded Metric Format." },
+      { id: 'C', text: "Write metrics to an Amazon DynamoDB table and schedule an hourly export to CloudWatch." },
       { id: 'D', text: "Configure an Amazon SQS queue to buffer metric payloads before sending to CloudWatch." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Output structured JSON logs to standard output adhering to the CloudWatch Embedded Metric Format (EMF) specification. CloudWatch Embedded Metric Format (EMF) allows applications to generate custom metrics by simply outputting structured JSON to standard output. CloudWatch automatically extracts the metrics from the log stream asynchronously, eliminating the latency and cost of synchronous `PutMetricData` network API calls.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format.html",
@@ -366,12 +366,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes Amazon CloudWatch to generate high-resolution custom metrics from serverless Lambda functions asynchronously without making synchronous PutMetricData API calls.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Configure an Amazon SQS queue to buffer metric payloads before sending to CloudWatch." },
+      { id: 'A', text: "Write metrics to an Amazon DynamoDB table and schedule an hourly export to CloudWatch." },
       { id: 'B', text: "Make synchronous `cloudwatch.putMetricData()` API calls inside the Lambda handler function." },
-      { id: 'C', text: "Write structured JSON logs in the CloudWatch Embedded Metric Format." },
-      { id: 'D', text: "Write metrics to an Amazon DynamoDB table and schedule an hourly export to CloudWatch." }
+      { id: 'C', text: "Configure an Amazon SQS queue to buffer metric payloads before sending to CloudWatch." },
+      { id: 'D', text: "Write structured JSON logs in the CloudWatch Embedded Metric Format." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Output structured JSON logs to standard output adhering to the CloudWatch Embedded Metric Format (EMF) specification. CloudWatch Embedded Metric Format (EMF) allows applications to generate custom metrics by simply outputting structured JSON to standard output. CloudWatch automatically extracts the metrics from the log stream asynchronously, eliminating the latency and cost of synchronous `PutMetricData` network API calls.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format.html",
@@ -387,12 +387,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes Amazon CloudWatch to generate high-resolution custom metrics from serverless Lambda functions asynchronously without making synchronous PutMetricData API calls.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
-      { id: 'A', text: "Make synchronous `cloudwatch.putMetricData()` API calls inside the Lambda handler function." },
-      { id: 'B', text: "Write metrics to an Amazon DynamoDB table and schedule an hourly export to CloudWatch." },
-      { id: 'C', text: "Write structured JSON logs in the CloudWatch Embedded Metric Format." },
+      { id: 'A', text: "Write metrics to an Amazon DynamoDB table and schedule an hourly export to CloudWatch." },
+      { id: 'B', text: "Write structured JSON logs in the CloudWatch Embedded Metric Format." },
+      { id: 'C', text: "Make synchronous `cloudwatch.putMetricData()` API calls inside the Lambda handler function." },
       { id: 'D', text: "Configure an Amazon SQS queue to buffer metric payloads before sending to CloudWatch." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Output structured JSON logs to standard output adhering to the CloudWatch Embedded Metric Format (EMF) specification. CloudWatch Embedded Metric Format (EMF) allows applications to generate custom metrics by simply outputting structured JSON to standard output. CloudWatch automatically extracts the metrics from the log stream asynchronously, eliminating the latency and cost of synchronous `PutMetricData` network API calls.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format.html",
@@ -408,12 +408,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes Amazon CloudWatch to generate high-resolution custom metrics from serverless Lambda functions asynchronously without making synchronous PutMetricData API calls.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Make synchronous `cloudwatch.putMetricData()` API calls inside the Lambda handler function." },
-      { id: 'B', text: "Write structured JSON logs in the CloudWatch Embedded Metric Format." },
+      { id: 'A', text: "Write structured JSON logs in the CloudWatch Embedded Metric Format." },
+      { id: 'B', text: "Make synchronous `cloudwatch.putMetricData()` API calls inside the Lambda handler function." },
       { id: 'C', text: "Write metrics to an Amazon DynamoDB table and schedule an hourly export to CloudWatch." },
       { id: 'D', text: "Configure an Amazon SQS queue to buffer metric payloads before sending to CloudWatch." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Output structured JSON logs to standard output adhering to the CloudWatch Embedded Metric Format (EMF) specification. CloudWatch Embedded Metric Format (EMF) allows applications to generate custom metrics by simply outputting structured JSON to standard output. CloudWatch automatically extracts the metrics from the log stream asynchronously, eliminating the latency and cost of synchronous `PutMetricData` network API calls.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format.html",
@@ -429,12 +429,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A high-availability enterprise cloud service requires strict operational resilience and automated disaster recovery capabilities. The engineering team must eliminate single points of failure across operational workflows. The application utilizes Amazon CloudWatch to analyze gigabytes of distributed application logs and identify the top 10 IP addresses generating HTTP 500 errors within seconds.",
     question: "Which implementation or architectural approach satisfies these resilience criteria?",
     options: [
-      { id: 'A', text: "Write an AWS Lambda function that tails CloudWatch Logs streams sequentially." },
+      { id: 'A', text: "A Logs Insights query filtering on /500/ and counting by clientIp." },
       { id: 'B', text: "Download all log files from Amazon S3 and run grep locally on a workstation." },
-      { id: 'C', text: "A Logs Insights query filtering on /500/ and counting by clientIp." },
+      { id: 'C', text: "Write an AWS Lambda function that tails CloudWatch Logs streams sequentially." },
       { id: 'D', text: "Export log streams to an RDS PostgreSQL database using AWS DMS." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Run a CloudWatch Logs Insights query using `fields`, `filter @message like /500/`, `stats count(*) by clientIp`, and `sort`. CloudWatch Logs Insights provides a purpose-built, interactive log analytics query engine. It executes fast, parallel queries over terabytes of log data using commands like `fields`, `filter`, `stats`, `sort`, and `limit` to pinpoint root causes without managing analytics infrastructure.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html",
@@ -450,12 +450,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A high-throughput digital platform experiences sudden spikes in concurrent user traffic during flash promotions. Developers must ensure sub-second response times and predictable scaling under peak throughput. The application utilizes Amazon CloudWatch to analyze gigabytes of distributed application logs and identify the top 10 IP addresses generating HTTP 500 errors within seconds.",
     question: "Which architectural approach should the developer recommend to handle this workload efficiently?",
     options: [
-      { id: 'A', text: "Download all log files from Amazon S3 and run grep locally on a workstation." },
-      { id: 'B', text: "Write an AWS Lambda function that tails CloudWatch Logs streams sequentially." },
-      { id: 'C', text: "Export log streams to an RDS PostgreSQL database using AWS DMS." },
-      { id: 'D', text: "A Logs Insights query filtering on /500/ and counting by clientIp." }
+      { id: 'A', text: "Write an AWS Lambda function that tails CloudWatch Logs streams sequentially." },
+      { id: 'B', text: "Export log streams to an RDS PostgreSQL database using AWS DMS." },
+      { id: 'C', text: "A Logs Insights query filtering on /500/ and counting by clientIp." },
+      { id: 'D', text: "Download all log files from Amazon S3 and run grep locally on a workstation." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Run a CloudWatch Logs Insights query using `fields`, `filter @message like /500/`, `stats count(*) by clientIp`, and `sort`. CloudWatch Logs Insights provides a purpose-built, interactive log analytics query engine. It executes fast, parallel queries over terabytes of log data using commands like `fields`, `filter`, `stats`, `sort`, and `limit` to pinpoint root causes without managing analytics infrastructure.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html",
@@ -471,12 +471,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A financial and healthcare service must adhere to strict regulatory compliance, encryption standards, and least privilege access principles. Security auditors require verified enforcement across all application tiers. The application utilizes Amazon CloudWatch to analyze gigabytes of distributed application logs and identify the top 10 IP addresses generating HTTP 500 errors within seconds.",
     question: "Which solution properly implements these mandatory security and governance controls?",
     options: [
-      { id: 'A', text: "Write an AWS Lambda function that tails CloudWatch Logs streams sequentially." },
+      { id: 'A', text: "Export log streams to an RDS PostgreSQL database using AWS DMS." },
       { id: 'B', text: "Download all log files from Amazon S3 and run grep locally on a workstation." },
-      { id: 'C', text: "Export log streams to an RDS PostgreSQL database using AWS DMS." },
-      { id: 'D', text: "A Logs Insights query filtering on /500/ and counting by clientIp." }
+      { id: 'C', text: "A Logs Insights query filtering on /500/ and counting by clientIp." },
+      { id: 'D', text: "Write an AWS Lambda function that tails CloudWatch Logs streams sequentially." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Run a CloudWatch Logs Insights query using `fields`, `filter @message like /500/`, `stats count(*) by clientIp`, and `sort`. CloudWatch Logs Insights provides a purpose-built, interactive log analytics query engine. It executes fast, parallel queries over terabytes of log data using commands like `fields`, `filter`, `stats`, `sort`, and `limit` to pinpoint root causes without managing analytics infrastructure.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html",
@@ -492,12 +492,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "An enterprise development team is refactoring a legacy monolithic application into cloud-native microservices on AWS. The architecture must minimize operational complexity while leveraging managed services. The application utilizes Amazon CloudWatch to analyze gigabytes of distributed application logs and identify the top 10 IP addresses generating HTTP 500 errors within seconds.",
     question: "Which solution provides a robust implementation while minimizing ongoing operational maintenance?",
     options: [
-      { id: 'A', text: "Export log streams to an RDS PostgreSQL database using AWS DMS." },
+      { id: 'A', text: "Write an AWS Lambda function that tails CloudWatch Logs streams sequentially." },
       { id: 'B', text: "Download all log files from Amazon S3 and run grep locally on a workstation." },
-      { id: 'C', text: "A Logs Insights query filtering on /500/ and counting by clientIp." },
-      { id: 'D', text: "Write an AWS Lambda function that tails CloudWatch Logs streams sequentially." }
+      { id: 'C', text: "Export log streams to an RDS PostgreSQL database using AWS DMS." },
+      { id: 'D', text: "A Logs Insights query filtering on /500/ and counting by clientIp." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Run a CloudWatch Logs Insights query using `fields`, `filter @message like /500/`, `stats count(*) by clientIp`, and `sort`. CloudWatch Logs Insights provides a purpose-built, interactive log analytics query engine. It executes fast, parallel queries over terabytes of log data using commands like `fields`, `filter`, `stats`, `sort`, and `limit` to pinpoint root causes without managing analytics infrastructure.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html",
@@ -513,12 +513,12 @@ export const AWS_DVA_QUESTIONS_19 = [
     scenario: "A distributed cloud application experiences intermittent downstream service timeouts and connection exhaustion during peak operational hours. The development team must establish automated recovery and fault isolation. The application utilizes Amazon CloudWatch to analyze gigabytes of distributed application logs and identify the top 10 IP addresses generating HTTP 500 errors within seconds.",
     question: "Which design pattern or service configuration eliminates bottlenecks and provides automated fault recovery?",
     options: [
-      { id: 'A', text: "Export log streams to an RDS PostgreSQL database using AWS DMS." },
+      { id: 'A', text: "A Logs Insights query filtering on /500/ and counting by clientIp." },
       { id: 'B', text: "Download all log files from Amazon S3 and run grep locally on a workstation." },
       { id: 'C', text: "Write an AWS Lambda function that tails CloudWatch Logs streams sequentially." },
-      { id: 'D', text: "A Logs Insights query filtering on /500/ and counting by clientIp." }
+      { id: 'D', text: "Export log streams to an RDS PostgreSQL database using AWS DMS." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Run a CloudWatch Logs Insights query using `fields`, `filter @message like /500/`, `stats count(*) by clientIp`, and `sort`. CloudWatch Logs Insights provides a purpose-built, interactive log analytics query engine. It executes fast, parallel queries over terabytes of log data using commands like `fields`, `filter`, `stats`, `sort`, and `limit` to pinpoint root causes without managing analytics infrastructure.",
     referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html",
